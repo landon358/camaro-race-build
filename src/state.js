@@ -8,7 +8,7 @@ export const state = {
   sysById: new Map(),
   subById: new Map(),
   reverseLinks: new Map(), // component id -> [component ids that connect to it]
-  selection: null, // { type: 'system'|'subsystem'|'component', id }
+  selection: null, // { type: 'system'|'subsystem'|'zone'|'component', id }
   hiddenSystems: new Set(['body']), // body panels duplicate the reference mesh; shown when selected
   bodyMode: 'ghost',
   bodyParts: { Hood: true, Doors: true, Interior: true, Wheels: true, Shell: true },
@@ -16,8 +16,9 @@ export const state = {
   phase: 12, // 12 = everything
   showRoutes: true,
   flow: false,
-  statusColors: false,
-  realColors: true,
+  colorMode: 'real', // 'real' part colours | 'system' colours | build 'status'
+  spin: true, // rotate part previews
+  reducedMotion: typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches,
   labels: false,
 };
 
@@ -45,11 +46,21 @@ export function select(sel) {
 
 export function indexDb(db) {
   state.db = db;
+  // progress saved against a part that is now split per corner applies to each corner's part
+  let migrated = false;
+  for (const [base, ids] of Object.entries(db.splitMap || {})) {
+    if (!tracker[base]) continue;
+    for (const id of ids) if (!tracker[id]) tracker[id] = { ...tracker[base] };
+    delete tracker[base];
+    migrated = true;
+  }
+  if (migrated) persist();
   for (const s of db.systems) {
     state.sysById.set(s.id, s);
     for (const sub of s.subsystems) state.subById.set(sub.id, { ...sub, system: s.id });
   }
   for (const c of db.components) state.byId.set(c.id, c);
+  state.zoneById = new Map((db.zones || []).map((z) => [z.id, z]));
   for (const c of db.components) {
     for (const t of c.connectsTo) {
       if (!state.byId.has(t)) continue;

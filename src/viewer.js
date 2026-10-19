@@ -12,10 +12,10 @@ import { finishMaterial } from './parts/finishes.js';
 // components that reuse another component's real panel mesh
 const PANEL_ALIASES = { 'electrical.lighting.headlights': 'body.lighting-housings.headlamps' };
 
-const STATUS_COLORS = { needed: '#ff4d4d', ordered: '#ffb21f', inhand: '#40a9ff', installed: '#3ddc84', none: '#4a5262' };
+export const STATUS_COLORS = { needed: '#e6e9ee', ordered: '#60a5fa', inhand: '#fbbf24', installed: '#4ade80', none: '#3a414d' };
 
 // Reference-body node names (from the converted ZL1 1LE mesh) grouped for toggles.
-const BODY_GROUPS = {
+export const BODY_GROUPS = {
   Shell: ['BodyShell', 'FrontFasciaLights', 'RearFasciaLights', 'RearLamps', 'DecklidWing', 'LowerTrim', 'Trim_A', 'Trim_B', 'Trim_C', 'Trim_D'],
   Hood: ['Hood'],
   Doors: ['DoorLH', 'DoorRH'],
@@ -27,8 +27,9 @@ export class Viewer {
   constructor(canvas, overlay) {
     this.canvas = canvas;
     this.overlay = overlay; // { labels, tip }
-    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const coarse = window.matchMedia?.('(pointer: coarse)').matches;
+    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: !coarse || window.devicePixelRatio < 2, powerPreference: coarse ? 'default' : 'high-performance' });
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, coarse ? 1.5 : 2));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.05;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -46,13 +47,14 @@ export class Viewer {
     this.controls.minDistance = 0.25;
     this.controls.maxDistance = 25;
     this.controls.maxPolarAngle = Math.PI * 0.97;
+    this.controls.addEventListener('change', () => this.invalidate());
 
     const key = new THREE.DirectionalLight(0xffffff, 1.6);
     key.position.set(-3, 6, 4);
     this.scene.add(key, new THREE.HemisphereLight(0xbfd4ff, 0x20242c, 0.6));
 
     // ground
-    const grid = new THREE.GridHelper(14, 56, 0x2a313d, 0x1a1f27);
+    const grid = new THREE.GridHelper(14, 56, 0x2c2c2c, 0x171717);
     grid.position.set(1.4, 0, 0);
     this.scene.add(grid);
     const shadow = new THREE.Mesh(
@@ -63,10 +65,17 @@ export class Viewer {
     shadow.position.set(1.43, 0.001, 0);
     this.scene.add(shadow);
 
+    this._addGroundLabels();
+
     this.bodyRoot = new THREE.Group();
     this.partsRoot = new THREE.Group();
     this.routesRoot = new THREE.Group();
-    this.scene.add(this.bodyRoot, this.partsRoot, this.routesRoot);
+    this.xrayRoot = new THREE.Group();
+    this.scene.add(this.bodyRoot, this.partsRoot, this.routesRoot, this.xrayRoot);
+    this.xrayMat = new THREE.MeshBasicMaterial({ color: 0xffb347, transparent: true, opacity: 0.38, depthTest: false, depthWrite: false });
+    this.xrayGroupMat = new THREE.MeshBasicMaterial({ color: 0xdfe8f5, transparent: true, opacity: 0.1, depthTest: false, depthWrite: false });
+    this.xrayNbMat = new THREE.MeshBasicMaterial({ color: 0x5fd4c8, transparent: true, opacity: 0.15, depthTest: false, depthWrite: false });
+    this.needsRender = true;
 
     this.compGroups = new Map(); // comp id -> Group
     this.sysGroups = new Map(); // sys id -> Group
@@ -123,8 +132,9 @@ export class Viewer {
       return mats.black;
     };
     this.ghostMat = new THREE.MeshStandardMaterial({
-      color: 0x9fb4d0, transparent: true, opacity: 0.075, depthWrite: false, roughness: 0.4, metalness: 0, side: THREE.DoubleSide,
+      color: 0x9fb4d0, transparent: true, opacity: 0.035, depthWrite: false, roughness: 0.4, metalness: 0, side: THREE.DoubleSide,
     });
+    this.edgeMat = new THREE.LineBasicMaterial({ color: 0x8ea0ba, transparent: true, opacity: 0.32, depthWrite: false });
     gltf.scene.traverse((o) => {
       if (o.isMesh) {
         o.userData.solidMat = pick(o.material?.name);
@@ -158,11 +168,35 @@ export class Viewer {
       };
       for (const node of [...gltf.scene.children]) {
         node.traverse((o) => { if (o.isMesh) o.userData.finish = finishOf(o.material?.name); });
-        this.panelMeshes.set(node.name, node);
+        this.panelMeshes.set(node.name.replace(/[^a-z0-9-]/gi, ''), node); // glTF strips the dots from ids
       }
     } catch (e) {
       console.warn('Body panel meshes unavailable', e);
     }
+  }
+
+  /** FRONT / REAR / DRIVER / PASSENGER painted on the floor around the car. */
+  _addGroundLabels() {
+    const mk = (text, x, z, rot) => {
+      const c = document.createElement('canvas');
+      c.width = 512; c.height = 96;
+      const g = c.getContext('2d');
+      g.fillStyle = 'rgba(155,170,192,0.55)';
+      g.font = '600 56px Inter, system-ui, sans-serif';
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(text, 256, 50);
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.26), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+      m.rotation.set(-Math.PI / 2, 0, rot);
+      m.position.set(x, 0.003, z);
+      this.scene.add(m);
+    };
+    mk('FRONT', -2.05, 0, Math.PI / 2);
+    mk('REAR', 4.4, 0, -Math.PI / 2);
+    mk('LEFT · DRIVER', 1.4, 1.45, 0);
+    mk('RIGHT · PASSENGER', 1.4, -1.45, Math.PI);
   }
 
   applyBody() {
@@ -173,10 +207,20 @@ export class Viewer {
         if (!node) continue;
         node.visible = mode !== 'off' && state.bodyParts[group] !== false;
         node.traverse((o) => {
-          if (o.isMesh) o.material = mode === 'ghost' ? this.ghostMat : o.userData.solidMat;
+          if (!o.isMesh) return;
+          o.material = mode === 'ghost' ? this.ghostMat : o.userData.solidMat;
+          // see-through mode draws crisp feature lines instead of stacked transparent skins
+          if (mode === 'ghost' && !o.userData.edges) {
+            const edges = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 28), this.edgeMat);
+            edges.raycast = () => {};
+            o.add(edges);
+            o.userData.edges = edges;
+          }
+          if (o.userData.edges) o.userData.edges.visible = mode === 'ghost';
         });
       }
     }
+    this.invalidate();
   }
 
   // ------------------------------------------------------------------ parts
@@ -196,6 +240,9 @@ export class Viewer {
           ? new THREE.MeshStandardMaterial({ color: base, metalness: 0.3, roughness: 0.5, transparent: true, opacity: s.opacity, depthWrite: false, side: THREE.DoubleSide })
           : new THREE.MeshStandardMaterial({ color: base, metalness: 0.35, roughness: 0.48 }),
         dim: new THREE.MeshStandardMaterial({ color: base, transparent: true, opacity: 0.07, depthWrite: false }),
+        // a selected system / area / location: solid, slightly self-lit so it reads against the dark rest
+        focus: new THREE.MeshStandardMaterial({ color: base, emissive: base, emissiveIntensity: 0.28, metalness: 0.2, roughness: 0.5 }),
+        focusGhost: new THREE.MeshStandardMaterial({ color: base, emissive: base, emissiveIntensity: 0.2, transparent: true, opacity: 0.22, depthWrite: false }),
       });
       const g = new THREE.Group();
       g.name = s.id;
@@ -203,8 +250,13 @@ export class Viewer {
       this.sysGroups.set(s.id, g);
       this.partsRoot.add(g);
     }
-    this.hlMat = new THREE.MeshStandardMaterial({ color: 0xff6a2a, emissive: 0xff4a10, emissiveIntensity: 0.55, metalness: 0.2, roughness: 0.4, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
-    this.nbMat = new THREE.MeshStandardMaterial({ color: 0xffd28a, emissive: 0x6a4300, emissiveIntensity: 0.4, metalness: 0.2, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    // selected = warm amber glow, connected parts = cool teal, everything else = quiet graphite
+    this.hlMat = new THREE.MeshStandardMaterial({ color: 0xffb347, emissive: 0xff8a1f, emissiveIntensity: 0.55, metalness: 0.2, roughness: 0.4, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+    this.nbMat = new THREE.MeshStandardMaterial({ color: 0x5fd4c8, emissive: 0x0c4a45, emissiveIntensity: 0.5, metalness: 0.2, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    this.hoverMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x9ab4d8, emissiveIntensity: 0.6, metalness: 0.1, roughness: 0.5 });
+    this.dimMat = new THREE.MeshStandardMaterial({ color: 0x2a303a, metalness: 0, roughness: 0.95 });
+    // areas and locations: the rest fades right back so parts behind a wheel or panel still show
+    this.dimGhostMat = new THREE.MeshStandardMaterial({ color: 0x3a414d, metalness: 0, roughness: 0.95, transparent: true, opacity: 0.16, depthWrite: false });
     this.statusMats = Object.fromEntries(
       Object.entries(STATUS_COLORS).map(([k, c]) => [k, new THREE.MeshStandardMaterial({ color: c, metalness: 0.2, roughness: 0.55 })])
     );
@@ -215,9 +267,11 @@ export class Viewer {
       g.name = c.id;
       g.userData.comp = c;
       const wholeGen = wholeRuleFor(c);
-      const panel = this.panelMeshes?.get(PANEL_ALIASES[c.id] || c.id);
-      if (panel) this._tag(g, panel.clone(), c, null);
-      else if (wholeGen) for (const o of makeWhole(c, wholeGen)) this._tag(g, o, c, null);
+      // paint, wrap, numbers and decals are finishes on the shell, not shapes of their own
+      if (/^body\.paint-wrap\./.test(c.baseId || c.id)) continue;
+      const panel = this.panelMeshes?.get((PANEL_ALIASES[c.baseId || c.id] || c.baseId || c.id).replace(/[^a-z0-9-]/gi, ''));
+      if (panel) this._tag(g, panel.clone(), c, null, 'panel');
+      else if (wholeGen) makeWhole(c, wholeGen).forEach((o, k) => this._tag(g, o, c, null, `w|${k}`));
       else c.model.forEach((m, i) => this._addPrimitive(g, m, c, i));
       if (!g.children.length) continue;
       const box = new THREE.Box3().setFromObject(g);
@@ -238,18 +292,30 @@ export class Viewer {
 
   _addPrimitive(group, m, comp, index) {
     const positions = Array.isArray(m.instances) && m.instances.length ? m.instances : [m.pos || null];
-    for (const p of positions) {
+    positions.forEach((p, k) => {
       const obj = makePrimitive(comp, m, p, index);
-      if (!obj) continue;
-      this._tag(group, obj, comp, obj.userData.plainColor);
+      if (!obj) return;
+      // a per-corner part split from a mirrored pair keeps the left geometry, reflected
+      this._tag(group, m.mirrored ? mirrored(obj) : obj, comp, obj.userData.plainColor, `${index}|${k}|0`);
       if (m.mirror) {
         const twin = makePrimitive(comp, m, p, index);
-        if (twin) this._tag(group, mirrored(twin), comp, twin.userData.plainColor);
+        if (twin) this._tag(group, mirrored(twin), comp, twin.userData.plainColor, `${index}|${k}|1`);
       }
-    }
+    });
   }
 
-  _tag(group, obj, comp, plainColor) {
+  _tag(group, obj, comp, plainColor, key = '') {
+    // measured fit (data/fit.json): shrink about the piece's centre and nudge it inside the body
+    const fit = state.db.fit?.[`${comp.id}|${key}`] || state.db.fit?.[`${comp.baseId || comp.id}|${key}`];
+    obj.userData.fitKey = key;
+    if (fit) {
+      obj.updateMatrixWorld(true);
+      const c = new THREE.Box3().setFromObject(obj).getCenter(new THREE.Vector3());
+      const m = new THREE.Matrix4().makeTranslation(c.x + fit.t[0], c.y + fit.t[1], c.z + fit.t[2])
+        .multiply(new THREE.Matrix4().makeScale(fit.s, fit.s, fit.s))
+        .multiply(new THREE.Matrix4().makeTranslation(-c.x, -c.y, -c.z));
+      obj.applyMatrix4(m);
+    }
     const op = state.sysById.get(comp.system)?.opacity;
     let colorMat = null;
     if (plainColor) {
@@ -327,16 +393,16 @@ export class Viewer {
 
   // ------------------------------------------------------------- appearance
   /** Recompute visibility, materials and explode offsets from state. */
-  applyAll() {
+  applyAll(opts = {}) {
     const sel = state.selection;
     const focus = this._focusSet(sel);
     const phaseLimit = state.phase >= 12 ? 99 : state.phase;
     const t = state.explode;
+    const colorMode = state.colorMode; // 'real' | 'system' | 'status'
 
     for (const [sid, sg] of this.sysGroups) {
       const sysHidden = state.hiddenSystems.has(sid);
-      // a hidden system still shows whatever is currently selected inside it
-      const selInside = sel && (sel.type === 'system' ? sel.id === sid : sel.type === 'subsystem' ? state.subById.get(sel.id)?.system === sid : state.byId.get(sel.id)?.system === sid);
+      const selInside = sel && (sel.type === 'system' ? sel.id === sid : sel.type === 'subsystem' ? state.subById.get(sel.id)?.system === sid : sel.type === 'component' ? state.byId.get(sel.id)?.system === sid : false);
       sg.visible = !sysHidden || !!selInside;
       const sys = sg.userData.system;
       const ex = new THREE.Vector3(...sys.explode).multiplyScalar(t * 1.6);
@@ -347,14 +413,19 @@ export class Viewer {
         g.visible = (!c.buildPhase || c.buildPhase <= phaseLimit) && shownBySel;
         const spread = g.userData.center.clone().sub(sg.userData.center).multiplyScalar(t * 0.55);
         g.position.copy(ex).add(spread);
-        const mode = this._modeFor(c.id, sid, sel, focus);
+        let mode = this._modeFor(c, sid, sel, focus);
+        if (this.hoverId === c.id && mode !== 'hl') mode = 'hover';
+        // a selected system / area / location stands out in its system colour against the dimmed rest
+        const groupSel = sel && sel.type !== 'component' && mode === 'normal' && colorMode !== 'status';
         g.traverse((o) => {
           if (!o.isMesh) return;
           if (mode === 'hl') o.material = this.hlMat;
+          else if (mode === 'hover') o.material = this.hoverMat;
           else if (mode === 'nb') o.material = this.nbMat;
-          else if (mode === 'dim') o.material = this.sysMats.get(sid).dim;
-          else if (state.statusColors) o.material = this.statusMats[track(c.id).status || 'none'];
-          else if (state.realColors) o.material = o.userData.colorMat || finishMaterial(o.userData.finish || 'steel', o.userData.opacity);
+          else if (mode === 'dim') o.material = sel.type === 'component' ? this.dimMat : this.dimGhostMat;
+          else if (groupSel) o.material = sel.type === 'zone' && sid === 'wheels' ? this.sysMats.get(sid).focusGhost : this.sysMats.get(sid).focus;
+          else if (colorMode === 'status') o.material = this.statusMats[track(c.id).status || 'none'];
+          else if (colorMode === 'real') o.material = o.userData.colorMat || finishMaterial(o.userData.finish || 'steel', o.userData.opacity);
           else o.material = this.sysMats.get(sid).normal;
         });
       }
@@ -369,13 +440,15 @@ export class Viewer {
       const off = this.sysGroups.get(sid)?.userData.offset || new THREE.Vector3();
       const cg = comp && this.compGroups.get(comp.id);
       root.position.copy(cg ? cg.position : off);
-      const mode = this._modeFor(comp ? comp.id : null, sid, sel, focus);
+      let mode = this._modeFor(comp, sid, sel, focus);
+      if (comp && this.hoverId === comp.id && mode !== 'hl') mode = 'hover';
       for (const o of u.parts) {
         if (mode === 'hl') o.material = this.hlMat;
+        else if (mode === 'hover') o.material = this.hoverMat;
         else if (mode === 'nb') o.material = this.nbMat;
-        else if (mode === 'dim') o.material = this.sysMats.get(sid).dim;
-        else if (state.statusColors && comp) o.material = this.statusMats[track(comp.id).status || 'none'];
-        else if (state.realColors) o.material = finishMaterial(o.userData.finish || 'steel');
+        else if (mode === 'dim') o.material = sel?.type === 'component' ? this.dimMat : this.dimGhostMat;
+        else if (colorMode === 'status' && comp) o.material = this.statusMats[track(comp.id).status || 'none'];
+        else if (colorMode === 'real') o.material = finishMaterial(o.userData.finish || 'steel');
         else o.material = u.kindMat;
       }
       u.flow.visible = state.flow && mode !== 'dim';
@@ -384,7 +457,68 @@ export class Viewer {
     // Lift the body with the body system when exploded
     const bodySys = this.sysGroups.get('body');
     this.bodyRoot.position.copy(bodySys ? bodySys.userData.offset : new THREE.Vector3(0, t * 2, 0));
-    this.updateLabels();
+    if (this.edgeMat) this.edgeMat.opacity = sel ? 0.13 : 0.32;
+    if (!opts.light) {
+      this._updateXray(sel);
+      this.updateLabels();
+    }
+    this._followExplode(sel);
+    this.invalidate();
+  }
+
+  /** Explode moves parts; keep the selected one where the camera is looking. */
+  _followExplode(sel) {
+    const g = sel?.type === 'component' ? this.compGroups.get(sel.id) : null;
+    const key = g ? sel.id : null;
+    const pos = g ? g.position.clone() : null;
+    if (key && this._follow?.id === key && !pos.equals(this._follow.pos)) {
+      const d = pos.clone().sub(this._follow.pos);
+      this.controls.target.add(d);
+      this.camera.position.add(d);
+      if (this.flyAnim) { this.flyAnim.toT.add(d); this.flyAnim.toP.add(d); }
+    }
+    this._follow = key ? { id: key, pos } : null;
+  }
+
+  /** Draw the selected part again on top of everything, so it is never fully hidden. */
+  _updateXray(sel) {
+    this.xrayRoot.clear();
+    if (!sel || sel.type === 'system') return;
+    // a part: strong ghost; an area or location: a faint one, so parts behind a wheel still read
+    const ids = sel.type === 'component' ? [sel.id]
+      : sel.type === 'subsystem' ? state.subById.get(sel.id)?.componentIds || []
+        : state.db.components.filter((c) => c.zone === sel.id && c.tier === 0).map((c) => c.id);
+    if (ids.length > 60) return;
+    const isPart = sel.type === 'component';
+    // areas: leave wheels and tyres out (big shells that would stack into a white blob)
+    const list = isPart ? ids : ids.filter((id) => state.byId.get(id)?.system !== 'wheels');
+    const layers = [[this.xrayMat, isPart ? list : []], [this.xrayGroupMat, isPart ? [] : list], [this.xrayNbMat, isPart ? neighbours(sel.id) : []]];
+    for (const [mat, lids] of layers) {
+      const sources = [];
+      for (const id of lids) { const g = this.compGroups.get(id); if (g?.visible) sources.push(g); }
+      for (const r of this.routeMeshes) if (r.visible && lids.includes(r.userData.compId)) sources.push(r.children[0]);
+      this._addXray(sources, mat, mat === this.xrayNbMat ? 998 : mat === this.xrayMat ? 1000 : 999);
+    }
+  }
+
+  _addXray(sources, mat, order = 999) {
+    for (const src of sources) {
+      src.updateMatrixWorld(true);
+      src.traverse((o) => {
+        if (!o.isMesh || !this._visibleDeep(o)) return;
+        const m = new THREE.Mesh(o.geometry, mat);
+        m.matrixAutoUpdate = false;
+        m.matrix.copy(o.matrixWorld);
+        m.renderOrder = order; // the selected part always draws over connected parts
+        this.xrayRoot.add(m);
+      });
+    }
+  }
+
+  setHover(id) {
+    if (this.hoverId === id) return;
+    this.hoverId = id;
+    this.applyAll({ light: true }); // materials only: labels and x-ray stay as they are
   }
 
   _focusSet(sel) {
@@ -393,63 +527,129 @@ export class Viewer {
     return null;
   }
 
-  _modeFor(compId, sid, sel, focus) {
+  _modeFor(c, sid, sel, focus) {
     if (!sel) return 'normal';
     if (sel.type === 'system') return sid === sel.id ? 'normal' : 'dim';
-    if (sel.type === 'subsystem') {
-      const c = compId && state.byId.get(compId);
-      return c && c.subsystem === sel.id ? 'normal' : 'dim';
-    }
+    if (sel.type === 'subsystem') return c && c.subsystem === sel.id ? 'normal' : 'dim';
+    if (sel.type === 'zone') return c && c.zone === sel.id ? 'normal' : 'dim';
     if (sel.type === 'component') {
-      if (compId === sel.id) return 'hl';
-      if (compId && focus?.has(compId)) return 'nb';
+      if (c?.id === sel.id) return 'hl';
+      if (c && focus?.has(c.id)) return 'nb';
       return 'dim';
     }
     return 'normal';
   }
 
   // ------------------------------------------------------------- camera
-  frame(sel) {
+  /** Screen areas covered by panels/toolbars (px), so framing centres in what is visible. */
+  setObstruction(o) {
+    this.obstruct = { top: 0, bottom: 0, left: 0, right: 0, ...o };
+    this._applyViewOffset();
+  }
+
+  _applyViewOffset() {
+    const W = this.canvas.clientWidth, H = this.canvas.clientHeight;
+    if (!W || !H) return;
+    const o = this.obstruct || { top: 0, bottom: 0, left: 0, right: 0 };
+    const cx = (o.left + (W - o.right)) / 2;
+    const cy = (o.top + (H - o.bottom)) / 2;
+    this.camera.setViewOffset(W, H, W / 2 - cx, H / 2 - cy, W, H);
+    this.camera.updateProjectionMatrix();
+    this.invalidate();
+  }
+
+  /** Distance that fits a sphere of radius r inside the visible part of the view. */
+  _fitDistance(r) {
+    const W = this.canvas.clientWidth || 1, H = this.canvas.clientHeight || 1;
+    const o = this.obstruct || { top: 0, bottom: 0, left: 0, right: 0 };
+    const visW = Math.max(120, W - o.left - o.right), visH = Math.max(120, H - o.top - o.bottom);
+    const tv = Math.tan(THREE.MathUtils.degToRad(this.camera.fov) / 2);
+    const vHalf = Math.atan(tv * (visH / H));
+    const hHalf = Math.atan(tv * (W / H) * (visW / W));
+    return (r / Math.sin(Math.min(vHalf, hHalf))) * 1.12;
+  }
+
+  /** View direction that looks at an area of the car from outside it. */
+  _dirFor(zone, center) {
+    const d = {
+      FL: [-0.75, 0.6, 0.85], FR: [-0.75, 0.6, -0.85], RL: [0.8, 0.6, 0.85], RR: [0.8, 0.6, -0.85],
+      FRONT: [-1, 0.55, 0.5], ENG: [-0.9, 0.95, 0.55], CAB: [0.15, 1.5, 0.8], REAR: [1, 0.7, 0.6], UNDER: [0.35, 0.22, 1],
+    }[zone];
+    if (d) return new THREE.Vector3(...d).normalize();
+    if (center) {
+      // outside of whichever side the target is on
+      const side = Math.abs(center.z) > 0.15 ? Math.sign(center.z) : 1;
+      return new THREE.Vector3(center.x < 1.4 ? -0.7 : 0.7, 0.75, 0.9 * side).normalize();
+    }
+    return this.camera.position.clone().sub(this.controls.target).normalize();
+  }
+
+  /**
+   * Fly to a selection. Parts land on a context view of their area with the part highlighted;
+   * opts.tight zooms right in on the part itself.
+   */
+  frame(sel, opts = {}) {
     const box = new THREE.Box3();
-    if (!sel) {
-      box.set(new THREE.Vector3(-1, 0, -1), new THREE.Vector3(3.85, 1.4, 1));
-    } else if (sel.type === 'system') {
+    let zone = null;
+    if (!sel) { this.resetView(); return; }
+    if (sel.type === 'system') {
       for (const g of this.sysGroups.get(sel.id)?.children || []) if (g.visible) box.expandByObject(g);
     } else if (sel.type === 'subsystem') {
-      for (const id of state.subById.get(sel.id)?.componentIds || []) {
+      const ids = state.subById.get(sel.id)?.componentIds || [];
+      const zones = new Set();
+      for (const id of ids) {
         const g = this.compGroups.get(id);
-        if (g) box.expandByObject(g);
+        if (g?.visible) box.expandByObject(g);
+        zones.add(state.byId.get(id)?.zone);
       }
+      if (zones.size === 1) zone = [...zones][0];
+    } else if (sel.type === 'zone') {
+      zone = sel.id;
+      for (const g of this.compGroups.values()) if (g.userData.comp.zone === sel.id && g.visible) box.expandByObject(g);
     } else {
+      const c = state.byId.get(sel.id);
+      zone = c?.zone;
       const g = this.compGroups.get(sel.id);
       if (g) box.expandByObject(g);
-      else {
-        const r = this.routeMeshes.find((m) => m.userData.compId === sel.id);
-        if (r) box.expandByObject(r);
+      for (const r of this.routeMeshes) if (r.userData.compId === sel.id) box.expandByObject(r);
+      if (!box.isEmpty() && !opts.tight) {
+        // context: at least ~1.6 m around the part so you can see where it sits on the car
+        const c0 = box.getCenter(new THREE.Vector3());
+        const s = box.getSize(new THREE.Vector3());
+        const half = Math.max(this.canvas.clientWidth < 500 ? 0.5 : 0.8, s.length() / 2); // phones: closer, part reads bigger
+        box.expandByPoint(c0.clone().addScalar(half)).expandByPoint(c0.clone().addScalar(-half));
       }
     }
     if (box.isEmpty()) return;
     const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3()).length();
-    const dist = Math.max(0.45, size * 1.25);
-    const dir = this.camera.position.clone().sub(this.controls.target).normalize();
-    if (dir.y < 0.15) dir.y = 0.35;
-    dir.normalize();
-    this.flyTo(center, center.clone().add(dir.multiplyScalar(dist)));
+    const r = Math.max(opts.tight ? 0.12 : sel.type === 'component' ? 0.35 : 0.85, box.getSize(new THREE.Vector3()).length() / 2);
+    const dist = this._fitDistance(r);
+    const dir = zone === 'CAR' || !zone ? this._dirFor(null, center) : this._dirFor(zone, center);
+    const pos = center.clone().add(dir.multiplyScalar(dist));
+    pos.y = Math.max(pos.y, 0.15);
+    this.flyTo(center, pos);
   }
 
   flyTo(target, position, ms = 650) {
+    if (state.reducedMotion) {
+      this.controls.target.copy(target);
+      this.camera.position.copy(position);
+      this.flyAnim = null;
+      this.invalidate();
+      return;
+    }
     this.flyAnim = {
       t0: performance.now(), ms,
       fromT: this.controls.target.clone(), toT: target,
       fromP: this.camera.position.clone(), toP: position,
     };
+    this.invalidate();
   }
 
   homePose() {
     const target = new THREE.Vector3(1.4, 0.45, 0);
-    const k = this.camera.aspect < 1 ? Math.min(2.2, 1.25 / this.camera.aspect) : 1;
-    return { target, position: target.clone().add(new THREE.Vector3(-5.0, 1.95, 4.6).multiplyScalar(k)) };
+    const dir = new THREE.Vector3(-5.0, 1.95, 4.6).normalize();
+    return { target, position: target.clone().add(dir.multiplyScalar(this._fitDistance(2.6))) };
   }
 
   resetView() {
@@ -457,42 +657,70 @@ export class Viewer {
     this.flyTo(p.target, p.position);
   }
 
+  /** Preset camera views. */
+  setView(name) {
+    const target = new THREE.Vector3(1.4, 0.45, 0);
+    const dirs = {
+      front: [-1, 0.25, 0.001], rear: [1, 0.3, 0.001], left: [0.001, 0.25, 1], right: [0.001, 0.25, -1],
+      top: [0.001, 1, 0.0001], corner: [-5.0, 1.95, 4.6],
+    };
+    const d = new THREE.Vector3(...(dirs[name] || dirs.corner)).normalize();
+    this.flyTo(target, target.clone().add(d.multiplyScalar(this._fitDistance(2.6))));
+  }
+
   // ------------------------------------------------------------- labels
   updateLabels() {
     const host = this.overlay.labels;
     host.innerHTML = '';
     this.labelItems = [];
-    if (!state.labels) return;
     const sel = state.selection;
     const items = [];
-    const add = (text, pos, selArg) => items.push({ text, pos, sel: selArg });
-    if (!sel) {
-      for (const [sid, g] of this.sysGroups) if (g.visible && g.children.length) add(g.userData.system.name.split(' (')[0], g.userData.center.clone().add(g.userData.offset), { type: 'system', id: sid });
-    } else if (sel.type === 'system') {
-      for (const sub of state.sysById.get(sel.id).subsystems) {
-        const box = new THREE.Box3();
-        for (const id of sub.componentIds) { const g = this.compGroups.get(id); if (g?.visible) box.expandByObject(g); }
-        if (!box.isEmpty()) add(sub.name, box.getCenter(new THREE.Vector3()), { type: 'subsystem', id: sub.id });
+    const add = (text, pos, selArg, main = false) => items.push({ text, pos, sel: selArg, main });
+    const centerOf = (g) => new THREE.Box3().setFromObject(g).getCenter(new THREE.Vector3());
+    // the selected part is always labelled
+    if (sel?.type === 'component') {
+      const g = this.compGroups.get(sel.id);
+      if (g?.visible) {
+        // above the part, not on it, so the highlighted shape stays visible
+        const b = new THREE.Box3().setFromObject(g);
+        const p = b.getCenter(new THREE.Vector3());
+        p.y = b.max.y + 0.06;
+        add(state.byId.get(sel.id).displayName, p, sel, true);
       }
-    } else if (sel.type === 'subsystem') {
-      for (const id of state.subById.get(sel.id).componentIds) {
-        const g = this.compGroups.get(id);
-        if (g?.visible) add(g.userData.comp.name, new THREE.Box3().setFromObject(g).getCenter(new THREE.Vector3()), { type: 'component', id });
-      }
-    } else {
-      for (const id of [sel.id, ...neighbours(sel.id)]) {
-        const g = this.compGroups.get(id);
-        if (g?.visible) add(g.userData.comp.name, new THREE.Box3().setFromObject(g).getCenter(new THREE.Vector3()), { type: 'component', id });
+    }
+    if (state.labels) {
+      if (!sel) {
+        for (const [sid, g] of this.sysGroups) if (g.visible && g.children.length) add(g.userData.system.name.split(' (')[0], g.userData.center.clone().add(g.userData.offset), { type: 'system', id: sid });
+      } else if (sel.type === 'system') {
+        for (const sub of state.sysById.get(sel.id).subsystems) {
+          const box = new THREE.Box3();
+          for (const id of sub.componentIds) { const g = this.compGroups.get(id); if (g?.visible) box.expandByObject(g); }
+          if (!box.isEmpty()) add(sub.name, box.getCenter(new THREE.Vector3()), { type: 'subsystem', id: sub.id });
+        }
+      } else if (sel.type === 'subsystem' || sel.type === 'zone') {
+        const ids = sel.type === 'zone' ? state.db.components.filter((c) => c.zone === sel.id && c.tier === 0).map((c) => c.id) : state.subById.get(sel.id).componentIds;
+        for (const id of ids.slice(0, 40)) {
+          const g = this.compGroups.get(id);
+          if (g?.visible) add(state.byId.get(id).short, centerOf(g), { type: 'component', id });
+        }
+      } else {
+        for (const id of neighbours(sel.id)) {
+          const g = this.compGroups.get(id);
+          if (g?.visible) add(state.byId.get(id).short, centerOf(g), { type: 'component', id });
+        }
       }
     }
     for (const it of items.slice(0, 60)) {
-      const el = document.createElement('div');
-      el.className = 'label3d';
+      const el = document.createElement('button');
+      el.type = 'button';
+      el.className = 'label3d' + (it.main ? ' main' : '');
+      el.tabIndex = -1; // the parts list is the keyboard path to the same parts
       el.textContent = it.text;
       el.addEventListener('click', () => select(it.sel));
       host.appendChild(el);
       this.labelItems.push({ el, pos: it.pos });
     }
+    this.invalidate();
   }
 
   _positionLabels() {
@@ -503,8 +731,9 @@ export class Viewer {
       v.copy(it.pos).project(this.camera);
       const behind = v.z > 1;
       it.el.style.display = behind ? 'none' : '';
-      it.el.style.left = `${((v.x + 1) / 2) * w}px`;
-      it.el.style.top = `${((1 - v.y) / 2) * h - 6}px`;
+      const lift = it.main ? 34 : 8; // the selected part's label floats above it on a leader line
+      const y = Math.max(lift + 30, ((1 - v.y) / 2) * h);
+      it.el.style.transform = `translate(${((v.x + 1) / 2) * w}px, ${y - lift}px) translate(-50%, -100%)`;
     }
   }
 
@@ -516,18 +745,17 @@ export class Viewer {
       if (!down) return;
       const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y);
       down = null;
-      if (moved > 5) return;
+      if (moved > 6) return;
       const hit = this._pick(e);
       if (hit) select({ type: 'component', id: hit });
-      else if (e.button === 0) select(null);
     });
     this.canvas.addEventListener('dblclick', (e) => {
       const hit = this._pick(e);
-      if (hit) this.frame({ type: 'component', id: hit });
+      if (hit) this.frame({ type: 'component', id: hit }, { tight: true });
     });
     let pending = false;
     this.canvas.addEventListener('pointermove', (e) => {
-      if (pending || e.buttons) return;
+      if (pending || e.buttons || e.pointerType === 'touch') return;
       pending = true;
       requestAnimationFrame(() => {
         pending = false;
@@ -535,13 +763,23 @@ export class Viewer {
       });
     });
     this.canvas.addEventListener('pointerleave', () => { this.overlay.tip.hidden = true; });
+    this.canvas.addEventListener('webglcontextlost', (e) => {
+      e.preventDefault();
+      this.contextLost = true;
+      document.body.classList.add('gl-lost');
+    });
+    this.canvas.addEventListener('webglcontextrestored', () => {
+      this.contextLost = false;
+      document.body.classList.remove('gl-lost');
+      this.invalidate();
+    });
   }
 
   _pick(e) {
     const r = this.canvas.getBoundingClientRect();
     this.pointer.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     this.raycaster.setFromCamera(this.pointer, this.camera);
-    const vis = this.pickables.filter((o) => this._visibleDeep(o) && !(o.material && o.material.transparent && o.material.opacity < 0.2));
+    const vis = this.pickables.filter((o) => this._visibleDeep(o) && o.material !== this.dimMat && o.material !== this.dimGhostMat);
     const hits = this.raycaster.intersectObjects(vis, false);
     for (const h of hits) {
       const id = h.object.userData.compId;
@@ -563,7 +801,7 @@ export class Viewer {
     const c = state.byId.get(id);
     const r = this.canvas.getBoundingClientRect();
     tip.innerHTML = `<b></b><span></span>`;
-    tip.querySelector('b').textContent = c.name;
+    tip.querySelector('b').textContent = c.displayName;
     tip.querySelector('span').textContent = `${state.sysById.get(c.system)?.name || c.system} › ${state.subById.get(c.subsystem)?.name || ''}`;
     tip.hidden = false;
     tip.style.left = `${Math.min(e.clientX - r.left + 14, r.width - 290)}px`;
@@ -571,6 +809,10 @@ export class Viewer {
   }
 
   // ------------------------------------------------------------- loop
+  invalidate() {
+    this.needsRender = true;
+  }
+
   _resize() {
     const p = this.canvas.parentElement;
     const w = p.clientWidth, h = p.clientHeight;
@@ -578,10 +820,14 @@ export class Viewer {
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
+    this._applyViewOffset();
+    this.invalidate();
   }
 
   _tick() {
     const dt = this.clock.getDelta();
+    if (this.contextLost) return;
+    let animating = false;
     if (this.flyAnim) {
       const a = this.flyAnim;
       let k = Math.min(1, (performance.now() - a.t0) / a.ms);
@@ -589,19 +835,30 @@ export class Viewer {
       this.controls.target.lerpVectors(a.fromT, a.toT, k);
       this.camera.position.lerpVectors(a.fromP, a.toP, k);
       if (k >= 1) this.flyAnim = null;
+      animating = true;
     }
-    if (state.flow) for (const r of this.routeMeshes) if (r.visible && r.userData.flow.visible) r.userData.flow.material.map.offset.x -= dt * 1.6;
-    this.controls.update();
+    if (state.flow && !state.reducedMotion) {
+      for (const r of this.routeMeshes) if (r.visible && r.userData.flow.visible) r.userData.flow.material.map.offset.x -= dt * 1.6;
+      animating = true;
+    }
+    const moved = this.controls.update();
+    if (!animating && !moved && !this.needsRender) return; // nothing changed: draw nothing
+    this.needsRender = false;
     this.renderer.render(this.scene, this.camera);
     this._positionLabels();
   }
 }
 
 export function wireViewer(viewer) {
+  let raf = 0;
+  const schedule = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => { raf = 0; viewer.applyAll(); });
+  };
   on('change', (key) => {
-    if (key === 'bodyMode' || key === 'bodyParts') viewer.applyBody();
-    else viewer.applyAll();
+    if (key === 'bodyMode' || key === 'bodyParts') { viewer.applyBody(); viewer.invalidate(); }
+    else schedule();
   });
   on('select', () => viewer.applyAll());
-  on('tracker', () => { if (state.statusColors) viewer.applyAll(); });
+  on('tracker', () => { if (state.colorMode === 'status') schedule(); });
 }

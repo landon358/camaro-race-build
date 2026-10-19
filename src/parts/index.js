@@ -110,15 +110,16 @@ const SYSTEM_FINISH = {
 };
 
 export function finishFor(comp, m) {
-  const id = comp.id.split('.').slice(1).join('.');
+  const id = (comp.baseId || comp.id).split('.').slice(1).join('.');
   for (const [re, f] of FINISH_RULES) if (re.test(id)) return f;
   if (comp.system === 'safety' && m.path) return 'cage';
   return SYSTEM_FINISH[comp.system] || 'steel';
 }
 
 function ruleFor(comp, m, index) {
+  const rid = comp.baseId || comp.id; // per-corner parts use their original part's rules
   for (const [re, gen, opt = {}] of RULES) {
-    if (!re.test(comp.id)) continue;
+    if (!re.test(rid)) continue;
     const shape = m.path ? 'tube' : m.shape || 'box';
     if (opt.shapes && !opt.shapes.includes(shape)) continue;
     if (opt.prim && index > 0) return null;
@@ -131,7 +132,7 @@ function ruleFor(comp, m, index) {
 }
 
 export function wholeRuleFor(comp) {
-  for (const [re, gen, opt = {}] of RULES) if (opt.whole && re.test(comp.id)) return gen;
+  for (const [re, gen, opt = {}] of RULES) if (opt.whole && re.test(comp.baseId || comp.id)) return gen;
   return null;
 }
 

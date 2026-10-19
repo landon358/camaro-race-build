@@ -8,7 +8,7 @@
       "id": "electrical.battery-and-cutoff.battery",
       "name": "Battery",
       "qty": 1,
-      "description": "12 V starting/service battery. Factory Gen 6 cars use an AGM battery in the trunk (OE size changed from H7 to H6 / Group 48 for 2016). For a race car, a compact AGM (Odyssey PC925/PC680) or a LiFePO4 race battery saves 10\u201319 kg. Size it for cranking a high-compression 6.2 L LT (hot restart is the hard case) plus key-off draws from the ECU, logger and transponder.",
+      "description": "12 V starting/service battery. Factory Gen 6 cars use an AGM battery in the trunk (OE size changed from H7 to H6 / Group 48 for 2016). For a race car, a compact AGM (Odyssey PC925/PC680) or a LiFePO4 race battery saves 10–19 kg. Size it for cranking a high-compression 6.2 L LT (hot restart is the hard case) plus key-off draws from the ECU, logger and transponder.",
       "location": "Trunk, right (passenger) side, low on the floor in a sealed box, in the factory battery area (rear quarter). Keep it inside the cage perimeter and away from the fuel cell; some builders move it to the passenger rear floor area behind the seat for polar-moment reasons.",
       "connectsTo": [
         "electrical.battery-and-cutoff.battery-box",
@@ -20,14 +20,14 @@
       "factory": {
         "name": "ACDelco Professional AGM, Group H6 / 48 (2016+ Gen 6, trunk mounted)",
         "partNumber": "",
-        "notes": "Optima reports the OE size changed from H7 (2015) to H6 for 2016. Group H6/48 AGM ~ 760\u2013840 CCA, ~21\u201322 kg. Factory battery has a vent tube to the outside because it lives in the trunk; keep it if retaining an OE flooded/AGM battery inside the car."
+        "notes": "Optima reports the OE size changed from H7 (2015) to H6 for 2016. Group H6/48 AGM ~ 760–840 CCA, ~21–22 kg. Factory battery has a vent tube to the outside because it lives in the trunk; keep it if retaining an OE flooded/AGM battery inside the car."
       },
       "raceOptions": [
         {
           "name": "Odyssey PC925 / ODS-AGM28L",
           "brand": "Odyssey (EnerSys)",
           "partNumber": "ODS-AGM28L (PC925)",
-          "notes": "480 CCA, 10.8 kg, 168 x 175 x 127 mm, M6 receptacle terminals, max terminal torque 60 in-lb (6.8 N\u00b7m). Most common road-race choice for a V8: sealed AGM, mount in any orientation except inverted.",
+          "notes": "480 CCA, 10.8 kg, 168 x 175 x 127 mm, M6 receptacle terminals, max terminal torque 60 in-lb (6.8 N·m). Most common road-race choice for a V8: sealed AGM, mount in any orientation except inverted.",
           "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
         },
         {
@@ -41,7 +41,7 @@
           "name": "Antigravity ATX30-RS Re-Start (LiFePO4)",
           "brand": "Antigravity",
           "partNumber": "AG-ATX30-RS",
-          "notes": "880 CA (lead-acid-equivalent rating), 2.6 kg, 16 Ah actual, 165 x 127 x 173 mm. Built-in BMS and Re-Start reserve. Manufacturer lists automotive use as 'race only' by enquiry. Needs a charging voltage the BMS accepts (~14.2\u201314.6 V) \u2013 set alternator/ECM charge target accordingly.",
+          "notes": "880 CA (lead-acid-equivalent rating), 2.6 kg, 16 Ah actual, 165 x 127 x 173 mm. Built-in BMS and Re-Start reserve. Manufacturer lists automotive use as 'race only' by enquiry. Needs a charging voltage the BMS accepts (~14.2–14.6 V) – set alternator/ECM charge target accordingly.",
           "url": "https://www.iagperformance.com/antigravity-lithium-car-battery-atx30-re-start-compact-5-75-lbs/"
         },
         {
@@ -54,8 +54,8 @@
       ],
       "specs": {
         "Nominal voltage": "12 V (AGM 12.8 V rest), LiFePO4 13.2 V rest",
-        "Min cranking capability (recommended)": "\u2265 450 CCA for a 6.2 L LT with OE starter (estimate)",
-        "Charge voltage": "AGM 14.2\u201314.7 V; LiFePO4 14.2\u201314.6 V (check BMS)",
+        "Min cranking capability (recommended)": "≥ 450 CCA for a 6.2 L LT with OE starter (estimate)",
+        "Charge voltage": "AGM 14.2–14.7 V; LiFePO4 14.2–14.6 V (check BMS)",
         "Location": "Trunk right side (factory area) in sealed box"
       },
       "hardware": [
@@ -64,7 +64,7 @@
           "qty": 2,
           "spec": "M6 x 1.0 stainless bolt with lock washer, length to suit lug + adaptor",
           "grade": "A2-70 stainless",
-          "torque": "60 in-lb (6.8 N\u00b7m) max",
+          "torque": "60 in-lb (6.8 N·m) max",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -78,7 +78,7 @@
           "qty": 2,
           "spec": "M6 x 1.0 bolt",
           "grade": "stainless",
-          "torque": "50 in-lb (5.6 N\u00b7m) max",
+          "torque": "50 in-lb (5.6 N·m) max",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -91,7 +91,7 @@
           "qty": 2,
           "spec": "M8 / 5/16 clamp bolt and nut",
           "grade": "OE",
-          "torque": "~80 in-lb (9 N\u00b7m)",
+          "torque": "~80 in-lb (9 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -128,14 +128,14 @@
       "installNotes": [
         "Build and weld/bolt the battery box mount to the trunk floor before paint (phase 1) so the battery sits low and inside the cage.",
         "Fit the battery with all switches OFF; connect the positive (isolated) side first and the negative last.",
-        "Torque terminals to the battery maker's limit (PC925: 60 in-lb) \u2013 these are much lower than typical lug torques.",
+        "Torque terminals to the battery maker's limit (PC925: 60 in-lb) – these are much lower than typical lug torques.",
         "Charge the battery fully on a smart charger with the correct profile (AGM vs Lithium) before first start.",
         "If using a LiFePO4 battery, confirm the ECM/alternator charge target and that the BMS will not cut off during cranking."
       ],
       "inspection": [
-        "Resting voltage after the car sits overnight with master OFF (AGM \u2265 12.7 V, LiFePO4 \u2265 13.2 V).",
+        "Resting voltage after the car sits overnight with master OFF (AGM ≥ 12.7 V, LiFePO4 ≥ 13.2 V).",
         "Terminal tightness and corrosion; case cracks/bulging.",
-        "Hold-down tight \u2013 the battery must not move with a firm push."
+        "Hold-down tight – the battery must not move with a firm push."
       ],
       "buildPhase": 8,
       "installOrder": 1,
@@ -147,7 +147,7 @@
       ],
       "sources": [
         {
-          "title": "Optima \u2013 2016 Camaro battery size (H7 to H6 change)",
+          "title": "Optima – 2016 Camaro battery size (H7 to H6 change)",
           "url": "https://www.optimabatteries.com/experience/blog/2016-camaro-battery-size"
         },
         {
@@ -159,35 +159,37 @@
           "url": "https://www.iagperformance.com/antigravity-lithium-car-battery-atx30-re-start-compact-5-75-lbs/"
         }
       ],
-      "model": {
-        "shape": "box",
-        "pos": [
-          3.32,
-          0.484,
-          -0.55
-        ],
-        "size": [
-          0.1686,
-          0.148,
-          0.179
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.32,
+            0.484,
+            -0.55
+          ],
+          "size": [
+            0.1686,
+            0.148,
+            0.179
+          ]
+        }
+      ],
       "modelRef": {
         "images": [
           {
-            "title": "Odyssey PC925 Extreme Racing 35 \u2013 168.6 x 179 x 128 mm (Oreca)",
+            "title": "Odyssey PC925 Extreme Racing 35 – 168.6 x 179 x 128 mm (Oreca)",
             "url": "https://en.oreca-store.com/odyssey-pc925-extreme-racing-35-lead-battery-nominal-capacity-28-a-h-pulse-current-925a-dimensions-168-6x179x128-mm.html"
           },
           {
-            "title": "Odyssey PC925 (AGM28L) \u2013 Merlin Motorsport, 11.8 kg",
+            "title": "Odyssey PC925 (AGM28L) – Merlin Motorsport, 11.8 kg",
             "url": "https://www.merlinmotorsport.co.uk/p/odyssey-extreme-racing-35-battery-agm28l"
           },
           {
-            "title": "Odyssey PC925MJT \u2013 148 mm over terminals (Quadratec)",
+            "title": "Odyssey PC925MJT – 148 mm over terminals (Quadratec)",
             "url": "https://quadratec.com/p/odyssey-battery/extreme-series-pc925mjt-metal-jacket-battery"
           },
           {
-            "title": "Antigravity ATX30-RS Re-Start \u2013 165 x 127 x 173 mm",
+            "title": "Antigravity ATX30-RS Re-Start – 165 x 127 x 173 mm",
             "url": "https://fiperformance.com/products/antigravity-atx30-re-start-battery"
           }
         ],
@@ -226,7 +228,7 @@
         }
       ],
       "specs": {
-        "Material": "5052 aluminum 2.0\u20133.0 mm or polypropylene",
+        "Material": "5052 aluminum 2.0–3.0 mm or polypropylene",
         "Clamp": "bar across top, 2 threaded rods"
       },
       "hardware": [
@@ -235,7 +237,7 @@
           "qty": 4,
           "spec": "M8 x 1.25 (or 5/16-18) flange bolt + large backing plate/washer under floor",
           "grade": "8.8 / Grade 5",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "threadlocker": "Blue (Loctite 243)",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -248,7 +250,7 @@
           "qty": 2,
           "spec": "1/4-20 or M8 rod with nyloc nut",
           "grade": "Grade 5 / 8.8",
-          "torque": "5\u20137 ft-lb (7\u201310 N\u00b7m) \u2013 snug; do not crack case",
+          "torque": "5–7 ft-lb (7–10 N·m) – snug; do not crack case",
           "threadlocker": "none (nyloc)",
           "safetyWire": false,
           "reuse": "Replace nylocs each removal",
@@ -260,7 +262,7 @@
           "qty": 1,
           "spec": "M8 / M10 OE bolt",
           "grade": "OE",
-          "torque": "~13 ft-lb (18 N\u00b7m)",
+          "torque": "~13 ft-lb (18 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -346,7 +348,7 @@
       "id": "electrical.battery-and-cutoff.solid-state-isolator",
       "name": "Solid-state battery isolator (electronic master switch)",
       "qty": 1,
-      "description": "Electronic FIA-style master switch that isolates the battery negative and simultaneously sends an engine-kill signal to the ECU/PDM, with internal and external push buttons. Eliminates running heavy cables to a mechanical switch on the dash \u2013 very attractive on a Gen 6 with the battery in the trunk. Must be confirmed legal with your sanctioning body; some club tech inspectors only accept mechanical switches.",
+      "description": "Electronic FIA-style master switch that isolates the battery negative and simultaneously sends an engine-kill signal to the ECU/PDM, with internal and external push buttons. Eliminates running heavy cables to a mechanical switch on the dash – very attractive on a Gen 6 with the battery in the trunk. Must be confirmed legal with your sanctioning body; some club tech inspectors only accept mechanical switches.",
       "location": "Bolted directly on/next to the battery negative terminal in the trunk box.",
       "connectsTo": [
         "electrical.battery-and-cutoff.battery",
@@ -366,7 +368,7 @@
           "name": "Cartek Battery Isolator XR",
           "brand": "Cartek",
           "partNumber": "CK-BR-08",
-          "notes": "Negative-side isolation, 550\u2013650 A typical / 2000 A surge, 7\u201318 V, M8 battery stud, engine-kill output 12 V @ 0.5 A (signal to ECU/PDM). 'Suitable up to standard V8'. Datasheet Feb 2023.",
+          "notes": "Negative-side isolation, 550–650 A typical / 2000 A surge, 7–18 V, M8 battery stud, engine-kill output 12 V @ 0.5 A (signal to ECU/PDM). 'Suitable up to standard V8'. Datasheet Feb 2023.",
           "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
         },
         {
@@ -379,7 +381,7 @@
       ],
       "specs": {
         "Switching": "Battery negative",
-        "Switching capacity": "550\u2013650 A typ, 2000 A surge (XR)",
+        "Switching capacity": "550–650 A typ, 2000 A surge (XR)",
         "Quiescent draw": "25 mA on / 6 mA off (XR)",
         "Kill output": "12 V 0.5 A on, grounded when off (XR)"
       },
@@ -389,20 +391,20 @@
           "qty": 1,
           "spec": "M8 x 1.25 nut + spring washer",
           "grade": "brass/stainless",
-          "torque": "8\u201310 N\u00b7m (6\u20137 ft-lb)",
+          "torque": "8–10 N·m (6–7 ft-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Cartek datasheet gives M8 stud; torque value not published \u2013 estimate for an M8 brass stud.",
+          "notes": "Cartek datasheet gives M8 stud; torque value not published – estimate for an M8 brass stud.",
           "confidence": "estimate",
           "source": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
         },
         {
           "item": "Chassis-side negative cable lug",
           "qty": 1,
-          "spec": "Tinned copper lug, 1/0\u20132 AWG, M8 hole, adhesive-lined heat shrink",
+          "spec": "Tinned copper lug, 1/0–2 AWG, M8 hole, adhesive-lined heat shrink",
           "grade": "",
-          "torque": "8\u201310 N\u00b7m",
+          "torque": "8–10 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -450,19 +452,21 @@
           "url": "https://www.cartekmotorsport.com/battery-isolator-xr/"
         }
       ],
-      "model": {
-        "shape": "box",
-        "pos": [
-          3.17,
-          0.4225,
-          -0.62
-        ],
-        "size": [
-          0.06,
-          0.035,
-          0.045
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.17,
+            0.4225,
+            -0.62
+          ],
+          "size": [
+            0.06,
+            0.035,
+            0.045
+          ]
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -470,7 +474,7 @@
             "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
           },
           {
-            "title": "Cartek XR isolator unit \u2013 Merlin Motorsport",
+            "title": "Cartek XR isolator unit – Merlin Motorsport",
             "url": "https://www.merlinmotorsport.co.uk/p/cartek-xr-solid-state-battery-isolator-unit-ck-br-06"
           }
         ],
@@ -483,8 +487,8 @@
       "id": "electrical.battery-and-cutoff.master-switch",
       "name": "Mechanical master electrical cutoff switch (4-post)",
       "qty": 1,
-      "description": "Rotary master switch in the main battery positive cable with a second, lower-current pole that kills the alternator/ignition so the engine stops when the switch is turned off. SCCA wording requires it to be in a battery cable and cut all electrical circuits except an onboard fire system; NASA allows life-support/radio exceptions. Use a high-amperage race switch \u2013 cheap 50 A switches fail under starter current.",
-      "location": "Dash center/lower console within reach of the belted driver (x\u22481.15, y\u22480.62, z\u22480.05), or near the rear on the main cable with a pull-cable to the exterior.",
+      "description": "Rotary master switch in the main battery positive cable with a second, lower-current pole that kills the alternator/ignition so the engine stops when the switch is turned off. SCCA wording requires it to be in a battery cable and cut all electrical circuits except an onboard fire system; NASA allows life-support/radio exceptions. Use a high-amperage race switch – cheap 50 A switches fail under starter current.",
+      "location": "Dash center/lower console within reach of the belted driver (x≈1.15, y≈0.62, z≈0.05), or near the rear on the main cable with a pull-cable to the exterior.",
       "connectsTo": [
         "electrical.charging-starting.main-positive-cable",
         "electrical.battery-and-cutoff.alternator-dump-resistor",
@@ -504,7 +508,7 @@
           "name": "Longacre weatherproof 4-terminal disconnect",
           "brand": "Longacre",
           "partNumber": "52-45789",
-          "notes": "Sealed back; alternator circuit rated 125 A \u2013 matches high-output OE alternators.",
+          "notes": "Sealed back; alternator circuit rated 125 A – matches high-output OE alternators.",
           "url": "https://90racing.com/products/longacre-weatherproof-battery-disconnect-52-45789"
         },
         {
@@ -518,7 +522,7 @@
           "name": "Longacre 2-terminal disconnect",
           "brand": "Longacre",
           "partNumber": "52-45750",
-          "notes": "175 A continuous, 1000 A peak, 3/8 in studs; no alternator pole \u2013 only usable with a separate field-kill relay/dump resistor.",
+          "notes": "175 A continuous, 1000 A peak, 3/8 in studs; no alternator pole – only usable with a separate field-kill relay/dump resistor.",
           "url": "https://www.speedwaymotors.com/Longacre-52-45750-Battery-Disconnect-Switch-2-Terminal%2C282419.html"
         },
         {
@@ -530,7 +534,7 @@
         }
       ],
       "specs": {
-        "Main pole rating": "\u2265 175 A continuous, \u2265 1000 A intermittent",
+        "Main pole rating": "≥ 175 A continuous, ≥ 1000 A intermittent",
         "Aux pole": "Alternator output/field or ignition kill",
         "Studs": "3/8-16 main, #10 or 1/4 aux (Longacre)"
       },
@@ -540,7 +544,7 @@
           "qty": 2,
           "spec": "3/8-16 brass/steel nut + lock washer",
           "grade": "",
-          "torque": "10\u201312 ft-lb (13.5\u201316 N\u00b7m)",
+          "torque": "10–12 ft-lb (13.5–16 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -553,7 +557,7 @@
           "qty": 2,
           "spec": "#10-32 or 1/4-20 nut",
           "grade": "",
-          "torque": "25\u201335 in-lb (3\u20134 N\u00b7m)",
+          "torque": "25–35 in-lb (3–4 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -565,7 +569,7 @@
           "qty": 2,
           "spec": "#10-32 or M5 button head + nyloc",
           "grade": "stainless",
-          "torque": "30 in-lb (3.4 N\u00b7m)",
+          "torque": "30 in-lb (3.4 N·m)",
           "threadlocker": "none (nyloc)",
           "safetyWire": false,
           "reuse": "Replace nylocs",
@@ -586,10 +590,10 @@
         }
       ],
       "installNotes": [
-        "Plan the cable route: battery (trunk) \u2192 master switch \u2192 starter/front junction. With a trunk battery the switch is commonly mounted on the rear package tray/near the battery with a pull cable to the outside, or on the dash with both heavy cables routed through the cabin.",
+        "Plan the cable route: battery (trunk) → master switch → starter/front junction. With a trunk battery the switch is commonly mounted on the rear package tray/near the battery with a pull cable to the outside, or on the dash with both heavy cables routed through the cabin.",
         "Wire the auxiliary pole to break the alternator output (via dump resistor) or ECM ignition/run feed so the engine dies when switched off.",
         "Mark ON/OFF clearly on the panel.",
-        "Test: engine idling at 2000 rpm, turn switch off \u2013 engine must stop within ~1 s."
+        "Test: engine idling at 2000 rpm, turn switch off – engine must stop within ~1 s."
       ],
       "inspection": [
         "Check studs for heat discoloration (sign of loose lug).",
@@ -604,7 +608,7 @@
       ],
       "sources": [
         {
-          "title": "MazdaRacers \u2013 SCCA master switch rule discussion",
+          "title": "MazdaRacers – SCCA master switch rule discussion",
           "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
         },
         {
@@ -612,20 +616,22 @@
           "url": "https://www.speedwaymotors.com/Longacre-52-45750-Battery-Disconnect-Switch-2-Terminal%2C282419.html"
         }
       ],
-      "model": {
-        "shape": "cylinder",
-        "pos": [
-          1.12,
-          0.6,
-          0.05
-        ],
-        "size": [
-          0.107,
-          0.092,
-          0.086
-        ],
-        "axis": "x"
-      },
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.12,
+            0.6,
+            0.05
+          ],
+          "size": [
+            0.107,
+            0.092,
+            0.086
+          ],
+          "axis": "x"
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -637,7 +643,7 @@
             "url": "https://90racing.com/products/longacre-weatherproof-battery-disconnect-52-45792"
           }
         ],
-        "dimensions": "Body \u00d867 mm (2.647\"), overall depth 107 mm (4.216\"), panel 86 x 92 mm (3 3/8 x 3 5/8\"), 3/8\" main studs, \u00d818.5 mm mounting hole.",
+        "dimensions": "Body Ø67 mm (2.647\"), overall depth 107 mm (4.216\"), panel 86 x 92 mm (3 3/8 x 3 5/8\"), 3/8\" main studs, Ø18.5 mm mounting hole.",
         "features": "Red removable key on the front, aluminium panel with 4 screws, black round body behind, 2 large 3/8\" main studs + 2 small alternator/ignition studs at the back.",
         "confidence": "published"
       }
@@ -674,7 +680,7 @@
         }
       ],
       "specs": {
-        "Resistor (typical)": "2\u20135 \u03a9, 25\u201350 W aluminum-housed"
+        "Resistor (typical)": "2–5 Ω, 25–50 W aluminum-housed"
       },
       "hardware": [
         {
@@ -682,7 +688,7 @@
           "qty": 2,
           "spec": "M4 screws + nyloc",
           "grade": "stainless",
-          "torque": "15 in-lb (1.7 N\u00b7m)",
+          "torque": "15 in-lb (1.7 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -709,19 +715,21 @@
           "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
         }
       ],
-      "model": {
-        "shape": "box",
-        "pos": [
-          1.08,
-          0.525,
-          0.02
-        ],
-        "size": [
-          0.072,
-          0.03,
-          0.03
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.08,
+            0.525,
+            0.02
+          ],
+          "size": [
+            0.072,
+            0.03,
+            0.03
+          ]
+        }
+      ],
       "modelRef": {
         "images": [],
         "dimensions": "50 W aluminium-housed resistor ~72 x 30 x 28 mm incl. mounting tabs (typical, not measured).",
@@ -734,7 +742,7 @@
       "name": "External master switch actuator (pull cable or push button)",
       "qty": 1,
       "description": "Exterior-accessible actuator so corner workers can kill the car. SCCA closed-car wording places it in front of the windshield on the cowl or top of fender (driver side) close enough to reach if overturned, or below the center of the rear window. Marked with the international spark-in-blue-triangle decal (minimum ~12 cm base).",
-      "location": "Driver-side cowl at the base of the windshield (x\u22480.66, y\u22480.98, z\u2248+0.45), or rear-window base center.",
+      "location": "Driver-side cowl at the base of the windshield (x≈0.66, y≈0.98, z≈+0.45), or rear-window base center.",
       "connectsTo": [
         "electrical.battery-and-cutoff.master-switch",
         "electrical.battery-and-cutoff.solid-state-isolator",
@@ -771,7 +779,7 @@
           "qty": 3,
           "spec": "3/16 in stainless rivets or M5 screws with nyloc",
           "grade": "stainless",
-          "torque": "30 in-lb (3.4 N\u00b7m) for screws",
+          "torque": "30 in-lb (3.4 N·m) for screws",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Replace",
@@ -811,19 +819,21 @@
           "url": "https://classicmotorsports.com/forum/grm/battery-cutoff-switch/205475/page1"
         }
       ],
-      "model": {
-        "shape": "box",
-        "pos": [
-          0.66,
-          1.035,
-          0.45
-        ],
-        "size": [
-          0.1,
-          0.02,
-          0.1
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.7,
+            1.035,
+            0.45
+          ],
+          "size": [
+            0.1,
+            0.02,
+            0.1
+          ]
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -841,7 +851,7 @@
       "name": "Driver kill switch (internal)",
       "qty": 1,
       "description": "Driver-reachable kill (either the mechanical master switch itself on the dash/console, or the isolator's internal button). Must be operable by a belted driver with the HANS on.",
-      "location": "Center console / lower dash, right of steering column (x\u22481.18, y\u22480.66, z\u2248+0.12).",
+      "location": "Center console / lower dash, right of steering column (x≈1.18, y≈0.66, z≈+0.12).",
       "connectsTo": [
         "electrical.battery-and-cutoff.solid-state-isolator",
         "electrical.dash-and-controls.switch-panel"
@@ -892,20 +902,22 @@
           "url": "https://cartekmotorsport.com/battery-isolators/"
         }
       ],
-      "model": {
-        "shape": "cylinder",
-        "pos": [
-          1.18,
-          0.66,
-          0.12
-        ],
-        "size": [
-          0.03,
-          0.028,
-          0.028
-        ],
-        "axis": "x"
-      },
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.18,
+            0.66,
+            0.12
+          ],
+          "size": [
+            0.03,
+            0.028,
+            0.028
+          ],
+          "axis": "x"
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -936,14 +948,14 @@
       },
       "raceOptions": [
         {
-          "name": "Blue Sea Systems MRBF / ANL holder with 150\u2013200 A fuse",
+          "name": "Blue Sea Systems MRBF / ANL holder with 150–200 A fuse",
           "brand": "Blue Sea Systems",
           "partNumber": "",
           "notes": "Size fuse to the PDM feed cable (e.g. 150 A on 4 AWG, 200 A on 2 AWG)."
         }
       ],
       "specs": {
-        "Fuse rating": "150\u2013200 A (size to the protected cable)"
+        "Fuse rating": "150–200 A (size to the protected cable)"
       },
       "hardware": [
         {
@@ -951,7 +963,7 @@
           "qty": 2,
           "spec": "M8 or 5/16 nut",
           "grade": "",
-          "torque": "9\u201310 N\u00b7m (80\u201390 in-lb)",
+          "torque": "9–10 N·m (80–90 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -972,19 +984,21 @@
         "protection"
       ],
       "sources": [],
-      "model": {
-        "shape": "box",
-        "pos": [
-          3.17,
-          0.4225,
-          -0.5
-        ],
-        "size": [
-          0.045,
-          0.035,
-          0.1
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.17,
+            0.4225,
+            -0.5
+          ],
+          "size": [
+            0.045,
+            0.035,
+            0.1
+          ]
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -1027,7 +1041,7 @@
           "qty": 2,
           "spec": "5/16 or M8 nut + insulating washers",
           "grade": "",
-          "torque": "9 N\u00b7m (80 in-lb)",
+          "torque": "9 N·m (80 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -1047,19 +1061,21 @@
         "charging"
       ],
       "sources": [],
-      "model": {
-        "shape": "box",
-        "pos": [
-          3.62,
-          0.62,
-          -0.4
-        ],
-        "size": [
-          0.065,
-          0.032,
-          0.03
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.62,
+            0.62,
+            -0.4
+          ],
+          "size": [
+            0.065,
+            0.032,
+            0.03
+          ]
+        }
+      ],
       "modelRef": {
         "images": [],
         "dimensions": "Anderson SB50 housing ~65 x 32 x 30 mm (estimated).",

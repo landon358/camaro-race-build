@@ -31,11 +31,21 @@ function inWheel(x, y, z) {
   const w = env.wheels.front;
   return [0, 2.811].some((xc) => Math.hypot(x - xc, y - w.y) <= w.diameter / 2 + 0.06 && Math.abs(Math.abs(z) - w.z) <= w.width / 2 + 0.3);
 }
+
+function sideW(x, y) {
+  const i = Math.floor((x - env.x0) / env.dx), j = Math.floor((y - env.y0) / env.dy);
+  if (i < 0 || i >= env.nx || j < 0 || j >= env.ny) return 0;
+  let m = 0;
+  for (const a of [i - 1, i, i + 1]) if (a >= 0 && a < env.nx) m = Math.max(m, env.side[a][j]);
+  return m;
+}
 function excess([x, y, z]) {
   if (inWheel(x, y, z)) return 0;
   const t = Math.max(topAt(x, z), topAt(x - 0.05, z), topAt(x + 0.05, z));
   if (!t) return 0.05; // outside the footprint
-  return y > t + 0.02 ? y - t : 0;
+  if (y > t + 0.02) return y - t;
+  const sw = y > 0.3 ? sideW(x, y) : 0;
+  return sw > 0.5 && Math.abs(z) > sw ? Math.abs(z) - sw : 0;
 }
 function corners(m) {
   const s = m.size || [0.05, 0.05, 0.05];
@@ -182,7 +192,10 @@ for (const sys of fs.readdirSync(sysDir)) {
     for (const c of data.components || []) {
       if (!c.model) continue;
       if (!Array.isArray(c.model)) c.model = [c.model];
-      if (special[c.id]) { special[c.id](c); specials++; changed = true; continue; }
+      if (special[c.id]) {
+        if (!process.argv.includes('--no-special')) { special[c.id](c); specials++; changed = true; }
+        continue;
+      }
       if (ALLOW.has(c.id) || sys === 'wheels' || sys === 'body') continue;
       for (const m of c.model) if ((m.pos || m.path || m.instances) && pullInside(m)) { fixed++; changed = true; console.log('  pulled inside:', c.id); }
     }

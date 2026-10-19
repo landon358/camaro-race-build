@@ -9,7 +9,7 @@
       "name": "Transmission oil cooler",
       "qty": 1,
       "description": "Oil-to-air heat exchanger for gearbox oil. GM fits a standard transmission cooler on the ZL1 1LE; a race car with sustained full-throttle running should have one regardless of gearbox. Sequential boxes (e.g. Holinger RD6) have an internal pump with external cooler provision; an H-pattern TR-6060 needs an external electric pump.",
-      "location": "Race placement: ducted into the right lower front fascia opening beside the radiator stack (x\u2248-0.60, y\u22480.30, z\u2248-0.55). Alternative: under-floor with NACA duct.",
+      "location": "Race placement: ducted into the right lower front fascia opening beside the radiator stack (x≈-0.60, y≈0.30, z≈-0.55). Alternative: under-floor with NACA duct.",
       "connectsTo": [
         "drivetrain.coolers.trans-thermostat",
         "drivetrain.coolers.trans-cooler-lines",
@@ -34,7 +34,7 @@
       ],
       "specs": {
         "Ports": "-8 AN (typ.)",
-        "Target oil temp": "\u224880-110\u00b0C (175-230\u00b0F) working; GM MH3 warns at 163\u00b0C (325\u00b0F)"
+        "Target oil temp": "≈80-110°C (175-230°F) working; GM MH3 warns at 163°C (325°F)"
       },
       "hardware": [
         {
@@ -42,7 +42,7 @@
           "qty": 4,
           "spec": "M6 + rubber isolator",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -54,9 +54,9 @@
         {
           "item": "-8 AN hose end / fitting",
           "qty": 2,
-          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "spec": "-8 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torque": "≈20-25 ft-lb (27-34 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -128,7 +128,7 @@
       "name": "Transmission cooler pump (H-pattern box)",
       "qty": 1,
       "description": "12 V positive-displacement pump that draws gear oil from the TR-6060 sump and pushes it through filter, thermostat and cooler. Not needed with a sequential gearbox that has an internal pump (Holinger RD6).",
-      "location": "Mounted low beside the transmission on the tunnel/crossmember, below oil level for self-priming (x\u22480.95, y\u22480.24, z\u2248-0.20).",
+      "location": "Mounted low beside the transmission on the tunnel/crossmember, below oil level for self-priming (x≈0.95, y≈0.24, z≈-0.20).",
       "connectsTo": [
         "drivetrain.coolers.trans-cooler-fittings",
         "drivetrain.coolers.inline-filters",
@@ -156,7 +156,7 @@
           "qty": 2,
           "spec": "M6/M8 with isolators",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -168,9 +168,9 @@
         {
           "item": "-8 AN hose end / fitting",
           "qty": 2,
-          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "spec": "-8 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torque": "≈20-25 ft-lb (27-34 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -228,7 +228,7 @@
       "name": "Transmission oil thermostat / bypass",
       "qty": 1,
       "description": "In-line thermostatic valve that bypasses the cooler until oil reaches working temperature, so the gearbox warms quickly and is not over-cooled in cold sessions.",
-      "location": "In the cooler feed line near the cooler (x\u2248-0.40, y\u22480.30, z\u2248-0.45).",
+      "location": "In the cooler feed line near the cooler (x≈-0.40, y≈0.30, z≈-0.45).",
       "connectsTo": [
         "drivetrain.coolers.trans-cooler",
         "drivetrain.coolers.trans-cooler-lines",
@@ -240,7 +240,7 @@
       },
       "raceOptions": [
         {
-          "name": "In-line oil thermostat (\u224880-90\u00b0C opening)",
+          "name": "In-line oil thermostat (≈80-90°C opening)",
           "brand": "Mocal / Setrab",
           "notes": ""
         }
@@ -250,9 +250,9 @@
         {
           "item": "-8 AN hose end / fitting",
           "qty": 4,
-          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "spec": "-8 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torque": "≈20-25 ft-lb (27-34 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -266,7 +266,7 @@
           "qty": 2,
           "spec": "M6",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -345,9 +345,9 @@
         {
           "item": "-8 AN hose end / fitting",
           "qty": 6,
-          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "spec": "-8 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torque": "≈20-25 ft-lb (27-34 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -361,7 +361,7 @@
           "qty": 10,
           "spec": "Cushioned clamp + M6 screw/rivnut",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -372,7 +372,7 @@
         }
       ],
       "installNotes": [
-        "Keep \u226575 mm from exhaust or use heat sleeve.",
+        "Keep ≥75 mm from exhaust or use heat sleeve.",
         "Leave flex where the drivetrain moves relative to the body."
       ],
       "inspection": [
@@ -440,7 +440,7 @@
       "name": "Transmission cooler pickup / return fittings",
       "qty": 1,
       "description": "Adapter fittings that turn gearbox ports into AN connections: pickup from the low drain-plug port, return to a high port (fill port or dedicated spray-bar boss). Sequential boxes provide dedicated cooler ports.",
-      "location": "TR-6060 drain port (pickup, x\u22480.80, y\u22480.25) and fill/side port (return, x\u22480.86, y\u22480.38, z\u2248-0.14).",
+      "location": "TR-6060 drain port (pickup, x≈0.80, y≈0.25) and fill/side port (return, x≈0.86, y≈0.38, z≈-0.14).",
       "connectsTo": [
         "drivetrain.transmission.transmission",
         "drivetrain.transmission.fill-drain-plugs",
@@ -465,7 +465,7 @@
           "qty": 2,
           "spec": "Case thread with crush washer / O-ring",
           "grade": "",
-          "torque": "\u224825 ft-lb (34 N\u00b7m) - aluminum case, do not exceed plug torque",
+          "torque": "≈25 ft-lb (34 N·m) - aluminum case, do not exceed plug torque",
           "torqueSequence": "",
           "threadlocker": "Thread sealant if tapered",
           "safetyWire": false,
@@ -549,7 +549,7 @@
       "name": "Differential oil cooler",
       "qty": 1,
       "description": "Oil-to-air cooler for the rear axle. GM fits a standard rear differential cooler on the ZL1 1LE (lines run along the tunnel near the driveshaft - QA1 instructions have you unclip them). For a race car, mount a ducted cooler at the rear to keep lines short.",
-      "location": "Race placement: rear, behind the bumper beam on the right with a fascia/diffuser duct (x\u22483.55, y\u22480.35, z\u2248-0.45).",
+      "location": "Race placement: rear, behind the bumper beam on the right with a fascia/diffuser duct (x≈3.55, y≈0.35, z≈-0.45).",
       "connectsTo": [
         "drivetrain.coolers.diff-thermostat",
         "drivetrain.coolers.diff-cooler-lines",
@@ -573,7 +573,7 @@
       ],
       "specs": {
         "Ports": "-10 AN suction side typical",
-        "Target": "\u224890-120\u00b0C (195-250\u00b0F) working - per LSD maker"
+        "Target": "≈90-120°C (195-250°F) working - per LSD maker"
       },
       "hardware": [
         {
@@ -581,7 +581,7 @@
           "qty": 4,
           "spec": "M6 + rubber isolator",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -593,9 +593,9 @@
         {
           "item": "-10 AN hose end / fitting",
           "qty": 2,
-          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "spec": "-10 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torque": "≈30-35 ft-lb (41-47 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -666,7 +666,7 @@
       "name": "Differential cooler pump",
       "qty": 1,
       "description": "12 V positive-displacement pump that pulls axle oil from a low pickup on the diff and pushes it through filter, thermostat and cooler back to a high return port. Usually switched by diff temperature.",
-      "location": "On the rear cradle/floor beside the diff below oil level (x\u22482.95, y\u22480.28, z\u2248-0.25).",
+      "location": "On the rear cradle/floor beside the diff below oil level (x≈2.95, y≈0.28, z≈-0.25).",
       "connectsTo": [
         "drivetrain.coolers.diff-cooler-fittings",
         "drivetrain.coolers.inline-filters",
@@ -692,7 +692,7 @@
           "qty": 2,
           "spec": "M6/M8 with isolators",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -704,9 +704,9 @@
         {
           "item": "-10 AN hose end / fitting",
           "qty": 2,
-          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "spec": "-10 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torque": "≈30-35 ft-lb (41-47 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -768,7 +768,7 @@
       "name": "Differential oil thermostat / bypass",
       "qty": 1,
       "description": "In-line thermostatic bypass so the diff reaches working temperature (clutch-type LSDs are temperature sensitive) before the cooler is in circuit.",
-      "location": "In feed line near diff cooler (x\u22483.35, y\u22480.32, z\u2248-0.40).",
+      "location": "In feed line near diff cooler (x≈3.35, y≈0.32, z≈-0.40).",
       "connectsTo": [
         "drivetrain.coolers.diff-cooler",
         "drivetrain.coolers.diff-cooler-lines",
@@ -790,9 +790,9 @@
         {
           "item": "-10 AN hose end / fitting",
           "qty": 4,
-          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "spec": "-10 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torque": "≈30-35 ft-lb (41-47 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -846,7 +846,7 @@
       "name": "Differential cooler lines",
       "qty": 1,
       "description": "-10 AN suction (pickup to pump) and -8/-10 AN pressure/return hoses between diff, pump, thermostat and cooler. Use flexible hose between the cradle-mounted diff and the body.",
-      "location": "From diff (x\u22482.9) rearward along right side of trunk floor to rear cooler (see routes).",
+      "location": "From diff (x≈2.9) rearward along right side of trunk floor to rear cooler (see routes).",
       "connectsTo": [
         "drivetrain.coolers.diff-cooler-fittings",
         "drivetrain.coolers.diff-cooler-pump",
@@ -871,9 +871,9 @@
         {
           "item": "-10 AN hose end / fitting",
           "qty": 6,
-          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "spec": "-10 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torque": "≈30-35 ft-lb (41-47 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -887,7 +887,7 @@
           "qty": 8,
           "spec": "Cushioned clamp + M6",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -965,7 +965,7 @@
       "name": "Differential cooler pickup / return fittings",
       "qty": 1,
       "description": "Pickup bung low on the diff (or drain-plug adapter) and return high on the cover so returning oil is not immediately re-picked-up. Some builders weld/tap AN bosses into an aftermarket cover.",
-      "location": "Diff cover/housing (pickup x\u22482.90, y\u22480.25; return x\u22482.96, y\u22480.44).",
+      "location": "Diff cover/housing (pickup x≈2.90, y≈0.25; return x≈2.96, y≈0.44).",
       "connectsTo": [
         "drivetrain.rear-differential.cover-and-gasket",
         "drivetrain.rear-differential.fill-drain-plugs",
@@ -990,7 +990,7 @@
           "qty": 2,
           "spec": "-10 ORB with O-ring",
           "grade": "",
-          "torque": "\u224825 ft-lb (34 N\u00b7m) aluminum",
+          "torque": "≈25 ft-lb (34 N·m) aluminum",
           "torqueSequence": "",
           "threadlocker": "none (lube O-ring)",
           "safetyWire": false,
@@ -1079,7 +1079,7 @@
       "name": "In-line oil filters (trans & diff circuits)",
       "qty": 2,
       "description": "Stainless mesh or spin-on filters ahead of each cooler (after the pump) to catch wear metal before it is recirculated and to protect the cooler core. Inspecting the element is a cheap health check.",
-      "location": "Trans circuit near pump (x\u22480.80, y\u22480.22, z\u2248-0.30); diff circuit near pump (x\u22483.05, y\u22480.30, z\u2248-0.32).",
+      "location": "Trans circuit near pump (x≈0.80, y≈0.22, z≈-0.30); diff circuit near pump (x≈3.05, y≈0.30, z≈-0.32).",
       "connectsTo": [
         "drivetrain.coolers.trans-cooler-pump",
         "drivetrain.coolers.diff-cooler-pump",
@@ -1102,9 +1102,9 @@
         {
           "item": "-8/-10 AN hose end / fitting",
           "qty": 2,
-          "spec": "-8/-10 AN 37\u00b0 flare (aluminum)",
+          "spec": "-8/-10 AN 37° flare (aluminum)",
           "grade": "",
-          "torque": "\u224820-35 ft-lb (27-47 N\u00b7m) by size",
+          "torque": "≈20-35 ft-lb (27-47 N·m) by size",
           "torqueSequence": "",
           "threadlocker": "none (oil flare lightly; no tape)",
           "safetyWire": false,
@@ -1188,7 +1188,7 @@
         {
           "name": "PDM channel logic",
           "brand": "MoTeC / AiM / ECUMaster",
-          "notes": "e.g. ON >80\u00b0C, OFF <70\u00b0C, always ON in race mode."
+          "notes": "e.g. ON >80°C, OFF <70°C, always ON in race mode."
         }
       ],
       "specs": {},
@@ -1278,7 +1278,7 @@
           "pos": [
             -0.7,
             0.3,
-            -0.53
+            -0.46
           ],
           "size": [
             0.18,
@@ -1291,7 +1291,7 @@
           "pos": [
             3.66,
             0.52,
-            -0.6
+            -0.59
           ],
           "size": [
             0.15,

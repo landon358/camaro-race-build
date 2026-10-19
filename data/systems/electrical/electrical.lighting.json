@@ -9,7 +9,7 @@
       "name": "Rain light (rear, high-intensity)",
       "qty": 1,
       "description": "Rear-facing red high-intensity LED light, switched on by the driver when directed (wet track/ low visibility) and often flashing. FIA standard 8874-2019 defines homologated race-car rain lights (FIA technical list). Many series require it; mount on the centerline, rear-facing, visible.",
-      "location": "Rear window base / rear deck or rear diffuser centerline (x\u22483.75, y\u22480.95 on the decklid, z=0), per series rules.",
+      "location": "Rear window base / rear deck or rear diffuser centerline (x≈3.75, y≈0.95 on the decklid, z=0), per series rules.",
       "connectsTo": [
         "electrical.power-distribution.pdm",
         "electrical.dash-and-controls.keypad",
@@ -26,19 +26,19 @@
           "name": "Lifeline FIA 8874-2019 LED rain light",
           "brand": "Lifeline",
           "partNumber": "421-100-011",
-          "notes": "FIA homologation RL.001.21; 8.4 W, 700 mA @ 12 V, 4 Hz flash. FIA list shows manufacture window ending 02.2026 \u2013 check current list status.",
+          "notes": "FIA homologation RL.001.21; 8.4 W, 700 mA @ 12 V, 4 Hz flash. FIA list shows manufacture window ending 02.2026 – check current list status.",
           "url": "https://discoveryparts.com/products/lifeline-fia-8874-2019-led-rain-light-lifeline-421-100-011"
         },
         {
           "name": "Cartek FIA 8874-2019 rectangular / round rain light",
           "brand": "Cartek",
           "partNumber": "CK-LRS-15RM (rect.) / CK-LRS-16CM (round)",
-          "notes": "11.3\u201315.6 V, ~700 mA (round).",
+          "notes": "11.3–15.6 V, ~700 mA (round).",
           "url": "https://compare.parts/product/35040543773-cartek-fia-8874-2019-approved-rectangular-rain-light"
         }
       ],
       "specs": {
-        "Draw": "\u2248 0.7 A",
+        "Draw": "≈ 0.7 A",
         "Flash": "4 Hz (homologated units)",
         "Standard": "FIA 8874-2019"
       },
@@ -48,7 +48,7 @@
           "qty": 2,
           "spec": "M5 stainless + nyloc / rivnut",
           "grade": "A2",
-          "torque": "3 N\u00b7m (27 in-lb)",
+          "torque": "3 N·m (27 in-lb)",
           "threadlocker": "none (nyloc)",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -96,23 +96,25 @@
           "url": "https://www.fia.com/sites/default/files/fia_standard_guidelines_rain_lights_web.pdf"
         }
       ],
-      "model": {
-        "shape": "box",
-        "pos": [
-          3.83,
-          0.74,
-          0
-        ],
-        "size": [
-          0.014,
-          0.0565,
-          0.091
-        ]
-      },
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.83,
+            0.74,
+            0
+          ],
+          "size": [
+            0.014,
+            0.0565,
+            0.091
+          ]
+        }
+      ],
       "modelRef": {
         "images": [
           {
-            "title": "Cartek FIA 8874-2019 rectangular rain light \u2013 91 x 56.5 x 14 mm (Tegiwa)",
+            "title": "Cartek FIA 8874-2019 rectangular rain light – 91 x 56.5 x 14 mm (Tegiwa)",
             "url": "https://www.tegiwa.com/products/cartek-fia-8874-2019-rain-light-with-static-or-flashing-mode"
           },
           {
@@ -130,7 +132,7 @@
       "name": "Brake lights",
       "qty": 2,
       "description": "Rear brake lights must work in nearly all series. Factory Gen 6 LED tail lamps can be retained (driven directly by a PDM output instead of the BCM) or replaced by lightweight LED race units. Trigger from brake-pressure sensor threshold (e.g. > 5 bar) via PDM logic, or a hydraulic pressure switch.",
-      "location": "Factory tail-lamp positions (x\u22483.78, y\u22480.88, z\u2248\u00b10.65) plus optional CHMSL.",
+      "location": "Factory tail-lamp positions (x≈3.78, y≈0.88, z≈±0.65) plus optional CHMSL.",
       "connectsTo": [
         "electrical.power-distribution.pdm",
         "electrical.data-acquisition.brake-pressure-sensors",
@@ -140,7 +142,7 @@
       "factory": {
         "name": "GM Gen 6 LED tail lamp assemblies (BCM-driven)",
         "partNumber": "",
-        "notes": "OE LED lamps may have internal drivers expecting BCM signals \u2013 bench test with 12 V."
+        "notes": "OE LED lamps may have internal drivers expecting BCM signals – bench test with 12 V."
       },
       "raceOptions": [
         {
@@ -157,7 +159,7 @@
           "qty": 4,
           "spec": "M6 OE nuts",
           "grade": "OE",
-          "torque": "~6 N\u00b7m (53 in-lb)",
+          "torque": "~6 N·m (53 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -179,7 +181,7 @@
         {
           "shape": "box",
           "pos": [
-            3.68,
+            3.57,
             0.82,
             0.5
           ],
@@ -236,7 +238,7 @@
           "qty": 1,
           "spec": "1/8-27 NPT",
           "grade": "",
-          "torque": "2\u20133 turns past finger tight",
+          "torque": "2–3 turns past finger tight",
           "threadlocker": "PTFE paste rated for brake fluid",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -283,7 +285,7 @@
       "name": "Headlights & driving lights (endurance/night)",
       "qty": 2,
       "description": "Factory Gen 6 HID/LED headlamps can be retained and driven from PDM channels (low/high beam + flash-to-pass from the wheel); sprint cars often replace them with lightweight blanks/vinyl. Endurance cars add LED driving lights and ID lights.",
-      "location": "Factory headlamp openings (x\u2248-0.80, y\u22480.72, z\u2248\u00b10.65).",
+      "location": "Factory headlamp openings (x≈-0.80, y≈0.72, z≈±0.65).",
       "connectsTo": [
         "electrical.power-distribution.pdm",
         "electrical.main-harness.front-harness",
@@ -300,7 +302,7 @@
           "name": "Lexan headlight blanks / LED endurance lamp pods",
           "brand": "Various",
           "partNumber": "",
-          "notes": "Saves ~4\u20136 kg for sprint use."
+          "notes": "Saves ~4–6 kg for sprint use."
         }
       ],
       "specs": {},
@@ -310,7 +312,7 @@
           "qty": 4,
           "spec": "M6 OE bolts",
           "grade": "OE",
-          "torque": "~6 N\u00b7m (53 in-lb)",
+          "torque": "~6 N·m (53 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -380,7 +382,7 @@
           "qty": 2,
           "spec": "M4/M5",
           "grade": "stainless",
-          "torque": "2 N\u00b7m",
+          "torque": "2 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",

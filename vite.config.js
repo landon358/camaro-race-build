@@ -1,6 +1,38 @@
 import { defineConfig } from 'vite';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+
+// Write every built file into dist/sw.js so the app works offline from the first visit.
+function precache() {
+  return {
+    name: 'precache',
+    apply: 'build',
+    closeBundle() {
+      const dist = path.join(__dirname, 'dist');
+      const files = [];
+      const walk = (d) => {
+        for (const f of fs.readdirSync(d)) {
+          const p = path.join(d, f);
+          if (fs.statSync(p).isDirectory()) walk(p);
+          else files.push(path.relative(dist, p).split(path.sep).join('/'));
+        }
+      };
+      walk(dist);
+      const list = files.filter((f) => f !== 'sw.js' && !f.endsWith('.map') && !/\.woff$/.test(f));
+      const hash = crypto.createHash('sha1');
+      for (const f of list.sort()) hash.update(f).update(fs.readFileSync(path.join(dist, f)));
+      const version = hash.digest('hex').slice(0, 10);
+      const swPath = path.join(dist, 'sw.js');
+      const sw = fs.readFileSync(swPath, 'utf8')
+        .replace('__BUILD_VERSION__', version)
+        .replace("self.__PRECACHE__ ||", `${JSON.stringify(['./', ...list.map((f) => `./${f}`)])} ||`);
+      fs.writeFileSync(swPath, sw);
+      console.log(`[precache] ${list.length} files, version ${version}`);
+    },
+  };
+}
 
 // Rebuild public/data/db.json whenever a research file in data/systems changes.
 function partsDb() {
@@ -31,7 +63,7 @@ function partsDb() {
 
 export default defineConfig({
   base: './',
-  plugins: [partsDb()],
+  plugins: [partsDb(), precache()],
   server: { watch: { ignored: ['**/public/data/**'] } },
   build: { chunkSizeWarningLimit: 1500 },
 });

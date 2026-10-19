@@ -19,6 +19,14 @@ export function topAt(x, z) {
   for (const dx of [-env.dx, 0, env.dx]) for (const dz of [-env.dz, 0, env.dz]) m = Math.max(m, cell(x + dx, z + dz));
   return m;
 }
+
+function sideW(x, y) {
+  const i = Math.floor((x - env.x0) / env.dx), j = Math.floor((y - env.y0) / env.dy);
+  if (i < 0 || i >= env.nx || j < 0 || j >= env.ny) return 0;
+  let m = 0;
+  for (const a of [i - 1, i, i + 1]) if (a >= 0 && a < env.nx) m = Math.max(m, env.side[a][j]);
+  return m;
+}
 export function excess(p) {
   const [x, y, z] = p;
   if (inWheel(x, y, z)) return 0;
@@ -31,6 +39,8 @@ export function excess(p) {
     return 1.5;
   }
   let e = Math.max(0, y - t);
+  const sw = y > 0.3 ? sideW(x, y) : 0;
+  if (sw > 0.5) e = Math.max(e, Math.abs(z) - sw);
   if (y < 0.05) e = Math.max(e, 0.05 - y);
   return e;
 }

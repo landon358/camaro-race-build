@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { applyLayout } from './layout.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sysDir = path.join(root, 'data', 'systems');
@@ -183,7 +184,34 @@ const noModel = components.filter((c) => !c.model.length).length;
 const hw = components.reduce((n, c) => n + c.hardware.length, 0);
 const noPhase = components.filter((c) => !c.buildPhase).length;
 
+/** Top-down outline of the reference body (for the car map), from data/body-envelope.json. */
+function carPlan() {
+  const f = path.join(root, 'data', 'body-envelope.json');
+  if (!fs.existsSync(f)) return null;
+  const e = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const left = [], right = [];
+  for (let i = 0; i < e.nx; i++) {
+    const x = e.x0 + (i + 0.5) * e.dx;
+    let zl = 0, zr = 0;
+    for (let k = 0; k < e.nz; k++) if (e.top[i][k] > 0.3) { const z = e.z0 + (k + 0.5) * e.dz; zl = Math.max(zl, z); zr = Math.min(zr, z); }
+    if (zl > 0.05) { left.push([+x.toFixed(3), +zl.toFixed(3)]); right.push([+x.toFixed(3), +zr.toFixed(3)]); }
+  }
+  return { outline: [...left, ...right.reverse()], wheels: e.wheels };
+}
+
+// Present research subsystems as a few groups per system, split by physical location.
+const layoutFile = path.join(root, 'data', 'layout.json');
+let split = { splitCount: 0, splitMap: {} };
+if (fs.existsSync(layoutFile)) split = applyLayout(systems, components, readJson(layoutFile) || {}, warn);
+console.log(`  layout: ${split.splitCount} parts split into per-corner parts`);
+
+const fitFile = path.join(root, 'data', 'fit.json');
 const db = {
+  fit: fs.existsSync(fitFile) ? readJson(fitFile) : {},
+  splitMap: split.splitMap,
+  zones: split.zones,
+  tierNames: split.tierNames,
+  plan: carPlan(),
   generated: new Date().toISOString(),
   vehicle: {
     name: 'Chevrolet Camaro — 6th Gen (2016–2024) Road-Race Build',

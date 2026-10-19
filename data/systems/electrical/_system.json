@@ -2,28 +2,28 @@
   "id": "electrical",
   "name": "Electrical & Electronics",
   "summary": "The Gen 6 Camaro factory electrical system is a GM network architecture (BCM, IPC, GMLAN CAN) with the AGM battery in the trunk, an E92 ECM running the direct-injected LT1/LT4, and underhood/rear fuse-relay blocks. The race build strips the body electronics and replaces them with a purpose-built system: trunk battery with FIA-style master cutoff (mechanical 4-post switch or Cartek solid-state isolator), a programmable PDM instead of fuses/relays, a Chevrolet Performance E92 controller kit or a GDI-capable standalone ECU, a CAN-networked dash/logger, keypad and chassis sensors, and a mil-spec Tefzel/DR-25 harness with Deutsch bulkhead connectors.",
-  "overview": "Architecture. Power flows battery (trunk, right side) \u2192 master cutoff \u2192 main 1/0 cable through the cabin along the passenger sill \u2192 firewall power junction \u2192 starter, and from the junction (fused) \u2192 PDM. The PDM switches and protects every load (ECU, ignition, fuel pumps, fan, intercooler pump, lights, comms) and reports currents over CAN. Grounds return through a dedicated battery-negative cable, two engine-to-chassis straps and a star ground for the electronics. The ECU, PDM, dash/logger, keypad, GPS/IMU, lambda controller, tire-temp sensors and (if used) the race ABS share one or two 1 Mbit/s CAN buses.\n\nFactory vs race. The Gen 6's body modules (BCM, IPC, SDM, radio) are VIN-linked on the GM network and are not needed to run the engine when a Chevrolet Performance LT1/LT4 controller kit is used (the kit supplies a programmed E92, engine harness with fuse box, DBW pedal, O2/MAF, oil and fuel-pressure sensors and the fuel pump power module). Note GM's warning that pre-2022 LT controllers must not be used on 2022+ LT crate engines, and that early (4-pin) and late (3-pin) LT4 fuel-rail pressure sensors need matching kits. The direct-injection LT limits standalone choices to GDI-capable systems (Holley Terminator X Max Gen V LT DI kits 550-1623/550-1624, MoTeC M1 GPR-DI on M122/M142/M182 class ECUs) unless the race engine is converted to port injection (then MoTeC M150, Holley Dominator, Haltech Nexus etc. apply). Keeping OE electric power steering and OE ABS/StabiliTrak requires keeping their network messages alive \u2013 decide this with the steering and brakes systems before designing the harness.\n\nRules. SCCA GCR wording (quoted secondhand) requires a master switch in either battery cable that cuts all electrical circuits except an on-board fire system, accessible from outside \u2013 on closed cars in front of the windshield on the cowl/fender (driver side) or below the center of the rear window \u2013 marked with the spark/blue-triangle decal. NASA CCR wording (quoted secondhand) allows radio, fire system and life-support devices to remain live. Whether a solid-state isolator is accepted varies by series and inspector \u2013 confirm before buying. Rain lights: many series require one; FIA standard 8874-2019 covers homologated rain lights (Lifeline 421-100-011, Cartek CK-LRS-15RM/16CM). Transponder: MyLaps direct-power, \u2264 60 cm above ground with clear view of the track, on a 2.5 A fused switched supply. Always read the current rulebook for your class.\n\nCommon failure points. Loose or under-sized main cables (hot restart failures), chafed harness at the firewall/seat/cage crossings, engine-ground straps loosening, connectors not latched, fan and fuel-pump channels tripping on inrush, alternator run-on after the master is switched off (needs field kill / dump resistor), CAN termination errors, and DI injector wiring noise corrupting crank/cam signals.",
+  "overview": "Architecture. Power flows battery (trunk, right side) → master cutoff → main 1/0 cable through the cabin along the passenger sill → firewall power junction → starter, and from the junction (fused) → PDM. The PDM switches and protects every load (ECU, ignition, fuel pumps, fan, intercooler pump, lights, comms) and reports currents over CAN. Grounds return through a dedicated battery-negative cable, two engine-to-chassis straps and a star ground for the electronics. The ECU, PDM, dash/logger, keypad, GPS/IMU, lambda controller, tire-temp sensors and (if used) the race ABS share one or two 1 Mbit/s CAN buses.\n\nFactory vs race. The Gen 6's body modules (BCM, IPC, SDM, radio) are VIN-linked on the GM network and are not needed to run the engine when a Chevrolet Performance LT1/LT4 controller kit is used (the kit supplies a programmed E92, engine harness with fuse box, DBW pedal, O2/MAF, oil and fuel-pressure sensors and the fuel pump power module). Note GM's warning that pre-2022 LT controllers must not be used on 2022+ LT crate engines, and that early (4-pin) and late (3-pin) LT4 fuel-rail pressure sensors need matching kits. The direct-injection LT limits standalone choices to GDI-capable systems (Holley Terminator X Max Gen V LT DI kits 550-1623/550-1624, MoTeC M1 GPR-DI on M122/M142/M182 class ECUs) unless the race engine is converted to port injection (then MoTeC M150, Holley Dominator, Haltech Nexus etc. apply). Keeping OE electric power steering and OE ABS/StabiliTrak requires keeping their network messages alive – decide this with the steering and brakes systems before designing the harness.\n\nRules. SCCA GCR wording (quoted secondhand) requires a master switch in either battery cable that cuts all electrical circuits except an on-board fire system, accessible from outside – on closed cars in front of the windshield on the cowl/fender (driver side) or below the center of the rear window – marked with the spark/blue-triangle decal. NASA CCR wording (quoted secondhand) allows radio, fire system and life-support devices to remain live. Whether a solid-state isolator is accepted varies by series and inspector – confirm before buying. Rain lights: many series require one; FIA standard 8874-2019 covers homologated rain lights (Lifeline 421-100-011, Cartek CK-LRS-15RM/16CM). Transponder: MyLaps direct-power, ≤ 60 cm above ground with clear view of the track, on a 2.5 A fused switched supply. Always read the current rulebook for your class.\n\nCommon failure points. Loose or under-sized main cables (hot restart failures), chafed harness at the firewall/seat/cage crossings, engine-ground straps loosening, connectors not latched, fan and fuel-pump channels tripping on inrush, alternator run-on after the master is switched off (needs field kill / dump resistor), CAN termination errors, and DI injector wiring noise corrupting crank/cam signals.",
   "buildNotes": [
     "Phase 1 (bare shell): decide battery, master switch, PDM/ECU and bulkhead locations; weld ground studs and battery box mounts; cut and doubler-plate firewall and rear bulkhead connector holes; install rivnuts for every harness P-clamp along the planned routes; then paint.",
-    "Write the electrical load list and channel map (current, PWM, logic) before buying a PDM \u2013 fans, fuel pumps, starter and ignition set the channel sizes and the alternator size.",
-    "Choose ECU strategy (Chevrolet Performance E92 controller kit vs GDI standalone) and whether OE EPS/ABS are retained before building the harness \u2013 it drives CAN design.",
+    "Write the electrical load list and channel map (current, PWM, logic) before buying a PDM – fans, fuel pumps, starter and ignition set the channel sizes and the alternator size.",
+    "Choose ECU strategy (Chevrolet Performance E92 controller kit vs GDI standalone) and whether OE EPS/ABS are retained before building the harness – it drives CAN design.",
     "Build the cabin electronics panel (PDM, ECU, star ground, fuses) and the dash harness on the bench; build the engine harness on a board measured from the installed engine.",
     "Run the main 1/0 battery cable inside the shell along the passenger sill before seats and interior go in; crimp lugs with a hydraulic crimper and adhesive heat shrink.",
     "Install engine ground straps with the engine (phase 6); install starter, alternator, and their cables before headers if access is tight.",
-    "Power-up sequence: continuity test every circuit \u2192 check for shorts to ground \u2192 first power with ECU/ PDM disconnected \u2192 PDM config \u2192 ECU power and comms \u2192 sensor plausibility \u2192 crank with no fuel to verify sync \u2192 fuel pressure \u2192 first fire.",
-    "Verify CAN termination (~60 \u03a9), ground offsets (< 50 mV ECU-to-battery), master switch kill with engine running, and cranking voltage drop (< 0.5 V positive path) before shakedown.",
+    "Power-up sequence: continuity test every circuit → check for shorts to ground → first power with ECU/ PDM disconnected → PDM config → ECU power and comms → sensor plausibility → crank with no fuel to verify sync → fuel pressure → first fire.",
+    "Verify CAN termination (~60 Ω), ground offsets (< 50 mV ECU-to-battery), master switch kill with engine running, and cranking voltage drop (< 0.5 V positive path) before shakedown.",
     "Install rules items last but test them at the first tech: external kill, decals, rain light, brake lights, transponder."
   ],
   "schematics": [
     {
       "id": "electrical.power-distribution-wiring",
-      "title": "Power distribution: battery \u2192 master cutoff \u2192 PDM channels \u2192 loads",
+      "title": "Power distribution: battery → master cutoff → PDM channels → loads",
       "type": "wiring",
       "description": "Main power path from the trunk battery through the master cutoff (mechanical switch or solid-state isolator with engine-kill signal), main cable to the firewall junction, starter branch (unfused) and fused PDM branch, PDM output channels to every load, and the auxiliary always-hot block for circuits rules allow to stay powered.",
       "nodes": [
         {
           "id": "bat",
-          "label": "Battery (trunk, RH) \u2013 Odyssey PC925 / OE H6 AGM",
+          "label": "Battery (trunk, RH) – Odyssey PC925 / OE H6 AGM",
           "componentId": "electrical.battery-and-cutoff.battery"
         },
         {
@@ -33,7 +33,7 @@
         },
         {
           "id": "msw",
-          "label": "Mechanical master switch (4-post) \u2013 alt/ign pole",
+          "label": "Mechanical master switch (4-post) – alt/ign pole",
           "componentId": "electrical.battery-and-cutoff.master-switch"
         },
         {
@@ -78,7 +78,7 @@
         },
         {
           "id": "mfuse",
-          "label": "Main fuse 150\u2013200 A",
+          "label": "Main fuse 150–200 A",
           "componentId": "electrical.battery-and-cutoff.main-fuse"
         },
         {
@@ -257,7 +257,7 @@
         {
           "from": "alt",
           "to": "jct",
-          "label": "4 AWG B+ (fused 175\u2013200 A)",
+          "label": "4 AWG B+ (fused 175–200 A)",
           "kind": "power"
         },
         {
@@ -311,7 +311,7 @@
         {
           "from": "pdm",
           "to": "icp",
-          "label": "8\u201320 A ch",
+          "label": "8–20 A ch",
           "kind": "power"
         },
         {
@@ -410,7 +410,7 @@
       "id": "electrical.charging-starting-circuit",
       "title": "Charging & starting circuit",
       "type": "wiring",
-      "description": "Cranking current path (battery \u2192 master \u2192 main cable \u2192 junction \u2192 starter \u2192 engine block \u2192 ground straps \u2192 chassis \u2192 battery negative), and the charging path (alternator B+ \u2192 junction \u2192 main cable \u2192 battery) with ECU/PDM control of the alternator L-terminal and starter solenoid.",
+      "description": "Cranking current path (battery → master → main cable → junction → starter → engine block → ground straps → chassis → battery negative), and the charging path (alternator B+ → junction → main cable → battery) with ECU/PDM control of the alternator L-terminal and starter solenoid.",
       "nodes": [
         {
           "id": "bat",
@@ -578,7 +578,7 @@
         {
           "from": "neg",
           "to": "bat",
-          "label": "battery \u2212",
+          "label": "battery −",
           "kind": "ground"
         },
         {
@@ -635,11 +635,11 @@
       "id": "electrical.can-network",
       "title": "CAN bus / network topology",
       "type": "block",
-      "description": "Two CAN buses at 1 Mbit/s: Bus 1 (engine/power) ECU \u2013 PDM \u2013 dash \u2013 keypad \u2013 lambda; Bus 2 (chassis/data) dash \u2013 GPS/IMU \u2013 I/O expanders \u2013 IR tire sensors \u2013 brake temp \u2013 ABS (Bosch M5 CAN or OE ABS via gateway) \u2013 camera. 120 \u03a9 terminations at each physical end. Factory GMLAN (500 kbit/s) only if OE EPS/ABS retained.",
+      "description": "Two CAN buses at 1 Mbit/s: Bus 1 (engine/power) ECU – PDM – dash – keypad – lambda; Bus 2 (chassis/data) dash – GPS/IMU – I/O expanders – IR tire sensors – brake temp – ABS (Bosch M5 CAN or OE ABS via gateway) – camera. 120 Ω terminations at each physical end. Factory GMLAN (500 kbit/s) only if OE EPS/ABS retained.",
       "nodes": [
         {
           "id": "t1a",
-          "label": "120 \u03a9 term (Bus 1, ECU end)",
+          "label": "120 Ω term (Bus 1, ECU end)",
           "componentId": "electrical.main-harness.can-bus-backbone"
         },
         {
@@ -669,7 +669,7 @@
         },
         {
           "id": "t1b",
-          "label": "120 \u03a9 term (Bus 1, dash end)",
+          "label": "120 Ω term (Bus 1, dash end)",
           "componentId": "electrical.main-harness.can-bus-backbone"
         },
         {
@@ -714,7 +714,7 @@
         },
         {
           "id": "t2b",
-          "label": "120 \u03a9 term (Bus 2, rear end)",
+          "label": "120 Ω term (Bus 2, rear end)",
           "componentId": "electrical.main-harness.can-bus-backbone"
         },
         {
@@ -996,7 +996,7 @@
         {
           "from": "app",
           "to": "ecu",
-          "label": "2 x 0\u20135 V",
+          "label": "2 x 0–5 V",
           "kind": "signal"
         },
         {
@@ -1014,7 +1014,7 @@
         {
           "from": "fuelp",
           "to": "ecu",
-          "label": "0.5\u20134.5 V",
+          "label": "0.5–4.5 V",
           "kind": "signal"
         },
         {
@@ -1026,7 +1026,7 @@
         {
           "from": "oilp",
           "to": "exf",
-          "label": "0.5\u20134.5 V",
+          "label": "0.5–4.5 V",
           "kind": "signal"
         },
         {
@@ -1038,13 +1038,13 @@
         {
           "from": "coolp",
           "to": "exf",
-          "label": "0.5\u20134.5 V",
+          "label": "0.5–4.5 V",
           "kind": "signal"
         },
         {
           "from": "ccp",
           "to": "exf",
-          "label": "0.5\u20134.5 V",
+          "label": "0.5–4.5 V",
           "kind": "signal"
         },
         {
@@ -1056,25 +1056,25 @@
         {
           "from": "dpf",
           "to": "exf",
-          "label": "0\u20135 V",
+          "label": "0–5 V",
           "kind": "signal"
         },
         {
           "from": "bp",
           "to": "exf",
-          "label": "0.5\u20134.5 V",
+          "label": "0.5–4.5 V",
           "kind": "signal"
         },
         {
           "from": "sas",
           "to": "exf",
-          "label": "0\u20135 V",
+          "label": "0–5 V",
           "kind": "signal"
         },
         {
           "from": "dpr",
           "to": "exr",
-          "label": "0\u20135 V",
+          "label": "0–5 V",
           "kind": "signal"
         },
         {
@@ -1155,11 +1155,11 @@
       "id": "electrical.grounding-scheme",
       "title": "Grounding scheme",
       "type": "wiring",
-      "description": "High-current returns via the unibody (engine straps \u2192 front stud \u2192 body \u2192 rear stud \u2192 battery negative), plus a separate star ground in the cabin for electronics and sensor 0 V references returned only to their own device.",
+      "description": "High-current returns via the unibody (engine straps → front stud → body → rear stud → battery negative), plus a separate star ground in the cabin for electronics and sensor 0 V references returned only to their own device.",
       "nodes": [
         {
           "id": "bneg",
-          "label": "Battery \u2212 (via isolator)",
+          "label": "Battery − (via isolator)",
           "componentId": "electrical.grounding.battery-negative-cable"
         },
         {
@@ -1272,7 +1272,7 @@
         {
           "from": "trans",
           "to": "body",
-          "label": "8\u20134 AWG",
+          "label": "8–4 AWG",
           "kind": "ground"
         },
         {
@@ -1335,7 +1335,7 @@
   "routes": [
     {
       "id": "electrical.route.main-battery-cable",
-      "name": "Main battery cable (trunk \u2192 firewall \u2192 starter)",
+      "name": "Main battery cable (trunk → firewall → starter)",
       "kind": "power",
       "componentId": "electrical.charging-starting.main-positive-cable",
       "radius": 0.008,
@@ -1423,7 +1423,7 @@
     },
     {
       "id": "electrical.route.main-harness-trunk",
-      "name": "Main chassis harness trunk (front \u2192 rear)",
+      "name": "Main chassis harness trunk (front → rear)",
       "kind": "signal",
       "componentId": "electrical.main-harness.chassis-trunk",
       "radius": 0.012,
@@ -1588,7 +1588,7 @@
         [
           3.69,
           0.88,
-          0.65
+          0.63
         ]
       ]
     },
@@ -1682,7 +1682,7 @@
     },
     {
       "id": "electrical.route.can-backbone",
-      "name": "CAN backbone (ECU \u2192 PDM \u2192 dash \u2192 GPS on roof)",
+      "name": "CAN backbone (ECU → PDM → dash → GPS on roof)",
       "kind": "can",
       "componentId": "electrical.main-harness.can-bus-backbone",
       "radius": 0.004,
@@ -1816,7 +1816,7 @@
       "url": "https://www.eagleautoparts.com.au/products/chevrolet-lt4-engine-controller-suits-8l90-10l90-transmissions-19433249"
     },
     {
-      "title": "Optima \u2013 2016 Camaro battery size",
+      "title": "Optima – 2016 Camaro battery size",
       "url": "https://www.optimabatteries.com/experience/blog/2016-camaro-battery-size"
     },
     {
@@ -1856,11 +1856,11 @@
       "url": "https://katechengines.com/pdf/183919"
     },
     {
-      "title": "GM TechLink \u2013 Global A module security",
+      "title": "GM TechLink – Global A module security",
       "url": "https://gm-techlink.com/?p=11221"
     },
     {
-      "title": "PowerNation \u2013 2016 Camaro Alpha architecture",
+      "title": "PowerNation – 2016 Camaro Alpha architecture",
       "url": "https://www.powernationtv.com/post/2016-camaro-is-all-new-from-the-bowtie-up"
     }
   ]

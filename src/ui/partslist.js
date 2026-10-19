@@ -1,92 +1,117 @@
-// Parts list / catalog with spinning 3D models, names and part numbers.
-import { state, select, emit, track } from '../state.js';
+// Parts list / catalog: spinning 3D model, name, location, part numbers and torque at a glance.
+import { state, select, emit, set } from '../state.js';
 import { el, esc } from './dom.js';
-import { previewCanvas } from './preview.js';
+import { icon } from './icons.js';
+import { previewSlot } from './preview.js';
+import { statusBadge, partNumbers, torqueLine, systemName, zoneName, groupTitle } from './present.js';
 
-/** Part numbers to show for a component: factory first, then race options. */
-export function partNumbers(c) {
-  const out = [];
-  if (c.factory?.partNumber) out.push({ kind: 'GM', pn: String(c.factory.partNumber).replace(/^GM\s*/i, ''), name: c.factory.name || '' });
-  for (const o of c.raceOptions) if (o.partNumber) out.push({ kind: o.brand || 'Race', pn: o.partNumber, name: o.name || '' });
-  return out;
+export { partNumbers };
+
+/** Part number with its source; an option nobody chose is never shown as "the" number. */
+function pnLine(pns) {
+  if (!pns.length) return '';
+  const p = pns.find((x) => x.chosen) || pns.find((x) => x.key === 'factory');
+  if (!p) return `<span class="pl-pns"><span class="pl-pn"><b>Race options</b>${pns.length} on file · none chosen</span></span>`;
+  const label = p.chosen ? 'My choice' : 'GM';
+  return `<span class="pl-pns"><span class="pl-pn${p.chosen ? ' chosen' : ''}"><b>${label}</b>${esc(String(p.pn).split(/\s*[(;]/)[0].slice(0, 24))}</span></span>`;
 }
 
-function chosenLabel(c) {
-  const ch = track(c.id).choice;
-  if (!ch) return '';
-  if (ch === 'factory') return c.factory?.name ? `My build: ${c.factory.name}` : 'My build: GM factory';
-  const o = c.raceOptions[Number(ch.split('-')[1])];
-  return o ? `My build: ${[o.brand, o.name].filter(Boolean).join(' ')}` : '';
-}
+const dims = (d) => {
+  const v = String(d).replace(/^\s*(approx\.?|approximately|~)\s*/i, '');
+  return v.length > 90 ? `${v.slice(0, 88)}…` : v;
+};
 
-function card(c, layout) {
-  const sys = state.sysById.get(c.system);
+function card(c, layout, opts) {
   const pns = partNumbers(c);
-  const st = track(c.id).status || '';
-  const row = el('div', `pl-item ${layout}`);
+  const item = el('div', `pl-item ${layout}`);
   const fig = el('div', 'pl-fig');
-  fig.appendChild(previewCanvas(c.id, layout === 'grid' ? 220 : 168));
-  row.appendChild(fig);
-  const info = el('div', 'pl-info', `
-    <div class="pl-name"><span class="dot ${st}"></span>${esc(c.name)}${c.qty > 1 ? ` <span class="pl-qty">×${esc(c.qty)}</span>` : ''}</div>
-    <div class="pl-sub"><span class="sw" style="background:${sys.color}"></span>${esc(state.subById.get(c.subsystem)?.name || '')}</div>
-    ${pns.length ? `<div class="pl-pns">${pns.slice(0, 3).map((p) => `<span class="pl-pn" title="${esc(p.name)}"><b>${esc(p.kind)}</b> ${esc(p.pn)}</span>`).join('')}${pns.length > 3 ? `<span class="pl-more">+${pns.length - 3}</span>` : ''}</div>` : '<div class="pl-pns"><span class="pl-none">No part number on file</span></div>'}
-    ${c.modelRef?.dimensions ? `<div class="pl-dims">${esc(c.modelRef.dimensions)}</div>` : ''}
-    ${chosenLabel(c) ? `<div class="pl-choice">${esc(chosenLabel(c))}</div>` : ''}`);
-  row.appendChild(info);
+  fig.appendChild(previewSlot(c.id));
+  item.appendChild(fig);
+  // inside an area or a location the corner is already known: short name, no chip
+  const inContext = (opts.groupId && c.subsystem === opts.groupId) || (opts.zoneCtx && c.zone === opts.zoneCtx);
+  const name = inContext ? c.short : c.displayName;
+  const loc = !inContext ? `<span class="loc-chip">${icon('pin', 12)}${esc(c.loc ? zoneName(c.loc) : zoneName(c.zone))}</span>` : '';
+  const where = opts.showSystem ? `<span>${esc(systemName(c.system))} › ${esc(groupTitle(c.subsystem))}</span>` : '';
+  // the card shows what you need to spot it and fit it; everything else is on the part page
+  const info = el('button', 'pl-info', `
+    <span class="pl-name">${esc(name)}${c.qty > 1 ? ` <span class="count">×${esc(c.qty)}</span>` : ''}</span>
+    ${torqueLine(c)}
+    ${loc || where || statusBadge(c.id) ? `<span class="pl-meta">${loc}${where}${statusBadge(c.id)}</span>` : ''}
+    ${pnLine(pns)}`);
+  info.type = 'button';
+  info.setAttribute('aria-label', `${c.displayName}${c.qty > 1 ? `, quantity ${c.qty}` : ''}. Show on the car`);
   info.addEventListener('click', () => {
     emit('close-modal');
     select({ type: 'component', id: c.id });
     emit('frame', { type: 'component', id: c.id });
+    emit('focus-title');
   });
-  return row;
+  item.addEventListener('mouseenter', () => emit('hover', c.id));
+  item.addEventListener('mouseleave', () => emit('hover', null));
+  item.appendChild(info);
+  return item;
 }
 
 /**
- * Render a searchable list of parts.
- * ids: component ids; opts.layout 'list' | 'grid'; opts.groupBySubsystem
+ * Searchable list of parts.
+ * opts: layout 'list'|'grid', group: 'tier'|'system', groupId (the group being shown),
+ *       showSystem, showLoc, onOpenCatalog
  */
 export function renderPartsList(container, ids, opts = {}) {
   const layout = opts.layout || 'list';
-  const wrap = el('div', 'pl-wrap');
   const bar = el('div', 'pl-bar');
   const q = el('input');
   q.type = 'search';
-  q.placeholder = `Filter ${ids.length} parts by name or part number…`;
+  q.placeholder = 'Filter these parts';
+  q.setAttribute('aria-label', 'Filter these parts by name or part number');
   bar.appendChild(q);
+  const spin = el('button', 'tool');
+  spin.type = 'button';
+  const drawSpin = () => {
+    spin.innerHTML = `${icon(state.spin ? 'pause' : 'play', 16)}<span class="lbl">${state.spin ? 'Stop spin' : 'Spin'}</span>`;
+    spin.title = state.spin ? 'Stop the 3D models turning' : 'Turn the 3D models';
+    spin.setAttribute('aria-pressed', String(!state.spin));
+  };
+  drawSpin();
+  spin.addEventListener('click', () => { set('spin', !state.spin); drawSpin(); });
+  bar.appendChild(spin);
   if (opts.onOpenCatalog) {
-    const b = el('button', 'btn', 'Big view');
-    b.title = 'Open as a large grid';
+    const b = el('button', 'tool', `${icon('parts', 16)}<span class="lbl">Big view</span>`);
+    b.type = 'button';
+    b.title = 'Open these parts as a large grid';
     b.addEventListener('click', opts.onOpenCatalog);
     bar.appendChild(b);
   }
-  wrap.appendChild(bar);
-  wrap.appendChild(el('div', 'pl-hint', 'Drag a model to turn it by hand. Tap a name to find it on the car.'));
+  container.appendChild(bar);
   const listEl = el('div', `pl-list ${layout}`);
-  wrap.appendChild(listEl);
-  container.appendChild(wrap);
+  container.appendChild(listEl);
 
   const comps = ids.map((id) => state.byId.get(id)).filter(Boolean);
+  const heading = (txt, color) => el('div', 'pl-group', `${color ? `<span class="sw" style="background:${color}"></span>` : ''}${esc(txt)}`);
   const draw = () => {
     const f = q.value.trim().toLowerCase();
     listEl.replaceChildren();
-    let lastSub = null;
+    let last = null;
     let shown = 0;
     for (const c of comps) {
       if (f) {
-        const hay = `${c.name} ${c.id} ${partNumbers(c).map((p) => p.kind + ' ' + p.pn + ' ' + p.name).join(' ')} ${c.factory?.name || ''}`.toLowerCase();
+        const hay = `${c.displayName} ${c.name} ${c.alias} ${partNumbers(c).map((p) => `${p.kind} ${p.pn} ${p.name}`).join(' ')} ${c.factory?.name || ''}`.toLowerCase();
         if (!f.split(/\s+/).every((t) => hay.includes(t))) continue;
       }
-      if (opts.groupBySubsystem && c.subsystem !== lastSub) {
-        lastSub = c.subsystem;
-        listEl.appendChild(el('div', 'pl-group', esc(state.subById.get(c.subsystem)?.name || '')));
+      const key = opts.group === 'system' ? c.system : opts.group === 'subsystem' ? c.subsystem : c.tier;
+      if (opts.group && key !== last) {
+        last = key;
+        if (opts.group === 'system') listEl.appendChild(heading(systemName(c.system), state.sysById.get(c.system).color));
+        else if (opts.group === 'subsystem') listEl.appendChild(heading(groupTitle(c.subsystem)));
+        else listEl.appendChild(heading(state.db.tierNames?.[c.tier] || ''));
       }
-      listEl.appendChild(card(c, layout));
+      listEl.appendChild(card(c, layout, opts));
       shown++;
     }
-    if (!shown) listEl.appendChild(el('div', 'pl-hint', 'No parts match.'));
+    if (!shown) listEl.appendChild(el('p', 'pl-hint', 'No parts match that filter.'));
   };
   let t;
-  q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(draw, 150); });
+  q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(draw, 120); });
   draw();
 }
+

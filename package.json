@@ -6,10 +6,14 @@
   "scripts": {
     "data": "node scripts/build-data.mjs",
     "dev": "npm run data && vite",
-    "build": "npm run data && vite build",
+    "build": "npm run data && node scripts/check-torque.mjs && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/barlow-condensed": "^5.1.1",
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/jetbrains-mono": "^5.1.1",
+    "lucide": "^0.469.0",
     "three": "^0.170.0"
   },
   "devDependencies": {

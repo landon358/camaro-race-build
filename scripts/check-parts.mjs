@@ -31,12 +31,12 @@ function tris(obj) {
 function declaredBox(c) {
   const b = new THREE.Box3();
   for (const m of c.model) {
-    if (m.path) { for (const p of m.path) { b.expandByPoint(new THREE.Vector3(...p)); if (m.mirror) b.expandByPoint(new THREE.Vector3(p[0], p[1], -p[2])); } continue; }
+    if (m.path) { for (const p of m.path) { b.expandByPoint(new THREE.Vector3(p[0], p[1], m.mirrored ? -p[2] : p[2])); if (m.mirror) b.expandByPoint(new THREE.Vector3(p[0], p[1], -p[2])); } continue; }
     if (m.outline) { for (const [x, z] of m.outline) b.expandByPoint(new THREE.Vector3(x, m.y || 0.1, z)); continue; }
     if (m.edge) { for (const [x, z] of m.edge) b.expandByPoint(new THREE.Vector3(x, m.y0 || 0.1, z)); continue; }
     const s = m.size || [0.05, 0.05, 0.05];
     for (const p of m.instances?.length ? m.instances : [m.pos || [0, 0, 0]]) {
-      for (const zz of m.mirror ? [p[2], -p[2]] : [p[2]]) {
+      for (const zz of m.mirror ? [p[2], -p[2]] : m.mirrored ? [-p[2]] : [p[2]]) {
         b.expandByPoint(new THREE.Vector3(p[0] - s[0] / 2, p[1] - s[1] / 2, zz - s[2] / 2));
         b.expandByPoint(new THREE.Vector3(p[0] + s[0] / 2, p[1] + s[1] / 2, zz + s[2] / 2));
       }
@@ -60,7 +60,7 @@ for (const c of db.components) {
         const o = makePrimitive(c, m, p, i);
         if (!o) continue;
         gens.add(o.userData.generator || (m.path ? 'path' : m.shape || 'box'));
-        group.add(o);
+        group.add(m.mirrored ? mirrored(o) : o);
         if (m.mirror) { const t = makePrimitive(c, m, p, i); if (t) group.add(mirrored(t)); }
       }
     });

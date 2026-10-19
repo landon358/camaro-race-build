@@ -3,97 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f1216" />
+    <meta name="description" content="3D build guide for a Gen 6 Camaro road-race car: every part, where it goes, its bolts and torque." />
     <title>Camaro Race Build</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="preload" href="./data/db.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./models/body-parts.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./models/camaro.glb" as="fetch" crossorigin="anonymous" fetchpriority="low" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <header class="topbar">
-      <button class="icon-btn only-narrow" id="btn-left" title="Systems">☰</button>
-      <div class="brand">
-        <span class="brand-mark">G6</span>
-        <div class="brand-text">
-          <div class="brand-title">CAMARO RACE BUILD</div>
-          <div class="brand-sub">Gen 6 · Alpha platform · road race</div>
-        </div>
+    <a class="skip-link" href="#browse">Skip to the parts list</a>
+    <header class="topbar" id="top">
+      <button class="icon-btn only-tablet" id="btn-browse" type="button" aria-label="Show parts list" aria-controls="browse" aria-expanded="false"></button>
+      <a class="brand" href="./" aria-label="Camaro Race Build — home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-title">Camaro Race Build</span>
+          <span class="brand-progress" id="brand-progress" title="Parts installed"><i></i></span>
+        </span>
+      </a>
+      <div class="search-wrap" role="search">
+        <label class="sr-only" for="search">Search parts, bolts and part numbers</label>
+        <input id="search" type="search" placeholder="Search parts, bolts, part numbers" autocomplete="off" spellcheck="false"
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" />
+        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        <div id="search-results" class="search-results" role="listbox" aria-label="Search results" hidden></div>
       </div>
-      <div class="search-wrap">
-        <input id="search" type="search" placeholder="Search parts, bolts, part numbers…  ( / )" autocomplete="off" spellcheck="false" />
-        <div id="search-results" class="search-results" hidden></div>
-      </div>
-      <nav class="top-actions">
-        <button class="top-btn" data-modal="catalog">Parts catalog</button>
-        <button class="top-btn" data-modal="schematics">Schematics</button>
-        <button class="top-btn" data-modal="torque">Torque specs</button>
-        <button class="top-btn" data-modal="tracker">Build tracker</button>
-        <button class="top-btn ghost" data-modal="help">?</button>
-      </nav>
+      <nav class="top-actions" aria-label="Tools" id="top-actions"></nav>
     </header>
 
-    <main class="layout">
-      <aside class="panel left" id="left-panel">
-        <div class="tabs">
-          <button class="tab active" data-tab="systems">Systems</button>
-          <button class="tab" data-tab="phases">Build order</button>
+    <main class="layout" id="layout">
+      <nav class="panel left" id="browse" aria-label="Browse parts">
+        <div class="tabs" role="tablist" aria-label="Browse by">
+          <button class="tab" role="tab" id="tab-btn-systems" aria-controls="tab-systems" aria-selected="true" data-tab="systems">Systems</button>
+          <button class="tab" role="tab" id="tab-btn-locations" aria-controls="tab-locations" aria-selected="false" tabindex="-1" data-tab="locations">Locations</button>
+          <button class="tab" role="tab" id="tab-btn-phases" aria-controls="tab-phases" aria-selected="false" tabindex="-1" data-tab="phases">Build order</button>
         </div>
-        <div class="tab-body" id="tab-systems"></div>
-        <div class="tab-body" id="tab-phases" hidden></div>
+        <div class="tab-body" id="tab-systems" role="tabpanel" aria-labelledby="tab-btn-systems"></div>
+        <div class="tab-body" id="tab-locations" role="tabpanel" aria-labelledby="tab-btn-locations" hidden></div>
+        <div class="tab-body" id="tab-phases" role="tabpanel" aria-labelledby="tab-btn-phases" hidden></div>
         <div class="left-foot" id="left-foot"></div>
-      </aside>
+      </nav>
+      <div class="scrim" id="scrim" hidden></div>
 
-      <section class="viewport" id="viewport">
-        <canvas id="c"></canvas>
-        <div id="labels" class="labels"></div>
-        <div id="hover-tip" class="hover-tip" hidden></div>
-        <div class="crumbs" id="crumbs"></div>
-        <div class="loading" id="loading"><div class="spinner"></div><div id="loading-text">Loading car…</div></div>
-
-        <div class="toolbar" id="toolbar">
-          <div class="tool-group">
-            <span class="tool-label">Body</span>
-            <div class="seg" id="seg-body">
-              <button data-v="solid">Solid</button>
-              <button data-v="ghost" class="on">Ghost</button>
-              <button data-v="off">Off</button>
-            </div>
-          </div>
-          <div class="tool-group grow">
-            <span class="tool-label">Explode</span>
-            <input type="range" id="explode" min="0" max="1" step="0.01" value="0" />
-          </div>
-          <div class="tool-group grow">
-            <span class="tool-label">Built through</span>
-            <input type="range" id="phase" min="1" max="12" step="1" value="12" />
-            <span class="tool-val" id="phase-val">All</span>
-          </div>
-          <div class="tool-group">
-            <button class="chip on" id="t-routes" title="Lines, hoses, harness & cage tubes">Lines</button>
-            <button class="chip" id="t-flow" title="Animate fluid / power flow">Flow</button>
-            <button class="chip" id="t-real" title="Realistic part colors instead of system colors">Real colors</button>
-            <button class="chip" id="t-status" title="Color parts by build status">Status</button>
-            <button class="chip" id="t-labels" title="Show labels">Labels</button>
-            <button class="chip" id="t-reset" title="Reset view">⟲</button>
+      <section class="viewport" id="viewport" aria-label="3D car">
+        <div class="viewbar" id="viewbar" role="toolbar" aria-label="3D view controls"></div>
+        <div class="stage" id="stage">
+          <canvas id="c" tabindex="-1" aria-label="3D model of the car. Use the parts list to browse the same parts by keyboard."></canvas>
+          <div id="labels" class="labels"></div>
+          <div id="hover-tip" class="hover-tip" hidden></div>
+          <div class="path-chip" id="path-chip" hidden></div>
+          <div class="legend" id="legend" hidden></div>
+          <div class="gl-fallback" id="gl-fallback" hidden></div>
+          <div class="loading" id="loading" role="status">
+            <div class="load-bar"><i id="load-bar"></i></div>
+            <div id="loading-text">Loading parts…</div>
           </div>
         </div>
       </section>
 
-      <aside class="panel right" id="right-panel">
+      <aside class="panel right" id="details" aria-label="Details">
+        <div class="sheet-handle" id="sheet-handle" aria-hidden="true"><i></i></div>
         <div id="inspector" class="inspector"></div>
       </aside>
     </main>
 
-    <div class="modal" id="modal" hidden>
+    <nav class="tabbar" id="tabbar" aria-label="Main"></nav>
+
+    <dialog class="modal" id="modal" aria-labelledby="modal-title">
       <div class="modal-card">
         <div class="modal-head">
-          <h2 id="modal-title"></h2>
+          <h2 id="modal-title" tabindex="-1"></h2>
           <div class="modal-tools" id="modal-tools"></div>
-          <button class="icon-btn" id="modal-close" title="Close">✕</button>
+          <button class="icon-btn" id="modal-close" type="button" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body"></div>
       </div>
-    </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <div class="sr-only" id="sr-live" aria-live="polite"></div>
+    <div id="print-root" class="print-root" aria-hidden="true"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

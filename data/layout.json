@@ -1,0 +1,707 @@
+{
+  "_comment": "How research subsystems are presented: a few groups per system, and physical corners where it matters. 'groups' map research subsystems wholesale; 'corners' splits parts in the listed subsystems by where they sit on the car (FL/FR/RL/RR), with centre pieces going to 'centerFront' / 'centerRear' (or 'center'). Parts with no 3D model in a corner subsystem go to 'noModel'.",
+  "systems": {
+    "chassis": {
+      "groups": [
+        {
+          "id": "shell",
+          "name": "Body Shell & Structure",
+          "desc": "The bare unibody: rails, strut towers, floor, pillars, rockers and trunk floor.",
+          "subs": [
+            "unibody"
+          ]
+        },
+        {
+          "id": "reinforcement",
+          "name": "Welds, Gussets & Braces",
+          "desc": "Stitch welding, gussets, backing plates and strut-tower braces that stiffen the shell.",
+          "subs": [
+            "seam-welding-and-reinforcement",
+            "strut-tower-and-chassis-braces"
+          ]
+        },
+        {
+          "id": "floor",
+          "name": "Tunnel & Mounting Points",
+          "desc": "Transmission tunnel, driveshaft loop, jack/tow points, rivnuts and weld-on tabs.",
+          "subs": [
+            "floor-and-tunnel",
+            "mounting-points"
+          ]
+        },
+        {
+          "id": "prep",
+          "name": "Strip, Seal & Paint",
+          "desc": "Prep work on the bare shell: deadener removal, seam sealer, primer and coatings.",
+          "subs": [
+            "corrosion-and-coatings"
+          ]
+        }
+      ]
+    },
+    "safety": {
+      "groups": [
+        {
+          "id": "cage",
+          "name": "Roll Cage",
+          "desc": "Every cage bar, mounting plate, gusset and pad.",
+          "subs": [
+            "roll-cage"
+          ]
+        },
+        {
+          "id": "seat",
+          "name": "Seat, Belts & Net",
+          "desc": "Race seat and mounts, 6-point harness, head restraint and window net.",
+          "subs": [
+            "seat-and-mounts",
+            "harness",
+            "head-and-neck",
+            "window-net"
+          ]
+        },
+        {
+          "id": "fire",
+          "name": "Fire System & Kill Switches",
+          "desc": "Plumbed fire suppression, handheld extinguisher and kill-switch pulls.",
+          "subs": [
+            "fire-suppression",
+            "extinguisher",
+            "kill-switches"
+          ]
+        },
+        {
+          "id": "isolation",
+          "name": "Firewalls & Tow Points",
+          "desc": "Bulkheads sealing the cockpit from fuel and engine, and tow straps.",
+          "subs": [
+            "fuel-and-firewall-isolation",
+            "tow-hooks"
+          ]
+        }
+      ]
+    },
+    "suspension": {
+      "groups": [
+        {
+          "id": "front-left",
+          "name": "Front Left",
+          "loc": "FL",
+          "desc": "Everything suspension at the front left corner: strut, spring, top mount, knuckle, lower links, end link, bump stop."
+        },
+        {
+          "id": "front-right",
+          "name": "Front Right",
+          "loc": "FR",
+          "desc": "Everything suspension at the front right corner."
+        },
+        {
+          "id": "front-center",
+          "name": "Front Subframe & Sway Bar",
+          "loc": "FC",
+          "desc": "Front cradle, its mounts and braces, and the front sway bar between the corners."
+        },
+        {
+          "id": "rear-left",
+          "name": "Rear Left",
+          "loc": "RL",
+          "desc": "Everything suspension at the rear left corner: five links, knuckle, shock, spring, end link."
+        },
+        {
+          "id": "rear-right",
+          "name": "Rear Right",
+          "loc": "RR",
+          "desc": "Everything suspension at the rear right corner."
+        },
+        {
+          "id": "rear-center",
+          "name": "Rear Subframe & Sway Bar",
+          "loc": "RC",
+          "desc": "Rear cradle, its bushings and braces, and the rear sway bar."
+        },
+        {
+          "id": "setup",
+          "name": "Alignment & Setup",
+          "desc": "Alignment, ride height, corner weights and final torque at ride height.",
+          "subs": [
+            "alignment-and-setup"
+          ]
+        }
+      ],
+      "corners": {
+        "subs": [
+          "bump-stops-and-limiters",
+          "front-knuckles",
+          "front-lower-links",
+          "front-struts-springs",
+          "front-sway-bar",
+          "rear-links",
+          "rear-knuckles",
+          "rear-dampers-springs",
+          "rear-sway-bar",
+          "ride-height-sensors",
+          "front-cradle",
+          "rear-cradle"
+        ],
+        "FL": "front-left",
+        "FR": "front-right",
+        "RL": "rear-left",
+        "RR": "rear-right",
+        "centerFront": "front-center",
+        "centerRear": "rear-center",
+        "noModel": "setup",
+        "pinCenter": [
+          "cradle"
+        ]
+      }
+    },
+    "steering": {
+      "groups": [
+        {
+          "id": "front-left",
+          "name": "Front Left",
+          "loc": "FL",
+          "desc": "Inner and outer tie rod and bump-steer parts on the left."
+        },
+        {
+          "id": "front-right",
+          "name": "Front Right",
+          "loc": "FR",
+          "desc": "Inner and outer tie rod and bump-steer parts on the right."
+        },
+        {
+          "id": "rack",
+          "name": "Steering Rack",
+          "loc": "FC",
+          "desc": "Electric power steering rack, motor and mounts on the front subframe.",
+          "subs": [
+            "rack"
+          ]
+        },
+        {
+          "id": "cockpit",
+          "name": "Steering Wheel & Column",
+          "desc": "Race wheel, quick release, column and intermediate shafts down to the rack.",
+          "subs": [
+            "wheel-and-quick-release",
+            "column-and-shaft"
+          ]
+        }
+      ],
+      "corners": {
+        "subs": [
+          "tie-rods",
+          "bump-steer"
+        ],
+        "FL": "front-left",
+        "FR": "front-right",
+        "center": "rack",
+        "noModel": "rack"
+      }
+    },
+    "brakes": {
+      "groups": [
+        {
+          "id": "front-left",
+          "name": "Front Left",
+          "loc": "FL",
+          "desc": "Front left caliper, rotor, pads, flex hose, duct and wheel-speed sensor."
+        },
+        {
+          "id": "front-right",
+          "name": "Front Right",
+          "loc": "FR",
+          "desc": "Front right caliper, rotor, pads, flex hose, duct and wheel-speed sensor."
+        },
+        {
+          "id": "rear-left",
+          "name": "Rear Left",
+          "loc": "RL",
+          "desc": "Rear left caliper, rotor, pads, flex hose, park-brake parts and sensor."
+        },
+        {
+          "id": "rear-right",
+          "name": "Rear Right",
+          "loc": "RR",
+          "desc": "Rear right caliper, rotor, pads, flex hose, park-brake parts and sensor."
+        },
+        {
+          "id": "pedal",
+          "name": "Pedal Box & Master Cylinders",
+          "desc": "Pedals, balance bar, master cylinders, reservoirs and booster.",
+          "subs": [
+            "pedal-box",
+            "master-cylinders"
+          ]
+        },
+        {
+          "id": "lines",
+          "name": "ABS, Hard Lines & Park Brake",
+          "desc": "ABS unit, hard lines running the length of the car, and the park-brake controls.",
+          "subs": []
+        },
+        {
+          "id": "fluid",
+          "name": "Fluid, Bleeding & Bedding",
+          "desc": "Brake fluid spec, bleed order and pad bedding procedure.",
+          "subs": [
+            "fluid"
+          ]
+        }
+      ],
+      "corners": {
+        "subs": [
+          "abs",
+          "lines",
+          "cooling",
+          "front-calipers",
+          "front-pads",
+          "front-rotors",
+          "rear-calipers",
+          "rear-pads",
+          "rear-rotors",
+          "parking-brake"
+        ],
+        "FL": "front-left",
+        "FR": "front-right",
+        "RL": "rear-left",
+        "RR": "rear-right",
+        "center": "lines",
+        "noModel": "fluid",
+        "pinCenter": [
+          "bpmv",
+          "ebcm",
+          "abs-delete",
+          "bosch-motorsport-abs",
+          "mc-to-abs",
+          "front-hard-lines",
+          "rear-hard-lines",
+          "rear-tee",
+          "bulkhead-fittings",
+          "line-clips",
+          "adaptors"
+        ],
+        "sideOnlySubs": [
+          "cooling"
+        ]
+      }
+    },
+    "wheels": {
+      "groups": [
+        {
+          "id": "front-left",
+          "name": "Front Left",
+          "loc": "FL",
+          "desc": "Hub and bearing, studs and lug nuts, wheel, tyre and TPMS at the front left."
+        },
+        {
+          "id": "front-right",
+          "name": "Front Right",
+          "loc": "FR",
+          "desc": "Front right hub, studs, wheel and tyre."
+        },
+        {
+          "id": "rear-left",
+          "name": "Rear Left",
+          "loc": "RL",
+          "desc": "Rear left hub, axle nut, studs, wheel and tyre."
+        },
+        {
+          "id": "rear-right",
+          "name": "Rear Right",
+          "loc": "RR",
+          "desc": "Rear right hub, axle nut, studs, wheel and tyre."
+        },
+        {
+          "id": "shared",
+          "name": "Wheel Supplies & TPMS",
+          "desc": "Parts and supplies shared by all four wheels.",
+          "subs": []
+        }
+      ],
+      "corners": {
+        "subs": [
+          "front-hubs-bearings",
+          "rear-hubs-bearings",
+          "tpms",
+          "spacers",
+          "studs-and-lug-nuts",
+          "wheels",
+          "tires"
+        ],
+        "FL": "front-left",
+        "FR": "front-right",
+        "RL": "rear-left",
+        "RR": "rear-right",
+        "center": "shared",
+        "noModel": "shared"
+      }
+    },
+    "engine": {
+      "groups": [
+        {
+          "id": "bottom-end",
+          "name": "Block & Bottom End",
+          "desc": "Block, crank, rods, pistons, bearings, oil pan and the crank flange.",
+          "subs": [
+            "block",
+            "rotating-assembly",
+            "oil-pan-and-pickup",
+            "flexplate-flywheel-interface"
+          ]
+        },
+        {
+          "id": "top-end",
+          "name": "Heads, Cam & Valvetrain",
+          "desc": "Cylinder heads, camshaft, timing chain, lifters, pushrods, rockers and valve covers.",
+          "subs": [
+            "cylinder-heads",
+            "valvetrain",
+            "valve-covers"
+          ]
+        },
+        {
+          "id": "intake",
+          "name": "Supercharger & Intake",
+          "desc": "LT4 supercharger, intercooler bricks, lid, throttle body (or NA intake).",
+          "subs": [
+            "intake-manifold"
+          ]
+        },
+        {
+          "id": "fuel-ignition",
+          "name": "Fuel Injection & Ignition",
+          "desc": "Direct-injection pump, rails, injectors, coils and plugs.",
+          "subs": [
+            "fuel-injection",
+            "ignition"
+          ]
+        },
+        {
+          "id": "front",
+          "name": "Front Cover & Belt Drive",
+          "desc": "Front cover, balancer, water pump, belts, tensioner and pulleys.",
+          "subs": [
+            "front-cover-and-balancer",
+            "accessory-drive"
+          ]
+        },
+        {
+          "id": "mounts-sensors",
+          "name": "Engine Mounts & Sensors",
+          "desc": "Engine mounts and the sensors that live on the engine.",
+          "subs": [
+            "engine-mounts",
+            "engine-sensors"
+          ]
+        }
+      ]
+    },
+    "engine-support": {
+      "groups": [
+        {
+          "id": "oil",
+          "name": "Oil System",
+          "desc": "Dry-sump pump and tank, oil lines, filter, cooler and breathers.",
+          "subs": [
+            "lubrication",
+            "catch-cans-and-breathers"
+          ]
+        },
+        {
+          "id": "cooling",
+          "name": "Cooling & Intercooler",
+          "desc": "Radiator, fan, hoses, surge tank, and the supercharger intercooler loop.",
+          "subs": [
+            "cooling",
+            "intercooler-loop",
+            "coolers-auxiliary"
+          ]
+        },
+        {
+          "id": "fuel",
+          "name": "Fuel Cell & Fuel Lines",
+          "desc": "Fuel cell, pumps, surge tank, filters, regulator and lines to the engine.",
+          "subs": [
+            "fuel-cell",
+            "fuel-delivery"
+          ]
+        },
+        {
+          "id": "air",
+          "name": "Air Intake",
+          "desc": "Snorkel, airbox, filter and tube to the throttle body.",
+          "subs": [
+            "induction"
+          ]
+        },
+        {
+          "id": "exhaust",
+          "name": "Exhaust",
+          "desc": "Headers, X-pipe, mufflers, tips, hangers and heat shields.",
+          "subs": [
+            "exhaust"
+          ]
+        }
+      ]
+    },
+    "drivetrain": {
+      "groups": [
+        {
+          "id": "rear-left",
+          "name": "Rear Left",
+          "loc": "RL",
+          "desc": "Left halfshaft, CV joints, boots and axle nut."
+        },
+        {
+          "id": "rear-right",
+          "name": "Rear Right",
+          "loc": "RR",
+          "desc": "Right halfshaft, CV joints, boots and axle nut."
+        },
+        {
+          "id": "clutch",
+          "name": "Clutch & Bellhousing",
+          "desc": "Flywheel, clutch, slave cylinder, clutch pedal and hydraulics.",
+          "subs": [
+            "flywheel-clutch",
+            "clutch-hydraulics",
+            "bellhousing"
+          ]
+        },
+        {
+          "id": "transmission",
+          "name": "Transmission & Shifter",
+          "desc": "TR-6060 gearbox, sensors, mount, crossmember, shifter and trans cooler.",
+          "subs": [
+            "transmission",
+            "shifter",
+            "trans-mount-crossmember"
+          ]
+        },
+        {
+          "id": "driveshaft",
+          "name": "Driveshaft",
+          "desc": "Two-piece driveshaft, flex couplers, centre bearing and safety loop.",
+          "subs": [
+            "driveshaft"
+          ]
+        },
+        {
+          "id": "diff",
+          "name": "Rear Differential",
+          "loc": "RC",
+          "desc": "Rear differential, its mounts, seals, cover and diff cooler.",
+          "subs": [
+            "rear-differential",
+            "coolers"
+          ]
+        }
+      ],
+      "corners": {
+        "subs": [
+          "halfshafts"
+        ],
+        "RL": "rear-left",
+        "RR": "rear-right",
+        "FL": "rear-left",
+        "FR": "rear-right",
+        "center": "diff",
+        "noModel": "diff",
+        "sideOnly": true
+      },
+      "move": [
+        {
+          "match": "coolers.trans-",
+          "to": "transmission"
+        },
+        {
+          "match": "coolers.inline-filters",
+          "to": "transmission"
+        },
+        {
+          "match": "coolers.pump-control",
+          "to": "transmission"
+        },
+        {
+          "match": "coolers.cooler-ducting",
+          "to": "transmission"
+        }
+      ]
+    },
+    "electrical": {
+      "groups": [
+        {
+          "id": "power",
+          "name": "Battery, Power & Grounds",
+          "desc": "Battery, master switch, power distribution, alternator, starter and grounds.",
+          "subs": [
+            "battery-and-cutoff",
+            "power-distribution",
+            "grounding",
+            "charging-starting"
+          ]
+        },
+        {
+          "id": "engine",
+          "name": "Engine Electronics",
+          "desc": "ECU, engine harness, sensors, fan and pump control.",
+          "subs": [
+            "engine-management",
+            "sensors",
+            "fans-and-pumps-control"
+          ]
+        },
+        {
+          "id": "cockpit",
+          "name": "Dash, Controls & Radio",
+          "desc": "Dash display, keypad, switches, radio, camera and transponder.",
+          "subs": [
+            "dash-and-controls",
+            "comms-video-timing"
+          ]
+        },
+        {
+          "id": "data",
+          "name": "Data Logging",
+          "desc": "Logger, GPS, and the chassis sensors it records.",
+          "subs": [
+            "data-acquisition"
+          ]
+        },
+        {
+          "id": "harness",
+          "name": "Wiring Harness",
+          "desc": "Main harness runs, bulkhead connectors and the CAN backbone.",
+          "subs": [
+            "main-harness"
+          ]
+        },
+        {
+          "id": "lighting",
+          "name": "Lighting",
+          "desc": "Headlights, brake lights, rain light and markers.",
+          "subs": [
+            "lighting"
+          ]
+        }
+      ]
+    },
+    "interior": {
+      "groups": [
+        {
+          "id": "dash-panels",
+          "name": "Dash, Panels & Mirrors",
+          "desc": "Race dash panel, switch panel, door cards and mirrors.",
+          "subs": [
+            "dash",
+            "door-cards-panels",
+            "mirrors"
+          ]
+        },
+        {
+          "id": "driver",
+          "name": "Driver Area & Cooling",
+          "desc": "Footwell, heel plate, dead pedal and the driver cooling system.",
+          "subs": [
+            "pedal-area-floor",
+            "driver-cooling"
+          ]
+        },
+        {
+          "id": "prep",
+          "name": "Strip-out & Ballast",
+          "desc": "Interior removal and ballast mounting.",
+          "subs": [
+            "strip-and-deadener-removal",
+            "ballast"
+          ]
+        }
+      ]
+    },
+    "body": {
+      "groups": [
+        {
+          "id": "panels",
+          "name": "Body Panels & Fasteners",
+          "desc": "Hood, fenders, doors, fascias, decklid, mirrors and their fasteners.",
+          "subs": [
+            "panels",
+            "hood-and-fasteners",
+            "trim-and-fasteners",
+            "mirrors"
+          ]
+        },
+        {
+          "id": "glass-lights",
+          "name": "Glass & Lights",
+          "desc": "Windshield, polycarbonate windows, headlamps and tail lamps.",
+          "subs": [
+            "glass-and-lexan",
+            "lighting-housings"
+          ]
+        },
+        {
+          "id": "paint",
+          "name": "Paint & Graphics",
+          "desc": "Paint, wrap, numbers and required decals.",
+          "subs": [
+            "paint-wrap"
+          ]
+        }
+      ]
+    },
+    "aero": {
+      "groups": [
+        {
+          "id": "front",
+          "name": "Splitter & Canards",
+          "loc": "F",
+          "desc": "Front splitter, air dam, support rods, skid blocks and canards.",
+          "subs": [
+            "front-splitter",
+            "dive-planes-canards"
+          ]
+        },
+        {
+          "id": "underbody",
+          "name": "Underbody, Skirts & Diffuser",
+          "desc": "Undertray panels, side skirts and rear diffuser.",
+          "subs": [
+            "undertray",
+            "side-skirts",
+            "rear-diffuser"
+          ]
+        },
+        {
+          "id": "wing",
+          "name": "Rear Wing",
+          "loc": "R",
+          "desc": "Wing element, endplates, Gurney flap, uprights and mounts.",
+          "subs": [
+            "rear-wing"
+          ]
+        },
+        {
+          "id": "ducts",
+          "name": "Ducts & Vents",
+          "desc": "Hood extractor, fender louvres, fascia inlets and radiator ducting.",
+          "subs": [
+            "ducts-and-vents"
+          ]
+        }
+      ]
+    }
+  },
+  "hide": {
+    "drivetrain.halfshafts.axle-nut": "wheels.rear-hubs-bearings.axle-nut",
+    "electrical.sensors.fuel-level-sender": "engine-support.fuel-cell.level-sender",
+    "electrical.sensors.fuel-pressure-sensor-low": "engine-support.fuel-delivery.fuel-pressure-sensor"
+  },
+  "tier": {
+    "suspension.front-struts-springs.helper-springs": 0
+  },
+  "zone": {
+    "suspension.ride-height-sensors.damper-control-module": "CAB"
+  }
+}
