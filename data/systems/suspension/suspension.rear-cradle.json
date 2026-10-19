@@ -1,0 +1,447 @@
+{
+  "id": "suspension.rear-cradle",
+  "system": "suspension",
+  "name": "Rear Cradle (Rear Suspension Bracket / Subframe)",
+  "description": "Steel rear subframe carrying the differential, all inner pivots of the five rear links and the rear sway bar. It mounts to the body through four rubber bushings with torque-to-yield bolts and is braced by bolted front and rear cradle braces. Bushing compliance here lets the whole rear axle steer and squat; race cars use solid or Delrin mounts.",
+  "components": [
+    {
+      "id": "suspension.rear-cradle.cradle",
+      "name": "Rear cradle (rear suspension bracket)",
+      "qty": 1,
+      "description": "Welded steel subframe that is the reference for rear toe and camber geometry. The differential mounts to it through its own bushings (drivetrain system). To drop it you must remove the exhaust, unbolt the driveshaft at the diff (3 bolts, 18 mm), unplug the electric parking brake harness and hang the calipers; with poly or solid mounts it is easiest to lower the cradle completely to the ground.",
+      "location": "Around the differential, approx x 2.45-3.10, y 0.22-0.45, z +/-0.50.",
+      "connectsTo": [
+        "chassis.unibody.rear-rails",
+        "suspension.rear-cradle.cradle-bushings",
+        "suspension.rear-cradle.front-cradle-braces",
+        "suspension.rear-cradle.rear-cradle-brace",
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-links.upper-control-arm",
+        "suspension.rear-links.upper-trailing-arm",
+        "suspension.rear-links.lower-trailing-arm",
+        "suspension.rear-links.toe-link",
+        "suspension.rear-sway-bar.insulators-and-clamps",
+        "drivetrain.differential.diff-mount-bushings"
+      ],
+      "factory": {
+        "name": "GM Gen 6 rear cradle (steel)",
+        "notes": "Shared with Alpha-family cars for aftermarket bushings (BMR lists 2016-24 Camaro)."
+      },
+      "raceOptions": [
+        {
+          "name": "Factory cradle with solid mounts, seam welded and gusseted",
+          "brand": "Fabricator built",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Body mounts": "4 bushings (2 front, 2 rear)",
+        "Main bolts": "TTY 74 lb ft (100 N·m) + 90-105 deg"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Bench-assemble differential (drivetrain), links and sway bar on the cradle; lift the complete assembly with a transmission jack/cradle table.",
+        "Install the springs after the cradle is bolted up (easier per BMR): drop each LCA outer bolt and shock bolt, insert spring, jack the LCA back up.",
+        "Torque main cradle bolts, then cradle brace bolts, then reconnect driveshaft, EPB harness, diff cooler lines (if fitted)."
+      ],
+      "inspection": [
+        "Check cradle welds near link pivots and diff mounts.",
+        "Check bolts witness marks."
+      ],
+      "buildPhase": 3,
+      "installOrder": 40,
+      "tags": [
+        "cradle",
+        "subframe",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK061 rear cradle bushing instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.75,
+            0.38,
+            0
+          ],
+          "size": [
+            0.88,
+            0.34,
+            1.06
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "approx 880 x 1060 x 340 mm envelope (with link towers)",
+        "features": "Welded steel perimeter cradle with hydroformed side rails, front and rear cross members, tall camber-link towers, trailing-link brackets, LCA and toe clevises, diff mount brackets (2 front, 1 rear), 4 body-mount bushing housings",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-cradle.cradle-bushings",
+      "name": "Rear cradle mount bushings and main cradle bolts",
+      "qty": 4,
+      "description": "Four rubber isolators pressed into the cradle (2 front, 2 rear), each clamped by a long torque-to-yield bolt into captured nuts in the body; the rear bolts include a stud that carries the rear cradle brace. Factory bushings have voids that allow fore-aft and lateral cradle movement (wheel hop, rear steer). Options: polyurethane (BK061), Delrin (BK062, cut out factory bushing with a saw) or a void-filling lockout kit (BK063, no cradle removal).",
+      "location": "Front pair approx (x 2.45, y 0.40, z +/-0.50); rear pair approx (x 3.08, y 0.40, z +/-0.46).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "chassis.unibody.rear-rails",
+        "chassis.seam-welding-and-reinforcement.cradle-mount-reinforcements",
+        "suspension.rear-cradle.rear-cradle-brace"
+      ],
+      "factory": {
+        "name": "GM mount, rear suspension cradle",
+        "partNumber": "GM 84089600 / 84053251 (ZL1 'High Performance'); 23108389, 84022736, 84022735 (other trims)",
+        "notes": "GM catalog lists 84089600 (1SS/2SS/High Performance, qty 2) and 84053251 (High Performance) for the ZL1; front vs rear location by part number not confirmed - verify by VIN."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR BK061 polyurethane cradle bushings",
+          "brand": "BMR Suspension",
+          "partNumber": "BK061",
+          "notes": "Cradle must be dropped; cut factory bushings out with a reciprocating saw; uses supplied 12 x 140 mm rear bolts with 1/4 in stainless spacer washers; drill factory rear braces to 1/2 in.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        },
+        {
+          "name": "BMR BK062 Delrin cradle bushings",
+          "brand": "BMR Suspension",
+          "partNumber": "BK062",
+          "notes": "Near-solid mount for racing; same procedure as BK061.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK062.pdf"
+        },
+        {
+          "name": "BMR BK063 aluminum/Delrin lockout kit",
+          "brand": "BMR Suspension",
+          "partNumber": "BK063",
+          "notes": "Fills factory bushing voids with aluminum spacers, Delrin lockouts and 8 bullet inserts; cradle only lowered slightly.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK063.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Forward rear cradle bolt (rear suspension bracket bolt)",
+          "qty": 1,
+          "spec": "Long flange bolt, 18 mm hex; GM P/N 11547921",
+          "grade": "OE TTY",
+          "partNumber": "GM 11547921",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "First pass 100 N·m (74 lb ft) all four bolts, then +90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY per GM)",
+          "tool": "18 mm deep socket",
+          "notes": "Applies to each of the 2 forward bolts; the factory front cradle brace is clamped under this bolt.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        },
+        {
+          "item": "Rearward rear cradle bolt/stud",
+          "qty": 1,
+          "spec": "Long flange bolt with integral stud (carries rear cradle brace), 18 mm hex; GM P/N 11611819",
+          "grade": "OE TTY",
+          "partNumber": "GM 11611819",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "100 N·m, then +90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY per GM)",
+          "tool": "18 mm deep socket",
+          "notes": "Each of the 2 rearward bolts. BMR also lists GM 11570985 'rear suspension bracket front bolt + stud' in its fastener table.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK063.pdf"
+        }
+      ],
+      "installNotes": [
+        "Support the cradle with a jack; remove braces (15 mm) and main bolts (18 mm).",
+        "For BK063: insert gold spacers and Delrin lockouts into factory bushings, grease and insert the bullet inserts, install aluminum washer, reinstall bolts.",
+        "Torque all four main bolts 100 N·m then +90-105 deg; then brace hardware (see braces).",
+        "Realign after any cradle bushing change."
+      ],
+      "inspection": [
+        "Check for cradle shift (witness marks) and bushing extrusion."
+      ],
+      "buildPhase": 3,
+      "installOrder": 41,
+      "tags": [
+        "cradle-bushing",
+        "tty",
+        "delrin",
+        "lockout"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK061 / BK062 / BK063 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK062.pdf"
+        },
+        {
+          "title": "GM Parts Giant - rear suspension cradle mounts (2017 Camaro)",
+          "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-camaro-crossmember_bushing.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.36,
+            0.36,
+            0.48
+          ],
+          "size": [
+            0.09,
+            0.08,
+            0.09
+          ],
+          "axis": "y",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.14,
+            0.37,
+            0.46
+          ],
+          "size": [
+            0.09,
+            0.08,
+            0.09
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 90 mm OD x 80 mm",
+        "features": "Large bonded rubber mounts with rebound flange (item 19), through bolt into the rear rail",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-cradle.front-cradle-braces",
+      "name": "Front cradle-to-chassis braces (front of rear cradle)",
+      "qty": 2,
+      "description": "Factory stamped braces (one per side) from the front rear-cradle mount forward to the body. The rear end is clamped under the forward main cradle bolt; the front end has two bolts into the floor. BMR CB008 is a stiffer replacement.",
+      "location": "Ahead of the rear cradle, approx x 2.20-2.45, y 0.35, z +/-0.52.",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle-bushings",
+        "chassis.unibody.floor-pan",
+        "chassis.unibody.rear-rails"
+      ],
+      "factory": {
+        "name": "GM rear cradle front braces",
+        "notes": "A small T15 screw retains the rear splash shield near the brace."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR CB008 front-of-rear-cradle chassis braces",
+          "brand": "BMR Suspension",
+          "partNumber": "CB008",
+          "notes": "",
+          "url": "https://www.bmrsuspension.com/siteart/install/CB008.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brace-to-chassis bolt",
+          "qty": 2,
+          "spec": "M10 flange bolt, 15 mm hex",
+          "grade": "OE",
+          "torque": "43 ft-lb (58 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "15 mm deep socket",
+          "notes": "Torque after main cradle bolt is fully torqued. TightTorque lists GM 'suspension bracket front bolts' 58 N·m.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/CB008.pdf"
+        }
+      ],
+      "installNotes": [
+        "Thread main cradle bolt by hand first, then the two brace bolts, then torque the main bolt (TTY), then the brace bolts."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 42,
+      "tags": [
+        "cradle-brace"
+      ],
+      "sources": [
+        {
+          "title": "BMR CB008 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/CB008.pdf"
+        },
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.36,
+              0.315,
+              0.48
+            ],
+            [
+              2.1,
+              0.215,
+              0.6
+            ]
+          ],
+          "radius": 0.016,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "BMR CB008 front-of-rear-cradle brace install sheet",
+            "url": "https://www.bmrsuspension.com/siteart/install/CB008.pdf"
+          },
+          {
+            "title": "BMR CB008 at JEGS (2016-2024 Camaro)",
+            "url": "https://www.jegs.com/i/bmr-suspension-142-cb008r-cb008r-cradle-brace-for-2016-2024-chevy-camaro-red"
+          }
+        ],
+        "dimensions": "approx 300 mm",
+        "features": "Tubular brace from the front cradle bolt forward to the floor/rocker structure, flattened bolted ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-cradle.rear-cradle-brace",
+      "name": "Rear cradle-to-chassis brace(s) (behind rear cradle)",
+      "qty": 1,
+      "description": "Factory braces (one per side) behind the rear cradle that bolt to the body and attach to the stud of each rearward main cradle bolt with a nut. BMR CB009 is a one-piece cross brace tying both rear mounts together.",
+      "location": "Behind the rear cradle, approx x 3.10-3.25, y 0.38, z +/-0.46.",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle-bushings",
+        "chassis.unibody.rear-rails",
+        "chassis.unibody.trunk-floor"
+      ],
+      "factory": {
+        "name": "GM rear cradle rear braces (2)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR CB009 rear-of-rear-cradle chassis brace",
+          "brand": "BMR Suspension",
+          "partNumber": "CB009",
+          "notes": "Center nuts 40 ft-lb; uses stainless washers on top of brace if BK063 lockout not installed.",
+          "url": "https://www.bmrsuspension.com/siteart/install/CB009.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brace-to-cradle stud nut (on rearward main cradle bolt stud)",
+          "qty": 2,
+          "spec": "M10/M12 nut on cradle bolt stud (15/18 mm)",
+          "grade": "OE",
+          "torque": "50 ft-lb (68 N·m) per BMR; GM 'suspension bracket nuts' listed at 58 N·m (43 lb ft)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Values differ between BMR (50 ft-lb) and the GM listing (58 N·m) - verify in GM SI.",
+          "confidence": "typical",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK063.pdf"
+        },
+        {
+          "item": "Brace-to-chassis bolt",
+          "qty": 2,
+          "spec": "M10 flange bolt, 15 mm hex",
+          "grade": "OE",
+          "torque": "43 ft-lb (58 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK063.pdf"
+        }
+      ],
+      "installNotes": [
+        "Torque main TTY bolts first, then brace nuts, then brace-to-chassis bolts."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 43,
+      "tags": [
+        "cradle-brace"
+      ],
+      "sources": [
+        {
+          "title": "BMR CB009 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/CB009.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.14,
+              0.325,
+              0.46
+            ],
+            [
+              3.2,
+              0.33,
+              0
+            ],
+            [
+              3.14,
+              0.325,
+              -0.46
+            ]
+          ],
+          "radius": 0.016
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 930 mm",
+        "features": "Lateral brace tying both rear cradle mounts behind the cradle",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

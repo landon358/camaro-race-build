@@ -1,0 +1,496 @@
+{
+  "id": "engine.ignition",
+  "system": "engine",
+  "name": "Ignition",
+  "description": "Coil-near-plug coils, mounting and spark plugs.",
+  "components": [
+    {
+      "id": "engine.ignition.ignition-coils",
+      "name": "Ignition coils (coil-near-plug)",
+      "qty": 8,
+      "description": "Eight individual coils with integrated drivers mounted on the valve covers/brackets and connected to the plugs by short boots/wires. Gen V coils are a different part from the LS \"D510C\"-style coil (GM 12611424 is an LS coil - do not use).",
+      "location": "Above each bank on the valve covers, exhaust side.",
+      "connectsTo": [
+        "engine.ignition.spark-plugs",
+        "engine.valve-covers.valve-cover",
+        "electrical.engine-management.ignition-coil-subharness"
+      ],
+      "factory": {
+        "name": "GM Gen V LT ignition coil",
+        "notes": "Verify current GM number by VIN; listings for LT coils are inconsistent."
+      },
+      "raceOptions": [
+        {
+          "name": "MSD Gen V LT coils",
+          "brand": "MSD",
+          "notes": "MSD markets coils for GM LT1/LT4 Gen V; part number not verified here.",
+          "url": "https://www.msdignition.com/products/coils/late_model_coil_packs/chevrolet_gmc_cadillac/"
+        },
+        {
+          "name": "Granatelli LT direct ignition coil set 28-0514-CP (set of 8)",
+          "brand": "Granatelli",
+          "partNumber": "28-0514-CP",
+          "notes": "Listed for 2014-2023 GM LT1 & LT4."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Coil-to-bracket/valve-cover bolt",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "No published Gen V value found; typical M6 into aluminum. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Ignition Coil Bracket-to-Valve Rocker Arm Cover Bolts 10 N·m (88 lb in)'. The 2016-18 Camaro SM (via TightTorque) lists the ignition coil bolt at 10 N·m.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Route plug wires/boots away from headers (use heat sleeves on a race car).",
+        "Dielectric grease in boots."
+      ],
+      "inspection": [
+        "Check boots for burns/cracks near headers; secure connectors with zip ties or locks."
+      ],
+      "buildPhase": 5,
+      "installOrder": 60,
+      "tags": [
+        "ignition",
+        "coils"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: GM 12611424 coil (LS-series, NOT Gen V)",
+          "url": "https://www.michiganmotorsports.com/ls-performance-parts/gm-oem-delco-12611424-ignition-coil-ls3-lsa-d510c-12570616"
+        },
+        {
+          "title": "MSD Ignition: late model coil packs - Chevrolet/GMC/Cadillac",
+          "url": "https://www.msdignition.com/products/coils/late_model_coil_packs/chevrolet_gmc_cadillac/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.06,
+            0.05,
+            0.045
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.6864,
+              0.3642
+            ],
+            [
+              -0.0232,
+              0.6864,
+              0.3642
+            ],
+            [
+              0.0886,
+              0.6864,
+              0.3642
+            ],
+            [
+              0.2004,
+              0.6864,
+              0.3642
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.06,
+            0.05,
+            0.045
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.6864,
+              -0.3642
+            ],
+            [
+              0.0008,
+              0.6864,
+              -0.3642
+            ],
+            [
+              0.1126,
+              0.6864,
+              -0.3642
+            ],
+            [
+              0.2244,
+              0.6864,
+              -0.3642
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM D510C coil 12713668 (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/new-products/gm-d510c-ignition-coils-12713668-for-ls-lt-engines-2005-2025-new-take-offs/"
+          },
+          {
+            "title": "GM ignition coil 12713668 (supersedes to 12723610)",
+            "url": "https://www.chevypartsdeal.com/oem/gm~coil-assembly-ign~12713668"
+          }
+        ],
+        "dimensions": "GM D510C, approx. 60 x 50 x 45 mm",
+        "features": "Black rectangular coil with connector on the front end, 1-bolt ear, output tower underneath; bolted to pads on the valve cover",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.ignition.spark-plugs",
+      "name": "Spark plugs",
+      "qty": 8,
+      "description": "Iridium/ruthenium plugs threaded into the heads on the exhaust side of the chamber. Boosted road-race LT4s commonly run a heat range colder than stock with a tighter gap; confirm with your tuner.",
+      "location": "In each cylinder head, exhaust side, under the coils.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.ignition.ignition-coils"
+      ],
+      "factory": {
+        "name": "ACDelco iridium (LT4) per GM label - verify number by VIN",
+        "notes": "Retail listings conflict: ACDelco 41-104 (gap 1.02 mm listed for ZL1) and NGK ruthenium (gap 0.032 in for 2017-2020 ZL1). Verify by VIN."
+      },
+      "raceOptions": [
+        {
+          "name": "NGK ruthenium / iridium one-step-colder plug",
+          "brand": "NGK",
+          "notes": "Choose heat range with tuner based on boost and timing.",
+          "url": "https://www.ebay.com/itm/175131813488"
+        }
+      ],
+      "specs": {
+        "Gap (LT4 listings)": "0.032-0.040 in - verify on plug box / GM spec"
+      },
+      "hardware": [
+        {
+          "item": "Spark plug",
+          "qty": 1,
+          "spec": "14 mm thread, gasket/tapered per plug",
+          "grade": "",
+          "torque": "15 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (no anti-seize on plated plugs unless maker says)",
+          "safetyWire": false,
+          "reuse": "Replace per schedule",
+          "tool": "5/8 in plug socket",
+          "notes": "Michigan Motorsports lists 15 ft-lb for Gen V LT.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install by hand to seat, then torque. Do not drop - check gap without bending center electrode."
+      ],
+      "inspection": [
+        "Read plugs after dyno and each event (detonation specks, ground strap color)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 59,
+      "tags": [
+        "spark-plugs"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "eBay listing: NGK ruthenium plug for 2017-2020 Camaro ZL1 LT4 (MPN listed, 0.032 in gap)",
+          "url": "https://www.ebay.com/itm/175131813488"
+        },
+        {
+          "title": "JEGS: ACDelco 41-109 spark plug",
+          "url": "https://www.jegs.com/i/acdelco-065-41-109-spark-plug"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.019,
+            0.075,
+            0.019
+          ],
+          "axis": "y",
+          "rot": [
+            105,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.177,
+              0.5423,
+              0.2307
+            ],
+            [
+              -0.0652,
+              0.5423,
+              0.2307
+            ],
+            [
+              0.0466,
+              0.5423,
+              0.2307
+            ],
+            [
+              0.1584,
+              0.5423,
+              0.2307
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.019,
+            0.075,
+            0.019
+          ],
+          "axis": "y",
+          "rot": [
+            -105,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.153,
+              0.5423,
+              -0.2307
+            ],
+            [
+              -0.0412,
+              0.5423,
+              -0.2307
+            ],
+            [
+              0.0706,
+              0.5423,
+              -0.2307
+            ],
+            [
+              0.1824,
+              0.5423,
+              -0.2307
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "14 mm thread, 5/8 in (16 mm) hex, ~75 mm long",
+        "features": "Iridium plug in a tube between the exhaust ports, nearly horizontal from the side of the head",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.ignition.plug-wires",
+      "name": "Coil-to-plug leads / boots & heat sleeves",
+      "qty": 8,
+      "description": "Short suppression leads with boots connecting each coil to its spark plug. On a road-race car with long-tube headers, fit fiberglass/silicone heat sleeves or boot protectors and secure the leads with separators.",
+      "location": "Between the coils on the valve covers and the plugs on the exhaust side of each head.",
+      "connectsTo": [
+        "engine.ignition.ignition-coils",
+        "engine.ignition.spark-plugs",
+        "engine-support.exhaust.headers"
+      ],
+      "factory": {
+        "name": "GM Gen V coil-to-plug leads",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom-length 8 mm race leads with ceramic or heat-sleeved boots",
+          "brand": "MSD / Taylor / Moroso",
+          "notes": "Part numbers depend on length; not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Wire separators / boot heat sleeves",
+          "qty": 1,
+          "spec": "Silicone/fiberglass sleeve",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Keep at least 1 in from header tubes or sleeve the boot; dielectric grease inside boots."
+      ],
+      "inspection": [
+        "Check boots for heat damage every event."
+      ],
+      "buildPhase": 5,
+      "installOrder": 61,
+      "tags": [
+        "ignition",
+        "plug-wires"
+      ],
+      "sources": [
+        {
+          "title": "MSD Ignition: late model coil packs - Chevrolet/GMC/Cadillac",
+          "url": "https://www.msdignition.com/products/coils/late_model_coil_packs/chevrolet_gmc_cadillac/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.012,
+            0.13,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.16,
+              0.5591,
+              0.3571
+            ],
+            [
+              -0.0482,
+              0.5591,
+              0.3571
+            ],
+            [
+              0.0636,
+              0.5591,
+              0.3571
+            ],
+            [
+              0.1754,
+              0.5591,
+              0.3571
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.012,
+            0.13,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.136,
+              0.5591,
+              -0.3571
+            ],
+            [
+              -0.0242,
+              0.5591,
+              -0.3571
+            ],
+            [
+              0.0876,
+              0.5591,
+              -0.3571
+            ],
+            [
+              0.1994,
+              0.5591,
+              -0.3571
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM D510C coil 12713668 (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/new-products/gm-d510c-ignition-coils-12713668-for-ls-lt-engines-2005-2025-new-take-offs/"
+          }
+        ],
+        "dimensions": "~150 mm leads, 8 mm",
+        "features": "Short black leads with long plug boots and heat sleeves running down the outside of the head",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "safety.head-and-neck",
+  "system": "safety",
+  "name": "Head & Neck Restraint Interface",
+  "description": "Car-side interface for the driver frontal head restraint (FHR): helmet anchors, FHR-compatible belt geometry, and seat/cage head surround padding. Driver personal gear is noted only where it affects installation.",
+  "components": [
+    {
+      "id": "safety.head-and-neck.fhr-device",
+      "name": "Frontal head restraint (HANS-type) device",
+      "qty": 1,
+      "description": "Driver-worn FHR device tethered to the helmet; the shoulder belts hold the yoke down onto the driver. Drives harness choice (2 in FHR shoulder belts), belt angle (never upward; Schroth FHR manual) and harness-bar distance (≤ 8 in from seat back ideal).",
+      "location": "Worn by driver, under shoulder belts (≈ x 1.95, y 0.93, z 0.37).",
+      "connectsTo": [
+        "safety.harness.harness-assembly",
+        "safety.head-and-neck.helmet-anchors",
+        "safety.roll-cage.harness-bar"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "HANS / Simpson Hybrid / Schroth SHR / Stand 21 FHR (SFI 38.1, FIA 8858)",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "Match device angle (20°/30°) to seat recline.",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_16-3_fhr_2020-01_online.pdf"
+        }
+      ],
+      "specs": {
+        "Certification": "SFI 38.1 and/or FIA 8858",
+        "Tether recert": "Per device maker (often 5 years for tethers)"
+      },
+      "hardware": [
+        {
+          "item": "Tether-to-helmet clip",
+          "qty": 2,
+          "spec": "Supplied quick-release clip",
+          "grade": "Supplied",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.hmsmotorsport.com/doc-share/ea_16-3_fhr_2020-01_online.pdf"
+        }
+      ],
+      "installNotes": [
+        "Fit driver in seat with device before final harness-bar height.",
+        "Do not route shoulder belts straight down behind the seat without the harness bar (Schroth FHR)."
+      ],
+      "inspection": [
+        "Check tethers for wear, device for cracks."
+      ],
+      "buildPhase": 9,
+      "installOrder": 38,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth FHR manual",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_16-3_fhr_2020-01_online.pdf"
+        },
+        {
+          "title": "Schroth SHR Flex manual (shoulder belt mounting distance)",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_15-3_ea_shr-flex_2018-05.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.9,
+          0.93,
+          0.37
+        ],
+        "size": [
+          0.3,
+          0.15,
+          0.3
+        ],
+        "rot": [
+          0,
+          0,
+          -20
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "HANS Sport III head & neck restraint",
+            "url": "https://discoveryparts.com/products/hans-sport-3-head-restraint"
+          }
+        ],
+        "dimensions": "HANS Sport III: M/L collar sizes, 20° layback, 0.80-0.85 kg; ~300 x 300 x 150 mm (estimated envelope)",
+        "features": "Carbon yoke on the shoulders with foam pads, rear collar behind the neck, tethers to the helmet posts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.head-and-neck.helmet-anchors",
+      "name": "Helmet FHR anchor posts",
+      "qty": 2,
+      "description": "Threaded anchor posts installed in the helmet shell (FIA 8858 / SFI-approved) that the FHR tethers clip onto. Most current SA/FIA helmets come pre-drilled; anchors are installed per helmet maker.",
+      "location": "Sides of driver helmet.",
+      "connectsTo": [
+        "safety.head-and-neck.fhr-device"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Helmet": "Snell SA2020/SA2025 or FIA 8859/8860",
+        "Anchor": "FIA 8858-approved posts"
+      },
+      "hardware": [
+        {
+          "item": "Anchor post screw",
+          "qty": 1,
+          "spec": "Helmet-maker supplied anchor hardware (often M6)",
+          "grade": "Supplied",
+          "torque": "Per helmet maker",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Thread size/torque vary by helmet – follow helmet maker; do not drill helmets yourself."
+        }
+      ],
+      "installNotes": [
+        "Have helmet maker or authorized dealer install anchors."
+      ],
+      "inspection": [
+        "Check posts tight before each session."
+      ],
+      "buildPhase": 9,
+      "installOrder": 39,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth FHR manual",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_16-3_fhr_2020-01_online.pdf"
+        }
+      ],
+      "model": {
+        "shape": "sphere",
+        "pos": [
+          1.89,
+          1.08,
+          0.37
+        ],
+        "size": [
+          0.27,
+          0.28,
+          0.25
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "HANS Sport III head & neck restraint",
+            "url": "https://discoveryparts.com/products/hans-sport-3-head-restraint"
+          }
+        ],
+        "dimensions": "M6 helmet anchor posts on a ~270 x 280 x 250 mm SA2020 helmet",
+        "features": "Two FHR posts each side of the shell, tethers clip on",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.head-and-neck.head-surround-padding",
+      "name": "Head surround / head restraint padding",
+      "qty": 1,
+      "description": "Energy-absorbing padding on the seat head surround (or a cage-mounted head restraint if the seat lacks one) that limits lateral and rearward head motion. Many sanctioning bodies require a head restraint immediately behind/beside the helmet.",
+      "location": "Seat head surround, x ≈ 2.05, y ≈ 1.00–1.10, z ≈ 0.20–0.54.",
+      "connectsTo": [
+        "safety.seat-and-mounts.seat-shell",
+        "safety.roll-cage.main-hoop"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Seat-maker head surround pads / FIA 8857 Type A foam",
+          "brand": "Seat maker",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "specs": {
+        "Material": "SFI 45.1 or FIA 8857-2001 Type A foam"
+      },
+      "hardware": [
+        {
+          "item": "Hook-and-loop / adhesive",
+          "qty": 1,
+          "spec": "Velcro",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set gap to helmet ≈ 1 in with driver seated."
+      ],
+      "inspection": [
+        "Check foam condition."
+      ],
+      "buildPhase": 9,
+      "installOrder": 40,
+      "tags": [],
+      "sources": [
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.99,
+          1.035,
+          0.37
+        ],
+        "size": [
+          0.17,
+          0.2,
+          0.32
+        ],
+        "rot": [
+          0,
+          0,
+          -12
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4119HRW head-restraint seat (dimensions)",
+            "url": "https://www.bimmerworld.com/Safety-Race-Interior/Seats_2/Racetech-RT4119HRW-Head-Restraint-Seat.html"
+          }
+        ],
+        "dimensions": "~45 mm thick pads inside the seat head wings (~310 mm between wings)",
+        "features": "Rear and side head pads in the seat head surround",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1071 @@
+{
+  "id": "electrical.battery-and-cutoff",
+  "system": "electrical",
+  "name": "Battery & Master Cutoff",
+  "description": "Battery, battery box and hold-down, terminals and lugs, the master electrical cutoff (mechanical 4-post switch or solid-state isolator), internal and external kill switches, alternator field-kill / dump resistor and the main fuse. The Gen 6 Camaro carries its factory battery in the trunk on the right side; this build keeps the battery in the rear (right side, low, ahead of or over the rear axle line) and runs the main cable forward through the cabin.",
+  "components": [
+    {
+      "id": "electrical.battery-and-cutoff.battery",
+      "name": "Battery",
+      "qty": 1,
+      "description": "12 V starting/service battery. Factory Gen 6 cars use an AGM battery in the trunk (OE size changed from H7 to H6 / Group 48 for 2016). For a race car, a compact AGM (Odyssey PC925/PC680) or a LiFePO4 race battery saves 10\u201319 kg. Size it for cranking a high-compression 6.2 L LT (hot restart is the hard case) plus key-off draws from the ECU, logger and transponder.",
+      "location": "Trunk, right (passenger) side, low on the floor in a sealed box, in the factory battery area (rear quarter). Keep it inside the cage perimeter and away from the fuel cell; some builders move it to the passenger rear floor area behind the seat for polar-moment reasons.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery-box",
+        "electrical.battery-and-cutoff.solid-state-isolator",
+        "electrical.battery-and-cutoff.master-switch",
+        "electrical.grounding.battery-negative-cable",
+        "electrical.charging-starting.main-positive-cable"
+      ],
+      "factory": {
+        "name": "ACDelco Professional AGM, Group H6 / 48 (2016+ Gen 6, trunk mounted)",
+        "partNumber": "",
+        "notes": "Optima reports the OE size changed from H7 (2015) to H6 for 2016. Group H6/48 AGM ~ 760\u2013840 CCA, ~21\u201322 kg. Factory battery has a vent tube to the outside because it lives in the trunk; keep it if retaining an OE flooded/AGM battery inside the car."
+      },
+      "raceOptions": [
+        {
+          "name": "Odyssey PC925 / ODS-AGM28L",
+          "brand": "Odyssey (EnerSys)",
+          "partNumber": "ODS-AGM28L (PC925)",
+          "notes": "480 CCA, 10.8 kg, 168 x 175 x 127 mm, M6 receptacle terminals, max terminal torque 60 in-lb (6.8 N\u00b7m). Most common road-race choice for a V8: sealed AGM, mount in any orientation except inverted.",
+          "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        },
+        {
+          "name": "Odyssey PC680 / ODS-AGM16L",
+          "brand": "Odyssey (EnerSys)",
+          "partNumber": "ODS-AGM16L (PC680)",
+          "notes": "280 CCA, 7.0 kg. Marginal for a hot 6.2 L restart; only with a lightweight gear-reduction starter and good cables.",
+          "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        },
+        {
+          "name": "Antigravity ATX30-RS Re-Start (LiFePO4)",
+          "brand": "Antigravity",
+          "partNumber": "AG-ATX30-RS",
+          "notes": "880 CA (lead-acid-equivalent rating), 2.6 kg, 16 Ah actual, 165 x 127 x 173 mm. Built-in BMS and Re-Start reserve. Manufacturer lists automotive use as 'race only' by enquiry. Needs a charging voltage the BMS accepts (~14.2\u201314.6 V) \u2013 set alternator/ECM charge target accordingly.",
+          "url": "https://www.iagperformance.com/antigravity-lithium-car-battery-atx30-re-start-compact-5-75-lbs/"
+        },
+        {
+          "name": "Odyssey PC1200",
+          "brand": "Odyssey (EnerSys)",
+          "partNumber": "ODS-AGM42A (PC1200LT)",
+          "notes": "725 CCA, 17.3 kg, SAE posts. Choose for endurance racing with lights, cool-suit and fans running for hours.",
+          "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        }
+      ],
+      "specs": {
+        "Nominal voltage": "12 V (AGM 12.8 V rest), LiFePO4 13.2 V rest",
+        "Min cranking capability (recommended)": "\u2265 450 CCA for a 6.2 L LT with OE starter (estimate)",
+        "Charge voltage": "AGM 14.2\u201314.7 V; LiFePO4 14.2\u201314.6 V (check BMS)",
+        "Location": "Trunk right side (factory area) in sealed box"
+      },
+      "hardware": [
+        {
+          "item": "Odyssey PC925 M6 terminal bolt (into M6 receptacle)",
+          "qty": 2,
+          "spec": "M6 x 1.0 stainless bolt with lock washer, length to suit lug + adaptor",
+          "grade": "A2-70 stainless",
+          "torque": "60 in-lb (6.8 N\u00b7m) max",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "10 mm socket, in-lb torque wrench",
+          "notes": "Over-torquing pulls the brass insert out of the case. Odyssey M6-to-SAE post adaptors are available if SAE clamps are preferred.",
+          "confidence": "verified",
+          "source": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        },
+        {
+          "item": "PC680 M6 terminal bolt",
+          "qty": 2,
+          "spec": "M6 x 1.0 bolt",
+          "grade": "stainless",
+          "torque": "50 in-lb (5.6 N\u00b7m) max",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Only if the PC680 is used.",
+          "confidence": "verified",
+          "source": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        },
+        {
+          "item": "Factory GM top-post / side-terminal clamp bolt (OE H6 battery)",
+          "qty": 2,
+          "spec": "M8 / 5/16 clamp bolt and nut",
+          "grade": "OE",
+          "torque": "~80 in-lb (9 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM battery clamp value; confirm in GM SI for your model year.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Terminal protector boots (positive red, negative black)",
+          "qty": 2,
+          "spec": "Insulating boot sized to lug/post",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Positive terminal must be fully insulated (SCCA/NASA tech check point).",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Dielectric / anti-corrosion terminal compound",
+          "qty": 1,
+          "spec": "NO-OX-ID or dielectric grease, thin film after tightening",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Build and weld/bolt the battery box mount to the trunk floor before paint (phase 1) so the battery sits low and inside the cage.",
+        "Fit the battery with all switches OFF; connect the positive (isolated) side first and the negative last.",
+        "Torque terminals to the battery maker's limit (PC925: 60 in-lb) \u2013 these are much lower than typical lug torques.",
+        "Charge the battery fully on a smart charger with the correct profile (AGM vs Lithium) before first start.",
+        "If using a LiFePO4 battery, confirm the ECM/alternator charge target and that the BMS will not cut off during cranking."
+      ],
+      "inspection": [
+        "Resting voltage after the car sits overnight with master OFF (AGM \u2265 12.7 V, LiFePO4 \u2265 13.2 V).",
+        "Terminal tightness and corrosion; case cracks/bulging.",
+        "Hold-down tight \u2013 the battery must not move with a firm push."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "battery",
+        "agm",
+        "lithium",
+        "trunk"
+      ],
+      "sources": [
+        {
+          "title": "Optima \u2013 2016 Camaro battery size (H7 to H6 change)",
+          "url": "https://www.optimabatteries.com/experience/blog/2016-camaro-battery-size"
+        },
+        {
+          "title": "Odyssey battery specifications table",
+          "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+        },
+        {
+          "title": "Antigravity ATX30-RS listing",
+          "url": "https://www.iagperformance.com/antigravity-lithium-car-battery-atx30-re-start-compact-5-75-lbs/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.32,
+          0.484,
+          -0.55
+        ],
+        "size": [
+          0.1686,
+          0.148,
+          0.179
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Odyssey PC925 Extreme Racing 35 \u2013 168.6 x 179 x 128 mm (Oreca)",
+            "url": "https://en.oreca-store.com/odyssey-pc925-extreme-racing-35-lead-battery-nominal-capacity-28-a-h-pulse-current-925a-dimensions-168-6x179x128-mm.html"
+          },
+          {
+            "title": "Odyssey PC925 (AGM28L) \u2013 Merlin Motorsport, 11.8 kg",
+            "url": "https://www.merlinmotorsport.co.uk/p/odyssey-extreme-racing-35-battery-agm28l"
+          },
+          {
+            "title": "Odyssey PC925MJT \u2013 148 mm over terminals (Quadratec)",
+            "url": "https://quadratec.com/p/odyssey-battery/extreme-series-pc925mjt-metal-jacket-battery"
+          },
+          {
+            "title": "Antigravity ATX30-RS Re-Start \u2013 165 x 127 x 173 mm",
+            "url": "https://fiperformance.com/products/antigravity-atx30-re-start-battery"
+          }
+        ],
+        "dimensions": "Modelled: Odyssey PC925 168.6 L x 179 W x 128 H mm case, 148 mm over the terminals. (OE ACDelco H6/48 AGM is ~278 x 175 x 190 mm; Antigravity ATX30-RS 165 x 127 x 173 mm.)",
+        "features": "Black AGM case with label band on the long faces, two brass M6 terminals with SAE post adapters at the front corners, red cover on the positive, moulded handle recesses in the lid.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.battery-box",
+      "name": "Battery box & hold-down",
+      "qty": 1,
+      "description": "Sealed, vented battery box with a positive mechanical hold-down. Rules (SCCA GCR, NASA CCR) require a battery in the driver/passenger compartment to be in a non-conductive marine-type box or sealed enclosure and secured with bolts (no bungees/zip ties). The box also contains acid if a flooded battery is used.",
+      "location": "Trunk floor, right side; bolted through the floor with backing plates.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "chassis.unibody.trunk-floor"
+      ],
+      "factory": {
+        "name": "GM trunk battery tray, hold-down bracket and vent tube",
+        "partNumber": "",
+        "notes": "OE tray + J-bolt/retainer clamp; vent tube exits through the floor."
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum battery box for PC925 (2-piece clamp)",
+          "brand": "Various (e.g. Moroso, Longacre, Kirkey, Odyssey-sized billet trays)",
+          "partNumber": "",
+          "notes": "Billet/fabricated tray with bar clamp and two 1/4 in or M8 threaded rods; add a lid if mounted in the cabin."
+        },
+        {
+          "name": "Sealed marine-style plastic box",
+          "brand": "Moroso / Taylor / Attwood",
+          "partNumber": "",
+          "notes": "Non-conductive, meets 'sealed box' rules for cabin mounting; vent tube to outside if not an AGM."
+        }
+      ],
+      "specs": {
+        "Material": "5052 aluminum 2.0\u20133.0 mm or polypropylene",
+        "Clamp": "bar across top, 2 threaded rods"
+      },
+      "hardware": [
+        {
+          "item": "Battery box-to-floor bolts",
+          "qty": 4,
+          "spec": "M8 x 1.25 (or 5/16-18) flange bolt + large backing plate/washer under floor",
+          "grade": "8.8 / Grade 5",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Use 50 mm x 3 mm steel backing plates under thin trunk-floor sheetmetal. Rules typically require at least 2 bolts of 5/16 in (8 mm) minimum for hold-downs.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Hold-down threaded rods / J-bolts",
+          "qty": 2,
+          "spec": "1/4-20 or M8 rod with nyloc nut",
+          "grade": "Grade 5 / 8.8",
+          "torque": "5\u20137 ft-lb (7\u201310 N\u00b7m) \u2013 snug; do not crack case",
+          "threadlocker": "none (nyloc)",
+          "safetyWire": false,
+          "reuse": "Replace nylocs each removal",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "GM OE battery hold-down retainer bolt (if OE tray retained)",
+          "qty": 1,
+          "spec": "M8 / M10 OE bolt",
+          "grade": "OE",
+          "torque": "~13 ft-lb (18 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM value for battery hold-down; confirm in GM SI.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Box vent tube (non-AGM only)",
+          "qty": 1,
+          "spec": "3/8 in ID PVC vent tube with floor grommet",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Position the box so the cable exits face the cable route forward (right-side rocker) and so the box clears the fuel cell and its vent/fill hoses.",
+        "Drill, deburr, and paint holes; seal with seam sealer around backing plates.",
+        "Install rubber pad under the battery to reduce vibration."
+      ],
+      "inspection": [
+        "Check bolts and clamp tightness each event.",
+        "Look for cracked welds/brackets."
+      ],
+      "buildPhase": 1,
+      "installOrder": 2,
+      "tags": [
+        "battery",
+        "mounting"
+      ],
+      "sources": [
+        {
+          "title": "SCCA/Mazda racers discussion of master switch/battery rules",
+          "url": "https://mazdaracers.com/topic/2142-legality-master-switch-versus-solid-state-isolator"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.32,
+            0.4055,
+            -0.55
+          ],
+          "size": [
+            0.205,
+            0.011,
+            0.215
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.32,
+            0.544,
+            -0.55
+          ],
+          "size": [
+            0.03,
+            0.012,
+            0.215
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Odyssey PC925 dimensions used to size the tray (Oreca)",
+            "url": "https://en.oreca-store.com/odyssey-pc925-extreme-racing-35-lead-battery-nominal-capacity-28-a-h-pulse-current-925a-dimensions-168-6x179x128-mm.html"
+          }
+        ],
+        "dimensions": "Tray ~205 x 215 mm with ~70 mm walls for a 168.6 x 179 mm PC925; clamp bar 30 mm wide across the top on two 5/16\" J-rods.",
+        "features": "2-piece aluminium box: bolted floor tray with walls, rubber-padded clamp bar, two J-rods with wing nuts, vent tube stub.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.solid-state-isolator",
+      "name": "Solid-state battery isolator (electronic master switch)",
+      "qty": 1,
+      "description": "Electronic FIA-style master switch that isolates the battery negative and simultaneously sends an engine-kill signal to the ECU/PDM, with internal and external push buttons. Eliminates running heavy cables to a mechanical switch on the dash \u2013 very attractive on a Gen 6 with the battery in the trunk. Must be confirmed legal with your sanctioning body; some club tech inspectors only accept mechanical switches.",
+      "location": "Bolted directly on/next to the battery negative terminal in the trunk box.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "electrical.battery-and-cutoff.internal-kill-switch",
+        "electrical.battery-and-cutoff.external-kill-switch",
+        "electrical.power-distribution.pdm",
+        "electrical.engine-management.ecu",
+        "electrical.grounding.battery-negative-cable"
+      ],
+      "factory": {
+        "name": "None (factory has no master switch)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cartek Battery Isolator XR",
+          "brand": "Cartek",
+          "partNumber": "CK-BR-08",
+          "notes": "Negative-side isolation, 550\u2013650 A typical / 2000 A surge, 7\u201318 V, M8 battery stud, engine-kill output 12 V @ 0.5 A (signal to ECU/PDM). 'Suitable up to standard V8'. Datasheet Feb 2023.",
+          "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+        },
+        {
+          "name": "Cartek Battery Isolator GT",
+          "brand": "Cartek",
+          "partNumber": "CK-BG-06-B (retailer stock code)",
+          "notes": "Higher-spec version with built-in alternator run-down (no dump resistor needed) and up to 40 A engine-kill output that can directly power an ECU/ignition circuit.",
+          "url": "https://www.tegiwa.com/products/cartek-battery-isolator-gt-kit"
+        }
+      ],
+      "specs": {
+        "Switching": "Battery negative",
+        "Switching capacity": "550\u2013650 A typ, 2000 A surge (XR)",
+        "Quiescent draw": "25 mA on / 6 mA off (XR)",
+        "Kill output": "12 V 0.5 A on, grounded when off (XR)"
+      },
+      "hardware": [
+        {
+          "item": "Battery negative stud nut (isolator body to battery lug)",
+          "qty": 1,
+          "spec": "M8 x 1.25 nut + spring washer",
+          "grade": "brass/stainless",
+          "torque": "8\u201310 N\u00b7m (6\u20137 ft-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Cartek datasheet gives M8 stud; torque value not published \u2013 estimate for an M8 brass stud.",
+          "confidence": "estimate",
+          "source": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+        },
+        {
+          "item": "Chassis-side negative cable lug",
+          "qty": 1,
+          "spec": "Tinned copper lug, 1/0\u20132 AWG, M8 hole, adhesive-lined heat shrink",
+          "grade": "",
+          "torque": "8\u201310 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Control connector",
+          "qty": 1,
+          "spec": "Binder 09 0415 90 05 (5-pin) mating plug",
+          "grade": "",
+          "torque": "Hand tight",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+        }
+      ],
+      "installNotes": [
+        "Mount the isolator on the battery negative; everything else (alternator, PDM, starter) is on the vehicle side.",
+        "Wire the engine-kill output to the ECU/PDM kill input so the engine stops even with the alternator charging.",
+        "Wire internal (driver) and external buttons; test both with engine running before first track day.",
+        "Confirm legality with the series tech director before purchase."
+      ],
+      "inspection": [
+        "Function test both kill buttons with engine idling every event.",
+        "Check the status LED / fault indication."
+      ],
+      "buildPhase": 8,
+      "installOrder": 4,
+      "tags": [
+        "master-switch",
+        "fia",
+        "cartek",
+        "kill"
+      ],
+      "sources": [
+        {
+          "title": "Cartek Battery Isolator XR datasheet 2023",
+          "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+        },
+        {
+          "title": "Cartek Battery Isolator XR product page",
+          "url": "https://www.cartekmotorsport.com/battery-isolator-xr/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.17,
+          0.4225,
+          -0.62
+        ],
+        "size": [
+          0.06,
+          0.035,
+          0.045
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cartek Battery Isolator XR data sheet (PDF)",
+            "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+          },
+          {
+            "title": "Cartek XR isolator unit \u2013 Merlin Motorsport",
+            "url": "https://www.merlinmotorsport.co.uk/p/cartek-xr-solid-state-battery-isolator-unit-ck-br-06"
+          }
+        ],
+        "dimensions": "60 x 45 mm footprint, 70 g (published); height incl. studs ~35 mm estimated.",
+        "features": "Black sealed body, two M8 power studs (battery - in / chassis out), small control connector, status LED.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.master-switch",
+      "name": "Mechanical master electrical cutoff switch (4-post)",
+      "qty": 1,
+      "description": "Rotary master switch in the main battery positive cable with a second, lower-current pole that kills the alternator/ignition so the engine stops when the switch is turned off. SCCA wording requires it to be in a battery cable and cut all electrical circuits except an onboard fire system; NASA allows life-support/radio exceptions. Use a high-amperage race switch \u2013 cheap 50 A switches fail under starter current.",
+      "location": "Dash center/lower console within reach of the belted driver (x\u22481.15, y\u22480.62, z\u22480.05), or near the rear on the main cable with a pull-cable to the exterior.",
+      "connectsTo": [
+        "electrical.charging-starting.main-positive-cable",
+        "electrical.battery-and-cutoff.alternator-dump-resistor",
+        "electrical.charging-starting.alternator",
+        "electrical.power-distribution.pdm",
+        "electrical.charging-starting.starter-motor",
+        "safety.kill-switches.pull-cable",
+        "safety.kill-switches.cable-abutment-bracket"
+      ],
+      "factory": {
+        "name": "None",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Longacre weatherproof 4-terminal disconnect",
+          "brand": "Longacre",
+          "partNumber": "52-45789",
+          "notes": "Sealed back; alternator circuit rated 125 A \u2013 matches high-output OE alternators.",
+          "url": "https://90racing.com/products/longacre-weatherproof-battery-disconnect-52-45789"
+        },
+        {
+          "name": "Longacre 4-terminal with panel",
+          "brand": "Longacre",
+          "partNumber": "52-45784",
+          "notes": "Includes aluminum panel; 20 A alternator/ignition pole.",
+          "url": "https://www.ogracing.com/products/longacre-battery-disconnect-switch-with-panel-4-terminal"
+        },
+        {
+          "name": "Longacre 2-terminal disconnect",
+          "brand": "Longacre",
+          "partNumber": "52-45750",
+          "notes": "175 A continuous, 1000 A peak, 3/8 in studs; no alternator pole \u2013 only usable with a separate field-kill relay/dump resistor.",
+          "url": "https://www.speedwaymotors.com/Longacre-52-45750-Battery-Disconnect-Switch-2-Terminal%2C282419.html"
+        },
+        {
+          "name": "FIA 6-pole master switch with resistor",
+          "brand": "Various (e.g. Group-D, Alfaholics-supplied)",
+          "partNumber": "",
+          "notes": "European-style switch with built-in resistor to prevent engine run-on from the alternator after switch-off.",
+          "url": "https://alfaholics.com/race-parts/105-series/electrics-lighting/fia-master-switch"
+        }
+      ],
+      "specs": {
+        "Main pole rating": "\u2265 175 A continuous, \u2265 1000 A intermittent",
+        "Aux pole": "Alternator output/field or ignition kill",
+        "Studs": "3/8-16 main, #10 or 1/4 aux (Longacre)"
+      },
+      "hardware": [
+        {
+          "item": "Main stud nuts (battery in / load out)",
+          "qty": 2,
+          "spec": "3/8-16 brass/steel nut + lock washer",
+          "grade": "",
+          "torque": "10\u201312 ft-lb (13.5\u201316 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Hold the inner nut with a wrench while torquing the outer nut so the stud does not spin inside the switch body.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Aux stud nuts (alternator/ignition pole)",
+          "qty": 2,
+          "spec": "#10-32 or 1/4-20 nut",
+          "grade": "",
+          "torque": "25\u201335 in-lb (3\u20134 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Switch panel mounting screws",
+          "qty": 2,
+          "spec": "#10-32 or M5 button head + nyloc",
+          "grade": "stainless",
+          "torque": "30 in-lb (3.4 N\u00b7m)",
+          "threadlocker": "none (nyloc)",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Rear terminal insulating cover / boot",
+          "qty": 1,
+          "spec": "Rubber boot or fabricated Lexan cover over live studs",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Plan the cable route: battery (trunk) \u2192 master switch \u2192 starter/front junction. With a trunk battery the switch is commonly mounted on the rear package tray/near the battery with a pull cable to the outside, or on the dash with both heavy cables routed through the cabin.",
+        "Wire the auxiliary pole to break the alternator output (via dump resistor) or ECM ignition/run feed so the engine dies when switched off.",
+        "Mark ON/OFF clearly on the panel.",
+        "Test: engine idling at 2000 rpm, turn switch off \u2013 engine must stop within ~1 s."
+      ],
+      "inspection": [
+        "Check studs for heat discoloration (sign of loose lug).",
+        "Check switch action and key/handle retention."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "master-switch",
+        "kill-switch",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "MazdaRacers \u2013 SCCA master switch rule discussion",
+          "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
+        },
+        {
+          "title": "Longacre 45750 listing",
+          "url": "https://www.speedwaymotors.com/Longacre-52-45750-Battery-Disconnect-Switch-2-Terminal%2C282419.html"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.12,
+          0.6,
+          0.05
+        ],
+        "size": [
+          0.107,
+          0.092,
+          0.086
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Longacre 52-45784 4-terminal disconnect with panel (dimensions)",
+            "url": "https://90racing.com/products/longacre-battery-disconnect-panel-52-45784"
+          },
+          {
+            "title": "Longacre 52-45792 weatherproof 4-terminal disconnect",
+            "url": "https://90racing.com/products/longacre-weatherproof-battery-disconnect-52-45792"
+          }
+        ],
+        "dimensions": "Body \u00d867 mm (2.647\"), overall depth 107 mm (4.216\"), panel 86 x 92 mm (3 3/8 x 3 5/8\"), 3/8\" main studs, \u00d818.5 mm mounting hole.",
+        "features": "Red removable key on the front, aluminium panel with 4 screws, black round body behind, 2 large 3/8\" main studs + 2 small alternator/ignition studs at the back.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.alternator-dump-resistor",
+      "name": "Alternator field-kill relay / dump resistor",
+      "qty": 1,
+      "description": "When the master switch opens with the engine running, the alternator can keep the ignition/ECU alive (engine run-on) and voltage can spike. A power resistor across the alternator output (switched in by the master switch's aux pole) or a field-kill relay that drops the alternator L/field terminal ensures the engine stops. With the Gen V LT ECM-controlled alternator, killing the ECM run feed also drops the L-terminal command.",
+      "location": "Near the master switch or on the firewall, on a heat-tolerant aluminum mount.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.master-switch",
+        "electrical.charging-starting.alternator"
+      ],
+      "factory": {
+        "name": "None",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "FIA master switch with integrated resistor",
+          "brand": "Various",
+          "partNumber": "",
+          "notes": "Resistor pole is built into 6-pole FIA switches.",
+          "url": "https://alfaholics.com/race-parts/105-series/electrics-lighting/fia-master-switch"
+        },
+        {
+          "name": "Cartek Isolator GT (alternator run-down function)",
+          "brand": "Cartek",
+          "partNumber": "",
+          "notes": "Electronic alternator run-down replaces the resistor.",
+          "url": "https://www.tegiwa.com/products/cartek-battery-isolator-gt-kit"
+        }
+      ],
+      "specs": {
+        "Resistor (typical)": "2\u20135 \u03a9, 25\u201350 W aluminum-housed"
+      },
+      "hardware": [
+        {
+          "item": "Resistor mounting screws",
+          "qty": 2,
+          "spec": "M4 screws + nyloc",
+          "grade": "stainless",
+          "torque": "15 in-lb (1.7 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount on bare metal for heat sinking; insulate the terminals.",
+        "Verify run-on does not occur with lights and fans off (lowest load case)."
+      ],
+      "inspection": [
+        "Check resistor for discoloration/cracking."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "alternator",
+        "kill"
+      ],
+      "sources": [
+        {
+          "title": "SCCA master switch / alternator discussion",
+          "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.08,
+          0.525,
+          0.02
+        ],
+        "size": [
+          0.072,
+          0.03,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "50 W aluminium-housed resistor ~72 x 30 x 28 mm incl. mounting tabs (typical, not measured).",
+        "features": "Gold anodised finned aluminium housing, 4 mounting tabs, 2 solder lugs.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.external-kill-switch",
+      "name": "External master switch actuator (pull cable or push button)",
+      "qty": 1,
+      "description": "Exterior-accessible actuator so corner workers can kill the car. SCCA closed-car wording places it in front of the windshield on the cowl or top of fender (driver side) close enough to reach if overturned, or below the center of the rear window. Marked with the international spark-in-blue-triangle decal (minimum ~12 cm base).",
+      "location": "Driver-side cowl at the base of the windshield (x\u22480.66, y\u22480.98, z\u2248+0.45), or rear-window base center.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.master-switch",
+        "electrical.battery-and-cutoff.solid-state-isolator",
+        "body.cowl.cowl-panel",
+        "safety.kill-switches.external-t-handle",
+        "safety.kill-switches.pull-cable",
+        "safety.kill-switches.decal"
+      ],
+      "factory": {
+        "name": "None",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Pull cable with T-handle (for mechanical switch)",
+          "brand": "Longacre / Moroso / Quickcar",
+          "partNumber": "",
+          "notes": "Cable must pull the switch to OFF; route with gentle bends and secure every 300 mm."
+        },
+        {
+          "name": "Remote push button for electronic isolator",
+          "brand": "Cartek",
+          "partNumber": "",
+          "notes": "Supplied with the isolator kits; sealed red button."
+        }
+      ],
+      "specs": {
+        "Marking": "Red spark on white-edged blue triangle decal, 'OFF' direction marked"
+      },
+      "hardware": [
+        {
+          "item": "Button/cable bracket rivets or screws",
+          "qty": 3,
+          "spec": "3/16 in stainless rivets or M5 screws with nyloc",
+          "grade": "stainless",
+          "torque": "30 in-lb (3.4 N\u00b7m) for screws",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Cable-to-body grommet",
+          "qty": 1,
+          "spec": "Rubber grommet, sealed with RTV",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount after body panels are fitted (phase 10) but run the cable/harness in phase 8.",
+        "Test from outside the car with the window net up."
+      ],
+      "inspection": [
+        "Pull/press test each event; check decal present."
+      ],
+      "buildPhase": 8,
+      "installOrder": 7,
+      "tags": [
+        "kill-switch",
+        "rules",
+        "external"
+      ],
+      "sources": [
+        {
+          "title": "SCCA GCR master switch placement (quoted)",
+          "url": "https://classicmotorsports.com/forum/grm/battery-cutoff-switch/205475/page1"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.66,
+          1.035,
+          0.45
+        ],
+        "size": [
+          0.1,
+          0.02,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cartek XR isolator (remote push-button option) data sheet",
+            "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+          }
+        ],
+        "dimensions": "FIA/NASA marking triangle ~100 mm sides with a ~22 mm remote button (estimated).",
+        "features": "Blue triangle with white edge and red spark decal, red push button / pull handle at the windshield base.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.internal-kill-switch",
+      "name": "Driver kill switch (internal)",
+      "qty": 1,
+      "description": "Driver-reachable kill (either the mechanical master switch itself on the dash/console, or the isolator's internal button). Must be operable by a belted driver with the HANS on.",
+      "location": "Center console / lower dash, right of steering column (x\u22481.18, y\u22480.66, z\u2248+0.12).",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.solid-state-isolator",
+        "electrical.dash-and-controls.switch-panel"
+      ],
+      "factory": {
+        "name": "None",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cartek isolator internal push button",
+          "brand": "Cartek",
+          "partNumber": "",
+          "notes": "Supplied with XR/GT kits.",
+          "url": "https://www.cartekmotorsport.com/battery-isolator-xr/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Panel nut",
+          "qty": 1,
+          "spec": "Supplied switch bezel nut",
+          "grade": "",
+          "torque": "Hand tight + 1/8 turn",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Place it where it cannot be hit accidentally by a knee or the shifter hand."
+      ],
+      "inspection": [
+        "Function test each event."
+      ],
+      "buildPhase": 8,
+      "installOrder": 8,
+      "tags": [
+        "kill-switch"
+      ],
+      "sources": [
+        {
+          "title": "Cartek Battery Isolators",
+          "url": "https://cartekmotorsport.com/battery-isolators/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.18,
+          0.66,
+          0.12
+        ],
+        "size": [
+          0.03,
+          0.028,
+          0.028
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cartek XR isolator kit (internal push button)",
+            "url": "https://cn.merlinmotorsport.co.uk/p/cartek-xr-solid-state-battery-isolator-kit-ck-br-08"
+          }
+        ],
+        "dimensions": "~22 mm panel-mount push button, ~30 mm deep (estimated).",
+        "features": "Red domed button in a yellow bezel ring, jam nut behind the panel.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.main-fuse",
+      "name": "Main fuse / mega-fuse holder (PDM & accessory feed)",
+      "qty": 1,
+      "description": "High-current fuse protecting the long cable run from battery to PDM/front. The starter circuit is normally left unfused (cranking current) but the branch feeding the PDM and aux block must be fused close to the source. Use a MEGA/ANL or a resettable high-current breaker.",
+      "location": "In the trunk next to the battery/isolator (feeds the main cable) and/or at the front power junction where the PDM feed branches.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.master-switch",
+        "electrical.power-distribution.pdm-power-feed",
+        "electrical.charging-starting.front-power-junction"
+      ],
+      "factory": {
+        "name": "GM rear fuse block X51 / underhood X50A mega-fuses",
+        "partNumber": "",
+        "notes": "OE uses fusible links/mega fuses in the battery positive distribution."
+      },
+      "raceOptions": [
+        {
+          "name": "Blue Sea Systems MRBF / ANL holder with 150\u2013200 A fuse",
+          "brand": "Blue Sea Systems",
+          "partNumber": "",
+          "notes": "Size fuse to the PDM feed cable (e.g. 150 A on 4 AWG, 200 A on 2 AWG)."
+        }
+      ],
+      "specs": {
+        "Fuse rating": "150\u2013200 A (size to the protected cable)"
+      },
+      "hardware": [
+        {
+          "item": "Fuse terminal stud nuts",
+          "qty": 2,
+          "spec": "M8 or 5/16 nut",
+          "grade": "",
+          "torque": "9\u201310 N\u00b7m (80\u201390 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fuse within ~300 mm of the battery or junction where the branch starts."
+      ],
+      "inspection": [
+        "Check fuse and holder for heat marks."
+      ],
+      "buildPhase": 8,
+      "installOrder": 9,
+      "tags": [
+        "fuse",
+        "protection"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.17,
+          0.4225,
+          -0.5
+        ],
+        "size": [
+          0.045,
+          0.035,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Blue Sea Systems 5005 ANL fuse block (M8 studs)",
+            "url": "https://www.bluesea.com/products/category/ANL%20Fuse%20Blocks"
+          }
+        ],
+        "dimensions": "ANL holder ~100 x 45 x 35 mm with 5/16\" (M8) studs (estimated from listings).",
+        "features": "Black base, ANL fuse bar between two studs, clear snap cover.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.battery-and-cutoff.charge-jump-post",
+      "name": "Remote charge / jump post",
+      "qty": 1,
+      "description": "Positive and ground posts (or an Anderson SB50 plug) accessible without removing panels, used to charge the battery or jump-start in the paddock. Connect on the battery side of the isolator for charging, or the vehicle side for jump starts per the isolator maker's instructions.",
+      "location": "Trunk opening lip or rear valance, right side.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "electrical.grounding.rear-ground-stud"
+      ],
+      "factory": {
+        "name": "Underhood remote positive jump stud (Gen 6 with trunk battery)",
+        "partNumber": "",
+        "notes": "Gen 6 provides an underhood positive jump terminal and ground point because the battery is in the trunk."
+      },
+      "raceOptions": [
+        {
+          "name": "Anderson SB50 connector (red) with boot",
+          "brand": "Anderson Power Products",
+          "partNumber": "",
+          "notes": "Fast pit charging connection, fused 50 A."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Post nuts",
+          "qty": 2,
+          "spec": "5/16 or M8 nut + insulating washers",
+          "grade": "",
+          "torque": "9 N\u00b7m (80 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Insulate and cap the positive post."
+      ],
+      "inspection": [
+        "Check cap present and terminals clean."
+      ],
+      "buildPhase": 8,
+      "installOrder": 10,
+      "tags": [
+        "charging"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.62,
+          0.62,
+          -0.4
+        ],
+        "size": [
+          0.065,
+          0.032,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Anderson SB50 housing ~65 x 32 x 30 mm (estimated).",
+        "features": "Red genderless housing, two flat copper contacts, cable entries at the back.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

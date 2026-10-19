@@ -1,0 +1,123 @@
+{
+  "id": "suspension.front-knuckles",
+  "system": "suspension",
+  "name": "Front Knuckles (Steering Knuckle / Upright)",
+  "description": "Front uprights that carry the hub bearing (wheels system), brake caliper (brakes system) and wheel speed sensor; clamp to the strut at the top; and take two lower ball joints plus the outer tie rod.",
+  "components": [
+    {
+      "id": "suspension.front-knuckles.knuckle",
+      "name": "Front steering knuckle",
+      "qty": 2,
+      "description": "Cast front upright. The strut clamps into its upper ears with two bolts; the LCA and radius rod ball studs fit tapered bores at the bottom; the outer tie rod end fits the steering arm at the front (front-steer rack - verify on your car); the hub/bearing bolts to the center bore, the caliper to the caliper ears and the wheel speed sensor into a boss. Some race links (SPL) require slight clearancing of the knuckle's link bolt holes.",
+      "location": "Inside each front wheel, centered approx (x 0.0, y 0.36, z +/-0.70).",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut",
+        "suspension.front-lower-links.lower-control-arm",
+        "suspension.front-lower-links.radius-rod",
+        "steering.tie-rods.outer-tie-rod-end",
+        "wheels.front-hubs.hub-bearing",
+        "brakes.front-calipers.caliper",
+        "brakes.abs.front-wheel-speed-sensor"
+      ],
+      "factory": {
+        "name": "GM front steering knuckle (side-specific)",
+        "notes": "Material and part number not verified in available sources; ZL1/1LE knuckles carry larger Brembo 6-piston calipers (brakes system). Hub bolts and caliper bracket bolts are torque-angle fasteners (see wheels/brakes)."
+      },
+      "raceOptions": [
+        {
+          "name": "Factory knuckle (retain)",
+          "brand": "GM",
+          "notes": "No common bolt-on race knuckle for Gen 6; bump steer and roll center are corrected with tie rod ends (SPL TRE CAM6) and adjustable links."
+        }
+      ],
+      "specs": {
+        "Strut clamp": "2 bolts, 150 N·m + 80-95 deg",
+        "Lower ball joints": "2 (double-pivot)"
+      },
+      "hardware": [
+        {
+          "item": "Front suspension strut bolt + nut (strut clamp)",
+          "qty": 2,
+          "spec": "Flange bolt + nut, 21 mm head / 24 mm nut",
+          "grade": "OE",
+          "torque": "111 ft-lb (150 N·m) first pass",
+          "torqueSequence": "150 N·m first pass, then +80-95 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended (torque-angle)",
+          "tool": "21 mm socket, 24 mm wrench",
+          "notes": "Listed again here for the knuckle builder; same fasteners as suspension.front-struts-springs.strut.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Wheel speed sensor bolt (sensor to knuckle)",
+          "qty": 1,
+          "spec": "M6 bolt, 10 mm hex",
+          "grade": "OE",
+          "torque": "89 in-lb (10 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "10 mm socket",
+          "notes": "Clean the sensor bore before installing.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Bench-assemble hub/bearing (wheels) and brake dust shield to the knuckle before hanging it.",
+        "Hang knuckle on the two lower ball joints first, then the strut clamp, then the tie rod end.",
+        "Clean WSS mounting area before installing sensor (GM)."
+      ],
+      "inspection": [
+        "Check for cracks around strut clamp ears and steering arm (crack-check annually).",
+        "Check tapered bores for wear (ovalized tapers let studs move)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 25,
+      "tags": [
+        "knuckle",
+        "upright",
+        "spindle"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.01,
+            0.39,
+            0.652
+          ],
+          "size": [
+            0.3,
+            0.42,
+            0.08
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 300 (fore-aft) x 420 (tall) x 80 mm; hub bore approx 100 mm",
+        "features": "Cast aluminium Alpha knuckle: 3-bolt hub-bearing boss, tall upper blade clamped in the strut clevis (2 bolts fore-aft), two lower ball-joint bosses (double pivot), forward steering arm (front steer), 2 radial caliper ears behind the axle, ABS sensor boss",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

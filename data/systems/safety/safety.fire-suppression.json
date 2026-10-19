@@ -1,0 +1,1206 @@
+{
+  "id": "safety.fire-suppression",
+  "system": "safety",
+  "name": "Fire Suppression System",
+  "description": "Plumbed on-board fire system (SFI 17.1 or FIA-listed, Novec 1230 / FK-5-1-12) with bottle on the passenger floor, semi-rigid alloy distribution tubing, 2 cockpit + 3 engine-bay nozzles, and mechanical pull cables inside and outside the car (electric actuation optional).",
+  "components": [
+    {
+      "id": "safety.fire-suppression.bottle",
+      "name": "Fire suppression bottle (e.g. 10 lb / 4.0 kg Novec 1230)",
+      "qty": 1,
+      "description": "Stored-pressure extinguisher bottle with operating head (mechanical cable or electric actuator). Size to the car: a 10 lb (≈4 kg) system is typical for a V8 sedan; SFI 17.1 systems must be serviced/recertified every 2 years by the original maker or approved agent only.",
+      "location": "Passenger floor (seat removed), lying longitudinally at x ≈ 1.60–2.00, y ≈ 0.30, z ≈ −0.40; head facing forward.",
+      "connectsTo": [
+        "safety.fire-suppression.bottle-bracket",
+        "safety.fire-suppression.distribution-tubing",
+        "safety.fire-suppression.internal-pull-cable",
+        "safety.fire-suppression.external-pull-cable",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline Zero 360 SFI 17.1 10 lb (mechanical or auto/electric)",
+          "brand": "Lifeline",
+          "partNumber": "",
+          "notes": "Novec 1230; braided hose option.",
+          "url": "https://www.attackingtheclockracing.com/products/h-lifeline-zero-360-sfi-17-1-10lbs-automatic-system-braided-stainless-steel-hose"
+        },
+        {
+          "name": "SPA Extreme Novec SFI 17.1 5 lb mechanical",
+          "brand": "SPA Technique",
+          "partNumber": "",
+          "notes": "Lighter, for smaller budgets/classes allowing 5 lb.",
+          "url": "https://discoveryparts.com/collections/spa-novec-1230/products/spa-extreme-novec-sfi-17-1-fire-system-5lb-light-weight"
+        },
+        {
+          "name": "Lifeline Zero 360 3.0 kg FIA mechanical kit",
+          "brand": "Lifeline",
+          "partNumber": "",
+          "notes": "Kit: 3.0 kg steel bottle, FIA bracket, 6 ft + 12 ft pull cables, 6 nozzles (4 cockpit, 2 engine), 6 m 8 mm tube, 5 clips.",
+          "url": "https://compare.parts/product/22187059835-lifeline-firemarshal-zero-360-3-0kg-mechanical-fire-extinguisher-kit"
+        },
+        {
+          "name": "Safecraft / Firebottle SFI 17.1 systems",
+          "brand": "Safecraft",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.pegasusautoracing.com/productdetails.asp?RecID=7024"
+        }
+      ],
+      "specs": {
+        "Agent": "FK-5-1-12 (3M Novec 1230) – check label; Lifeline handhelds moved to Zero FK fluid",
+        "Certification": "SFI 17.1 or FIA technical list",
+        "Service": "Inspect/recertify every 2 years by OEM/agent only; Lemons excerpt: max 6-year field life, ≤ 6 refills",
+        "Mounting": "Two metal straps on maker bracket; protect from impact"
+      },
+      "hardware": [
+        {
+          "item": "Operating head pull-cable nipple/clamp",
+          "qty": 2,
+          "spec": "Maker-supplied cable nipple & clamp screw",
+          "grade": "Supplied",
+          "torque": "Snug per maker",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "installNotes": [
+        "Do not modify the system; use only genuine maker parts (Lifeline).",
+        "Fit safety pin during installation; remove before racing and stow pin/flag.",
+        "Weigh bottle on receipt and record weight on logbook/label."
+      ],
+      "inspection": [
+        "Check gauge (if fitted) and service date sticker every event.",
+        "Weigh bottle annually vs. stamped full weight.",
+        "Recertify by maker every 2 years."
+      ],
+      "buildPhase": 9,
+      "installOrder": 43,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        },
+        {
+          "title": "FIA technical list – extinguisher system bulletin (Lifeline Zero 360 installation)",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        },
+        {
+          "title": "Lifeline Firemarshal Zero 360 3.0 kg mechanical kit contents",
+          "url": "https://compare.parts/product/22187059835-lifeline-firemarshal-zero-360-3-0kg-mechanical-fire-extinguisher-kit"
+        },
+        {
+          "title": "Lifeline Zero 360 SFI 17.1 10 lb system (Attacking the Clock Racing)",
+          "url": "https://www.attackingtheclockracing.com/products/h-lifeline-zero-360-sfi-17-1-10lbs-automatic-system-braided-stainless-steel-hose"
+        },
+        {
+          "title": "SPA Extreme Novec SFI 17.1 5 lb mechanical system",
+          "url": "https://discoveryparts.com/collections/spa-novec-1230/products/spa-extreme-novec-sfi-17-1-fire-system-5lb-light-weight"
+        },
+        {
+          "title": "Pegasus Auto Racing – fire system (SFI 17.1 recertification)",
+          "url": "https://www.pegasusautoracing.com/productdetails.asp?RecID=7024"
+        },
+        {
+          "title": "24 Hours of Lemons – fire system requirements thread (SFI 17.1 service life)",
+          "url": "https://forums.24hoursoflemons.com/viewtopic.php?id=37247"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.8,
+          0.3,
+          -0.4
+        ],
+        "size": [
+          0.4,
+          0.16,
+          0.16
+        ],
+        "axis": "x",
+        "rot": [
+          0,
+          180,
+          0
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 360 10 lb mechanical SFI 17.1 kit",
+            "url": "https://compare.parts/product/26804609607-lifeline-zero-360-10lb-mechanical-fire-extinguisher-kit-steel-tubing"
+          },
+          {
+            "title": "Lifeline Zero 360 5 lb mechanical system",
+            "url": "https://90racing.com/products/lifeline-5lb-mechanical-fire-suppression-sys-103-101-004"
+          },
+          {
+            "title": "Lifeline Zero 360 2.25 kg mechanical kit (268 x 125 mm bottle)",
+            "url": "https://www.merlinmotorsport.co.uk/p/lifeline-zero-360-fire-extinguisher-kit-2-25kg-mechanical-104-225-011"
+          }
+        ],
+        "dimensions": "10 lb Novec 1230 bottle ≈ 160 mm dia x ~400 mm incl. valve (estimated; Lifeline 2.25 kg is 125 x 268 mm)",
+        "features": "Red bottle, black mechanical pull-head with gauge facing up, outlet union forward, two quick-release straps",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.bottle-bracket",
+      "name": "Bottle mounting bracket & quick-release straps",
+      "qty": 1,
+      "description": "Maker-supplied cradle with two metal over-center or screw straps. Bolted through the floor into backing plates or rivnut-free through-bolts with large washers so it survives crash loads (FIA practice: 25 g in any direction, anti-torpedo stops).",
+      "location": "Passenger floor under bottle, x ≈ 1.65 & 1.95, z ≈ −0.40.",
+      "connectsTo": [
+        "safety.fire-suppression.bottle",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Straps": "2 metal straps minimum",
+        "Load": "≈25 g any direction (FIA App. J 253-7 practice)"
+      },
+      "hardware": [
+        {
+          "item": "Bracket-to-floor bolts",
+          "qty": 4,
+          "spec": "5/16-18 UNC or M8 x 1.25 bolt + nyloc + 1.25 in OD fender washer/backing plate under floor",
+          "grade": "SAE Grade 8 / ISO 8.8",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "M8 per Schroth chart 25 N·m; 5/16-18 G8 ≈ 18–20 ft-lb. Never self-tapping screws. Checked 2026-10: the extinguisher makers publish no bracket torque. 25 N·m matches standard class 8.8 M8 tightening torque (Atlas Copco table, μ 0.12: M8 25 N·m) and Grade 5-8 5/16-18 dry (about 17-29 ft-lb, Quadratec chart). Remains typical; use backing plates as the maker requires."
+        },
+        {
+          "item": "Strap closure screws",
+          "qty": 2,
+          "spec": "Supplied",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "installNotes": [
+        "Bracket bolts must go through floor with backing plates; check fuel/brake lines underneath first."
+      ],
+      "inspection": [
+        "Check straps and bolts tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 44,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        },
+        {
+          "title": "Lifeline Firemarshal Zero 360 3.0 kg mechanical kit contents",
+          "url": "https://compare.parts/product/22187059835-lifeline-firemarshal-zero-360-3-0kg-mechanical-fire-extinguisher-kit"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.8,
+          0.2925,
+          -0.4
+        ],
+        "size": [
+          0.3,
+          0.18,
+          0.172
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 360 10 lb mechanical SFI 17.1 kit",
+            "url": "https://compare.parts/product/26804609607-lifeline-zero-360-10lb-mechanical-fire-extinguisher-kit-steel-tubing"
+          }
+        ],
+        "dimensions": "Base plate ~300 x 170 mm, two metal straps around a 160 mm bottle",
+        "features": "Floor plate, rubber saddles, two stainless quick-release straps with over-centre latches",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.distribution-tubing",
+      "name": "Distribution tubing (plastic-coated aluminum / braided hose)",
+      "qty": 1,
+      "description": "Semi-rigid plastic-coated aluminum tube (Lifeline FIA kits: homologated 8–10 mm tube with push-in fittings) or braided stainless hose on SFI systems, running bottle → tee → cockpit nozzles and → firewall bulkhead fitting → engine nozzles. Do not substitute tube type.",
+      "location": "From bottle along the right side of the tunnel to a tee under the dash, then through firewall (x ≈ 0.66) to the engine bay.",
+      "connectsTo": [
+        "safety.fire-suppression.bottle",
+        "safety.fire-suppression.tee-fittings",
+        "safety.fire-suppression.bulkhead-fitting",
+        "safety.fire-suppression.cockpit-nozzles",
+        "safety.fire-suppression.engine-nozzles"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "Lifeline FIAP006 semi-rigid alloy tube (Zero 2000 kits) / 8 mm in Zero 360 kits",
+        "Cutting": "Cut square at 90°, keep OD round, push until it clicks (Lifeline)"
+      },
+      "hardware": [
+        {
+          "item": "P-clips",
+          "qty": 10,
+          "spec": "Rubber-lined P-clip + M5/#10 screw or rivnut",
+          "grade": "n/a",
+          "torque": "4 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "https://www.fia.com/sites/default/files/ex_065_21.pdf",
+          "notes": "Clip 75–100 mm behind each nozzle (FIA/Lifeline) and every ~300 mm along runs."
+        }
+      ],
+      "installNotes": [
+        "Route away from exhaust heat and sharp edges; grommet any panel pass-through.",
+        "Support tubing 75–100 mm behind each nozzle with P-clips."
+      ],
+      "inspection": [
+        "Check for kinks, crushed sections, loose push fittings."
+      ],
+      "buildPhase": 9,
+      "installOrder": 45,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        },
+        {
+          "title": "FIA technical list – extinguisher system bulletin (Lifeline Zero 360 installation)",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.58,
+              0.3,
+              -0.4
+            ],
+            [
+              1.45,
+              0.26,
+              -0.3
+            ],
+            [
+              1.25,
+              0.26,
+              -0.16
+            ],
+            [
+              1.05,
+              0.3,
+              -0.12
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.05,
+              0.3,
+              -0.12
+            ],
+            [
+              1,
+              0.42,
+              0.05
+            ],
+            [
+              0.98,
+              0.55,
+              0.25
+            ],
+            [
+              0.98,
+              0.56,
+              0.42
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.05,
+              0.3,
+              -0.12
+            ],
+            [
+              1.06,
+              0.45,
+              0
+            ],
+            [
+              1.06,
+              0.58,
+              0.12
+            ],
+            [
+              1.05,
+              0.6,
+              0.15
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.05,
+              0.3,
+              -0.12
+            ],
+            [
+              0.9,
+              0.4,
+              -0.22
+            ],
+            [
+              0.75,
+              0.62,
+              -0.25
+            ],
+            [
+              0.66,
+              0.72,
+              -0.25
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.66,
+              0.72,
+              -0.25
+            ],
+            [
+              0.55,
+              0.76,
+              -0.1
+            ],
+            [
+              0.4,
+              0.76,
+              0.2
+            ],
+            [
+              0.22,
+              0.72,
+              0.4
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.66,
+              0.72,
+              -0.25
+            ],
+            [
+              0.5,
+              0.76,
+              -0.32
+            ],
+            [
+              0.35,
+              0.75,
+              -0.4
+            ],
+            [
+              0.22,
+              0.72,
+              -0.42
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.66,
+              0.72,
+              -0.25
+            ],
+            [
+              0.45,
+              0.92,
+              -0.15
+            ],
+            [
+              0.1,
+              0.96,
+              -0.05
+            ],
+            [
+              -0.2,
+              0.92,
+              0
+            ],
+            [
+              -0.36,
+              0.74,
+              0
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#e67e22"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 2020 FIA kit contents (6 m 8 mm Decabon tube, 4 equal-T, bulkhead)",
+            "url": "https://store.24hoursoflemons.com/products/lifeline-zero-2020-fire-marshal-fia-fire-system-3-liter-electric"
+          },
+          {
+            "title": "Lifeline blue cockpit nozzle for Zero 360 (8 mm tubing)",
+            "url": "https://www.merlinmotorsport.co.uk/p/lifeline-nozzle-for-zero-360-fire-systems-8mm-tubing-955-300-003"
+          }
+        ],
+        "dimensions": "8 mm OD Decabon (plastic-coated aluminium) tube, min bend radius 25 mm (50 mm recommended), P-clips 75-100 mm behind each nozzle",
+        "features": "Thin coated tube from the bottle outlet along the tunnel, through the firewall bulkhead to the nozzles",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.tee-fittings",
+      "name": "Equal tee connectors",
+      "qty": 3,
+      "description": "Push-in equal tees splitting the outlet line into cockpit and engine branches, and splitting each branch to its nozzles.",
+      "location": "Under dash near tunnel (x ≈ 1.05, z ≈ −0.12) and behind firewall bulkhead fitting in engine bay.",
+      "connectsTo": [
+        "safety.fire-suppression.distribution-tubing"
+      ],
+      "factory": {
+        "name": "n/a",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline equal T connector",
+          "brand": "Lifeline",
+          "partNumber": "FIAP003",
+          "notes": "Part of Zero 2000 FIA kit contents list.",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Push-in collet",
+          "qty": 3,
+          "spec": "Integral",
+          "grade": "n/a",
+          "torque": "N/A (push-to-connect)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf",
+          "notes": "Release by pushing tube in and pressing black collar."
+        }
+      ],
+      "installNotes": [
+        "Clip tees to structure; do not let them hang on tubing."
+      ],
+      "inspection": [
+        "Tug-test each joint."
+      ],
+      "buildPhase": 9,
+      "installOrder": 46,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.05,
+          0.3,
+          -0.12
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.03
+        ],
+        "instances": [
+          [
+            1.05,
+            0.3,
+            -0.12
+          ],
+          [
+            0.62,
+            0.74,
+            -0.24
+          ],
+          [
+            0.55,
+            0.76,
+            -0.12
+          ]
+        ],
+        "color": "#bdc3c7"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 2020 FIA kit contents (6 m 8 mm Decabon tube, 4 equal-T, bulkhead)",
+            "url": "https://store.24hoursoflemons.com/products/lifeline-zero-2020-fire-marshal-fia-fire-system-3-liter-electric"
+          }
+        ],
+        "dimensions": "8 mm equal-T",
+        "features": "Push-fit equal T splitting cockpit / engine runs",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.bulkhead-fitting",
+      "name": "Firewall bulkhead fitting (fire line)",
+      "qty": 1,
+      "description": "Through-panel fitting that carries the engine branch through the firewall while keeping the cockpit sealed.",
+      "location": "Firewall, x ≈ 0.66, y ≈ 0.72, z ≈ −0.25.",
+      "connectsTo": [
+        "safety.fire-suppression.distribution-tubing",
+        "safety.fuel-and-firewall-isolation.firewall-blockoff-plates"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline bulkhead fitting",
+          "brand": "Lifeline",
+          "partNumber": "FIAP004",
+          "notes": "Listed in Lifeline electric kit contents.",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bulkhead jam nut",
+          "qty": 1,
+          "spec": "Supplied jam nut + washer",
+          "grade": "Supplied",
+          "torque": "Snug + 1/4 turn",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "installNotes": [
+        "Seal around fitting with fire-rated sealant."
+      ],
+      "inspection": [
+        "Check nut tight and seal intact."
+      ],
+      "buildPhase": 9,
+      "installOrder": 47,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.66,
+          0.72,
+          -0.25
+        ],
+        "size": [
+          0.03,
+          0.025,
+          0.025
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 2020 FIA kit contents (6 m 8 mm Decabon tube, 4 equal-T, bulkhead)",
+            "url": "https://store.24hoursoflemons.com/products/lifeline-zero-2020-fire-marshal-fia-fire-system-3-liter-electric"
+          }
+        ],
+        "dimensions": "8 mm tube bulkhead, ~25 mm hex/flange, 14 mm panel hole",
+        "features": "Through-firewall union with jam nut, both sides push-fit 8 mm",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.cockpit-nozzles",
+      "name": "Cockpit discharge nozzles",
+      "qty": 2,
+      "description": "Nozzles under the dashboard aimed at the footwell and the driver midriff – never at the driver's face/head (FIA/Lifeline). Rigidly bracket-mounted, not supported by tubing.",
+      "location": "Under dash: driver footwell (x 0.98, y 0.56, z +0.42) and center aimed at driver torso (x 1.05, y 0.60, z +0.15).",
+      "connectsTo": [
+        "safety.fire-suppression.distribution-tubing",
+        "interior.dash.race-dash-panel"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline Zero 360 cockpit nozzle (blue)",
+          "brand": "Lifeline",
+          "partNumber": "",
+          "notes": "Use only the nozzle designed for your system; all supplied nozzles must be fitted, no extras (FIA bulletin).",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        },
+        {
+          "name": "Lifeline Zero 2000 nozzle",
+          "brand": "Lifeline",
+          "partNumber": "FIAP001",
+          "notes": "Zero 2000 kit nozzle.",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {
+        "Panel cut-out": "Ø15.5 mm (Zero 2000/360)",
+        "Aim": "Footwell / driver midriff"
+      },
+      "hardware": [
+        {
+          "item": "Nozzle jam nut to bracket",
+          "qty": 1,
+          "spec": "Supplied",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        },
+        {
+          "item": "Nozzle bracket",
+          "qty": 1,
+          "spec": "16 ga steel/aluminum L-bracket riveted or bolted (M6) to dash bar tab",
+          "grade": "n/a",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Aim per maker diagram; check spray path not blocked by pedals/column."
+      ],
+      "inspection": [
+        "Check nozzle caps/foil intact, aim unchanged."
+      ],
+      "buildPhase": 9,
+      "installOrder": 48,
+      "tags": [],
+      "sources": [
+        {
+          "title": "FIA technical list – extinguisher system bulletin (Lifeline Zero 360 installation)",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        },
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.98,
+          0.56,
+          0.42
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.02
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.98,
+            0.56,
+            0.42
+          ],
+          [
+            1.05,
+            0.6,
+            0.15
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline blue cockpit nozzle for Zero 360 (8 mm tubing)",
+            "url": "https://www.merlinmotorsport.co.uk/p/lifeline-nozzle-for-zero-360-fire-systems-8mm-tubing-955-300-003"
+          },
+          {
+            "title": "Lifeline Zero 360 5 lb mechanical system",
+            "url": "https://90racing.com/products/lifeline-5lb-mechanical-fire-suppression-sys-103-101-004"
+          }
+        ],
+        "dimensions": "~30 mm long, 20 mm hex, push-fit on 8 mm tube",
+        "features": "Blue-anodised cockpit nozzles aimed at the driver’s feet/torso",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.engine-nozzles",
+      "name": "Engine-bay discharge nozzles",
+      "qty": 3,
+      "description": "Nozzles in the engine bay between mid-height and top of engine (Zero 360: 3 gold nozzles) covering both exhaust/head sides and the front of the engine (fuel rails, intake). Lifeline Zero 2000 guidance: diagonally apart about 200 mm below the hood shut line.",
+      "location": "Engine bay: rear-left and rear-right of engine at y ≈ 0.72 (x 0.22, z ±0.41) and front center (x −0.36, y 0.74).",
+      "connectsTo": [
+        "safety.fire-suppression.distribution-tubing",
+        "engine.block",
+        "engine-support.fuel-delivery.fuel-rails"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline Zero 360 engine nozzle (gold)",
+          "brand": "Lifeline",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        }
+      ],
+      "specs": {
+        "Mount": "Bracket or bulkhead-mounted, mechanically secured",
+        "Position": "Mid-height to top of engine"
+      },
+      "hardware": [
+        {
+          "item": "Nozzle bracket bolts",
+          "qty": 1,
+          "spec": "M6 x 1.0 bolt + nyloc to inner fender / strut-tower bracket",
+          "grade": "ISO 8.8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep nozzles clear of exhaust headers (heat) and moving parts; consider overlap of spray patterns."
+      ],
+      "inspection": [
+        "Check aim and that brackets are not cracked."
+      ],
+      "buildPhase": 9,
+      "installOrder": 49,
+      "tags": [],
+      "sources": [
+        {
+          "title": "FIA technical list – extinguisher system bulletin (Lifeline Zero 360 installation)",
+          "url": "https://www.fia.com/sites/default/files/ex_065_21.pdf"
+        },
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.22,
+          0.72,
+          0.4
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.02
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.22,
+            0.72,
+            0.4
+          ],
+          [
+            0.22,
+            0.72,
+            -0.42
+          ],
+          [
+            -0.36,
+            0.74,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 360 5 lb mechanical system",
+            "url": "https://90racing.com/products/lifeline-5lb-mechanical-fire-suppression-sys-103-101-004"
+          }
+        ],
+        "dimensions": "~30 mm long, 20 mm hex",
+        "features": "Gold engine-bay nozzles aimed at fuel rails / headers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.internal-pull-cable",
+      "name": "Internal pull handle & cable (driver)",
+      "qty": 1,
+      "description": "T-handle within reach of the belted driver connected by sheathed cable to the bottle operating head. Lifeline kits supply 6 ft and 12 ft T-handle cables.",
+      "location": "Center tunnel beside driver (x ≈ 1.38, y ≈ 0.46, z ≈ +0.04) to bottle head (x ≈ 1.58, z ≈ −0.36).",
+      "connectsTo": [
+        "safety.fire-suppression.bottle",
+        "interior.dash.switch-panel"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline 6 ft cable T-handle c/w nipple",
+          "brand": "Lifeline",
+          "partNumber": "LLP0020",
+          "notes": "",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {
+        "Marking": "Red \"E\" in white circle with red border decal (FIA) next to handle"
+      },
+      "hardware": [
+        {
+          "item": "T-handle mount nut",
+          "qty": 1,
+          "spec": "Supplied panel nut",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        },
+        {
+          "item": "Cable P-clips",
+          "qty": 4,
+          "spec": "P-clip + M5 screw/rivnut",
+          "grade": "n/a",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route with large-radius bends, no kinks; test pull force with bottle pin installed (do not discharge)."
+      ],
+      "inspection": [
+        "Check cable free, handle secure."
+      ],
+      "buildPhase": 9,
+      "installOrder": 50,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.38,
+            0.46,
+            0.04
+          ],
+          [
+            1.42,
+            0.34,
+            -0.02
+          ],
+          [
+            1.48,
+            0.27,
+            -0.15
+          ],
+          [
+            1.58,
+            0.32,
+            -0.36
+          ]
+        ],
+        "radius": 0.003,
+        "color": "#c0392b"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.external-pull-cable",
+      "name": "External pull handle & cable (marshal access)",
+      "qty": 1,
+      "description": "External T-handle (usually at the base of the windshield/cowl) so corner workers can fire the system, connected by 12 ft cable to the bottle head.",
+      "location": "Passenger-side cowl/windshield base (x ≈ 0.66, y ≈ 0.97, z ≈ −0.62), cable down the A-pillar and along the sill to the bottle.",
+      "connectsTo": [
+        "safety.fire-suppression.bottle",
+        "body.paint-wrap.safety-decals"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline 12 ft cable T-handle c/w nipple",
+          "brand": "Lifeline",
+          "partNumber": "LLP0021",
+          "notes": "",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Handle mounting nut/bracket",
+          "qty": 1,
+          "spec": "Supplied nut + 16 ga bracket riveted to cowl",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        },
+        {
+          "item": "Cable P-clips",
+          "qty": 6,
+          "spec": "P-clip + M5/#10 screw",
+          "grade": "n/a",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mark with \"E\" decal; keep away from hood pin and wiper area."
+      ],
+      "inspection": [
+        "Pull-test function annually with pin in."
+      ],
+      "buildPhase": 9,
+      "installOrder": 51,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.66,
+            0.97,
+            -0.62
+          ],
+          [
+            0.78,
+            0.9,
+            -0.66
+          ],
+          [
+            0.85,
+            0.6,
+            -0.7
+          ],
+          [
+            1.05,
+            0.24,
+            -0.66
+          ],
+          [
+            1.4,
+            0.24,
+            -0.55
+          ],
+          [
+            1.58,
+            0.32,
+            -0.42
+          ]
+        ],
+        "radius": 0.003,
+        "color": "#c0392b"
+      }
+    },
+    {
+      "id": "safety.fire-suppression.decals",
+      "name": "Fire system decals (\"E\" markers)",
+      "qty": 2,
+      "description": "Red \"E\" (white circle, red border) decals at the internal and external pull handles; included as Lifeline decal pack.",
+      "location": "At pull handles.",
+      "connectsTo": [
+        "safety.fire-suppression.internal-pull-cable",
+        "safety.fire-suppression.external-pull-cable"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline decal pack",
+          "brand": "Lifeline",
+          "partNumber": "LLP0033",
+          "notes": "",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Vinyl decal",
+          "qty": 1,
+          "spec": "Self-adhesive",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "installNotes": [
+        "Apply on clean, de-greased surface."
+      ],
+      "inspection": [
+        "Replace if faded."
+      ],
+      "buildPhase": 10,
+      "installOrder": 57,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA Zero 2000 fitting instructions (hosted by Mazda Motorsports)",
+          "url": "https://www.mazdamotorsports.com/wp-content/uploads/2019/11/Fire-Bottle-FIAZ2000-Fitting-Instructions-1-30-19.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.66,
+          0.985,
+          -0.55
+        ],
+        "size": [
+          0.05,
+          0.002,
+          0.05
+        ],
+        "color": "#e74c3c"
+      }
+    }
+  ]
+}

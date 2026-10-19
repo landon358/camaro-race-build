@@ -1,0 +1,376 @@
+{
+ "id": "safety.fuel-and-firewall-isolation",
+ "system": "safety",
+ "name": "Fuel & Firewall Isolation",
+ "description": "Sheet-metal bulkheads that seal the cockpit from the trunk-mounted fuel cell and from the engine bay: rear bulkhead, package-shelf panel, sealed pass-throughs, and front firewall block-off plates.",
+ "components": [
+  {
+   "id": "safety.fuel-and-firewall-isolation.rear-bulkhead-panel",
+   "name": "Rear cockpit/fuel-cell bulkhead panel",
+   "qty": 1,
+   "description": "Metal panel replacing the rear seat back that fully separates the cockpit from the trunk where the fuel cell lives. Backstays and rear-cross tubes pass through and are sealed. Include a Dzus-fastened access panel for the cell/pumps if needed.",
+   "location": "Behind the main hoop at the former rear seatback, x ≈ 2.62, y ≈ 0.25–1.00, full width z ±0.68.",
+   "connectsTo": [
+    "safety.roll-cage.backstays",
+    "safety.fuel-and-firewall-isolation.package-shelf-panel",
+    "safety.fuel-and-firewall-isolation.pass-through-seals",
+    "chassis.fuel-cell.cell",
+    "electrical.main-harness.rear-bulkhead"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Material": "0.040–0.063 in 5052 aluminum or 20–22 ga steel",
+    "Sealing": "Fire-rated sealant on every seam; no open holes"
+   },
+   "hardware": [
+    {
+     "item": "Panel rivets",
+     "qty": 40,
+     "spec": "3/16 in (or 1/8 in) aluminum/steel blind rivets at ~3 in pitch",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Replace",
+     "confidence": "typical",
+     "source": "https://timetrials.scca.com/pages/full-safety-rules"
+    },
+    {
+     "item": "Removable access-panel fasteners",
+     "qty": 8,
+     "spec": "1/4-20 / M6 button-head into steel rivnuts, or Dzus EHF5",
+     "grade": "SAE Grade 5 / ISO 8.8",
+     "torque": "6 ft-lb (8 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    },
+    {
+     "item": "Seam sealant",
+     "qty": 1,
+     "spec": "Fire-rated intumescent/silicone sealant (e.g. 3M Fire Barrier type)",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Template in cardboard around backstays first.",
+    "Seal the factory rear-seat pass-through openings.",
+    "SCCA allows tubes to pass through the bulkhead only if sealed around them."
+   ],
+   "inspection": [
+    "Check for fuel odor in cockpit and any gaps in sealant."
+   ],
+   "buildPhase": 2,
+   "installOrder": 26,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     2.62,
+     0.62,
+     0
+    ],
+    "size": [
+     0.004,
+     0.75,
+     1.36
+    ],
+    "color": "#b0b7bb"
+   }
+  },
+  {
+   "id": "safety.fuel-and-firewall-isolation.package-shelf-panel",
+   "name": "Rear package-shelf close-out panel",
+   "qty": 1,
+   "description": "Horizontal panel sealing the top of the trunk (rear parcel shelf openings, speaker holes) from the cabin so fuel vapor/fire cannot enter under the rear window.",
+   "location": "Under rear window, x ≈ 2.62–3.05, y ≈ 0.98.",
+   "connectsTo": [
+    "safety.fuel-and-firewall-isolation.rear-bulkhead-panel",
+    "body.glass-and-lexan.rear-window"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Material": "0.040 in aluminum"
+   },
+   "hardware": [
+    {
+     "item": "Rivets",
+     "qty": 20,
+     "spec": "1/8 in blind rivets",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Replace",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Seal speaker/vent holes; notch for backstays."
+   ],
+   "inspection": [
+    "Check sealant."
+   ],
+   "buildPhase": 2,
+   "installOrder": 27,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     2.84,
+     0.98,
+     0
+    ],
+    "size": [
+     0.42,
+     0.004,
+     1.2
+    ],
+    "color": "#b0b7bb"
+   }
+  },
+  {
+   "id": "safety.fuel-and-firewall-isolation.pass-through-seals",
+   "name": "Bulkhead pass-through seals & fittings",
+   "qty": 6,
+   "description": "AN bulkhead fittings for fuel feed/return lines, sealed grommets or bulkhead connectors for wiring, and welded/sealed collars around cage tubes – every hole through a fire bulkhead must be sealed.",
+   "location": "Rear bulkhead and front firewall penetrations.",
+   "connectsTo": [
+    "safety.fuel-and-firewall-isolation.rear-bulkhead-panel",
+    "engine-support.fuel-delivery.feed-line",
+    "electrical.main-harness.rear-bulkhead",
+    "electrical.main-harness.firewall-bulkhead"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Fuel lines": "Metal hard line or braided hose; AN bulkhead unions",
+    "Wiring": "Bulkhead connector or sealed grommet"
+   },
+   "hardware": [
+    {
+     "item": "AN bulkhead jam nut",
+     "qty": 2,
+     "spec": "-6/-8 AN bulkhead union jam nut",
+     "grade": "Aluminum",
+     "torque": "Snug + 1/8 turn (no published torque)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": ""
+    },
+    {
+     "item": "Grommets",
+     "qty": 4,
+     "spec": "Rubber grommets + fire sealant",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Coordinate with fuel system and electrical teams on hole sizes/locations."
+   ],
+   "inspection": [
+    "Check for leaks/chafe at each pass-through."
+   ],
+   "buildPhase": 2,
+   "installOrder": 28,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     2.62,
+     0.35,
+     0.2
+    ],
+    "size": [
+     0.01,
+     0.03,
+     0.03
+    ],
+    "axis": "x",
+    "instances": [
+     [
+      2.62,
+      0.35,
+      0.2
+     ],
+     [
+      2.62,
+      0.35,
+      0.14
+     ],
+     [
+      2.62,
+      0.55,
+      -0.4
+     ],
+     [
+      0.67,
+      0.55,
+      0.3
+     ],
+     [
+      0.67,
+      0.6,
+      -0.3
+     ],
+     [
+      0.67,
+      0.72,
+      -0.25
+     ]
+    ],
+    "color": "#bdc3c7"
+   }
+  },
+  {
+   "id": "safety.fuel-and-firewall-isolation.firewall-blockoff-plates",
+   "name": "Front firewall block-off plates (HVAC/heater/booster deletes)",
+   "qty": 3,
+   "description": "Aluminum plates sealing holes left in the front firewall by HVAC/heater-core, A/C, and any deleted factory pass-throughs, keeping the engine-bay fire out of the cockpit.",
+   "location": "Front firewall, x ≈ 0.62–0.70, y ≈ 0.45–0.85.",
+   "connectsTo": [
+    "chassis.unibody.firewall",
+    "safety.roll-cage.front-down-bars",
+    "safety.fire-suppression.bulkhead-fitting"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Material": "0.063 in aluminum or 18 ga steel"
+   },
+   "hardware": [
+    {
+     "item": "Plate screws",
+     "qty": 6,
+     "spec": "M6 x 1.0 button-head into rivnuts or 3/16 rivets",
+     "grade": "ISO 8.8",
+     "torque": "5.9 ft-lb (8 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": ""
+    },
+    {
+     "item": "Fire sealant / gasket",
+     "qty": 1,
+     "spec": "Fire-rated sealant",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Install after HVAC delete decision (interior.dash)."
+   ],
+   "inspection": [
+    "Check seals for gaps."
+   ],
+   "buildPhase": 1,
+   "installOrder": 19,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.67,
+     0.65,
+     -0.3
+    ],
+    "size": [
+     0.004,
+     0.18,
+     0.2
+    ],
+    "instances": [
+     [
+      0.67,
+      0.65,
+      -0.3
+     ],
+     [
+      0.67,
+      0.6,
+      0.05
+     ],
+     [
+      0.67,
+      0.75,
+      0.3
+     ]
+    ],
+    "color": "#b0b7bb"
+   }
+  }
+ ]
+}

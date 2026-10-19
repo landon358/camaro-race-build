@@ -1,0 +1,454 @@
+{
+  "id": "chassis.mounting-points",
+  "system": "chassis",
+  "name": "Mounting Points (Lift, Tow, Rivnuts, Tabs)",
+  "description": "Body hard points used for lifting/jacking, towing/recovery, and attaching lines, harnesses and small brackets: factory pinch-weld lift points, tow-eye receptacles, plus rivnuts and weld-on tabs added during the build.",
+  "components": [
+    {
+      "id": "chassis.mounting-points.lift-and-jack-points",
+      "name": "Lift and jacking points (rocker pinch welds)",
+      "qty": 4,
+      "description": "Factory lift points on the rocker pinch-weld flanges just behind the front wheel openings and just ahead of the rear wheel openings. Use these for 2-post lifts and jack stands. For pit-lane jacking a race car normally uses a center front jacking point (front cradle or a dedicated jack plate) and a rear point at the rear cradle front crossmember/braces.",
+      "location": "Rocker underside approx (x 0.55, y 0.14, z +/-0.86) and (x 2.35, y 0.14, z +/-0.86).",
+      "connectsTo": [
+        "chassis.unibody.rocker-sills",
+        "suspension.front-cradle.cradle",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM pinch-weld lift points (marked by notches/arrows on rocker cover)",
+        "notes": "Gen 6 owner's manual shows jack locations at the rocker pinch welds; do not lift on the plastic rocker moldings or on suspension links."
+      },
+      "raceOptions": [
+        {
+          "name": "Weld-on jack pads / pinch-weld jack pad adapters",
+          "brand": "Various (e.g. slotted puck adapters)",
+          "notes": "A welded tubular jacking point at each rocker or a center jack plate on the front cradle allows fast pit-lane lifts with a racing jack."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Weld any custom jacking points during phase 1 before paint.",
+        "Mark the points with paint so crew can find them."
+      ],
+      "inspection": [
+        "Check pinch welds for crush damage."
+      ],
+      "buildPhase": 1,
+      "installOrder": 18,
+      "tags": [
+        "jacking",
+        "lift-points"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0.14,
+            0
+          ],
+          "size": [
+            0.1,
+            0.03,
+            0.04
+          ],
+          "instances": [
+            [
+              0.55,
+              0.14,
+              0.86
+            ],
+            [
+              0.55,
+              0.14,
+              -0.86
+            ],
+            [
+              2.35,
+              0.14,
+              0.86
+            ],
+            [
+              2.35,
+              0.14,
+              -0.86
+            ]
+          ],
+          "color": "#e0c000"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 100 x 40 mm",
+        "features": "Pinch-weld lift points with rubber jack pads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.front-tow-eye-receptacle",
+      "name": "Front tow-eye receptacle and race tow strap",
+      "qty": 1,
+      "description": "Threaded receptacle in the front bumper beam/crush can (accessed through a fascia cover) for the factory screw-in tow eye. Race sanctioning bodies require an accessible, clearly marked tow point at front and rear; most racers install a fabric tow strap bolted to the bumper beam or frame rail tip.",
+      "location": "Front fascia, right-of-center lower area, x approx -0.95, y approx 0.30.",
+      "connectsTo": [
+        "chassis.unibody.front-frame-rails",
+        "body.bumpers.front-bumper-beam",
+        "aero.splitter.splitter"
+      ],
+      "factory": {
+        "name": "GM screw-in tow eye (stored with jack kit)",
+        "notes": "Check the owner's manual for thread direction before forcing - some GM tow eyes use reverse threads."
+      },
+      "raceOptions": [
+        {
+          "name": "Bolt-on nylon tow strap",
+          "brand": "Various (Sparco, OMP, Grimm Speed etc.)",
+          "notes": "Bolt to the bumper beam / rail tip with a grade 10.9 bolt and large washer; must not interfere with splitter or ducts. Colour must contrast with the body per most rulebooks."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tow strap mounting bolt",
+          "qty": 1,
+          "spec": "M10 or M12 x 1.25 flange bolt with fender washer (match receptacle)",
+          "grade": "10.9",
+          "torque": "M10: 44 ft-lb (60 N·m); M12: 74 ft-lb (100 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Generic metric 10.9 values - verify receptacle thread.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount strap so it pulls in line with the rail; route outside the splitter edge."
+      ],
+      "inspection": [
+        "Check strap for fraying and mounting bolt tightness each event."
+      ],
+      "buildPhase": 1,
+      "installOrder": 19,
+      "tags": [
+        "tow",
+        "rules"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.86,
+            0.3,
+            -0.25
+          ],
+          "size": [
+            0.06,
+            0.03,
+            0.03
+          ],
+          "axis": "x",
+          "color": "#e01010"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx M20 screw-in eye",
+        "features": "Threaded tow-eye boss with a race tow strap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.rear-tow-point",
+      "name": "Rear tow point",
+      "qty": 1,
+      "description": "Rear tow eye receptacle / rear tow strap mounted to the rear rail or rear bumper beam. Must be reachable without removing bodywork and must clear the diffuser and exhaust.",
+      "location": "Rear fascia lower area, x approx 3.80, y approx 0.35.",
+      "connectsTo": [
+        "chassis.unibody.rear-rails",
+        "body.bumpers.rear-bumper-beam",
+        "aero.diffuser.diffuser"
+      ],
+      "factory": {
+        "name": "GM rear tow eye receptacle (screw-in eye)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bolt-on nylon tow strap",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tow strap mounting bolt",
+          "qty": 1,
+          "spec": "M10 or M12 flange bolt with fender washer (match receptacle)",
+          "grade": "10.9",
+          "torque": "M10: 44 ft-lb (60 N·m); M12: 74 ft-lb (100 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check strap condition each event."
+      ],
+      "buildPhase": 1,
+      "installOrder": 20,
+      "tags": [
+        "tow",
+        "rules"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.8,
+            0.35,
+            0.3
+          ],
+          "size": [
+            0.06,
+            0.03,
+            0.03
+          ],
+          "axis": "x",
+          "color": "#e01010"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx M20 screw-in eye",
+        "features": "Threaded tow point with tow strap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.rivnuts",
+      "name": "Rivnuts / nutserts for line, harness and bracket mounting",
+      "qty": 60,
+      "description": "Steel threaded insert rivets installed into body sheet metal to give removable mounting points for brake/fuel line clamps, harness P-clips, fire-system lines, ducting, splash shields and panels without access to the back side. Use steel (not aluminum) rivnuts in structural or vibrating locations; avoid installing them in rail walls, datum holes or crush zones.",
+      "location": "Throughout: tunnel and floor (line runs), firewall, inner fenders, trunk floor.",
+      "connectsTo": [
+        "brakes.lines.rear-hard-line",
+        "engine-support.fuel-lines.feed-line",
+        "electrical.harness.main-trunk",
+        "chassis.mounting-points.weld-on-tabs"
+      ],
+      "factory": {
+        "name": "Factory weld studs and clip holes (partially reusable)",
+        "notes": "Many factory line clips snap onto weld studs; reuse where routing matches."
+      },
+      "raceOptions": [
+        {
+          "name": "Steel ribbed rivnuts M5/M6 (or 10-24 / 1/4-20)",
+          "brand": "Various (Atlas, Avdel/Nutsert)",
+          "notes": "Hex-body rivnuts resist spinning better than round-body in thin sheet."
+        }
+      ],
+      "specs": {
+        "Typical sizes": "M5 and M6 in 0.7-1.5 mm sheet",
+        "Install": "Hand or pneumatic rivnut tool, correct grip range"
+      },
+      "hardware": [
+        {
+          "item": "Screw into M6 steel rivnut (P-clip/line clamp)",
+          "qty": 1,
+          "spec": "M6 x 1.0 button/flange head",
+          "grade": "8.8 or stainless A2-70",
+          "torque": "6 ft-lb (8 N·m)",
+          "threadlocker": "Blue (Loctite 243) on vibrating items",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Per fastener; over-torque spins the rivnut.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Screw into M5 steel rivnut",
+          "qty": 1,
+          "spec": "M5 x 0.8",
+          "grade": "8.8 or A2-70",
+          "torque": "3.5 ft-lb (5 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Lay out every line and harness route (phase 2/8) and mark clip positions every 300-400 mm before drilling.",
+        "Drill to exact rivnut size, deburr, prime the bare edge (weld-thru or epoxy primer) before setting the rivnut to stop rust.",
+        "Install before final paint if possible, then mask threads."
+      ],
+      "inspection": [
+        "Check for spinning rivnuts on high-vibration items (exhaust hangers, splash shields)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 21,
+      "tags": [
+        "rivnut",
+        "nutsert",
+        "mounting"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "size": [
+            0.012,
+            0.012,
+            0.012
+          ],
+          "axis": "y",
+          "instances": [
+            [
+              1,
+              0.21,
+              0.12
+            ],
+            [
+              1.4,
+              0.21,
+              0.12
+            ],
+            [
+              1.8,
+              0.21,
+              0.12
+            ],
+            [
+              2.2,
+              0.21,
+              0.12
+            ],
+            [
+              1,
+              0.21,
+              -0.12
+            ],
+            [
+              1.4,
+              0.21,
+              -0.12
+            ],
+            [
+              1.8,
+              0.21,
+              -0.12
+            ],
+            [
+              2.2,
+              0.21,
+              -0.12
+            ]
+          ],
+          "color": "#c0c0c0"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "M5/M6",
+        "features": "Ribbed steel rivnuts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.weld-on-tabs",
+      "name": "Weld-on tabs and brackets (line clamps, harness, fire system, ducts)",
+      "qty": 40,
+      "description": "Small steel tabs (often with a weld nut) MIG/TIG welded to the body or cage for line clamps, harness clamps, extinguisher mounts, brake-duct hose supports and splitter/diffuser supports. Welding them on during chassis prep (before paint) is cleaner than rivnuts in many locations.",
+      "location": "Tunnel, firewall, inner fenders, cage tubes.",
+      "connectsTo": [
+        "chassis.mounting-points.rivnuts",
+        "safety.fire-system.bottle-mount",
+        "brakes.cooling.brake-duct-hose"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Laser-cut steel tabs with captured weld nuts",
+          "brand": "Various (e.g. Ballistic Fabrication, Mittler Bros)",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Weld all tabs before media-blasting/painting; tabs welded after paint must be re-primed."
+      ],
+      "inspection": [
+        "Check tab welds for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 22,
+      "tags": [
+        "tabs",
+        "brackets"
+      ],
+      "sources": []
+    },
+    {
+      "id": "chassis.mounting-points.captured-nut-repair",
+      "name": "Captured (cage) nut plates for cradle and brace bolts",
+      "qty": 1,
+      "description": "The cradle and cradle-brace bolts thread into captured/caged weld nuts in the rails. A spun or stripped captured nut is a common problem on used shells. Repair by cutting an access window, welding in a new nut plate (or installing a threaded insert of equal strength), and closing the window with a doubler.",
+      "location": "Front rails at front cradle mounts; rear rails at rear cradle mounts and cradle braces.",
+      "connectsTo": [
+        "suspension.front-cradle.cradle-mounts",
+        "suspension.rear-cradle.cradle-bushings",
+        "suspension.rear-cradle.front-cradle-braces"
+      ],
+      "factory": {
+        "name": "GM captured weld nuts",
+        "notes": "Cradle bolts are torque-to-yield (74 lb ft + 90-105 deg on the rear cradle), so thread condition matters."
+      },
+      "raceOptions": [
+        {
+          "name": "Weld-in nut plate / heavy-duty thread insert (e.g. Time-Sert)",
+          "brand": "Various",
+          "notes": "Thread repair inserts must be rated for the TTY clamp load."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Thread-chase every captured nut before assembly; test-fit each bolt by hand to full depth."
+      ],
+      "inspection": [],
+      "buildPhase": 1,
+      "installOrder": 23,
+      "tags": [
+        "captured-nut",
+        "repair"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK061 instructions (rear cradle TAY bolts)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        }
+      ]
+    }
+  ]
+}

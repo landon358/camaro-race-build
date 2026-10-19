@@ -1,0 +1,883 @@
+{
+  "id": "brakes.master-cylinders",
+  "system": "brakes",
+  "name": "Booster, Master Cylinders & Reservoirs",
+  "description": "Converts pedal force into hydraulic pressure. Factory: vacuum booster + tandem (dual-circuit) master cylinder on the driver-side firewall feeding the ABS/ESC modulator. Race: no booster; two independent master cylinders (front and rear) on the balance bar, each with its own remote reservoir.",
+  "components": [
+    {
+      "id": "brakes.master-cylinders.factory-booster",
+      "name": "Vacuum brake booster (factory)",
+      "qty": 1,
+      "description": "Single-diaphragm vacuum booster bolted to the driver-side firewall; multiplies pedal force using manifold vacuum (supplemented on some engine combinations by a booster vacuum pump). Usually deleted on a race car because a cammy race engine makes little vacuum and the booster masks pedal feel.",
+      "location": "Engine side of the driver-side firewall/cowl, x≈0.45–0.60, y≈0.80, z≈+0.42.",
+      "connectsTo": [
+        "brakes.pedal-box.pedal-assembly",
+        "brakes.master-cylinders.factory-tandem-mc",
+        "brakes.master-cylinders.booster-vacuum-pump",
+        "engine.intake-manifold.manifold",
+        "chassis.firewall.firewall"
+      ],
+      "factory": {
+        "name": "GM power vacuum brake booster (Gen 6 Camaro)",
+        "notes": "Retained by 4 studs/nuts through the firewall; vacuum hose with check valve."
+      },
+      "raceOptions": [
+        {
+          "name": "Booster delete (manual brakes with race dual-master pedal box)",
+          "brand": "n/a",
+          "notes": "Block the firewall opening with an aluminum plate; requires smaller master bores (≈0.625–0.75 in) and higher pedal ratio."
+        }
+      ],
+      "specs": {
+        "Type": "Vacuum, single diaphragm (verify per VIN)"
+      },
+      "hardware": [
+        {
+          "item": "Power vacuum brake booster nut (to pedal bracket/firewall studs)",
+          "qty": 4,
+          "spec": "M8 flange nut",
+          "grade": "GM",
+          "torque": "18 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm",
+          "notes": "GM value \"Power vacuum brake booster nut\". Qty typical for this design.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "If retaining factory brakes: install booster with new gasket to firewall, then the master cylinder, before routing hard lines to the BPMV.",
+        "If deleting: seal the firewall hole with a riveted/bolted aluminum blanking plate with sealant."
+      ],
+      "inspection": [
+        "Engine off, pump pedal to deplete vacuum; hold pedal and start engine – pedal should drop slightly (booster working)."
+      ],
+      "buildPhase": 2,
+      "installOrder": 6,
+      "tags": [
+        "factory",
+        "booster",
+        "vacuum"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.545,
+          0.74,
+          0.42
+        ],
+        "size": [
+          0.13,
+          0.24,
+          0.24
+        ],
+        "axis": "x",
+        "color": "#2b2b2b"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~240 mm dia x 130 mm",
+        "features": "Black tandem-diaphragm shell, 4 firewall studs, vacuum check valve",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.booster-vacuum-pump",
+      "name": "Brake booster auxiliary vacuum pump (factory, engine-dependent)",
+      "qty": 1,
+      "description": "GM service data for the Gen 6 lists a \"power brake booster pump assembly\" – an auxiliary vacuum source used where manifold vacuum alone is insufficient. Not needed once the booster is deleted.",
+      "location": "Engine bay near the booster / front of dash (exact location varies by engine – verify on your donor).",
+      "connectsTo": [
+        "brakes.master-cylinders.factory-booster",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM brake booster pump assembly",
+        "notes": "Torque values from GM SM table; mounting location not confirmed."
+      },
+      "raceOptions": [
+        {
+          "name": "Delete with booster",
+          "brand": "n/a",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Power brake booster pump assembly bolt",
+          "qty": 2,
+          "spec": "M8 bolt",
+          "grade": "GM",
+          "torque": "18 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Power brake booster pump nut",
+          "qty": 1,
+          "spec": "M8 nut",
+          "grade": "GM",
+          "torque": "16 ft-lb (22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Only relevant if the factory boosted system is retained."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "factory",
+        "vacuum"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.4,
+          0.62,
+          0.55
+        ],
+        "size": [
+          0.12,
+          0.08,
+          0.08
+        ],
+        "color": "#333333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~120 x 80 x 80 mm",
+        "features": "Electric motor + pump head on rubber isolators",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.factory-tandem-mc",
+      "name": "Tandem master cylinder with reservoir (factory)",
+      "qty": 1,
+      "description": "Dual-circuit (primary/secondary) aluminum master cylinder bolted to the booster; two outlets feed the BPMV. Plastic reservoir with fluid level switch sits on top and also feeds the clutch master on manual cars.",
+      "location": "Front of the booster, driver side engine bay, x≈0.30–0.42, y≈0.82, z≈+0.42.",
+      "connectsTo": [
+        "brakes.master-cylinders.factory-booster",
+        "brakes.lines.mc-to-abs-lines",
+        "brakes.abs.factory-bpmv-ebcm",
+        "drivetrain.clutch-hydraulics.clutch-master"
+      ],
+      "factory": {
+        "name": "GM tandem master cylinder, Gen 6 Camaro",
+        "notes": "Bore not confirmed in sources."
+      },
+      "raceOptions": [
+        {
+          "name": "Replace with race dual-master pedal box",
+          "brand": "Tilton / Wilwood / AP",
+          "notes": "See front-mc / rear-mc."
+        }
+      ],
+      "specs": {
+        "Outlets": "2 (primary/secondary)",
+        "Fluid level sensor": "Reed switch in reservoir – triggers BRAKE warning"
+      },
+      "hardware": [
+        {
+          "item": "Master cylinder nut (to booster studs)",
+          "qty": 2,
+          "spec": "M10 flange nut",
+          "grade": "GM",
+          "torque": "17 ft-lb (23 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Brake pipe fitting at master cylinder outlet",
+          "qty": 2,
+          "spec": "M12x1 / M10x1 ISO bubble-flare tube nut (verify)",
+          "grade": "Steel",
+          "torque": "22 ft-lb (30 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "tool": "Flare-nut wrench",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Master cylinder reservoir bolt",
+          "qty": 1,
+          "spec": "Small M6 screw",
+          "grade": "GM",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "See brakes.fluid.brake-fluid",
+          "capacity": "Reservoir ≈ 0.3–0.4 L (estimate)"
+        }
+      ],
+      "installNotes": [
+        "Bench-bleed before installing.",
+        "Torque nuts, then outlet tube nuts with a flare-nut wrench."
+      ],
+      "inspection": [
+        "Check reservoir level and colour (dark = moisture) each event."
+      ],
+      "buildPhase": 2,
+      "installOrder": 8,
+      "tags": [
+        "factory",
+        "master-cylinder"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.39,
+            0.74,
+            0.42
+          ],
+          "size": [
+            0.155,
+            0.054,
+            0.054
+          ],
+          "axis": "x",
+          "color": "#9a9a9a"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.39,
+            0.79,
+            0.42
+          ],
+          "size": [
+            0.12,
+            0.06,
+            0.095
+          ],
+          "color": "#e8e2c8"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Body ~155 mm, reservoir ~120 x 95 mm",
+        "features": "Cast aluminium tandem MC, 2 outlets, translucent reservoir with level sensor",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.front-mc",
+      "name": "Front-circuit master cylinder (race)",
+      "qty": 1,
+      "description": "Single-circuit master cylinder driven by the balance bar that feeds only the front calipers. Bore size sets pedal effort and travel: smaller bore = more pressure per pound of pedal force but more travel. With a 6-piston front caliper (≈ 25 cm² total piston area per side) typical bores are 0.70–0.75 in at ~5.5:1 pedal ratio.",
+      "location": "Pedal box, driver footwell, pushrod forward, x≈0.70–0.82, y≈0.28, z≈+0.40.",
+      "connectsTo": [
+        "brakes.pedal-box.balance-bar",
+        "brakes.master-cylinders.remote-reservoirs",
+        "brakes.lines.front-mc-outlet-line",
+        "brakes.abs.bosch-motorsport-abs"
+      ],
+      "factory": {
+        "name": "n/a (factory uses tandem MC)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton 78-Series master cylinder (non-ABS)",
+          "brand": "Tilton Racing",
+          "partNumber": "78-700 (0.70 in) / 78-750 (0.75 in) / 78-812 (13/16 in)",
+          "notes": "Bores 5/8–1 in, AN3 outlet, AN6 inlet, 3/8-24 pushrod, 1.1 in stroke. Tilton states NOT designed for ABS – use 79-Series when running Bosch ABS.",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        },
+        {
+          "name": "Tilton 79-Series (ABS-compatible) master cylinder",
+          "brand": "Tilton Racing",
+          "notes": "Use with Bosch Motorsport M5/M7 ABS.",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        },
+        {
+          "name": "AP Racing CP7855 / CP2623 master cylinder",
+          "brand": "AP Racing",
+          "notes": "Alternative race masters."
+        },
+        {
+          "name": "Wilwood compact remote-reservoir master cylinder",
+          "brand": "Wilwood",
+          "notes": "Budget option."
+        }
+      ],
+      "specs": {
+        "Typical bore": "0.70–0.75 in (front)",
+        "Outlet": "AN3 (-3 JIC 37°) per Tilton 78",
+        "Inlet": "AN6 per Tilton 78",
+        "Stroke": "1.1 in (Tilton 78)"
+      },
+      "hardware": [
+        {
+          "item": "Master cylinder to pedal box mounting bolts",
+          "qty": 2,
+          "spec": "5/16-18 or 5/16-24 bolt (per pedal box), with washers",
+          "grade": "Grade 8",
+          "torque": "15 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Follow pedal box maker; do not crush the master flange.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Outlet fitting (AN3 male adaptor / banjo)",
+          "qty": 1,
+          "spec": "-3 AN, 37° JIC",
+          "grade": "Steel/Al",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for -3 AN steel (typical); aluminum fittings lower",
+          "torqueSequence": "",
+          "threadlocker": "none (dry 37° flare; brake-fluid-safe lube on threads only)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Inlet hose barb / AN6 adaptor",
+          "qty": 1,
+          "spec": "-6 AN to reservoir feed hose",
+          "grade": "Al",
+          "torque": "Snug + 1/8 turn",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (replace O-ring if fitted)",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "DOT 4 racing (Castrol SRF / Motul RBF 660)",
+          "capacity": "Circuit ≈ 0.25 L"
+        }
+      ],
+      "installNotes": [
+        "Bench bleed each master (outlet looped back to reservoir) before connecting lines.",
+        "Confirm pushrod free play so the compensating port opens when the pedal is released (residual pressure = dragging brakes).",
+        "If running ABS, use the ABS-compatible master model; do not run residual-pressure valves with ABS."
+      ],
+      "inspection": [
+        "Check for fluid weeping at pushrod boot (seal failure).",
+        "Check reservoir level drop matches pad wear."
+      ],
+      "buildPhase": 2,
+      "installOrder": 9,
+      "tags": [
+        "race",
+        "master-cylinder",
+        "tilton"
+      ],
+      "sources": [
+        {
+          "title": "Tilton Racing – 78-Series master cylinders (bores, AN3 outlet, AN6 inlet, 3/8-24 pushrod; not for ABS, use 79-Series)",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.775,
+          0.272,
+          0.403
+        ],
+        "size": [
+          0.15,
+          0.044,
+          0.044
+        ],
+        "axis": "x",
+        "color": "#b0b0b0"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Tilton 78-series master cylinder (Merlin) – 3.4 in body, 1.1 in stroke, AN3 out / AN6 in",
+            "url": "https://www.merlinmotorsport.co.uk/p/tilton-78-series-master-cylinder-78"
+          }
+        ],
+        "dimensions": "Body ~86 mm (3.4 in), 1.1 in stroke, ~150 mm with pushrod/clevis",
+        "features": "Machined body, 2-bolt flange on the pedal-box bulkhead, AN6 inlet on top, AN3 outlet at the front",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.rear-mc",
+      "name": "Rear-circuit master cylinder (race)",
+      "qty": 1,
+      "description": "Independent master cylinder for the rear calipers. Usually one bore size larger than the front master (e.g. 0.75 front / 0.812–0.875 rear) so the balance bar sits near center for a typical ~65–70% front brake torque split on a front-engine car. Bias is then fine-tuned with the balance bar.",
+      "location": "Pedal box, beside the front master, x≈0.70–0.82, y≈0.28, z≈+0.34.",
+      "connectsTo": [
+        "brakes.pedal-box.balance-bar",
+        "brakes.master-cylinders.remote-reservoirs",
+        "brakes.lines.rear-mc-outlet-line",
+        "brakes.abs.bosch-motorsport-abs"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton 78-Series master cylinder",
+          "brand": "Tilton Racing",
+          "partNumber": "78-812 (13/16 in) / 78-875 (7/8 in)",
+          "notes": "Non-ABS. Use 79-Series with ABS.",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        },
+        {
+          "name": "AP Racing CP7855 master cylinder",
+          "brand": "AP Racing",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Typical bore": "0.75–0.875 in (rear)",
+        "Outlet": "AN3",
+        "Inlet": "AN6"
+      },
+      "hardware": [
+        {
+          "item": "Master cylinder to pedal box mounting bolts",
+          "qty": 2,
+          "spec": "5/16 bolt per pedal box",
+          "grade": "Grade 8",
+          "torque": "15 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Outlet fitting -3 AN",
+          "qty": 1,
+          "spec": "-3 AN 37°",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "DOT 4 racing",
+          "capacity": "Circuit ≈ 0.3 L (long rear lines)"
+        }
+      ],
+      "installNotes": [
+        "Bench bleed, install, connect -3 line to rear bulkhead / ABS.",
+        "Optional: inline adjustable proportioning valve in rear line only if bias range of the bar is insufficient."
+      ],
+      "inspection": [
+        "As front master."
+      ],
+      "buildPhase": 2,
+      "installOrder": 10,
+      "tags": [
+        "race",
+        "master-cylinder"
+      ],
+      "sources": [
+        {
+          "title": "Tilton Racing – 78-Series master cylinders (bores, AN3 outlet, AN6 inlet, 3/8-24 pushrod; not for ABS, use 79-Series)",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.775,
+          0.272,
+          0.337
+        ],
+        "size": [
+          0.15,
+          0.044,
+          0.044
+        ],
+        "axis": "x",
+        "color": "#b0b0b0"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Tilton 78-series master cylinder (Merlin) – 3.4 in body, 1.1 in stroke, AN3 out / AN6 in",
+            "url": "https://www.merlinmotorsport.co.uk/p/tilton-78-series-master-cylinder-78"
+          }
+        ],
+        "dimensions": "As front, larger bore",
+        "features": "Machined body, AN6 inlet, AN3 outlet",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.remote-reservoirs",
+      "name": "Remote brake fluid reservoirs",
+      "qty": 2,
+      "description": "Separate reservoirs for front and rear masters (plus a third for the clutch master on manual cars). Mounted above the masters so fluid gravity-feeds; clear bodies let you read levels through a windshield-side inspection.",
+      "location": "High on the driver-side firewall/footbox (cockpit side) or engine-bay side of the firewall, above master height: x≈0.66, y≈0.62, z≈+0.32…+0.44.",
+      "connectsTo": [
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.master-cylinders.reservoir-feed-hoses",
+        "chassis.firewall.firewall"
+      ],
+      "factory": {
+        "name": "Integrated plastic reservoir on tandem MC",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton remote reservoirs (with -4/-6 outlet)",
+          "brand": "Tilton Racing",
+          "notes": "Pick capacity ≥ swept volume of a fully worn pad set."
+        },
+        {
+          "name": "Wilwood remote reservoir kit",
+          "brand": "Wilwood",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Capacity": "≈ 6–8 oz (180–240 mL) each typical"
+      },
+      "hardware": [
+        {
+          "item": "Reservoir bracket screws",
+          "qty": 2,
+          "spec": "M6x1.0 or 1/4-20 button head + nyloc",
+          "grade": "8.8 / Grade 5",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "nyloc",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "DOT 4 racing",
+          "capacity": "Fill to MAX with new pads"
+        }
+      ],
+      "installNotes": [
+        "Mount so reservoir outlets are higher than master inlets with no low loops in feed hoses.",
+        "Label FRONT / REAR / CLUTCH."
+      ],
+      "inspection": [
+        "Check level before every session; a sudden drop indicates a leak or boiled seal."
+      ],
+      "buildPhase": 2,
+      "installOrder": 11,
+      "tags": [
+        "race",
+        "reservoir"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.055,
+          0.11,
+          0.055
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            0.66,
+            0.62,
+            0.44
+          ],
+          [
+            0.66,
+            0.62,
+            0.37
+          ]
+        ],
+        "color": "#e6e6e6"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~55 mm dia x 110 mm tall",
+        "features": "Translucent white body, black screw cap, -4/-6 outlet, bracket",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.reservoir-feed-hoses",
+      "name": "Reservoir-to-master feed hoses",
+      "qty": 2,
+      "description": "Low-pressure hoses (typically -4/-6 AN or 5/16 in brake-fluid-rated hose) that gravity-feed each master from its reservoir.",
+      "location": "Between reservoirs and master inlets, footwell/firewall.",
+      "connectsTo": [
+        "brakes.master-cylinders.remote-reservoirs",
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton / Wilwood reservoir hose kits",
+          "brand": "Tilton / Wilwood",
+          "notes": "Use EPDM-compatible hose rated for glycol brake fluid."
+        }
+      ],
+      "specs": {
+        "Material": "EPDM / PTFE-lined, glycol-brake-fluid compatible"
+      },
+      "hardware": [
+        {
+          "item": "Hose clamps (if barbed)",
+          "qty": 4,
+          "spec": "Small worm or Oetiker clamp",
+          "grade": "SS",
+          "torque": "Snug (≈ 15 in-lb)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace Oetiker",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route continuously downhill to the masters; no loops above reservoir height."
+      ],
+      "inspection": [
+        "Check for hardening / weeping annually."
+      ],
+      "buildPhase": 2,
+      "installOrder": 12,
+      "tags": [
+        "race"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.66,
+              0.565,
+              0.44
+            ],
+            [
+              0.69,
+              0.45,
+              0.43
+            ],
+            [
+              0.74,
+              0.33,
+              0.41
+            ],
+            [
+              0.768,
+              0.302,
+              0.403
+            ]
+          ],
+          "radius": 0.005,
+          "color": "#333333"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.66,
+              0.565,
+              0.37
+            ],
+            [
+              0.69,
+              0.45,
+              0.36
+            ],
+            [
+              0.74,
+              0.33,
+              0.345
+            ],
+            [
+              0.768,
+              0.302,
+              0.337
+            ]
+          ],
+          "radius": 0.005,
+          "color": "#333333"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "-4 hose, ~0.35 m each",
+        "features": "Hose with clamps reservoir -> MC inlet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.master-cylinders.brake-pressure-sensors",
+      "name": "Front & rear brake line pressure transducers",
+      "qty": 2,
+      "description": "Data-logging pressure sensors (0–2000 psi / 0–140 bar) in each circuit. They give real brake bias (front ÷ total), driver braking traces and trigger the brake light via the PDM/ECU. Essential for setting a dual-master bias bar.",
+      "location": "Teed into front and rear master outlets or a bulkhead/distribution block in the footwell.",
+      "connectsTo": [
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "electrical.power-distribution.pdm",
+        "electrical.data-logger.logger"
+      ],
+      "factory": {
+        "name": "Factory pressure sensor is internal to the BPMV/EBCM (not usable for data without CAN)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport PSS-140 / AEM / Motec 0–2000 psi brake pressure sensor",
+          "brand": "Bosch / AEM / MoTeC",
+          "notes": "Typical 1/8-27 NPT or M10x1 port, 0.5–4.5 V ratiometric output."
+        }
+      ],
+      "specs": {
+        "Range": "0–2000 psi (0–140 bar)",
+        "Output": "0.5–4.5 V ratiometric"
+      },
+      "hardware": [
+        {
+          "item": "Sensor thread",
+          "qty": 1,
+          "spec": "1/8-27 NPT or M10x1 with sealing washer",
+          "grade": "SS",
+          "torque": "NPT: 1.5–2 turns past finger tight; M10x1 w/ washer ≈ 15–20 N·m",
+          "torqueSequence": "",
+          "threadlocker": "Brake-fluid-safe PTFE paste on NPT only",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install in tees on master outlets before bleeding; calibrate zero with system bled and pedal released."
+      ],
+      "inspection": [
+        "Check zero offset at start of each event."
+      ],
+      "buildPhase": 8,
+      "installOrder": 13,
+      "tags": [
+        "data",
+        "sensor",
+        "bias"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.02,
+          0.045,
+          0.02
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            0.69,
+            0.3,
+            0.403
+          ],
+          [
+            0.69,
+            0.3,
+            0.337
+          ]
+        ],
+        "color": "#1e5aa8"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~45 mm long, M10x1 / 1/8 NPT",
+        "features": "Stainless body, hex, 3-pin connector",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

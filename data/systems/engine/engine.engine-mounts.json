@@ -1,0 +1,220 @@
+{
+  "id": "engine.engine-mounts",
+  "system": "engine",
+  "name": "Engine Mounts",
+  "description": "Engine mounts and block-side brackets to the front cradle.",
+  "components": [
+    {
+      "id": "engine.engine-mounts.engine-mount",
+      "name": "Engine mounts (L & R)",
+      "qty": 2,
+      "description": "Hydraulic/rubber isolator mounts between the block brackets and the front cradle (K-member). The ZL1 uses a supercharged-specific driver-side mount. Road-race cars switch to poly or solid mounts to stop engine roll from upsetting shifts and header/hood clearance.",
+      "location": "Each side of the block, low and near mid-length, sitting on the front cradle mount pads.",
+      "connectsTo": [
+        "engine.engine-mounts.block-brackets",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM engine mount (2017-2024 Camaro 6.2L supercharged)",
+        "partNumber": "GM 84122579",
+        "notes": "Listed as driver-side mount \"with supercharger\". Verify passenger side PN by VIN."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR MM362 motor mount kit with integrated stands, solid 6061 billet bushings",
+          "brand": "BMR",
+          "partNumber": "MM362",
+          "notes": "1.75 in DOM tube, grade 8 hardware; 2016-2024 Camaro V8.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-solid-bushings-bmr/"
+        },
+        {
+          "name": "BMR MM010 motor mount kit, 95A polyurethane bushings",
+          "brand": "BMR",
+          "partNumber": "MM010",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-poly-bushings-bmr/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Engine mount to bracket bolt",
+          "qty": 2,
+          "spec": "M10/M12 bolt",
+          "grade": "",
+          "torque": "43 ft-lb (58 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit lists \"engine mount bolts 43 ft-lb\" for Gen V; which joint it covers is not stated. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the LT1 'engine mount bracket fastener' at 58 N·m (43 lb ft). Summit gives 43 ft-lb. Remains typical.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Engine mount to cradle nut/bolt",
+          "qty": 2,
+          "spec": "M12 nut/bolt",
+          "grade": "",
+          "torque": "50 ft-lb (68 N·m) (estimate)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) or prevailing-torque nut",
+          "safetyWire": false,
+          "reuse": "Replace prevailing-torque nuts",
+          "tool": "",
+          "notes": "Verify with GM service information / BMR instructions. Checked 2026-10: no Gen 6 GM or BMR value was found. The BMR MM009/MM010 sheets give no torque. They use 15 mm-head bolts (M10) for the mount-to-cradle plate and a 24 mm nut on the mount stud, so check the thread size before applying 50 ft-lb. Still an estimate.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Lower engine/trans as a unit; start all mount fasteners before torquing.",
+        "Check header, steering shaft and oil-pan clearance at full engine rock after solid mounts."
+      ],
+      "inspection": [
+        "Check mount bolts torque-stripe and bushing condition each event."
+      ],
+      "buildPhase": 6,
+      "installOrder": 90,
+      "tags": [
+        "mounts"
+      ],
+      "sources": [
+        {
+          "title": "GMPartsGiant: GM 84122579 engine mount (2017-2024 Camaro 6.2L supercharged)",
+          "url": "https://www.gmpartsgiant.com/parts/gm-mount-eng-84122579.html"
+        },
+        {
+          "title": "OEMPartsOnline: GM 84122579 driver side engine mount (with supercharger)",
+          "url": "https://g.oempartsonline.com/oem-parts/gm-driver-side-engine-mount-84122579"
+        },
+        {
+          "title": "Wild Hammer: BMR MM362 16-24 Camaro LT1/SS/ZL1 motor mount kit, solid bushings",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-solid-bushings-bmr/"
+        },
+        {
+          "title": "Wild Hammer: BMR 16-24 Camaro motor mount kit, poly bushings",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-poly-bushings-bmr/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.02,
+          0.29,
+          0.3
+        ],
+        "size": [
+          0.085,
+          0.075,
+          0.085
+        ],
+        "axis": "y",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84122579 engine mount (Camaro 6.2 SC)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-mount-eng-84122579.html"
+          },
+          {
+            "title": "GM 84122579 driver-side engine mount",
+            "url": "https://g.oempartsonline.com/oem-parts/gm-driver-side-engine-mount-84122579"
+          }
+        ],
+        "dimensions": "Approx. 85 mm dia x 75 mm hydraulic mount with base plate",
+        "features": "Round fluid-filled mount, black steel cup, rubber band, aluminium top with stud into the block bracket",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-mounts.block-brackets",
+      "name": "Engine mount brackets (block side)",
+      "qty": 2,
+      "description": "Cast/steel brackets bolted to the block sides that carry the mounts. BMR MM362 replaces bracket and mount with integrated tubular stands.",
+      "location": "Sides of block, low, near the front-to-mid of the block.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.engine-mounts.engine-mount"
+      ],
+      "factory": {
+        "name": "GM Camaro engine mount brackets",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bracket to block bolt",
+          "qty": 4,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "43 ft-lb (58 N·m) (typical)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Using Summit \"engine mount bolts\" value; verify. Checked 2026-10: TightTorque table compiled from the 2016-2018 Camaro service manual lists the LT1 'engine mount bracket fastener' at 58 N·m (43 lb ft), consistent with Summit's 'engine mount bolts 43 ft-lb'.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install on the engine stand before engine goes in the car."
+      ],
+      "inspection": [],
+      "buildPhase": 6,
+      "installOrder": 86,
+      "tags": [
+        "mounts"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Wild Hammer: BMR MM362 16-24 Camaro LT1/SS/ZL1 motor mount kit, solid bushings",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-solid-bushings-bmr/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.02,
+          0.38,
+          0.2425
+        ],
+        "size": [
+          0.11,
+          0.1,
+          0.115
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "BMR 16-24 Camaro motor mount kit with stands (bracket shape)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-motor-mount-kit-with-integrated-stands-solid-bushings-bmr/"
+          },
+          {
+            "title": "GM 84122579 engine mount (Camaro 6.2 SC)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-mount-eng-84122579.html"
+          }
+        ],
+        "dimensions": "Approx. 110 x 100 x 115 mm",
+        "features": "Cast-aluminium bracket: plate with 3 bolts to the block skirt, gusseted arm to the mount stud pad",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

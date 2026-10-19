@@ -1,0 +1,704 @@
+{
+  "id": "engine-support.induction",
+  "system": "engine-support",
+  "name": "Induction (air intake)",
+  "description": "Fascia snorkel → sealed cold-air box → filter → MAF/IAT → intake tube → throttle body on the LT4 supercharger.",
+  "components": [
+    {
+      "id": "engine-support.induction.fascia-snorkel",
+      "name": "Cold-air snorkel / inlet duct from front fascia",
+      "qty": 1,
+      "description": "Duct that picks up high-pressure, ambient-temperature air from a fascia/grille opening and delivers it to the sealed air box, so the engine never breathes hot under-hood air.",
+      "location": "From the driver-side upper grille/fascia opening, outboard of the radiator stack, back to the air box.",
+      "connectsTo": [
+        "aero.front-fascia.grille",
+        "engine-support.induction.airbox"
+      ],
+      "factory": {
+        "name": "GM ZL1 air inlet duct (fascia to air box)"
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated 4 in aluminum/carbon duct with rubber boot",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "Size": "~4 in (100 mm) equivalent area"
+      },
+      "hardware": [
+        {
+          "item": "Duct mounting screws",
+          "qty": 3,
+          "spec": "M6 / #10 into rivnuts",
+          "grade": "8.8",
+          "torque": "40–60 in-lb (4.5–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Inlet should face the high-pressure zone at the front; add a mesh screen."
+      ],
+      "inspection": [
+        "Check for blockage (rubber, bags) and secure mounting"
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "intake",
+        "duct"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.9,
+              0.48,
+              0.4
+            ],
+            [
+              -0.82,
+              0.52,
+              0.42
+            ],
+            [
+              -0.72,
+              0.58,
+              0.45
+            ],
+            [
+              -0.65,
+              0.64,
+              0.455
+            ],
+            [
+              -0.61,
+              0.66,
+              0.455
+            ]
+          ],
+          "radius": 0.05
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          },
+          {
+            "title": "PFYC: Roto-Fab 10161056 2017+ ZL1 intake",
+            "url": "https://pfyc.com/roto-fab-10161056.html"
+          }
+        ],
+        "dimensions": "~100 mm (4 in) equivalent duct",
+        "features": "Black plastic/composite duct with rectangular fascia mouth",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.airbox",
+      "name": "Sealed cold-air box",
+      "qty": 1,
+      "description": "Enclosure that seals the filter from engine-bay heat and receives air only from the snorkel. Seals against the hood with a foam gasket on race builds.",
+      "location": "Driver-side front corner of the engine bay, ahead of the left strut tower.",
+      "connectsTo": [
+        "engine-support.induction.fascia-snorkel",
+        "engine-support.induction.air-filter",
+        "engine-support.induction.intake-tube",
+        "engine-support.induction.airbox-heat-shield"
+      ],
+      "factory": {
+        "name": "GM ZL1 air cleaner assembly"
+      },
+      "raceOptions": [
+        {
+          "name": "Roto-Fab Camaro ZL1 cold air intake (oiled filter), 2017-2022",
+          "brand": "Roto-Fab",
+          "partNumber": "10161056",
+          "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+        },
+        {
+          "name": "AIRAID ZL1 intake",
+          "brand": "AIRAID",
+          "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Air box mounting bolts",
+          "qty": 3,
+          "spec": "M6 x 1.0 into body grommets",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal all seams; any gap draws hot air."
+      ],
+      "inspection": [
+        "Check lid latches/seals"
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "intake",
+        "airbox"
+      ],
+      "sources": [
+        {
+          "title": "Roto-Fab ZL1 CAI",
+          "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.49,
+            0.7,
+            0.45
+          ],
+          "size": [
+            0.24,
+            0.18,
+            0.2
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          },
+          {
+            "title": "PFYC: Roto-Fab 10161056 2017+ ZL1 intake",
+            "url": "https://pfyc.com/roto-fab-10161056.html"
+          }
+        ],
+        "dimensions": "~240 x 180 x 200 mm",
+        "features": "Black sealed box, open top sealing to hood with foam/rubber lip, outlet snout inboard",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.air-filter",
+      "name": "Air filter element",
+      "qty": 1,
+      "description": "Dry or oiled cotton/synthetic element sized for the supercharged LT4 airflow. Dry synthetic media avoid oil contaminating the MAF.",
+      "location": "Inside the air box.",
+      "connectsTo": [
+        "engine-support.induction.airbox",
+        "engine-support.induction.intake-tube"
+      ],
+      "factory": {
+        "name": "GM ZL1 panel air filter"
+      },
+      "raceOptions": [
+        {
+          "name": "Roto-Fab oiled filter (in 10161056 kit)",
+          "brand": "Roto-Fab",
+          "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+        },
+        {
+          "name": "K&N / AEM DryFlow conical",
+          "brand": "K&N / AEM"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Silicone coupler clamp (6 in)",
+          "qty": 1,
+          "spec": "SS T-bolt or worm clamp, 6 in",
+          "grade": "SS",
+          "torque": "40–55 in-lb (4.5–6.2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug only; over-tightening cuts silicone. Re-check after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Do not over-oil oiled filters."
+      ],
+      "inspection": [
+        "Inspect and clean/replace every 2-3 events (track dust, rubber)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "filter",
+        "wear-item"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.5,
+            0.7,
+            0.47
+          ],
+          "size": [
+            0.14,
+            0.13,
+            0.13
+          ],
+          "axis": "z"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          }
+        ],
+        "dimensions": "~130 mm dia x 140 mm pleated element",
+        "features": "Red oiled cotton pleated element with rubber flange and end cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.maf-sensor",
+      "name": "Mass airflow (MAF) sensor with integrated IAT",
+      "qty": 1,
+      "description": "GM MAF (with integrated intake-air temperature, humidity and barometric sensing on Gen V) in the clean air path. Keep it if running the factory ECM calibration; standalone race ECUs commonly delete it and run speed-density/MAP-based fueling with a separate IAT.",
+      "location": "In the intake tube downstream of the air box.",
+      "connectsTo": [
+        "engine-support.induction.intake-tube",
+        "engine.ecu.ecm",
+        "electrical.engine-harness.maf-connector"
+      ],
+      "factory": {
+        "name": "GM MAF/IAT sensor"
+      },
+      "raceOptions": [
+        {
+          "name": "Delete (speed-density on standalone ECU)",
+          "brand": ""
+        }
+      ],
+      "specs": {
+        "Calibration": "Tube diameter must match calibration (Roto-Fab/AIRAID kits are tuned-housing dependent)"
+      },
+      "hardware": [
+        {
+          "item": "MAF sensor screws",
+          "qty": 2,
+          "spec": "M4/T20 self-tapping into tube boss",
+          "grade": "OE",
+          "torque": "18–22 in-lb (2–2.5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install with arrow toward engine; maintain straight run upstream."
+      ],
+      "inspection": [
+        "Clean with MAF cleaner annually"
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "sensor",
+        "maf"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.415,
+            0.837,
+            0.26
+          ],
+          "size": [
+            0.05,
+            0.04,
+            0.045
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          }
+        ],
+        "dimensions": "~50 x 40 x 45 mm plug-in sensor",
+        "features": "Black plastic plug-in MAF/IAT with connector, 2 screws on tube boss",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.intake-tube",
+      "name": "Intake tube (air box to throttle body)",
+      "qty": 1,
+      "description": "Smooth mandrel-bent tube from the air box to the LT4 throttle body at the front of the supercharger. Carries the MAF boss and the PCV fresh-air port.",
+      "location": "Driver-side front of the engine bay curving to the engine centerline.",
+      "connectsTo": [
+        "engine-support.induction.airbox",
+        "engine-support.induction.maf-sensor",
+        "engine-support.induction.couplers",
+        "engine-support.induction.throttle-body-interface",
+        "engine-support.catch-cans-and-breathers.pcv-fresh-air"
+      ],
+      "factory": {
+        "name": "GM ZL1 intake duct"
+      },
+      "raceOptions": [
+        {
+          "name": "Roto-Fab ZL1 tube",
+          "brand": "Roto-Fab",
+          "partNumber": "10161056",
+          "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+        }
+      ],
+      "specs": {
+        "Diameter": "~4 in at TB (verify)"
+      },
+      "hardware": [
+        {
+          "item": "Silicone coupler clamp (4 in)",
+          "qty": 2,
+          "spec": "SS T-bolt or worm clamp, 4 in",
+          "grade": "SS",
+          "torque": "40–55 in-lb (4.5–6.2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug only; over-tightening cuts silicone. Re-check after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Support the tube so engine movement does not stress the throttle body."
+      ],
+      "inspection": [
+        "Check for cracks and loose couplers (unmetered air = lean)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "intake"
+      ],
+      "sources": [
+        {
+          "title": "Roto-Fab ZL1 CAI",
+          "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.45,
+              0.74,
+              0.3
+            ],
+            [
+              -0.42,
+              0.78,
+              0.25
+            ],
+            [
+              -0.39,
+              0.8,
+              0.18
+            ],
+            [
+              -0.35,
+              0.8,
+              0.12
+            ],
+            [
+              -0.3,
+              0.8,
+              0.1
+            ]
+          ],
+          "radius": 0.051
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          },
+          {
+            "title": "PFYC: Roto-Fab 10161056 2017+ ZL1 intake",
+            "url": "https://pfyc.com/roto-fab-10161056.html"
+          }
+        ],
+        "dimensions": "4 in (102 mm) OD tube",
+        "features": "Powder-coated aluminium/rotomolded tube with bead rolls, MAF boss and PCV bung",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.couplers",
+      "name": "Silicone couplers / hump hoses",
+      "qty": 2,
+      "description": "Flexible couplers at the air box outlet and the throttle body that absorb engine movement.",
+      "location": "Air box outlet and throttle body inlet.",
+      "connectsTo": [
+        "engine-support.induction.intake-tube",
+        "engine-support.induction.throttle-body-interface",
+        "engine-support.induction.airbox"
+      ],
+      "raceOptions": [
+        {
+          "name": "4-ply silicone straight/hump coupler",
+          "brand": "HPS / Samco"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Silicone coupler clamp (4 in)",
+          "qty": 2,
+          "spec": "SS T-bolt or worm clamp, 4 in",
+          "grade": "SS",
+          "torque": "40–55 in-lb (4.5–6.2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug only; over-tightening cuts silicone. Re-check after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Clean oil film off surfaces so couplers do not slip."
+      ],
+      "inspection": [
+        "Check for splits"
+      ],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "coupler"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.315,
+            0.8,
+            0.1
+          ],
+          "size": [
+            0.05,
+            0.115,
+            0.115
+          ],
+          "axis": "x"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.45,
+            0.738,
+            0.322
+          ],
+          "size": [
+            0.115,
+            0.115,
+            0.05
+          ],
+          "axis": "z"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          }
+        ],
+        "dimensions": "4 in ID 4-ply silicone, 50 mm long",
+        "features": "Blue silicone coupler with two T-bolt clamps",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.throttle-body-interface",
+      "name": "Throttle body interface (TB owned by engine team)",
+      "qty": 1,
+      "description": "The electronic throttle body bolts to the supercharger inlet (engine system). Induction plumbs to its inlet flange.",
+      "location": "Front of the LT4 supercharger, engine centerline.",
+      "connectsTo": [
+        "engine.supercharger.throttle-body",
+        "engine-support.induction.couplers"
+      ],
+      "factory": {
+        "name": "GM LT4 electronic throttle body"
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Throttle body bolts (reference)",
+          "qty": 4,
+          "spec": "M6",
+          "grade": "OE",
+          "torque": "88 in-lb (9.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check TB bolts and gasket"
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "interface"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports LT torque",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.295,
+            0.8,
+            0.1
+          ],
+          "size": [
+            0.012,
+            0.11,
+            0.11
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Michigan Motorsports LS/LT torque specs",
+            "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+          }
+        ],
+        "dimensions": "87 mm bore, ~110 mm flange",
+        "features": "O-ring gasket / adaptor ring at TB inlet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.induction.airbox-heat-shield",
+      "name": "Air box heat shield / hood seal",
+      "qty": 1,
+      "description": "Aluminum shield and foam seal that isolate the air box from radiator exit air and header heat.",
+      "location": "Around the air box.",
+      "connectsTo": [
+        "engine-support.induction.airbox",
+        "body.hood.hood"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fabricated 0.040 in aluminum + closed-cell foam",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivets",
+          "qty": 8,
+          "spec": "1/8 in aluminum pop rivets",
+          "grade": "Aluminum",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check seal compression with hood closed"
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "heat"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.49,
+            0.7,
+            0.345
+          ],
+          "size": [
+            0.26,
+            0.18,
+            0.005
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          }
+        ],
+        "dimensions": "~260 x 180 mm, 0.040 in",
+        "features": "Aluminium wall with foam edge seal",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+ "id": "body.paint-wrap",
+ "system": "body",
+ "name": "Paint, Wrap & Markings",
+ "description": "Exterior finish, livery, numbers and required safety markings.",
+ "components": [
+  {
+   "id": "body.paint-wrap.paint",
+   "name": "Paint (shell & panels)",
+   "qty": 1,
+   "description": "Shell and cage painted after all welding (interior often light gray/white for visibility of cracks/leaks). Exterior either painted or base-coated for wrap.",
+   "location": "Whole car.",
+   "connectsTo": [
+    "safety.roll-cage.main-hoop"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "n/a",
+     "qty": 0,
+     "spec": "Epoxy primer + 2K topcoat",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Paint after cage, tabs and seam welding are done."
+   ],
+   "inspection": [
+    "Look for cracks in paint at cage welds."
+   ],
+   "buildPhase": 1,
+   "installOrder": 4,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.43,
+     0.8,
+     0
+    ],
+    "size": [
+     0.01,
+     0.01,
+     0.01
+    ],
+    "color": "#bdc3c7"
+   }
+  },
+  {
+   "id": "body.paint-wrap.wrap-livery",
+   "name": "Vinyl wrap / livery",
+   "qty": 1,
+   "description": "Cast vinyl wrap for livery and sponsor graphics; lighter and faster to repair than paint.",
+   "location": "Exterior panels.",
+   "connectsTo": [
+    "body.panels.hood",
+    "body.panels.doors"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "n/a",
+     "qty": 0,
+     "spec": "Cast vinyl",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Wrap after aero is fitted."
+   ],
+   "inspection": [],
+   "buildPhase": 10,
+   "installOrder": 26,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.5,
+     0.75,
+     0.965
+    ],
+    "size": [
+     1.2,
+     0.5,
+     0.002
+    ],
+    "mirror": true,
+    "color": "#1f618d"
+   }
+  },
+  {
+   "id": "body.paint-wrap.numbers-class",
+   "name": "Race numbers & class letters",
+   "qty": 3,
+   "description": "Contrasting numbers on both doors and front/rear (size per sanctioning body).",
+   "location": "Doors, hood/windshield.",
+   "connectsTo": [
+    "body.panels.doors"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "n/a",
+     "qty": 0,
+     "spec": "Vinyl",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Check rulebook for minimum size/contrast."
+   ],
+   "inspection": [],
+   "buildPhase": 10,
+   "installOrder": 27,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.5,
+     0.7,
+     0.97
+    ],
+    "size": [
+     0.4,
+     0.3,
+     0.002
+    ],
+    "mirror": true,
+    "color": "#ffffff"
+   }
+  },
+  {
+   "id": "body.paint-wrap.safety-decals",
+   "name": "Safety markings (E, spark, tow arrows)",
+   "qty": 6,
+   "description": "Fire-system \"E\", electrical-cutoff spark triangle, tow arrows, and hood-pin arrows – applied after paint/wrap.",
+   "location": "Cowl, fascias, hood.",
+   "connectsTo": [
+    "safety.fire-suppression.decals",
+    "safety.kill-switches.decal",
+    "safety.tow-hooks.tow-markers"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "n/a",
+     "qty": 0,
+     "spec": "Vinyl",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [],
+   "inspection": [
+    "Replace faded markings."
+   ],
+   "buildPhase": 10,
+   "installOrder": 28,
+   "tags": [],
+   "sources": [
+    {
+     "title": "WCMA forum – kill switch marking/pull-cable rule text",
+     "url": "https://www.wcma.ca/forum/index.php?msg=3491"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.66,
+     0.99,
+     0
+    ],
+    "size": [
+     0.05,
+     0.002,
+     0.05
+    ],
+    "color": "#2e86c1"
+   }
+  }
+ ]
+}

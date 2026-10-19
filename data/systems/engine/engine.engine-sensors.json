@@ -1,0 +1,641 @@
+{
+  "id": "engine.engine-sensors",
+  "system": "engine",
+  "name": "Engine Sensors",
+  "description": "Crank and cam position, knock, oil pressure, oil level/temp, coolant temp, boost/TMAP and DI rail pressure sensors.",
+  "components": [
+    {
+      "id": "engine.engine-sensors.crank-position-sensor",
+      "name": "Crankshaft position sensor (58X)",
+      "qty": 1,
+      "description": "Hall-effect sensor reading the 58X reluctor on the crank. Primary engine-speed/position input; failure stops the engine immediately.",
+      "location": "Side of the block near the rear of the crank (verify exact side/position on your block).",
+      "connectsTo": [
+        "engine.rotating-assembly.reluctor-wheel",
+        "electrical.engine-management.engine-harness",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "GM Gen V CKP sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Crank sensor bolt",
+          "qty": 1,
+          "spec": "M6/M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit lists 18 ft-lb; replace O-ring.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New O-ring lubed with oil; route harness away from starter/headers.",
+        "Perform crank variation relearn with scan tool after changes (if using GM ECM)."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 63,
+      "tags": [
+        "sensor",
+        "ckp"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.2545,
+          0.37,
+          -0.19
+        ],
+        "size": [
+          0.035,
+          0.03,
+          0.045
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~45 mm long, 17 mm probe",
+        "features": "Black Hall-effect probe with 1-bolt tab, 3-pin connector; rear passenger side of the block reading the 58X wheel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.cam-position-sensor",
+      "name": "Camshaft position sensor (4X)",
+      "qty": 1,
+      "description": "Hall sensor in the front timing cover reading the 4X target on the cam phaser; also used for VVT position feedback.",
+      "location": "Front timing cover (Summit: cam sensor location = timing cover).",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.valvetrain.cam-phaser",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V CMP sensor",
+        "notes": "A VVT-delete (non-VVT gear) needs the BTR cam sensor conversion."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Cam sensor bolt",
+          "qty": 1,
+          "spec": "M6/M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New O-ring; ensure the sensor seats flush."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 32,
+      "tags": [
+        "sensor",
+        "cmp"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.268,
+          0.58,
+          -0.06
+        ],
+        "size": [
+          0.04,
+          0.03,
+          0.03
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~40 mm long",
+        "features": "Black probe with 1-bolt tab in the front cover above the phaser, reads the 4X target",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.knock-sensors",
+      "name": "Knock sensors",
+      "qty": 2,
+      "description": "Piezo knock sensors on the block, one per bank, used for spark retard on detonation. On boosted race engines, accurate knock detection (or audio knock monitoring) is essential.",
+      "location": "On the block, one per bank (verify exact positions on Gen V - not in the valley like Gen III).",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V knock sensors",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Knock sensor bolt",
+          "qty": 1,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none - clean dry (torque affects sensitivity)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Gen IV LS knock-sensor value; no published Gen V value found. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Knock Sensor Bolts 25 N·m (18 lb ft)'. The 2016-18 Camaro SM (via TightTorque) agrees.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Mount surface must be clean and flat; never use washers or sealant."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 62,
+      "tags": [
+        "sensor",
+        "knock"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.05,
+          0.45,
+          0.205
+        ],
+        "size": [
+          0.026,
+          0.03,
+          0.03
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            0.05,
+            0.45,
+            0.205
+          ],
+          [
+            0.075,
+            0.45,
+            -0.205
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Donut ~26 mm OD, 12 mm thick",
+        "features": "Flat piezo donut with a centre bolt and a short pigtail; one each side of the block below the exhaust ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.oil-pressure-sensor",
+      "name": "Oil pressure sensor",
+      "qty": 1,
+      "description": "Pressure transducer on the main oil gallery used by the ECM to command the variable-displacement pump and for the gauge. Race cars add a dedicated logger sensor via a tee or remote block.",
+      "location": "On the block main gallery (verify location on your Gen V block).",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.oil-pan-and-pickup.oil-pump",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V oil pressure sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Oil pressure sensor",
+          "qty": 1,
+          "spec": "Threaded sensor",
+          "grade": "",
+          "torque": "26 ft-lb (35 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if tapered thread / O-ring if ORB",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Avoid heavy adapters hanging off the sensor port - vibration cracks fittings; use a remote-mount block."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 64,
+      "tags": [
+        "sensor",
+        "oil-pressure"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.235,
+          0.66,
+          0.05
+        ],
+        "size": [
+          0.025,
+          0.045,
+          0.025
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~45 mm tall, 25 mm hex",
+        "features": "Steel hex body with black plastic top and 3-pin connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.oil-level-temp-sensor",
+      "name": "Engine oil level / temperature sensor",
+      "qty": 1,
+      "description": "Combined oil level and temperature sensor in the oil pan.",
+      "location": "Oil pan.",
+      "connectsTo": [
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V oil level/temp sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Oil level/temp sensor bolt",
+          "qty": 1,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 35,
+      "tags": [
+        "sensor",
+        "oil-temp"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.18,
+          0.165,
+          -0.1
+        ],
+        "size": [
+          0.03,
+          0.045,
+          0.03
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~30 mm flange, probe ~25 mm",
+        "features": "Probe through the bottom of the pan with a 1-bolt flange and connector underneath",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.coolant-temp-sensor",
+      "name": "Engine coolant temperature sensor(s)",
+      "qty": 1,
+      "description": "Thermistor sensor(s) for ECM fueling and the gauge; race cars add a logger sensor in the head outlet.",
+      "location": "Cylinder head / coolant outlet area (verify).",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "electrical.engine-management.engine-harness",
+        "engine-support.cooling.engine-coolant"
+      ],
+      "factory": {
+        "name": "GM ECT sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "ECT sensor",
+          "qty": 1,
+          "spec": "Threaded sensor with O-ring/sealant",
+          "grade": "",
+          "torque": "15 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Sealant on threads if tapered",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Gen IV ECT value; Gen V not found. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Coolant Temperature Sensor 20 N·m (15 lb ft)'. The 2016-18 Camaro SM (via TightTorque) agrees.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 65,
+      "tags": [
+        "sensor",
+        "coolant-temp"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.262,
+          0.6,
+          0.2
+        ],
+        "size": [
+          0.035,
+          0.02,
+          0.02
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~35 mm, 19 mm brass hex",
+        "features": "Brass threaded thermistor with plastic connector, front of the driver head",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.boost-tmap-sensors",
+      "name": "Manifold (boost) pressure / TMAP & supercharger pressure sensors",
+      "qty": 1,
+      "description": "LT4 uses a TMAP after the intercooler (on the supercharger housing) and a supercharger inlet/outlet pressure sensor for boost/bypass control. Magnuson’s blower provides a TMAP port that accepts the OEM LT4 sensor.",
+      "location": "On the supercharger housing.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM LT4 TMAP and supercharger outlet pressure sensor",
+        "notes": "GM IAT 12614717 cited by Magnuson for its housing."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor retaining bolt",
+          "qty": 1,
+          "spec": "M6 button-head",
+          "grade": "",
+          "torque": "40 in-lb (4.5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Lube O-ring with Super Lube (Magnuson). Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Map Sensor Bolt 4.5 N·m (40 lb in)'. The LT4 TMAP uses the same screw-retained O-ring style, so the GM value applies when the sensor is fitted in the Magnuson port. CORRECTED from an 89 in-lb estimate, which risks cracking the sensor flange.",
+          "confidence": "typical",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 78,
+      "tags": [
+        "sensor",
+        "map",
+        "boost"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "title": "Wild Hammer: 17-24 Camaro LT4 supercharger outlet pressure sensor (GM)",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-lt4-supercharger-outlet-pressure-sensor-general-motors/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.31,
+          0.85,
+          0.12
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.04
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~40 x 30 x 30 mm",
+        "features": "Black plastic body with 4-pin connector and O-ring port, 1 bolt, on the rear of the supercharger case",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.engine-sensors.fuel-rail-pressure-sensor",
+      "name": "Fuel rail pressure sensor (DI)",
+      "qty": 1,
+      "description": "High-pressure sensor in the DI rail; closes the loop on HP pump control.",
+      "location": "Threaded into one DI fuel rail.",
+      "connectsTo": [
+        "engine.fuel-injection.di-fuel-rails",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM DI fuel rail pressure sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Fuel rail pressure sensor",
+          "qty": 1,
+          "spec": "Threaded HP sensor (metal-to-metal seal)",
+          "grade": "",
+          "torque": "24 ft-lb (33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none - clean dry",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect seat)",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 54,
+      "tags": [
+        "sensor",
+        "fuel-pressure"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.255,
+          0.718,
+          0.0613
+        ],
+        "size": [
+          0.02,
+          0.045,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~45 mm, 22 mm hex",
+        "features": "Stainless body, steel hex, 3-pin connector; screwed into the rear of the driver-side DI rail",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

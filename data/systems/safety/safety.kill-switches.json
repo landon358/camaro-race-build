@@ -1,0 +1,344 @@
+{
+  "id": "safety.kill-switches",
+  "system": "safety",
+  "name": "Kill Switch Pull Cable (Mechanical Side)",
+  "description": "External T-handle and pull cable that operate the master electrical cutoff from outside the car, plus markings. Switch, isolator and wiring are in electrical.battery-and-cutoff.",
+  "components": [
+    {
+      "id": "safety.kill-switches.external-t-handle",
+      "name": "External kill-switch T-handle / pull ring",
+      "qty": 1,
+      "description": "Pull handle outside the car (base of windshield, driver side cowl) that mechanically trips the master switch via cable. Marked with a red spark on a white-edged blue triangle and the word OFF.",
+      "location": "Driver-side cowl/windshield base, x ≈ 0.66, y ≈ 0.97, z ≈ +0.56 (next to the electrical external kill button).",
+      "connectsTo": [
+        "safety.kill-switches.pull-cable",
+        "electrical.battery-and-cutoff.external-kill-switch",
+        "body.paint-wrap.safety-decals"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "APS FIA master cut-out switch & pull cable kit",
+          "brand": "Automotive Plumbing Solutions",
+          "partNumber": "",
+          "notes": "Mechanical switch with pull cable.",
+          "url": "https://group-d.ie/products/automotive-plumbing-solutions-fia-master-cut-out-switch-and-pull-cable-kit"
+        }
+      ],
+      "specs": {
+        "Marking": "Red spark on white-edged blue triangle; \"OFF\" indicated"
+      },
+      "hardware": [
+        {
+          "item": "Handle bracket bolts/rivets",
+          "qty": 2,
+          "spec": "3/16 in steel rivets or M5 screws + nyloc",
+          "grade": "n/a",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Coordinate with electrical system: if using solid-state isolator with button, the cable may be omitted."
+      ],
+      "inspection": [
+        "Function test: pull kills engine at idle."
+      ],
+      "buildPhase": 9,
+      "installOrder": 54,
+      "tags": [],
+      "sources": [
+        {
+          "title": "WCMA forum – kill switch marking/pull-cable rule text",
+          "url": "https://www.wcma.ca/forum/index.php?msg=3491"
+        },
+        {
+          "title": "Automotive Plumbing Solutions FIA master cut-out switch & pull cable kit",
+          "url": "https://group-d.ie/products/automotive-plumbing-solutions-fia-master-cut-out-switch-and-pull-cable-kit"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.66,
+          0.975,
+          0.56
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "axis": "y"
+      }
+    },
+    {
+      "id": "safety.kill-switches.pull-cable",
+      "name": "Kill-switch pull cable & sheath",
+      "qty": 1,
+      "description": "Sheathed steel cable from the external handle into the cabin to the master switch lever. Rules commonly specify cables/rods at least 1/8 in diameter.",
+      "location": "From cowl through grommeted hole in A-pillar/cowl area, under the dash to master switch at x ≈ 1.13, y ≈ 0.62, z ≈ +0.05.",
+      "connectsTo": [
+        "safety.kill-switches.external-t-handle",
+        "electrical.battery-and-cutoff.master-switch",
+        "safety.kill-switches.cable-abutment-bracket"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Cable diameter": "≥ 1/8 in (common rule)",
+        "Bends": "Large radius only"
+      },
+      "hardware": [
+        {
+          "item": "Cable P-clips",
+          "qty": 5,
+          "spec": "Rubber-lined P-clip + M5 screw/rivnut",
+          "grade": "n/a",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Panel grommet",
+          "qty": 1,
+          "spec": "Rubber grommet sized to sheath",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Avoid sharp bends that increase pull force."
+      ],
+      "inspection": [
+        "Check cable free and clamps tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 55,
+      "tags": [],
+      "sources": [
+        {
+          "title": "WCMA forum – kill switch marking/pull-cable rule text",
+          "url": "https://www.wcma.ca/forum/index.php?msg=3491"
+        },
+        {
+          "title": "Automotive Plumbing Solutions FIA master cut-out switch & pull cable kit",
+          "url": "https://group-d.ie/products/automotive-plumbing-solutions-fia-master-cut-out-switch-and-pull-cable-kit"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.66,
+            0.97,
+            0.56
+          ],
+          [
+            0.74,
+            0.93,
+            0.52
+          ],
+          [
+            0.84,
+            0.84,
+            0.4
+          ],
+          [
+            0.95,
+            0.74,
+            0.22
+          ],
+          [
+            1.06,
+            0.66,
+            0.08
+          ],
+          [
+            1.13,
+            0.62,
+            0.05
+          ]
+        ],
+        "radius": 0.003,
+        "color": "#f1c40f"
+      }
+    },
+    {
+      "id": "safety.kill-switches.cable-abutment-bracket",
+      "name": "Cable abutment bracket at master switch",
+      "qty": 1,
+      "description": "Small bracket that anchors the cable sheath at the master switch so pulling the inner cable rotates the switch to OFF.",
+      "location": "At master switch, x ≈ 1.13, y ≈ 0.62, z ≈ +0.05.",
+      "connectsTo": [
+        "safety.kill-switches.pull-cable",
+        "electrical.battery-and-cutoff.master-switch"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bracket screws",
+          "qty": 2,
+          "spec": "M5 x 0.8 screw + nyloc",
+          "grade": "ISO 8.8",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Cable clamp screw",
+          "qty": 1,
+          "spec": "Set screw/clamp barrel",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set cable slack so switch fully reaches OFF."
+      ],
+      "inspection": [
+        "Check clamp barrel tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 56,
+      "tags": [],
+      "sources": [
+        {
+          "title": "WCMA forum – kill switch marking/pull-cable rule text",
+          "url": "https://www.wcma.ca/forum/index.php?msg=3491"
+        },
+        {
+          "title": "Automotive Plumbing Solutions FIA master cut-out switch & pull cable kit",
+          "url": "https://group-d.ie/products/automotive-plumbing-solutions-fia-master-cut-out-switch-and-pull-cable-kit"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.13,
+          0.62,
+          0.08
+        ],
+        "size": [
+          0.04,
+          0.03,
+          0.02
+        ],
+        "color": "#7f8c8d"
+      }
+    },
+    {
+      "id": "safety.kill-switches.decal",
+      "name": "Electrical cutoff decal (spark / blue triangle)",
+      "qty": 2,
+      "description": "International electrical cutoff symbol decals at the external handle and the internal switch.",
+      "location": "Next to external handle and internal switch.",
+      "connectsTo": [
+        "safety.kill-switches.external-t-handle",
+        "electrical.battery-and-cutoff.master-switch"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Vinyl decal",
+          "qty": 1,
+          "spec": "Min ~4 in triangle typical",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.wcma.ca/forum/index.php?msg=3491"
+        }
+      ],
+      "installNotes": [
+        "Apply after paint/wrap."
+      ],
+      "inspection": [
+        "Replace if faded."
+      ],
+      "buildPhase": 10,
+      "installOrder": 58,
+      "tags": [],
+      "sources": [
+        {
+          "title": "WCMA forum – kill switch marking/pull-cable rule text",
+          "url": "https://www.wcma.ca/forum/index.php?msg=3491"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.67,
+          0.985,
+          0.5
+        ],
+        "size": [
+          0.06,
+          0.002,
+          0.06
+        ],
+        "color": "#2e86c1"
+      }
+    }
+  ]
+}

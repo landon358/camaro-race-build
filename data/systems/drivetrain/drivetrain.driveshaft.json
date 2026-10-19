@@ -1,0 +1,884 @@
+{
+  "id": "drivetrain.driveshaft",
+  "system": "drivetrain",
+  "name": "Driveshaft",
+  "description": "Factory two-piece propeller shaft (rubber couplers each end, center support bearing) versus one-piece carbon/aluminum race shafts with CV front joint, plus safety loops and tunnel heat shield.",
+  "components": [
+    {
+      "id": "drivetrain.driveshaft.front-driveshaft",
+      "name": "Front driveshaft section (factory two-piece)",
+      "qty": 1,
+      "description": "Forward tube of the factory two-piece propeller shaft, from the transmission output coupler to the center support bearing. Factory shafts are balanced as an assembly - mark phasing before separating.",
+      "location": "Tunnel from x\u22481.27 (trans output) to x\u22481.95 (center bearing), y\u22480.34-0.36.",
+      "connectsTo": [
+        "drivetrain.driveshaft.front-flex-coupler",
+        "drivetrain.driveshaft.center-support-bearing",
+        "drivetrain.driveshaft.rear-driveshaft"
+      ],
+      "factory": {
+        "name": "GM two-piece propeller shaft assembly",
+        "partNumber": "GM 87839794",
+        "notes": "87839794 is listed for 2016-2024 Camaro LT1/SS; confirm manual vs auto and ZL1 application by VIN. Couplers generally sold only with the complete shaft."
+      },
+      "raceOptions": [
+        {
+          "name": "Replace with one-piece shaft",
+          "brand": "The Driveshaft Shop / QA1",
+          "notes": "See drivetrain.driveshaft.one-piece-driveshaft.",
+          "url": "https://onefastshop.com/products/dss-carbon-fiber-driveshaft-chevrolet-camaro-ss-6-speed-manual-2016-2017"
+        }
+      ],
+      "specs": {
+        "Construction": "Two-piece with center support bearing, rubber couplers each end"
+      },
+      "hardware": [
+        {
+          "item": "Driveshaft-to-front-coupler bolt/nut",
+          "qty": 3,
+          "spec": "M12 Torx-head bolt + lock nut (OEM)",
+          "grade": "OEM 10.9",
+          "torque": "66 ft-lb (90 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (pre-coated/lock nut)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "notes": "Value posted for the 5th-gen Camaro two-piece shaft (forum, from GM SI); coupler fasteners are described as torque-to-yield/one-time-use - confirm Gen 6 value in GM SI and replace bolts. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Front propeller shaft bolts 90 N\u00b7m (66 lb ft)'. The previous 67 ft-lb was the 5th-gen value. Replace the bolts and nuts.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Mark 6 o'clock alignment on shaft and flanges before removal (QA1 procedure).",
+        "Support the shaft - it is heavy; slide off pilots using center-bearing play."
+      ],
+      "inspection": [
+        "Tube dents",
+        "Balance weights present",
+        "Vibration in data/at speed"
+      ],
+      "buildPhase": 6,
+      "installOrder": 45,
+      "tags": [
+        "driveshaft",
+        "two-piece",
+        "oem"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "GM 87839794 propeller shaft assembly (2016-2024 Camaro LT1/SS listing)",
+          "url": "https://www.chevypartsdeal.com/oem/gm~shaft-asm-prop~87839794"
+        },
+        {
+          "title": "Camaro5 forum - 5th-gen driveshaft coupler torque values as posted (67/72/85 ft-lb, TTY note)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=8935857"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.285,
+            0.364,
+            0
+          ],
+          [
+            1.925,
+            0.354,
+            0
+          ]
+        ],
+        "radius": 0.038
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          },
+          {
+            "title": "GM 84048447 prop shaft centre support bearing, 2017-24 Camaro (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-bearing-asm-prop-shf-ctr-supt-84048447.html"
+          },
+          {
+            "title": "GM bulletin 19-NA-266 centre support bearing (LT4 84470372) (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10169348-9999.pdf"
+          }
+        ],
+        "dimensions": "~640 mm, ~76 mm tube",
+        "features": "3-arm flange to the front guibo, swaged steel tube with balance weights, CV/slip joint at the centre bearing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.rear-driveshaft",
+      "name": "Rear driveshaft section (factory two-piece)",
+      "qty": 1,
+      "description": "Rear tube from the center bearing (with its intermediate joint/slip) to the rear coupler at the differential pinion flange.",
+      "location": "Tunnel from x\u22481.95 to x\u22482.60, y\u22480.34-0.36.",
+      "connectsTo": [
+        "drivetrain.driveshaft.center-support-bearing",
+        "drivetrain.driveshaft.rear-flex-coupler",
+        "drivetrain.driveshaft.front-driveshaft"
+      ],
+      "factory": {
+        "name": "GM two-piece propeller shaft assembly (rear half)",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Driveshaft-to-rear-coupler bolt/nut",
+          "qty": 3,
+          "spec": "M12 Torx-head bolt + lock nut (OEM)",
+          "grade": "OEM 10.9",
+          "torque": "66 ft-lb (90 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "notes": "Value posted for the 5th-gen Camaro two-piece shaft (forum, from GM SI); coupler fasteners are described as torque-to-yield/one-time-use - confirm Gen 6 value in GM SI and replace bolts. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Rear propeller shaft bolts 90 N\u00b7m (66 lb ft)'. The previous 67 ft-lb was the 5th-gen value.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Re-index to the marks made at removal."
+      ],
+      "inspection": [
+        "Intermediate joint play",
+        "Tube dents"
+      ],
+      "buildPhase": 6,
+      "installOrder": 46,
+      "tags": [
+        "driveshaft",
+        "two-piece",
+        "oem"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "Camaro5 forum - 5th-gen driveshaft coupler torque values as posted (67/72/85 ft-lb, TTY note)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=8935857"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.94,
+            0.354,
+            0
+          ],
+          [
+            2.596,
+            0.352,
+            0
+          ]
+        ],
+        "radius": 0.04
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          },
+          {
+            "title": "GM 84048447 prop shaft centre support bearing, 2017-24 Camaro (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-bearing-asm-prop-shf-ctr-supt-84048447.html"
+          }
+        ],
+        "dimensions": "~650 mm, ~80 mm tube",
+        "features": "CV stub through the centre bearing, steel tube, 3-arm flange to the rear guibo",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.center-support-bearing",
+      "name": "Center support (hanger) bearing",
+      "qty": 1,
+      "description": "Rubber-isolated ball bearing in a bracket bolted under the tunnel that supports the joint between the two driveshaft halves. A torn isolator causes vibration and clunk.",
+      "location": "Under tunnel at x\u22481.95, y\u22480.33, z=0, bracket bolted to tunnel crossmember/body.",
+      "connectsTo": [
+        "drivetrain.driveshaft.front-driveshaft",
+        "drivetrain.driveshaft.rear-driveshaft",
+        "chassis.underbody.tunnel"
+      ],
+      "factory": {
+        "name": "GM bearing assembly - propeller shaft center support",
+        "partNumber": "GM 87840089",
+        "notes": "Listed for 2016-2024 Camaro; replaces 23291765 and 84255731."
+      },
+      "raceOptions": [
+        {
+          "name": "Eliminate with one-piece shaft",
+          "brand": "DSS / QA1",
+          "notes": "",
+          "url": "https://onefastshop.com/products/dss-carbon-fiber-driveshaft-chevrolet-camaro-ss-6-speed-manual-2016-2017"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Center bearing bracket bolt",
+          "qty": 2,
+          "spec": "M10 x 1.5 (typ.)",
+          "grade": "10.9",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "QA1 instructions: two hanger-bearing bolts; value is an estimate. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Propeller shaft bearing bolts 50 N\u00b7m (37 lb ft)'. GM bulletin 19-NA-266 confirms the 2016+ LT1/LT4 two-piece shaft uses a center support bearing.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Leave bolts loose until both couplers are torqued, then center the bearing and torque."
+      ],
+      "inspection": [
+        "Isolator tears",
+        "Bearing noise/play"
+      ],
+      "buildPhase": 6,
+      "installOrder": 47,
+      "tags": [
+        "center-bearing",
+        "hanger"
+      ],
+      "sources": [
+        {
+          "title": "GM 87840089 propeller shaft center support bearing (2016-2024 Camaro)",
+          "url": "https://www.gmpartsgiant.com/parts/gm-bearing-asm-prop-shf-ctr-supt-87840089.html"
+        },
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.95,
+            0.354,
+            0
+          ],
+          "size": [
+            0.06,
+            0.15,
+            0.2
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048447 prop shaft centre support bearing, 2017-24 Camaro (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-bearing-asm-prop-shf-ctr-supt-84048447.html"
+          },
+          {
+            "title": "GM bulletin 19-NA-266 centre support bearing (LT4 84470372) (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10169348-9999.pdf"
+          }
+        ],
+        "dimensions": "~200 mm between bolts, bearing ~48 mm OD",
+        "features": "Stamped black bracket bolted up to the tunnel (2 bolts), voided rubber isolator, sealed ball bearing with dust shields (GM 84048447 / 84470372)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.front-flex-coupler",
+      "name": "Front flex coupler (guibo) - trans end",
+      "qty": 1,
+      "description": "Rubber/fabric flex disc between the trans output flange and the front driveshaft (3 bolts each side, alternating). Absorbs shock and minor angle; it is a wear item that tears under race launches and heat.",
+      "location": "At transmission output flange, x\u22481.27, y\u22480.36.",
+      "connectsTo": [
+        "drivetrain.transmission.output-flange",
+        "drivetrain.driveshaft.front-driveshaft"
+      ],
+      "factory": {
+        "name": "GM rubber coupler (flex joint)",
+        "notes": "Generally supplied with the driveshaft assembly only."
+      },
+      "raceOptions": [
+        {
+          "name": "CV joint + flange adapter (one-piece shaft)",
+          "brand": "QA1 / DSS",
+          "notes": "",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "specs": {
+        "Bolt pattern": "3-bolt each side"
+      },
+      "hardware": [
+        {
+          "item": "Coupler-to-transmission flange bolt",
+          "qty": 3,
+          "spec": "M12 bolt (OEM)",
+          "grade": "OEM 10.9",
+          "torque": "66 ft-lb (90 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "notes": "Value posted for the 5th-gen Camaro two-piece shaft (forum, from GM SI); coupler fasteners are described as torque-to-yield/one-time-use - confirm Gen 6 value in GM SI and replace bolts. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual gives a single value for the front propeller shaft bolts, 90 N\u00b7m (66 lb ft). CORRECTED from 72 ft-lb (98 N\u00b7m), a 5th-gen (2010-15) forum figure. Replace the bolts.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install arrows/markings on coupler per GM orientation.",
+        "Torque with parking brake/gear engaged."
+      ],
+      "inspection": [
+        "Cracks/tears in rubber between bolt holes every event",
+        "Heat damage from exhaust"
+      ],
+      "buildPhase": 6,
+      "installOrder": 48,
+      "tags": [
+        "guibo",
+        "flex-disc"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "Camaro5 forum - 5th-gen driveshaft coupler torque values as posted (67/72/85 ft-lb, TTY note)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=8935857"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          1.271,
+          0.364,
+          0
+        ],
+        "size": [
+          0.028,
+          0.14,
+          0.14
+        ],
+        "axis": "x",
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          }
+        ],
+        "dimensions": "~140 mm across, ~28 mm thick, 6 holes",
+        "features": "6-lobe rubber guibo with steel sleeves; bolts alternate trans flange / shaft flange",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.rear-flex-coupler",
+      "name": "Rear flex coupler (guibo) - differential end",
+      "qty": 1,
+      "description": "Flex disc between the rear driveshaft and the differential pinion flange.",
+      "location": "At pinion flange, x\u22482.61, y\u22480.36.",
+      "connectsTo": [
+        "drivetrain.driveshaft.rear-driveshaft",
+        "drivetrain.rear-differential.pinion-flange"
+      ],
+      "factory": {
+        "name": "GM rubber coupler",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Direct bolt flange on one-piece shaft",
+          "brand": "QA1 / DSS",
+          "notes": "QA1 6th-gen uses M12 x 40 bolts with nuts at pinion.",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Coupler-to-differential pinion flange bolt",
+          "qty": 3,
+          "spec": "M12 bolt (OEM)",
+          "grade": "OEM 10.9",
+          "torque": "66 ft-lb (90 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "notes": "Value posted for the 5th-gen Camaro two-piece shaft (forum, from GM SI); coupler fasteners are described as torque-to-yield/one-time-use - confirm Gen 6 value in GM SI and replace bolts. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual gives a single value for the rear propeller shaft bolts, 90 N\u00b7m (66 lb ft). CORRECTED from 85 ft-lb (115 N\u00b7m), a 5th-gen (2010-15) forum figure. Replace the bolts.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Cracks/tears",
+        "Bolt torque marks"
+      ],
+      "buildPhase": 6,
+      "installOrder": 49,
+      "tags": [
+        "guibo",
+        "flex-disc"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "Camaro5 forum - 5th-gen driveshaft coupler torque values as posted (67/72/85 ft-lb, TTY note)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=8935857"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.61,
+          0.352,
+          0
+        ],
+        "size": [
+          0.028,
+          0.14,
+          0.14
+        ],
+        "axis": "x",
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          }
+        ],
+        "dimensions": "~140 mm across, ~28 mm thick",
+        "features": "6-lobe rubber guibo between shaft and pinion flanges",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.one-piece-driveshaft",
+      "name": "One-piece race driveshaft (carbon or aluminum)",
+      "qty": 1,
+      "description": "Single-tube carbon-fiber or aluminum shaft replacing the two-piece factory shaft, center bearing and couplers. Cuts rotating mass and removes the flex discs that wrap up and fail on track. Carbon shafts fail by delaminating into fibers rather than flailing a steel tube.",
+      "location": "Tunnel from trans output (x\u22481.27) to pinion flange (x\u22482.61), y\u22480.35.",
+      "connectsTo": [
+        "drivetrain.driveshaft.cv-flange-adapter",
+        "drivetrain.transmission.output-flange",
+        "drivetrain.rear-differential.pinion-flange",
+        "drivetrain.driveshaft.safety-loop"
+      ],
+      "factory": {
+        "name": "Factory uses two-piece shaft",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "DSS carbon fiber 1-piece, 3.25 in (2016-17 Camaro SS manual)",
+          "brand": "The Driveshaft Shop",
+          "partNumber": "GMCA19-C",
+          "notes": "Direct bolt-in for factory trans and rear end; built and balanced to order. Separate versions exist for automatic and for ZL1 - confirm application.",
+          "url": "https://onefastshop.com/products/dss-carbon-fiber-driveshaft-chevrolet-camaro-ss-6-speed-manual-2016-2017"
+        },
+        {
+          "name": "QA1 REV Series carbon fiber driveshaft (2016-2018 Camaro SS manual)",
+          "brand": "QA1",
+          "partNumber": "JJ-22208",
+          "notes": "Front CV + aluminum flange adapter; SFI-certified per vendor listing.",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "name": "DSS 3.5 in aluminum 1-piece (2016-17 SS manual)",
+          "brand": "The Driveshaft Shop",
+          "notes": "Aluminum alternative listed by vendors."
+        }
+      ],
+      "specs": {
+        "Diameter (DSS CF)": "3.25 in",
+        "Front joint (QA1)": "CV with color-coded balance orientation",
+        "Front CV installed length check (QA1)": "2-9/16 to 2-7/8 in from CV to shaft"
+      },
+      "hardware": [
+        {
+          "item": "CV joint-to-flange adapter bolt (QA1)",
+          "qty": 6,
+          "spec": "M10 x 65 mm (supplied)",
+          "grade": "supplied",
+          "torque": "47 ft-lb (64 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "notes": "Match color-coded CV/adapter/balance marks.",
+          "confidence": "verified",
+          "source": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "item": "Rear flange-to-pinion flange bolt with nut (QA1, 6th gen)",
+          "qty": 3,
+          "spec": "M12 x 40 mm + nut (supplied)",
+          "grade": "supplied",
+          "torque": "85 ft-lb (115 N\u00b7m)",
+          "torqueSequence": "Snug first ensuring flange fully seated in pinion pilot; torque after front is complete",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clean pinion and trans flange mating faces of dirt, grease and corrosion.",
+        "Install the CV flange adapter to the trans output flange first (see cv-flange-adapter).",
+        "Snug rear flange to pinion with blue threadlocker, ensuring it seats fully in the pilot.",
+        "Bolt CV to adapter (6 x M10, 47 ft-lb) matching color codes.",
+        "Torque pinion bolts to 85 ft-lb with parking brake applied.",
+        "Measure CV-to-shaft dimension 2-9/16 to 2-7/8 in; reshape tunnel heat shield rear edge for clearance; rotate and check clearance to exhaust.",
+        "Wash carbon shafts with soap and water only."
+      ],
+      "inspection": [
+        "Carbon surface damage (any impact = scrap)",
+        "CV boot condition",
+        "Bolt torque marks",
+        "Vibration at speed"
+      ],
+      "buildPhase": 6,
+      "installOrder": 50,
+      "tags": [
+        "driveshaft",
+        "carbon",
+        "one-piece",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "DSS carbon fiber 1-piece driveshaft 2016-17 Camaro SS 6-speed manual, GMCA19-C (3.25 in)",
+          "url": "https://onefastshop.com/products/dss-carbon-fiber-driveshaft-chevrolet-camaro-ss-6-speed-manual-2016-2017"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.285,
+            0.364,
+            0
+          ],
+          [
+            2.596,
+            0.352,
+            0
+          ]
+        ],
+        "radius": 0.0445,
+        "color": "#1c1c1c"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "The Driveshaft Shop 3.25 in carbon one-piece, 2016-24 6.2L manual Camaro",
+            "url": "https://mgmt-www.americanmuscle.com/the-driveshaft-shop-camaro-325-inch-carbon-fiber-one-piece-driveshaft-gmca11-a7-c.html"
+          },
+          {
+            "title": "The Driveshaft Shop 3.5 in aluminium CV driveshaft, 2016 SS / 2017 ZL1 manual",
+            "url": "https://gwatneyperformance.com/product/driveshaft-shop-2016-camaro-ss-2017-camaro-zl1-aluminum-3-5%e2%80%b3-driveshaft-stock-manual-transmission-only/"
+          },
+          {
+            "title": "DSS 3.5 in chromoly CV shaft, billet plates both ends (Camaro SS 2016-24)",
+            "url": "https://onefastshop.com/products/the-driveshaft-shop-3-5-in-chromoly-cv-driveshaft-chevrolet-camaro-ss-automatic-2016-2024"
+          }
+        ],
+        "dimensions": "~1.31 m, 3.25-3.5 in tube",
+        "features": "Carbon tube with bonded aluminium end tubes, front CV adapter, billet rear adapter plate (no guibos)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.cv-flange-adapter",
+      "name": "Front CV joint & flange adapter (one-piece shaft)",
+      "qty": 1,
+      "description": "Aluminum adapter that bolts to the trans output flange and carries the front CV joint of an aftermarket one-piece shaft, providing plunge and angle capacity the rigid flange lacks.",
+      "location": "Trans output flange, x\u22481.27, y\u22480.36.",
+      "connectsTo": [
+        "drivetrain.transmission.output-flange",
+        "drivetrain.driveshaft.one-piece-driveshaft"
+      ],
+      "factory": {
+        "name": "Not used (factory flex coupler)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "QA1 aluminum CV flange adapter (supplied with JJ-22208)",
+          "brand": "QA1",
+          "notes": "",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Flange adapter-to-transmission output flange bolt (QA1)",
+          "qty": 3,
+          "spec": "M12 x 1.75 x 60 mm (supplied)",
+          "grade": "supplied",
+          "torque": "85 ft-lb (115 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "notes": "Ensure adapter fully seats in output flange as bolts are tightened.",
+          "confidence": "verified",
+          "source": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clean faces; fit adapter fully seated; torque before hanging the shaft."
+      ],
+      "inspection": [
+        "CV boot tears / grease fling",
+        "Bolt torque marks"
+      ],
+      "buildPhase": 6,
+      "installOrder": 51,
+      "tags": [
+        "cv",
+        "adapter"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.3,
+          0.364,
+          0
+        ],
+        "size": [
+          0.06,
+          0.12,
+          0.12
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "The Driveshaft Shop 3.5 in aluminium CV driveshaft, 2016 SS / 2017 ZL1 manual",
+            "url": "https://gwatneyperformance.com/product/driveshaft-shop-2016-camaro-ss-2017-camaro-zl1-aluminum-3-5%e2%80%b3-driveshaft-stock-manual-transmission-only/"
+          },
+          {
+            "title": "DSS 3.5 in chromoly CV shaft, billet plates both ends (Camaro SS 2016-24)",
+            "url": "https://onefastshop.com/products/the-driveshaft-shop-3-5-in-chromoly-cv-driveshaft-chevrolet-camaro-ss-automatic-2016-2024"
+          }
+        ],
+        "dimensions": "~120 mm flange, ~100 mm CV",
+        "features": "Billet 3-arm adapter to the trans flange, 6-bolt CV joint, boot",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.safety-loop",
+      "name": "Driveshaft safety loop(s)",
+      "qty": 1,
+      "description": "Steel hoop(s) bolted to the floor/crossmember around the driveshaft that prevent a failed shaft from pole-vaulting the car or entering the cockpit. Many road-race rulebooks (NASA, SCCA and others) require a loop near the front joint for cars with exposed driveshafts - check your class rules for count and placement.",
+      "location": "Around shaft just behind trans output (x\u22481.40) and optionally near center (x\u22482.00), bolted to tunnel/crossmember.",
+      "connectsTo": [
+        "drivetrain.driveshaft.one-piece-driveshaft",
+        "drivetrain.trans-mount-crossmember.crossmember",
+        "chassis.underbody.tunnel"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bolt-in or fabricated 360\u00b0 loop, 1/4 x 2 in steel strap or 7/8 in tube",
+          "brand": "custom / BMR / UMI",
+          "notes": "Size to clear shaft by ~1 in all around through suspension travel."
+        }
+      ],
+      "specs": {
+        "Typical section": "\u22651/4 x 2 in strap or \u22657/8 x .120 tube (check rules)"
+      },
+      "hardware": [
+        {
+          "item": "Loop mounting bolt",
+          "qty": 4,
+          "spec": "3/8-16 or M10 Gr 8/10.9 with large washers / backing plates",
+          "grade": "Gr 8 / 10.9",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "nylock or blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit after driveshaft is final; check clearance at full droop/compression."
+      ],
+      "inspection": [
+        "Witness marks from shaft contact (indicates vibration/failure)"
+      ],
+      "buildPhase": 6,
+      "installOrder": 52,
+      "tags": [
+        "safety",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          1.45,
+          0.36,
+          0
+        ],
+        "size": [
+          0.03,
+          0.17,
+          0.17
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            1.45,
+            0.36,
+            0
+          ],
+          [
+            2.2,
+            0.353,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~170 mm ring, 30 mm strap",
+        "features": "360-degree steel loop with tabs bolted to the floor",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.driveshaft.tunnel-heat-shield",
+      "name": "Tunnel heat shield",
+      "qty": 1,
+      "description": "Reflective shield in the tunnel above the driveshaft and exhaust. Protects the floor, shift boot and (on composite shafts) the carbon tube from exhaust heat. QA1 notes the rear edge must be reshaped downward for its CF shaft clearance - so 'downward' clearance to shaft must be rechecked.",
+      "location": "Tunnel roof, x\u22481.2-2.3.",
+      "connectsTo": [
+        "drivetrain.driveshaft.one-piece-driveshaft",
+        "chassis.underbody.tunnel",
+        "engine.exhaust.mid-pipes"
+      ],
+      "factory": {
+        "name": "GM tunnel heat shield",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Gold/ceramic reflective film or stamped aluminum shield",
+          "brand": "DEI / Thermo-Tec",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Heat shield nut/push-on",
+          "qty": 6,
+          "spec": "M6 nut / speed clip",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace speed clips",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Reinstall after driveshaft and exhaust; check shaft clearance through rotation."
+      ],
+      "inspection": [
+        "Loose/rattling shield",
+        "Contact marks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 55,
+      "tags": [
+        "heat-shield"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.75,
+          0.43,
+          0
+        ],
+        "size": [
+          1.1,
+          0.05,
+          0.26
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Al Oppenheiser ZL1 tech tour: integrated diff cooler, trans tunnel ducting",
+            "url": "https://www.lsxmag.com/?p=7711"
+          }
+        ],
+        "dimensions": "~1.1 m x 260 mm",
+        "features": "Arched embossed aluminium shield under the tunnel roof",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

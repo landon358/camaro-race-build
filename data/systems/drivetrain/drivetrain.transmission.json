@@ -1,0 +1,1198 @@
+{
+  "id": "drivetrain.transmission",
+  "system": "drivetrain",
+  "name": "Transmission",
+  "description": "TREMEC TR-6060 six-speed manual (ZL1 1LE RPO MH3) with its seals, plugs, vent, solenoids, switches and sensors; race alternatives include TREMEC Magnum XL and sequential dog boxes (Holinger RD6, Xtrac, Samsonas).",
+  "components": [
+    {
+      "id": "drivetrain.transmission.transmission",
+      "name": "Transmission (TREMEC TR-6060 / race gearbox)",
+      "qty": 1,
+      "description": "Six-speed manual gearbox behind the bellhousing. The factory Gen 6 manual is the TREMEC 6060 (TR-6060): aluminum case, triple-cone synchros on 1st/2nd, double-cone on 3rd-6th and reverse, tapered roller bearings on main and countershaft, internal shift rails with an external shift rod to a rearward-mounted shifter, solenoid 2nd/3rd inhibit (skip-shift) and reverse inhibit; rated 650 lb-ft (881 N\u00b7m) input. Race alternatives are a TREMEC Magnum XL (stronger H-pattern), a dog-ring conversion, or a sequential dog box (Holinger RD6, Xtrac as on the Camaro GT4.R, Samsonas).",
+      "location": "In the transmission tunnel from bellhousing (x\u22480.56) to output flange (x\u22481.25), centerline y\u22480.36-0.40, z=0.",
+      "connectsTo": [
+        "drivetrain.bellhousing.bellhousing",
+        "drivetrain.flywheel-clutch.clutch-disc-pack",
+        "drivetrain.clutch-hydraulics.release-bearing",
+        "drivetrain.transmission.output-flange",
+        "drivetrain.shifter.shift-rod",
+        "drivetrain.trans-mount-crossmember.transmission-mount",
+        "drivetrain.coolers.trans-cooler-fittings",
+        "electrical.grounding.transmission-ground"
+      ],
+      "factory": {
+        "name": "TREMEC 6060 6-speed manual, RPO MH3 (ZL1 1LE)",
+        "notes": "MH3 ratios (GM bulletin 17-NA-251): 1st 2.29, 2nd 1.61, 3rd 1.21, 4th 1.00, 5th 0.82, 6th 0.68, Rev 3.11; trans temperature sensor warns above 325\u00b0F (163\u00b0C); standard trans cooler on ZL1 1LE. 2016+ Camaro SS TR-6060 ratios: 2.66/1.78/1.30/1.00/0.74/0.50, Rev 2.90 (Wikipedia table). Final drive 3.73 with manual (ZL1)."
+      },
+      "raceOptions": [
+        {
+          "name": "TREMEC Magnum XL (GM) close-ratio",
+          "brand": "TREMEC",
+          "partNumber": "TUET18131",
+          "notes": "700 lb-ft, 7,800 rpm, 26-spline input / 31-spline output, 150 lb dry, 3.66 qt; TUET18131 = 2.66/1.78/1.30/1.00/0.80/0.63 R2.90 (2010-15 ZL1 ratios). Requires adapting mount/shifter/driveshaft for Gen 6 (kits exist for 5th-gen).",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        },
+        {
+          "name": "TREMEC Magnum XL (GM) wide-ratio",
+          "brand": "TREMEC",
+          "partNumber": "TUET18132",
+          "notes": "2.97/2.10/1.46/1.00/0.80/0.63 R2.90.",
+          "url": "https://www.shiftsst.com/tremec-magnum-xl-gm-6-speed-close-0.63-6th-tuet18132/p614"
+        },
+        {
+          "name": "Holinger RD6-S 6-speed sequential",
+          "brand": "Holinger",
+          "notes": "Dog-change sequential for front-engine RWD race cars; 880 N\u00b7m (650 lb-ft) endurance rating, 39 kg (86 lb), internal oil pump + paper/magnetic filter + spray bar with external cooler provision, gear-position sensor supplied, removable quill input, fixed flange or slip-yoke output, \u22481.8 L gear oil (85W-140 or 75W-90 GL-5 synthetic LSD oil). Needs custom LT bellhousing/quill, crossmember and driveshaft.",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "name": "Xtrac 6-speed sequential (Camaro GT4.R)",
+          "brand": "Xtrac",
+          "notes": "Factory-backed GT4.R used an Xtrac six-speed sequential with pneumatic paddle shift and an Xtrac LSD; available through Chevrolet/Pratt Miller customer racing channels.",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        },
+        {
+          "name": "Samsonas 6-speed sequential",
+          "brand": "Samsonas",
+          "notes": "Up to ~1,400 N\u00b7m depending on spec, \u224838 kg; custom LT bellhousing, mount and driveshaft required (listing is for other platforms).",
+          "url": "https://www.fensport.co.uk/products/samsonas-sequential-gearbox-6-speed-gt86-brz"
+        }
+      ],
+      "specs": {
+        "Model": "TREMEC TR-6060 (RPO MH3 on ZL1 1LE)",
+        "Input torque rating": "650 lb-ft (881 N\u00b7m)",
+        "Synchronizers": "Triple-cone 1st/2nd; double-cone 3rd-6th & reverse",
+        "Input spline": "26 x 1-1/8 in",
+        "MH3 ratios": "2.29 / 1.61 / 1.21 / 1.00 / 0.82 / 0.68, R 3.11",
+        "SS ratios (2016+)": "2.66 / 1.78 / 1.30 / 1.00 / 0.74 / 0.50, R 2.90",
+        "Overtemp warning": "325\u00b0F (163\u00b0C)"
+      },
+      "fluids": [
+        {
+          "name": "Manual transmission fluid (TR-6060)",
+          "spec": "GM: 'see dealer' (owner manual); GM 88861800 Manual Transmission & Transfer Case Fluid commonly cited for TR-6060 (Dexron III-type ATF). TREMEC-approved: TREMEC HP-MTF, Synchromesh, Dexron III ATF. Avoid thin Dexron VI.",
+          "capacity": "\u22483.5 L / 3.66 qt (TREMEC Magnum XL listing; TR-6060 similar) - fill to bottom of fill-plug hole. Change every 15 h of track use (GM)."
+        },
+        {
+          "name": "Sequential gearbox oil (Holinger RD6-S)",
+          "spec": "Fully synthetic GL-5 LSD gear oil, 85W-140 (75W-90 acceptable)",
+          "capacity": "\u22481.8 L plus cooler and lines"
+        }
+      ],
+      "hardware": [
+        {
+          "item": "Holinger RD6-S mainshaft nut (fixed flange)",
+          "qty": 1,
+          "spec": "Mainshaft nut",
+          "grade": "",
+          "torque": "150 ft-lb (205 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "per manual",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "notes": "Slip-yoke version: 80 ft-lb (110 N\u00b7m). Layshaft nut (LH thread) 80 ft-lb (110 N\u00b7m).",
+          "confidence": "verified",
+          "source": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "item": "Holinger RD6-S front cover bolts / M8 nuts (set)",
+          "qty": 1,
+          "spec": "M8",
+          "grade": "",
+          "torque": "20 ft-lb (27 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "M6 capscrews 12 ft-lb (16 N\u00b7m); M5 capscrews 7 ft-lb (9.5 N\u00b7m); detent plunger cap 15 ft-lb (20 N\u00b7m).",
+          "confidence": "verified",
+          "source": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "installNotes": [
+        "Fill with fluid before installation (easier on the bench) - or plan access to the fill plug in the car.",
+        "Install HRB, bleeder line and internal clutch hose on the trans before mating.",
+        "Support trans on a transmission jack at its installed angle; align input splines with clutch by rotating output in gear; slide fully home without forcing - never draw it in with bolts.",
+        "Install crossmember/mount, then output flange/driveshaft, shift rod, sensors and cooler lines.",
+        "Set trans/crank angle to match pinion angle for the driveshaft (see driveshaft notes)."
+      ],
+      "inspection": [
+        "Fluid level & condition every event; change every 15 h track (GM)",
+        "Drain-plug magnet debris",
+        "Leaks at output seal / front seal",
+        "Synchro grind or jumping out of gear",
+        "Trans temp in data (<325\u00b0F / 163\u00b0C)"
+      ],
+      "buildPhase": 6,
+      "installOrder": 32,
+      "tags": [
+        "tr6060",
+        "tremec",
+        "mh3",
+        "sequential"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "Wikipedia - Tremec TR-6060 (ratio table incl. 2016+ Camaro SS)",
+          "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+        },
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        },
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        },
+        {
+          "title": "Shift SST - TREMEC Magnum XL GM close-ratio TUET18132",
+          "url": "https://www.shiftsst.com/tremec-magnum-xl-gm-6-speed-close-0.63-6th-tuet18132/p614"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        },
+        {
+          "title": "Performance Racing Industry - Chevrolet unveils Camaro GT4.R",
+          "url": "https://performanceracing.com/magazine/industry-news/02-09-2017/chevrolet-unveils-new-race-ready-camaro-gt4r"
+        },
+        {
+          "title": "Camaro5 forum - TR-6060 fluid GM 88861800 discussion",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11472341"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.895,
+            0.383,
+            0
+          ],
+          "size": [
+            0.68,
+            0.3,
+            0.28
+          ],
+          "rot": [
+            0,
+            0,
+            -2.6
+          ],
+          "color": "#b0b4b8"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          },
+          {
+            "title": "TREMEC blog: TR-6060 integral bellhousing & semi-remote shifter vs Magnum",
+            "url": "https://tremec-blog.com/?p=814"
+          },
+          {
+            "title": "GM 24298781 manual transmission assembly, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-transmission-asm-man-24298781.html"
+          },
+          {
+            "title": "GM bulletin: 2018 ZL1 1LE TREMEC 6060 RPO MH3 (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          },
+          {
+            "title": "TREMEC T-56 Magnum-F spec (31.8 in overall length, 128 lb) for scale comparison (JEGS)",
+            "url": "https://www.jegs.com/i/tremec-702-tuet16362-tuet16362-tremec-t-56-magnum-f-6-speed-transmission"
+          }
+        ],
+        "dimensions": "Bell face to output ~0.86 m (bell 0.175 + case/tail 0.68); case ~280 mm wide, ~300 mm tall incl. shift tower; ~60 kg",
+        "features": "Cast-aluminium ribbed main case (countershaft sump below the mainshaft), bolted mid plate, long tapering finned tail housing with crossmember pad, shift tower and semi-remote rail housing on top, output seal nose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.output-flange",
+      "name": "Transmission output flange",
+      "qty": 1,
+      "description": "Splined flange on the trans mainshaft to which the front driveshaft coupler (factory flex disc) or a CV flange adapter (aftermarket one-piece shafts) bolts. Its pilot centers the driveshaft.",
+      "location": "Rear of tailhousing (x\u22481.25, y\u22480.36, z=0).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.driveshaft.front-flex-coupler",
+        "drivetrain.driveshaft.cv-flange-adapter",
+        "drivetrain.transmission.output-seal"
+      ],
+      "factory": {
+        "name": "GM TR-6060 output flange",
+        "notes": "3-bolt coupler pattern on factory two-piece shaft."
+      },
+      "raceOptions": [
+        {
+          "name": "Gearbox-specific flange/yoke",
+          "brand": "Holinger / Xtrac",
+          "notes": "Sequential boxes offer fixed flange or slip yoke output.",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "specs": {
+        "Output spline": "31-spline (Magnum XL)"
+      },
+      "hardware": [
+        {
+          "item": "Output flange retaining nut",
+          "qty": 1,
+          "spec": "Mainshaft nut (staked)",
+          "grade": "",
+          "torque": "100 ft-lb (136 N\u00b7m) (OEM MM6 propshaft transmission yoke/flange nut)",
+          "torqueSequence": "",
+          "threadlocker": "Red 271/staked per Tremec",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "Not normally removed except for output seal replacement - mark flange/shaft position. Holinger fixed-flange equivalent is 150 ft-lb (205 N\u00b7m). Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Propshaft transmission yoke nut (MM6)' at 136 N\u00b7m (100 lb ft). GM bulletin 20-NA-153 (2020 Camaro M13) uses a new nut and thrust washer at 145 N\u00b7m (107 lb ft) (https://static.nhtsa.gov/odi/tsbs/2020/MC-10180313-9999.pdf); low torque there let the speed-sensor reluctor slip. Use a new nut.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Clean pilot and face before fitting coupler/adapter.",
+        "Mark orientation for balance."
+      ],
+      "inspection": [
+        "Flange runout/play",
+        "Nut stake intact"
+      ],
+      "buildPhase": 6,
+      "installOrder": 33,
+      "tags": [
+        "flange",
+        "output"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        },
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          1.246,
+          0.365,
+          0
+        ],
+        "size": [
+          0.02,
+          0.12,
+          0.12
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          },
+          {
+            "title": "GM 24298781 manual transmission assembly, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-transmission-asm-man-24298781.html"
+          }
+        ],
+        "dimensions": "3-arm flange ~120 mm across the arms",
+        "features": "3-arm forged flange with 3 studs/bolts for the guibo, centre nut",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.output-seal",
+      "name": "Transmission rear output seal",
+      "qty": 1,
+      "description": "Lip seal around the output flange hub that keeps fluid in the tailhousing. A common leak point after driveshaft vibration or flange removal.",
+      "location": "Tailhousing bore around output flange (x\u22481.24).",
+      "connectsTo": [
+        "drivetrain.transmission.output-flange",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "TREMEC/GM output seal",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Drive in square with a seal driver; lube lip with trans fluid."
+      ],
+      "inspection": [
+        "Wetness at tailhousing"
+      ],
+      "buildPhase": 6,
+      "installOrder": 34,
+      "tags": [
+        "seal"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          1.236,
+          0.365,
+          0
+        ],
+        "size": [
+          0.008,
+          0.075,
+          0.075
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~75 mm OD lip seal",
+        "features": "Rear output seal in the tail-housing nose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.input-seal",
+      "name": "Input shaft / front bearing retainer seal",
+      "qty": 1,
+      "description": "Seal in the front bearing retainer around the input shaft. A leak here contaminates the clutch; replace whenever the HRB/CSC is off.",
+      "location": "Front of transmission case inside the bellhousing (x\u22480.55).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.clutch-hydraulics.release-bearing"
+      ],
+      "factory": {
+        "name": "TREMEC input seal",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Replace with every clutch job; lube lip."
+      ],
+      "inspection": [
+        "Fluid on clutch / inside bell"
+      ],
+      "buildPhase": 6,
+      "installOrder": 35,
+      "tags": [
+        "seal"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0.556,
+          0.4,
+          0
+        ],
+        "size": [
+          0.006,
+          0.05,
+          0.05
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~50 mm OD",
+        "features": "Input shaft seal in the bearing retainer",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.fill-drain-plugs",
+      "name": "Fill and drain plugs (magnetic drain)",
+      "qty": 1,
+      "description": "Side fill/level plug and bottom magnetic drain plug. Fill to the bottom of the fill hole on a level car. The magnetic drain is your best window into gearbox health - photograph debris each change.",
+      "location": "Fill: side of case (passenger side, x\u22480.86, y\u22480.38). Drain: bottom of case (x\u22480.80, y\u22480.26).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "TREMEC fill and drain plugs",
+        "notes": "Holinger RD6 fill plug is on the LH side and doubles as level check."
+      },
+      "raceOptions": [
+        {
+          "name": "Drain/fill plug with -AN cooler port adapters",
+          "brand": "various",
+          "notes": "When an external cooler is used on the TR-6060 the pickup/return are often taken from these ports (see coolers)."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Drain plug (magnetic)",
+          "qty": 1,
+          "spec": "Tapered/straight-thread plug per case",
+          "grade": "",
+          "torque": "20 ft-lb (27 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if tapered pipe thread",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Estimate - confirm TREMEC value. Holinger RD6 drain/fill: 60 ft-lb (80 N\u00b7m). Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Transmission case drain plug (MM6)' at 27 N\u00b7m (20 lb ft). CORRECTED from a 25 ft-lb estimate. The Holinger value applies only to Holinger cases.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Fill plug",
+          "qty": 1,
+          "spec": "Plug per case",
+          "grade": "",
+          "torque": "20 ft-lb (27 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if tapered",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Transmission case fill plug (MM6)' at 27 N\u00b7m (20 lb ft). CORRECTED from a 25 ft-lb estimate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Holinger RD6 drain/fill plug",
+          "qty": 2,
+          "spec": "Holinger plug",
+          "grade": "",
+          "torque": "60 ft-lb (80 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "installNotes": [
+        "Always crack the FILL plug loose before draining.",
+        "Lockwire drain/fill plugs if class rules require (common for race gearboxes)."
+      ],
+      "inspection": [
+        "Magnet debris",
+        "Fluid level at each event"
+      ],
+      "buildPhase": 11,
+      "installOrder": 89,
+      "tags": [
+        "fill-plug",
+        "drain-plug"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.86,
+            0.385,
+            -0.135
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.02
+          ],
+          "axis": "z"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.8,
+            0.245,
+            0
+          ],
+          "size": [
+            0.022,
+            0.02,
+            0.022
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          }
+        ],
+        "dimensions": "~22 mm plugs",
+        "features": "Fill plug on the passenger side of the main case, magnetic drain plug at the bottom",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.vent-tube",
+      "name": "Transmission vent / breather",
+      "qty": 1,
+      "description": "Breather that relieves case pressure as fluid heats. On a race car extend it with a hose up to a high point (or a small catch can) so hot fluid is not sprayed onto the exhaust under hard cornering.",
+      "location": "Top of case (x\u22480.95, y\u22480.52), hose routed up the tunnel.",
+      "connectsTo": [
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "TREMEC vent (cap or barb)",
+        "notes": "Magnum XL feature list includes a vent tube."
+      },
+      "raceOptions": [
+        {
+          "name": "Extended vent hose to catch bottle",
+          "brand": "various",
+          "notes": "Rules often require catch tanks for gearbox/diff breathers."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Vent hose clamp",
+          "qty": 1,
+          "spec": "Small hose clamp",
+          "grade": "",
+          "torque": "N/A (snug)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route hose upward, no low sag; protect from exhaust."
+      ],
+      "inspection": [
+        "Fluid at vent outlet (overfill/overheat)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 54,
+      "tags": [
+        "vent",
+        "breather"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.85,
+            0.5,
+            0
+          ],
+          [
+            0.85,
+            0.53,
+            0.03
+          ],
+          [
+            0.92,
+            0.55,
+            0.07
+          ]
+        ],
+        "radius": 0.004
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~8 mm hose",
+        "features": "Vent cap/barb on top of the main case with a short hose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.skip-shift-solenoid",
+      "name": "Skip-shift (2nd/3rd inhibit) solenoid",
+      "qty": 1,
+      "description": "Factory solenoid that blocks 2nd and 3rd from 1st at light throttle (forcing 1-4) for fuel economy. Unwanted on a race car; disable with the ECU calibration or an eliminator plug/block-off (do not leave the solenoid connected without its control).",
+      "location": "On the shifter rail housing on top/side of the case (x\u22480.90, y\u22480.50, z\u2248+0.08).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "TR-6060 2nd/3rd inhibit solenoid",
+        "notes": "Listed in GM MH3 description as 'Solenoid inhibit of SECOND and THIRD gears'."
+      },
+      "raceOptions": [
+        {
+          "name": "Skip-shift eliminator / ECU disable",
+          "brand": "various",
+          "notes": "Disable in calibration first; eliminator plug if solenoid removed."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Solenoid retaining bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "If removed, install proper block-off to keep fluid in and rail positioning correct."
+      ],
+      "inspection": [
+        "Connector security / leak"
+      ],
+      "buildPhase": 8,
+      "installOrder": 70,
+      "tags": [
+        "solenoid",
+        "cags"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.96,
+          0.49,
+          0.065
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.05
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          }
+        ],
+        "dimensions": "~30 mm body",
+        "features": "Solenoid with connector on the shift tower side",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.reverse-lockout-solenoid",
+      "name": "Reverse inhibit / lockout solenoid",
+      "qty": 1,
+      "description": "Solenoid that blocks reverse when the car is moving forward above a calibrated speed. Keep it functional (powered by ECM or a simple speed-switched relay) - a missed 6th-to-reverse on track destroys the gearbox. Sequential boxes use a mechanical reverse lockout on the lever.",
+      "location": "Shift rail housing on the case (x\u22480.92, y\u22480.50, z\u2248-0.08).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.shifter.shifter-assembly",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "TR-6060 reverse inhibit solenoid",
+        "notes": "'Solenoid inhibit of REVERSE gear during predefined forward motion' (GM)."
+      },
+      "raceOptions": [
+        {
+          "name": "Mechanical reverse lockout (sequential lever)",
+          "brand": "Holinger / Xtrac",
+          "notes": "Reverse requires a pull-up/trigger at the lever."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Solenoid retaining bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Verify reverse is blocked above walking speed during shakedown."
+      ],
+      "inspection": [
+        "Function check at each event"
+      ],
+      "buildPhase": 8,
+      "installOrder": 71,
+      "tags": [
+        "solenoid",
+        "reverse"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.96,
+          0.49,
+          -0.065
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.05
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          }
+        ],
+        "dimensions": "~30 mm body",
+        "features": "Solenoid with connector on the shift tower side",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.reverse-lamp-switch",
+      "name": "Reverse lamp switch",
+      "qty": 1,
+      "description": "Plunger switch closed in reverse; drives reverse lights (required by some rulebooks/track day orgs) and an ECU reverse input.",
+      "location": "Side of case near shift rails (x\u22481.05, y\u22480.45, z\u2248+0.13).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "TREMEC reverse light switch",
+        "notes": "Listed on Magnum XL feature callouts."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Reverse lamp switch (threaded)",
+          "qty": 1,
+          "spec": "Threaded switch with sealing washer",
+          "grade": "",
+          "torque": "\u224815 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if no washer",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Function/connector"
+      ],
+      "buildPhase": 8,
+      "installOrder": 72,
+      "tags": [
+        "switch",
+        "signal"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.06,
+          0.4,
+          0.085
+        ],
+        "size": [
+          0.02,
+          0.02,
+          0.03
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M18-ish threaded switch",
+        "features": "Threaded switch in the tail housing side with a 2-pin connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.gear-position-sensor",
+      "name": "Gear / shift position sensor",
+      "qty": 1,
+      "description": "Reports selected gear (or lever position) to the ECM for Active Rev Match and to the dash/data logger. Sequential gearboxes include a barrel-position sensor used for the dash gear display, shift cut and blip.",
+      "location": "On the shift mechanism / case top (x\u22481.00, y\u22480.50, z\u22480).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.shifter.shifter-assembly",
+        "engine.ecu.ecm",
+        "electrical.dash-logger.dash"
+      ],
+      "factory": {
+        "name": "GM shift lever position sensor (ARM)",
+        "notes": "ARM monitors shift lever and clutch operation (GM bulletin)."
+      },
+      "raceOptions": [
+        {
+          "name": "Holinger gear position sensor",
+          "brand": "Holinger",
+          "notes": "Supplied with RD6 for electronic dash / gear indicator.",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "specs": {
+        "Signal": "Analog 0-5 V (race)"
+      },
+      "hardware": [
+        {
+          "item": "Sensor screws",
+          "qty": 2,
+          "spec": "M5/M6",
+          "grade": "",
+          "torque": "71 in-lb (8 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Shift fork position sensor (MM6)' at 8 N\u00b7m (71 lb in).",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Calibrate gear voltages in ECU/dash after install."
+      ],
+      "inspection": [
+        "Signal noise in data",
+        "Connector"
+      ],
+      "buildPhase": 8,
+      "installOrder": 73,
+      "tags": [
+        "sensor",
+        "signal"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.12,
+          0.48,
+          0
+        ],
+        "size": [
+          0.04,
+          0.025,
+          0.04
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~40 x 40 mm",
+        "features": "Shift position sensor (Active Rev Match) on the rail housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.temperature-sensor",
+      "name": "Transmission fluid temperature sensor",
+      "qty": 1,
+      "description": "Thermistor in the case sump. The ZL1 1LE MH3 warns above 325\u00b0F (163\u00b0C). Log it on the race dash; it is the trigger for cooler pump/thermostat strategy and pit-in warnings.",
+      "location": "Lower case side, passenger side (x\u22480.75, y\u22480.30, z\u2248-0.13).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "engine.ecu.ecm",
+        "drivetrain.coolers.trans-cooler-pump"
+      ],
+      "factory": {
+        "name": "GM trans temperature sensor (MH3)",
+        "notes": "Warning above 325\u00b0F (163\u00b0C)."
+      },
+      "raceOptions": [
+        {
+          "name": "1/8 NPT motorsport temp sensor",
+          "brand": "Bosch / MoTeC / AEM",
+          "notes": "Fit in cooler line tee or drain-plug adapter."
+        }
+      ],
+      "specs": {
+        "Warning threshold": "325\u00b0F (163\u00b0C)"
+      },
+      "hardware": [
+        {
+          "item": "Temp sensor",
+          "qty": 1,
+          "spec": "Threaded sensor (OEM thread / 1/8 NPT race)",
+          "grade": "",
+          "torque": "\u224815 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant on NPT (not on sensor tip)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Plausible reading vs ambient at cold start"
+      ],
+      "buildPhase": 8,
+      "installOrder": 74,
+      "tags": [
+        "sensor",
+        "temperature"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.75,
+          0.3,
+          -0.125
+        ],
+        "size": [
+          0.015,
+          0.015,
+          0.03
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M12-ish",
+        "features": "Thermistor sensor in the lower passenger side of the case",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.output-speed-sensor",
+      "name": "Output (vehicle) speed sensor",
+      "qty": 1,
+      "description": "Reads the output shaft tone wheel; used for speedometer, rev-match and traction-control logic. On a race build it may also feed the dash for gear calculation.",
+      "location": "Tailhousing (x\u22481.15, y\u22480.33, z\u2248-0.09).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "TREMEC electronic speedometer output sensor",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor retaining bolt",
+          "qty": 1,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "O-ring - lube with trans fluid.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Connector"
+      ],
+      "buildPhase": 8,
+      "installOrder": 75,
+      "tags": [
+        "sensor",
+        "vss"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.17,
+          0.335,
+          -0.06
+        ],
+        "size": [
+          0.02,
+          0.02,
+          0.03
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~20 mm",
+        "features": "Hall sensor in the passenger side of the tail housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.transmission.gearbox-oil-filter",
+      "name": "Gearbox oil filter (sequential/race box)",
+      "qty": 1,
+      "description": "Race gearboxes with an internal pump (e.g. Holinger RD6) have a magnetic/paper element filter. Inspect at every service - metal in the filter is the early warning of a failing dog or bearing.",
+      "location": "Rear of selector housing on the race gearbox (x\u22481.15, y\u22480.42).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.coolers.trans-cooler"
+      ],
+      "factory": {
+        "name": "Not fitted on TR-6060",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Holinger RD6 filter assembly",
+          "brand": "Holinger",
+          "notes": "Filter cap torque 45 ft-lb (60 N\u00b7m).",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Filter cap",
+          "qty": 1,
+          "spec": "Holinger filter cap",
+          "grade": "",
+          "torque": "45 ft-lb (60 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (new O-ring)",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "installNotes": [
+        "Prime with gear oil."
+      ],
+      "inspection": [
+        "Element debris every event",
+        "O-ring condition"
+      ],
+      "buildPhase": 6,
+      "installOrder": 36,
+      "tags": [
+        "filter",
+        "sequential",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.12,
+          0.42,
+          0.09
+        ],
+        "size": [
+          0.06,
+          0.05,
+          0.05
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~50 mm canister",
+        "features": "Race/sequential option only",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

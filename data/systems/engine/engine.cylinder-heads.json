@@ -1,0 +1,1266 @@
+{
+  "id": "engine.cylinder-heads",
+  "system": "engine",
+  "name": "Cylinder Heads",
+  "description": "Gen V LT cylinder heads, valves, springs/retainers/locks, seals, MLS head gaskets and the head fasteners with full torque sequences (GM TTY and ARP stud/bolt options).",
+  "components": [
+    {
+      "id": "engine.cylinder-heads.cylinder-head",
+      "name": "Cylinder heads (pair)",
+      "qty": 2,
+      "description": "Aluminum reverse-cooled Gen V heads with 2 valves per cylinder, rectangular intake ports, flat-oval exhaust ports, and the direct injector bored into the chamber between the valves. LT4 heads are rotocast A356-T6 with 65.47 cc chambers, titanium intake valves and sodium-filled exhaust valves; LT1 heads are 319-T7 with 59.02 cc chambers.",
+      "location": "On each bank deck, tilted 45° outboard; left (driver) head carries cylinders 1-3-5-7, right head 2-4-6-8.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.cylinder-heads.head-gasket",
+        "engine.cylinder-heads.head-fasteners",
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.valve-covers.valve-cover",
+        "engine.fuel-injection.di-injectors",
+        "engine.ignition.spark-plugs",
+        "engine-support.exhaust.headers"
+      ],
+      "factory": {
+        "name": "GM LT4 cylinder head (rotocast A356-T6)",
+        "partNumber": "GM 12646959",
+        "notes": "Casting 12646956; 65.47 cc chamber; intake valve 2.126 in titanium, exhaust 1.590 in sodium-filled; valve angles 12.5° int / 12.0° exh. LT1 heads: 12678633 / 12620544 / 12620545 (casting 12620549), 59.02 cc, 297 cc intake runner, 107 cc exhaust runner."
+      },
+      "raceOptions": [
+        {
+          "name": "Edelbrock Victor Jr. Gen V LT1 race head",
+          "brand": "Edelbrock",
+          "partNumber": "77139",
+          "notes": "Exhaust ports raised/moved 1.5 in horizontally - custom headers required. Check intake bolt pattern vs supercharger.",
+          "url": "https://www.compcams.com/victor-jr-gen-v-lt1-chevy-cylinder-head-hydraulic-roller-camshaft-77139.html"
+        },
+        {
+          "name": "CNC-ported factory LT4/LT1 castings (SDPC Raceshop, BTR, Katech, etc.)",
+          "brand": "SDPC / BTR / Katech",
+          "notes": "Retains factory DI injector bores, manifold and header fitment - most practical for a road-race car.",
+          "url": "https://gm-efi.com/sema-2016-scoggin-dickey-parts-center-raceshop-lt-cnc-ported-heads/"
+        }
+      ],
+      "specs": {
+        "Chamber (LT4)": "65.47 cc",
+        "Chamber (LT1)": "59.02 cc",
+        "Intake valve": "2.126 in",
+        "Exhaust valve": "1.590 in",
+        "Valve angle": "12.5° int / 12.0° exh, splayed 2.61° / 2.38°",
+        "Rocker ratio": "1.8:1 (no offset)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Clean deck surfaces (no abrasive pads on MLS sealing surfaces); check head flatness.",
+        "Fit head gasket over dowels, lower head straight down onto dowels.",
+        "Torque fasteners per engine.cylinder-heads.head-fasteners.",
+        "CC chambers and check valve-job concentricity when using ported heads."
+      ],
+      "inspection": [
+        "Leak-down test; look for coolant in cylinders; check for exhaust-side cracking between seats at rebuild."
+      ],
+      "buildPhase": 5,
+      "installOrder": 42,
+      "tags": [
+        "heads",
+        "lt4",
+        "lt1"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "COMP Cams / Edelbrock Victor Jr. Gen V LT1 cylinder head 77139",
+          "url": "https://www.compcams.com/victor-jr-gen-v-lt1-chevy-cylinder-head-hydraulic-roller-camshaft-77139.html"
+        },
+        {
+          "title": "GM-EFI: SEMA 2016 Scoggin Dickey Parts Center Raceshop LT CNC ported heads",
+          "url": "https://gm-efi.com/sema-2016-scoggin-dickey-parts-center-raceshop-lt-cnc-ported-heads/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.0327,
+            0.6119,
+            0.2119
+          ],
+          "size": [
+            0.56,
+            0.13,
+            0.24
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0567,
+            0.6119,
+            -0.2119
+          ],
+          "size": [
+            0.56,
+            0.13,
+            0.24
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM cylinder head 12699619 (supersedes 12646959) diagram - GM Parts Giant",
+            "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-corvette-cylinder_head.html"
+          },
+          {
+            "title": "Is the Gen V engine combustion system really new? (EngineLabs)",
+            "url": "https://www.enginelabs.com/?p=8540"
+          },
+          {
+            "title": "GM LT4/LT5 titanium intake valve (Katech)",
+            "url": "https://katechengines.com/i-30498289-gm-lt4-lt5-titanium-intake-valve.html"
+          }
+        ],
+        "dimensions": "Approx. 560 mm long x 240 mm across port faces x 130 mm deck-to-rail; 2.126 in intake / 1.590 in exhaust valves; 65.47 cc chamber (LT4)",
+        "features": "Rotocast A356-T6 aluminium, tall rectangular intake ports on the valley face with DI injector bores under each port, oval exhaust ports with 2 studs each, spark-plug tubes between exhaust ports, single valve row, 1.8 rocker pedestal rail, machined valve-cover rail",
+        "confidence": "published (valves, chamber); estimated (casting envelope)"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.head-gasket",
+      "name": "Cylinder head gaskets (MLS)",
+      "qty": 2,
+      "description": "Multi-layer steel head gaskets sealing combustion, coolant and oil between deck and head. Bore size and compressed thickness change compression ratio and quench; boosted race engines use a stout MLS gasket, often with studs.",
+      "location": "Between each block deck and cylinder head.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.block.head-dowels"
+      ],
+      "factory": {
+        "name": "GM Gen V 6.2L MLS head gasket",
+        "partNumber": "GM 12654622",
+        "notes": "Listed in the Michigan Motorsports LT4 AFM delete kit as the Gen V 6.2L MLS head gasket pair."
+      },
+      "raceOptions": [
+        {
+          "name": "Cometic Gen V LT1/LT4 MLX head gasket, 4.100 in bore (.028/.040/.064 in thickness)",
+          "brand": "Cometic",
+          "notes": "Choose thickness for desired quench/CR. Part numbers not verified here."
+        },
+        {
+          "name": "BTR Gen V 6.2L/6.6L head gasket pair",
+          "brand": "Brian Tooley Racing",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install clean and dry, no sealant, \"this side up/front\" marks per gasket.",
+        "Never reuse an MLS gasket."
+      ],
+      "inspection": [
+        "Compression/leak-down; coolant level/pressure trends; combustion gas test of coolant if overheating."
+      ],
+      "buildPhase": 5,
+      "installOrder": 41,
+      "tags": [
+        "gasket",
+        "mls"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        },
+        {
+          "title": "ICT Billet: Gen V LT DOD delete kit 551-DD-LT01",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.0327,
+            0.5665,
+            0.1665
+          ],
+          "size": [
+            0.55,
+            0.0015,
+            0.2
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0567,
+            0.5665,
+            -0.1665
+          ],
+          "size": [
+            0.55,
+            0.0015,
+            0.2
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM LT4 MLS head gasket 12654622 (Katech)",
+            "url": "https://katechengines.com/i-30497962-gm-lt4-head-gasket.html"
+          }
+        ],
+        "dimensions": "MLS, ~550 x 200 mm, bore holes ~106 mm",
+        "features": "Multi-layer steel with embossed fire rings around 4 bores and head-bolt holes; marked L/R and FRONT/UP",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.head-fasteners",
+      "name": "Cylinder head bolts / studs",
+      "qty": 2,
+      "description": "Each head is clamped by 10 M12 x 1.75 fasteners (factory torque-to-yield bolts, one short Allen-head bolt at the front of the left head) plus M8 corner fasteners on blocks that are drilled for them. Race builds use ARP head studs; ARP warns some blocks need machining to accept the M8 studs.",
+      "location": "Through each cylinder head into the block deck.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.block.cylinder-block",
+        "engine.cylinder-heads.head-gasket"
+      ],
+      "factory": {
+        "name": "GM TTY head bolts: (10) M12 x 1.75 per head + M8 corner bolts",
+        "notes": "Summit lists M12 x 1.75 x 134.0 (standard) and M12 x 1.75 x 102.0 (1 bolt, LH side). Factory threads have locking compound - chase before reassembly."
+      },
+      "raceOptions": [
+        {
+          "name": "ARP Pro Series head stud kit 234-4343 (ARP2000, incl. M8 corner studs)",
+          "brand": "ARP",
+          "partNumber": "234-4343",
+          "notes": "40 / 80 / 115 ft-lb (M12) with Ultra-Torque.",
+          "url": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+        },
+        {
+          "name": "ARP head stud kit 234-4347 (Custom Age 625+, LT1/LT4)",
+          "brand": "ARP",
+          "partNumber": "234-4347",
+          "notes": "50 / 100 / 150 ft-lb (M12) with Ultra-Torque - for high-boost builds.",
+          "url": "https://cdn.arp-bolts.com/instructions/234-4347.pdf"
+        },
+        {
+          "name": "ARP head stud kit 234-4342 (without M8 corner studs)",
+          "brand": "ARP",
+          "partNumber": "234-4342",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-lt1-head-stud-kit-w-o-m8-corner-head-studs-arp/"
+        },
+        {
+          "name": "ARP Pro Series head bolt kit 234-3711 (with M8 corner bolts)",
+          "brand": "ARP",
+          "partNumber": "234-3711",
+          "notes": "Reusable bolts, 12-pt, ARP2000.",
+          "url": "https://www.michiganmotorsports.com/bolts-and-fasteners-arp-and-stock/arp-234-3711-head-bolts-for-gen-5-6-2-5-3-l83-l86-lt1-lt4-with-m8-corner-bolts-lt-engine-pro-series-high-performance-gen-v"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "GM head bolt M12 x 1.75 x 134 (standard, 19 per engine)",
+          "qty": 9,
+          "spec": "M12 x 1.75 x 134.0 mm TTY",
+          "grade": "",
+          "torque": "59 ft-lb (80 N·m) then +90° then +60°",
+          "torqueSequence": "GM/ARP 10-bolt (M12) sequence per head, viewed from the outside: 1 = center upper, 2 = center lower, 3 = upper rear-of-center, 4 = lower rear-of-center, 5 = upper front-of-center, 6 = lower front-of-center, 7 = upper rearmost, 8 = lower rearmost, 9 = upper frontmost (short bolt/stud location, driver side only), 10 = lower frontmost. M8 corner fasteners last. Pass 1: all 10 to 59 ft-lb in sequence. Pass 2: +90° in sequence. Pass 3: +60° (standard bolts).",
+          "threadlocker": "Clean engine oil on threads/under head (new bolts)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "Angle gauge, 12-pt/hex socket",
+          "notes": "Summit (LT1 and LT4 tables) and Michigan Motorsports agree: 59 ft-lb, +90°, +60°.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "GM short Allen-head bolt M12 x 1.75 x 102 (LH head, forwardmost, 1 per engine)",
+          "qty": 1,
+          "spec": "M12 x 1.75 x 102.0 mm TTY Allen head",
+          "grade": "",
+          "torque": "59 ft-lb (80 N·m) then +90° then +40°",
+          "torqueSequence": "Position 9 on the left head: 59 ft-lb, +90°, final +40°.",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "Hex bit + angle gauge",
+          "notes": "Left head only (qty 1 per engine; 0 on right head).",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "GM M8 corner head bolt",
+          "qty": 2,
+          "spec": "M8 x 1.25 (count per head varies by block; verify)",
+          "grade": "",
+          "torque": "22 ft-lb (30 N·m) (typical - after M12 sequence)",
+          "torqueSequence": "",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "tool": "",
+          "notes": "Value not found in public Gen V sources; 22 ft-lb is the Gen III/IV M8 head-bolt value. Confirm with GM service information. Checked 2026-10: the GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists only M12 head bolts (standard +90°/+60°, internal-hex +90°/+40°, and a 'short bolts' group with a +55° final pass). No GM M8 head-bolt value was found. If your block uses M8 corner fasteners, they normally come in the ARP kit; use the ARP sheet value. Downgraded from typical to estimate.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "ARP 234-4343 M12 head stud nut (12-pt) with washer",
+          "qty": 10,
+          "spec": "M12 x 1.75 stud, ARP2000",
+          "grade": "ARP2000",
+          "torque": "40 ft-lb (54 N·m), then 80 ft-lb (108 N·m), then 115 ft-lb (156 N·m)",
+          "torqueSequence": "GM/ARP 10-bolt (M12) sequence per head, viewed from the outside: 1 = center upper, 2 = center lower, 3 = upper rear-of-center, 4 = lower rear-of-center, 5 = upper front-of-center, 6 = lower front-of-center, 7 = upper rearmost, 8 = lower rearmost, 9 = upper frontmost (short bolt/stud location, driver side only), 10 = lower frontmost. M8 corner fasteners last. Three passes 40/80/115 ft-lb on nuts 1-10.",
+          "threadlocker": "ARP Ultra-Torque on stud threads and nut face; washers and head spot-faces DRY",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "12-pt socket",
+          "notes": "Studs installed hand tight only - hex broach is for install, not torque.",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+        },
+        {
+          "item": "ARP 234-4347 M12 head stud nut (Custom Age 625+)",
+          "qty": 10,
+          "spec": "M12 x 1.75 stud, CA625+",
+          "grade": "Custom Age 625+",
+          "torque": "50 ft-lb (68 N·m), then 100 ft-lb (136 N·m), then 150 ft-lb (203 N·m)",
+          "torqueSequence": "GM/ARP 10-bolt (M12) sequence per head, viewed from the outside: 1 = center upper, 2 = center lower, 3 = upper rear-of-center, 4 = lower rear-of-center, 5 = upper front-of-center, 6 = lower front-of-center, 7 = upper rearmost, 8 = lower rearmost, 9 = upper frontmost (short bolt/stud location, driver side only), 10 = lower frontmost. M8 corner fasteners last. Washer stamped side down against head.",
+          "threadlocker": "ARP Ultra-Torque; washers dry",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-4347.pdf"
+        },
+        {
+          "item": "ARP M8 corner stud nut",
+          "qty": 2,
+          "spec": "M8 x 1.25 stud",
+          "grade": "ARP2000",
+          "torque": "25 ft-lb (34 N·m)",
+          "torqueSequence": "Step 4 - after all M12 nuts are at final torque.",
+          "threadlocker": "ARP Ultra-Torque",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Chase all block threads (ARP 912-0008 or 912-0016 for M12x1.75, 912-0001 for M8x1.25) and blow out holes - factory thread compound will stop new fasteners short.",
+        "Clean head spot faces with solvent; keep washer faces dry (ARP).",
+        "Torque in sequence in the passes listed in hardware; M8 corner fasteners last.",
+        "ARP note: some blocks are pre-drilled for M8 studs, others need machining."
+      ],
+      "inspection": [
+        "Re-torque is NOT applicable to GM TTY bolts; with ARP studs follow ARP guidance (generally no re-torque on MLS)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 43,
+      "tags": [
+        "head-studs",
+        "arp",
+        "tty",
+        "torque-sequence"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "ARP installation instructions 234-4343 head stud kit, SB Chevy 6.2L (LT1)",
+          "url": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+        },
+        {
+          "title": "ARP installation instructions 234-4347 head stud kit, SB Chevy 6.2L (LT1/4), CA625+",
+          "url": "https://cdn.arp-bolts.com/instructions/234-4347.pdf"
+        },
+        {
+          "title": "Michigan Motorsports: ARP 234-3711 Pro Series head bolts for Gen V LT (with M8 corner bolts)",
+          "url": "https://www.michiganmotorsports.com/bolts-and-fasteners-arp-and-stock/arp-234-3711-head-bolts-for-gen-5-6-2-5-3-l83-l86-lt1-lt4-with-m8-corner-bolts-lt-engine-pro-series-high-performance-gen-v"
+        },
+        {
+          "title": "Wild Hammer: ARP 16-24 Camaro SS LT1 head stud kit without M8 corner studs (234-4342)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-lt1-head-stud-kit-w-o-m8-corner-head-studs-arp/"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.022,
+            0.03,
+            0.022
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.191,
+              0.6812,
+              0.185
+            ],
+            [
+              -0.191,
+              0.5766,
+              0.2897
+            ],
+            [
+              -0.079,
+              0.6812,
+              0.185
+            ],
+            [
+              -0.079,
+              0.5766,
+              0.2897
+            ],
+            [
+              0.0328,
+              0.6812,
+              0.185
+            ],
+            [
+              0.0328,
+              0.5766,
+              0.2897
+            ],
+            [
+              0.1446,
+              0.6812,
+              0.185
+            ],
+            [
+              0.1446,
+              0.5766,
+              0.2897
+            ],
+            [
+              0.2564,
+              0.6812,
+              0.185
+            ],
+            [
+              0.2564,
+              0.5766,
+              0.2897
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.022,
+            0.03,
+            0.022
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.167,
+              0.6812,
+              -0.185
+            ],
+            [
+              -0.167,
+              0.5766,
+              -0.2897
+            ],
+            [
+              -0.055,
+              0.6812,
+              -0.185
+            ],
+            [
+              -0.055,
+              0.5766,
+              -0.2897
+            ],
+            [
+              0.0568,
+              0.6812,
+              -0.185
+            ],
+            [
+              0.0568,
+              0.5766,
+              -0.2897
+            ],
+            [
+              0.1686,
+              0.6812,
+              -0.185
+            ],
+            [
+              0.1686,
+              0.5766,
+              -0.2897
+            ],
+            [
+              0.2804,
+              0.6812,
+              -0.185
+            ],
+            [
+              0.2804,
+              0.5766,
+              -0.2897
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM cylinder head 12699619 (supersedes 12646959) diagram - GM Parts Giant",
+            "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-corvette-cylinder_head.html"
+          }
+        ],
+        "dimensions": "10 x M12 x 1.75 per head (5 inner + 5 outer) + M8 corner bolts",
+        "features": "Black-phosphate TTY flange bolts at the bulkheads either side of the bores",
+        "confidence": "published (sizes), estimated (positions)"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.intake-valves",
+      "name": "Intake valves",
+      "qty": 8,
+      "description": "LT4: 2.126 in solid-stem titanium intake valves; LT1: 2.126 in hollow-stem steel. Titanium valves need compatible seats/guides and are a wear item in endurance racing.",
+      "location": "Intake side of each chamber, 12.5° valve angle.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.cylinder-heads.valve-springs",
+        "engine.valvetrain.rocker-arms"
+      ],
+      "factory": {
+        "name": "GM LT4 titanium intake valve, 2.126 in",
+        "notes": "LT1 steel hollow-stem 2.126 in."
+      },
+      "raceOptions": [
+        {
+          "name": "Ferrea / Manley / Del West Gen V LT valves",
+          "brand": "Ferrea / Manley / Del West",
+          "notes": "Stainless or titanium; specify stem length and lock groove to suit spring kit. Part numbers not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Lap or check seat contact; lube stems with assembly lube; check installed height for each spring."
+      ],
+      "inspection": [
+        "Leak-down; check stem-to-guide wear at rebuild (titanium especially)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 37,
+      "tags": [
+        "valves",
+        "titanium"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.054,
+            0.127,
+            0.054
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.6121,
+              0.2121
+            ],
+            [
+              -0.0432,
+              0.6121,
+              0.2121
+            ],
+            [
+              0.0686,
+              0.6121,
+              0.2121
+            ],
+            [
+              0.1804,
+              0.6121,
+              0.2121
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.054,
+            0.127,
+            0.054
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.6121,
+              -0.2121
+            ],
+            [
+              -0.0192,
+              0.6121,
+              -0.2121
+            ],
+            [
+              0.0926,
+              0.6121,
+              -0.2121
+            ],
+            [
+              0.2044,
+              0.6121,
+              -0.2121
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM LT4/LT5 titanium intake valve (Katech)",
+            "url": "https://katechengines.com/i-30498289-gm-lt4-lt5-titanium-intake-valve.html"
+          }
+        ],
+        "dimensions": "2.126 in (54 mm) head, 8 mm stem, ~127 mm long",
+        "features": "Titanium (LT4), hollow-look grey, single keeper groove",
+        "confidence": "published (head dia), estimated (length)"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.exhaust-valves",
+      "name": "Exhaust valves",
+      "qty": 8,
+      "description": "1.590 in sodium-filled steel exhaust valves (LT1 and LT4). Road-race duty with boost makes these highly loaded thermally; Inconel valves are the common race upgrade.",
+      "location": "Exhaust side of each chamber, 12.0° valve angle.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.cylinder-heads.valve-springs",
+        "engine.valvetrain.rocker-arms"
+      ],
+      "factory": {
+        "name": "GM sodium-filled steel exhaust valve, 1.590 in",
+        "notes": "Handle/dispose of sodium-filled valves properly - do not cut."
+      },
+      "raceOptions": [
+        {
+          "name": "Inconel exhaust valves",
+          "brand": "Ferrea / Del West",
+          "notes": "Common boosted endurance upgrade."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Same procedure as intake valves; verify seat width/position."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 38,
+      "tags": [
+        "valves",
+        "sodium-filled"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0404,
+            0.127,
+            0.0404
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.11,
+              0.6121,
+              0.2121
+            ],
+            [
+              0.0018,
+              0.6121,
+              0.2121
+            ],
+            [
+              0.1136,
+              0.6121,
+              0.2121
+            ],
+            [
+              0.2254,
+              0.6121,
+              0.2121
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0404,
+            0.127,
+            0.0404
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.086,
+              0.6121,
+              -0.2121
+            ],
+            [
+              0.0258,
+              0.6121,
+              -0.2121
+            ],
+            [
+              0.1376,
+              0.6121,
+              -0.2121
+            ],
+            [
+              0.2494,
+              0.6121,
+              -0.2121
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Is the Gen V engine combustion system really new? (EngineLabs)",
+            "url": "https://www.enginelabs.com/?p=8540"
+          }
+        ],
+        "dimensions": "1.590 in (40.4 mm) head, 8 mm stem",
+        "features": "Sodium-filled steel, darker than the Ti intakes",
+        "confidence": "published (head dia), estimated (length)"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.valve-springs",
+      "name": "Valve springs, retainers & locks",
+      "qty": 16,
+      "description": "Factory LT springs are beehive single springs; any cam with more lift/rpm (or a road-race rev limit above stock) needs a dual-spring kit with titanium or tool-steel retainers. Locks (keepers) must match retainer angle.",
+      "location": "On each valve stem, top of the head under the rocker arms.",
+      "connectsTo": [
+        "engine.cylinder-heads.intake-valves",
+        "engine.cylinder-heads.exhaust-valves",
+        "engine.valvetrain.rocker-arms",
+        "engine.cylinder-heads.valve-stem-seals"
+      ],
+      "factory": {
+        "name": "GM beehive valve spring (natural color), steel retainer, locks",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BTR SK007 dual .660 in lift spring kit (titanium retainers, seals, locks)",
+          "brand": "Brian Tooley Racing",
+          "partNumber": "SK007",
+          "notes": "Specified with BTR Gen V 220 cam.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        },
+        {
+          "name": "PAC / COMP / Manton dual spring kits for Gen V",
+          "brand": "PAC / COMP",
+          "notes": "Choose for cam lift and target rpm; check coil bind margin and retainer-to-seal clearance."
+        }
+      ],
+      "specs": {
+        "Coil bind margin": ">= 0.060 in at max lift (typical)",
+        "Retainer-to-seal clearance": ">= 0.060 in (typical)"
+      },
+      "hardware": [
+        {
+          "item": "Valve locks (keepers)",
+          "qty": 2,
+          "spec": "7° or 10° to match retainer",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with new springs/retainers",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Measure installed height per valve and shim to spec.",
+        "Check seat/open pressure on a spring tester.",
+        "Seat locks with a light mallet tap on the retainer (with a socket) after assembly."
+      ],
+      "inspection": [
+        "Check seat pressure every few events on an endurance engine; look for broken spring fragments in the oil filter."
+      ],
+      "buildPhase": 5,
+      "installOrder": 40,
+      "tags": [
+        "springs",
+        "valvetrain"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.033,
+            0.046,
+            0.033
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.6355,
+              0.2355
+            ],
+            [
+              -0.11,
+              0.6355,
+              0.2355
+            ],
+            [
+              -0.0432,
+              0.6355,
+              0.2355
+            ],
+            [
+              0.0018,
+              0.6355,
+              0.2355
+            ],
+            [
+              0.0686,
+              0.6355,
+              0.2355
+            ],
+            [
+              0.1136,
+              0.6355,
+              0.2355
+            ],
+            [
+              0.1804,
+              0.6355,
+              0.2355
+            ],
+            [
+              0.2254,
+              0.6355,
+              0.2355
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.033,
+            0.046,
+            0.033
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.6355,
+              -0.2355
+            ],
+            [
+              -0.086,
+              0.6355,
+              -0.2355
+            ],
+            [
+              -0.0192,
+              0.6355,
+              -0.2355
+            ],
+            [
+              0.0258,
+              0.6355,
+              -0.2355
+            ],
+            [
+              0.0926,
+              0.6355,
+              -0.2355
+            ],
+            [
+              0.1376,
+              0.6355,
+              -0.2355
+            ],
+            [
+              0.2044,
+              0.6355,
+              -0.2355
+            ],
+            [
+              0.2494,
+              0.6355,
+              -0.2355
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM LT4/LT5 titanium intake valve (Katech)",
+            "url": "https://katechengines.com/i-30498289-gm-lt4-lt5-titanium-intake-valve.html"
+          }
+        ],
+        "dimensions": "Beehive ~1.3 in OD at the base, ~1.8 in installed height",
+        "features": "Natural-finish beehive spring tapering to a small steel retainer with 2 keepers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.cylinder-heads.valve-stem-seals",
+      "name": "Valve stem seals",
+      "qty": 16,
+      "description": "Positive-type seals on each valve guide that meter oil to the stem. Replace any time springs are changed; spring kits usually include seals.",
+      "location": "Top of each valve guide.",
+      "connectsTo": [
+        "engine.cylinder-heads.valve-springs",
+        "engine.cylinder-heads.cylinder-head"
+      ],
+      "factory": {
+        "name": "GM Gen V valve stem seal",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Viton seals included with BTR SK007 kit",
+          "brand": "Brian Tooley Racing",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install with the seal driver; use a stem protector cap over the lock grooves."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 39,
+      "tags": [
+        "seals"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.015,
+            0.012,
+            0.015
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.6206,
+              0.2206
+            ],
+            [
+              -0.11,
+              0.6206,
+              0.2206
+            ],
+            [
+              -0.0432,
+              0.6206,
+              0.2206
+            ],
+            [
+              0.0018,
+              0.6206,
+              0.2206
+            ],
+            [
+              0.0686,
+              0.6206,
+              0.2206
+            ],
+            [
+              0.1136,
+              0.6206,
+              0.2206
+            ],
+            [
+              0.1804,
+              0.6206,
+              0.2206
+            ],
+            [
+              0.2254,
+              0.6206,
+              0.2206
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.015,
+            0.012,
+            0.015
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.6206,
+              -0.2206
+            ],
+            [
+              -0.086,
+              0.6206,
+              -0.2206
+            ],
+            [
+              -0.0192,
+              0.6206,
+              -0.2206
+            ],
+            [
+              0.0258,
+              0.6206,
+              -0.2206
+            ],
+            [
+              0.0926,
+              0.6206,
+              -0.2206
+            ],
+            [
+              0.1376,
+              0.6206,
+              -0.2206
+            ],
+            [
+              0.2044,
+              0.6206,
+              -0.2206
+            ],
+            [
+              0.2494,
+              0.6206,
+              -0.2206
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 16-24 Camaro LT1 head-removal gasket kit (intake, head, valve cover)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-ss-lt1-oem-head-removal-gasket-kit-incl-intake-exhaust-throttle-body-valve-cover-general-motors/"
+          }
+        ],
+        "dimensions": "8 mm stem, ~15 mm OD",
+        "features": "Rubber lip seal with garter spring on a steel body; integral spring seat",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1237 @@
+{
+  "id": "engine.block",
+  "system": "engine",
+  "name": "Engine Block",
+  "description": "The Gen V LT 6.2L aluminum block and everything machined into or pressed into it: main caps and fasteners, bearings, dowels, plugs, oil squirters, rear cover/seal and bore preparation.",
+  "components": [
+    {
+      "id": "engine.block.cylinder-block",
+      "name": "Cylinder block (Gen V LT 6.2L aluminum)",
+      "qty": 1,
+      "description": "The 319-T7 aluminum Gen V small-block casting with pressed-in cast-iron cylinder liners, 4.400 in bore spacing and a 9.240 in deck. Every other engine component bolts to it. For a road-race build it is usually the factory LT4/LT1 block, bored/honed with a torque plate and align-honed if main studs are added.",
+      "location": "Front-mid mounted between the front frame rails, mostly behind the front axle centerline; front face just behind the timing cover, rear face (bellhousing face) at about x = 0.38 m; crank centerline about 0.40 m above ground.",
+      "connectsTo": [
+        "engine.block.main-caps",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.block.rear-cover-and-seal",
+        "engine.engine-mounts.block-brackets",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "GM Gen V LT 6.2L block (LT4 ZL1 / LT1 SS)",
+        "partNumber": "GM 19329617",
+        "notes": "Summit lists 19329617 for LT4 and 12619171/19329617 for LT1. 319-T7 aluminum, 6-bolt main caps, #3 main half thrust, 2.751 in main housing bore, cam bores 2.346/2.326/2.307 in (1&5 / 2&4 / 3), cam-to-crank centerline 4.914 in, 8 piston oil squirters."
+      },
+      "raceOptions": [
+        {
+          "name": "Prepped factory LT4 block (bore/hone with torque plate, align hone on ARP studs)",
+          "brand": "GM / machine shop",
+          "notes": "Most common path for LT road-race engines; factory block is proven to ~800+ hp with good fasteners. Keep stock bore (4.065) or go 4.070-4.075 max with new pistons."
+        },
+        {
+          "name": "Noonan-type billet/aftermarket Gen V LT block",
+          "brand": "Noonan Race Engineering",
+          "notes": "Fluidworks lists its 6-stage dry-sump pan as fitting factory Gen V and Noonan LT blocks; aftermarket blocks are for very high-boost/stroker builds. Part numbers not verified here.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-6-stage-racing-dry-sump-pan-and-pump-5-611"
+        }
+      ],
+      "specs": {
+        "Material": "319-T7 aluminum, cast-iron liners",
+        "Displacement": "6.2 L / 376 ci",
+        "Bore": "4.065 in (103.25 mm)",
+        "Stroke": "3.622 in (92 mm)",
+        "Deck height": "9.240 in",
+        "Bore spacing": "4.400 in",
+        "Main caps": "6-bolt (2 inner, 2 outer, 2 side) nodular iron",
+        "Thrust bearing": "#3 main, half thrust",
+        "Firing order": "1-8-7-2-6-5-4-3",
+        "Cylinder numbering": "Odd 1-3-5-7 left/driver bank (front to rear), even 2-4-6-8 right bank"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Strip the block completely, remove every galley plug (including the barbell plug) and hot-tank/ultrasonic clean the oil passages.",
+        "Chase every threaded hole: head bolt holes M12x1.75 (ARP 912-0008 / 912-0016) and M8x1.25 (ARP 912-0001). The factory head-bolt threads carry thread-locking compound that must be removed or new fasteners can stretch/break before final torque.",
+        "If converting to ARP main studs, align hone the mains with the studs torqued to final preload with Ultra-Torque lube (ARP instruction footnote).",
+        "Bore/hone with a deck (torque) plate installed using the same head fasteners and torque that will be used in final assembly.",
+        "Check deck flatness and cylinder wall finish; measure every main and cam bore before buying bearings.",
+        "Install all cup/galley plugs, oil squirters and cam bearings before the crank goes in."
+      ],
+      "inspection": [
+        "At teardown: check liner walls for scuffing/cracks at the top of the bore, check main-cap fretting, check for coolant in oil.",
+        "Leak-down test between race weekends (<10% typical healthy race engine)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 1,
+      "tags": [
+        "block",
+        "gen-v",
+        "lt4",
+        "lt1",
+        "aluminum"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "ARP installation instructions 234-4343 head stud kit, SB Chevy 6.2L (LT1)",
+          "url": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.085,
+          0.47,
+          0
+        ],
+        "size": [
+          0.59,
+          0.32,
+          0.47
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Katech Gen V LT1/LT4/LT5 sleeved block (photos)",
+            "url": "https://katechengines.com/i-30498012-katech-gen-v-lt1-lt4-lt5-sleeved-engine-block.html"
+          },
+          {
+            "title": "Borowski LT1/LT4/LT5 aluminium 6.2L bare block",
+            "url": "https://borowskirace.com/products/lt1-lt4-lt5-aluminum-6-2l-bare-block"
+          },
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Deck height 9.240 in (234.7 mm) crank-to-deck; bore spacing 4.400 in; bore 4.065 in; block approx. 590 x 470 x 320 mm (front face to bellhousing face x width at decks x pan rail to valley cover)",
+        "features": "90-degree V8, deep-skirt 319-T7 aluminium with cast-in iron liners, 6-bolt nodular-iron mains with cross-bolts in the skirt, flat valley cover with the round DI-pump boss at the rear, knock-sensor bosses on the outer barrel walls, wide bellhousing flange with bolt ears, left bank 24 mm ahead of the right",
+        "confidence": "published (deck, bore, bore spacing); estimated (overall casting length/width)"
+      }
+    },
+    {
+      "id": "engine.block.main-caps",
+      "name": "Main bearing caps & fasteners (6-bolt)",
+      "qty": 5,
+      "description": "Five nodular-iron main caps, each clamped by two inner bolts, two outer studs/bolts and two cross (side) bolts through the block skirt. Factory fasteners are torque-to-yield and must be replaced; race builds commonly convert to ARP 234-5802 studs and align hone.",
+      "location": "Bottom of the block at each main journal, along the crank centerline.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.block.main-bearings",
+        "engine.rotating-assembly.crankshaft",
+        "engine.oil-pan-and-pickup.windage-tray"
+      ],
+      "factory": {
+        "name": "GM nodular iron 6-bolt main caps (machined with block - never swap positions)",
+        "notes": "Caps are line-bored with the block and are position- and direction-specific."
+      },
+      "raceOptions": [
+        {
+          "name": "ARP Pro Series main stud kit 234-5802 (4-bolt studs + M8 side bolts)",
+          "brand": "ARP",
+          "partNumber": "234-5802",
+          "notes": "Inner studs 4.770 in long, outer studs 4.000 in long, 12-pt nuts, M8 side bolts; requires align hone check.",
+          "url": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+        }
+      ],
+      "specs": {
+        "Caps": "5",
+        "Fasteners per cap": "6 (2 inner bolts, 2 outer studs, 2 side bolts)",
+        "Main housing bore": "2.751 in"
+      },
+      "hardware": [
+        {
+          "item": "Main cap inner bolt (GM, TTY)",
+          "qty": 2,
+          "spec": "M10 inner main bolt (factory)",
+          "grade": "",
+          "torque": "15 ft-lb (20 N·m) then +110°",
+          "torqueSequence": "Step 1 of 3. Tighten all inner bolts in center-out sequence (cap 3 outward) to 15 ft-lb, then +110°.",
+          "threadlocker": "Clean engine oil on threads and under head",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "Torque wrench + angle gauge",
+          "notes": "Summit (LT1 & LT4 tables) and Michigan Motorsports agree on 15 ft-lb + 110°.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Main cap outer stud/bolt (GM, TTY)",
+          "qty": 2,
+          "spec": "M10 outer main stud (factory)",
+          "grade": "",
+          "torque": "15 ft-lb (20 N·m) then +80°",
+          "torqueSequence": "Step 2 of 3, after all inner bolts: 15 ft-lb then +80°, center-out.",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Main cap side (cross) bolt (GM)",
+          "qty": 2,
+          "spec": "M8 cross bolt with sealing washer",
+          "grade": "",
+          "torque": "22 ft-lb (30 N·m) first pass, then +60° final pass",
+          "torqueSequence": "Step 3 of the GM main-cap sequence: inner bolts 15 ft-lb (20 N·m) +110°, then outer bolts/studs 15 ft-lb (20 N·m) +80°, then side bolts 22 ft-lb (30 N·m) +60°, each in sequence. Use new bolts (TTY).",
+          "threadlocker": "Sealant under head per GM (side bolts pass into crankcase)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "Sources disagree on the first pass (18 vs 22 ft-lb); confirm against GM service information for your block. Checked 2026-10, 18 vs 22 conflict RESOLVED: the GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Bearing Cap Side Bolts - First Pass in Sequence 30 N·m (22 lb ft)', then 'Final Pass 60 degrees'. Michigan Motorsports agrees. Summit SR-05493 and Rated R list 18 ft-lb, which disagrees with the GM table, so 22 ft-lb / 30 N·m is adopted. The +60° angle sets most of the clamp load.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        },
+        {
+          "item": "ARP 234-5802 inner main stud nut",
+          "qty": 2,
+          "spec": "Inner stud 4.770 in long, 12-pt nut, parallel ground washer",
+          "grade": "ARP 8740 chromoly",
+          "torque": "65 ft-lb (88 N·m)",
+          "torqueSequence": "Three equal steps (approx 22 / 44 / 65 ft-lb). ARP sequence 1-10 inner fasteners center-out (cap 3 first), then 11-20 outer, then 21-30 side bolts.",
+          "threadlocker": "ARP Ultra-Torque on stud threads and nut face (Loctite optional to permanently set studs - torque before it cures)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Studs installed hand-tight only.",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+        },
+        {
+          "item": "ARP 234-5802 outer main stud nut",
+          "qty": 2,
+          "spec": "Outer stud 4.000 in long, 12-pt nut",
+          "grade": "ARP 8740 chromoly",
+          "torque": "55 ft-lb (75 N·m)",
+          "torqueSequence": "Three equal steps, positions 11-20 of the ARP sequence.",
+          "threadlocker": "ARP Ultra-Torque",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+        },
+        {
+          "item": "ARP 234-5802 M8 side bolt",
+          "qty": 2,
+          "spec": "M8 x 1.25 cross bolt with washer",
+          "grade": "",
+          "torque": "25 ft-lb (34 N·m)",
+          "torqueSequence": "Three equal steps, positions 21-30 of the ARP sequence (last).",
+          "threadlocker": "RTV sealant under the head and on the inside of the washer (ARP)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Assembly lube",
+          "spec": "ARP Ultra-Torque on ARP fasteners; clean engine oil on GM TTY fasteners",
+          "capacity": "as needed"
+        }
+      ],
+      "installNotes": [
+        "Caps are numbered and arrowed toward the front; install in original position and orientation only.",
+        "Seat caps gently with a soft mallet - do not pull them down with the bolts.",
+        "Set crank end play with the #3 thrust cap: snug all, pry crank fully forward then rearward to align thrust faces, then torque.",
+        "Final order: all inner fasteners, then outer, then side bolts. Rotate crank by hand after each cap - it must turn freely.",
+        "With ARP studs: align hone using the same studs, nuts, lube and torque before final assembly."
+      ],
+      "inspection": [
+        "At teardown inspect cap parting lines for fretting (sign of cap walk under high load/boost)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 12,
+      "tags": [
+        "mains",
+        "arp",
+        "tty",
+        "torque-sequence"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "ARP installation instructions 234-5802 main stud kit, Chevy Gen V 6.2L",
+          "url": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+        },
+        {
+          "title": "Brian Tooley Racing: ARP main stud kit Gen V LT 234-5802",
+          "url": "https://briantooleyracing.com/arp-main-stud-kit-gen-v-lt-234-5802.html"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0,
+          0.3625,
+          0
+        ],
+        "size": [
+          0.026,
+          0.075,
+          0.2
+        ],
+        "instances": [
+          [
+            -0.179,
+            0.3625,
+            0
+          ],
+          [
+            -0.0672,
+            0.3625,
+            0
+          ],
+          [
+            0.0446,
+            0.3625,
+            0
+          ],
+          [
+            0.1564,
+            0.3625,
+            0
+          ],
+          [
+            0.2682,
+            0.3625,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Katech Gen V LT1/LT4/LT5 sleeved block (photos)",
+            "url": "https://katechengines.com/i-30498012-katech-gen-v-lt1-lt4-lt5-sleeved-engine-block.html"
+          },
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "5 caps on 4.400 in centres; main housing bore 2.751 in; each ~200 mm wide x 75 mm tall x 26 mm thick",
+        "features": "Nodular iron, half-bore on top, 4 vertical bolts/studs underneath plus 2 side cross-bolts; numbered and arrowed toward the front",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.main-bearings",
+      "name": "Main bearings (with #3 thrust)",
+      "qty": 5,
+      "description": "Tri-metal main bearing shells, upper half grooved/drilled for oil feed. The #3 position is the half-thrust bearing that controls crank end play.",
+      "location": "Between main bores/caps and the crank main journals.",
+      "connectsTo": [
+        "engine.block.main-caps",
+        "engine.rotating-assembly.crankshaft"
+      ],
+      "factory": {
+        "name": "GM Gen V main bearing set",
+        "notes": "2.559 in main journals."
+      },
+      "raceOptions": [
+        {
+          "name": "King coated main bearings MB5293MC (LS/LT, stock crank)",
+          "brand": "King",
+          "partNumber": "MB5293MC",
+          "notes": "Coated race bearing; also offered -.010 undersize for ground cranks.",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "specs": {
+        "Main journal": "2.559 in",
+        "Typical race clearance": "0.0020-0.0025 in (estimate - set by your engine builder for oil viscosity)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install dry in the bores (no oil behind shells), lube the journal face with assembly lube.",
+        "Measure clearance with a bore gauge/micrometer at final torque (Plastigage is a backup check only).",
+        "Verify upper-shell oil holes line up with block feed holes."
+      ],
+      "inspection": [
+        "Cut open the oil filter after each event; copper/lead in the media indicates bearing distress.",
+        "Oil analysis every event or two."
+      ],
+      "buildPhase": 5,
+      "installOrder": 9,
+      "tags": [
+        "bearings",
+        "king"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 3)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=3"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0,
+          0.4,
+          0
+        ],
+        "size": [
+          0.022,
+          0.0706,
+          0.0706
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            -0.179,
+            0.4,
+            0
+          ],
+          [
+            -0.0672,
+            0.4,
+            0
+          ],
+          [
+            0.0446,
+            0.4,
+            0
+          ],
+          [
+            0.1564,
+            0.4,
+            0
+          ],
+          [
+            0.2682,
+            0.4,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Manley LT1/LT4 forged crankshaft spec sheet (2.559 main / 2.100 rod)",
+            "url": "https://www.manleyperformance.com/product/cranks-kits/crankshafts/man_194358/"
+          },
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Journal 2.559 in (65.0 mm); shell OD = 2.751 in housing bore; ~22 mm wide (#3 flanged thrust)",
+        "features": "Tri-metal half shells with locating tang and oil hole/groove in the upper shell; #3 has thrust flanges",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine.block.cam-bearings",
+      "name": "Camshaft bearings",
+      "qty": 5,
+      "description": "Five pressed-in cam bearings in the block (stepped bore sizes front/rear to center). Must be installed with the oil holes aligned to the feed passages; many race builders replace them whenever the block is hot-tanked.",
+      "location": "Cam tunnel in the block valley, above the crank.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.valvetrain.camshaft"
+      ],
+      "factory": {
+        "name": "GM 2014+ Gen V cam bearing set",
+        "partNumber": "GM 12686894",
+        "notes": "Cam bores 2.346 in (1/5), 2.326 in (2/4), 2.307 in (3)."
+      },
+      "raceOptions": [
+        {
+          "name": "Dura-Bond Gen V LT cam bearing set CHP-26T",
+          "brand": "Dura-Bond",
+          "partNumber": "CHP-26T",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "specs": {
+        "Bore sizes": "2.346 / 2.326 / 2.307 in"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Use a proper cam bearing driver; mark oil holes and align with feed holes before driving.",
+        "After install, slide the cam through by hand - it must turn with fingertip effort."
+      ],
+      "inspection": [
+        "Inspect at teardown for wiping/scoring."
+      ],
+      "buildPhase": 5,
+      "installOrder": 6,
+      "tags": [
+        "cam-bearings"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 3)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=3"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0,
+          0.515,
+          0
+        ],
+        "size": [
+          0.02,
+          0.0596,
+          0.0596
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            -0.179,
+            0.515,
+            0
+          ],
+          [
+            -0.0672,
+            0.515,
+            0
+          ],
+          [
+            0.0446,
+            0.515,
+            0
+          ],
+          [
+            0.1564,
+            0.515,
+            0
+          ],
+          [
+            0.2682,
+            0.515,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Bore sizes 2.346 / 2.326 / 2.307 in (stepped front to rear), ~20 mm wide",
+        "features": "Pressed babbitt sleeves with oil hole aligned to the block feed",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine.block.head-dowels",
+      "name": "Cylinder head locating dowels",
+      "qty": 4,
+      "description": "Hollow (factory) or solid (race) dowel pins in the deck that locate each cylinder head and gasket. Solid dowels resist head shift under boost.",
+      "location": "Two per deck, at the front and rear head-bolt positions.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.cylinder-heads.head-gasket"
+      ],
+      "factory": {
+        "name": "GM hollow head dowel",
+        "notes": "Inspect for damage when heads are removed."
+      },
+      "raceOptions": [
+        {
+          "name": "Solid head dowel pins for 2001+ LS/LT",
+          "brand": "Michigan Motorsports",
+          "notes": "Solid pins in place of hollow factory dowels.",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=3"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Tap fully home; check protrusion matches the original so the head seats flat.",
+        "Do not reuse damaged or mushroomed dowels."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 36,
+      "tags": [
+        "dowels"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 3)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=3"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.016,
+            0.02,
+            0.016
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.21,
+              0.5377,
+              0.1942
+            ],
+            [
+              0.2754,
+              0.5377,
+              0.1942
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.016,
+            0.02,
+            0.016
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.186,
+              0.5377,
+              -0.1942
+            ],
+            [
+              0.2994,
+              0.5377,
+              -0.1942
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Hollow dowel ~16 mm OD x 20 mm",
+        "features": "Two per deck at the ends, hollow so a head bolt passes through",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.oil-galley-plugs",
+      "name": "Oil galley plugs (incl. barbell plug)",
+      "qty": 1,
+      "description": "Threaded and pressed plugs that close the drilled oil galleries, including the internal \"barbell\" plug that seals the lifter/main gallery junction. A missing or leaking barbell plug causes very low oil pressure.",
+      "location": "Front and rear faces of the block plus the internal barbell plug in the main oil gallery behind the rear cover.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.oil-pan-and-pickup.oil-pump"
+      ],
+      "factory": {
+        "name": "GM oil galley barbell plug",
+        "partNumber": "GM 12661074",
+        "notes": "Replace whenever the block is hot-tanked/cleaned."
+      },
+      "raceOptions": [
+        {
+          "name": "Michigan Motorsports billet barbell plug (replaces GM 12661074)",
+          "brand": "Michigan Motorsports",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Threaded oil galley plugs (front/rear)",
+          "qty": 6,
+          "spec": "Metric threaded plug with O-ring or pre-applied sealant (count varies by block - verify)",
+          "grade": "",
+          "torque": "Engine block oil gallery plugs: 22 ft-lb (30 N·m). Exception: left-front side gallery plug (prelube port): 44 ft-lb (60 N·m) with approved thread sealer.",
+          "torqueSequence": "",
+          "threadlocker": "Pipe sealant with PTFE if no O-ring",
+          "safetyWire": false,
+          "reuse": "Inspect / replace O-rings",
+          "tool": "",
+          "notes": "Gen V plug torque not found in public sources; use GM service information. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Engine Block Oil Gallery Plugs 30 N·m (22 lb ft)'. The Chevrolet Performance LT1 crate guide 19431954 (sheet 5) and the LT1/LT4 E-Rod guides give the left-front gallery plug at 60 N·m (44 lb ft) with thread sealer (https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/03-pdf/LT1%20Crate%20Engine%20Installation%20Guide.pdf). Rated R lists the front plugs at 18 ft-lb and the rear at 22 ft-lb. CORRECTED from a 44 ft-lb blanket estimate.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install the barbell plug with fresh O-rings lubricated with engine oil before the rear cover goes on.",
+        "Pressure-check the oil system with a priming tool before first fire."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 3,
+      "tags": [
+        "oil-galley",
+        "plugs"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.375,
+          0.53,
+          0
+        ],
+        "size": [
+          0.012,
+          0.02,
+          0.02
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.375,
+            0.53,
+            0.03
+          ],
+          [
+            0.375,
+            0.53,
+            -0.03
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "M16-size threaded plugs at the rear of the main galleries (approx. 20 mm head)",
+        "features": "Hex-socket threaded plugs on the rear face behind the flywheel; barbell plug sits inside the lifter galley",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.coolant-plugs",
+      "name": "Block coolant drain & core plugs",
+      "qty": 1,
+      "description": "Threaded coolant drain plugs and core/expansion plugs on the sides of the block water jacket. On a race engine they are worth replacing with new parts during the build because a leak here dumps coolant on the exhaust.",
+      "location": "Lower sides of the block, both banks, above the pan rail.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine-support.cooling.engine-coolant"
+      ],
+      "factory": {
+        "name": "GM threaded block drain plugs / cup plugs",
+        "notes": "Exact count and thread size vary by block revision - verify on your casting."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Block coolant drain plug",
+          "qty": 2,
+          "spec": "Threaded plug with sealing washer or O-ring (one per side)",
+          "grade": "",
+          "torque": "44 ft-lb (60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if no O-ring",
+          "safetyWire": false,
+          "reuse": "Replace seal",
+          "tool": "",
+          "notes": "No published Gen V value found; LS-family drain plugs are commonly listed in the 40s ft-lb. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Engine Block Coolant Drain Hole Plug 60 N·m (44 lb ft)'. Rated R agrees. The estimate is confirmed.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install cup plugs with sealant, driven square with a plug driver."
+      ],
+      "inspection": [
+        "Check for weeps after each heat cycle on the dyno and after shakedown."
+      ],
+      "buildPhase": 5,
+      "installOrder": 4,
+      "tags": [
+        "coolant"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.05,
+          0.38,
+          0.182
+        ],
+        "size": [
+          0.008,
+          0.02,
+          0.02
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            0.05,
+            0.38,
+            0.182
+          ],
+          [
+            0.07,
+            0.38,
+            -0.182
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Threaded drain plug approx. 20 mm across",
+        "features": "One per side low on the block skirt, hex-socket head",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.piston-oil-squirters",
+      "name": "Piston oil squirters (cooling jets)",
+      "qty": 8,
+      "description": "Oil jets in the main webs that spray the underside of each piston to cool the crown. Critical on the boosted LT4 and on long road-race sessions; confirm that forged aftermarket pistons and long-stroke cranks clear them.",
+      "location": "Bottom of the block in the main webs, aimed up the bores.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.rotating-assembly.pistons"
+      ],
+      "factory": {
+        "name": "GM Gen V piston oil jets (8)",
+        "notes": "Summit lists 8 oil squirters for LT1/LT4 blocks."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Check squirter-to-piston/counterweight clearance at BDC when changing stroke or rod length.",
+        "Blow each jet through with solvent and compressed air during cleaning."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 5,
+      "tags": [
+        "oil-squirters"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.012,
+            0.018,
+            0.012
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.4849,
+              0.0141
+            ],
+            [
+              -0.0232,
+              0.4849,
+              0.0141
+            ],
+            [
+              0.0886,
+              0.4849,
+              0.0141
+            ],
+            [
+              0.2004,
+              0.4849,
+              0.0141
+            ],
+            [
+              -0.111,
+              0.4849,
+              -0.0141
+            ],
+            [
+              0.0008,
+              0.4849,
+              -0.0141
+            ],
+            [
+              0.1126,
+              0.4849,
+              -0.0141
+            ],
+            [
+              0.2244,
+              0.4849,
+              -0.0141
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Small pressed jet, ~12 mm body",
+        "features": "Check-valve jet in each main bulkhead aimed at the underside of the piston",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.rear-cover-and-seal",
+      "name": "Rear engine cover with rear main seal",
+      "qty": 1,
+      "description": "Aluminum rear cover carrying the rear crankshaft (main) seal; seals the back of the block and the rear of the oil pan. Sold as an assembly with the seal installed.",
+      "location": "Rear face of the block around the crank flange, behind the flywheel.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.flexplate-flywheel-interface.crank-flange"
+      ],
+      "factory": {
+        "name": "GM rear engine cover with main seal, LT1/LT4 car engines",
+        "partNumber": "GM 12705665",
+        "notes": "L8T 6.6L uses 12705664 - do not mix."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear cover to block bolt",
+          "qty": 11,
+          "spec": "M8 flange bolt (count approximate - verify)",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list rear cover bolts at 18 ft-lb.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Oil pan to rear cover bolt",
+          "qty": 4,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "106 in-lb (12.0 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install the rear cover with its alignment tool/seal protector over the crank flange so the seal lip is centered.",
+        "Apply RTV only where the cover meets the block/pan T-joints per GM practice; do not get sealant on the seal lip.",
+        "Align the cover flush with the block pan rail before torquing so the pan seals."
+      ],
+      "inspection": [
+        "Look for oil at the bellhousing drain hole / clutch dust - rear main leak contaminates the clutch."
+      ],
+      "buildPhase": 5,
+      "installOrder": 18,
+      "tags": [
+        "rear-main-seal"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports Gen 5 LT parts (GM 12705665 rear engine cover with main seal, LT1/LT4 car)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.372,
+          0.4,
+          0
+        ],
+        "size": [
+          0.016,
+          0.22,
+          0.26
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM rear cover 12705663 page (notes car LT1/LT4 use 12705665)",
+            "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/gm-12705663-rear-engine-cover-with-seal-for-2014-gen-v-truck-suv-engines-l83-l86-l82-l84-l87-5-3l-6-2l-rear-main-seal-housing/"
+          }
+        ],
+        "dimensions": "Approx. 260 x 220 mm cast cover, seal journal ~3.3 in",
+        "features": "Cast aluminium cover bolted to the rear face around the crank flange, integral rear main lip seal, perimeter bolts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.block.cylinder-liners",
+      "name": "Cylinder bores / liners & finish (machining)",
+      "qty": 8,
+      "description": "Cast-iron liners cast into the aluminum block form the cylinder walls. A race build specifies the bore size to suit the pistons, a plateau hone finish matched to the ring pack, and torque-plate honing.",
+      "location": "Inside the block, 4 per bank at 90° V angle.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.rotating-assembly.pistons",
+        "engine.rotating-assembly.piston-rings"
+      ],
+      "factory": {
+        "name": "GM cast-in iron liners, 4.065 in bore",
+        "notes": "Factory bore 4.065 in."
+      },
+      "raceOptions": [
+        {
+          "name": "Manley forged piston set 560465C-8 (4.065 bore, 4.000 stroke, 6.125 rod)",
+          "brand": "Manley",
+          "partNumber": "560465C-8",
+          "notes": "Example of a stroker piston that requires matching bore finish; listed CR 10.5:1 with 59 cc (LT1) / 9.8:1 with 65.5 cc (LT4) chambers.",
+          "url": "https://www.realstreetperformance.com/manley-pist-1-115-cd-4-065-coated-4.html"
+        }
+      ],
+      "specs": {
+        "Bore": "4.065 in stock",
+        "Piston-to-wall (forged, boosted)": "per piston manufacturer card (forged LT4 pistons typically need more than cast LT1)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Size bores to the actual measured pistons, not the box label.",
+        "Hone with deck plate torqued to head-fastener spec.",
+        "Chamfer and deburr bore tops; clean with hot soapy water until a white rag stays clean."
+      ],
+      "inspection": [
+        "Leak-down and borescope each bore between events."
+      ],
+      "buildPhase": 5,
+      "installOrder": 2,
+      "tags": [
+        "machining",
+        "bore"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Real Street Performance: Manley 560465C-8 forged pistons, Gen V LT 4.065 bore",
+          "url": "https://www.realstreetperformance.com/manley-pist-1-115-cd-4-065-coated-4.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.11,
+            0.145,
+            0.11
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.5149,
+              0.1149
+            ],
+            [
+              -0.0232,
+              0.5149,
+              0.1149
+            ],
+            [
+              0.0886,
+              0.5149,
+              0.1149
+            ],
+            [
+              0.2004,
+              0.5149,
+              0.1149
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.11,
+            0.145,
+            0.11
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.5149,
+              -0.1149
+            ],
+            [
+              0.0008,
+              0.5149,
+              -0.1149
+            ],
+            [
+              0.1126,
+              0.5149,
+              -0.1149
+            ],
+            [
+              0.2244,
+              0.5149,
+              -0.1149
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Katech Gen V LT1/LT4/LT5 sleeved block (photos)",
+            "url": "https://katechengines.com/i-30498012-katech-gen-v-lt1-lt4-lt5-sleeved-engine-block.html"
+          }
+        ],
+        "dimensions": "Bore 4.065 in (103.25 mm); liner ~110 mm OD x 145 mm",
+        "features": "Cast-in spun iron liners on 4.400 in centres, 45-degree banks",
+        "confidence": "published (bore), estimated (liner OD/length)"
+      }
+    }
+  ]
+}

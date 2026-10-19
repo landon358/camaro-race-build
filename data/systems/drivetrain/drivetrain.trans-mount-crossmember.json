@@ -1,0 +1,249 @@
+{
+  "id": "drivetrain.trans-mount-crossmember",
+  "system": "drivetrain",
+  "name": "Transmission Mount & Crossmember",
+  "description": "Rear transmission support: crossmember to body, isolator mount and trans-side bracket.",
+  "components": [
+    {
+      "id": "drivetrain.trans-mount-crossmember.crossmember",
+      "name": "Transmission support crossmember",
+      "qty": 1,
+      "description": "Cross-car member bolted to the underbody that carries the rear of the transmission through the trans mount, completing the three-point engine/trans mounting. A race build with a sequential box usually needs a fabricated crossmember to suit the new mount location.",
+      "location": "Under the tunnel below the tailhousing (x\u22481.15, y\u22480.24), spanning z\u2248\u00b10.30 to the body rails.",
+      "connectsTo": [
+        "drivetrain.trans-mount-crossmember.transmission-mount",
+        "chassis.underbody.tunnel-rails",
+        "drivetrain.driveshaft.safety-loop",
+        "engine.exhaust.hangers"
+      ],
+      "factory": {
+        "name": "GM transmission support (Gen 6 manual)",
+        "notes": "Exhaust passes under/around it - check clearance after any change."
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated tubular / sheet crossmember",
+          "brand": "custom",
+          "notes": "Integrate a driveshaft safety loop and exhaust clearance; design for removal without dropping exhaust."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Crossmember-to-body bolt",
+          "qty": 4,
+          "spec": "M12 x 1.75 flange bolt (typ.)",
+          "grade": "10.9",
+          "torque": "44 ft-lb (60 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect; replace if GM specifies TAY",
+          "notes": "Estimate - confirm with GM SI for Gen 6 transmission support. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Transmission support fasteners 60 N\u00b7m (44 lb ft)'. That entry is under the M13 manual; the MM6 support is assumed to share the fasteners, so verify in SI. CORRECTED from a 58 ft-lb estimate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Raise trans to installed angle, fit mount to crossmember, then crossmember to body.",
+        "Check engine/trans centerline and angle (driveshaft working angles) before final torque."
+      ],
+      "inspection": [
+        "Cracks at bolt bosses",
+        "Bolt torque marks"
+      ],
+      "buildPhase": 6,
+      "installOrder": 42,
+      "tags": [
+        "crossmember",
+        "mount"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.15,
+            0.215,
+            0
+          ],
+          "size": [
+            0.1,
+            0.05,
+            0.66
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Rear trans mount A20017 (OE 22957033 / 84238546) 2016-24 Camaro",
+            "url": "https://www.ebay.com/itm/277123736515"
+          }
+        ],
+        "dimensions": "~660 mm long, ~100 mm wide hat section",
+        "features": "Black e-coated stamped hat-section beam, dropped centre under the mount, bolt-up ends to the floor/tunnel flanges (2 bolts each side)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.trans-mount-crossmember.transmission-mount",
+      "name": "Transmission mount (isolator)",
+      "qty": 1,
+      "description": "Elastomer mount between transmission and crossmember. Stiffer poly or solid mounts sharpen shifts and stop drivetrain wind-up (ZL1 1LE already solid-mounts its cradles), at the cost of vibration.",
+      "location": "Under tailhousing on crossmember (x\u22481.15, y\u22480.27, z=0).",
+      "connectsTo": [
+        "drivetrain.trans-mount-crossmember.crossmember",
+        "drivetrain.trans-mount-crossmember.mount-bracket",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM rubber transmission mount",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Polyurethane / solid transmission mount",
+          "brand": "BMR / Energy Suspension / Pedders / custom",
+          "notes": "Confirm Gen 6 fitment; pair with stiff engine mounts to avoid shifter/linkage binding."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mount-to-crossmember nut",
+          "qty": 2,
+          "spec": "M10 x 1.5",
+          "grade": "10",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: no specific value was found. The TightTorque table compiled from the 2016-2018 Camaro service manual lists the transmission support fasteners at 60 N\u00b7m (44 ft-lb) and the mount-to-case bolts at 92 N\u00b7m. Still an estimate.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Rubber cracking/separation",
+        "Witness marks from contact"
+      ],
+      "buildPhase": 6,
+      "installOrder": 43,
+      "tags": [
+        "mount",
+        "isolator"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.15,
+          0.2625,
+          0
+        ],
+        "size": [
+          0.09,
+          0.045,
+          0.12
+        ],
+        "color": "#333333"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Rear trans mount A20017 (OE 22957033 / 84238546) 2016-24 Camaro",
+            "url": "https://www.ebay.com/itm/277123736515"
+          }
+        ],
+        "dimensions": "~90 x 120 x 45 mm",
+        "features": "Bonded rubber isolator between steel plates, 2 studs down to the crossmember, 2 up to the bracket (OE 22957033 / 84238546)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.trans-mount-crossmember.mount-bracket",
+      "name": "Transmission mount bracket (trans side)",
+      "qty": 1,
+      "description": "Bracket bolting the mount to the TR-6060 tailhousing mount pad.",
+      "location": "Tailhousing underside (x\u22481.15, y\u22480.30).",
+      "connectsTo": [
+        "drivetrain.trans-mount-crossmember.transmission-mount",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM mount bracket",
+        "notes": "Magnum XL mount pad is 2.75 in from mainshaft centerline (for custom bracket design)."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bracket-to-tailhousing bolt",
+          "qty": 2,
+          "spec": "M12 (verify; 68 ft-lb implies M12) x 1.5",
+          "grade": "10.9",
+          "torque": "68 ft-lb (92 N\u00b7m) (OEM GM mount/bracket to MM6 case)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Aluminum case - use correct thread engagement; do not over-torque. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Transmission mount to Transmission case bolts' at 92 N\u00b7m (68 lb ft) for the TREMEC MM6. That value implies M12 bolts, not the M10 assumed here, so check the thread. An aftermarket bracket uses its maker's value. CORRECTED from a 37 ft-lb estimate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Bolt torque marks"
+      ],
+      "buildPhase": 6,
+      "installOrder": 44,
+      "tags": [
+        "bracket"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.15,
+          0.3,
+          0
+        ],
+        "size": [
+          0.08,
+          0.03,
+          0.13
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Rear trans mount A20017 (OE 22957033 / 84238546) 2016-24 Camaro",
+            "url": "https://www.ebay.com/itm/277123736515"
+          }
+        ],
+        "dimensions": "~80 x 130 mm",
+        "features": "Steel bracket bolted to the tail-housing pad, carries the isolator",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

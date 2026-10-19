@@ -1,0 +1,429 @@
+{
+  "id": "steering.rack",
+  "system": "steering",
+  "name": "Steering Rack (ZF Rack-Mounted Electric Power Steering)",
+  "description": "Factory ZF variable-ratio rack-and-pinion with the electric assist motor and controller mounted on the rack (not the column), bolted to the front cradle. For a road-race car the factory EPS rack is normally retained because no bolt-in manual or hydraulic race rack exists for the Alpha cradle; the challenge is powering and networking it outside the factory electrical system.",
+  "components": [
+    {
+      "id": "steering.rack.eps-gear",
+      "name": "Steering gear (ZF EPS rack-and-pinion)",
+      "qty": 1,
+      "description": "Variable-ratio rack mounted to the front cradle, with the pinion on the driver side where the lower intermediate shaft attaches. The rack position relative to the lower links sets bump steer; if the cradle or links are modified, bump steer must be re-measured. Turning circle (ZL1) 38.4 ft (11.7 m). Rack is shown ahead of the axle line (front-steer) in this model - verify on your car before fabricating anything around it.",
+      "location": "On front cradle, approx x -0.13, y 0.26, spanning z +/-0.30; pinion approx (x -0.12, y 0.27, z +0.27).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "steering.tie-rods.inner-tie-rod",
+        "steering.column-and-shaft.lower-intermediate-shaft",
+        "steering.rack.eps-motor-and-controller",
+        "steering.rack.rack-mount-hardware"
+      ],
+      "factory": {
+        "name": "ZF rack-mounted electric, power-assisted, variable-ratio rack-and-pinion (Gen 6 Camaro)",
+        "notes": "Same basic ZF EPS concept as the Cadillac ATS (Alpha). Calibration differs by model (ZL1/1LE have unique tuning). GM part number not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "Retain factory ZF EPS rack (recommended)",
+          "brand": "ZF / GM",
+          "notes": "Needs 12 V high-current feed, ignition/wake and the GM CAN messages it expects (vehicle speed, power mode). With a standalone ECU/PDM this requires keeping parts of the GM network or a CAN gateway/emulator; plan in electrical system."
+        },
+        {
+          "name": "Column-assist EPAS with manual rack (custom)",
+          "brand": "Custom",
+          "notes": "Only if a manual rack can be packaged on a fabricated cradle; not a bolt-in for Gen 6."
+        }
+      ],
+      "specs": {
+        "Type": "Rack-and-pinion, rack-mounted EPS, variable ratio",
+        "Supplier": "ZF",
+        "Turning circle (ZL1)": "38.4 ft / 11.7 m"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Bolt rack to cradle on the bench (see rack-mount-hardware), center the rack (count turns lock-to-lock) and index the pinion spline before installing the I-shaft.",
+        "Keep the rack boots away from exhaust heat; ZL1 1LE ships with 'power steering deflectors' that duct underbody air for track cooling - retain or replicate.",
+        "After installation the steering angle sensor / EPS end stops may need recalibration with a scan tool if the factory electronics are kept."
+      ],
+      "inspection": [
+        "Check for play at the inner tie rods and pinion.",
+        "Check boots for tears; check EPS connector security."
+      ],
+      "buildPhase": 3,
+      "installOrder": 1,
+      "tags": [
+        "rack",
+        "eps",
+        "zf"
+      ],
+      "sources": [
+        {
+          "title": "2019 Camaro ZL1 product guide / specifications (steering type)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "GM bulletin 19-NA-038 (power steering deflectors)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.115,
+            0.22,
+            0
+          ],
+          "size": [
+            0.075,
+            0.075,
+            0.6
+          ],
+          "axis": "z"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro EPS gear close-up: belt-drive motor/controller, boot, inner tie rod, outer tie-rod end",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/40ce926b531163e69a803dd9e9d6be93/0545e0da2090d05a9e19474299f07e62.png"
+          },
+          {
+            "title": "Alpha front underside photo: ZF belt-drive EPS rack on the front subframe, lower links, tie rods",
+            "url": "https://d2n4wb9orp1vta.cloudfront.net/cms/0912ADP_Feature_CadillacATS_steering.jpg;width=860"
+          },
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "housing approx 600 mm, approx 52 mm tube",
+        "features": "ZF rack-mounted belt-drive EPS: aluminium housing, ball-nut/belt housing on the passenger end, pinion tower on the driver end angled up-rearward, 2 mounting ears bolted to the cradle front face",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.rack.eps-motor-and-controller",
+      "name": "EPS motor and integrated controller",
+      "qty": 1,
+      "description": "Electric assist motor and power-steering control module on the rack. Draws high current (tens of amps peak at parking speed, sustained high current during long fast corners) so it needs a heavy feed and good ground; overheating causes assist reduction on track. Includes the torque sensor at the pinion.",
+      "location": "On rack housing, approx (x -0.10, y 0.22, z -0.15).",
+      "connectsTo": [
+        "steering.rack.eps-gear",
+        "electrical.power-distribution.pdm",
+        "electrical.grounding.chassis-ground",
+        "electrical.can-bus.gmlan"
+      ],
+      "factory": {
+        "name": "ZF EPS motor/controller (rack-mounted)",
+        "notes": "Fuse rating and connector pinout: see GM SI wiring (not verified here)."
+      },
+      "raceOptions": [
+        {
+          "name": "Retain + dedicated PDM channel and heavy ground",
+          "brand": "N/A",
+          "notes": "Size wiring for peak current; log EPS supply voltage."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Route the EPS feed with abrasion protection away from headers.",
+        "Add cooling airflow (1LE deflector concept)."
+      ],
+      "inspection": [
+        "Check connector and ground torque; inspect for heat damage."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "eps",
+        "motor",
+        "module"
+      ],
+      "sources": [
+        {
+          "title": "2019 Camaro ZL1 product guide",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.19,
+            0.25,
+            -0.17
+          ],
+          "size": [
+            0.11,
+            0.12,
+            0.22
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro EPS gear close-up: belt-drive motor/controller, boot, inner tie rod, outer tie-rod end",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/40ce926b531163e69a803dd9e9d6be93/0545e0da2090d05a9e19474299f07e62.png"
+          },
+          {
+            "title": "Alpha front underside photo: ZF belt-drive EPS rack on the front subframe, lower links, tie rods",
+            "url": "https://d2n4wb9orp1vta.cloudfront.net/cms/0912ADP_Feature_CadillacATS_steering.jpg;width=860"
+          }
+        ],
+        "dimensions": "approx 220 x 120 x 110 mm",
+        "features": "Motor parallel to the rack with the controller/ECU on top and its connectors, belt cover to the ball-nut housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.rack.rack-mount-hardware",
+      "name": "Rack-to-cradle mounting bolts/nuts",
+      "qty": 1,
+      "description": "Fasteners clamping the steering gear to the front cradle. A rigid, repeatable rack location is critical for bump steer and toe consistency; if the factory mounts are rubber isolated, solid bushings/spacers are a common race upgrade.",
+      "location": "Rack mounting ears on the cradle, approx (x -0.13, y 0.24, z +/-0.25).",
+      "connectsTo": [
+        "steering.rack.eps-gear",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM steering gear bolts/nuts",
+        "notes": "Count not verified (typically 2-3)."
+      },
+      "raceOptions": [
+        {
+          "name": "Solid rack mount bushings (if OE isolated)",
+          "brand": "Fabricated",
+          "notes": "Machine to OE height."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Steering gear nut (rack to cradle)",
+          "qty": 2,
+          "spec": "Flange nut/bolt (size not verified)",
+          "grade": "OE (torque-angle)",
+          "torque": "43 ft-lb (58 N·m) first pass",
+          "torqueSequence": "58 N·m first pass + final angle per GM SI (angle not published in available source)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (torque-angle fastener)",
+          "notes": "First-pass value from a GM SI-derived torque listing; confirm final angle.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Torque with rack centered and boots not twisted."
+      ],
+      "inspection": [
+        "Check for rack shift (witness marks)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 3,
+      "tags": [
+        "rack-mount"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.045,
+            0.22,
+            0.22
+          ],
+          "size": [
+            0.13,
+            0.016,
+            0.016
+          ],
+          "axis": "x",
+          "instances": [
+            [
+              -0.045,
+              0.22,
+              0.22
+            ],
+            [
+              -0.045,
+              0.22,
+              -0.25
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          }
+        ],
+        "dimensions": "M14 x approx 130 mm (estimate)",
+        "features": "2 long bolts through the rack ears into the cradle front extrusion, nuts behind (items 2/3)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.rack.rack-boots",
+      "name": "Rack boots (bellows) and clamps",
+      "qty": 2,
+      "description": "Rubber bellows sealing the inner tie rod joints and rack bar, held with clamps at the housing and tie rod. A torn boot lets grit destroy the inner tie rod and rack. Heat from headers is the usual cause of failure on track cars.",
+      "location": "Each end of the rack, approx (x -0.13, y 0.26, z +/-0.36).",
+      "connectsTo": [
+        "steering.rack.eps-gear",
+        "steering.tie-rods.inner-tie-rod"
+      ],
+      "factory": {
+        "name": "GM/ZF rack boots with clamps",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Heat-sleeve / reflective wrap over boots",
+          "brand": "DEI / Heatshield Products",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Boot clamp (ear/band type)",
+          "qty": 2,
+          "spec": "Ear clamp (Oetiker style) or wire clamp",
+          "grade": "N/A",
+          "torque": "N/A (crimp)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Ensure boot vent is not twisted after toe adjustment (turn the boot with the tie rod)."
+      ],
+      "inspection": [
+        "Inspect for cuts/heat cracks each event."
+      ],
+      "buildPhase": 3,
+      "installOrder": 4,
+      "tags": [
+        "boot",
+        "bellows"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.115,
+            0.22,
+            0.365
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.13
+          ],
+          "axis": "z",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro EPS gear close-up: belt-drive motor/controller, boot, inner tie rod, outer tie-rod end",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/40ce926b531163e69a803dd9e9d6be93/0545e0da2090d05a9e19474299f07e62.png"
+          }
+        ],
+        "dimensions": "approx 65 mm x 130 mm",
+        "features": "Convoluted rubber bellows with clamps (item 6)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.rack.cooling-deflectors",
+      "name": "EPS / underbody cooling deflectors (ZL1 1LE 'power steering deflectors')",
+      "qty": 2,
+      "description": "Track-only air deflectors shipped loose in the trunk of the ZL1 1LE that direct additional underbody air for cooling (installed in place of the engine side shields for track use). Indicates the EPS/underhood area runs hot on track - a race car should provide ducted air to the rack/EPS motor.",
+      "location": "Lower engine bay sides near the rack (approx x -0.2, y 0.2, z +/-0.4).",
+      "connectsTo": [
+        "steering.rack.eps-motor-and-controller",
+        "aero.underbody.front-undertray"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE power steering deflectors (loose-shipped)",
+        "notes": "Install for track only; refit the engine side shields for street (GM 19-NA-038)."
+      },
+      "raceOptions": [
+        {
+          "name": "NACA/ducted hose to EPS motor",
+          "brand": "Fabricated",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Requires removing the engine side shields (retain shields and fasteners)."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 5,
+      "tags": [
+        "cooling",
+        "1le"
+      ],
+      "sources": [
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.2,
+            0.175,
+            0.4
+          ],
+          "size": [
+            0.2,
+            0.012,
+            0.12
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 200 x 120 mm",
+        "features": "Black plastic underbody scoops that feed air toward the EPS",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

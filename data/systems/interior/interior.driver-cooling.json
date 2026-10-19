@@ -1,0 +1,429 @@
+{
+  "id": "interior.driver-cooling",
+  "system": "interior",
+  "name": "Driver Cooling",
+  "description": "Cool-suit (chilled water shirt) and filtered helmet-air system, plus fresh-air ducting into the cockpit.",
+  "components": [
+    {
+      "id": "interior.driver-cooling.coolshirt-cooler",
+      "name": "Cool-suit cooler unit (water + helmet air)",
+      "qty": 1,
+      "description": "Ice-chest unit with internal pump sending chilled water to the driver cool shirt and (Pro Air & Water) a 235 CFM blower pushing filtered, chilled air to the helmet.",
+      "location": "Passenger footwell/floor ahead of fire bottle, x ≈ 1.20, y ≈ 0.38, z ≈ −0.42.",
+      "connectsTo": [
+        "interior.driver-cooling.cooler-tray",
+        "interior.driver-cooling.water-hoses",
+        "interior.driver-cooling.helmet-air-hose",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Coolshirt Pro Air & Water 19 qt",
+          "brand": "Coolshirt",
+          "partNumber": "3002-0002",
+          "notes": "Water + 235 CFM helmet air.",
+          "url": "https://90racing.com/products/coolshirt-pro-air-water-19-qt-3002-0002"
+        },
+        {
+          "name": "Coolshirt Pro Air & Water 13 qt",
+          "brand": "Coolshirt",
+          "partNumber": "3002-0003",
+          "notes": "",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        },
+        {
+          "name": "Coolshirt Club system (13/19 qt, water only)",
+          "brand": "Coolshirt",
+          "partNumber": "",
+          "notes": "Shirt cooling only; hose not included.",
+          "url": "https://perryautolaval.com/products/coolshirt-club-cooling-system"
+        }
+      ],
+      "specs": {
+        "Capacity": "13 or 19 qt",
+        "Helmet air": "235 CFM blower (Pro)",
+        "Weight": "≈15 lb (Pro kit listing)"
+      },
+      "hardware": [
+        {
+          "item": "Cooler strap",
+          "qty": 1,
+          "spec": "Supplied strap to tray",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        }
+      ],
+      "installNotes": [
+        "Mount low and inside the cage; must be secured for crash loads."
+      ],
+      "inspection": [
+        "Drain and dry after each event; check pump."
+      ],
+      "buildPhase": 9,
+      "installOrder": 16,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Coolshirt Pro Air & Water cooling system",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        },
+        {
+          "title": "Coolshirt Pro Air/Water 19 qt 3002-0002",
+          "url": "https://90racing.com/products/coolshirt-pro-air-water-19-qt-3002-0002"
+        },
+        {
+          "title": "Coolshirt Club cooling system",
+          "url": "https://perryautolaval.com/products/coolshirt-club-cooling-system"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.21,
+            0.395,
+            -0.42
+          ],
+          "size": [
+            0.394,
+            0.33,
+            0.267
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Coolshirt Pro Air & Water 19 qt (15.5 x 10.5 x 13 in)",
+            "url": "https://www.hmsmotorsport.com/item/coolshirt-pro-air-and-water-system"
+          },
+          {
+            "title": "Coolshirt Pro Air & Water 19 qt 3002-0002",
+            "url": "https://90racing.com/products/coolshirt-pro-air-water-19-qt-3002-0002"
+          }
+        ],
+        "dimensions": "15.5 x 10.5 x 13 in (394 x 267 x 330 mm), 19 qt",
+        "features": "White cooler chest, black lid with handle, pump/air outlets and dry-break fittings on the end panel",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "interior.driver-cooling.cooler-tray",
+      "name": "Cooler mounting tray & strap",
+      "qty": 1,
+      "description": "Metal tray bolted to the floor that captures the hard-shell cooler, with strap over the top.",
+      "location": "Under cooler, x ≈ 1.20, y ≈ 0.22, z ≈ −0.42.",
+      "connectsTo": [
+        "interior.driver-cooling.coolshirt-cooler",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Coolshirt cooler mounting tray (with strap)",
+          "brand": "Coolshirt",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tray-to-floor bolts",
+          "qty": 4,
+          "spec": "1/4-20 or M6 bolt + nyloc + fender washers / backing plate",
+          "grade": "SAE Grade 8 / ISO 8.8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Through-bolt with backing washers."
+      ],
+      "inspection": [
+        "Check bolts/strap."
+      ],
+      "buildPhase": 9,
+      "installOrder": 17,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Coolshirt Pro Air & Water cooling system",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.21,
+            0.218,
+            -0.42
+          ],
+          "size": [
+            0.42,
+            0.004,
+            0.29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interior.driver-cooling.water-hoses",
+      "name": "Insulated water hoses & dry-break quick disconnect",
+      "qty": 1,
+      "description": "Double-insulated supply/return hoses (12 ft in Pro kit) with automatic-shutoff quick disconnects at the driver so the shirt line separates cleanly on egress.",
+      "location": "Cooler → under seat edge → QD at driver hip.",
+      "connectsTo": [
+        "interior.driver-cooling.coolshirt-cooler"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hose P-clips",
+          "qty": 4,
+          "spec": "P-clip + M5 screw",
+          "grade": "n/a",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Place QD where it pulls apart in a straight line as driver exits."
+      ],
+      "inspection": [
+        "Check for leaks."
+      ],
+      "buildPhase": 9,
+      "installOrder": 18,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Coolshirt Pro Air & Water cooling system",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.2,
+              0.3,
+              -0.27
+            ],
+            [
+              1.45,
+              0.27,
+              -0.1
+            ],
+            [
+              1.65,
+              0.3,
+              0.12
+            ],
+            [
+              1.72,
+              0.4,
+              0.2
+            ]
+          ],
+          "radius": 0.008,
+          "color": "#2980b9"
+        }
+      ]
+    },
+    {
+      "id": "interior.driver-cooling.helmet-air-hose",
+      "name": "Helmet air hose & helmet adapter",
+      "qty": 1,
+      "description": "Flexible hose from the blower to a helmet-forced-air fitting with a quick-release at the helmet.",
+      "location": "Cooler/blower → along roof rail or seat side → helmet.",
+      "connectsTo": [
+        "interior.driver-cooling.coolshirt-cooler",
+        "safety.head-and-neck.helmet-anchors"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hose clamps",
+          "qty": 2,
+          "spec": "Worm clamp",
+          "grade": "n/a",
+          "torque": "2 ft-lb (3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route so it cannot snag on the window net or harness."
+      ],
+      "inspection": [
+        "Check filter."
+      ],
+      "buildPhase": 9,
+      "installOrder": 19,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Coolshirt Pro Air & Water cooling system",
+          "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.25,
+              0.58,
+              -0.42
+            ],
+            [
+              1.6,
+              0.8,
+              -0.2
+            ],
+            [
+              2,
+              1.05,
+              0.1
+            ],
+            [
+              1.95,
+              1.12,
+              0.3
+            ]
+          ],
+          "radius": 0.016,
+          "color": "#34495e"
+        }
+      ]
+    },
+    {
+      "id": "interior.driver-cooling.fresh-air-duct",
+      "name": "Cockpit fresh-air NACA duct & hose",
+      "qty": 1,
+      "description": "NACA duct in the Lexan driver-side rear quarter or passenger window feeding outside air via SCAT hose toward the driver.",
+      "location": "Passenger side window or quarter window, hose to driver area.",
+      "connectsTo": [
+        "body.glass-and-lexan.passenger-window",
+        "interior.driver-cooling.helmet-air-hose"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Plastic/aluminum NACA duct with 2–3 in outlet",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Duct screws",
+          "qty": 4,
+          "spec": "#8 / M4 pan-head + nyloc + nylon washers (polycarbonate)",
+          "grade": "Stainless",
+          "torque": "1.5 ft-lb (2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf",
+          "notes": "Do not overtighten in polycarbonate – oversize holes."
+        }
+      ],
+      "installNotes": [
+        "Cut Lexan with sharp tools; deburr to avoid cracks."
+      ],
+      "inspection": [
+        "Check for cracks around screws."
+      ],
+      "buildPhase": 10,
+      "installOrder": 26,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SABIC Lexan Margard MR10 datasheet",
+          "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.75,
+            1,
+            -0.745
+          ],
+          "size": [
+            0.18,
+            0.07,
+            0.04
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ButlerBuilt NACA duct, single hose (2.5 in OD outlet), side-window mount",
+            "url": "https://90racing.com/products/butlerbuilt-naca-duct-single-hose-clear-2in-bbp-7023"
+          }
+        ],
+        "dimensions": "~180 x 70 mm NACA inlet, 2.5 in hose outlet (estimated size)",
+        "features": "Submerged NACA scoop riveted into the passenger polycarbonate window, round hose spigot inside",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+ "id": "body.mirrors",
+ "system": "body",
+ "name": "Exterior Mirrors",
+ "description": "Side mirrors – factory power mirrors or lightweight race mirrors.",
+ "components": [
+  {
+   "id": "body.mirrors.side-mirrors",
+   "name": "Side mirrors (L & R)",
+   "qty": 2,
+   "description": "Factory power/heated mirrors or lightweight fixed race mirrors. Mirrors must be secure and crack-free (SCCA). Race mirrors often mount to a door-skin plate.",
+   "location": "Front of door windows, x ≈ 0.80, y ≈ 1.00, z ±0.98.",
+   "connectsTo": [
+    "body.panels.doors",
+    "interior.mirrors.wink-mirror"
+   ],
+   "factory": {
+    "name": "GM Camaro power outside mirror",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Lightweight race side mirror (e.g. Longacre)",
+     "brand": "Longacre / various",
+     "partNumber": "",
+     "notes": "",
+     "url": ""
+    }
+   ],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Mirror mounting nuts",
+     "qty": 3,
+     "spec": "M6 x 1.0 nut on mirror studs (GM OE)",
+     "grade": "GM OE",
+     "torque": "6.6 ft-lb (9 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Set with driver belted."
+   ],
+   "inspection": [
+    "Check glass intact."
+   ],
+   "buildPhase": 10,
+   "installOrder": 21,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.8,
+     1,
+     0.98
+    ],
+    "size": [
+     0.1,
+     0.12,
+     0.18
+    ],
+    "mirror": true,
+    "color": "#2c3e50"
+   }
+  }
+ ]
+}

@@ -1,0 +1,757 @@
+{
+  "id": "suspension.front-struts-springs",
+  "system": "suspension",
+  "name": "Front Struts, Springs & Top Mounts",
+  "description": "Front MacPherson strut assemblies: damper (MRC on ZL1, Multimatic DSSV on ZL1 1LE/SS 1LE, conventional on SS), coil spring, spring seats/insulators, top mount, and race alternatives (coilovers, camber/caster plates, helper springs). The strut clamps to the knuckle with two torque-angle bolts and bolts to the tower with three bolts.",
+  "components": [
+    {
+      "id": "suspension.front-struts-springs.strut",
+      "name": "Front strut / damper",
+      "qty": 2,
+      "description": "Load-bearing MacPherson strut that locates the top of the knuckle and provides front damping. Factory ZL1 uses monotube Magnetic Ride Control struts; ZL1 1LE uses Multimatic DSSV spool-valve struts with aluminum bodies and a threaded spring seat for ride height/corner-weight adjustment. Race builds use double- or triple-adjustable coilover struts with remote reservoirs, matched to the chosen spring rate.",
+      "location": "Between the knuckle upper clamp (approx x 0.01, y 0.50, z +/-0.665) and the strut tower top (x 0.05, y 0.85, z +/-0.55).",
+      "connectsTo": [
+        "suspension.front-knuckles.knuckle",
+        "suspension.front-struts-springs.strut-mount",
+        "suspension.front-struts-springs.coil-spring",
+        "suspension.front-sway-bar.end-links",
+        "suspension.bump-stops-and-limiters.front-jounce-bumper",
+        "brakes.lines.front-flex-line",
+        "suspension.ride-height-sensors.position-sensors"
+      ],
+      "factory": {
+        "name": "ZL1: Magnetic Ride Control monotube strut; ZL1 1LE: Multimatic DSSV aluminum-body strut (RPO FEA)",
+        "notes": "1LE DSSV top mounts are hard mounted (no rubber isolation). SS non-MRC cars use conventional struts; the GM SG3 sport-suspension kit (84408106) fits 1SS/2SS non-MRC and LS/LT. Struts are side-specific (LH/RH). A brake hose bracket and wheel-speed-sensor harness retainer attach to the strut body."
+      },
+      "raceOptions": [
+        {
+          "name": "Multimatic DSSV (factory ZL1 1LE) retained",
+          "brand": "Multimatic / GM",
+          "notes": "Excellent non-adjustable baseline; revalve possible through specialists. Threaded perch gives +/-10 mm ride height."
+        },
+        {
+          "name": "Öhlins Road & Track / TTX-style coilover",
+          "brand": "Öhlins",
+          "notes": "Check current Gen 6 Camaro application; pair with BMR WAK361 or similar plates."
+        },
+        {
+          "name": "KW Variant 3 / Clubsport coilover",
+          "brand": "KW",
+          "notes": "Gen 6 Camaro kits exist (verify part number for MRC vs non-MRC cars)."
+        },
+        {
+          "name": "Custom double/triple-adjustable strut (Penske, JRi, MCS)",
+          "brand": "Penske / JRi / MCS",
+          "notes": "Built to order on Gen 6 strut geometry (knuckle clamp, tower mount); best for dedicated race car with remote reservoirs."
+        }
+      ],
+      "specs": {
+        "Type": "MacPherson strut, double-pivot lower (two ball joints)",
+        "ZL1 1LE spring seat adjustment": "approx +/-0.4 in (10 mm); approx 0.06 in (1.5 mm) ride height per turn",
+        "Lower clamp": "2 bolts + nuts to knuckle (21 mm bolt head / 24 mm nut per BMR instructions)"
+      },
+      "hardware": [
+        {
+          "item": "Front suspension strut bolt + nut (strut-to-knuckle clamp)",
+          "qty": 2,
+          "spec": "Large flange bolt and nut, 21 mm head / 24 mm nut (thread size not published; approx M14-M16)",
+          "grade": "OE high-strength",
+          "torque": "111 ft-lb (150 N·m) first pass",
+          "torqueSequence": "First pass 150 N·m (111 lb ft), final pass +80-95 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended (torque-angle fastener)",
+          "tool": "21 mm socket + 24 mm wrench",
+          "notes": "Per strut. Support the knuckle while inserting bolts. GM SG3 instructions.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Front brake hose bracket bolt at strut",
+          "qty": 1,
+          "spec": "M6 bolt, 10 mm hex",
+          "grade": "OE",
+          "torque": "89 in-lb (10 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "10 mm socket",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Wheel speed sensor harness retainer (push-in clip to strut bracket)",
+          "qty": 1,
+          "spec": "Plastic push retainer",
+          "grade": "N/A",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if damaged",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Assemble the strut (spring, seats, insulators, top mount) on the bench with a proper strut spring compressor (GM CH-45400-A or equivalent).",
+        "Position strut in tower; install the 3 upper mounting bolts loosely.",
+        "Install the two strut-to-knuckle bolts (support the knuckle); torque nuts 150 N·m + 80-95 deg.",
+        "Install sway bar link nut (100 N·m) and then torque the 3 upper bolts to 22 N·m.",
+        "Install brake hose bracket (10 N·m) and WSS harness retainer; check hose and sensor wire for slack at full lock and full droop/bump."
+      ],
+      "inspection": [
+        "Check for oil weeping at rod seal and reservoir hoses.",
+        "Check strut clamp bolt witness marks.",
+        "Verify damper adjuster settings are recorded on setup sheet."
+      ],
+      "buildPhase": 3,
+      "installOrder": 10,
+      "tags": [
+        "strut",
+        "damper",
+        "mrc",
+        "dssv",
+        "coilover"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "GM bulletin 19-NA-038 (ZL1 1LE suspension features)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        },
+        {
+          "title": "2019 Camaro ZL1 product guide / specifications",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.0056,
+              0.46,
+              0.6311
+            ],
+            [
+              0.05,
+              0.875,
+              0.52
+            ]
+          ],
+          "radius": 0.026,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "GM bulletin: ZL1 1LE DSSV dampers hard-mounted, front struts with aluminium bodies",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+          },
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "body approx 52 mm OD x 240 mm, overall approx 430 mm bottom-to-top-mount; inclination approx 15 deg, caster approx 6 deg",
+        "features": "Monotube strut (1LE: Multimatic DSSV with aluminium body): clevis bracket clamping the knuckle blade with 2 bolts, forward-facing stabilizer end-link tab (direct-acting bar), brake-hose tab, chrome rod to the top mount",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.coil-spring",
+      "name": "Front coil spring",
+      "qty": 2,
+      "description": "Coil spring concentric with the strut, seated between the lower spring seat on the strut body and the upper spring seat under the top mount. Race cars replace the progressive OE spring with a linear race spring (typically 2.5 in / 60-65 mm ID on coilovers) sized for target ride frequency, plus an optional helper/tender spring to keep the main spring seated at full droop.",
+      "location": "Around the upper strut, center approx x 0.035, y 0.70, z +/-0.60.",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut",
+        "suspension.front-struts-springs.upper-spring-seat",
+        "suspension.front-struts-springs.spring-insulators",
+        "suspension.front-struts-springs.threaded-spring-perch"
+      ],
+      "factory": {
+        "name": "GM front coil spring (rate varies by RPO: FE2/FE3/FE4/FEA)",
+        "notes": "Factory rates are not published by GM; GM SG3 kit lowers approx 20 mm on non-MRC cars."
+      },
+      "raceOptions": [
+        {
+          "name": "Hyperco / Swift / Eibach ERS linear race spring (2.5 in ID)",
+          "brand": "Hyperco / Swift / Eibach",
+          "notes": "Typical Gen 6 road-race front coilover rates approx 600-1000 lb/in (estimate; non-aero to moderate aero). Choose by target front ride frequency approx 2.0-2.8 Hz."
+        },
+        {
+          "name": "BMR SP041 lowering springs (performance)",
+          "brand": "BMR Suspension",
+          "partNumber": "SP041",
+          "notes": "Street/track lowering spring set for OE dampers.",
+          "url": "https://gm-efi.com/bmr-suspensions-6th-gen-camaro-product-line/"
+        }
+      ],
+      "specs": {
+        "Race spring ID": "2.5 in (63.5 mm) typical coilover",
+        "Front motion ratio (strut)": "approx 0.9-1.0 (strut nearly in line with wheel; estimate)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Spring tag/paint mark orientation per manufacturer; ensure coil ends seat in insulator stops.",
+        "Record free length, rate and part number on the setup sheet; spring-rate test new springs."
+      ],
+      "inspection": [
+        "Check spring seating and coil bind clearance at full bump."
+      ],
+      "buildPhase": 3,
+      "installOrder": 11,
+      "tags": [
+        "spring",
+        "coil-spring"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.0359,
+            0.7435,
+            0.5552
+          ],
+          "size": [
+            0.12,
+            0.1488,
+            0.12
+          ],
+          "axis": "y",
+          "rot": [
+            -15,
+            0,
+            -5.9
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 120 mm OD, 145 mm installed, approx 12 mm wire",
+        "features": "Cylindrical coil with closed, ground ends seated between the threaded perch and the upper seat",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.strut-mount",
+      "name": "Front strut top mount (strut mount / bearing) and rod nut",
+      "qty": 2,
+      "description": "The top mount bolts to the strut tower with three bolts and holds the damper rod through a rubber isolator (ZL1/SS) or hard mount (ZL1 1LE DSSV). On the 1LE the mount can be rotated 180 deg from the street to the track position for additional negative camber. The damper rod nut is torqued with a hand tool (GM warns against impact guns on rod nuts).",
+      "location": "Strut tower top, x approx 0.05, y approx 0.85, z +/-0.55.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "suspension.front-struts-springs.strut",
+        "suspension.front-struts-springs.upper-spring-seat",
+        "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace"
+      ],
+      "factory": {
+        "name": "GM front strut mount, mount washer and rod nut (with cap)",
+        "notes": "Stack order (top to bottom): strut mount nut, strut mount, strut mount washer (small diameter up against mount, large against upper seat), upper spring seat, upper insulator, spring."
+      },
+      "raceOptions": [
+        {
+          "name": "Spherical-bearing camber/caster plate (see camber-caster-plate)",
+          "brand": "BMR / others",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Front suspension strut mount nut (damper rod nut)",
+          "qty": 1,
+          "spec": "Rod nut (18 mm hex per BMR); use GM CH-50732 socket or equivalent rod-hold socket",
+          "grade": "OE",
+          "torque": "44 ft-lb (60 N·m)",
+          "torqueSequence": "Spring compressed; hold rod; torque by hand tool",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (GM SG3: reuse)",
+          "tool": "CH-50732 or 18 mm rod-nut socket with hex hold",
+          "notes": "60 N·m per GM SG3 kit (non-MRC). Some GM SI listings: 50 N·m with RPO F55 (MRC) / 65 N·m without - use the value for your damper. No impact guns.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Strut upper mounting bolt (mount to tower)",
+          "qty": 3,
+          "spec": "M8 flange bolt, 13 mm hex",
+          "grade": "OE",
+          "torque": "16 ft-lb (22 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm socket",
+          "notes": "Tighten after strut-to-knuckle bolts are torqued.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Front strut upper mounting cap",
+          "qty": 1,
+          "spec": "Plastic cap",
+          "grade": "N/A",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "On ZL1 1LE choose street or track (rotated 180 deg) mount position before final torque, then align.",
+        "Never use an impact gun on the rod nut (rod damage/breakage per GM)."
+      ],
+      "inspection": [
+        "Check rubber isolator for tearing (non-1LE).",
+        "Re-torque tower bolts after first outing."
+      ],
+      "buildPhase": 3,
+      "installOrder": 12,
+      "tags": [
+        "top-mount",
+        "strut-mount"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.0479,
+            0.855,
+            0.5254
+          ],
+          "size": [
+            0.15,
+            0.04,
+            0.15
+          ],
+          "axis": "y",
+          "rot": [
+            -15,
+            0,
+            -5.9
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 150 mm dia x 40 mm, 3 studs",
+        "features": "Bonded rubber top mount with stamped 3-stud plate and bearing under the tower top, rod nut",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.upper-spring-seat",
+      "name": "Front upper spring seat and strut mount washer",
+      "qty": 2,
+      "description": "Stamped seat under the top mount that locates the top of the spring, with the strut mount washer between seat and mount (small diameter toward the mount). Replaced by the coilover's spring cap/thrust bearing on race struts.",
+      "location": "Top of spring, approx y 0.80.",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut-mount",
+        "suspension.front-struts-springs.coil-spring"
+      ],
+      "factory": {
+        "name": "GM front coil spring upper seat + strut mount washer",
+        "notes": "Reused when changing struts/springs per GM SG3."
+      },
+      "raceOptions": [
+        {
+          "name": "Coilover spring cap with thrust bearing",
+          "brand": "Coilover manufacturer",
+          "notes": "Thrust bearing prevents spring wind-up while steering."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Washer orientation: smaller diameter up against the mount, larger diameter against the upper seat (GM)."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 13,
+      "tags": [
+        "spring-seat"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            0.0441,
+            0.82,
+            0.5347
+          ],
+          "size": [
+            0.15,
+            0.012,
+            0.15
+          ],
+          "axis": "y",
+          "rot": [
+            -15,
+            0,
+            -5.9
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          }
+        ],
+        "dimensions": "approx 150 mm dia",
+        "features": "Pressed upper spring seat with rubber insulator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.spring-insulators",
+      "name": "Front spring insulators (upper and lower)",
+      "qty": 4,
+      "description": "Rubber isolators at the top and bottom of the OE coil spring. Not used with race coilovers (metal-to-metal perch with thrust bearing).",
+      "location": "Upper and lower spring ends.",
+      "connectsTo": [
+        "suspension.front-struts-springs.coil-spring",
+        "suspension.front-struts-springs.upper-spring-seat"
+      ],
+      "factory": {
+        "name": "GM front coil spring upper and lower insulators",
+        "notes": "2 per side."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Seat spring ends against insulator stops."
+      ],
+      "inspection": [
+        "Replace if cracked."
+      ],
+      "buildPhase": 3,
+      "installOrder": 14,
+      "tags": [
+        "insulator"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ]
+    },
+    {
+      "id": "suspension.front-struts-springs.threaded-spring-perch",
+      "name": "Threaded spring perch / height-adjust collar",
+      "qty": 2,
+      "description": "Threaded lower spring seat on ZL1 1LE DSSV struts and on all race coilovers. Adjusts ride height and corner weight without changing spring preload rate. On the 1LE: approx +/-10 mm range, approx 1.5 mm height per full turn; do not let the seat contact the black dust boot at the top of travel.",
+      "location": "On strut body below the spring, approx y 0.58-0.62.",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut",
+        "suspension.front-struts-springs.coil-spring"
+      ],
+      "factory": {
+        "name": "ZL1 1LE (RPO FEA) threaded spring seat",
+        "notes": "Not on ZL1 MRC or SS struts."
+      },
+      "raceOptions": [
+        {
+          "name": "Coilover threaded sleeve + lock collar",
+          "brand": "Coilover manufacturer",
+          "notes": "Use spanner wrenches; lock collars after corner weighting."
+        }
+      ],
+      "specs": {
+        "1LE adjustment": "+/-0.4 in (10 mm), 0.06 in (1.5 mm) per turn"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Set approximate ride height on the bench (measure perch-to-mount), refine on scales at phase 11."
+      ],
+      "inspection": [
+        "Check lock collar tightness after every session early on."
+      ],
+      "buildPhase": 3,
+      "installOrder": 15,
+      "tags": [
+        "ride-height",
+        "corner-weight"
+      ],
+      "sources": [
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            0.0274,
+            0.664,
+            0.5765
+          ],
+          "size": [
+            0.105,
+            0.022,
+            0.105
+          ],
+          "axis": "y",
+          "rot": [
+            -15,
+            0,
+            -5.9
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          },
+          {
+            "title": "GM bulletin: ZL1 1LE DSSV dampers hard-mounted, front struts with aluminium bodies",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+          }
+        ],
+        "dimensions": "approx 105 mm collar on the strut body",
+        "features": "ZL1 1LE adjustable front ride height: threaded collar with spanner notches on a threaded sleeve",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.camber-caster-plate",
+      "name": "Front camber/caster plate (race top mount)",
+      "qty": 2,
+      "description": "Replaces the factory top mount with a spherical bearing mount that slides in slots for camber and caster adjustment. Essential for road-race front camber (-3 deg and beyond) and to equalize caster side-to-side, since factory caster is not adjustable.",
+      "location": "Strut tower top, x approx 0.05, y approx 0.86, z +/-0.55.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "suspension.front-struts-springs.strut",
+        "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace"
+      ],
+      "factory": {
+        "name": "N/A (ZL1 1LE has a rotatable street/track mount instead)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR WAK360 caster/camber plates (factory spring)",
+          "brand": "BMR Suspension",
+          "partNumber": "WAK360",
+          "notes": "3/16 in CNC laser-cut steel, Teflon-lined spherical bearing, approx 2.5 deg total camber range plus caster adjustment.",
+          "url": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        },
+        {
+          "name": "BMR WAK361 caster/camber plates (coilover)",
+          "brand": "BMR Suspension",
+          "partNumber": "WAK361",
+          "notes": "Coilover version.",
+          "url": "https://www.bmrsuspension.com/siteart/install/WAK361.pdf"
+        }
+      ],
+      "specs": {
+        "BMR camber range": "approx 2.5 deg total"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-tower bolts (through aluminum spacer bracket and nut plate)",
+          "qty": 3,
+          "spec": "Supplied bolts with washers (long set for use with BMR strut-tower brace, short set without)",
+          "grade": "Supplied",
+          "torque": "45 ft-lb (61 N·m)",
+          "threadlocker": "none specified",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "BMR WAK360/361.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        },
+        {
+          "item": "Aluminum spacer bracket button-head bolts",
+          "qty": 3,
+          "spec": "Button head socket cap screw (7/16 in hex key)",
+          "grade": "Supplied",
+          "torque": "Snug per instructions (not specified)",
+          "threadlocker": "Blue (Loctite 243) recommended",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        },
+        {
+          "item": "Caster slider to camber plate bolts",
+          "qty": 4,
+          "spec": "Socket head cap screw (1/4 in hex key)",
+          "grade": "Supplied",
+          "torque": "17 ft-lb (23 N·m)",
+          "threadlocker": "none specified",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        },
+        {
+          "item": "Damper rod nut onto caster slider",
+          "qty": 1,
+          "spec": "Factory 18 mm rod nut",
+          "grade": "OE",
+          "torque": "37 ft-lb (50 N·m) for MRC/F55 damper rods; 44–48 ft-lb (60–65 N·m) for non-F55 rods",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Use GM rod nut value; hold rod, no impact. [2026-10 check] GM values differ by damper. The 1LE kit sheet (F55/MRC strut) gives 50 N·m. The 2016 SG3 sheet 84188729 (non-F55) gives 65 N·m, and the 2017 SG3 sheet 84408106 gives 60 N·m. TightTorque: 50 N·m with F55, 65 N·m without. GM gives no value for ZL1 1LE DSSV dampers, and BMR WAK360 gives none, so use the damper maker's rod-nut spec when one exists.",
+          "confidence": "typical",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84233246.pdf",
+          "torqueSequence": "Hold the rod with a rod-nut socket (CH-50732, 18 mm). Hand tools only: GM warns that impact drivers can break the rod."
+        }
+      ],
+      "installNotes": [
+        "Offset hole in the camber plate goes toward the REAR of the car (BMR).",
+        "Set initial camber/caster to the target alignment numbers using slot positions, then align."
+      ],
+      "inspection": [
+        "Mark slider position with paint pen; check for slip after each session.",
+        "Check bearing for play."
+      ],
+      "buildPhase": 3,
+      "installOrder": 16,
+      "tags": [
+        "camber-plate",
+        "caster",
+        "bmr"
+      ],
+      "sources": [
+        {
+          "title": "BMR WAK360 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        },
+        {
+          "title": "NASA Speed News: BMR sixth gen Camaro caster camber plates",
+          "url": "https://nasaspeed.news/columns/race-gear/bmr-suspension-sixth-gen-camaro-caster-camber-plates/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.05,
+            0.887,
+            0.52
+          ],
+          "size": [
+            0.2,
+            0.012,
+            0.16
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 200 x 160 x 12 mm",
+        "features": "Triangular billet plate on the tower top using the 3 OE studs, slotted centre with spherical bearing for camber/caster",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-struts-springs.helper-spring",
+      "name": "Helper / tender spring and coupler",
+      "qty": 2,
+      "description": "Short, very soft spring stacked above or below the main race spring with a spring coupler. It keeps the main spring captive at full droop (inside wheel lifting) without adding preload, which is common with stiff race springs on a strut car.",
+      "location": "On the coilover above the main spring.",
+      "connectsTo": [
+        "suspension.front-struts-springs.coil-spring",
+        "suspension.front-struts-springs.threaded-spring-perch"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Hyperco / Swift / Eibach helper spring + coupler",
+          "brand": "Hyperco / Swift / Eibach",
+          "notes": "Match ID to main spring (2.5 in typical)."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Helper should be fully coil-bound at static ride height."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 17,
+      "tags": [
+        "helper-spring"
+      ],
+      "sources": []
+    }
+  ]
+}

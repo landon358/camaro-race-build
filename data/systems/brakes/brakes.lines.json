@@ -1,0 +1,1479 @@
+{
+  "id": "brakes.lines",
+  "system": "brakes",
+  "name": "Brake Lines, Hoses & Fittings",
+  "description": "Rigid lines from the master cylinder(s) through the ABS (if fitted) to each corner, then flexible hoses across the suspension to the calipers. Factory: 3/16 in (4.76 mm) coated steel tube with metric ISO bubble flares, rubber flex hoses with banjo fittings. Race: same-size tube (steel or Cunifer) with -3 AN 37° ends or retained metric ends plus PTFE stainless-braided -3 hoses.",
+  "components": [
+    {
+      "id": "brakes.lines.mc-to-abs-lines",
+      "name": "Master cylinder outlet lines (to ABS / bulkhead)",
+      "qty": 2,
+      "description": "Short rigid (factory) or -3 AN hose/hard-line (race) runs from each master outlet to the ABS inlets or, without ABS, to the front tee and rear trunk line.",
+      "location": "Factory: engine bay from tandem MC to BPMV. Race: footwell from masters across to ABS unit.",
+      "connectsTo": [
+        "brakes.master-cylinders.factory-tandem-mc",
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.abs.factory-bpmv-ebcm",
+        "brakes.abs.bosch-motorsport-abs"
+      ],
+      "factory": {
+        "name": "GM pre-formed brake pipes, MC to BPMV",
+        "notes": "3/16 in coated steel with ISO bubble flares."
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN PTFE stainless hose with steel ends",
+          "brand": "Goodridge / Earl's Performance Plumbing",
+          "notes": "Fire-sleeve where near exhaust/turbo."
+        }
+      ],
+      "specs": {
+        "Tube": "3/16 in (4.76 mm) OD"
+      },
+      "hardware": [
+        {
+          "item": "Tube nut at MC outlet (factory)",
+          "qty": 1,
+          "spec": "ISO bubble-flare tube nut",
+          "grade": "Steel",
+          "torque": "22 ft-lb (30 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Tube nut at BPMV inlet (factory)",
+          "qty": 1,
+          "spec": "ISO bubble-flare tube nut",
+          "grade": "Steel",
+          "torque": "24 ft-lb (32 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "-3 AN hose ends (race)",
+          "qty": 2,
+          "spec": "-3 AN 37° female swivel",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Factory: install with BPMV, bend clear of the booster. Race: route in the footwell under a cover so the driver's feet cannot kick it."
+      ],
+      "inspection": [
+        "Check for weeps at each fitting at every bleed."
+      ],
+      "buildPhase": 2,
+      "installOrder": 21,
+      "tags": [
+        "lines"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.694,
+              0.272,
+              0.403
+            ],
+            [
+              0.665,
+              0.25,
+              0.38
+            ],
+            [
+              0.66,
+              0.22,
+              0.33
+            ],
+            [
+              0.72,
+              0.2,
+              0.15
+            ],
+            [
+              0.78,
+              0.2,
+              -0.1
+            ],
+            [
+              0.8,
+              0.3,
+              -0.3
+            ],
+            [
+              0.822,
+              0.34,
+              -0.328
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.694,
+              0.272,
+              0.337
+            ],
+            [
+              0.67,
+              0.24,
+              0.31
+            ],
+            [
+              0.74,
+              0.19,
+              0.12
+            ],
+            [
+              0.8,
+              0.19,
+              -0.1
+            ],
+            [
+              0.81,
+              0.3,
+              -0.33
+            ],
+            [
+              0.822,
+              0.34,
+              -0.372
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "3/16 in lines, master outlets -> ABS inlet ports",
+        "features": "Hard lines with tube nuts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.front-hard-lines",
+      "name": "Front hard lines (ABS → LF / RF flex-hose brackets)",
+      "qty": 2,
+      "description": "Rigid lines from the ABS outlets (or front tee) to the body-mounted flex-hose brackets in each front wheel well. On a race car run them through a firewall bulkhead, along the frame rails, clipped every 300 mm, away from headers.",
+      "location": "Engine bay along the frame rails to the inner wheel well brackets at x≈0.08, y≈0.47, z≈±0.58.",
+      "connectsTo": [
+        "brakes.abs.factory-bpmv-ebcm",
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.lines.bulkhead-fittings",
+        "brakes.lines.front-flex-hoses",
+        "brakes.lines.line-clips"
+      ],
+      "factory": {
+        "name": "GM brake pipes BPMV-to-front hose",
+        "notes": "3/16 in steel, ISO bubble flare."
+      },
+      "raceOptions": [
+        {
+          "name": "3/16 in Cunifer (copper-nickel) tube with 37° flares and -3 AN tube nuts/sleeves",
+          "brand": "Earl's / Goodridge / generic",
+          "notes": "Cunifer bends/flare easily and resists corrosion; DOT 3/16 steel also fine."
+        },
+        {
+          "name": "Retain metric bubble flare: 3/16 tube + M10x1 nuts and M10x1-to-AN3 adaptors at the hose bracket",
+          "brand": "Generic",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Tube": "3/16 in (4.76 mm) OD",
+        "Min bend radius": "≈ 1/2 in (13 mm)",
+        "Flare (race)": "37° single + sleeve (AN) or ISO bubble (metric)"
+      },
+      "hardware": [
+        {
+          "item": "Brake pipe tube nut (body/hose-bracket end)",
+          "qty": 1,
+          "spec": "M10x1 ISO bubble-flare nut",
+          "grade": "Steel",
+          "torque": "13 ft-lb (18 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "10 mm flare-nut wrench",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "-3 AN tube nut + sleeve (race 37° flare)",
+          "qty": 2,
+          "spec": "3/8-24 UNF -3 AN tube nut",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Bend with a proper tube bender; leave a small service loop near the ABS for vibration.",
+        "Keep ≥ 150 mm from headers or wrap/shield; keep away from sharp edges and steering shaft.",
+        "Pressure test before bleeding: pedal held hard 60 s with no drop."
+      ],
+      "inspection": [
+        "Check clips and look for rubbing where lines pass suspension/subframe."
+      ],
+      "buildPhase": 2,
+      "installOrder": 22,
+      "tags": [
+        "lines",
+        "hard-line"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.852,
+              0.34,
+              -0.319
+            ],
+            [
+              0.85,
+              0.4,
+              -0.36
+            ],
+            [
+              0.7,
+              0.46,
+              -0.42
+            ],
+            [
+              0.62,
+              0.52,
+              -0.4
+            ],
+            [
+              0.55,
+              0.62,
+              -0.2
+            ],
+            [
+              0.52,
+              0.64,
+              0.2
+            ],
+            [
+              0.4,
+              0.63,
+              0.46
+            ],
+            [
+              0.22,
+              0.64,
+              0.5
+            ],
+            [
+              0.1,
+              0.63,
+              0.5
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.852,
+              0.34,
+              -0.339
+            ],
+            [
+              0.85,
+              0.4,
+              -0.4
+            ],
+            [
+              0.7,
+              0.46,
+              -0.46
+            ],
+            [
+              0.62,
+              0.52,
+              -0.48
+            ],
+            [
+              0.45,
+              0.6,
+              -0.5
+            ],
+            [
+              0.22,
+              0.64,
+              -0.5
+            ],
+            [
+              0.1,
+              0.63,
+              -0.5
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "3/16 in (4.76 mm) line, ABS outlets -> body hose brackets",
+        "features": "Copper-nickel / coated steel line with tube nuts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.rear-hard-lines",
+      "name": "Rear hard line(s) (ABS → rear axle)",
+      "qty": 1,
+      "description": "Long run from the ABS/rear master to the rear subframe. Factory four-channel ABS uses two separate full-length lines (LR and RR) under the floor; a race car with rear-axle-only ABS control or no ABS can use one line to a rear tee. Run inside the cabin along the tunnel or underfloor tight to the floor inside the rocker line, protected from debris.",
+      "location": "Under floor / inside cabin from x≈0.9 to the rear tee at x≈2.55.",
+      "connectsTo": [
+        "brakes.abs.factory-bpmv-ebcm",
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.lines.rear-tee",
+        "brakes.lines.line-clips"
+      ],
+      "factory": {
+        "name": "GM rear brake pipes (LR and RR separate)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Single 3/16 in Cunifer line with -3 AN ends",
+          "brand": "Generic",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Tube": "3/16 in OD",
+        "Length": "≈ 2.2–2.6 m"
+      },
+      "hardware": [
+        {
+          "item": "Tube nut each end",
+          "qty": 2,
+          "spec": "M10x1 bubble or -3 AN",
+          "grade": "Steel",
+          "torque": "Metric: 13 ft-lb (18 N·m); -3 AN: ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install during phase 2 while the floor is accessible; clip every ~300 mm with rubber-lined clips."
+      ],
+      "inspection": [
+        "After off-track excursions check the underfloor line for dents/kinks."
+      ],
+      "buildPhase": 2,
+      "installOrder": 23,
+      "tags": [
+        "lines",
+        "hard-line"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.852,
+            0.34,
+            -0.36
+          ],
+          [
+            0.9,
+            0.3,
+            -0.38
+          ],
+          [
+            0.95,
+            0.18,
+            -0.36
+          ],
+          [
+            1.2,
+            0.165,
+            -0.42
+          ],
+          [
+            1.8,
+            0.165,
+            -0.42
+          ],
+          [
+            2.25,
+            0.17,
+            -0.4
+          ],
+          [
+            2.42,
+            0.24,
+            -0.3
+          ],
+          [
+            2.52,
+            0.31,
+            -0.12
+          ],
+          [
+            2.55,
+            0.33,
+            0
+          ]
+        ],
+        "radius": 0.0025,
+        "color": "#b87333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "3/16 in line along the floor to the rear tee",
+        "features": "Clipped to the floor, tube nuts both ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.rear-tee",
+      "name": "Rear brake tee / distribution block",
+      "qty": 1,
+      "description": "Splits the single rear feed to LR and RR lines on the rear subframe/body (race single-line layout). Not used with the factory 4-channel system.",
+      "location": "Rear subframe crossmember or body above it, x≈2.55, y≈0.33, z≈0.",
+      "connectsTo": [
+        "brakes.lines.rear-hard-lines",
+        "brakes.lines.rear-axle-lines"
+      ],
+      "factory": {
+        "name": "n/a (factory 4-channel)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN billet tee with mounting hole",
+          "brand": "Earl's / Goodridge",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tee mounting bolt",
+          "qty": 1,
+          "spec": "M6 / 1/4-20",
+          "grade": "8.8",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-3 AN fittings",
+          "qty": 3,
+          "spec": "-3 AN 37°",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount on the body (sprung side) so lines to each side only flex in the hoses."
+      ],
+      "inspection": [],
+      "buildPhase": 2,
+      "installOrder": 24,
+      "tags": [
+        "lines"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.55,
+          0.33,
+          0
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.04
+        ],
+        "color": "#c62828"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~30-40 mm tee",
+        "features": "Block with 3 fittings",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.rear-axle-lines",
+      "name": "Rear tee-to-corner hard lines (LR / RR)",
+      "qty": 2,
+      "description": "Short rigid lines from the rear tee (or from the factory long lines) to the rear flex-hose brackets.",
+      "location": "Rear subframe area to each rear wheel well bracket at x≈2.70, z≈±0.60.",
+      "connectsTo": [
+        "brakes.lines.rear-tee",
+        "brakes.lines.rear-flex-hoses"
+      ],
+      "factory": {
+        "name": "Part of GM rear pipes",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "3/16 in Cunifer with -3 AN",
+          "brand": "Generic",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tube nuts",
+          "qty": 2,
+          "spec": "M10x1 bubble or -3 AN",
+          "grade": "Steel",
+          "torque": "Metric: 13 ft-lb (18 N·m); -3 AN: ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Route clear of the toe/camber links through full travel."
+      ],
+      "inspection": [],
+      "buildPhase": 2,
+      "installOrder": 25,
+      "tags": [
+        "lines"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.55,
+              0.33,
+              0
+            ],
+            [
+              2.58,
+              0.35,
+              0.2
+            ],
+            [
+              2.62,
+              0.38,
+              0.4
+            ],
+            [
+              2.66,
+              0.42,
+              0.55
+            ],
+            [
+              2.7,
+              0.45,
+              0.6
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.55,
+              0.33,
+              0
+            ],
+            [
+              2.58,
+              0.35,
+              -0.2
+            ],
+            [
+              2.62,
+              0.38,
+              -0.4
+            ],
+            [
+              2.66,
+              0.42,
+              -0.55
+            ],
+            [
+              2.7,
+              0.45,
+              -0.6
+            ]
+          ],
+          "radius": 0.0025,
+          "color": "#b87333"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "3/16 in lines tee -> rear hose brackets",
+        "features": "Hard lines with tube nuts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.front-flex-hoses",
+      "name": "Front flexible brake hoses",
+      "qty": 2,
+      "description": "Flex hose from the body bracket to the caliper inlet, allowing steering and suspension travel. Factory rubber hose with banjo at the caliper; race PTFE stainless-braided -3 hose (with abrasion cover) gives lower expansion and survives heat better.",
+      "location": "Front wheel well: body bracket (x≈0.08, y≈0.47, z≈±0.58) to caliper inlet on the trailing caliper.",
+      "connectsTo": [
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.hose-brackets",
+        "brakes.front-calipers.caliper",
+        "brakes.lines.banjo-bolts-crush-washers"
+      ],
+      "factory": {
+        "name": "GM front brake hose assembly (ZL1/1LE)",
+        "notes": "Banjo to caliper, tube nut + clip at the body bracket."
+      },
+      "raceOptions": [
+        {
+          "name": "Goodridge G-Stop stainless PTFE brake line kit (Gen 6 Camaro)",
+          "brand": "Goodridge",
+          "notes": "DOT-compliant kits exist for Gen 6; confirm length with race calipers."
+        },
+        {
+          "name": "Spiegler stainless lines (supplied in Essex/AP kits)",
+          "brand": "Spiegler",
+          "notes": "Abrasion-resistant coating.",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "name": "Earl's Speed-Flex -3 custom length",
+          "brand": "Earl's Performance Plumbing",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Size": "-3 (3/16 in ID PTFE)",
+        "Length": "Check at full lock + full bump/droop with ≥ 25 mm slack, no twist"
+      },
+      "hardware": [
+        {
+          "item": "Front brake hose fitting bolt (banjo) at caliper",
+          "qty": 1,
+          "spec": "M10x1.0 banjo bolt (typ. GM) with 2 copper crush washers",
+          "grade": "Steel",
+          "torque": "30 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Bolt reusable; washers replace each removal",
+          "tool": "14 mm",
+          "notes": "GM table \"Front brake hose fitting bolt\" 40 N·m; Gen 5 ZL1 kit instructions also list hose-to-caliper 40 N·m.",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Hose-to-hard-line tube nut at body bracket",
+          "qty": 1,
+          "spec": "M10x1 bubble-flare",
+          "grade": "Steel",
+          "torque": "13 ft-lb (18 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "GM \"Brake pipe fitting\" 18 N·m; a Gen 5 ZL1 kit listed 16 N·m for hose-to-pipe.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Hose retaining clip at bracket",
+          "qty": 1,
+          "spec": "Spring-steel U-clip",
+          "grade": "Spring steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if distorted",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit after caliper is mounted; hang caliper on wire, never on the hose.",
+        "Steer lock-to-lock with suspension compressed and drooped; hose must not touch tire, wheel, strut or ABS wiring."
+      ],
+      "inspection": [
+        "Inspect for chafing, kinks and heat damage every event; replace race hoses every 2–3 seasons."
+      ],
+      "buildPhase": 4,
+      "installOrder": 26,
+      "tags": [
+        "lines",
+        "flex-hose",
+        "stainless"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Camaro5 forum – ZL1 brake upgrade installation torque settings (rotor screw 10 N·m, hose-to-caliper 40 N·m, hose-to-pipe 16 N·m)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=7288668"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.1,
+            0.63,
+            0.5
+          ],
+          [
+            0.065,
+            0.625,
+            0.575
+          ],
+          [
+            0.08,
+            0.6,
+            0.635
+          ],
+          [
+            0.125,
+            0.565,
+            0.65
+          ],
+          [
+            0.1374,
+            0.5284,
+            0.6554
+          ]
+        ],
+        "radius": 0.005,
+        "color": "#222222",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~320 mm OE rubber hose, body bracket -> strut tab -> caliper banjo",
+        "features": "Black rubber hose, crimped steel ends, mid bracket tab",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.rear-flex-hoses",
+      "name": "Rear flexible brake hoses",
+      "qty": 2,
+      "description": "Flex hose from rear body/subframe bracket to rear caliper inlet.",
+      "location": "Rear wheel well: bracket x≈2.70, z≈±0.60 to caliper.",
+      "connectsTo": [
+        "brakes.lines.rear-axle-lines",
+        "brakes.lines.hose-brackets",
+        "brakes.rear-calipers.caliper",
+        "brakes.lines.banjo-bolts-crush-washers"
+      ],
+      "factory": {
+        "name": "GM rear brake hose assembly",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Goodridge / Earl's / Spiegler -3 PTFE stainless",
+          "brand": "Goodridge / Earl's / Spiegler",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Size": "-3"
+      },
+      "hardware": [
+        {
+          "item": "Rear brake hose fitting bolt (banjo) at caliper",
+          "qty": 1,
+          "spec": "M10x1.0 banjo bolt + 2 copper crush washers",
+          "grade": "Steel",
+          "torque": "30 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Washers replace each removal",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Tube nut at bracket",
+          "qty": 1,
+          "spec": "M10x1 bubble-flare",
+          "grade": "Steel",
+          "torque": "13 ft-lb (18 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Cycle the rear suspension through full travel and check for stretch or contact with the halfshaft."
+      ],
+      "inspection": [
+        "As front."
+      ],
+      "buildPhase": 4,
+      "installOrder": 27,
+      "tags": [
+        "lines",
+        "flex-hose"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.7,
+            0.45,
+            0.6
+          ],
+          [
+            2.78,
+            0.49,
+            0.62
+          ],
+          [
+            2.88,
+            0.52,
+            0.66
+          ],
+          [
+            2.93,
+            0.53,
+            0.68
+          ],
+          [
+            2.9478,
+            0.5088,
+            0.6917
+          ]
+        ],
+        "radius": 0.005,
+        "color": "#222222",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~280 mm OE rubber hose to the rear caliper banjo",
+        "features": "Black rubber hose with crimped ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.hose-brackets",
+      "name": "Brake hose brackets (body & strut/knuckle)",
+      "qty": 4,
+      "description": "Brackets that locate each flex hose at the body end and (where fitted) mid-hose at the strut/knuckle, preventing the hose from swinging into the tire.",
+      "location": "Each wheel well.",
+      "connectsTo": [
+        "brakes.lines.front-flex-hoses",
+        "brakes.lines.rear-flex-hoses",
+        "suspension.front-struts.strut"
+      ],
+      "factory": {
+        "name": "GM hose brackets",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated -3 AN bulkhead tabs",
+          "brand": "Fabricated",
+          "notes": "Use -3 AN bulkhead fittings with jam nut."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brake hose bracket bolt",
+          "qty": 1,
+          "spec": "M6 flange bolt",
+          "grade": "GM",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install before hoses."
+      ],
+      "inspection": [],
+      "buildPhase": 4,
+      "installOrder": 28,
+      "tags": [
+        "bracket"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "size": [
+          0.03,
+          0.004,
+          0.025
+        ],
+        "instances": [
+          [
+            0.1,
+            0.63,
+            0.5
+          ],
+          [
+            0.1,
+            0.63,
+            -0.5
+          ],
+          [
+            2.7,
+            0.45,
+            0.6
+          ],
+          [
+            2.7,
+            0.45,
+            -0.6
+          ]
+        ],
+        "color": "#555555"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~30 x 25 mm tabs with hose clip slot",
+        "features": "Stamped steel tab, one bolt",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.banjo-bolts-crush-washers",
+      "name": "Banjo bolts & copper crush washers",
+      "qty": 4,
+      "description": "Banjo bolt and two soft copper sealing washers at each caliper inlet. Washers are single-use; a reused washer is the #1 cause of a weeping caliper inlet.",
+      "location": "Caliper inlet at each corner.",
+      "connectsTo": [
+        "brakes.front-calipers.caliper",
+        "brakes.rear-calipers.caliper",
+        "brakes.lines.front-flex-hoses",
+        "brakes.lines.rear-flex-hoses"
+      ],
+      "factory": {
+        "name": "GM banjo bolt + copper washers",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Race calipers often use 3/8-24 or M10x1 inverted-flare/AN inlet adaptors instead of banjos",
+          "brand": "AP / Brembo GT",
+          "notes": "Use the caliper maker's seat type and washers."
+        }
+      ],
+      "specs": {
+        "Thread": "M10x1.0 (typical GM caliper inlet – verify)"
+      },
+      "hardware": [
+        {
+          "item": "Banjo bolt",
+          "qty": 1,
+          "spec": "M10x1.0",
+          "grade": "Steel",
+          "torque": "30 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Copper crush washer",
+          "qty": 2,
+          "spec": "10 mm ID copper",
+          "grade": "Annealed copper",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Clean seats, fit new washers both sides of banjo, torque."
+      ],
+      "inspection": [
+        "Check for weeping after first session."
+      ],
+      "buildPhase": 4,
+      "installOrder": 29,
+      "tags": [
+        "fitting"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.019,
+          0.019,
+          0.02
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0.1374,
+            0.4954,
+            0.6524
+          ],
+          [
+            2.9478,
+            0.4758,
+            0.6887
+          ]
+        ],
+        "color": "#c08040"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M10 x 1.0 banjo bolt, 2 copper crush washers, into the inboard caliper half",
+        "features": "Banjo eye with hose stem pointing up",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.bulkhead-fittings",
+      "name": "Firewall / floor bulkhead fittings (race)",
+      "qty": 4,
+      "description": "-3 AN bulkhead unions where race lines pass through the firewall or floor, so lines can be serviced and the pass-through stays sealed (required firewall integrity for fire protection in most rulebooks).",
+      "location": "Driver/passenger footwell firewall (x≈0.62–0.66) and floor exit for the rear line.",
+      "connectsTo": [
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "chassis.firewall.firewall"
+      ],
+      "factory": {
+        "name": "n/a (factory lines are outside the cabin)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN bulkhead union with jam nut",
+          "brand": "Earl's / Goodridge",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bulkhead jam nut",
+          "qty": 1,
+          "spec": "-3 AN bulkhead nut (7/16-20)",
+          "grade": "Steel/Al",
+          "torque": "≈ 15–20 ft-lb (20–27 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (sealant on panel face optional)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-3 AN fittings each side",
+          "qty": 2,
+          "spec": "-3 AN 37°",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Drill and deburr holes during chassis prep; seal around bulkheads with firewall sealant."
+      ],
+      "inspection": [],
+      "buildPhase": 2,
+      "installOrder": 30,
+      "tags": [
+        "race",
+        "fitting"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.02,
+          0.02,
+          0.02
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.66,
+            0.48,
+            -0.42
+          ],
+          [
+            0.66,
+            0.48,
+            -0.46
+          ],
+          [
+            0.95,
+            0.17,
+            -0.36
+          ],
+          [
+            0.62,
+            0.52,
+            -0.4
+          ]
+        ],
+        "color": "#1565c0"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Position/size kept from research data",
+        "features": "Plain primitive / generic generator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.adaptors",
+      "name": "Metric-to-AN adaptors & tube nuts",
+      "qty": 8,
+      "description": "Adaptors joining metric GM ports (M10x1 / M12x1 bubble) to -3 AN race plumbing, plus spare tube nuts and sleeves.",
+      "location": "At ABS ports, MC ports, hose brackets as required.",
+      "connectsTo": [
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "brakes.abs.factory-bpmv-ebcm"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "M10x1.0 bubble-flare to -3 AN male adaptor",
+          "brand": "Earl's / Goodridge / Wilwood",
+          "notes": "Match seat type (ISO bubble vs. double/inverted flare) exactly."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Adaptor",
+          "qty": 1,
+          "spec": "M10x1 bubble → -3 AN",
+          "grade": "Steel",
+          "torque": "Metric side 13 ft-lb (18 N·m); AN side ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Never mix 37° AN and 45° SAE flares."
+      ],
+      "inspection": [],
+      "buildPhase": 2,
+      "installOrder": 31,
+      "tags": [
+        "fitting"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.014,
+          0.014,
+          0.025
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            0.1,
+            0.63,
+            0.512
+          ],
+          [
+            0.1,
+            0.63,
+            -0.512
+          ],
+          [
+            2.7,
+            0.45,
+            0.588
+          ],
+          [
+            2.7,
+            0.45,
+            -0.588
+          ]
+        ],
+        "color": "#1565c0"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M10x1 / 3/8-24 to -3 AN adaptors at hose brackets",
+        "features": "Blue anodised hex adaptors",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.lines.line-clips",
+      "name": "Brake line clips, P-clamps & grommets",
+      "qty": 30,
+      "description": "Rubber-lined P-clamps or push-in plastic clips every ~300 mm to stop vibration fatigue, plus grommets where lines pass through panels.",
+      "location": "Along all hard-line runs.",
+      "connectsTo": [
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "brakes.lines.rear-axle-lines"
+      ],
+      "factory": {
+        "name": "GM plastic multi-line clips / push pins",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Adel / rubber-cushioned P-clamps (3/16 in)",
+          "brand": "Generic",
+          "notes": "Use rivnuts in the floor for serviceability."
+        }
+      ],
+      "specs": {
+        "Spacing": "≤ 300 mm"
+      },
+      "hardware": [
+        {
+          "item": "P-clamp screw into rivnut",
+          "qty": 1,
+          "spec": "M5 or 10-32 button head",
+          "grade": "SS / 8.8",
+          "torque": "≈ 25–35 in-lb (3–4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install rivnuts before paint; fit clamps as lines are bent."
+      ],
+      "inspection": [
+        "Check for missing/broken clips each event."
+      ],
+      "buildPhase": 2,
+      "installOrder": 32,
+      "tags": [
+        "clips"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "size": [
+          0.015,
+          0.012,
+          0.012
+        ],
+        "instances": [
+          [
+            1.2,
+            0.165,
+            -0.42
+          ],
+          [
+            1.5,
+            0.165,
+            -0.42
+          ],
+          [
+            1.8,
+            0.165,
+            -0.42
+          ],
+          [
+            2.05,
+            0.168,
+            -0.41
+          ],
+          [
+            0.2,
+            0.55,
+            0.55
+          ],
+          [
+            0.05,
+            0.5,
+            0.56
+          ],
+          [
+            0.2,
+            0.55,
+            -0.55
+          ],
+          [
+            0.45,
+            0.58,
+            -0.52
+          ],
+          [
+            2.62,
+            0.38,
+            0.4
+          ],
+          [
+            2.62,
+            0.38,
+            -0.4
+          ]
+        ],
+        "color": "#212121"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Position/size kept from research data",
+        "features": "Plain primitive / generic generator",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

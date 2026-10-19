@@ -1,0 +1,475 @@
+{
+  "id": "steering.column-and-shaft",
+  "system": "steering",
+  "name": "Steering Column & Intermediate Shafts",
+  "description": "Collapsible tilt/telescope steering column mounted to the instrument-panel beam (or a cage dash bar in a race car), plus a two-piece intermediate shaft with U-joints that passes through the dash panel and down beside the engine to the rack pinion.",
+  "components": [
+    {
+      "id": "steering.column-and-shaft.column",
+      "name": "Steering column",
+      "qty": 1,
+      "description": "Factory collapsible column with manual tilt/telescope, electric steering column lock module and the steering angle sensor/clockspring at the top. It bolts to the IP cross-car beam with nuts. Race builds either keep the OE column (crash-collapsible, retains SAS for ABS/stability) on a fabricated mount on the cage dash bar, or fit a lighter race column with a collapsible section.",
+      "location": "From steering wheel approx (x 1.22, y 0.79, z +0.37) forward/down to approx (x 0.85, y 0.60, z +0.37).",
+      "connectsTo": [
+        "steering.wheel-and-quick-release.hub-adapter",
+        "steering.column-and-shaft.upper-intermediate-shaft",
+        "steering.column-and-shaft.steering-angle-sensor-and-clockspring",
+        "interior.dash.ip-beam",
+        "safety.roll-cage.dash-bar"
+      ],
+      "factory": {
+        "name": "GM Gen 6 tilt/telescope collapsible column with electric column lock",
+        "notes": "Part number not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "OE column on fabricated cage-bar mount (common)",
+          "brand": "GM",
+          "notes": "Delete column lock module only if your electrical architecture allows (GM BCM may require it)."
+        },
+        {
+          "name": "Collapsible race column",
+          "brand": "Woodward / Sweet Manufacturing / Flaming River",
+          "notes": "Requires custom upper mount and I-shaft adaptation; retain collapsibility per rules where required."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Steering column mounting nut (to IP beam)",
+          "qty": 4,
+          "spec": "M8 flange nut (size inferred)",
+          "grade": "OE",
+          "torque": "16 ft-lb (22 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Count approximate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Steering column lock control module bolt",
+          "qty": 2,
+          "spec": "Small bolt",
+          "grade": "OE",
+          "torque": "80 in-lb (9 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "IP steering column lower trim cover bolt",
+          "qty": 2,
+          "spec": "Trim screw",
+          "grade": "OE",
+          "torque": "27 in-lb (3 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Position column so the wheel lands at the driver's seat/ergonomics point before welding a cage-mounted column bracket.",
+        "Keep the collapsible capsule free to stroke."
+      ],
+      "inspection": [
+        "Check column mount for cracks and play."
+      ],
+      "buildPhase": 9,
+      "installOrder": 10,
+      "tags": [
+        "column",
+        "collapsible"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.7332,
+              0.5367,
+              0.37
+            ],
+            [
+              1.1253,
+              0.7364,
+              0.37
+            ]
+          ],
+          "radius": 0.03
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 490 mm, 27 deg rake",
+        "features": "Tilt/telescope column: steel jacket, cast upper housing with lock, mounting bracket with breakaway capsules",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.column-and-shaft.upper-intermediate-shaft",
+      "name": "Upper intermediate steering shaft (with U-joints)",
+      "qty": 1,
+      "description": "Shaft from the column output, through the dash panel boot, to the mid joint. Pinch-bolt clamped U-joint yokes on splines; the pinch bolts must pass through the spline groove.",
+      "location": "From approx (x 0.85, y 0.60, z 0.37) through dash panel (x 0.66) to mid joint approx (x 0.40, y 0.42, z 0.40).",
+      "connectsTo": [
+        "steering.column-and-shaft.column",
+        "steering.column-and-shaft.firewall-seal",
+        "steering.column-and-shaft.lower-intermediate-shaft"
+      ],
+      "factory": {
+        "name": "GM upper intermediate steering shaft",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Borgeson / Woodward / Flaming River U-joints and DD shaft",
+          "brand": "Borgeson / Woodward / Flaming River",
+          "notes": "Use when relocating column or clearing headers/dry-sump; keep joint angles under approx 30-35 deg and phase joints correctly."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Upper intermediate steering shaft upper bolt (to column)",
+          "qty": 1,
+          "spec": "Pinch bolt",
+          "grade": "OE",
+          "torque": "22 ft-lb (30 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended (prevailing-torque)",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Mid intermediate steering shaft bolt",
+          "qty": 1,
+          "spec": "Pinch bolt",
+          "grade": "OE",
+          "torque": "27 ft-lb (36 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Center the rack and steering wheel before assembling splines (wheel spokes level).",
+        "Never let the column/shaft spin freely with the airbag clockspring installed (damages clockspring)."
+      ],
+      "inspection": [
+        "Check U-joints for play/notchiness."
+      ],
+      "buildPhase": 3,
+      "installOrder": 11,
+      "tags": [
+        "intermediate-shaft",
+        "u-joint"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.7332,
+              0.5367,
+              0.37
+            ],
+            [
+              0.45,
+              0.43,
+              0.375
+            ]
+          ],
+          "radius": 0.012
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 steering gear & linkage parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/steering--steering-gear-and-linkage"
+          }
+        ],
+        "dimensions": "approx 300 mm",
+        "features": "U-joint shaft through the dash seal",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.column-and-shaft.lower-intermediate-shaft",
+      "name": "Lower intermediate steering shaft (with U-joint to pinion)",
+      "qty": 1,
+      "description": "Shaft from the mid joint down beside the engine (driver side, near the exhaust headers) to the rack pinion. Needs heat protection from headers on a race car.",
+      "location": "From approx (x 0.40, y 0.42, z 0.40) to pinion approx (x -0.11, y 0.27, z 0.28).",
+      "connectsTo": [
+        "steering.column-and-shaft.upper-intermediate-shaft",
+        "steering.rack.eps-gear",
+        "engine-support.exhaust.headers"
+      ],
+      "factory": {
+        "name": "GM intermediate steering shaft",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom DD shaft + needle-bearing U-joints with heat shield",
+          "brand": "Borgeson / Woodward",
+          "notes": "Required if headers or dry-sump plumbing change the path."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Intermediate steering shaft lower bolt (to pinion)",
+          "qty": 1,
+          "spec": "Pinch bolt through pinion spline groove",
+          "grade": "OE",
+          "torque": "37 ft-lb (50 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended (prevailing-torque)",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Intermediate steering shaft upper bolt",
+          "qty": 1,
+          "spec": "Pinch bolt",
+          "grade": "OE",
+          "torque": "27 ft-lb (36 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace recommended",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Confirm pinch bolt passes through the spline groove (pull-test the joint)."
+      ],
+      "inspection": [
+        "Check for heat damage and joint play."
+      ],
+      "buildPhase": 3,
+      "installOrder": 12,
+      "tags": [
+        "intermediate-shaft",
+        "u-joint"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.45,
+              0.43,
+              0.375
+            ],
+            [
+              -0.049,
+              0.323,
+              0.265
+            ]
+          ],
+          "radius": 0.012
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 steering gear & linkage parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/steering--steering-gear-and-linkage"
+          },
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          }
+        ],
+        "dimensions": "approx 520 mm",
+        "features": "U-joints both ends, slip section, down to the pinion on the driver end of the rack",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.column-and-shaft.firewall-seal",
+      "name": "Intermediate shaft dash-panel boot / seal",
+      "qty": 1,
+      "description": "Rubber boot and seal plate where the intermediate shaft passes through the dash panel; keeps fumes, heat and fire out of the cockpit. Must be retained or replaced with a sealed race bearing plate.",
+      "location": "Dash panel, approx (x 0.66, y 0.52, z 0.385).",
+      "connectsTo": [
+        "steering.column-and-shaft.upper-intermediate-shaft",
+        "chassis.unibody.dash-panel-and-cowl"
+      ],
+      "factory": {
+        "name": "GM intermediate steering shaft boot",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Firewall bearing/seal plate",
+          "brand": "Borgeson / Woodward",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Intermediate steering shaft boot nut",
+          "qty": 3,
+          "spec": "Small nut (M6)",
+          "grade": "OE",
+          "torque": "80 in-lb (9 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check seal for heat damage."
+      ],
+      "buildPhase": 3,
+      "installOrder": 13,
+      "tags": [
+        "seal",
+        "firewall"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            0.66,
+            0.5091,
+            0.3713
+          ],
+          "size": [
+            0.02,
+            0.09,
+            0.09
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 steering gear & linkage parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/steering--steering-gear-and-linkage"
+          }
+        ],
+        "dimensions": "approx 90 mm",
+        "features": "Convoluted rubber boot in the dash panel pass-through",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.column-and-shaft.steering-angle-sensor-and-clockspring",
+      "name": "Steering angle sensor and clockspring (SIR coil)",
+      "qty": 1,
+      "description": "Steering angle sensor (needed by StabiliTrak/ABS and EPS logic if the factory chassis electronics are kept) and the clockspring that carries airbag/button circuits to the OE wheel. With a race wheel and quick release the driver airbag is removed; the SRS system must be properly disabled per your electrical plan and rules. Keep the SAS if retaining factory ABS/ESC calibration.",
+      "location": "Top of column behind steering wheel, approx (x 1.18, y 0.77, z 0.37).",
+      "connectsTo": [
+        "steering.column-and-shaft.column",
+        "brakes.abs.abs-module",
+        "electrical.can-bus.gmlan",
+        "steering.wheel-and-quick-release.button-wiring"
+      ],
+      "factory": {
+        "name": "GM steering wheel position sensor + SIR coil",
+        "notes": "SAS calibration with a scan tool after alignment if retained."
+      },
+      "raceOptions": [
+        {
+          "name": "Retain SAS, delete clockspring airbag circuits",
+          "brand": "N/A",
+          "notes": "Discuss with ABS/ESC strategy (brakes system)."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Lock clockspring centered before removing wheel; never rotate column with clockspring disconnected from the wheel."
+      ],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 14,
+      "tags": [
+        "sas",
+        "clockspring",
+        "srs"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.1386,
+            0.7433,
+            0.37
+          ],
+          "size": [
+            0.03,
+            0.12,
+            0.12
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            0,
+            27
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 steering gear & linkage parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/steering--steering-gear-and-linkage"
+          }
+        ],
+        "dimensions": "approx 120 mm",
+        "features": "Round clockspring/steering-angle sensor module at the column top with connector",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

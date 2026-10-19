@@ -1,0 +1,372 @@
+{
+ "id": "body.hood-and-fasteners",
+ "system": "body",
+ "name": "Hood Fasteners & Hardware",
+ "description": "Hood pins, latch, hinges, prop rod and bump stops that keep the hood shut at speed and quick to open in the pits.",
+ "components": [
+  {
+   "id": "body.hood-and-fasteners.hood-pins",
+   "name": "Flush hood pins/latches (AeroCatch)",
+   "qty": 2,
+   "description": "Flush-mount latch bodies in the hood skin that capture threaded strike pins on the core support. Required by most series on composite hoods and as secondary retention on any race hood. Recommended ≤ 5° misalignment between pin and latch (AeroCatch).",
+   "location": "Front corners of hood, x ≈ −0.62, y ≈ 0.86, z ±0.45.",
+   "connectsTo": [
+    "body.panels.hood",
+    "body.hood-and-fasteners.strike-pins"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "AeroCatch Plus flush hood latch & pin kit (with/without lock)",
+     "brand": "AeroCatch",
+     "partNumber": "",
+     "notes": "Kit: 2 latches, 2 aluminum strike pins, M10 nuts/washers, bump stops, template.",
+     "url": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    },
+    {
+     "name": "AeroCatch Extreme top-mount steel",
+     "brand": "AeroCatch",
+     "partNumber": "",
+     "notes": "",
+     "url": "https://www.bimmerworld.com/SpecE46/AeroCatch-Extreme-Top-Mount-Steel-Hood-Pin-Kit.html"
+    }
+   ],
+   "specs": {
+    "Cutout": "Per template",
+    "Max pin angle": "5°"
+   },
+   "hardware": [
+    {
+     "item": "Latch body screws",
+     "qty": 6,
+     "spec": "Small Allen-head bolts + nuts in retaining ring (supplied)",
+     "grade": "Supplied",
+     "torque": "Snug – strips easily",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "verified",
+     "source": "https://nasaspeed.news/toolshed-engineer/installing-aerocatch-hood-fasteners/",
+     "notes": "NASA Speed News: do not overtighten, they strip easily."
+    }
+   ],
+   "installNotes": [
+    "Set strike-pin height to touch hood underside; paint pin tip, close hood to mark pilot hole.",
+    "Tape template, mark outline, drill pilot larger than jigsaw blade, cut with metal blade.",
+    "Use latch as drill guide for mounting holes; install with retaining ring.",
+    "Adjust pin height until hood closes securely; add orange arrow stickers visible from cockpit."
+   ],
+   "inspection": [
+    "Confirm both latches closed (arrows) before every session."
+   ],
+   "buildPhase": 10,
+   "installOrder": 10,
+   "tags": [],
+   "sources": [
+    {
+     "title": "NASA Speed News – Installing AeroCatch hood fasteners",
+     "url": "https://nasaspeed.news/toolshed-engineer/installing-aerocatch-hood-fasteners/"
+    },
+    {
+     "title": "AeroCatch Plus flush hood latch & pin kit (Anderson Composites)",
+     "url": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.62,
+     0.87,
+     0.45
+    ],
+    "size": [
+     0.12,
+     0.012,
+     0.06
+    ],
+    "mirror": true,
+    "color": "#111111"
+   }
+  },
+  {
+   "id": "body.hood-and-fasteners.strike-pins",
+   "name": "Hood strike pins & core-support brackets",
+   "qty": 2,
+   "description": "Threaded aluminum strike pins with double nuts on brackets off the radiator core support/bumper beam; height sets hood flushness.",
+   "location": "Core support under hood pins, x ≈ −0.62, y ≈ 0.78, z ±0.45.",
+   "connectsTo": [
+    "body.hood-and-fasteners.hood-pins",
+    "chassis.front-bumper-beam"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Strike-pin jam nuts",
+     "qty": 2,
+     "spec": "M10 nuts + washers (AeroCatch kit)",
+     "grade": "Supplied",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "Blue (Loctite 243)",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    },
+    {
+     "item": "Pin bracket bolts",
+     "qty": 2,
+     "spec": "M6 x 1.0 + nyloc",
+     "grade": "ISO 8.8",
+     "torque": "7.4 ft-lb (10 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Fabricate brackets if no flat surface; keep latch mechanism clear of radiator/battery."
+   ],
+   "inspection": [
+    "Check jam nuts tight."
+   ],
+   "buildPhase": 10,
+   "installOrder": 11,
+   "tags": [],
+   "sources": [
+    {
+     "title": "AeroCatch Plus flush hood latch & pin kit (Anderson Composites)",
+     "url": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    },
+    {
+     "title": "NASA Speed News – Installing AeroCatch hood fasteners",
+     "url": "https://nasaspeed.news/toolshed-engineer/installing-aerocatch-hood-fasteners/"
+    }
+   ],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     -0.62,
+     0.8,
+     0.45
+    ],
+    "size": [
+     0.015,
+     0.08,
+     0.015
+    ],
+    "axis": "y",
+    "mirror": true,
+    "color": "#c0392b"
+   }
+  },
+  {
+   "id": "body.hood-and-fasteners.hood-latch",
+   "name": "Factory hood latch (retained or deleted)",
+   "qty": 1,
+   "description": "Factory latch can stay as primary with pins as secondary, or be deleted (with its release cable) when pins are primary.",
+   "location": "Center core support, x ≈ −0.72, y ≈ 0.80.",
+   "connectsTo": [
+    "body.panels.hood"
+   ],
+   "factory": {
+    "name": "GM Camaro hood latch w/ cable release",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Latch bolts",
+     "qty": 3,
+     "spec": "M8 x 1.25 (GM OE)",
+     "grade": "GM OE",
+     "torque": "16.2 ft-lb (22 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [],
+   "inspection": [
+    "Check secondary catch."
+   ],
+   "buildPhase": 10,
+   "installOrder": 12,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.72,
+     0.8,
+     0
+    ],
+    "size": [
+     0.06,
+     0.08,
+     0.1
+    ],
+    "color": "#333333"
+   }
+  },
+  {
+   "id": "body.hood-and-fasteners.hood-hinges",
+   "name": "Hood hinges & prop rod",
+   "qty": 2,
+   "description": "Factory hinges; gas struts usually removed (heat/weight) and replaced with a prop rod, or hinges removed entirely for a lift-off pinned hood.",
+   "location": "Rear corners of hood at cowl, x ≈ 0.50, y ≈ 0.95, z ±0.62.",
+   "connectsTo": [
+    "body.panels.hood"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Hinge-to-body bolts",
+     "qty": 2,
+     "spec": "M8 x 1.25 flange (GM OE)",
+     "grade": "GM OE",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Lift-off hoods need 4 pins."
+   ],
+   "inspection": [
+    "Check hinge bolts."
+   ],
+   "buildPhase": 10,
+   "installOrder": 13,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.5,
+     0.95,
+     0.62
+    ],
+    "size": [
+     0.12,
+     0.06,
+     0.03
+    ],
+    "mirror": true,
+    "color": "#333333"
+   }
+  },
+  {
+   "id": "body.hood-and-fasteners.bump-stops",
+   "name": "Hood bump stops / seals",
+   "qty": 4,
+   "description": "Adjustable rubber stops (AeroCatch kits include them) that preload the hood against the pins to prevent flutter.",
+   "location": "Core support / fender rails.",
+   "connectsTo": [
+    "body.panels.hood"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Threaded rubber stop",
+     "qty": 1,
+     "spec": "Screw-in adjustable",
+     "grade": "n/a",
+     "torque": "Hand tight",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    }
+   ],
+   "installNotes": [],
+   "inspection": [],
+   "buildPhase": 10,
+   "installOrder": 14,
+   "tags": [],
+   "sources": [
+    {
+     "title": "AeroCatch Plus flush hood latch & pin kit (Anderson Composites)",
+     "url": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+    }
+   ],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     -0.55,
+     0.82,
+     0.3
+    ],
+    "size": [
+     0.02,
+     0.02,
+     0.02
+    ],
+    "axis": "y",
+    "instances": [
+     [
+      -0.55,
+      0.82,
+      0.3
+     ],
+     [
+      -0.55,
+      0.82,
+      -0.3
+     ],
+     [
+      0.4,
+      0.92,
+      0.55
+     ],
+     [
+      0.4,
+      0.92,
+      -0.55
+     ]
+    ],
+    "color": "#111111"
+   }
+  }
+ ]
+}

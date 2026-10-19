@@ -1,0 +1,1611 @@
+{
+  "id": "engine.valvetrain",
+  "system": "engine",
+  "name": "Valvetrain & Timing",
+  "description": "Camshaft (incl. DI pump lobe), VVT phaser, center valve, solenoid, limiter/lockout, timing chain/tensioner/guide, lifters and trays (AFM vs delete), pushrods and rocker arms.",
+  "components": [
+    {
+      "id": "engine.valvetrain.camshaft",
+      "name": "Camshaft",
+      "qty": 1,
+      "description": "Single in-block hydraulic-roller camshaft driven by chain through the VVT phaser. Besides 16 valve lobes it carries the 4-lobe high-pressure fuel pump lobe at the rear that drives the DI pump through a roller follower. Stock LT4 cam: 188°/223° @ .050, .502/.561 in lift (1.8 rockers), 120° LSA; LT1: 200°/207°, .551/.524 in, 116.5° LSA.",
+      "location": "In the block cam tunnel above the crankshaft, centered in the V.",
+      "connectsTo": [
+        "engine.block.cam-bearings",
+        "engine.valvetrain.cam-phaser",
+        "engine.valvetrain.lifters",
+        "engine.valvetrain.cam-retainer-plate",
+        "engine.fuel-injection.hpfp-follower"
+      ],
+      "factory": {
+        "name": "GM LT4 camshaft",
+        "partNumber": "GM 12642245",
+        "notes": "LT1 cam 12629512. 1-bolt cam gear, 4X cam-sensor target poles. AFM on LT4 except manual-trans ZL1 (per Summit)."
+      },
+      "raceOptions": [
+        {
+          "name": "BTR Gen V Stage 2 LT1/LT4 supercharged (\"blower\") cam",
+          "brand": "Brian Tooley Racing",
+          "notes": "Listed as .639/.639 in lift, 114 LSA, +38% fuel pump lobe; requires spring upgrade and AFM delete.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/"
+        },
+        {
+          "name": "BTR Gen V 220 cam (NA LT1)",
+          "brand": "Brian Tooley Racing",
+          "partNumber": "BTR GEN V 220",
+          "notes": "220/23X, .644/.644 in, 113 LSA, +32% fuel lobe; requires AFM delete, 4° phaser limiter and SK007 springs.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        },
+        {
+          "name": "COMP / Katech / Crane custom Gen V grind",
+          "brand": "COMP / Katech",
+          "notes": "Specify DI pump lobe lift, VVT or locked phaser, and AFM delete."
+        }
+      ],
+      "specs": {
+        "LT4 duration @ .050": "188° int / 223° exh",
+        "LT4 lift": ".502 / .561 in",
+        "LT4 LSA": "120°",
+        "LT1 duration @ .050": "200° / 207°",
+        "LT1 lift": ".551 / .524 in",
+        "LT1 LSA": "116.5°",
+        "Fuel pump lobe": "4-lobe at rear of cam (drives HPFP)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Lube lobes and journals with cam break-in/assembly lube; install with a cam handle without nicking bearings.",
+        "Install retainer plate before the phaser.",
+        "Degree the cam (intake centerline) against the cam card with the phaser locked/in its default (park) position.",
+        "If cam fuel lobe differs from stock, the ECM fuel-pump calibration must be changed."
+      ],
+      "inspection": [
+        "Inspect lobes and roller lifters at rebuild; cut oil filter for metal."
+      ],
+      "buildPhase": 5,
+      "installOrder": 7,
+      "tags": [
+        "camshaft",
+        "vvt",
+        "di-lobe"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: Gen 5 LT camshaft category (BTR Stage 2 LT1/LT4 supercharged cam)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.0475,
+          0.515,
+          0
+        ],
+        "size": [
+          0.525,
+          0.06,
+          0.06
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM camshaft 12642245",
+            "url": "https://www.chevypartsdeal.com/oem/gm~camshaft-asm~12642245"
+          }
+        ],
+        "dimensions": "~525 mm long, 5 journals ~54-60 mm, base circle ~38 mm",
+        "features": "16 lobes, 4-lobe HPFP drive lobe at the rear, single-bolt VVT nose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.cam-retainer-plate",
+      "name": "Camshaft retainer (thrust) plate",
+      "qty": 1,
+      "description": "Plate bolted to the block front face that controls cam end play and seals the front cam bore oil feed.",
+      "location": "Front face of block around the cam nose, behind the phaser.",
+      "connectsTo": [
+        "engine.valvetrain.camshaft",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM Gen V cam retainer plate with gasket/seal",
+        "notes": "Countersunk Torx/hex bolts."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Cam retainer plate bolt (countersunk)",
+          "qty": 4,
+          "spec": "M8 countersunk Torx/hex",
+          "grade": "",
+          "torque": "11 ft-lb (15 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) recommended on race builds",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "Torx bit",
+          "notes": "Summit lists 11 ft-lb as well.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Replace the plate seal/gasket; verify cam end play."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 8,
+      "tags": [
+        "cam"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.2085,
+          0.515,
+          0
+        ],
+        "size": [
+          0.004,
+          0.08,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V VVT delete kit (shows phaser, bolt, front-cover solenoid area)",
+            "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/vvt-delete-kit-for-2014-gen-v-lt1-lt4-l83-l86-l84-l87-l8t-l82-l8b-michigan-motorsports/"
+          }
+        ],
+        "dimensions": "~100 x 80 mm plate",
+        "features": "Steel thrust plate with 4 bolts behind the cam sprocket",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.cam-phaser",
+      "name": "VVT cam phaser (camshaft position actuator) & sprocket",
+      "qty": 1,
+      "description": "Vane-type hydraulic phaser that is also the cam sprocket. Oil routed by the center valve bolt rotates the cam relative to the chain. It parks at a locked default position on start-up.",
+      "location": "Front of the camshaft, behind the front cover.",
+      "connectsTo": [
+        "engine.valvetrain.camshaft",
+        "engine.valvetrain.timing-chain",
+        "engine.valvetrain.phaser-center-bolt",
+        "engine.valvetrain.vvt-solenoid",
+        "engine.valvetrain.phaser-limiter"
+      ],
+      "factory": {
+        "name": "GM Gen V VVT phaser (LT1/LT4 2014-2021 style)",
+        "notes": "2022+ LT1/LT4 and 2019+ truck engines use a \"Gen V Plus\" phaser - limiters are not interchangeable."
+      },
+      "raceOptions": [
+        {
+          "name": "Lock out with BTR 0° limiter block (keep VVT hardware)",
+          "brand": "Brian Tooley Racing",
+          "partNumber": "BTR-VVT-GENV-LO",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/btr-gen-v-0-degree-phaser-limiter-lockout-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "name": "VVT delete: LS2/LS3-style non-VVT cam gear + BTR cam-sensor conversion",
+          "brand": "Brian Tooley Racing",
+          "notes": "BTR warns: if your cam is designed for a locked phaser, do NOT use the VVT-delete gear (phaser has built-in advance when locked)."
+        }
+      ],
+      "specs": {
+        "Default position": "Locked/park at start",
+        "Sensor target": "4X"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Align phaser timing mark with crank sprocket mark at #1 TDC.",
+        "Install limiter block (if used) with the phaser tool kit before fitting.",
+        "Torque the center bolt per engine.valvetrain.phaser-center-bolt."
+      ],
+      "inspection": [
+        "Check for cam-correlation DTCs/VVT error logs after each event."
+      ],
+      "buildPhase": 5,
+      "installOrder": 21,
+      "tags": [
+        "vvt",
+        "phaser"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: BTR Gen V 0-degree VVT phaser limiter / lockout block (BTR-VVT-GENV-LO)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/btr-gen-v-0-degree-phaser-limiter-lockout-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V Plus 0-degree phaser limiter for 2019+ L84/L87/L8T and 2022+ LT1/LT4",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/btr-gen-v-plus-0-degree-phaser-limiter-lockout-block-for-2019-l84-l87-l8t-5-3l-6-2l-6-6l/"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 4-degree cam phaser limiter block",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-2014-lt1-lt4-lv3-l83-l86/btr-gen-v-4-cam-degree-phaser-limiter-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          -0.222,
+          0.515,
+          0
+        ],
+        "size": [
+          0.022,
+          0.118,
+          0.118
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V timing chain kit: IWIS chain, GM phaser sprocket, tensioner, crank sprocket",
+            "url": "https://www.michiganmotorsports.com/timing-chain-gears-and-vvt/timing-chain-kit-for-2014-l83-l86-lt1-with-iwis-chain-gm-phaser-sprocket-gm-tensioner-gm-crank-sprocket/"
+          },
+          {
+            "title": "Gen V VVT delete kit (shows phaser, bolt, front-cover solenoid area)",
+            "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/vvt-delete-kit-for-2014-gen-v-lt1-lt4-l83-l86-l84-l87-l8t-l82-l8b-michigan-motorsports/"
+          }
+        ],
+        "dimensions": "38-tooth sprocket ~118 mm OD",
+        "features": "Vane phaser with integral sprocket and 4X target windows on the front face",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.phaser-center-bolt",
+      "name": "Phaser center bolt / oil control valve",
+      "qty": 1,
+      "description": "The bolt that clamps the phaser to the cam is a hollow spool valve (camshaft position actuator valve) directing oil to the advance/retard chambers; it is actuated by the solenoid on the front cover.",
+      "location": "Center of the cam phaser.",
+      "connectsTo": [
+        "engine.valvetrain.cam-phaser",
+        "engine.valvetrain.vvt-solenoid",
+        "engine.valvetrain.camshaft"
+      ],
+      "factory": {
+        "name": "GM camshaft position actuator valve (center bolt)",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Camshaft position actuator valve / cam sprocket bolt",
+          "qty": 1,
+          "spec": "Hollow center valve bolt",
+          "grade": "",
+          "torque": "48 ft-lb (65 N·m) then +90°",
+          "torqueSequence": "48 ft-lb, then +90°. Hold the cam/crank against rotation - never use the timing chain to hold torque.",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace (torque-angle)",
+          "tool": "Angle gauge, crank holder",
+          "notes": "Listed by Summit (\"camshaft position actuator solenoid\") and Michigan Motorsports (\"camshaft sprocket bolt / VVT actuator\").",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Lube threads and under-head, start by hand; torque with the cam locked."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 25,
+      "tags": [
+        "vvt",
+        "cam-bolt"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.238,
+          0.515,
+          0
+        ],
+        "size": [
+          0.02,
+          0.026,
+          0.026
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V VVT delete kit (shows phaser, bolt, front-cover solenoid area)",
+            "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/vvt-delete-kit-for-2014-gen-v-lt1-lt4-l83-l86-l84-l87-l8t-l82-l8b-michigan-motorsports/"
+          }
+        ],
+        "dimensions": "~26 mm hex",
+        "features": "Hollow oil-control-valve bolt in the phaser centre",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.vvt-solenoid",
+      "name": "VVT actuator solenoid (front cover)",
+      "qty": 1,
+      "description": "ECM-controlled solenoid on the front cover whose plunger pushes the spool of the phaser center valve. A locked-out race cam still needs the solenoid plugged in or the DTC disabled in the calibration.",
+      "location": "Front of the timing cover, centered over the cam nose.",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.valvetrain.phaser-center-bolt",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V camshaft position actuator solenoid",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "VVT solenoid retaining bolt",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Value not found; typical M6 into aluminum cover. Replace O-ring. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Camshaft Position (CMP) Actuator Magnet Bolts 10 N·m (88 lb in)'. The magnet is the front-cover-mounted VVT solenoid. The central CMP actuator solenoid valve is a separate part: 65 N·m (48 lb ft) +90°, new part.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New O-ring lubricated with engine oil; center it on the phaser valve."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 31,
+      "tags": [
+        "vvt",
+        "sensor"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.262,
+          0.515,
+          0
+        ],
+        "size": [
+          0.03,
+          0.035,
+          0.035
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V VVT delete kit (shows phaser, bolt, front-cover solenoid area)",
+            "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/vvt-delete-kit-for-2014-gen-v-lt1-lt4-l83-l86-l84-l87-l8t-l82-l8b-michigan-motorsports/"
+          }
+        ],
+        "dimensions": "~35 mm dia",
+        "features": "Black solenoid with 2-bolt flange in the front cover on the cam centreline, connector up",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.phaser-limiter",
+      "name": "Phaser limiter / lockout block (race)",
+      "qty": 1,
+      "description": "Billet insert that fixes the phaser at 0° (lockout) or restricts travel (e.g. 4°) so a bigger cam keeps piston-to-valve clearance. Popular on road-race LT builds for repeatable cam timing.",
+      "location": "Inside the cam phaser.",
+      "connectsTo": [
+        "engine.valvetrain.cam-phaser"
+      ],
+      "factory": {
+        "name": "Not fitted (factory VVT range)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BTR Gen V 0° phaser lockout block (2014-2021 LT1/LT4)",
+          "brand": "Brian Tooley Racing",
+          "partNumber": "BTR-VVT-GENV-LO",
+          "notes": "Requires BTR LT1/L83 tool kit, or LT4-specific tool for LT4.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/btr-gen-v-0-degree-phaser-limiter-lockout-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "name": "BTR Gen V 4° phaser limiter block",
+          "brand": "Brian Tooley Racing",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-2014-lt1-lt4-lv3-l83-l86/btr-gen-v-4-cam-degree-phaser-limiter-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "name": "BTR Gen V Plus 0° limiter (2022+ LT1/LT4)",
+          "brand": "Brian Tooley Racing",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/btr-gen-v-plus-0-degree-phaser-limiter-lockout-block-for-2019-l84-l87-l8t-5-3l-6-2l-6-6l/"
+        },
+        {
+          "name": "COMP Cams phaser limiter kit, Gen V LT4",
+          "brand": "COMP Cams",
+          "partNumber": "5450",
+          "url": "https://briantooleyracing.com/comp-cams-phaser-limiter-kit-lt4-5450.html"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Use the correct BTR tool kit (LT4 differs from LT1).",
+        "Match limiter to cam card; re-check piston-to-valve with clay.",
+        "Calibration must reflect the fixed/limited cam position."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 20,
+      "tags": [
+        "vvt",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: BTR Gen V 0-degree VVT phaser limiter / lockout block (BTR-VVT-GENV-LO)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/btr-gen-v-0-degree-phaser-limiter-lockout-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 4-degree cam phaser limiter block",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-2014-lt1-lt4-lv3-l83-l86/btr-gen-v-4-cam-degree-phaser-limiter-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V Plus 0-degree phaser limiter for 2019+ L84/L87/L8T and 2022+ LT1/LT4",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/btr-gen-v-plus-0-degree-phaser-limiter-lockout-block-for-2019-l84-l87-l8t-5-3l-6-2l-6-6l/"
+        },
+        {
+          "title": "Brian Tooley Racing: COMP Cams phaser limiter kit Gen V LT4 5450",
+          "url": "https://briantooleyracing.com/comp-cams-phaser-limiter-kit-lt4-5450.html"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.226,
+          0.545,
+          0
+        ],
+        "size": [
+          0.01,
+          0.02,
+          0.02
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TSP Gen V LT4 cam phaser limiter kit",
+            "url": "https://www.michiganmotorsports.com/camshafts-texas-speed-tsp/gen-5-camshafts-lt1-lt4-lv3-l83-l86/camshaft-phaser-limiter-kit-for-gen-v-lt4-cam-gen-5-lockout/"
+          }
+        ],
+        "dimensions": "Small billet insert",
+        "features": "Gold/anodised limiter block inside the phaser",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.timing-chain",
+      "name": "Timing chain",
+      "qty": 1,
+      "description": "Single-row chain from crank sprocket to cam phaser sprocket. Stock LT uses a hydraulic/spring tensioner and a guide; aftermarket \"tensioner-elimination\" sets use a true-roller chain with a fixed guide for road-race reliability.",
+      "location": "Front of block behind the front cover.",
+      "connectsTo": [
+        "engine.rotating-assembly.crank-sprocket",
+        "engine.valvetrain.cam-phaser",
+        "engine.valvetrain.chain-tensioner",
+        "engine.valvetrain.chain-guide"
+      ],
+      "factory": {
+        "name": "GM Gen V single-row timing chain",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cloyes 9-3678X5 tensioner-elimination LT timing set (single-row true roller, adjustable crank gear)",
+          "brand": "Cloyes",
+          "partNumber": "9-3678X5",
+          "url": "https://90racing.com/products/cloyes-timing-chain-set-9-3678x5"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Align marks; rotate engine two full turns by hand and re-check marks before installing the front cover."
+      ],
+      "inspection": [
+        "Check chain stretch at rebuild (cam-to-crank correlation values in ECM trend upward with stretch)."
+      ],
+      "buildPhase": 5,
+      "installOrder": 22,
+      "tags": [
+        "timing"
+      ],
+      "sources": [
+        {
+          "title": "90 Racing: Cloyes 9-3678X5 tensioner-elimination timing set, GM LT",
+          "url": "https://90racing.com/products/cloyes-timing-chain-set-9-3678x5"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.222,
+          0.4719,
+          0
+        ],
+        "size": [
+          0.012,
+          0.2137,
+          0.13
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V timing chain kit: IWIS chain, GM phaser sprocket, tensioner, crank sprocket",
+            "url": "https://www.michiganmotorsports.com/timing-chain-gears-and-vvt/timing-chain-kit-for-2014-l83-l86-lt1-with-iwis-chain-gm-phaser-sprocket-gm-tensioner-gm-crank-sprocket/"
+          },
+          {
+            "title": "Cloyes GM LT Z-chain kit sheet (PDF)",
+            "url": "https://cloyes.com/wp-content/uploads/2025/10/Cloyes-Performance-GM-LT-Z-Chain-9-3679X5Z.pdf"
+          }
+        ],
+        "dimensions": "Single-row 3/8 in roller chain",
+        "features": "Single-row chain over 19T crank and 38T cam sprockets",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.chain-tensioner",
+      "name": "Timing chain tensioner",
+      "qty": 1,
+      "description": "Spring-loaded (oil-assisted) tensioner shoe that keeps the slack side of the chain tight. Pinned/compressed during install and released after the chain is on.",
+      "location": "Front of block beside the chain, behind front cover.",
+      "connectsTo": [
+        "engine.valvetrain.timing-chain",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM Gen V timing chain tensioner",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Timing chain tensioner bolt",
+          "qty": 2,
+          "spec": "M8 flange bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list 18 ft-lb.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install compressed with its pin; remove pin only after the chain is on and bolts are torqued."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 24,
+      "tags": [
+        "timing"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.215,
+          0.46,
+          -0.052
+        ],
+        "size": [
+          0.02,
+          0.08,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12630107 Gen V timing chain tensioner",
+            "url": "https://www.michiganmotorsports.com/timing-chain-gears-and-vvt/gm-12630107-timing-chain-tensioner-for-2014-gen-v-lt-engines-lt1-l83-l86-lt4-l84-l87-l8t-l84-l82-5-3l-6-2l/"
+          }
+        ],
+        "dimensions": "~80 mm long",
+        "features": "Spring-loaded nylon shoe on a steel bracket, 2 bolts, passenger-side span",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.chain-guide",
+      "name": "Timing chain guide",
+      "qty": 1,
+      "description": "Fixed guide on the tight side of the chain. Aftermarket billet/steel-backed guides are available for higher-rpm use.",
+      "location": "Front of block beside the chain.",
+      "connectsTo": [
+        "engine.valvetrain.timing-chain"
+      ],
+      "factory": {
+        "name": "GM Gen V chain guide",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Texas Speed Gen V LT timing chain guide",
+          "brand": "Texas Speed (TSP)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Chain guide bolt",
+          "qty": 2,
+          "spec": "M6/M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m) (estimate)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Not listed in public Gen V tables; verify size before torquing (use 89 in-lb if M6). Checked 2026-10: the GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists the timing chain tensioner bolts at 25 N·m (18 lb ft), but the chain guide bolt is not in the public tables. Still an estimate. Check the bolt size; if M6, use 89 in-lb.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 23,
+      "tags": [
+        "timing"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.215,
+          0.46,
+          0.052
+        ],
+        "size": [
+          0.015,
+          0.09,
+          0.02
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TSP Gen V timing chain guide (tensioner replacement)",
+            "url": "https://www.michiganmotorsports.com/new-products/tsp-gen-v-lt-timing-chain-guide-2014-lt1-lt4-l83-l84-l86-l87-l8t-l82-l8b-5-3l-6-2l-texas-speed/"
+          }
+        ],
+        "dimensions": "~90 mm long",
+        "features": "Fixed nylon-faced guide with 2 bolts, driver-side span",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.lifters",
+      "name": "Hydraulic roller lifters (AFM or non-AFM)",
+      "qty": 16,
+      "description": "Hydraulic roller lifters (0.842 in body). On AFM engines 8 of them are collapsible deactivation lifters - a common failure point. Road-race builds delete AFM and run LS7-style lifters (GM/Delphi) or premium race lifters with link-bar trays.",
+      "location": "Lifter bores in the block valley, riding on the cam lobes.",
+      "connectsTo": [
+        "engine.valvetrain.camshaft",
+        "engine.valvetrain.lifter-trays",
+        "engine.valvetrain.pushrods"
+      ],
+      "factory": {
+        "name": "GM Gen V hydraulic roller lifter (AFM on AFM cylinders)",
+        "notes": "Body diameter 0.842 in."
+      },
+      "raceOptions": [
+        {
+          "name": "Delphi LS7-style lifters (AFM delete, 16)",
+          "brand": "GM / Delphi",
+          "notes": "Included in Michigan Motorsports and ICT LT AFM delete kits.",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        },
+        {
+          "name": "Johnson / Morel / BTR short-travel race lifters",
+          "brand": "Johnson / Morel / BTR",
+          "notes": "Better high-rpm control; check oil-feed band position for Gen V."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Soak lifters in oil, install in trays, note roller orientation.",
+        "AFM delete REQUIRES a non-AFM camshaft profile and the AFM function disabled in the ECM calibration."
+      ],
+      "inspection": [
+        "At teardown: check roller for flat spots/needle bearing play."
+      ],
+      "buildPhase": 5,
+      "installOrder": 44,
+      "tags": [
+        "lifters",
+        "afm-delete"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        },
+        {
+          "title": "ICT Billet: Gen V LT DOD delete kit 551-DD-LT01",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        },
+        {
+          "title": "Brian Tooley Racing: Gen V DOD/AFM conversion kit",
+          "url": "https://briantooleyracing.com/btr-gen-v-dod-afm-delete-kit.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0215,
+            0.055,
+            0.0215
+          ],
+          "axis": "y",
+          "rot": [
+            49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.5526,
+              0.0435
+            ],
+            [
+              -0.11,
+              0.5526,
+              0.0435
+            ],
+            [
+              -0.0432,
+              0.5526,
+              0.0435
+            ],
+            [
+              0.0018,
+              0.5526,
+              0.0435
+            ],
+            [
+              0.0686,
+              0.5526,
+              0.0435
+            ],
+            [
+              0.1136,
+              0.5526,
+              0.0435
+            ],
+            [
+              0.1804,
+              0.5526,
+              0.0435
+            ],
+            [
+              0.2254,
+              0.5526,
+              0.0435
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0215,
+            0.055,
+            0.0215
+          ],
+          "axis": "y",
+          "rot": [
+            -49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.5526,
+              -0.0435
+            ],
+            [
+              -0.086,
+              0.5526,
+              -0.0435
+            ],
+            [
+              -0.0192,
+              0.5526,
+              -0.0435
+            ],
+            [
+              0.0258,
+              0.5526,
+              -0.0435
+            ],
+            [
+              0.0926,
+              0.5526,
+              -0.0435
+            ],
+            [
+              0.1376,
+              0.5526,
+              -0.0435
+            ],
+            [
+              0.2044,
+              0.5526,
+              -0.0435
+            ],
+            [
+              0.2494,
+              0.5526,
+              -0.0435
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM valve lifter guide 12669185",
+            "url": "https://www.chevypartsdeal.com/oem/gm~guide-valve-lifter~12669185"
+          }
+        ],
+        "dimensions": "0.842 in (21.4 mm) dia, ~55 mm",
+        "features": "Hydraulic roller lifter with flats held in pairs by plastic trays",
+        "confidence": "published (dia)"
+      }
+    },
+    {
+      "id": "engine.valvetrain.lifter-trays",
+      "name": "Lifter guide trays",
+      "qty": 4,
+      "description": "Plastic trays that keep lifter pairs aligned with the cam (anti-rotation). Non-AFM trays are used with an AFM delete.",
+      "location": "Lifter valley, one tray per 4 lifters.",
+      "connectsTo": [
+        "engine.valvetrain.lifters",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM Gen V lifter trays (AFM-style on AFM engines)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "GM non-AFM lifter trays (in AFM delete kits)",
+          "brand": "GM",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Lifter tray bolt",
+          "qty": 1,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "106 in-lb (12 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Gen III/IV lifter guide value; ICT includes tray bolts in its kit. Verify with GM service info. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Valve Lifter Guide Bolts 12 N·m (106 lb in)'. Rated R also gives 106 lb-in. CORRECTED from 89 in-lb, which was the Gen III/IV value.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Ensure each lifter moves freely in the tray after the tray is bolted down."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 45,
+      "tags": [
+        "lifters"
+      ],
+      "sources": [
+        {
+          "title": "ICT Billet: Gen V LT DOD delete kit 551-DD-LT01",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.18,
+            0.016,
+            0.03
+          ],
+          "rot": [
+            49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.0766,
+              0.5605,
+              0.0526
+            ],
+            [
+              0.147,
+              0.5605,
+              0.0526
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.18,
+            0.016,
+            0.03
+          ],
+          "rot": [
+            -49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.0526,
+              0.5605,
+              -0.0526
+            ],
+            [
+              0.171,
+              0.5605,
+              -0.0526
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM valve lifter guide 12669185",
+            "url": "https://www.chevypartsdeal.com/oem/gm~guide-valve-lifter~12669185"
+          }
+        ],
+        "dimensions": "~180 mm, holds 4 lifters",
+        "features": "Black plastic tray with 4 rings and a centre bolt",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.afm-oil-manifold",
+      "name": "AFM valve lifter oil manifold (VLOM) / AFM block-off",
+      "qty": 1,
+      "description": "On AFM engines a solenoid oil manifold under the valley cover feeds the deactivation lifters. With an AFM delete the solenoid passages are blocked off (plugs in the factory valley cover) or a non-AFM valley cover is installed.",
+      "location": "Top of the lifter valley under the valley cover / HPFP area.",
+      "connectsTo": [
+        "engine.valvetrain.lifters",
+        "engine.block.cylinder-block",
+        "engine.fuel-injection.hp-fuel-pump"
+      ],
+      "factory": {
+        "name": "GM valve lifter oil manifold (AFM)",
+        "notes": "Not used on manual-trans ZL1 LT4 (no AFM per Summit)."
+      },
+      "raceOptions": [
+        {
+          "name": "Michigan Motorsports DOD oil block-off plugs (8) for factory DOD valley cover",
+          "brand": "Michigan Motorsports",
+          "notes": "Fit the original DOD valley cover only.",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        },
+        {
+          "name": "ICT Billet O-ringed LT lifter valley plate",
+          "brand": "ICT Billet",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Valve lifter oil manifold bolt",
+          "qty": 10,
+          "spec": "M6/M8 (count approximate)",
+          "grade": "",
+          "torque": "11 ft-lb (15 N·m) then 22 ft-lb (30 N·m)",
+          "torqueSequence": "Two passes center-out.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 46,
+      "tags": [
+        "afm",
+        "dod-delete"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+          "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+        },
+        {
+          "title": "ICT Billet: Gen V LT DOD delete kit 551-DD-LT01",
+          "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.05,
+          0.595,
+          0
+        ],
+        "size": [
+          0.4,
+          0.012,
+          0.11
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~400 x 110 mm",
+        "features": "Cast plate with 4 solenoids (AFM engines) or plain block-off",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valvetrain.pushrods",
+      "name": "Pushrods",
+      "qty": 16,
+      "description": "Stock Gen V pushrods are 7.85 in x 0.342 in. Aftermarket cams/springs call for 3/8 in chromoly pushrods; always measure length with a checker after cam and lifter changes.",
+      "location": "From each lifter up through the head to its rocker arm.",
+      "connectsTo": [
+        "engine.valvetrain.lifters",
+        "engine.valvetrain.rocker-arms"
+      ],
+      "factory": {
+        "name": "GM 7.85 in x .342 in pushrod",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "3/8 in chromoly pushrods, 7.850 in",
+          "brand": "BTR (brand may vary)",
+          "notes": "Offered as BTR 220 kit option.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        },
+        {
+          "name": "Trend / Manton custom length",
+          "brand": "Trend / Manton",
+          "notes": "Order after measuring."
+        }
+      ],
+      "specs": {
+        "Length": "7.850 in stock",
+        "Diameter": "0.342 in stock / 0.375 in race"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Measure with an adjustable checking pushrod for correct lifter preload (Gen V stock rockers are non-adjustable).",
+        "Oil the ends; seat in lifter cup before installing rocker."
+      ],
+      "inspection": [
+        "Roll on glass at rebuild to check straightness."
+      ],
+      "buildPhase": 5,
+      "installOrder": 47,
+      "tags": [
+        "pushrods"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0087,
+            0.2095,
+            0.0087
+          ],
+          "axis": "y",
+          "rot": [
+            49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.6391,
+              0.1435
+            ],
+            [
+              -0.11,
+              0.6391,
+              0.1435
+            ],
+            [
+              -0.0432,
+              0.6391,
+              0.1435
+            ],
+            [
+              0.0018,
+              0.6391,
+              0.1435
+            ],
+            [
+              0.0686,
+              0.6391,
+              0.1435
+            ],
+            [
+              0.1136,
+              0.6391,
+              0.1435
+            ],
+            [
+              0.1804,
+              0.6391,
+              0.1435
+            ],
+            [
+              0.2254,
+              0.6391,
+              0.1435
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.0087,
+            0.2095,
+            0.0087
+          ],
+          "axis": "y",
+          "rot": [
+            -49.1515,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.6391,
+              -0.1435
+            ],
+            [
+              -0.086,
+              0.6391,
+              -0.1435
+            ],
+            [
+              -0.0192,
+              0.6391,
+              -0.1435
+            ],
+            [
+              0.0258,
+              0.6391,
+              -0.1435
+            ],
+            [
+              0.0926,
+              0.6391,
+              -0.1435
+            ],
+            [
+              0.1376,
+              0.6391,
+              -0.1435
+            ],
+            [
+              0.2044,
+              0.6391,
+              -0.1435
+            ],
+            [
+              0.2494,
+              0.6391,
+              -0.1435
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen V pushrod 12619828, 7.850 x 11/32 in",
+            "url": "https://www.michiganmotorsports.com/lifters-and-pushrods/pushrods/gm-gen-v-lt-stock-pushrod-12619828-single-oem-pushrod-for-2014-lt1-lt4-l83-l86-l84-l87-l82-l8t-l8b/"
+          },
+          {
+            "title": "BTR Gen V 7.850 x 3/8 in pushrods",
+            "url": "https://www.michiganmotorsports.com/lifters-and-pushrods/btr-gen-5-v-7-850-chromoly-pushrods-3-8-diameter-083-wall-5-3-6-2-lt1-lt4-l83-l8b-l86/"
+          }
+        ],
+        "dimensions": "7.850 in x 11/32 in (stock), 3/8 in race",
+        "features": "Hollow steel tube with ball ends",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine.valvetrain.rocker-arms",
+      "name": "Rocker arms (1.8:1) & rocker stands",
+      "qty": 16,
+      "description": "Die-cast 1.8:1 roller-fulcrum (trunnion) rockers on pedestal stands, non-adjustable, no offset. The trunnion needle bearings are the weak point at high spring pressure - install a bronze/roller trunnion upgrade or shaft rockers for racing.",
+      "location": "Top of each cylinder head under the valve covers.",
+      "connectsTo": [
+        "engine.valvetrain.pushrods",
+        "engine.cylinder-heads.valve-springs",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.valve-covers.valve-cover"
+      ],
+      "factory": {
+        "name": "GM 1.8 ratio die-cast roller-fulcrum rocker, pedestal mount",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Trunnion upgrade kit for factory rockers",
+          "brand": "BTR / Texas Speed / CHE",
+          "notes": "Recommended by BTR with their cam kits.",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        },
+        {
+          "name": "Shaft-mount rocker system for Gen V",
+          "brand": "Jesel / Harland Sharp / Scorpion",
+          "notes": "Best stability for high spring pressure; check valve-cover clearance. Part numbers not verified here."
+        }
+      ],
+      "specs": {
+        "Ratio": "1.8:1",
+        "Mount": "Pedestal, non-adjustable"
+      },
+      "hardware": [
+        {
+          "item": "Rocker arm bolt",
+          "qty": 1,
+          "spec": "M8 x 1.25 rocker bolt",
+          "grade": "OEM",
+          "torque": "22 ft-lb (30 N·m)",
+          "torqueSequence": "Bring the lifter to the base circle for each pair before final torque (rotate engine; follow firing order).",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list 22 ft-lb.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install pairs with the lifters on base circle; torque to 22 ft-lb.",
+        "Check rocker-to-retainer and rocker-to-cover clearance with high-lift cams."
+      ],
+      "inspection": [
+        "Check for trunnion play, broken needles in the oil filter."
+      ],
+      "buildPhase": 5,
+      "installOrder": 48,
+      "tags": [
+        "rockers",
+        "trunnion"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+          "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.016,
+            0.022,
+            0.077
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.155,
+              0.6881,
+              0.2493
+            ],
+            [
+              -0.11,
+              0.6881,
+              0.2493
+            ],
+            [
+              -0.0432,
+              0.6881,
+              0.2493
+            ],
+            [
+              0.0018,
+              0.6881,
+              0.2493
+            ],
+            [
+              0.0686,
+              0.6881,
+              0.2493
+            ],
+            [
+              0.1136,
+              0.6881,
+              0.2493
+            ],
+            [
+              0.1804,
+              0.6881,
+              0.2493
+            ],
+            [
+              0.2254,
+              0.6881,
+              0.2493
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.016,
+            0.022,
+            0.077
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.131,
+              0.6881,
+              -0.2493
+            ],
+            [
+              -0.086,
+              0.6881,
+              -0.2493
+            ],
+            [
+              -0.0192,
+              0.6881,
+              -0.2493
+            ],
+            [
+              0.0258,
+              0.6881,
+              -0.2493
+            ],
+            [
+              0.0926,
+              0.6881,
+              -0.2493
+            ],
+            [
+              0.1376,
+              0.6881,
+              -0.2493
+            ],
+            [
+              0.2044,
+              0.6881,
+              -0.2493
+            ],
+            [
+              0.2494,
+              0.6881,
+              -0.2493
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen V rocker arm 12619829 (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/rocker-arms-and-trunnion-kits/gen-v-lt1-lt4-lv3-l83-l86/single-gen-v-oem-lt-rocker-arm-genuine-gm-chevrolet-12619829-for-2014-lt1-lt4-l83-l86-l84-l87-l8t-l82/"
+          },
+          {
+            "title": "Harland Sharp Gen V 1.8 rockers (stand/pedestal shape)",
+            "url": "https://www.michiganmotorsports.com/rocker-arms-and-trunnion-kits/harland-sharp-2014-lt1-adjustable-1-8-1-rocker-arms-gen-v-lt4-l83-l86-l84-l87-l8t/"
+          }
+        ],
+        "dimensions": "1.8:1, ~77 mm long",
+        "features": "Cast steel rocker with roller tip and trunnion, bolted to a pedestal stand",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

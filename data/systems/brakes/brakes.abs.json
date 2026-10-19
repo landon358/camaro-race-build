@@ -1,0 +1,769 @@
+{
+  "id": "brakes.abs",
+  "system": "brakes",
+  "name": "ABS / Stability Control",
+  "description": "Factory four-channel ABS with StabiliTrak/ESC and Performance Traction Management: an Electronic Brake Control Module (EBCM) mounted to the Brake Pressure Modulator Valve (BPMV). Race options: keep the factory unit (requires factory CAN/ECM/steering-angle environment), install a stand-alone Bosch Motorsport ABS kit, or delete ABS entirely with a dual-master bias bar.",
+  "components": [
+    {
+      "id": "brakes.abs.factory-bpmv-ebcm",
+      "name": "Brake Pressure Modulator Valve (BPMV) + EBCM (factory ABS/ESC unit)",
+      "qty": 1,
+      "description": "Hydraulic modulator with inlet/outlet solenoid valves and return pump, plus the bolted-on EBCM that runs ABS, traction control, StabiliTrak and electronic brake-force distribution (no separate proportioning valve on Gen 6). Two inlets from the tandem master, four outlets (LF, RF, LR, RR). It needs CAN data (ECM torque, steering angle, yaw/lat-g, wheel speeds) — with a stand-alone race ECU and factory harness removed it will not function.",
+      "location": "Engine compartment, driver side forward area near the frame rail (exact Gen 6 position not confirmed in sources – placed approximately).",
+      "connectsTo": [
+        "brakes.lines.mc-to-abs-lines",
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "brakes.abs.wheel-speed-sensors-front",
+        "brakes.abs.wheel-speed-sensors-rear",
+        "brakes.abs.bpmv-bracket",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM EBCM/BPMV, four-channel ABS with StabiliTrak (Gen 6 Camaro)",
+        "notes": "Product guide: \"Four-wheel disc with four-channel ABS\". Requires GM scan tool (GDS2/Tech2-type) automated bleed after the BPMV is opened."
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport ABS M5 / M7 kit",
+          "brand": "Bosch Motorsport",
+          "notes": "See brakes.abs.bosch-motorsport-abs."
+        },
+        {
+          "name": "ABS delete",
+          "brand": "n/a",
+          "notes": "See brakes.abs.abs-delete-block."
+        }
+      ],
+      "specs": {
+        "Channels": "4",
+        "Inlets": "2 (primary/secondary from tandem MC)",
+        "Outlets": "4"
+      },
+      "hardware": [
+        {
+          "item": "Brake pipe fitting to BPMV inlet",
+          "qty": 2,
+          "spec": "Metric ISO bubble-flare tube nut",
+          "grade": "Steel",
+          "torque": "24 ft-lb (32 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "tool": "Flare-nut wrench",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Brake pipe fitting to BPMV outlet",
+          "qty": 4,
+          "spec": "Metric ISO bubble-flare tube nut (M10x1 typ.)",
+          "grade": "Steel",
+          "torque": "13 ft-lb (18 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "tool": "10/11 mm flare-nut wrench",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "EBCM-to-BPMV screws",
+          "qty": 4,
+          "spec": "Torx screws",
+          "grade": "GM",
+          "torque": "27 in-lb (3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with new EBCM",
+          "notes": "GM table: \"Electronic brake control module bolt\" 3 N·m. Quantity typical for Bosch-style EBCM.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Brake pressure modulator valve nut (BPMV to isolator/bracket)",
+          "qty": 3,
+          "spec": "Small nut on isolator stud",
+          "grade": "GM",
+          "torque": "27 in-lb (3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "GM table value is 3 N·m (light – rubber isolators).",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install bracket, then BPMV on isolators; connect inlet pipes first, outlet pipes second (do not cross LF/RF/LR/RR).",
+        "Bleed conventionally, then run the scan-tool ABS automated bleed to purge the secondary circuits.",
+        "Only retain if the build keeps the factory body/chassis electronics and CAN; otherwise choose Bosch M5/M7 or delete."
+      ],
+      "inspection": [
+        "Check for DTCs after each event if retained.",
+        "Inspect electrical connector and isolators."
+      ],
+      "buildPhase": 2,
+      "installOrder": 14,
+      "tags": [
+        "factory",
+        "abs",
+        "esc",
+        "stabilitrak"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.3,
+            0.6,
+            0.55
+          ],
+          "size": [
+            0.12,
+            0.1,
+            0.12
+          ],
+          "color": "#7a7a7a"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.3,
+            0.6,
+            0.474
+          ],
+          "size": [
+            0.105,
+            0.085,
+            0.032
+          ],
+          "color": "#1a1a1a"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.3,
+            0.595,
+            0.631
+          ],
+          "size": [
+            0.072,
+            0.072,
+            0.042
+          ],
+          "axis": "z",
+          "color": "#1a1a1a"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Valve block ~120 x 100 x 120 mm + EBCM cover + pump motor",
+        "features": "Aluminium block with 6 ports on top, black pump motor, black EBCM with connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.bpmv-bracket",
+      "name": "BPMV mounting bracket & isolators",
+      "qty": 1,
+      "description": "Steel bracket with rubber isolators that holds the factory BPMV to the body; isolators stop pump vibration from reaching the body.",
+      "location": "Under the BPMV, engine bay driver side.",
+      "connectsTo": [
+        "brakes.abs.factory-bpmv-ebcm",
+        "chassis.front-structure.frame-rail-left"
+      ],
+      "factory": {
+        "name": "GM BPMV bracket with insulators",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated aluminum bracket for Bosch M5 with supplied rubber mounts",
+          "brand": "Fabricated",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brake pressure modulator valve bracket nut",
+          "qty": 3,
+          "spec": "M6 flange nut",
+          "grade": "GM",
+          "torque": "62 in-lb (7 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install before the BPMV and before the hard lines are bent to final shape."
+      ],
+      "inspection": [
+        "Check isolators for cracking."
+      ],
+      "buildPhase": 2,
+      "installOrder": 13,
+      "tags": [
+        "factory",
+        "bracket"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.3,
+          0.545,
+          0.55
+        ],
+        "size": [
+          0.14,
+          0.008,
+          0.12
+        ],
+        "color": "#333333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~140 x 120 mm",
+        "features": "Steel bracket with rubber isolators",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.bosch-motorsport-abs",
+      "name": "Bosch Motorsport ABS M5 / M7 kit (race alternative)",
+      "qty": 1,
+      "description": "Stand-alone motorsport ABS: hydraulic unit with integrated ECU, its own wheel-speed inputs, yaw/accel sensor, and a driver map switch (typically 12 settings) that trades stopping distance for stability. Used in GT4/TCR/Trans Am-type cars; designed to work with dual race masters and is independent of the factory CAN. M7 is the newer generation with more channels of configuration.",
+      "location": "Typically in the passenger footwell (cool, protected) or engine bay on vibration mounts; hydraulic unit level, ports accessible. Placed here in passenger footwell x≈0.86, z≈-0.35.",
+      "connectsTo": [
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "brakes.abs.wheel-speed-sensors-front",
+        "brakes.abs.wheel-speed-sensors-rear",
+        "brakes.abs.abs-map-switch",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport ABS M5 Kit",
+          "brand": "Bosch Motorsport",
+          "notes": "Kit = hydraulic unit/ECU, wiring, yaw-rate sensor, switch; calibration by Bosch-trained dealer per car."
+        },
+        {
+          "name": "Bosch Motorsport ABS M7 Kit",
+          "brand": "Bosch Motorsport",
+          "notes": "Successor to M5/M4."
+        }
+      ],
+      "specs": {
+        "Masters": "Use ABS-compatible race masters (e.g. Tilton 79-Series)",
+        "Ports": "Metric (M10x1 / M12x1) – use -3 AN adaptors"
+      },
+      "hardware": [
+        {
+          "item": "Hydraulic unit port adaptors (M10x1 / M12x1 to -3 AN)",
+          "qty": 6,
+          "spec": "Steel adaptor with sealing (cone/bubble or washer per Bosch port)",
+          "grade": "Steel",
+          "torque": "M12x1 ≈ 18–20 N·m; M10x1 ≈ 14–16 N·m (typical metric brake fittings)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Confirm port type and values in Bosch kit manual.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Mounting bolts through rubber isolators",
+          "qty": 3,
+          "spec": "M6 or M8",
+          "grade": "8.8",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount, plumb with -3 AN, wire to PDM switched power and to sensors; have the kit calibrated (vehicle weight, wheelbase, tire rolling radius, bias).",
+        "Bleed with the unit's bleed routine/pump cycle per dealer instructions."
+      ],
+      "inspection": [
+        "Download fault memory after each event.",
+        "Check wheel-speed sensor air gaps and wiring for damage after off-track excursions."
+      ],
+      "buildPhase": 8,
+      "installOrder": 15,
+      "tags": [
+        "race",
+        "abs",
+        "bosch"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.86,
+          0.29,
+          -0.35
+        ],
+        "size": [
+          0.122,
+          0.11,
+          0.122
+        ],
+        "color": "#2a2a2a"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport ABS M5 Kit data sheet – hydraulic unit 122 x 110 x 122 mm, 1.91 kg",
+            "url": "https://www.bosch-motorsport.de/content/downloads/Raceparts/Resources/pdf/Data Sheet_70612107_ABS_M5_Kit.pdf"
+          }
+        ],
+        "dimensions": "122 x 110 x 122 mm, 1.91 kg",
+        "features": "Aluminium valve block, black pump motor, black ECU cover with 38-pin connector, 2 MC inlets + 4 outlets on top",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.abs.abs-map-switch",
+      "name": "ABS map switch (race ABS)",
+      "qty": 1,
+      "description": "12-position rotary switch (Bosch kit) on the dash/steering wheel that selects ABS intervention level; position \"off/limp\" maps are usually included.",
+      "location": "Dash switch panel within driver reach.",
+      "connectsTo": [
+        "brakes.abs.bosch-motorsport-abs",
+        "interior.dash.switch-panel"
+      ],
+      "factory": {
+        "name": "Factory: Performance Traction Management / Competitive mode via drive-mode selector",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport rotary switch (in ABS kit)",
+          "brand": "Bosch Motorsport",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Positions": "12 typical"
+      },
+      "hardware": [
+        {
+          "item": "Switch panel nut",
+          "qty": 1,
+          "spec": "Panel nut supplied",
+          "grade": "Brass",
+          "torque": "Snug (≈ 1.5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount and label positions with the calibrator's recommended baseline."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 16,
+      "tags": [
+        "race",
+        "abs",
+        "switch"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.14,
+          0.7,
+          0.05
+        ],
+        "size": [
+          0.03,
+          0.035,
+          0.035
+        ],
+        "axis": "x",
+        "color": "#d4a017"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport ABS M5 Kit data sheet – hydraulic unit 122 x 110 x 122 mm, 1.91 kg",
+            "url": "https://www.bosch-motorsport.de/content/downloads/Raceparts/Resources/pdf/Data Sheet_70612107_ABS_M5_Kit.pdf"
+          }
+        ],
+        "dimensions": "~35 mm knob",
+        "features": "12-position rotary switch",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.wheel-speed-sensors-front",
+      "name": "Front wheel speed sensors",
+      "qty": 2,
+      "description": "Active (Hall/magneto-resistive) sensors that read the magnetic encoder ring built into the front hub bearing seal. Feed the EBCM (or the race ABS / data logger).",
+      "location": "Pressed into the front hub bearing / knuckle at each front corner.",
+      "connectsTo": [
+        "wheels.front-hubs-bearings.hub-bearing",
+        "brakes.abs.factory-bpmv-ebcm",
+        "brakes.abs.bosch-motorsport-abs",
+        "electrical.data-logger.logger"
+      ],
+      "factory": {
+        "name": "GM active wheel speed sensor (integral with/plugged into front hub bearing on Alpha platform)",
+        "notes": "Bearing encoder is the \"tone ring\"; keep magnetic debris off it."
+      },
+      "raceOptions": [
+        {
+          "name": "Retain OEM sensors with Bosch M5/M7 (Bosch kit supports active sensors)",
+          "brand": "GM",
+          "notes": "Saves fabrication; verify compatibility with your Bosch calibrator."
+        }
+      ],
+      "specs": {
+        "Type": "Active two-wire"
+      },
+      "hardware": [
+        {
+          "item": "Wheel speed sensor harness clips/bracket bolt",
+          "qty": 2,
+          "spec": "M6 bolt / push clips",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (replace broken clips)",
+          "notes": "Sensor retention spec not found in sources; small M6 GM brackets are typically 9–10 N·m.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install with the hub bearing; route harness along the flex brake hose/strut with clips so it cannot contact the tire at full lock and bump."
+      ],
+      "inspection": [
+        "Check harness for heat/abrasion damage near the caliper and brake duct."
+      ],
+      "buildPhase": 4,
+      "installOrder": 17,
+      "tags": [
+        "abs",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.02,
+          0.02,
+          0.035
+        ],
+        "axis": "z",
+        "mirror": true,
+        "pos": [
+          -0.0433,
+          0.3965,
+          0.688
+        ],
+        "color": "#111111"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~35 mm sensor at the back of the hub bearing",
+        "features": "Plastic body, ear, 2-pin connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.wheel-speed-sensors-rear",
+      "name": "Rear wheel speed sensors",
+      "qty": 2,
+      "description": "Active wheel-speed sensors at the rear hub bearings (encoder in bearing).",
+      "location": "Rear knuckle / hub bearing each side.",
+      "connectsTo": [
+        "wheels.rear-hubs-bearings.hub-bearing",
+        "brakes.abs.factory-bpmv-ebcm",
+        "brakes.abs.bosch-motorsport-abs"
+      ],
+      "factory": {
+        "name": "GM active wheel speed sensor (rear)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Retain OEM",
+          "brand": "GM",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Type": "Active two-wire"
+      },
+      "hardware": [
+        {
+          "item": "Sensor / harness bracket bolt",
+          "qty": 1,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route harness away from halfshaft boots and exhaust."
+      ],
+      "inspection": [
+        "As front."
+      ],
+      "buildPhase": 4,
+      "installOrder": 18,
+      "tags": [
+        "abs",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.02,
+          0.02,
+          0.035
+        ],
+        "axis": "z",
+        "mirror": true,
+        "pos": [
+          2.7677,
+          0.3965,
+          0.7155
+        ],
+        "color": "#111111"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~35 mm sensor at the back of the rear hub bearing",
+        "features": "Plastic body, ear, 2-pin connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.yaw-rate-sensor",
+      "name": "Yaw-rate / acceleration sensor",
+      "qty": 1,
+      "description": "Inertial sensor needed by stability control (factory) or by Bosch race ABS for corner-braking logic. Must be mounted rigidly near the car's center of gravity, aligned to the car axes.",
+      "location": "Tunnel / floor near CG, x≈1.6, y≈0.25, z≈0.",
+      "connectsTo": [
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.abs.factory-bpmv-ebcm"
+      ],
+      "factory": {
+        "name": "GM inertial sensor (integrated in another module on Gen 6 – verify)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport yaw-rate sensor (supplied with ABS kit)",
+          "brand": "Bosch Motorsport",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Orientation": "Arrow/axis aligned to vehicle X forward as marked"
+      },
+      "hardware": [
+        {
+          "item": "Sensor mounting screws",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount on a stiff bracket, not on flexible sheet metal."
+      ],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 19,
+      "tags": [
+        "sensor",
+        "abs"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.6,
+          0.24,
+          0
+        ],
+        "size": [
+          0.06,
+          0.03,
+          0.05
+        ],
+        "color": "#1e5aa8"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport ABS M5 Kit data sheet – hydraulic unit 122 x 110 x 122 mm, 1.91 kg",
+            "url": "https://www.bosch-motorsport.de/content/downloads/Raceparts/Resources/pdf/Data Sheet_70612107_ABS_M5_Kit.pdf"
+          }
+        ],
+        "dimensions": "~60 x 50 x 30 mm",
+        "features": "Sensor module with connector and 2 mounting feet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.abs.abs-delete-block",
+      "name": "ABS delete (front tee / rear distribution block)",
+      "qty": 1,
+      "description": "When ABS is deleted, each race master feeds its axle directly: the front master to a tee/distribution block that splits to LF and RF, and the rear master to a tee at the rear crossmember. Many sanctioning bodies (NASA/SCCA prod-based classes) allow ABS removal; check your class rules.",
+      "location": "Front tee on the firewall/footbox; rear tee on rear subframe area (x≈2.55).",
+      "connectsTo": [
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-tee"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN billet tee / 3-way distribution block",
+          "brand": "Earl's / Goodridge / Wilwood",
+          "notes": "Choose one with a bleed or sensor port."
+        }
+      ],
+      "specs": {
+        "Ports": "-3 AN or 3/8-24 IF"
+      },
+      "hardware": [
+        {
+          "item": "Block mounting screws",
+          "qty": 2,
+          "spec": "M6 or 1/4-20",
+          "grade": "8.8 / Grade 5",
+          "torque": "71 in-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-3 AN port fittings",
+          "qty": 3,
+          "spec": "-3 AN 37° male",
+          "grade": "Steel",
+          "torque": "≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount blocks at the highest practical point or provide a bleed port to avoid trapped air."
+      ],
+      "inspection": [
+        "Check fittings for weeping."
+      ],
+      "buildPhase": 2,
+      "installOrder": 20,
+      "tags": [
+        "race",
+        "abs-delete"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.64,
+          0.5,
+          -0.4
+        ],
+        "size": [
+          0.04,
+          0.03,
+          0.04
+        ],
+        "color": "#c62828"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~40 mm billet tee",
+        "features": "Anodised block with 3 AN fittings",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

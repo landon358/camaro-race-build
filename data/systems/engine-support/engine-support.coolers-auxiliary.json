@@ -1,0 +1,354 @@
+{
+  "id": "engine-support.coolers-auxiliary",
+  "system": "engine-support",
+  "name": "Cooler Stack & Auxiliary Cooler Provisions",
+  "description": "Front stack frame and the mounting/ducting provisions for coolers owned by other teams (trans/diff coolers = drivetrain), plus debris screens and the exit-air path.",
+  "components": [
+    {
+      "id": "engine-support.coolers-auxiliary.cooler-stack-frame",
+      "name": "Front heat-exchanger stack frame / impact frame",
+      "qty": 1,
+      "description": "Bolted aluminum/steel frame tied to the front crash rails that carries the IC heat exchanger, radiator, and corner coolers (engine oil, and drivetrain's trans/diff coolers if mounted forward). Allows the whole stack to be serviced as a unit and supports the splitter ducting.",
+      "location": "Nose, between the front frame rail tips, x ≈ -0.80 … -0.60.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.intercooler-loop.heat-exchanger",
+        "engine-support.lubrication.oil-cooler",
+        "drivetrain.transmission-cooling.cooler",
+        "chassis.front-structure.bumper-beam",
+        "aero.splitter.splitter"
+      ],
+      "factory": {
+        "name": "GM radiator support / ZL1 cooling module mounts"
+      },
+      "raceOptions": [
+        {
+          "name": "CSF/GMS ZL1 impact frame (with Stage I oil cooler package)",
+          "brand": "CSF / GMS",
+          "partNumber": "GMS8066",
+          "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Frame-to-rail bolts",
+          "qty": 4,
+          "spec": "M10 x 1.5",
+          "grade": "10.9",
+          "torque": "37–44 ft-lb (50–60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Design frame so cores are rubber-isolated.",
+        "Leave room for -AN lines on the corner coolers and drivetrain coolers."
+      ],
+      "inspection": [
+        "Check mounts after any off-track excursion"
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "frame",
+        "cooling"
+      ],
+      "sources": [
+        {
+          "title": "CSF/GMS ZL1 impact frame pkg",
+          "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.705,
+            0.785,
+            0
+          ],
+          "size": [
+            0.035,
+            0.03,
+            0.82
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.705,
+            0.195,
+            0
+          ],
+          "size": [
+            0.035,
+            0.03,
+            0.82
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.705,
+            0.49,
+            0.41
+          ],
+          "size": [
+            0.035,
+            0.6,
+            0.03
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "CSF/GMS 8066 Camaro ZL1 Stage I oil cooler + impact frame package",
+            "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+          },
+          {
+            "title": "AIRAID: 2017 Camaro ZL1 specs (11 heat exchangers, cooling package)",
+            "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-and-more"
+          }
+        ],
+        "dimensions": "Frame ~820 W x 620 H, 30-35 mm box sections",
+        "features": "Rectangular steel/aluminium frame carrying radiator, HX and coolers, with isolator cups",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.coolers-auxiliary.drivetrain-cooler-provisions",
+      "name": "Trans & differential cooler mounting provisions (coolers owned by drivetrain)",
+      "qty": 2,
+      "description": "Mounting locations and ducting reserved for the drivetrain team's transmission cooler (front-left corner of the nose, mirrored opposite the engine oil cooler) and rear differential cooler (behind the rear axle with a NACA/underbody duct). The ZL1 track cooling pack adds high-capacity oil, transmission and differential coolers.",
+      "location": "Front-left fascia corner (trans) and rear under-floor behind the diff (diff cooler).",
+      "connectsTo": [
+        "drivetrain.transmission-cooling.cooler",
+        "drivetrain.differential-cooling.cooler",
+        "engine-support.coolers-auxiliary.cooler-stack-frame",
+        "engine-support.coolers-auxiliary.debris-screens"
+      ],
+      "factory": {
+        "name": "ZL1 transmission and differential coolers (track cooling pack)",
+        "notes": "AIRAID ZL1 overview."
+      },
+      "raceOptions": [
+        {
+          "name": "Setrab / Mocal stacked-plate coolers",
+          "brand": "Setrab / Mocal"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rubber-isolated cooler mounts",
+          "qty": 4,
+          "spec": "M6 isolator + nyloc",
+          "grade": "Rubber/steel",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Coordinate line routing with drivetrain team so oil, fuel and trans lines do not share P-clamps."
+      ],
+      "inspection": [
+        "Check ducts and mounts"
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "reference",
+        "drivetrain"
+      ],
+      "sources": [
+        {
+          "title": "AIRAID ZL1 specs",
+          "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.575,
+            0.3,
+            -0.55
+          ],
+          "size": [
+            0.02,
+            0.22,
+            0.03
+          ],
+          "instances": [
+            [
+              -0.575,
+              0.3,
+              -0.42
+            ],
+            [
+              -0.575,
+              0.3,
+              -0.68
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.55,
+            0.44,
+            -0.45
+          ],
+          "size": [
+            0.04,
+            0.03,
+            0.24
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "AIRAID: 2017 Camaro ZL1 specs (11 heat exchangers, cooling package)",
+            "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-and-more"
+          },
+          {
+            "title": "Mishimoto 2016+ Camaro auxiliary radiators",
+            "url": "https://www.mishimoto.com/chevy-camaro-ss-auxiliary-radiators-2016.html"
+          }
+        ],
+        "dimensions": "Brackets ~220 mm tall at trans cooler (front RH) and diff cooler (rear)",
+        "features": "Steel L-brackets with rubber-isolated mounts for drivetrain-owned coolers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.coolers-auxiliary.debris-screens",
+      "name": "Cooler debris/stone screens",
+      "qty": 3,
+      "description": "Stainless or aluminum mesh in the fascia openings protecting the HX stack and corner coolers from stones and rubber pick-up.",
+      "location": "Grille and corner duct openings.",
+      "connectsTo": [
+        "engine-support.cooling.radiator-ducting",
+        "aero.front-fascia.grille"
+      ],
+      "raceOptions": [
+        {
+          "name": "Expanded aluminum or 1/4 in SS mesh",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Screen fasteners",
+          "qty": 6,
+          "spec": "M5 button head / rivets",
+          "grade": "SS",
+          "torque": "25–35 in-lb (2.8–4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Clear rubber/debris between sessions"
+      ],
+      "buildPhase": 10,
+      "installOrder": 3,
+      "tags": [
+        "screen"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.82,
+            0.45,
+            0
+          ],
+          "size": [
+            0.005,
+            0.36,
+            0.7
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.69,
+            0.31,
+            0.57
+          ],
+          "size": [
+            0.005,
+            0.2,
+            0.33
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "CSF/GMS 8066 Camaro ZL1 Stage I oil cooler + impact frame package",
+            "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+          }
+        ],
+        "dimensions": "Main 700 x 360 mm; corner screens 330 x 200 mm",
+        "features": "Stainless/aluminium mesh in folded frame, zip-tied/riveted ahead of cores",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.coolers-auxiliary.hood-heat-extraction",
+      "name": "Hood heat extraction (exit-air path, aero-owned panel)",
+      "qty": 1,
+      "description": "Radiator exit air should leave through the hood extractor (ZL1 1LE has a vented hood) rather than pressurizing the engine bay—this measurably improves cooling and reduces front lift. Panel is owned by body/aero; listed here because the cooling system depends on it.",
+      "location": "Hood, behind the radiator.",
+      "connectsTo": [
+        "aero.hood.extractor-vent",
+        "engine-support.cooling.radiator"
+      ],
+      "raceOptions": [
+        {
+          "name": "Louvered/vented race hood",
+          "brand": "Various"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Seal radiator exit to the hood vent with a duct/foam where possible."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 4,
+      "tags": [
+        "reference",
+        "aero"
+      ],
+      "sources": []
+    }
+  ]
+}

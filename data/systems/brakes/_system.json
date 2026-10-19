@@ -1,0 +1,1817 @@
+{
+  "id": "brakes",
+  "name": "Brakes",
+  "summary": "The Gen 6 ZL1 / ZL1 1LE arrives with Brembo 6-piston front (390x36 mm two-piece rotors) and 4-piston rear (365x28 mm) calipers, a vacuum booster with tandem master cylinder, a four-channel ABS/StabiliTrak modulator and an electronic cable-puller park brake. A bare-shell race build normally removes the booster and factory ABS electronics in favor of a floor-mount dual-master pedal box with a cockpit-adjustable balance bar, optionally a Bosch Motorsport ABS kit, stainless -3 plumbing, race pads/fluid and full front brake ducting – or upgrades to AP Racing / Wilwood race calipers.",
+  "overview": "How it works: pedal force is multiplied by the pedal ratio, split by the balance bar between a front and a rear master cylinder, converted to hydraulic pressure, optionally modulated by ABS, and delivered through hard lines and flex hoses to opposed-piston calipers that clamp vented iron rotors. On the factory car the vacuum booster adds force and the EBCM provides electronic brake-force distribution (there is no mechanical proportioning valve).\n\nKey decisions for a road-race Camaro: (1) keep or delete ABS – the factory EBCM/BPMV needs the factory CAN environment (ECM torque, steering angle, yaw), so with a stand-alone race ECU it is either replaced by a Bosch Motorsport M5/M7 kit or deleted; (2) caliper package – the factory ZL1 6-pots are strong but their dust boots cook on a full race car and pad volume is small (~15.8 mm), so Essex/AP Radi-CAL kits (25 mm pads, D62 heavy-duty option, 390 mm for high power) or Wilwood SX6R are common; (3) wheel size – 390 mm ZL1 rotors force 19 in wheels, while the Essex 372 mm kit fits behind 18 in ATS-V-size wheels, which opens up cheaper 18 in slicks; (4) cooling – a heavy car with 600+ hp must have rotor-eye ducting.\n\nRules: NASA and SCCA production-based classes generally allow brake upgrades and ABS changes within class-specific limits (check your class: some spec/production classes require OEM calipers or restrict ABS); all series require a functioning dual-circuit system, brake lights, and secure lines inside the cockpit (no fittings where the driver can be sprayed – route through bulkheads). Trans Am TA2-style rules mandate specific spec components. Always confirm with the current rulebook before buying.\n\nCommon failure points: boiled fluid (long pedal) from insufficient ducting or old fluid; cracked rotors; caliper boots/seals cooked; pad knock-back from worn hub bearings; flex hose chafe; loose bleeders or reused crush washers; torque-to-yield hat/caliper bolts reused; EPB shoes dragging; ABS sensor wiring melted near the caliper.",
+  "buildNotes": [
+    "Phase 1: fabricate pedal-box floor plate and drill firewall bulkhead holes for lines before paint.",
+    "Phase 2: mount pedal box and masters, remote reservoirs, ABS unit (if used), and bend/clamp all hard lines (front via firewall bulkheads, rear down the floor) while the shell is empty.",
+    "Phase 3–4: after suspension: install duct backing plates (or shields), hub bearings, rotors, calipers (bleeders up!), flex hoses with new crush washers, park brake (if kept).",
+    "Pressure-test the hydraulic system before installing interior panels: hold pedal hard 60 s, no drop, no weeps.",
+    "Phase 8: wire brake light/pressure sensors, ABS power/CAN, wheel speed sensors to PDM/logger.",
+    "Phase 10: brake duct inlets in fascia/splitter and hose routing; check steering lock/bump clearance.",
+    "Phase 11: fill with DOT 4 racing fluid, bleed RR-LR-RF-LF (inner then outer), set balance bar baseline, bed pads, verify bias with pressure sensors on track."
+  ],
+  "schematics": [
+    {
+      "id": "brakes.hydraulic-race",
+      "title": "Race brake hydraulic circuit (dual masters, balance bar, Bosch ABS optional)",
+      "type": "hydraulic",
+      "description": "Driver input through a floor-mount pedal and balance bar to separate front and rear master cylinders, each with its own reservoir. Pressure transducers tee off each circuit. The Bosch Motorsport ABS hydraulic unit sits between the masters and the corners (or is replaced by a front tee and a rear tee for an ABS-delete car). Front circuit: two hard lines through firewall bulkheads to the LF/RF hose brackets, flex hoses to 6-piston calipers. Rear circuit: one line under/inside the floor to a tee on the rear subframe, then to LR/RR flex hoses and 4-piston calipers.",
+      "nodes": [
+        {
+          "id": "driver",
+          "label": "Driver foot"
+        },
+        {
+          "id": "pedal",
+          "label": "Brake pedal (≈5.5:1)",
+          "componentId": "brakes.pedal-box.pedal-assembly"
+        },
+        {
+          "id": "bias-knob",
+          "label": "Cockpit bias knob & cable",
+          "componentId": "brakes.pedal-box.bias-adjuster-cable"
+        },
+        {
+          "id": "bbar",
+          "label": "Balance bar",
+          "componentId": "brakes.pedal-box.balance-bar"
+        },
+        {
+          "id": "res-f",
+          "label": "Front reservoir",
+          "componentId": "brakes.master-cylinders.remote-reservoirs"
+        },
+        {
+          "id": "res-r",
+          "label": "Rear reservoir",
+          "componentId": "brakes.master-cylinders.remote-reservoirs"
+        },
+        {
+          "id": "mc-f",
+          "label": "Front master cyl. (≈0.70–0.75 in)",
+          "componentId": "brakes.master-cylinders.front-mc"
+        },
+        {
+          "id": "mc-r",
+          "label": "Rear master cyl. (≈0.81–0.875 in)",
+          "componentId": "brakes.master-cylinders.rear-mc"
+        },
+        {
+          "id": "ps-f",
+          "label": "Front pressure sensor",
+          "componentId": "brakes.master-cylinders.brake-pressure-sensors"
+        },
+        {
+          "id": "ps-r",
+          "label": "Rear pressure sensor / brake-light switch",
+          "componentId": "brakes.pedal-box.brake-light-switch"
+        },
+        {
+          "id": "abs",
+          "label": "Bosch Motorsport ABS M5/M7 (or delete)",
+          "componentId": "brakes.abs.bosch-motorsport-abs"
+        },
+        {
+          "id": "ftee",
+          "label": "Front tee (ABS-delete only)",
+          "componentId": "brakes.abs.abs-delete-block"
+        },
+        {
+          "id": "bh-lf",
+          "label": "Firewall bulkhead LF",
+          "componentId": "brakes.lines.bulkhead-fittings"
+        },
+        {
+          "id": "bh-rf",
+          "label": "Firewall bulkhead RF",
+          "componentId": "brakes.lines.bulkhead-fittings"
+        },
+        {
+          "id": "hl-lf",
+          "label": "LF hard line",
+          "componentId": "brakes.lines.front-hard-lines"
+        },
+        {
+          "id": "hl-rf",
+          "label": "RF hard line",
+          "componentId": "brakes.lines.front-hard-lines"
+        },
+        {
+          "id": "fx-lf",
+          "label": "LF flex hose -3",
+          "componentId": "brakes.lines.front-flex-hoses"
+        },
+        {
+          "id": "fx-rf",
+          "label": "RF flex hose -3",
+          "componentId": "brakes.lines.front-flex-hoses"
+        },
+        {
+          "id": "cal-lf",
+          "label": "LF caliper (6-pot)",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "cal-rf",
+          "label": "RF caliper (6-pot)",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "hl-r",
+          "label": "Rear hard line (floor)",
+          "componentId": "brakes.lines.rear-hard-lines"
+        },
+        {
+          "id": "rtee",
+          "label": "Rear tee",
+          "componentId": "brakes.lines.rear-tee"
+        },
+        {
+          "id": "hl-lr",
+          "label": "LR line",
+          "componentId": "brakes.lines.rear-axle-lines"
+        },
+        {
+          "id": "hl-rr",
+          "label": "RR line",
+          "componentId": "brakes.lines.rear-axle-lines"
+        },
+        {
+          "id": "fx-lr",
+          "label": "LR flex hose",
+          "componentId": "brakes.lines.rear-flex-hoses"
+        },
+        {
+          "id": "fx-rr",
+          "label": "RR flex hose",
+          "componentId": "brakes.lines.rear-flex-hoses"
+        },
+        {
+          "id": "cal-lr",
+          "label": "LR caliper (4-pot)",
+          "componentId": "brakes.rear-calipers.caliper"
+        },
+        {
+          "id": "cal-rr",
+          "label": "RR caliper (4-pot)",
+          "componentId": "brakes.rear-calipers.caliper"
+        },
+        {
+          "id": "wss",
+          "label": "Wheel speed sensors x4",
+          "componentId": "brakes.abs.wheel-speed-sensors-front"
+        },
+        {
+          "id": "yaw",
+          "label": "Yaw / accel sensor",
+          "componentId": "brakes.abs.yaw-rate-sensor"
+        },
+        {
+          "id": "absw",
+          "label": "ABS map switch",
+          "componentId": "brakes.abs.abs-map-switch"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM (power, brake light)",
+          "componentId": "electrical.power-distribution.pdm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "driver",
+          "to": "pedal",
+          "label": "pedal force",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pedal",
+          "to": "bbar",
+          "label": "spherical bearing",
+          "kind": "mechanical"
+        },
+        {
+          "from": "bias-knob",
+          "to": "bbar",
+          "label": "rotary cable",
+          "kind": "mechanical"
+        },
+        {
+          "from": "bbar",
+          "to": "mc-f",
+          "label": "pushrod/clevis",
+          "kind": "mechanical"
+        },
+        {
+          "from": "bbar",
+          "to": "mc-r",
+          "label": "pushrod/clevis",
+          "kind": "mechanical"
+        },
+        {
+          "from": "res-f",
+          "to": "mc-f",
+          "label": "-6 feed (gravity)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "res-r",
+          "to": "mc-r",
+          "label": "-6 feed (gravity)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-f",
+          "to": "ps-f",
+          "label": "tee",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-r",
+          "to": "ps-r",
+          "label": "tee",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-f",
+          "to": "abs",
+          "label": "-3 AN front inlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-r",
+          "to": "abs",
+          "label": "-3 AN rear inlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-f",
+          "to": "ftee",
+          "label": "-3 AN (ABS delete)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "ftee",
+          "to": "bh-lf",
+          "label": "-3 AN (ABS delete)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "ftee",
+          "to": "bh-rf",
+          "label": "-3 AN (ABS delete)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "abs",
+          "to": "bh-lf",
+          "label": "LF outlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "abs",
+          "to": "bh-rf",
+          "label": "RF outlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "bh-lf",
+          "to": "hl-lf",
+          "label": "3/16 hard line",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "bh-rf",
+          "to": "hl-rf",
+          "label": "3/16 hard line",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "hl-lf",
+          "to": "fx-lf",
+          "label": "hose bracket",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "hl-rf",
+          "to": "fx-rf",
+          "label": "hose bracket",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "fx-lf",
+          "to": "cal-lf",
+          "label": "banjo / -3 inlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "fx-rf",
+          "to": "cal-rf",
+          "label": "banjo / -3 inlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "abs",
+          "to": "hl-r",
+          "label": "rear outlet",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "mc-r",
+          "to": "hl-r",
+          "label": "direct (ABS delete)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "hl-r",
+          "to": "rtee",
+          "label": "3/16 hard line",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "rtee",
+          "to": "hl-lr",
+          "label": "",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "rtee",
+          "to": "hl-rr",
+          "label": "",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "hl-lr",
+          "to": "fx-lr",
+          "label": "hose bracket",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "hl-rr",
+          "to": "fx-rr",
+          "label": "hose bracket",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "fx-lr",
+          "to": "cal-lr",
+          "label": "banjo",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "fx-rr",
+          "to": "cal-rr",
+          "label": "banjo",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "wss",
+          "to": "abs",
+          "label": "wheel speed",
+          "kind": "signal"
+        },
+        {
+          "from": "yaw",
+          "to": "abs",
+          "label": "yaw/accel",
+          "kind": "signal"
+        },
+        {
+          "from": "absw",
+          "to": "abs",
+          "label": "map select",
+          "kind": "signal"
+        },
+        {
+          "from": "pdm",
+          "to": "abs",
+          "label": "12 V switched",
+          "kind": "power"
+        },
+        {
+          "from": "ps-r",
+          "to": "pdm",
+          "label": "brake-light trigger",
+          "kind": "signal"
+        }
+      ]
+    },
+    {
+      "id": "brakes.hydraulic-factory",
+      "title": "Factory brake hydraulic circuit (booster, tandem MC, 4-channel ABS/ESC)",
+      "type": "hydraulic",
+      "description": "GM Gen 6 ZL1 layout: pedal pushrod into vacuum booster (manifold vacuum, auxiliary pump on some engines), tandem master cylinder with shared reservoir (also feeding the clutch master), two pipes to the BPMV with the EBCM bolted on, four outlet pipes – one per wheel – to the flex hoses and Brembo calipers. EBD is done electronically by the EBCM.",
+      "nodes": [
+        {
+          "id": "pedal",
+          "label": "Hanging brake pedal",
+          "componentId": "brakes.pedal-box.pedal-assembly"
+        },
+        {
+          "id": "bpp",
+          "label": "Brake pedal position sensor",
+          "componentId": "brakes.pedal-box.brake-light-switch"
+        },
+        {
+          "id": "vac",
+          "label": "Intake manifold vacuum",
+          "componentId": "engine.intake-manifold.manifold"
+        },
+        {
+          "id": "vpump",
+          "label": "Booster vacuum pump (engine-dependent)",
+          "componentId": "brakes.master-cylinders.booster-vacuum-pump"
+        },
+        {
+          "id": "booster",
+          "label": "Vacuum booster",
+          "componentId": "brakes.master-cylinders.factory-booster"
+        },
+        {
+          "id": "res",
+          "label": "MC reservoir + level switch",
+          "componentId": "brakes.master-cylinders.factory-tandem-mc"
+        },
+        {
+          "id": "tmc",
+          "label": "Tandem master cylinder",
+          "componentId": "brakes.master-cylinders.factory-tandem-mc"
+        },
+        {
+          "id": "clutch",
+          "label": "Clutch master (manual)",
+          "componentId": "drivetrain.clutch-hydraulics.clutch-master"
+        },
+        {
+          "id": "bpmv",
+          "label": "BPMV (modulator)",
+          "componentId": "brakes.abs.factory-bpmv-ebcm"
+        },
+        {
+          "id": "ebcm",
+          "label": "EBCM (ABS/TCS/StabiliTrak/EBD)",
+          "componentId": "brakes.abs.factory-bpmv-ebcm"
+        },
+        {
+          "id": "can",
+          "label": "Vehicle CAN (ECM, steering angle, yaw)"
+        },
+        {
+          "id": "cal-lf",
+          "label": "LF Brembo 6-pot",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "cal-rf",
+          "label": "RF Brembo 6-pot",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "cal-lr",
+          "label": "LR Brembo 4-pot",
+          "componentId": "brakes.rear-calipers.caliper"
+        },
+        {
+          "id": "cal-rr",
+          "label": "RR Brembo 4-pot",
+          "componentId": "brakes.rear-calipers.caliper"
+        },
+        {
+          "id": "wss-f",
+          "label": "Front WSS x2",
+          "componentId": "brakes.abs.wheel-speed-sensors-front"
+        },
+        {
+          "id": "wss-r",
+          "label": "Rear WSS x2",
+          "componentId": "brakes.abs.wheel-speed-sensors-rear"
+        },
+        {
+          "id": "epb",
+          "label": "EPB cable puller (J77)",
+          "componentId": "brakes.parking-brake.epb-actuator-module"
+        }
+      ],
+      "edges": [
+        {
+          "from": "pedal",
+          "to": "booster",
+          "label": "pushrod",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pedal",
+          "to": "bpp",
+          "label": "position",
+          "kind": "mechanical"
+        },
+        {
+          "from": "vac",
+          "to": "booster",
+          "label": "vacuum hose + check valve",
+          "kind": "vacuum"
+        },
+        {
+          "from": "vpump",
+          "to": "booster",
+          "label": "aux vacuum",
+          "kind": "vacuum"
+        },
+        {
+          "from": "booster",
+          "to": "tmc",
+          "label": "boosted pushrod",
+          "kind": "mechanical"
+        },
+        {
+          "from": "res",
+          "to": "tmc",
+          "label": "gravity feed",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "res",
+          "to": "clutch",
+          "label": "shared reservoir feed",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "tmc",
+          "to": "bpmv",
+          "label": "primary pipe (30/32 N·m)",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "tmc",
+          "to": "bpmv",
+          "label": "secondary pipe",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "ebcm",
+          "to": "bpmv",
+          "label": "solenoid/pump control",
+          "kind": "signal"
+        },
+        {
+          "from": "can",
+          "to": "ebcm",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "bpp",
+          "to": "ebcm",
+          "label": "brake apply",
+          "kind": "signal"
+        },
+        {
+          "from": "bpmv",
+          "to": "cal-lf",
+          "label": "LF pipe + hose",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "bpmv",
+          "to": "cal-rf",
+          "label": "RF pipe + hose",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "bpmv",
+          "to": "cal-lr",
+          "label": "LR pipe + hose",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "bpmv",
+          "to": "cal-rr",
+          "label": "RR pipe + hose",
+          "kind": "brake-fluid"
+        },
+        {
+          "from": "wss-f",
+          "to": "ebcm",
+          "label": "wheel speed",
+          "kind": "signal"
+        },
+        {
+          "from": "wss-r",
+          "to": "ebcm",
+          "label": "wheel speed",
+          "kind": "signal"
+        },
+        {
+          "from": "ebcm",
+          "to": "epb",
+          "label": "apply/release request",
+          "kind": "can"
+        }
+      ]
+    },
+    {
+      "id": "brakes.cooling-airflow",
+      "title": "Front brake cooling airflow",
+      "type": "flow",
+      "description": "Ram air enters fascia/splitter inlets, travels through 3 in duct hose to the backing plate that replaces the dust shield, enters the rotor eye at the hat, is pumped outward by the directional vanes and exits at the rotor OD, carrying heat away from the ring and (indirectly) the pads and caliper.",
+      "nodes": [
+        {
+          "id": "ram",
+          "label": "Ram air (front stagnation zone)"
+        },
+        {
+          "id": "inlet",
+          "label": "Fascia/splitter inlet",
+          "componentId": "brakes.cooling.inlets"
+        },
+        {
+          "id": "hose",
+          "label": "3 in duct hose",
+          "componentId": "brakes.cooling.duct-hose"
+        },
+        {
+          "id": "plate",
+          "label": "Backing plate / spigot",
+          "componentId": "brakes.cooling.backing-plates"
+        },
+        {
+          "id": "eye",
+          "label": "Rotor eye (hat center)",
+          "componentId": "brakes.front-rotors.hat"
+        },
+        {
+          "id": "vanes",
+          "label": "Directional vanes",
+          "componentId": "brakes.front-rotors.rotor"
+        },
+        {
+          "id": "ring",
+          "label": "Friction ring OD exit",
+          "componentId": "brakes.front-rotors.rotor"
+        },
+        {
+          "id": "pads",
+          "label": "Pads",
+          "componentId": "brakes.front-pads.pads"
+        },
+        {
+          "id": "caliper",
+          "label": "Caliper body & fluid",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "well",
+          "label": "Wheel well / low-pressure exit"
+        }
+      ],
+      "edges": [
+        {
+          "from": "ram",
+          "to": "inlet",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "inlet",
+          "to": "hose",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "hose",
+          "to": "plate",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "plate",
+          "to": "eye",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "eye",
+          "to": "vanes",
+          "label": "centrifugal pumping",
+          "kind": "air"
+        },
+        {
+          "from": "vanes",
+          "to": "ring",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "ring",
+          "to": "well",
+          "label": "hot air out",
+          "kind": "air"
+        },
+        {
+          "from": "pads",
+          "to": "ring",
+          "label": "friction heat into rotor",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pads",
+          "to": "caliper",
+          "label": "heat soak via pistons",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "brakes.park-brake",
+      "title": "Factory electronic park brake (J77 cable puller, drum-in-hat)",
+      "type": "mechanical",
+      "description": "Console switch → EPB module (motor + gear) → intermediate cable/equalizer → left and right rear cables → shoe levers inside each rear rotor hat (drum). Service requires scan-tool release mode.",
+      "nodes": [
+        {
+          "id": "sw",
+          "label": "EPB console switch",
+          "componentId": "brakes.parking-brake.epb-switch"
+        },
+        {
+          "id": "mod",
+          "label": "EPB actuator/module",
+          "componentId": "brakes.parking-brake.epb-actuator-module"
+        },
+        {
+          "id": "int",
+          "label": "Intermediate cable / equalizer",
+          "componentId": "brakes.parking-brake.intermediate-cable"
+        },
+        {
+          "id": "cl",
+          "label": "LR cable",
+          "componentId": "brakes.parking-brake.rear-cables"
+        },
+        {
+          "id": "cr",
+          "label": "RR cable",
+          "componentId": "brakes.parking-brake.rear-cables"
+        },
+        {
+          "id": "sl",
+          "label": "LR shoes",
+          "componentId": "brakes.parking-brake.shoes"
+        },
+        {
+          "id": "sr",
+          "label": "RR shoes",
+          "componentId": "brakes.parking-brake.shoes"
+        },
+        {
+          "id": "dl",
+          "label": "LR rotor hat drum",
+          "componentId": "brakes.rear-rotors.rotor"
+        },
+        {
+          "id": "dr",
+          "label": "RR rotor hat drum",
+          "componentId": "brakes.rear-rotors.rotor"
+        }
+      ],
+      "edges": [
+        {
+          "from": "sw",
+          "to": "mod",
+          "label": "apply/release",
+          "kind": "signal"
+        },
+        {
+          "from": "mod",
+          "to": "int",
+          "label": "cable pull",
+          "kind": "mechanical"
+        },
+        {
+          "from": "int",
+          "to": "cl",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "int",
+          "to": "cr",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cl",
+          "to": "sl",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cr",
+          "to": "sr",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "sl",
+          "to": "dl",
+          "label": "shoe contact",
+          "kind": "mechanical"
+        },
+        {
+          "from": "sr",
+          "to": "dr",
+          "label": "shoe contact",
+          "kind": "mechanical"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "brakes.route.race-front-mc-to-abs",
+      "name": "Race: front MC to ABS",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.mc-to-abs-lines",
+      "radius": 0.0035,
+      "points": [
+        [
+          0.68,
+          0.31,
+          0.41
+        ],
+        [
+          0.66,
+          0.22,
+          0.36
+        ],
+        [
+          0.72,
+          0.2,
+          0.15
+        ],
+        [
+          0.78,
+          0.2,
+          -0.1
+        ],
+        [
+          0.84,
+          0.24,
+          -0.28
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-rear-mc-to-abs",
+      "name": "Race: rear MC to ABS",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.mc-to-abs-lines",
+      "radius": 0.0035,
+      "points": [
+        [
+          0.68,
+          0.31,
+          0.34
+        ],
+        [
+          0.67,
+          0.21,
+          0.3
+        ],
+        [
+          0.74,
+          0.19,
+          0.12
+        ],
+        [
+          0.8,
+          0.19,
+          -0.1
+        ],
+        [
+          0.86,
+          0.23,
+          -0.26
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-lf-hard-line",
+      "name": "Race: ABS to LF hose bracket (via bulkhead)",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          0.86,
+          0.33,
+          -0.4
+        ],
+        [
+          0.7,
+          0.46,
+          -0.42
+        ],
+        [
+          0.62,
+          0.52,
+          -0.4
+        ],
+        [
+          0.55,
+          0.62,
+          -0.2
+        ],
+        [
+          0.52,
+          0.64,
+          0.2
+        ],
+        [
+          0.4,
+          0.6,
+          0.48
+        ],
+        [
+          0.2,
+          0.55,
+          0.55
+        ],
+        [
+          0.05,
+          0.5,
+          0.56
+        ],
+        [
+          0.08,
+          0.47,
+          0.58
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-rf-hard-line",
+      "name": "Race: ABS to RF hose bracket (via bulkhead)",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          0.86,
+          0.33,
+          -0.42
+        ],
+        [
+          0.7,
+          0.46,
+          -0.46
+        ],
+        [
+          0.62,
+          0.52,
+          -0.48
+        ],
+        [
+          0.45,
+          0.58,
+          -0.52
+        ],
+        [
+          0.2,
+          0.55,
+          -0.55
+        ],
+        [
+          0.05,
+          0.5,
+          -0.56
+        ],
+        [
+          0.08,
+          0.47,
+          -0.58
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-rear-hard-line",
+      "name": "Race: ABS to rear tee",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          0.88,
+          0.26,
+          -0.3
+        ],
+        [
+          0.95,
+          0.18,
+          -0.36
+        ],
+        [
+          1.2,
+          0.165,
+          -0.42
+        ],
+        [
+          1.8,
+          0.165,
+          -0.42
+        ],
+        [
+          2.25,
+          0.17,
+          -0.4
+        ],
+        [
+          2.42,
+          0.24,
+          -0.3
+        ],
+        [
+          2.52,
+          0.31,
+          -0.12
+        ],
+        [
+          2.55,
+          0.33,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-lr-line",
+      "name": "Rear tee to LR hose bracket",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-axle-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          2.55,
+          0.33,
+          0
+        ],
+        [
+          2.58,
+          0.35,
+          0.2
+        ],
+        [
+          2.62,
+          0.38,
+          0.4
+        ],
+        [
+          2.66,
+          0.41,
+          0.55
+        ],
+        [
+          2.7,
+          0.42,
+          0.6
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.race-rr-line",
+      "name": "Rear tee to RR hose bracket",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-axle-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          2.55,
+          0.33,
+          0
+        ],
+        [
+          2.58,
+          0.35,
+          -0.2
+        ],
+        [
+          2.62,
+          0.38,
+          -0.4
+        ],
+        [
+          2.66,
+          0.41,
+          -0.55
+        ],
+        [
+          2.7,
+          0.42,
+          -0.6
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.lf-flex",
+      "name": "LF flex hose",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-flex-hoses",
+      "radius": 0.005,
+      "points": [
+        [
+          0.08,
+          0.47,
+          0.58
+        ],
+        [
+          0.11,
+          0.46,
+          0.62
+        ],
+        [
+          0.14,
+          0.44,
+          0.66
+        ],
+        [
+          0.155,
+          0.43,
+          0.685
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.rf-flex",
+      "name": "RF flex hose",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-flex-hoses",
+      "radius": 0.005,
+      "points": [
+        [
+          0.08,
+          0.47,
+          -0.58
+        ],
+        [
+          0.11,
+          0.46,
+          -0.62
+        ],
+        [
+          0.14,
+          0.44,
+          -0.66
+        ],
+        [
+          0.155,
+          0.43,
+          -0.685
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.lr-flex",
+      "name": "LR flex hose",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-flex-hoses",
+      "radius": 0.005,
+      "points": [
+        [
+          2.7,
+          0.42,
+          0.6
+        ],
+        [
+          2.78,
+          0.43,
+          0.63
+        ],
+        [
+          2.88,
+          0.43,
+          0.67
+        ],
+        [
+          2.95,
+          0.43,
+          0.69
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.rr-flex",
+      "name": "RR flex hose",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-flex-hoses",
+      "radius": 0.005,
+      "points": [
+        [
+          2.7,
+          0.42,
+          -0.6
+        ],
+        [
+          2.78,
+          0.43,
+          -0.63
+        ],
+        [
+          2.88,
+          0.43,
+          -0.67
+        ],
+        [
+          2.95,
+          0.43,
+          -0.69
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.factory-mc-to-bpmv",
+      "name": "Factory: tandem MC to BPMV (BPMV position approximate)",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.mc-to-abs-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          0.3,
+          0.8,
+          0.4
+        ],
+        [
+          0.22,
+          0.76,
+          0.44
+        ],
+        [
+          0.05,
+          0.7,
+          0.5
+        ],
+        [
+          -0.15,
+          0.64,
+          0.54
+        ],
+        [
+          -0.26,
+          0.61,
+          0.55
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.factory-lf",
+      "name": "Factory: BPMV to LF",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          -0.3,
+          0.58,
+          0.58
+        ],
+        [
+          -0.18,
+          0.55,
+          0.6
+        ],
+        [
+          -0.02,
+          0.52,
+          0.58
+        ],
+        [
+          0.05,
+          0.5,
+          0.57
+        ],
+        [
+          0.08,
+          0.47,
+          0.58
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.factory-rf",
+      "name": "Factory: BPMV to RF",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.front-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          -0.3,
+          0.6,
+          0.52
+        ],
+        [
+          -0.3,
+          0.66,
+          0.2
+        ],
+        [
+          -0.28,
+          0.66,
+          -0.3
+        ],
+        [
+          -0.15,
+          0.58,
+          -0.55
+        ],
+        [
+          0.05,
+          0.5,
+          -0.56
+        ],
+        [
+          0.08,
+          0.47,
+          -0.58
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.factory-lr",
+      "name": "Factory: BPMV to LR (underfloor)",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          -0.32,
+          0.57,
+          0.55
+        ],
+        [
+          -0.2,
+          0.42,
+          0.52
+        ],
+        [
+          0.2,
+          0.28,
+          0.46
+        ],
+        [
+          0.6,
+          0.18,
+          0.42
+        ],
+        [
+          1.4,
+          0.165,
+          0.4
+        ],
+        [
+          2.2,
+          0.17,
+          0.4
+        ],
+        [
+          2.45,
+          0.28,
+          0.45
+        ],
+        [
+          2.62,
+          0.38,
+          0.55
+        ],
+        [
+          2.7,
+          0.42,
+          0.6
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.factory-rr",
+      "name": "Factory: BPMV to RR (underfloor)",
+      "kind": "brake-fluid",
+      "componentId": "brakes.lines.rear-hard-lines",
+      "radius": 0.003,
+      "points": [
+        [
+          -0.32,
+          0.57,
+          0.53
+        ],
+        [
+          -0.2,
+          0.42,
+          0.5
+        ],
+        [
+          0.2,
+          0.28,
+          0.44
+        ],
+        [
+          0.6,
+          0.18,
+          0.39
+        ],
+        [
+          1.4,
+          0.165,
+          0.38
+        ],
+        [
+          2.2,
+          0.17,
+          0.37
+        ],
+        [
+          2.4,
+          0.26,
+          0.2
+        ],
+        [
+          2.5,
+          0.32,
+          -0.2
+        ],
+        [
+          2.62,
+          0.38,
+          -0.55
+        ],
+        [
+          2.7,
+          0.42,
+          -0.6
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.lf-duct",
+      "name": "LF brake cooling duct",
+      "kind": "air",
+      "componentId": "brakes.cooling.duct-hose",
+      "radius": 0.038,
+      "points": [
+        [
+          -0.85,
+          0.3,
+          0.55
+        ],
+        [
+          -0.8,
+          0.29,
+          0.58
+        ],
+        [
+          -0.6,
+          0.29,
+          0.62
+        ],
+        [
+          -0.4,
+          0.3,
+          0.64
+        ],
+        [
+          -0.22,
+          0.33,
+          0.575
+        ],
+        [
+          -0.08,
+          0.36,
+          0.6
+        ],
+        [
+          0,
+          0.37,
+          0.625
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.rf-duct",
+      "name": "RF brake cooling duct",
+      "kind": "air",
+      "componentId": "brakes.cooling.duct-hose",
+      "radius": 0.038,
+      "points": [
+        [
+          -0.85,
+          0.3,
+          -0.55
+        ],
+        [
+          -0.8,
+          0.29,
+          -0.58
+        ],
+        [
+          -0.6,
+          0.29,
+          -0.62
+        ],
+        [
+          -0.4,
+          0.3,
+          -0.64
+        ],
+        [
+          -0.22,
+          0.33,
+          -0.575
+        ],
+        [
+          -0.08,
+          0.36,
+          -0.6
+        ],
+        [
+          0,
+          0.37,
+          -0.625
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.lr-duct",
+      "name": "LR brake cooling duct (optional)",
+      "kind": "air",
+      "componentId": "brakes.cooling.rear-ducts",
+      "radius": 0.03,
+      "points": [
+        [
+          2.2,
+          0.17,
+          0.52
+        ],
+        [
+          2.4,
+          0.2,
+          0.58
+        ],
+        [
+          2.6,
+          0.3,
+          0.62
+        ],
+        [
+          2.75,
+          0.36,
+          0.635
+        ],
+        [
+          2.811,
+          0.37,
+          0.635
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.rr-duct",
+      "name": "RR brake cooling duct (optional)",
+      "kind": "air",
+      "componentId": "brakes.cooling.rear-ducts",
+      "radius": 0.03,
+      "points": [
+        [
+          2.2,
+          0.17,
+          -0.52
+        ],
+        [
+          2.4,
+          0.2,
+          -0.58
+        ],
+        [
+          2.6,
+          0.3,
+          -0.62
+        ],
+        [
+          2.75,
+          0.36,
+          -0.635
+        ],
+        [
+          2.811,
+          0.37,
+          -0.635
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.bias-cable",
+      "name": "Bias adjuster cable",
+      "kind": "mechanical",
+      "componentId": "brakes.pedal-box.bias-adjuster-cable",
+      "radius": 0.004,
+      "points": [
+        [
+          0.84,
+          0.27,
+          0.44
+        ],
+        [
+          0.92,
+          0.33,
+          0.44
+        ],
+        [
+          1.02,
+          0.48,
+          0.38
+        ],
+        [
+          1.1,
+          0.6,
+          0.26
+        ],
+        [
+          1.16,
+          0.64,
+          0.16
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.park-brake-lr",
+      "name": "Park brake cable LR",
+      "kind": "mechanical",
+      "componentId": "brakes.parking-brake.rear-cables",
+      "radius": 0.003,
+      "points": [
+        [
+          2.35,
+          0.22,
+          0
+        ],
+        [
+          2.45,
+          0.24,
+          0.05
+        ],
+        [
+          2.55,
+          0.28,
+          0.12
+        ],
+        [
+          2.62,
+          0.32,
+          0.35
+        ],
+        [
+          2.7,
+          0.35,
+          0.55
+        ],
+        [
+          2.76,
+          0.36,
+          0.66
+        ]
+      ]
+    },
+    {
+      "id": "brakes.route.park-brake-rr",
+      "name": "Park brake cable RR",
+      "kind": "mechanical",
+      "componentId": "brakes.parking-brake.rear-cables",
+      "radius": 0.003,
+      "points": [
+        [
+          2.35,
+          0.22,
+          0
+        ],
+        [
+          2.45,
+          0.24,
+          -0.05
+        ],
+        [
+          2.55,
+          0.28,
+          -0.12
+        ],
+        [
+          2.62,
+          0.32,
+          -0.35
+        ],
+        [
+          2.7,
+          0.35,
+          -0.55
+        ],
+        [
+          2.76,
+          0.36,
+          -0.66
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+      "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+    },
+    {
+      "title": "NHTSA-filed GM bulletin MC-10126120-9999 (ZL1 1LE: 390x36 front 6-pot, 365x28 rear 4-pot, two-piece front rotors not machinable)",
+      "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+    },
+    {
+      "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+      "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+    },
+    {
+      "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+      "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+    },
+    {
+      "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+      "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+    },
+    {
+      "title": "CAMARO6 forum – Brake caliper mounting torque specs 20 SS/2SS (150 N·m + 15–30°, rear 125 N·m)",
+      "url": "https://www.camaro6.com/forums/showthread.php?t=619468"
+    },
+    {
+      "title": "CAMARO6 forum – Torque value for caliper bolts 2017 ZL1 (pad pins, cross bolt)",
+      "url": "https://www.camaro6.com/forums/showthread.php?t=516448"
+    },
+    {
+      "title": "Camaro5 forum – Gen 6 caliper bracket bolts (60 N·m + 90° front / 40 N·m + 90° rear, single use)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=10812553"
+    },
+    {
+      "title": "Camaro5 forum – ZL1 brake upgrade installation torque settings (rotor screw 10 N·m, hose-to-caliper 40 N·m, hose-to-pipe 16 N·m)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=7288668"
+    },
+    {
+      "title": "PMB Performance – Brembo front caliper seal kit, Camaro ZL1 1LE Gen 6 (2x30/2x34/2x38 mm)",
+      "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+    },
+    {
+      "title": "PMB Performance – Brembo rear caliper seal kit, Camaro ZL1 1LE Gen 6 (2x28/2x32 mm)",
+      "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+    },
+    {
+      "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+      "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+    },
+    {
+      "title": "Elite Performance – AP Racing by Essex Radi-CAL ENP Competition Kit Front CP9668 372mm, Gen 6 Camaro",
+      "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-enp-competition-brake-kit-front-cp9668-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+    },
+    {
+      "title": "Essex Parts – Ferodo pads for AP Radi-CAL CP9668/CP9669 (FRP3014, D62 Camaro HD kit)",
+      "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+    },
+    {
+      "title": "Essex Parts – Eradicating failure-prone stock brake components on a Gen.6 Camaro (CP9668 HD D62 kit)",
+      "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+    },
+    {
+      "title": "Essex Parts – AP Racing by Essex brakes on SavageGeese Camaro SS 1LE (372mm CP9668, Apex 19x11 ET36)",
+      "url": "https://www.essexparts.com/ap-racing-by-essex-brakes-featured-on-savagegeese-camaro-ss-1le-dream-build"
+    },
+    {
+      "title": "Essex Parts – Black Friday 2024 curated deals: Chevrolet Camaro Gen.6 (front and matching rear kits)",
+      "url": "https://www.essexparts.com/news-blog/black-friday-2024-curated-deals-chevrolet-camaro-gen6"
+    },
+    {
+      "title": "Wildhammer WH38 DBA rotor-ring hardware, 16–24 Camaro SS/ZL1 (replaces TTY hat bolts, 10.9 serrated)",
+      "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+    },
+    {
+      "title": "Tilton Racing – 78-Series master cylinders (bores, AN3 outlet, AN6 inlet, 3/8-24 pushrod; not for ABS, use 79-Series)",
+      "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+    },
+    {
+      "title": "Wilwood PR320 – 2016–2019 Camaro front SX6R kits (140-15441-R)",
+      "url": "https://wilwood.com/PDF/PressReleases/pr320_Wilwood_2016-2019_Camaro_Front_SX6R_Kits.pdf"
+    },
+    {
+      "title": "Wilwood flyer FL470 – Camaro SX6R front kits (14/15 in GT, SRP, WCCB carbon-ceramic)",
+      "url": "https://www.wilwood.com/PDF/Flyers/fl470.pdf"
+    },
+    {
+      "title": "Wilwood PR262 – 2016 Camaro front Aerolite kits",
+      "url": "https://wilwood.com/pdf/PressReleases/pr262_wilwood_2016_Camaro_Front_Aerolite_Brake_Kits.pdf"
+    },
+    {
+      "title": "GM Accessories 84236462 Brembo six-piston front brake package for 2016+ Camaro LT/SS (370x34 two-piece rotors)",
+      "url": "https://sdparts.com/i-24080292-gm-accessories-84236462-brembo-performance-front-brake-package-six-piston-calipers-for-2016-camaro-lt-ss.html"
+    },
+    {
+      "title": "Wikipedia – Chevrolet Camaro (sixth generation)",
+      "url": "https://en.wikipedia.org/wiki/Chevrolet_Camaro_(sixth_generation)"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "id": "safety.tow-hooks",
+  "system": "safety",
+  "name": "Tow Hooks / Straps",
+  "description": "Front and rear tow points that recovery crews can reach without removing body parts, painted/marked in contrasting color.",
+  "components": [
+    {
+      "id": "safety.tow-hooks.front-tow-strap",
+      "name": "Front tow strap / hook",
+      "qty": 1,
+      "description": "Fabric tow strap or folding tow hook bolted to the front bumper beam/crash can, protruding through the fascia/splitter opening. Most sanctioning bodies require front and rear tow points clearly marked and accessible.",
+      "location": "Front bumper beam right-of-center, x ≈ −0.88, y ≈ 0.38, z ≈ −0.30 (through lower fascia opening).",
+      "connectsTo": [
+        "chassis.front-bumper-beam",
+        "body.panels.front-fascia",
+        "aero.front-splitter.splitter-blade"
+      ],
+      "factory": {
+        "name": "GM screw-in tow eye (stored in trunk) threading into front bumper beam boss",
+        "partNumber": "",
+        "notes": "Thread size not verified in sources – measure before buying an aftermarket screw-in hook."
+      },
+      "raceOptions": [
+        {
+          "name": "Nylon racing tow strap (1.5–2 in webbing) with bolt eyelet",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "Bolt through crash can/beam with backing plate.",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Color": "Contrasting (red/yellow) with arrow decal"
+      },
+      "hardware": [
+        {
+          "item": "Strap mounting bolt",
+          "qty": 1,
+          "spec": "M10 x 1.5 or 3/8-16 bolt + large washer + nyloc through beam",
+          "grade": "ISO 10.9 / SAE Grade 8",
+          "torque": "36.9 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nyloc",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "M10 torque per Schroth chart reference; confirm beam wall thickness/backing plate. Checked 2026-10: 50 N·m matches class 8.8 M10 (Atlas Copco 49 N·m). For 3/8-16 Grade 8, standard charts give 40-52 ft-lb. The tow-strap makers publish no torque. Upgraded to typical."
+        }
+      ],
+      "installNotes": [
+        "Strap must clear splitter so towing does not tear off aero."
+      ],
+      "inspection": [
+        "Check webbing and bolt each event."
+      ],
+      "buildPhase": 10,
+      "installOrder": 59,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.9,
+          0.3,
+          -0.25
+        ],
+        "size": [
+          0.1,
+          0.012,
+          0.05
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Sabelt 2 in tow strap (NASA CCR 2 in loop)",
+            "url": "https://attackingtheclockracing.com/products/sabelt-tow-strap"
+          },
+          {
+            "title": "Sabelt tow straps review (NASA Speed News)",
+            "url": "https://nasaspeed.news/columns/race-gear/sabelt-tow-straps"
+          }
+        ],
+        "dimensions": "2 in polyester loop (2 in min ID per NASA CCR), 15.5 mm eye plate",
+        "features": "Red strap bolted to the front tow-eye receptacle, folded loop out through the lower fascia",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.tow-hooks.rear-tow-strap",
+      "name": "Rear tow eye / strap",
+      "qty": 1,
+      "description": "Rear tow point: factory screw-in rear tow eye in the rear bumper beam, or a fabric strap bolted to the rear beam/frame rail.",
+      "location": "Rear bumper beam, x ≈ 3.80, y ≈ 0.40, z ≈ +0.30.",
+      "connectsTo": [
+        "chassis.rear-bumper-beam",
+        "body.panels.rear-fascia",
+        "aero.rear-diffuser.diffuser-panel"
+      ],
+      "factory": {
+        "name": "GM rear bumper tow eye",
+        "partNumber": "22873449",
+        "notes": "Part number from a seller listing (\"2016–2024 Camaro rear bumper tow eye hook OEM 22873449\") – verify with GM parts."
+      },
+      "raceOptions": [
+        {
+          "name": "Nylon racing tow strap bolted to rear beam",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Strap mounting bolt",
+          "qty": 1,
+          "spec": "M10 x 1.5 bolt + washer + nyloc",
+          "grade": "ISO 10.9",
+          "torque": "36.9 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nyloc",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "Checked 2026-10: 50 N·m matches class 8.8 M10 (Atlas Copco 49 N·m). Upgraded to typical."
+        }
+      ],
+      "installNotes": [
+        "Route clear of diffuser and exhaust heat."
+      ],
+      "inspection": [
+        "Check strap for heat damage."
+      ],
+      "buildPhase": 10,
+      "installOrder": 60,
+      "tags": [],
+      "sources": [
+        {
+          "title": "eBay listing – 2016-2024 Camaro rear bumper tow eye OEM 22873449",
+          "url": "https://www.ebay.de/itm/333929532552"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.83,
+          0.345,
+          0.3
+        ],
+        "size": [
+          0.1,
+          0.012,
+          0.05
+        ],
+        "rot": [
+          0,
+          180,
+          0
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Sabelt 2 in tow strap (NASA CCR 2 in loop)",
+            "url": "https://attackingtheclockracing.com/products/sabelt-tow-strap"
+          }
+        ],
+        "dimensions": "2 in polyester loop, 15.5 mm eye plate",
+        "features": "Red strap on the rear tow point",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.tow-hooks.tow-markers",
+      "name": "Tow point arrow decals",
+      "qty": 2,
+      "description": "Contrasting arrow decals on the bodywork pointing to each tow point.",
+      "location": "Front fascia and rear fascia near tow points.",
+      "connectsTo": [
+        "safety.tow-hooks.front-tow-strap",
+        "safety.tow-hooks.rear-tow-strap",
+        "body.paint-wrap.safety-decals"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Vinyl decal",
+          "qty": 1,
+          "spec": "Arrow \"TOW\"",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Apply after wrap/paint."
+      ],
+      "inspection": [
+        "Replace if missing."
+      ],
+      "buildPhase": 10,
+      "installOrder": 61,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.9,
+          0.4,
+          -0.25
+        ],
+        "size": [
+          0.002,
+          0.05,
+          0.1
+        ],
+        "instances": [
+          [
+            -0.9,
+            0.4,
+            -0.25
+          ],
+          [
+            3.8,
+            0.42,
+            0.3
+          ]
+        ]
+      }
+    }
+  ]
+}

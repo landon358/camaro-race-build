@@ -1,0 +1,952 @@
+{
+  "id": "drivetrain.shifter",
+  "system": "drivetrain",
+  "name": "Shifter & Shift Actuation",
+  "description": "Remote shifter, external shift rod, bushings, isolator, knob and boots for the TR-6060; plus the sequential paddle-shift option (paddles, GCU, pneumatic actuator, air supply).",
+  "components": [
+    {
+      "id": "drivetrain.shifter.shifter-assembly",
+      "name": "Shifter (remote shift control)",
+      "qty": 1,
+      "description": "The Gen 6 TR-6060 uses a remote shift control connected to the gearbox's internal shift rails by an external shift rod, which lets the shifter sit rearward of the trans' own shift tower. Race upgrades shorten throw, remove rubber isolation and add positive gate stops; a sequential box uses a push-pull lever or paddle actuation instead.",
+      "location": "Center tunnel/console, slightly right of the driver (base x\u22481.30, y\u22480.45; knob x\u22481.32, y\u22480.68, z\u2248+0.06).",
+      "connectsTo": [
+        "drivetrain.shifter.shift-rod",
+        "drivetrain.shifter.shifter-isolator",
+        "drivetrain.shifter.shift-knob",
+        "drivetrain.shifter.shift-boots",
+        "drivetrain.transmission.transmission",
+        "drivetrain.transmission.gear-position-sensor",
+        "chassis.underbody.tunnel"
+      ],
+      "factory": {
+        "name": "GM remote transmission shift control (TR-6060, Gen 6)",
+        "notes": "GM MH3 description: 'remote transmission shift control' with 'external transmission shift rod enabling the rearward mount location of the transmission shift control'."
+      },
+      "raceOptions": [
+        {
+          "name": "Short-throw / race shifter for Gen 6 Camaro TR-6060",
+          "brand": "MGW / Hurst",
+          "notes": "Billet base, solid mounting, adjustable stops; confirm Gen 6 rod-type fitment."
+        },
+        {
+          "name": "Sequential push-pull lever",
+          "brand": "Holinger / Xtrac / Samsonas",
+          "notes": "Integral gear-lever or remote shift-rod actuation (Holinger RD6-S).",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "name": "TREMEC Magnum XL trans-mounted isolated shifter",
+          "brand": "TREMEC",
+          "notes": "Magnum XL has a trans-mount isolated shifter at 28.46 in from trans face - may not suit Gen 6 console location.",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "specs": {
+        "Type": "Remote, rod-linked"
+      },
+      "hardware": [
+        {
+          "item": "Shifter base-to-body/bracket bolt",
+          "qty": 4,
+          "spec": "M8 x 1.25",
+          "grade": "8.8",
+          "torque": "OEM shift control to tunnel reinforcement: 106 in-lb (12 N\u00b7m); OEM shift control adapter plate bolt 13 ft-lb (18 N\u00b7m) / nut 106 in-lb (12 N\u00b7m). Aftermarket shifter: maker value.",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual (TREMEC MM6 section) lists these values. CORRECTED from 18 ft-lb (25 N\u00b7m) for the OEM base.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Shift lever-to-base pivot fastener",
+          "qty": 1,
+          "spec": "Per shifter",
+          "grade": "",
+          "torque": "Per shifter maker",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install after trans and crossmember are final.",
+        "Adjust stops so the lever bottoms on the stop, not on the trans internal rail.",
+        "Verify all 6 gears + reverse with engine off and wheels turning."
+      ],
+      "inspection": [
+        "Bolt torque",
+        "Lever play / bushing wear",
+        "Gate stop adjustment"
+      ],
+      "buildPhase": 6,
+      "installOrder": 37,
+      "tags": [
+        "shifter",
+        "short-throw"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        },
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.3,
+            0.45,
+            0.03
+          ],
+          "size": [
+            0.16,
+            0.07,
+            0.11
+          ]
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.3,
+              0.465,
+              0.03
+            ],
+            [
+              1.31,
+              0.58,
+              0.035
+            ],
+            [
+              1.33,
+              0.65,
+              0.04
+            ]
+          ],
+          "radius": 0.008
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SST STX shifter for Camaro TR-6060 (replaces OE remote shifter)",
+            "url": "https://www.shiftsst.com/stx-shifter-chevrolet-camaro-tr-6060-trg-06060a/p430"
+          },
+          {
+            "title": "SST STX TR-6060 shifter photo",
+            "url": "https://67f8ec6b437ef4aa1ce6-fa6b73d71ae7fb2e80851cfc51017cc9.ssl.cf1.rackcdn.com/TRG06060A-large-430--v.webp"
+          },
+          {
+            "title": "Hurst Billet Plus shifter 2016-24 Camaro TR6060 (retains factory knob)",
+            "url": "https://www.jegs.com/i/hurst-530-3916047-billet-plus-short-throw-shifter-for-2016-2024-camaro-1le-ss-zl1-reverse-right-tr6060-retains-factory-knob-black-anodized"
+          },
+          {
+            "title": "TREMEC blog: TR-6060 integral bellhousing & semi-remote shifter vs Magnum",
+            "url": "https://tremec-blog.com/?p=814"
+          }
+        ],
+        "dimensions": "Base ~160 x 110 mm, lever ~200 mm to the knob",
+        "features": "Cast-aluminium semi-remote shift control on an isolated base behind the tail housing, pivot dome, forward clevis for the shift rod, bent steel lever",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shift-rod",
+      "name": "External shift rod / linkage",
+      "qty": 1,
+      "description": "Rod linking the remote shifter to the transmission's shift-rail input. Any slop here becomes a vague, missable shift; race builds use rod ends or solid bushings.",
+      "location": "Above the tailhousing from trans shift input (x\u22481.00, y\u22480.50) back to the shifter base (x\u22481.28, y\u22480.45).",
+      "connectsTo": [
+        "drivetrain.shifter.shifter-assembly",
+        "drivetrain.shifter.shift-rod-bushings",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM external transmission shift rod",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Rod-end (heim) shift rod",
+          "brand": "MGW / custom",
+          "notes": "Chromoly rod with PTFE-lined rod ends, jam nuts and safety washers."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rod-end pivot bolt + nylock nut",
+          "qty": 2,
+          "spec": "M8 or 5/16 in",
+          "grade": "10.9 / Gr 8",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (nylock)",
+          "safetyWire": false,
+          "reuse": "Replace nylock each removal",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Rod-end jam nut",
+          "qty": 2,
+          "spec": "Per rod-end thread",
+          "grade": "",
+          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set length so the shifter is centered in the 3-4 plane in neutral."
+      ],
+      "inspection": [
+        "Rod-end play",
+        "Jam nuts tight"
+      ],
+      "buildPhase": 6,
+      "installOrder": 38,
+      "tags": [
+        "linkage",
+        "shift-rod"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.02,
+            0.52,
+            0.03
+          ],
+          [
+            1.14,
+            0.49,
+            0.03
+          ],
+          [
+            1.22,
+            0.44,
+            0.03
+          ]
+        ],
+        "radius": 0.006
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC blog: TR-6060 integral bellhousing & semi-remote shifter vs Magnum",
+            "url": "https://tremec-blog.com/?p=814"
+          }
+        ],
+        "dimensions": "~200 mm rod",
+        "features": "Steel rod with rubber-isolated eyes between shift tower and shifter",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shift-rod-bushings",
+      "name": "Shift linkage bushings",
+      "qty": 2,
+      "description": "Bushings at each end of the shift rod/at the shifter pivot. Factory rubber bushings give a rubbery feel; solid Delrin/poly replacements are a cheap precision upgrade (slightly more NVH).",
+      "location": "Shift rod ends and shifter pivot.",
+      "connectsTo": [
+        "drivetrain.shifter.shift-rod",
+        "drivetrain.shifter.shifter-assembly"
+      ],
+      "factory": {
+        "name": "GM rubber-isolated bushings",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delrin / polyurethane shifter bushing kit",
+          "brand": "aftermarket (various)",
+          "notes": "Confirm Gen 6 rod-type fitment."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Lightly grease poly bushings with silicone grease."
+      ],
+      "inspection": [
+        "Cracks/ovality at each event"
+      ],
+      "buildPhase": 6,
+      "installOrder": 39,
+      "tags": [
+        "bushing"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.02,
+          0.52,
+          0.03
+        ],
+        "size": [
+          0.024,
+          0.024,
+          0.02
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            1.02,
+            0.52,
+            0.03
+          ],
+          [
+            1.22,
+            0.44,
+            0.03
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~24 mm",
+        "features": "Rubber bushings in the rod eyes",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shifter-isolator",
+      "name": "Shifter isolator / mount",
+      "qty": 1,
+      "description": "Rubber isolator between the shifter base and its support. Replace with a solid or poly mount for a race car.",
+      "location": "Under shifter base on tunnel bracket.",
+      "connectsTo": [
+        "drivetrain.shifter.shifter-assembly",
+        "chassis.underbody.tunnel"
+      ],
+      "factory": {
+        "name": "GM shifter isolator",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Solid aluminum shifter mount",
+          "brand": "MGW / custom",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Isolator stud nut",
+          "qty": 4,
+          "spec": "M8",
+          "grade": "",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Torn isolator"
+      ],
+      "buildPhase": 6,
+      "installOrder": 40,
+      "tags": [
+        "mount"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.3,
+          0.405,
+          0.03
+        ],
+        "size": [
+          0.13,
+          0.02,
+          0.11
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "SST STX shifter for Camaro TR-6060 (replaces OE remote shifter)",
+            "url": "https://www.shiftsst.com/stx-shifter-chevrolet-camaro-tr-6060-trg-06060a/p430"
+          }
+        ],
+        "dimensions": "~130 x 110 mm",
+        "features": "Rubber isolator under the shifter base",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shift-knob",
+      "name": "Shift knob",
+      "qty": 1,
+      "description": "Driver interface. A heavier knob improves shift feel; for sequential boxes a pull-trigger/upshift-downshift legend and reverse lockout trigger are typical.",
+      "location": "Top of shift lever (x\u22481.32, y\u22480.68, z\u2248+0.06).",
+      "connectsTo": [
+        "drivetrain.shifter.shifter-assembly"
+      ],
+      "factory": {
+        "name": "GM suede shift knob (ZL1 1LE)",
+        "notes": "GM lists 6-speed manual suede shift knob on ZL1 1LE."
+      },
+      "raceOptions": [
+        {
+          "name": "Weighted / delrin knob",
+          "brand": "various",
+          "notes": "Match lever thread."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Knob jam nut / set screw",
+          "qty": 1,
+          "spec": "Per lever thread",
+          "grade": "",
+          "torque": "Hand tight + jam nut",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242 on set screw",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Loose knob"
+      ],
+      "buildPhase": 9,
+      "installOrder": 84,
+      "tags": [
+        "knob",
+        "interior"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.333,
+          0.672,
+          0.04
+        ],
+        "size": [
+          0.048,
+          0.055,
+          0.048
+        ],
+        "axis": "y",
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Hurst Billet Plus shifter 2016-24 Camaro TR6060 (retains factory knob)",
+            "url": "https://www.jegs.com/i/hurst-530-3916047-billet-plus-short-throw-shifter-for-2016-2024-camaro-1le-ss-zl1-reverse-right-tr6060-retains-factory-knob-black-anodized"
+          }
+        ],
+        "dimensions": "~48 mm dia x 55 mm",
+        "features": "Suede-wrapped GM knob with chrome base ring",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shift-boots",
+      "name": "Shifter boots (inner fire/sound seal & outer trim)",
+      "qty": 1,
+      "description": "Inner boot seals the tunnel opening (keeps fumes/heat/fire out of the cockpit - many rulebooks require the tunnel opening be sealed); outer boot is trim.",
+      "location": "Tunnel opening around shift lever.",
+      "connectsTo": [
+        "drivetrain.shifter.shifter-assembly",
+        "chassis.underbody.tunnel",
+        "interior.console.console"
+      ],
+      "factory": {
+        "name": "GM inner & outer shift boots",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fire-resistant boot + aluminum ring",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Boot ring screw",
+          "qty": 4,
+          "spec": "M5 / #10",
+          "grade": "",
+          "torque": "\u22482-3 ft-lb (3-4 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal tunnel gaps with fire-rated sealant."
+      ],
+      "inspection": [
+        "Tears"
+      ],
+      "buildPhase": 9,
+      "installOrder": 85,
+      "tags": [
+        "boot",
+        "firewall"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cone",
+        "pos": [
+          1.315,
+          0.56,
+          0.035
+        ],
+        "size": [
+          0.12,
+          0.11,
+          0.12
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Hurst Billet Plus shifter 2016-24 Camaro TR6060 (retains factory knob)",
+            "url": "https://www.jegs.com/i/hurst-530-3916047-billet-plus-short-throw-shifter-for-2016-2024-camaro-1le-ss-zl1-reverse-right-tr6060-retains-factory-knob-black-anodized"
+          }
+        ],
+        "dimensions": "~120 mm base",
+        "features": "Inner rubber boot + outer trim boot",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.paddle-shifters",
+      "name": "Steering-wheel paddle shifters (sequential option)",
+      "qty": 1,
+      "description": "Upshift/downshift paddles (or buttons) on the steering wheel/quick-release hub feeding the gear shift controller. Used with pneumatic or electric actuation on a sequential gearbox - the Camaro GT4.R uses pneumatic paddle shift with its Xtrac sequential.",
+      "location": "Behind steering wheel rim (x\u22481.27, y\u22480.80, z\u2248+0.37 \u00b10.12).",
+      "connectsTo": [
+        "drivetrain.shifter.shift-controller",
+        "steering.steering-wheel.wheel",
+        "steering.steering-wheel.quick-release"
+      ],
+      "factory": {
+        "name": "Not fitted on manual cars (ARM paddles are rev-match toggles only)",
+        "notes": "Factory paddles on manual ZL1/1LE toggle Active Rev Match."
+      },
+      "raceOptions": [
+        {
+          "name": "Paddle kit with coil-cord/quick-release connector",
+          "brand": "Geartronics / Megaline / Cartek",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Signal": "Digital switch to GCU"
+      },
+      "hardware": [
+        {
+          "item": "Paddle mount screw",
+          "qty": 4,
+          "spec": "M5",
+          "grade": "",
+          "torque": "\u22483 ft-lb (4 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Switch function / coil cord"
+      ],
+      "buildPhase": 9,
+      "installOrder": 86,
+      "tags": [
+        "paddle",
+        "sequential",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        },
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.27,
+          0.8,
+          0.37
+        ],
+        "size": [
+          0.01,
+          0.08,
+          0.04
+        ],
+        "instances": [
+          [
+            1.27,
+            0.8,
+            0.49
+          ],
+          [
+            1.27,
+            0.8,
+            0.25
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~80 mm paddles",
+        "features": "Sequential option paddles behind the wheel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.shift-controller",
+      "name": "Gear shift controller (GCU)",
+      "qty": 1,
+      "description": "Electronic controller that commands the pneumatic/electric actuator, requests ignition cut (upshift) and throttle blip (downshift) from the ECU, reads the barrel position sensor and enforces protection (over-rev downshift lockout, reverse lockout).",
+      "location": "Behind dash / passenger footwell electronics tray (x\u22481.05, y\u22480.55, z\u2248-0.15).",
+      "connectsTo": [
+        "drivetrain.shifter.paddle-shifters",
+        "drivetrain.shifter.pneumatic-actuator",
+        "drivetrain.transmission.gear-position-sensor",
+        "engine.ecu.ecm",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Paddle-shift GCU",
+          "brand": "Geartronics / Megaline / MoTeC (integrated)",
+          "notes": "Many MoTeC M1 packages integrate gear control."
+        }
+      ],
+      "specs": {
+        "Bus": "CAN to ECU/dash"
+      },
+      "hardware": [
+        {
+          "item": "GCU mounting screw (on AV mounts)",
+          "qty": 4,
+          "spec": "M5",
+          "grade": "",
+          "torque": "\u22483 ft-lb (4 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Error logs",
+        "Connector security"
+      ],
+      "buildPhase": 8,
+      "installOrder": 76,
+      "tags": [
+        "gcu",
+        "can",
+        "sequential"
+      ],
+      "sources": [
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.05,
+          0.55,
+          -0.15
+        ],
+        "size": [
+          0.12,
+          0.04,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~120 x 100 mm",
+        "features": "Gear shift controller box (sequential option)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.pneumatic-actuator",
+      "name": "Pneumatic shift actuator & valve block",
+      "qty": 1,
+      "description": "Double-acting air ram with solenoid valves that pushes/pulls the sequential gearbox's shift rod/barrel. Mounted rigidly to the gearbox to avoid misalignment.",
+      "location": "On top/side of sequential gearbox (x\u22481.00, y\u22480.55, z\u2248-0.06).",
+      "connectsTo": [
+        "drivetrain.shifter.shift-controller",
+        "drivetrain.shifter.air-supply",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Pneumatic paddle-shift kit",
+          "brand": "Geartronics / Megaline / Cartek",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Working pressure": "\u22486-10 bar typical (per kit)"
+      },
+      "hardware": [
+        {
+          "item": "Actuator bracket bolt",
+          "qty": 4,
+          "spec": "M8",
+          "grade": "",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Rod-end pivot bolt",
+          "qty": 1,
+          "spec": "M8",
+          "grade": "",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Align actuator axis with gearbox shift input through full stroke."
+      ],
+      "inspection": [
+        "Air leaks",
+        "Bracket cracks",
+        "Rod-end play"
+      ],
+      "buildPhase": 6,
+      "installOrder": 41,
+      "tags": [
+        "pneumatic",
+        "air",
+        "sequential"
+      ],
+      "sources": [
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1,
+          0.56,
+          -0.06
+        ],
+        "size": [
+          0.18,
+          0.05,
+          0.05
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~180 x 50 mm",
+        "features": "Pneumatic cylinder with valve block (sequential option)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.shifter.air-supply",
+      "name": "Air supply (compressor, tank, regulator, lines)",
+      "qty": 1,
+      "description": "On-board 12 V compressor and/or refillable tank with regulator and pressure switch feeding the shift actuator via nylon air line.",
+      "location": "Passenger footwell/behind passenger seat area (x\u22481.90, y\u22480.25, z\u2248-0.40), line along tunnel.",
+      "connectsTo": [
+        "drivetrain.shifter.pneumatic-actuator",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Paddle-shift air kit",
+          "brand": "Geartronics / Megaline",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tank strap bolt",
+          "qty": 4,
+          "spec": "M6/M8",
+          "grade": "",
+          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Push-in air fittings",
+          "qty": 4,
+          "spec": "6 mm / 1/4 in",
+          "grade": "",
+          "torque": "N/A (push-in)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant on fitting threads",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount tank securely (rules treat it as a pressure vessel - use certified tank)."
+      ],
+      "inspection": [
+        "Leak-down overnight",
+        "Compressor duty cycle"
+      ],
+      "buildPhase": 8,
+      "installOrder": 77,
+      "tags": [
+        "pneumatic",
+        "air"
+      ],
+      "sources": [
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.9,
+          0.25,
+          -0.4
+        ],
+        "size": [
+          0.3,
+          0.1,
+          0.1
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~300 x 100 mm tank",
+        "features": "Air tank with regulator (sequential option)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

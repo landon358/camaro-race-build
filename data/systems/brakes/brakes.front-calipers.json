@@ -1,0 +1,529 @@
+{
+  "id": "brakes.front-calipers",
+  "system": "brakes",
+  "name": "Front Calipers",
+  "description": "Fixed, opposed-piston calipers bolted directly to the front knuckle (no bracket on the factory Brembo installs). ZL1/ZL1 1LE: Brembo 6-piston monobloc (2x38, 2x34, 2x30 mm). Race: AP Racing Radi-CAL (Essex kits) or Wilwood SX6R on radial-mount brackets. Calipers sit behind the axle centerline (trailing) on the Gen 6.",
+  "components": [
+    {
+      "id": "brakes.front-calipers.caliper",
+      "name": "Front brake caliper",
+      "qty": 2,
+      "description": "Clamps the pads onto the front rotor; the front axle does ~65–70% of the braking on this car. The factory ZL1 6-piston Brembo is strong but on a full race car its piston dust boots cook after hard sessions (Essex customer report) and fluid temps run high; race calipers without boots, with stiffer bodies and thicker 25 mm pads are the usual upgrade.",
+      "location": "Front knuckle, trailing side of the rotor (behind the axle centerline), outboard of the strut lower mount. Approx center x≈+0.165, y≈0.37, z≈±0.70.",
+      "connectsTo": [
+        "suspension.front-knuckle.knuckle",
+        "brakes.front-rotors.rotor",
+        "brakes.front-pads.pads",
+        "brakes.lines.front-flex-hoses",
+        "brakes.lines.banjo-bolts-crush-washers",
+        "brakes.front-calipers.bleeder-screws",
+        "brakes.cooling.backing-plates"
+      ],
+      "factory": {
+        "name": "Brembo 6-piston monobloc, ZL1 / ZL1 1LE (RPO J6G package)",
+        "notes": "Cast aluminum fixed caliper; pistons 2x38, 2x34, 2x30 mm. ZL1 1LE TSB lists 6-piston fixed cast-aluminum front with 390x36 mm rotor. SS (J55): Brembo 4-piston fixed front. SS 1LE: Brembo front with 370 mm (14.6 in) two-piece rotors (Wikipedia lists 6-piston – verify on your car). Base cars (JL9): single-piston floating caliper on a bracket."
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing by Essex Radi-CAL Competition kit, CP9660 + 372x34 mm",
+          "brand": "AP Racing / Essex",
+          "partNumber": "13.01.10060 (calipers CP9660-2S4L / CP9660-3S4L; discs CP7177-350CG / CP7177-351GC)",
+          "notes": "Fits behind OEM 1LE 20 in wheels; saves ~22 lb unsprung vs OEM 1LE; pistons sized for OEM master/ABS; Essex recommends 390 mm kits for forced-induction cars like ZL1.",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "name": "AP Racing by Essex Radi-CAL ENP Competition kit, CP9668 + 372x34 mm",
+          "brand": "AP Racing / Essex",
+          "partNumber": "13.01.10061-ENP (calipers CP9668-2S7L / CP9668-3S7L)",
+          "notes": "ENP finish; ~20 lb saved vs SS 1LE brakes. CP9668 takes FRP3014-shape pads, 25 mm thick.",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-enp-competition-brake-kit-front-cp9668-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "name": "AP Racing by Essex CP9668 Heavy Duty kit, 390 mm",
+          "brand": "AP Racing / Essex",
+          "partNumber": "13.01.10140",
+          "notes": "Uses D62 (62 mm tall) pads for more pad volume – preferred for a heavy, high-power road-race Camaro.",
+          "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+        },
+        {
+          "name": "Wilwood SX6R front kit, 2016–2019 Camaro",
+          "brand": "Wilwood",
+          "partNumber": "140-15441-R",
+          "notes": "Forged 6-piston with SS pistons; 14 or 15 in GT/SRP rotors or 15 in WCCB carbon-ceramic; brackets, hardware, stainless flexlines.",
+          "url": "https://wilwood.com/PDF/PressReleases/pr320_Wilwood_2016-2019_Camaro_Front_SX6R_Kits.pdf"
+        },
+        {
+          "name": "GM Accessories Brembo 6-piston front package (for LT/SS w/o 1LE)",
+          "brand": "GM / Brembo",
+          "partNumber": "84236462",
+          "notes": "370x34 mm two-piece rotors, low-expansion hoses, hardware.",
+          "url": "https://sdparts.com/i-24080292-gm-accessories-84236462-brembo-performance-front-brake-package-six-piston-calipers-for-2016-camaro-lt-ss.html"
+        },
+        {
+          "name": "Brembo GT-R / Alcon / StopTech race kits",
+          "brand": "Brembo / Alcon / StopTech",
+          "notes": "Available for Gen 6 Camaro; confirm wheel clearance for 18 in race wheels."
+        }
+      ],
+      "specs": {
+        "Pistons": "6 – 2x38, 2x34, 2x30 mm (ZL1)",
+        "Piston area (one side)": "≈ 27.5 cm² (calc.)",
+        "Rotor": "390 x 36 mm two-piece (ZL1 / ZL1 1LE)",
+        "Bleeders": "2 per caliper (inner and outer)",
+        "Mounting": "Direct to knuckle, 2 bolts"
+      },
+      "hardware": [
+        {
+          "item": "Front brake caliper bolt (caliper-to-knuckle)",
+          "qty": 2,
+          "spec": "Large flange bolt into knuckle (M14x1.5 typical – verify size)",
+          "grade": "GM high-strength (10.9 class)",
+          "torque": "111 ft-lb (150 N·m) first pass + 15–30°",
+          "torqueSequence": "First pass 150 N·m (111 lb ft), then final pass +15–30°. Owners quoting the SI say GM does not list these as single-use bolts.",
+          "threadlocker": "Blue (Loctite 243) per forum-reported GM procedure",
+          "safetyWire": false,
+          "reuse": "Replace (GM procedure calls for new bolts; TTY status disputed)",
+          "tool": "21 mm or 18 mm socket (verify), angle gauge",
+          "notes": "GM 2016–18 table: \"Front brake caliper bolt 150 N·m, J55, J6G – First pass\". Final angle 15–30° from owners quoting the service manual. Do NOT use the 60 N·m+90° / 40 N·m+90° values seen online – those are for base-car (JL9) caliper brackets. [2026-10 check] The final angle is now filled in. A camaro6.com owner quotes the GM SI (2019 SS Brembo) as 150 N·m + 15–30°. TightTorque (GM 2016–18 SI) gives 150 N·m first pass for J55/J6G, and an ATS (Alpha) owner quotes 150 N·m + 30°. No GM primary document was found.",
+          "confidence": "typical",
+          "source": "https://www.camaro6.com/forums/showthread.php?t=619468"
+        },
+        {
+          "item": "Caliper bleeder valve",
+          "qty": 2,
+          "spec": "M8/M10 bleeder screw with dust cap",
+          "grade": "Steel",
+          "torque": "17–20 N·m (13–15 ft-lb)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (replace if rounded)",
+          "tool": "8 or 11 mm box wrench",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Race kit: bracket-to-knuckle bolts",
+          "qty": 2,
+          "spec": "Use the OEM caliper bolt holes; bolts supplied/specified by kit maker",
+          "grade": "10.9 / 12.9",
+          "torque": "Per kit instructions (if kit says OEM: 150 N·m + 15–30°)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Per kit",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Race kit: caliper-to-bracket radial bolts",
+          "qty": 2,
+          "spec": "M12 radial-mount bolts with shims as required for centering",
+          "grade": "12.9",
+          "torque": "Per kit instructions (typical M12 12.9 in steel ≈ 80–90 N·m / 59–66 ft-lb)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) unless kit says safety-wire",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect threads)",
+          "notes": "Center caliper over the disc with shims so pads sit square; check with feeler gauges both sides.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "See brakes.fluid.brake-fluid",
+          "capacity": "≈ 50–60 mL per caliper"
+        }
+      ],
+      "installNotes": [
+        "Install hub bearing, dust shield/duct backing plate and rotor first.",
+        "Clean knuckle threads; apply blue threadlocker to new bolts; torque 150 N·m then turn +15–30°.",
+        "Confirm caliper orientation: bleeders must be at the TOP (left and right calipers are handed – swapping sides puts bleeders at the bottom and you cannot bleed air out).",
+        "Fit pads, pins, spring and cross bolt; connect hose with new crush washers.",
+        "Spin the hub: rotor must not touch the caliper bridge; check radial clearance to the wheel spokes with the race wheel (≥ 3 mm)."
+      ],
+      "inspection": [
+        "Every session: look for fluid at pistons/boots and bleeders; check pad thickness through the caliper window.",
+        "Every event: check caliper bolt torque marks; inspect dust boots (factory) for heat damage; temperature paint on the caliper body (aim < ~200 °C caliper body).",
+        "Every season: rebuild seals (factory kit: 2x30/34/38 mm seals and boots per caliper)."
+      ],
+      "buildPhase": 4,
+      "installOrder": 40,
+      "tags": [
+        "brembo",
+        "6-piston",
+        "monobloc",
+        "ap-racing",
+        "trailing"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "NHTSA-filed GM bulletin MC-10126120-9999 (ZL1 1LE: 390x36 front 6-pot, 365x28 rear 4-pot, two-piece front rotors not machinable)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "PMB Performance – Brembo front caliper seal kit, Camaro ZL1 1LE Gen 6 (2x30/2x34/2x38 mm)",
+          "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "CAMARO6 forum – Brake caliper mounting torque specs 20 SS/2SS (150 N·m + 15–30°, rear 125 N·m)",
+          "url": "https://www.camaro6.com/forums/showthread.php?t=619468"
+        },
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL ENP Competition Kit Front CP9668 372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-enp-competition-brake-kit-front-cp9668-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "title": "Essex Parts – Eradicating failure-prone stock brake components on a Gen.6 Camaro (CP9668 HD D62 kit)",
+          "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+        },
+        {
+          "title": "Wilwood PR320 – 2016–2019 Camaro front SX6R kits (140-15441-R)",
+          "url": "https://wilwood.com/PDF/PressReleases/pr320_Wilwood_2016-2019_Camaro_Front_SX6R_Kits.pdf"
+        },
+        {
+          "title": "GM Accessories 84236462 Brembo six-piston front brake package for 2016+ Camaro LT/SS (370x34 two-piece rotors)",
+          "url": "https://sdparts.com/i-24080292-gm-accessories-84236462-brembo-performance-front-brake-package-six-piston-calipers-for-2016-camaro-lt-ss.html"
+        },
+        {
+          "title": "Wikipedia – Chevrolet Camaro (sixth generation)",
+          "url": "https://en.wikipedia.org/wiki/Chevrolet_Camaro_(sixth_generation)"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.1289,
+          0.4165,
+          0.7302
+        ],
+        "size": [
+          0.2039,
+          0.3258,
+          0.1567
+        ],
+        "mirror": true,
+        "color": "#c62828"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Wikimedia Commons – 2018 Camaro ZL1 1LE (front wheel, red caliper trailing the axle)",
+            "url": "https://commons.wikimedia.org/wiki/File:2018_Chevrolet_Camaro_ZL1_1LE_(53776084528).jpg"
+          },
+          {
+            "title": "GM 84229190 front caliper, red, driver side – Camaro ZL1 2017-2024 (chevypartsdeal)",
+            "url": "https://www.chevypartsdeal.com/parts-select/chevrolet-brake-calipers"
+          },
+          {
+            "title": "PMB Performance – Brembo front seal kit Camaro ZL1 1LE Gen 6 (2x30 / 2x34 / 2x38 mm pistons)",
+            "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+          },
+          {
+            "title": "GM bulletin MC-10126120-9999 (NHTSA) – ZL1 1LE: red Brembo 6-pot 390 x 36 front, 4-pot 365 x 28 rear, 1LE logo",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          }
+        ],
+        "dimensions": "~300 mm long arc body, ~108 mm radial (r 118-226 mm), ~150 mm across; pistons 2x30/2x34/2x38 mm; 36 mm rotor slot",
+        "features": "Red Brembo monobloc 6-pot, 1LE logo outboard; two pad windows either side of a centre bridge; piston bosses on the inboard face; axial-mounted, TRAILING the axle at ~20 deg above horizontal (clock position estimated from photos)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.front-calipers.pad-retaining-pins",
+      "name": "Front pad retaining pins, anti-rattle spring & cross bolt",
+      "qty": 2,
+      "description": "Factory Brembo: two pressed pins through the caliper and pads (tapped out with a small punch) plus a spring plate held by a center cross bolt. Race AP calipers use two bolt-in pad retaining pins with anti-rattle clips, or a quick-change spring clip. GM/B&FE: always replace pins and anti-rattle clips with new pads.",
+      "location": "Across the caliper window above the pads, each front caliper.",
+      "connectsTo": [
+        "brakes.front-calipers.caliper",
+        "brakes.front-pads.pads"
+      ],
+      "factory": {
+        "name": "Brembo pad pin & spring kit (comes with GM pads/hardware kit)",
+        "notes": "Pins are drift-punched out; leave caliper on the car for pad changes."
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing pad retaining bolts / quick-change spring retainer",
+          "brand": "AP Racing",
+          "notes": "Essex customer replaced two 6 mm retaining bolts with a quick-change spring clip (≈ 5 min/side pad change).",
+          "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pad spring cross (center) bolt",
+          "qty": 1,
+          "spec": "Small bolt through caliper bridge",
+          "grade": "Steel",
+          "torque": "≈ 14 ft-lb (19 N·m) owner-reported; an owner-posted GM chart was read as 9 N·m front / 10 N·m rear",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Conflicting forum values – snug, do not overtighten into aluminum. Verify in GM SI.",
+          "confidence": "estimate",
+          "source": "https://www.camaro6.com/forums/showthread.php?t=516448"
+        },
+        {
+          "item": "Pad retaining pin",
+          "qty": 2,
+          "spec": "Press-fit pin (factory) / bolt-in 6 mm pin (AP)",
+          "grade": "Stainless",
+          "torque": "Factory: drift in until flush; AP bolt-in: per AP (light, ≈ 3–5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with new pads (GM/B&FE)",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        },
+        {
+          "item": "Anti-rattle / pad spring clip",
+          "qty": 1,
+          "spec": "Spring steel",
+          "grade": "Spring steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with new pads",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "installNotes": [
+        "Lightly coat pad backing-plate ears (left/right edges) with brake lube/anti-seize, not the friction face.",
+        "Drive pins in from the correct side so the spring loads the pads."
+      ],
+      "inspection": [
+        "Check pins are fully seated and clips present before every session."
+      ],
+      "buildPhase": 4,
+      "installOrder": 42,
+      "tags": [
+        "pad-hardware"
+      ],
+      "sources": [
+        {
+          "title": "CAMARO6 forum – Torque value for caliper bolts 2017 ZL1 (pad pins, cross bolt)",
+          "url": "https://www.camaro6.com/forums/showthread.php?t=516448"
+        },
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        },
+        {
+          "title": "Essex Parts – Eradicating failure-prone stock brake components on a Gen.6 Camaro (CP9668 HD D62 kit)",
+          "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.009,
+          0.009,
+          0.15320000000000022
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0.2002,
+            0.4053,
+            0.733
+          ],
+          [
+            0.175,
+            0.4743,
+            0.733
+          ]
+        ],
+        "color": "#dddddd"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM ZL1 / ZL1 1LE front caliper pin kit (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-zl1-1le-front-caliper-pin-kit-general-motors"
+          }
+        ],
+        "dimensions": "Two ~5.5 mm stainless pins across the pad windows",
+        "features": "Pins with head and spring clip, anti-rattle spring",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.front-calipers.bleeder-screws",
+      "name": "Front caliper bleeder screws",
+      "qty": 4,
+      "description": "Two bleeders per front caliper (inner and outer halves). Bleed the inner screw first, then the outer.",
+      "location": "Top of each caliper half.",
+      "connectsTo": [
+        "brakes.front-calipers.caliper",
+        "brakes.fluid.brake-fluid"
+      ],
+      "factory": {
+        "name": "Brembo bleeder with rubber cap",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Speed-bleeder style or AP replacement bleeders",
+          "brand": "AP / Russell",
+          "notes": "Keep caps on to stop dirt."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bleeder screw",
+          "qty": 1,
+          "spec": "Bleeder",
+          "grade": "Steel",
+          "torque": "17–20 N·m (13–15 ft-lb)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Do not overtighten – the seat is in an aluminum body."
+      ],
+      "inspection": [
+        "Caps present; no weeping."
+      ],
+      "buildPhase": 4,
+      "installOrder": 43,
+      "tags": [
+        "bleeder"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.01,
+          0.022,
+          0.01
+        ],
+        "axis": "y",
+        "rot": [
+          0,
+          0,
+          -33.1015
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            0.1212,
+            0.5575,
+            0.6774
+          ],
+          [
+            0.1212,
+            0.5575,
+            0.7886
+          ]
+        ],
+        "color": "#cccccc"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM bulletin MC-10126120-9999 (NHTSA) – ZL1 1LE: red Brembo 6-pot 390 x 36 front, 4-pot 365 x 28 rear, 1LE logo",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          }
+        ],
+        "dimensions": "M10 bleeder, inboard + outboard, at the upper (trailing) end of the caliper",
+        "features": "Steel bleeder with rubber cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.front-calipers.piston-seals-boots",
+      "name": "Front caliper piston seals & dust boots (service kit)",
+      "qty": 2,
+      "description": "Square-section piston seals and dust boots for rebuilding the factory 6-piston Brembos. On race cars the boots are often removed after heat damage (or race calipers without boots are used).",
+      "location": "Inside each front caliper bore.",
+      "connectsTo": [
+        "brakes.front-calipers.caliper"
+      ],
+      "factory": {
+        "name": "Brembo seal kit for ZL1 / ZL1 1LE front caliper",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "PMB Performance front seal kit (2x30, 2x34, 2x38 mm per caliper)",
+          "brand": "PMB Performance",
+          "partNumber": "BCSK-4x30mm-4x34mm-4x38mm-Camaro",
+          "notes": "Kit has 12 seals + 12 boots (both calipers).",
+          "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        }
+      ],
+      "specs": {
+        "Seal sizes": "30, 34, 38 mm (2 each per caliper)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Rebuild on the bench with fresh brake fluid as assembly lube; never use petroleum grease."
+      ],
+      "inspection": [
+        "Rebuild annually or when boots are brittle/torn."
+      ],
+      "buildPhase": 4,
+      "installOrder": 44,
+      "tags": [
+        "service",
+        "seals"
+      ],
+      "sources": [
+        {
+          "title": "PMB Performance – Brembo front caliper seal kit, Camaro ZL1 1LE Gen 6 (2x30/2x34/2x38 mm)",
+          "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        },
+        {
+          "title": "Essex Parts – Eradicating failure-prone stock brake components on a Gen.6 Camaro (CP9668 HD D62 kit)",
+          "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+        }
+      ]
+    }
+  ]
+}

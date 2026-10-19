@@ -1,0 +1,914 @@
+{
+  "id": "electrical.charging-starting",
+  "system": "electrical",
+  "name": "Charging & Starting",
+  "description": "Alternator, starter motor, the long main positive cable from the trunk battery to the engine bay, the front power junction (remote jump post), alternator charge wire and ECM-controlled alternator interface, starter trigger and the clamps/grommets/heat protection along the way.",
+  "components": [
+    {
+      "id": "electrical.charging-starting.alternator",
+      "name": "Alternator",
+      "qty": 1,
+      "description": "Belt-driven alternator on the Gen V LT front accessory drive. The OE unit is ECM-controlled (GM 'L' terminal turn-on and 'F' field-duty feedback) so a standalone ECU must either drive the L terminal or the alternator must be converted to self-regulating. 170 A class OE units are common on LT1/LT4. A road-race car can downsize if the load budget allows (fans, fuel pumps and cool-suit are the big loads).",
+      "location": "Front of engine, on the accessory drive bracket (driver side upper front on the Camaro LT1/LT4 installation \u2013 confirm on your engine).",
+      "connectsTo": [
+        "engine.accessory-drive.serpentine-belt",
+        "electrical.charging-starting.alternator-charge-cable",
+        "electrical.charging-starting.alternator-control-connector",
+        "electrical.grounding.engine-to-chassis-strap"
+      ],
+      "factory": {
+        "name": "GM 170 A alternator (2016\u20132020 Camaro 6.2 L, aftermarket interchange listings)",
+        "partNumber": "84143540 (interchange 22949467) \u2013 verify by VIN",
+        "notes": "Part number from aftermarket interchange listings, not a GM catalog page; confirm with a GM dealer VIN lookup."
+      },
+      "raceOptions": [
+        {
+          "name": "Lightweight race alternator (self-exciting, 1-wire or 3-wire) on custom bracket",
+          "brand": "Powermaster / Mechman / similar",
+          "partNumber": "",
+          "notes": "Removes dependency on ECM L-terminal control; choose amperage \u2265 calculated running load + 20 %."
+        },
+        {
+          "name": "Retain OE alternator, controlled by race ECU or PDM",
+          "brand": "GM",
+          "partNumber": "",
+          "notes": "MoTeC/PDM can drive the L terminal (12 V switched via resistor) \u2013 keep the OE unit for reliability."
+        }
+      ],
+      "specs": {
+        "Output (OE)": "~170 A",
+        "Control": "ECM L-terminal (turn-on) + F-terminal (field duty feedback)",
+        "B+ terminal": "M8 stud (typical GM)"
+      },
+      "hardware": [
+        {
+          "item": "Alternator mounting bolts to bracket/block",
+          "qty": 2,
+          "spec": "M10 x 1.5 flange bolt (OE)",
+          "grade": "10.9",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "15 mm socket",
+          "notes": "GM LS/LT alternator mounting bolts are commonly specified at 50 N\u00b7m; confirm in GM SI for the LT1/LT4.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "B+ output terminal nut",
+          "qty": 1,
+          "spec": "M8 x 1.25 nut",
+          "grade": "OE",
+          "torque": "15 ft-lb (20 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM alternator battery-terminal nut torque \u2013 hold the stud's insulated boot; do not over-torque (cracks the insulator).",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "B+ terminal insulating boot",
+          "qty": 1,
+          "spec": "Rubber boot over ring terminal",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install with the engine accessory drive (phase 6\u20137), wire it in phase 8.",
+        "Before startup, confirm the L-terminal is driven (or the unit is self-exciting); otherwise it will not charge.",
+        "Check belt alignment with a straightedge; wrap angle matters at sustained 7000 rpm."
+      ],
+      "inspection": [
+        "Charging voltage logged (13.8\u201314.6 V AGM).",
+        "B+ nut tight, boot in place.",
+        "Bearing noise/play; belt condition."
+      ],
+      "buildPhase": 6,
+      "installOrder": 1,
+      "tags": [
+        "alternator",
+        "charging"
+      ],
+      "sources": [
+        {
+          "title": "Aftermarket listing \u2013 170 A alternator 84143540 Camaro 2015-2020",
+          "url": "https://www.ebay.com/itm/186590429105"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.255,
+          0.6,
+          0.235
+        ],
+        "size": [
+          0.19,
+          0.145,
+          0.145
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84143540 170 A alternator (2015-2020 Camaro/Tahoe) \u2013 eBay listing",
+            "url": "https://www.ebay.com/itm/387416891908"
+          },
+          {
+            "title": "2023 Camaro SS 6.2L alternator diagram (gmoutletparts)",
+            "url": "https://www.gmoutletparts.com/v-2023-chevrolet-camaro--ss--6-2l-v8-gas/electrical--alternator"
+          }
+        ],
+        "dimensions": "Body \u00d8~145 mm, ~165 mm long + 26 mm 6-rib pulley (\u00d8~57 mm); pulley face in the accessory-belt plane (x \u2248 -0.35).",
+        "features": "Cast aluminium front/rear housings with vent windows, steel stator band, black plastic rear cover, B+ stud with red boot, 2-pin L/F regulator socket, 3 bolt bosses.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.alternator-control-connector",
+      "name": "Alternator control connector (L / F terminals)",
+      "qty": 1,
+      "description": "2-pin control connector on the OE regulator: L terminal (turn-on/regulation command from the ECM) and F terminal (field duty-cycle feedback to the ECM). With the Chevrolet Performance controller kit this is part of the engine harness; with a race ECU, wire L to a PWM/switched output and F to a digital/frequency input for logging.",
+      "location": "Rear of the alternator.",
+      "connectsTo": [
+        "electrical.charging-starting.alternator",
+        "electrical.engine-management.engine-harness",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "GM alternator 2-way regulator connector",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Wire": "20\u201322 AWG M22759/32"
+      },
+      "hardware": [
+        {
+          "item": "Connector",
+          "qty": 1,
+          "spec": "OE 2-way sealed connector with CPA lock",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Secure the lead to the alternator bracket with a P-clamp so it can't chafe on the belt."
+      ],
+      "inspection": [
+        "Connector locked, seal intact."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "alternator",
+        "ecm"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.152,
+          0.635,
+          0.25
+        ],
+        "size": [
+          0.02,
+          0.022,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM alternator parts diagram (gmoutletparts)",
+            "url": "https://www.gmoutletparts.com/v-2023-chevrolet-camaro--ss--6-2l-v8-gas/electrical--alternator"
+          }
+        ],
+        "dimensions": "2-way sealed GM connector ~30 x 22 x 20 mm (estimated).",
+        "features": "Black sealed 2-way plug with locking tab on the alternator rear cover.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.alternator-charge-cable",
+      "name": "Alternator charge cable (B+)",
+      "qty": 1,
+      "description": "Charge cable from the alternator B+ stud to the front power junction (and thus back to the battery through the main cable and master switch). Must pass through the master switch / isolator so the alternator is disconnected when the car is killed.",
+      "location": "From alternator B+ along the engine/subframe to the front power junction near the passenger-side firewall.",
+      "connectsTo": [
+        "electrical.charging-starting.alternator",
+        "electrical.charging-starting.front-power-junction"
+      ],
+      "factory": {
+        "name": "OE alternator positive cable in engine harness",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "4 AWG fine-strand tinned copper in DR-25 or with heat sleeve, fused at junction (MIDI 175\u2013200 A)",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Fuse protects the cable from a shorted alternator diode."
+        }
+      ],
+      "specs": {
+        "Gauge": "4 AWG (\u22641.5 m) for 170 A alternator",
+        "Fuse": "175\u2013200 A MIDI/MEGA at junction"
+      },
+      "hardware": [
+        {
+          "item": "Ring terminals",
+          "qty": 2,
+          "spec": "Tinned copper, M8 hole, crimped with hydraulic hex crimper + adhesive heat shrink",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if re-terminated",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Cushioned P-clamps",
+          "qty": 4,
+          "spec": "Adel/EPDM-lined P-clamp, 13 mm ID, M6 screw",
+          "grade": "",
+          "torque": "6 N\u00b7m (53 in-lb)",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep \u2265 150 mm from exhaust headers or use reflective heat sleeve."
+      ],
+      "inspection": [
+        "Chafe points at engine-to-chassis transitions (engine moves on mounts)."
+      ],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "cable",
+        "charging"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.155,
+            0.585,
+            0.215
+          ],
+          [
+            -0.13,
+            0.55,
+            0.3
+          ],
+          [
+            0.2,
+            0.55,
+            0.38
+          ],
+          [
+            0.55,
+            0.7,
+            -0.2
+          ],
+          [
+            0.62,
+            0.7,
+            -0.33
+          ]
+        ],
+        "radius": 0.006
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "4 AWG fine-strand cable (\u00d8 ~11 mm over jacket) with M8 ring lugs.",
+        "features": "Red jacket, tinned lugs with red heat-shrink boots.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.starter-motor",
+      "name": "Starter motor",
+      "qty": 1,
+      "description": "Gear-reduction starter bolted to the engine block (Gen V LT starter uses the LS/LT-style 2-bolt mount). The solenoid S terminal is triggered by the ECM/PDM start output via a relay. Hot-restart ability is a common race problem: wrap the starter and its cable if headers are close.",
+      "location": "Passenger side of the block at the bellhousing, low (below the exhaust manifold/header).",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "drivetrain.flywheel-clutch.flywheel",
+        "electrical.charging-starting.main-positive-cable",
+        "electrical.charging-starting.starter-trigger",
+        "electrical.grounding.engine-to-chassis-strap"
+      ],
+      "factory": {
+        "name": "GM Gen V LT gear-reduction starter",
+        "partNumber": "",
+        "notes": "Part number not verified for 2016+ Camaro (forum listings vary); confirm with GM VIN lookup."
+      },
+      "raceOptions": [
+        {
+          "name": "Lightweight high-torque mini starter for LS/LT",
+          "brand": "Powermaster / Tilton / Bosch (race)",
+          "partNumber": "",
+          "notes": "Saves ~3\u20134 kg; choose a version clearing your headers and dry-sump pump. Check flywheel tooth count (168 vs 153) compatibility."
+        }
+      ],
+      "specs": {
+        "Mount": "2 bolts M10 x 1.5 x 120 mm (GM 11610633)",
+        "Battery stud": "M8 typical"
+      },
+      "hardware": [
+        {
+          "item": "Starter mounting bolt",
+          "qty": 2,
+          "spec": "M10 x 1.5 x 120 mm",
+          "grade": "10.9 (OE)",
+          "partNumber": "GM 11610633",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm / 15 mm socket with long extension",
+          "notes": "Bolt size/part from Michigan Motorsports listing; torque is the widely published GM LS/LT starter bolt value \u2013 confirm in GM SI.",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/gm-11610633-starter-bolts-for-ls-lt-engines-4-8l-5-3l-6-0l-6-2l"
+        },
+        {
+          "item": "Solenoid battery (B+) stud nut",
+          "qty": 1,
+          "spec": "M8 x 1.25 nut",
+          "grade": "OE",
+          "torque": "80 in-lb (9 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM starter battery-terminal nut value.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Solenoid S terminal nut",
+          "qty": 1,
+          "spec": "M5 / #10 nut",
+          "grade": "OE",
+          "torque": "30 in-lb (3.4 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Starter heat shield / blanket",
+          "qty": 1,
+          "spec": "Reflective starter blanket (DEI/Thermo-Tec) secured with stainless ties",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install after the engine/transmission is in the car (phase 6) but before headers if access is tight.",
+        "Check pinion-to-ring-gear engagement/clearance per the starter maker.",
+        "Connect the main positive cable and the S-terminal trigger; boot both."
+      ],
+      "inspection": [
+        "Cable nut tight and booted.",
+        "Heat shield intact.",
+        "Listen for slow/hot cranking (voltage drop on cables)."
+      ],
+      "buildPhase": 6,
+      "installOrder": 4,
+      "tags": [
+        "starter"
+      ],
+      "sources": [
+        {
+          "title": "GM 11610633 starter bolts LS/LT",
+          "url": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/gm-11610633-starter-bolts-for-ls-lt-engines-4-8l-5-3l-6-0l-6-2l"
+        },
+        {
+          "title": "ICT Billet Gen V LT starter bolt kit",
+          "url": "https://www.ictbillet.com/lt-gen-v-starter-bolt-kit-lt1-lt4-l83-l86-5-3l-6-2l-silverado-corvette.html"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.27,
+          0.27,
+          -0.185
+        ],
+        "size": [
+          0.24,
+          0.13,
+          0.11
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance Gen V LT starter (Billy's Speed Shop)",
+            "url": "https://billysspeedshop.com/products/gm-chevrolet-performance-starter-motor-gen-v-lt"
+          },
+          {
+            "title": "GM 19418859 Gen V/LS starter (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/new-products/gm-19418859-ls-swap-starter-oem-2010-15-camaro-ss-ls3-l99-starter/"
+          }
+        ],
+        "dimensions": "Overall ~240 mm long, motor can \u00d8~85 mm, solenoid \u00d8~45 mm on top; 2 x M10 x 1.5 x 120 mm mounting bolts (GM 11610633).",
+        "features": "Black motor can, cast gear-reduction housing and 2-bolt flange to the passenger-side block rear, zinc solenoid on top with M8 battery stud and S-terminal, pinion nose into the bellhousing.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.starter-trigger",
+      "name": "Starter trigger relay / PDM start channel",
+      "qty": 1,
+      "description": "Start button \u2192 ECU/PDM logic \u2192 starter solenoid S terminal. With a PDM, use a high-current (20 A) channel with inhibit logic (clutch switch or neutral, engine not running, master ON). The OE starter solenoid draws high inrush; a dedicated 40 A relay close to the starter is also acceptable.",
+      "location": "PDM channel in cabin, or relay on firewall near the starter wire exit.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.dash-and-controls.ignition-start-buttons",
+        "electrical.charging-starting.starter-motor",
+        "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor"
+      ],
+      "factory": {
+        "name": "ECM-controlled starter relay (KR27) in underhood fuse block",
+        "partNumber": "",
+        "notes": "Relay designation from typical GM convention; not verified for Gen 6."
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC PDM30 20 A output (start)",
+          "brand": "MoTeC",
+          "partNumber": "",
+          "notes": "Configured momentary with clutch-in condition.",
+          "url": "https://www.motec.com.au/products/PDM30"
+        }
+      ],
+      "specs": {
+        "Wire": "12 AWG to S terminal"
+      },
+      "hardware": [
+        {
+          "item": "Relay mounting screw",
+          "qty": 1,
+          "spec": "M5 screw",
+          "grade": "",
+          "torque": "4 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Include a clutch-pedal-down inhibit to avoid lurching in the pits."
+      ],
+      "inspection": [
+        "Starter disengages immediately on button release."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "starter",
+        "pdm"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC PDM30",
+          "url": "https://www.motec.com.au/products/PDM30"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.64,
+          0.55,
+          -0.3
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Mini ISO relay 28 x 28 x 30 mm.",
+        "features": "Black cube relay with mounting tab and label.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.main-positive-cable",
+      "name": "Main battery positive cable (trunk to engine bay)",
+      "qty": 1,
+      "description": "The long heavy cable from the battery (trunk, right side) through the master switch to the front power junction and starter. On a race car it runs inside the cabin along the passenger rocker/sill (inside the cage) and passes through the firewall with a sealed bulkhead stud or grommet. Size for the starter's cranking current with < 0.5 V total drop.",
+      "location": "Trunk right \u2192 under/behind rear seat area \u2192 passenger-side sill inside cabin \u2192 passenger footwell \u2192 firewall bulkhead \u2192 starter.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "electrical.battery-and-cutoff.master-switch",
+        "electrical.charging-starting.front-power-junction",
+        "electrical.charging-starting.starter-motor"
+      ],
+      "factory": {
+        "name": "GM battery positive cable (aluminum/copper) run under the car",
+        "partNumber": "",
+        "notes": "OE routes the positive cable along the underbody; a race car moves it inside the shell for protection."
+      },
+      "raceOptions": [
+        {
+          "name": "1/0 AWG fine-strand copper welding cable (EPDM jacket)",
+          "brand": "",
+          "partNumber": "",
+          "notes": "~5 m run; 1/0 gives low drop for a 6.2 L. 2 AWG acceptable with a light gear-reduction starter."
+        },
+        {
+          "name": "Aluminum battery cable (e.g. 0 AWG aluminum) for weight",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Requires tin-plated aluminum-rated lugs and anti-oxidant; larger gauge than copper for equal resistance."
+        }
+      ],
+      "specs": {
+        "Gauge": "1/0 AWG copper (recommended); 2 AWG minimum",
+        "Length": "\u2248 5.0\u20135.5 m"
+      },
+      "hardware": [
+        {
+          "item": "Heavy-duty lugs (battery, switch, junction, starter)",
+          "qty": 4,
+          "spec": "Tinned copper closed-end lugs 1/0, 3/8 in or M8 hole; hydraulic hex crimp; adhesive-lined heat shrink",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if cut",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Cushioned P-clamps along sill",
+          "qty": 10,
+          "spec": "EPDM-lined P-clamp, 16 mm ID, M6 rivnut + M6 screw every 300 mm",
+          "grade": "",
+          "torque": "6 N\u00b7m (53 in-lb)",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Firewall / panel pass-through grommet",
+          "qty": 2,
+          "spec": "Rubber grommet sized to cable, sealed with RTV, or bulkhead power stud",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Abrasion sleeve",
+          "qty": 1,
+          "spec": "Split nylon or Roundit sleeve over full length",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Plan this route during cage design (phase 1) so the cable passes inside cage tubes and away from seat/belt mounts.",
+        "Install rivnuts for P-clamps before paint.",
+        "Pull the cable before installing interior panels/seat; crimp lugs after final length is confirmed.",
+        "Measure voltage drop battery-to-starter while cranking (target < 0.5 V)."
+      ],
+      "inspection": [
+        "Look for chafing at every bulkhead and cage crossing.",
+        "Lug heat discoloration."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "cable",
+        "starter",
+        "battery"
+      ],
+      "sources": [
+        {
+          "title": "SCCA master switch rule discussion (switch in battery cable)",
+          "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            3.26,
+            0.565,
+            -0.486
+          ],
+          [
+            3.24,
+            0.5,
+            -0.48
+          ],
+          [
+            3.2,
+            0.44,
+            -0.47
+          ],
+          [
+            3.12,
+            0.43,
+            -0.5
+          ],
+          [
+            3,
+            0.42,
+            -0.62
+          ],
+          [
+            2.5,
+            0.25,
+            -0.72
+          ],
+          [
+            1.9,
+            0.22,
+            -0.74
+          ],
+          [
+            1.3,
+            0.22,
+            -0.72
+          ],
+          [
+            0.95,
+            0.3,
+            -0.55
+          ],
+          [
+            0.72,
+            0.5,
+            -0.4
+          ],
+          [
+            0.62,
+            0.55,
+            -0.35
+          ],
+          [
+            0.45,
+            0.38,
+            -0.26
+          ],
+          [
+            0.26,
+            0.33,
+            -0.18
+          ],
+          [
+            0.226,
+            0.32,
+            -0.181
+          ]
+        ],
+        "radius": 0.008
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "1/0 AWG welding cable \u00d8 ~15 mm, \u22485.2 m, 3/8\" and M8 ring lugs.",
+        "features": "Red EPDM jacket, tinned copper lugs with red heat-shrink, runs battery + \u2192 ANL fuse \u2192 right sill \u2192 firewall \u2192 starter solenoid.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.front-power-junction",
+      "name": "Front power junction / firewall bulkhead power stud",
+      "qty": 1,
+      "description": "Insulated through-firewall power stud or junction block where the main cable, starter cable, alternator charge cable and the PDM feed meet. Also serves as the underhood remote jump point (the Gen 6 has an OE remote positive terminal for the same reason).",
+      "location": "Passenger-side firewall, upper engine-bay side (x\u22480.62, y\u22480.70, z\u2248-0.35).",
+      "connectsTo": [
+        "electrical.charging-starting.main-positive-cable",
+        "electrical.charging-starting.alternator-charge-cable",
+        "electrical.power-distribution.pdm-power-feed",
+        "electrical.charging-starting.starter-motor"
+      ],
+      "factory": {
+        "name": "Gen 6 underhood remote positive jump terminal / X50A fuse block feed",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Blue Sea Systems PowerBar / insulated bulkhead stud",
+          "brand": "Blue Sea Systems",
+          "partNumber": "",
+          "notes": "3/8 in stud, \u2265 250 A, with insulating cover."
+        }
+      ],
+      "specs": {
+        "Stud": "3/8-16 or M10"
+      },
+      "hardware": [
+        {
+          "item": "Bulkhead stud nuts",
+          "qty": 4,
+          "spec": "3/8-16 nut + lock washer",
+          "grade": "",
+          "torque": "12 ft-lb (16 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Mounting screws",
+          "qty": 2,
+          "spec": "M6 screw + nyloc",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m (71 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Insulating cover",
+          "qty": 1,
+          "spec": "Red flip cover",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal the firewall pass-through (firewall must remain fire-tight per rules)."
+      ],
+      "inspection": [
+        "Nut tightness; cover in place."
+      ],
+      "buildPhase": 8,
+      "installOrder": 7,
+      "tags": [
+        "junction",
+        "firewall"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.62,
+          0.7,
+          -0.35
+        ],
+        "size": [
+          0.04,
+          0.06,
+          0.08
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Insulated 2-stud power junction ~80 x 60 x 40 mm (estimated).",
+        "features": "Black insulated base, copper link bar, two 3/8\" studs, red flip cover.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.charging-starting.starter-cable",
+      "name": "Starter cable (junction to starter)",
+      "qty": 1,
+      "description": "Short heavy cable from the front power junction down to the starter solenoid B+ stud, in heat-reflective sleeve where it passes the headers.",
+      "location": "Passenger-side firewall down to the starter.",
+      "connectsTo": [
+        "electrical.charging-starting.front-power-junction",
+        "electrical.charging-starting.starter-motor"
+      ],
+      "factory": {
+        "name": "OE starter cable",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "1/0 AWG copper with DEI Fire Sleeve",
+          "brand": "",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Gauge": "1/0 AWG"
+      },
+      "hardware": [
+        {
+          "item": "Heat sleeve end clamps",
+          "qty": 2,
+          "spec": "Stainless clamps or silicone tape at ends",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Allow slack for engine movement on its mounts."
+      ],
+      "inspection": [
+        "Sleeve intact, no melted jacket."
+      ],
+      "buildPhase": 8,
+      "installOrder": 8,
+      "tags": [
+        "cable",
+        "starter"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.62,
+            0.68,
+            -0.35
+          ],
+          [
+            0.55,
+            0.5,
+            -0.35
+          ],
+          [
+            0.4,
+            0.36,
+            -0.27
+          ],
+          [
+            0.26,
+            0.335,
+            -0.2
+          ],
+          [
+            0.228,
+            0.322,
+            -0.182
+          ]
+        ],
+        "radius": 0.008
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "1/0 AWG cable with DEI Fire Sleeve, M8 lug at the solenoid stud.",
+        "features": "Red jacket (or fire sleeve), tinned ring lugs with red boots.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

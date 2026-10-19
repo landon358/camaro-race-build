@@ -1,0 +1,416 @@
+{
+  "id": "drivetrain.bellhousing",
+  "system": "drivetrain",
+  "name": "Bellhousing",
+  "description": "Engine-to-transmission adapter housing: factory aluminum TR-6060 bell versus SFI-certified steel scattershield, locating/offset dowels, inspection cover and the dial-indicator alignment check.",
+  "components": [
+    {
+      "id": "drivetrain.bellhousing.bellhousing",
+      "name": "Bellhousing / scattershield",
+      "qty": 1,
+      "description": "Connects the engine block to the transmission case, locates the transmission input concentric to the crankshaft and encloses the flywheel and clutch. A race car should use an SFI 6.x-certified steel scattershield (or the factory aluminum bell plus an SFI flywheel blanket) to contain a clutch/flywheel explosion next to the driver's feet.",
+      "location": "Between engine block rear face (x\u22480.38) and transmission case front (x\u22480.56), on crank centerline y\u22480.40.",
+      "connectsTo": [
+        "engine.block.block",
+        "drivetrain.transmission.transmission",
+        "drivetrain.bellhousing.block-dowels",
+        "drivetrain.clutch-hydraulics.bulkhead-fitting",
+        "electrical.charging-starting.starter-motor",
+        "electrical.grounding.transmission-ground"
+      ],
+      "factory": {
+        "name": "TR-6060 aluminum bellhousing (bolted to front of trans case)",
+        "notes": "GM/Tremec cast aluminum bell matched to the concentric slave cylinder. Not SFI rated."
+      },
+      "raceOptions": [
+        {
+          "name": "TREMEC SFI-approved steel bellhousing (Magnum XL kits)",
+          "brand": "TREMEC",
+          "notes": "Magnum XL kits list an SFI-approved steel bellhousing; T-56 style bolt pattern on trans side.",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        },
+        {
+          "name": "SFI 6.1 steel scattershield, GM LS/LT to T56/TR-6060",
+          "brand": "QuickTime / Lakewood / McLeod",
+          "notes": "Order the version for TR-6060 case + LT block and confirm HRB depth/clutch clearance; requires dial-indicator alignment and usually offset dowels."
+        },
+        {
+          "name": "SFI 4.1 flywheel shield blanket",
+          "brand": "Safecraft / Simpson / RJS",
+          "notes": "Alternative where rules permit retaining the aluminum bell; wraps the bellhousing, must not trap heat on HRB line."
+        }
+      ],
+      "specs": {
+        "Engine side pattern": "GM LS/LT",
+        "Trans side pattern": "T56/TR-6060 style (Magnum common pattern)",
+        "Bore runout target": "\u22640.005 in TIR typical (follow bellhousing maker)",
+        "Face runout target": "\u22640.005 in TIR typical"
+      },
+      "hardware": [
+        {
+          "item": "Bellhousing-to-engine block bolt",
+          "qty": 6,
+          "spec": "M10 x 1.5 flange bolt (GM LS/LT pattern), length per bell",
+          "grade": "10.9 / ARP",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil threads lightly)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "15 mm socket, long extensions + swivel",
+          "notes": "50 N\u00b7m is the widely used GM LS/LT transmission-to-engine value; count and lengths vary (6-8 incl. starter-area bolts). Torque-wrench extensions/swivels change applied torque - keep the wrench square. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Engine to Clutch housing fasteners 50 N\u00b7m (37 lb ft)', and Summit SR-05493 gives 37 ft-lb. Remains typical.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Bellhousing-to-transmission case bolt",
+          "qty": 4,
+          "spec": "M10/M12 per case (TR-6060 detachable bell)",
+          "grade": "10.9",
+          "torque": "35 ft-lb (48 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Estimate - use Tremec/bellhousing maker value. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch housing assembly to Transmission case bolts' at 48 N\u00b7m (35 lb ft) for the TREMEC MM6 (TR-6060). CORRECTED from a 37 ft-lb estimate. An aftermarket bellhousing maker's value overrides this.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "ARP 12-pt bellhousing bolt kit (GM LS)",
+          "qty": 1,
+          "spec": "Kit",
+          "grade": "ARP",
+          "partNumber": "ARP 134-0902",
+          "torque": "Per ARP sheet",
+          "torqueSequence": "",
+          "threadlocker": "ARP lube",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Listed as GM LS 12-pt bellhousing kit; confirm lengths for LT block + chosen bellhousing.",
+          "confidence": "typical",
+          "source": "https://www.walmart.com/ip/ARP-134-0902-Black-GM-LS-12pt-bellhousing-bolt-kit/176581720"
+        }
+      ],
+      "installNotes": [
+        "Trial-fit bell to the bare block (no flywheel) with dowels, mount a dial indicator on the crank flange.",
+        "Sweep the bell bore (register) and rear face; record TIR. Correct bore runout with offset dowels if over limit.",
+        "Install flywheel/clutch, then HRB on trans; mate trans+bell (or bell first, then trans) keeping input shaft square - never let the trans hang on the input shaft.",
+        "Torque engine-side bolts in a cross pattern, then trans-side bolts.",
+        "Fit inspection cover and HRB line bulkhead."
+      ],
+      "inspection": [
+        "Cracks around bolt bosses (aluminum)",
+        "Bolt torque marks",
+        "Oil/fluid in inspection hole (rear main or HRB leak)"
+      ],
+      "buildPhase": 6,
+      "installOrder": 30,
+      "tags": [
+        "bellhousing",
+        "sfi",
+        "scattershield"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        },
+        {
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.4675,
+            0.4,
+            0
+          ],
+          "size": [
+            0.175,
+            0.44,
+            0.47
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          },
+          {
+            "title": "TREMEC blog: TR-6060 integral bellhousing & semi-remote shifter vs Magnum",
+            "url": "https://tremec-blog.com/?p=814"
+          },
+          {
+            "title": "GM 24298781 manual transmission assembly, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-transmission-asm-man-24298781.html"
+          }
+        ],
+        "dimensions": "Front face x 0.38 on the LT block, depth ~175 mm to the main case; flange ~410 x 380 mm, ears to ~470 mm wide",
+        "features": "Integral cast-aluminium bell (TR-6060 front case): flat-topped round flange with 6 bolt ears on the GM LS/LT pattern, tapered ribbed shell, starter clearance pocket low on the passenger side, clutch-line boss on the driver side, CSC snout inside",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.bellhousing.block-dowels",
+      "name": "Block-to-bellhousing locating dowels",
+      "qty": 2,
+      "description": "Hollow dowels pressed into the rear face of the block that locate the bellhousing and therefore the transmission input centerline relative to the crank. They are the reference for all alignment checks.",
+      "location": "Rear face of the LT block, two positions on the bellhousing bolt circle.",
+      "connectsTo": [
+        "engine.block.block",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "GM hollow block dowels",
+        "notes": "Check they are fully seated and undamaged; a mushroomed dowel causes misalignment."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Dowels must protrude evenly; replace if loose or damaged.",
+        "Remove (pull) only if fitting offset dowels."
+      ],
+      "inspection": [
+        "Dowel condition when trans is out"
+      ],
+      "buildPhase": 5,
+      "installOrder": 22,
+      "tags": [
+        "dowel",
+        "alignment"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.385,
+          0.3,
+          0.2
+        ],
+        "size": [
+          0.022,
+          0.016,
+          0.016
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.385,
+            0.3,
+            0.2
+          ],
+          [
+            0.385,
+            0.3,
+            -0.2
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          }
+        ],
+        "dimensions": "~16 mm hollow dowels, ~20 mm proud of the block",
+        "features": "Two hollow steel dowels in the lower block bell-bolt bosses (shared with engine.flexplate-flywheel-interface.bellhousing-dowels)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.bellhousing.offset-dowels",
+      "name": "Offset alignment dowels",
+      "qty": 2,
+      "description": "Eccentric dowels used in place of the stock dowels to shift the bellhousing and bring bore runout within spec. Required when a dial-indicator check shows excessive runout (common with aftermarket steel bells).",
+      "location": "Replaces the factory dowels in the block rear face.",
+      "connectsTo": [
+        "drivetrain.bellhousing.block-dowels",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "Not used",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Offset dowel set (0.007/0.014/0.021 in style)",
+          "brand": "Lakewood / QuickTime / McLeod",
+          "notes": "Choose offset from measured runout; mark orientation."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Rotate both dowels identically to move the bell toward the low side; recheck runout."
+      ],
+      "inspection": [
+        "Recheck runout if bell is replaced"
+      ],
+      "buildPhase": 5,
+      "installOrder": 23,
+      "tags": [
+        "dowel",
+        "alignment",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.386,
+          0.3,
+          0.2
+        ],
+        "size": [
+          0.02,
+          0.018,
+          0.018
+        ],
+        "axis": "x",
+        "color": "#d4ac0d"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Offset dowel ~18 mm OD replacing a block dowel",
+        "features": "Eccentric dowel used only if runout is out of spec (not fitted on the factory car)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.bellhousing.inspection-cover",
+      "name": "Bellhousing inspection / dust cover",
+      "qty": 1,
+      "description": "Thin cover closing the lower opening of the bellhousing so debris cannot enter the clutch and fingers cannot be caught. Also a convenient spot to look for rear-main or HRB leaks.",
+      "location": "Bottom of bellhousing (x\u22480.45, y\u22480.20).",
+      "connectsTo": [
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "GM stamped/plastic cover",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum cover supplied with SFI bell",
+          "brand": "QuickTime / Lakewood",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Cover screw",
+          "qty": 3,
+          "spec": "M6 x 1.0",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the C7 LT1 GM SI lists 'Engine Flywheel Inspection Cover Retaining Bolts' at 25 N\u00b7m (18 lb ft), likely for M8 bolts on that car. Keep 10 N\u00b7m only if your cover screws are M6.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit after clutch bleed check."
+      ],
+      "inspection": [
+        "Look inside for fluid/dust at each event"
+      ],
+      "buildPhase": 6,
+      "installOrder": 31,
+      "tags": [
+        "cover"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.45,
+          0.205,
+          0
+        ],
+        "size": [
+          0.1,
+          0.006,
+          0.16
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~100 x 160 mm stamped plate",
+        "features": "Black stamped steel/plastic dust cover closing the bell bottom opening, 2 bolts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.bellhousing.alignment-check",
+      "name": "Bellhousing alignment check (dial indicator setup)",
+      "qty": 1,
+      "description": "Not a part but a required build step: measure bellhousing bore and face runout relative to the crank before final assembly. Misalignment causes pilot-bearing failure, input-shaft and synchro wear, clutch chatter and HRB seal failure.",
+      "location": "Dial indicator mounted on crank flange (flywheel removed) sweeping the bellhousing register bore and rear face.",
+      "connectsTo": [
+        "drivetrain.bellhousing.bellhousing",
+        "drivetrain.bellhousing.block-dowels",
+        "drivetrain.bellhousing.offset-dowels"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Bore TIR": "\u22640.005 in typical (some makers allow \u22640.008 in)",
+        "Face TIR": "\u22640.005 in typical"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Engine on stand or in car, flywheel off, bell torqued to block.",
+        "Zero indicator at 12 o'clock, read 3/6/9; TIR = max-min.",
+        "Correct bore runout with offset dowels; correct face runout by shimming/machining the bell face.",
+        "Record readings in build log."
+      ],
+      "inspection": [
+        "Repeat whenever block, bell or dowels change"
+      ],
+      "buildPhase": 5,
+      "installOrder": 24,
+      "tags": [
+        "procedure",
+        "alignment"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+          "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+        }
+      ]
+    }
+  ]
+}

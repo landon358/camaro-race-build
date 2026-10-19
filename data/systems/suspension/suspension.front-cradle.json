@@ -1,0 +1,303 @@
+{
+  "id": "suspension.front-cradle",
+  "system": "suspension",
+  "name": "Front Cradle (Front Subframe)",
+  "description": "The bolt-in front subframe that carries the engine mounts, both front lower links (lateral LCA and forward radius/tension rod), the ZF electric steering rack and the front sway bar, and bolts up into the front frame rails. ZL1 adds an aluminum lower cradle brace beneath it.",
+  "components": [
+    {
+      "id": "suspension.front-cradle.cradle",
+      "name": "Front cradle (engine/suspension subframe)",
+      "qty": 1,
+      "description": "Welded subframe that is the mounting base for the front suspension and steering geometry. Its position on the body sets front-end geometry (caster split, bump steer, roll center), so always re-install it on the factory locating features and torque with new bolts. In a race build it is usually solid-mounted, and it may be reinforced or have its pickup points relocated for roll-center correction on a lowered car.",
+      "location": "Under the engine, approx x -0.42 to 0.18, y 0.17-0.32, z +/-0.45; bolts up into the front frame rails.",
+      "connectsTo": [
+        "chassis.unibody.front-frame-rails",
+        "suspension.front-cradle.cradle-mounts",
+        "suspension.front-cradle.lower-cradle-brace",
+        "suspension.front-lower-links.lower-control-arm",
+        "suspension.front-lower-links.radius-rod",
+        "steering.rack.eps-gear",
+        "suspension.front-sway-bar.insulators-and-clamps",
+        "engine-support.engine-mounts.engine-mount-brackets"
+      ],
+      "factory": {
+        "name": "GM Gen 6 front cradle (Alpha-derived, Camaro-specific geometry)",
+        "notes": "GM widened and lengthened the Alpha front structure for Camaro track width and dash-to-axle ratio. Material/construction should be confirmed on your car (Alpha front cradles are a welded structure; ZL1 adds a bolt-on aluminum lower brace). V6/2.0T and V8 cradles differ in engine-mount provisions."
+      },
+      "raceOptions": [
+        {
+          "name": "Factory cradle, solid-mounted and seam welded, with gusseted pickup points",
+          "brand": "Fabricator built",
+          "notes": "Most common for road race. Inspect welds around LCA and radius rod pivots and the rack mounts."
+        },
+        {
+          "name": "Fabricated tubular K-member with relocated pickups",
+          "brand": "Custom",
+          "notes": "Only for unlimited classes; requires full geometry design (roll center, bump steer, anti-dive)."
+        }
+      ],
+      "specs": {
+        "Attached": "Engine mounts, LCA inner pivots (2), radius rod inner pivots (2), steering gear, front stabilizer bar",
+        "Mounting to body": "Bolts into captured nuts in front rails (count/positions: verify in GM SI)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Assemble steering rack, sway bar and (optionally) lower links on the cradle on the bench, then raise the cradle with engine (or engine afterwards) on a cradle table/transmission jack.",
+        "Align cradle to the body using the factory locating holes/pins or a measured reference before torquing.",
+        "Torque cradle bolts with NEW torque-to-yield bolts (see suspension.front-cradle.cradle-mounts)."
+      ],
+      "inspection": [
+        "Check cradle welds around LCA and radius rod pivots for cracks each event.",
+        "Check cradle bolts for witness-mark movement."
+      ],
+      "buildPhase": 3,
+      "installOrder": 1,
+      "tags": [
+        "cradle",
+        "subframe",
+        "k-member",
+        "front"
+      ],
+      "sources": [
+        {
+          "title": "2016 Camaro launch technical details",
+          "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+        },
+        {
+          "title": "BMR SB052 sway bar instructions (front cradle/lower brace access)",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB052.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0.258,
+            0
+          ],
+          "size": [
+            0.85,
+            0.215,
+            0.96
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro front cradle mounting diagram: cradle, 4 isolators, TTY bolts, lower brace bar and brackets",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/c02b49f8fe0954d46ad8492e17127e20/5e6fad87434ca647dd1ae217c728d6a8.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension mounting parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-mounting"
+          }
+        ],
+        "dimensions": "approx 850 x 960 x 215 mm envelope; front extrusion 90 x 75 mm at x -0.035, rear extrusion 65 x 60 mm at x 0.31; body mounts at x -0.30 / +0.38, z +/-0.46 / 0.45",
+        "features": "Extruded-aluminium lateral members (multi-cell section, open ends) joined by cast side nodes; EPS rack bosses on the front face; lateral-link clevises behind the front member; forward cast arms ending in the tension-rod hydraulic-bushing pockets; engine-mount pedestals; 4 isolated body-mount towers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-cradle.cradle-mounts",
+      "name": "Front cradle mounting bolts and isolators / solid mounts",
+      "qty": 4,
+      "description": "Bolts (and any isolators/spacers) that clamp the front cradle to the front rails. For racing, any rubber isolation is replaced by solid aluminum or steel spacers so the cradle cannot shift under braking/cornering (which would change caster/toe). Bolts are torque-to-yield on the Alpha platform; use new bolts for final assembly.",
+      "location": "Four corners of the cradle, approx (x -0.38, y 0.28, z +/-0.42) and (x 0.12, y 0.28, z +/-0.40).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "chassis.unibody.front-frame-rails",
+        "chassis.mounting-points.captured-nut-repair",
+        "chassis.seam-welding-and-reinforcement.cradle-mount-reinforcements"
+      ],
+      "factory": {
+        "name": "GM front cradle bolts (TTY) with factory mounts",
+        "notes": "Verify whether your cradle uses rubber isolators at each location (GM SI cradle R&R procedure). No verified GM part numbers for the front cradle bolts were found."
+      },
+      "raceOptions": [
+        {
+          "name": "Solid aluminum / steel cradle mount spacers",
+          "brand": "Fabricated or aftermarket",
+          "notes": "Machine to the factory stack height so cradle height (and therefore roll center and bump steer) does not change."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Front cradle-to-body bolt",
+          "qty": 1,
+          "spec": "M14 x 1.5 (typical GM cradle bolt; verify) with captured nut in rail",
+          "grade": "10.9 TTY",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "Snug all four with cradle on locators -> 100 N·m all four -> final +90-105 deg (value pattern of Gen 6 rear cradle; front value NOT verified)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "18 mm or 21 mm socket (verify)",
+          "notes": "Per bolt. GM front cradle spec not found in available sources - the rear cradle uses 74 lb ft + 90-105 deg TTY bolts; confirm front values in GM SI before final torque. [2026-10 check] Still no Camaro front cradle value found in GM kit sheets, the SKF guide or bulletins. The only GM bulletin hit was for a different platform (2017 LaCrosse/Acadia: 160 N·m), so it does not apply.",
+          "confidence": "estimate",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        }
+      ],
+      "installNotes": [
+        "Chase captured nuts; install new bolts dry (GM fastener caution: no lubricants unless specified).",
+        "Paint witness marks after final torque."
+      ],
+      "inspection": [
+        "Check witness marks each event; solid mounts transmit more load into rails - check rail doublers for cracks."
+      ],
+      "buildPhase": 3,
+      "installOrder": 2,
+      "tags": [
+        "cradle-bolts",
+        "tty",
+        "solid-mount"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK061 (GM TAY cradle bolt practice, Gen 6 rear)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.3,
+            0.38,
+            0.46
+          ],
+          "size": [
+            0.07,
+            0.03,
+            0.07
+          ],
+          "axis": "y",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.38,
+            0.2675,
+            0.45
+          ],
+          "size": [
+            0.07,
+            0.045,
+            0.07
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro front cradle mounting diagram: cradle, 4 isolators, TTY bolts, lower brace bar and brackets",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/c02b49f8fe0954d46ad8492e17127e20/5e6fad87434ca647dd1ae217c728d6a8.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension mounting parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-mounting"
+          }
+        ],
+        "dimensions": "4 isolators approx 70 mm OD; M14 TTY bolts from below",
+        "features": "Rubber isolator / solid spacer on top of each cradle tower, washer and long bolt from under the cradle into the body rail nut",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-cradle.lower-cradle-brace",
+      "name": "Front lower cradle brace (aluminum underbody brace)",
+      "qty": 1,
+      "description": "Aluminum brace plate/structure bolted under the front cradle (removed with 15 mm-head bolts to access the front sway bar). It closes the cradle section and ties its front to the body, increasing lateral stiffness. Keep it in the race car; it also makes a good protected skid surface but should not be used as a jacking point unless reinforced.",
+      "location": "Underside of front cradle, approx x -0.40 to 0.10, y 0.16, z +/-0.40.",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "suspension.front-sway-bar.bar",
+        "aero.underbody.front-undertray"
+      ],
+      "factory": {
+        "name": "GM aluminum lower subframe brace (fitted on V8/ZL1 cars)",
+        "notes": "Fitment by trim not verified."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Lower cradle brace bolt",
+          "qty": 6,
+          "spec": "M10 flange bolt, 15 mm hex (head size per BMR)",
+          "grade": "10.9 (assumed)",
+          "torque": "37 ft-lb (50 N·m)",
+          "torqueSequence": "Hook the shear plate onto the front cradle shear plate hook. Loosely install the alignment bolts. Tighten shear plate fastener (2) to 50 N·m, then the alignment bolts to 50 N·m, then shear plate fastener (1) to 50 N·m.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "tool": "15 mm socket",
+          "notes": "Torque not published in available sources; typical GM M10 chassis value. Count approximate. [2026-10 check] CORRECTED: was 43 ft-lb (58 N·m) estimate. GM calls this aluminum plate the 'front cradle shear plate'. It must come off to reach the front stabilizer bar, which matches BMR SB052. GM SC1 (84242387/84401189) and 1LE (84233246) kit sheets give 50 N·m (37 lb ft) for the shear plate fasteners and the alignment bolts.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84242387.pdf"
+        }
+      ],
+      "installNotes": [
+        "Install after the front sway bar is in place; undertray/splash shields attach around it."
+      ],
+      "inspection": [
+        "Check for impact damage (curbing, off-track)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 3,
+      "tags": [
+        "cradle-brace",
+        "zl1"
+      ],
+      "sources": [
+        {
+          "title": "BMR SB052 sway bar kit instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB052.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.38,
+            0.172,
+            0
+          ],
+          "size": [
+            0.055,
+            0.008,
+            0.98
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro front cradle mounting diagram: cradle, 4 isolators, TTY bolts, lower brace bar and brackets",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/c02b49f8fe0954d46ad8492e17127e20/5e6fad87434ca647dd1ae217c728d6a8.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension mounting parts list",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-mounting"
+          }
+        ],
+        "dimensions": "approx 980 x 55 x 8 mm flat bar",
+        "features": "Long flat aluminium bar (item 8 on the GM mounting diagram) bolted across under the rear cradle mounts, lightening slots",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

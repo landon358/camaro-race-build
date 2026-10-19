@@ -1,0 +1,183 @@
+{
+  "id": "aero.rear-diffuser",
+  "system": "aero",
+  "name": "Rear Diffuser",
+  "description": "Upswept rear underbody panel with strakes that expands underbody flow behind the rear axle, lowering pressure under the car.",
+  "components": [
+    {
+      "id": "aero.rear-diffuser.diffuser-panel",
+      "name": "Diffuser panel & strakes",
+      "qty": 1,
+      "description": "Flat-bottom continuation behind the rear axle rising toward the rear bumper, with vertical strakes. Effective only with a reasonably sealed underbody; class rules often limit it.",
+      "location": "x ≈ 3.25–3.84, y ≈ 0.18–0.30, z ±0.65.",
+      "connectsTo": [
+        "aero.rear-diffuser.diffuser-brackets",
+        "body.panels.rear-fascia",
+        "aero.undertray.mid-floor-panels",
+        "engine-support.exhaust.mufflers"
+      ],
+      "factory": {
+        "name": "GM ZL1 rear fascia lower valance/diffuser trim",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "ZL1-style carbon rear bumper diffuser (2016–2018 SS fit)",
+          "brand": "aftermarket (eBay listing)",
+          "partNumber": "",
+          "notes": "Cosmetic-oriented; verify construction.",
+          "url": "https://www.ebay.de/itm/192787177256"
+        },
+        {
+          "name": "Custom aluminum diffuser 0.080 in with strakes",
+          "brand": "Fabricated",
+          "partNumber": "",
+          "notes": "Clear exhaust/differential.",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Angle": "≈ 7–12° typical"
+      },
+      "hardware": [
+        {
+          "item": "Panel fasteners",
+          "qty": 10,
+          "spec": "M6 into rivnuts / Dzus",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Heat-shield near exhaust tips."
+      ],
+      "inspection": [
+        "Check for heat damage and loose strakes."
+      ],
+      "buildPhase": 10,
+      "installOrder": 16,
+      "tags": [],
+      "sources": [
+        {
+          "title": "eBay – ZL1 carbon rear bumper diffuser 2016-2018 Camaro",
+          "url": "https://www.ebay.de/itm/192787177256"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.524,
+            0.26,
+            0
+          ],
+          "size": [
+            0.54,
+            0.09,
+            0.74
+          ],
+          "rot": [
+            0,
+            0,
+            12
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Authority: 2018 Camaro ZL1 1LE aero (dive planes, splitter, carbon wing)",
+            "url": "https://gmauthority.com/blog/2017/02/hot-or-not-2018-chevrolet-camaro-zl1-1le/"
+          }
+        ],
+        "dimensions": "~540 mm long x 740 mm wide ramp at ~12°, 6 strakes up to 85 mm deep",
+        "features": "Carbon/aluminium ramp from the rear subframe to the bumper, vertical strakes deepening rearward",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.rear-diffuser.diffuser-brackets",
+      "name": "Diffuser mounting brackets",
+      "qty": 4,
+      "description": "Brackets to rear subframe/bumper beam holding the diffuser.",
+      "location": "Rear subframe/beam.",
+      "connectsTo": [
+        "aero.rear-diffuser.diffuser-panel",
+        "chassis.rear-bumper-beam",
+        "suspension.rear-subframe.subframe"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bracket bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 + nyloc",
+          "grade": "ISO 8.8",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 17,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.4,
+            0.29,
+            0.3
+          ],
+          "size": [
+            0.04,
+            0.06,
+            0.03
+          ],
+          "instances": [
+            [
+              3.4,
+              0.29,
+              0.3
+            ],
+            [
+              3.4,
+              0.29,
+              -0.3
+            ],
+            [
+              3.68,
+              0.37,
+              0.3
+            ],
+            [
+              3.68,
+              0.37,
+              -0.3
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

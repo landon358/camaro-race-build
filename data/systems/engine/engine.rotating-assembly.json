@@ -1,0 +1,1067 @@
+{
+  "id": "engine.rotating-assembly",
+  "system": "engine",
+  "name": "Rotating Assembly",
+  "description": "Crankshaft, rods, pistons, rings, pins, bearings, reluctor and crank sprocket - the parts that make the engine survive sustained high-rpm, high-g road racing.",
+  "components": [
+    {
+      "id": "engine.rotating-assembly.crankshaft",
+      "name": "Crankshaft",
+      "qty": 1,
+      "description": "Forged steel crankshaft with 2.559 in mains and 2.100 in rod journals, 8-bolt rear flange and a pressed-on 58X reluctor ring. The LT4 forged 1538MV crank is a robust baseline; race builds go to 4340 billet/forged cranks (Callies, Manley, etc.) mainly for strokers.",
+      "location": "Bottom of the block on the main bearings, centerline about y = 0.40 m.",
+      "connectsTo": [
+        "engine.block.main-bearings",
+        "engine.rotating-assembly.connecting-rods",
+        "engine.rotating-assembly.reluctor-wheel",
+        "engine.rotating-assembly.crank-sprocket",
+        "engine.front-cover-and-balancer.harmonic-balancer",
+        "engine.flexplate-flywheel-interface.crank-flange",
+        "engine.oil-pan-and-pickup.oil-pump"
+      ],
+      "factory": {
+        "name": "GM LT4 forged 1538MV crankshaft (wet sump)",
+        "partNumber": "GM 12674746",
+        "notes": "Dry-sump LT4 crank 12674743. LT1 cranks: 12623492 (wet), 12629940 (dry). Wet and dry sump cranks differ at the snout/oil pump drive and balancer bolt."
+      },
+      "raceOptions": [
+        {
+          "name": "4340 forged/billet LT crank (stroker 4.000 in common)",
+          "brand": "Callies / Manley / K1",
+          "notes": "Use a 58X reluctor and Gen V snout; verify oil pump drive (wet vs dry sump) and squirter clearance. Part numbers not verified here."
+        }
+      ],
+      "specs": {
+        "Stroke": "3.622 in (92 mm)",
+        "Main journal": "2.559 in",
+        "Rod journal": "2.100 in",
+        "Rear flange": "8-bolt",
+        "Reluctor": "58X",
+        "End play": "Set at #3 thrust; typical 0.004-0.008 in (estimate - verify GM spec)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Clean every oil passage with brushes; inspect journals for scoring.",
+        "Lay in the upper main shells with assembly lube on the faces, set the crank, install caps per engine.block.main-caps.",
+        "Measure end play with a dial indicator after torquing.",
+        "Balance the crank with the actual rods/pistons/pins/rings/bearings (bobweight) if any rotating parts are changed."
+      ],
+      "inspection": [
+        "Magnaflux at each rebuild; check journals for size/taper."
+      ],
+      "buildPhase": 5,
+      "installOrder": 11,
+      "tags": [
+        "crank",
+        "forged",
+        "58x"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.0225,
+          0.4,
+          0
+        ],
+        "size": [
+          0.735,
+          0.183,
+          0.183
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12732518 Gen V forged crankshaft (SD Parts photo)",
+            "url": "https://sdparts.com/i-24139206-genuine-gm-parts-12732518-gen-v-lt1-wet-sump-crankshaft-forged-steel-3-622-stroke.html"
+          },
+          {
+            "title": "Manley LT1/LT4 forged crankshaft spec sheet (2.559 main / 2.100 rod)",
+            "url": "https://www.manleyperformance.com/product/cranks-kits/crankshafts/man_194358/"
+          }
+        ],
+        "dimensions": "Stroke 3.622 in; mains 2.559 in; rod journals 2.100 in; counterweight swing ~183 mm; ~735 mm snout to flange",
+        "features": "Forged 1538MV cross-plane crank, 8 counterweights, #3 thrust, long nose with sprocket seat, 8-bolt rear flange, 58X wheel at the rear",
+        "confidence": "published (journals, stroke); estimated (length)"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.connecting-rods",
+      "name": "Connecting rods & rod bolts",
+      "qty": 8,
+      "description": "Factory LT rods are 6.098 in powdered-metal I-beam rods with M9 x 1 x 43 torque-to-yield bolts. For a road-race build with sustained high rpm and boost, forged 4340 H-beam or I-beam rods with ARP fasteners are the usual upgrade.",
+      "location": "Between each piston wrist pin and its crank rod journal; two rods share each crank throw (left/right bank).",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "engine.rotating-assembly.pistons",
+        "engine.rotating-assembly.rod-bearings",
+        "engine.rotating-assembly.wrist-pins"
+      ],
+      "factory": {
+        "name": "GM powdered-metal I-beam rod, 6.098 in",
+        "partNumber": "GM 12669751 (LT4)",
+        "notes": "LT1 rod 12654242; current service rod for 6.2L LT1/L86/L87/LT2 listed as 12714549. 2.225 in big-end housing bore."
+      },
+      "raceOptions": [
+        {
+          "name": "Texas Speed LS/LT Super H-Beam 6.125 in forged 4340 rods",
+          "brand": "Texas Speed (TSP)",
+          "notes": "6.125 in length requires matching pistons.",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "name": "Texas Speed LT1/L86/L87 drop-in forged piston & rod set (JE flat-top + TSP H-beam)",
+          "brand": "Texas Speed / JE",
+          "notes": "Drop-in with stock crank, no balance listed.",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "name": "Carrillo / Manley / Callies Ultra rods (custom LT length)",
+          "brand": "Carrillo / Manley / Callies",
+          "notes": "Torque/stretch per rod card. Part numbers not verified here."
+        }
+      ],
+      "specs": {
+        "Length": "6.098 in (stock)",
+        "Big end bore": "2.225 in",
+        "Rod bolt (stock)": "M9 x 1 x 43"
+      },
+      "hardware": [
+        {
+          "item": "Rod bolt (GM, TTY)",
+          "qty": 2,
+          "spec": "M9 x 1.0 x 43 mm",
+          "grade": "",
+          "torque": "15 ft-lb (20 N·m) then +85°",
+          "torqueSequence": "Alternate bolts: both to 15 ft-lb, then each +85°.",
+          "threadlocker": "Clean engine oil on threads and under head",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "Angle gauge",
+          "notes": "Summit LT1 & LT4 tables and Michigan Motorsports all list 15 ft-lb + 85°.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us",
+          "partNumber": "GM 11548432 (set of 16)"
+        },
+        {
+          "item": "Aftermarket rod bolt (ARP 2000 / L19 / Custom Age 625+)",
+          "qty": 2,
+          "spec": "Per rod manufacturer (commonly 7/16 or 3/8 in)",
+          "grade": "ARP 2000 / CA625+",
+          "torque": "Per rod card - torque to the specified stretch (commonly ~0.0055-0.0065 in for 7/16 ARP 2000)",
+          "torqueSequence": "Lube with ARP Ultra-Torque, torque in 3 steps, verify each bolt with a stretch gauge.",
+          "threadlocker": "ARP Ultra-Torque",
+          "safetyWire": false,
+          "reuse": "Inspect - replace if stretch exceeds limit",
+          "tool": "ARP rod bolt stretch gauge",
+          "notes": "ARP advises using the rod manufacturer’s specification; stretch method preferred.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Size big ends with bolts at final torque; mark rod/cap pairs.",
+        "Fit rod bolt protectors over the bolts when inserting the piston/rod to protect the journal.",
+        "Check side clearance with feeler gauges for each pair.",
+        "Chamfered side of the big end faces the crank cheek (radius)."
+      ],
+      "inspection": [
+        "At rebuild: check bolt stretch, big-end roundness, small-end bushing wear."
+      ],
+      "buildPhase": 5,
+      "installOrder": 16,
+      "tags": [
+        "rods",
+        "tty",
+        "forged"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: GM 11548432 Gen V LT connecting rod bolts (set of 16)",
+          "url": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/stock-bolts-and-fastners/gm-11548432-gen-v-lt-connecting-rod-bolts-set-of-16-for-2014-lt1-lt4-l83-l86-l84-l87-l82-l8t-l8b/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.135,
+            0.4809,
+            0.0809
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.111,
+            0.4644,
+            -0.0281
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            -62.2755,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.0232,
+            0.4281,
+            0.0644
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            27.7245,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0008,
+            0.4159,
+            -0.0159
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0886,
+            0.4644,
+            0.0281
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            62.2755,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.1126,
+            0.4809,
+            -0.0809
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.2004,
+            0.4159,
+            0.0159
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.2244,
+            0.4281,
+            -0.0644
+          ],
+          "size": [
+            0.024,
+            0.207,
+            0.075
+          ],
+          "rot": [
+            -27.7245,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen V connecting rod assembly 12714549",
+            "url": "https://www.chevypartsdeal.com/oem/gm~rod-assembly-conn~12714549"
+          },
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "6.098 in c-c, 2.225 in big-end bore, ~24 mm wide",
+        "features": "Powder-metal I-beam, fractured cap with 2 M9 bolts, pressed small end; shown at a real crank angle (cyl 1 at TDC)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.pistons",
+      "name": "Pistons",
+      "qty": 8,
+      "description": "LT4 uses forged aluminum flat-top pistons with valve and DI-injector reliefs (about 10:1 CR); LT1 uses cast hypereutectic domed pistons (11.5:1). Race builds use forged 2618/4032 pistons sized for the boost level and the DI spray pattern (or port-injection).",
+      "location": "In each cylinder bore, attached to the rod by the wrist pin.",
+      "connectsTo": [
+        "engine.rotating-assembly.connecting-rods",
+        "engine.rotating-assembly.piston-rings",
+        "engine.rotating-assembly.wrist-pins",
+        "engine.block.cylinder-liners"
+      ],
+      "factory": {
+        "name": "GM LT4 forged aluminum flat-top piston, 11 cc net volume",
+        "notes": "LT1: hypereutectic cast, domed, 0.6 cc net volume. Pins 0.9431 in full floating (LT4 pin DLC-coated steel)."
+      },
+      "raceOptions": [
+        {
+          "name": "Manley Gen V LT forged pistons 560465C-8",
+          "brand": "Manley",
+          "partNumber": "560465C-8",
+          "notes": "4.065 bore, for 4.000 stroke / 6.125 rod stroker; 9.8:1 with LT4 65.5 cc heads.",
+          "url": "https://www.realstreetperformance.com/manley-pist-1-115-cd-4-065-coated-4.html"
+        },
+        {
+          "name": "JE / Wiseco / Diamond / Mahle forged LT pistons",
+          "brand": "JE / Wiseco / Diamond / Mahle",
+          "notes": "Specify DI injector notch (or none for port-injection conversion), valve reliefs for cam/limiter combination, and pin height for rod length."
+        }
+      ],
+      "specs": {
+        "Compression ratio": "LT4 10.0:1 / LT1 11.5:1",
+        "Pin diameter": "0.9431 in",
+        "Valve reliefs": "Required for intake/exhaust plus DI injector relief"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Orient per the arrow/notch (toward front) and DI relief toward the injector side.",
+        "Use a tapered ring compressor (e.g. BTR 4.075 in tool) and tap in with a hammer handle.",
+        "Check piston-to-valve clearance with clay when using a non-stock cam or phaser limiter (minimum ~0.080 in intake / 0.100 in exhaust typical).",
+        "Check deck clearance (piston to deck at TDC)."
+      ],
+      "inspection": [
+        "Borescope crowns between events for detonation pitting/erosion near the ring lands."
+      ],
+      "buildPhase": 5,
+      "installOrder": 14,
+      "tags": [
+        "pistons",
+        "forged"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "Real Street Performance: Manley 560465C-8 forged pistons, Gen V LT 4.065 bore",
+          "url": "https://www.realstreetperformance.com/manley-pist-1-115-cd-4-065-coated-4.html"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 3)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=3"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.1032,
+            0.06,
+            0.1032
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.5442,
+              0.1442
+            ],
+            [
+              -0.0232,
+              0.5067,
+              0.1067
+            ],
+            [
+              0.0886,
+              0.5067,
+              0.1067
+            ],
+            [
+              0.2004,
+              0.4791,
+              0.0791
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.1032,
+            0.06,
+            0.1032
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.5067,
+              -0.1067
+            ],
+            [
+              0.0008,
+              0.4791,
+              -0.0791
+            ],
+            [
+              0.1126,
+              0.5442,
+              -0.1442
+            ],
+            [
+              0.2244,
+              0.5067,
+              -0.1067
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Inside the GM Gen 5 LT1/LT4 piston design (Vehicle Service Pros)",
+            "url": "https://www.vehicleservicepros.com/service-repair/article/55398736/inside-the-gm-gen-5-lt1-lt4-piston-design"
+          }
+        ],
+        "dimensions": "4.065 in dia, 0.943 in pin, ~60 mm tall",
+        "features": "Forged flat-top with valve eyebrows and DI spray relief, 3 ring grooves, short skirt",
+        "confidence": "published (dia, pin)"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.piston-rings",
+      "name": "Piston rings",
+      "qty": 8,
+      "description": "Three-ring pack per piston: top compression ring, second ring and three-piece oil ring. LT4 factory top ring is PVD-coated steel, second ring chrome, oil ring nitrided stainless. Ring end gaps must be file-fit to the boost/nitrous level.",
+      "location": "Ring grooves on each piston.",
+      "connectsTo": [
+        "engine.rotating-assembly.pistons",
+        "engine.block.cylinder-liners"
+      ],
+      "factory": {
+        "name": "GM LT4 ring set (PVD top / chrome 2nd / nitrided oil)",
+        "notes": "Service replacements: Hastings 2M5381 (LT1/L86/L87 stock), 2N5295 (LT4 / L8T nitride top)."
+      },
+      "raceOptions": [
+        {
+          "name": "Hastings 2N5295 nitride top ring set (LT4)",
+          "brand": "Hastings",
+          "partNumber": "2N5295",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        },
+        {
+          "name": "Total Seal / Mahle file-fit race ring packs",
+          "brand": "Total Seal / Mahle",
+          "notes": "Choose per piston ring-groove spec."
+        }
+      ],
+      "specs": {
+        "Top ring gap (boosted, guideline)": "about 0.0055 x bore (~0.022 in) - follow piston/ring maker (estimate)",
+        "Second ring gap (guideline)": "top gap + 0.002-0.004 in (estimate)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "File-fit each ring in its own bore, square with a piston, measure gap with feeler gauge.",
+        "Stagger gaps per manufacturer (never aligned, keep away from pin bores/thrust faces).",
+        "Install with a ring expander; \"dot/pip\" up."
+      ],
+      "inspection": [
+        "Leak-down test; blow-by into the catch can is a trend indicator."
+      ],
+      "buildPhase": 5,
+      "installOrder": 13,
+      "tags": [
+        "rings"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.1032,
+            0.008,
+            0.1032
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.5573,
+              0.1573
+            ],
+            [
+              -0.0232,
+              0.5198,
+              0.1198
+            ],
+            [
+              0.0886,
+              0.5198,
+              0.1198
+            ],
+            [
+              0.2004,
+              0.4922,
+              0.0922
+            ]
+          ]
+        },
+        {
+          "shape": "torus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.1032,
+            0.008,
+            0.1032
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.5198,
+              -0.1198
+            ],
+            [
+              0.0008,
+              0.4922,
+              -0.0922
+            ],
+            [
+              0.1126,
+              0.5573,
+              -0.1573
+            ],
+            [
+              0.2244,
+              0.5198,
+              -0.1198
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Inside the GM Gen 5 LT1/LT4 piston design (Vehicle Service Pros)",
+            "url": "https://www.vehicleservicepros.com/service-repair/article/55398736/inside-the-gm-gen-5-lt1-lt4-piston-design"
+          }
+        ],
+        "dimensions": "4.065 in; top/2nd ~1.0-1.2 mm, 3-piece oil ring",
+        "features": "PVD top ring, dark 2nd ring, 3-piece oil ring",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.wrist-pins",
+      "name": "Wrist pins & pin retainers",
+      "qty": 8,
+      "description": "Full-floating 0.9431 in wrist pins (LT4: DLC-coated steel) retained by locks in the piston pin bores. Aftermarket forged pistons usually come with tool-steel pins and round-wire or spiral locks.",
+      "location": "Through the piston pin bosses and the rod small end.",
+      "connectsTo": [
+        "engine.rotating-assembly.pistons",
+        "engine.rotating-assembly.connecting-rods"
+      ],
+      "factory": {
+        "name": "GM 0.9431 in full-floating pin (DLC coated on LT4)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tool-steel / DLC pins supplied with forged pistons",
+          "brand": "JE / Manley / Wiseco",
+          "notes": "Match pin wall thickness to boost level."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pin lock (round wire / spiral lock)",
+          "qty": 2,
+          "spec": "Per piston manufacturer",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Oil pins, check pin-to-bore clearance, fully seat both locks and rotate them to confirm seating."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 15,
+      "tags": [
+        "wrist-pin"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.064,
+            0.024,
+            0.024
+          ],
+          "axis": "x",
+          "instances": [
+            [
+              -0.135,
+              0.5421,
+              0.1421
+            ],
+            [
+              -0.0232,
+              0.5046,
+              0.1046
+            ],
+            [
+              0.0886,
+              0.5046,
+              0.1046
+            ],
+            [
+              0.2004,
+              0.477,
+              0.077
+            ],
+            [
+              -0.111,
+              0.5046,
+              -0.1046
+            ],
+            [
+              0.0008,
+              0.477,
+              -0.077
+            ],
+            [
+              0.1126,
+              0.5421,
+              -0.1421
+            ],
+            [
+              0.2244,
+              0.5046,
+              -0.1046
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Inside the GM Gen 5 LT1/LT4 piston design (Vehicle Service Pros)",
+            "url": "https://www.vehicleservicepros.com/service-repair/article/55398736/inside-the-gm-gen-5-lt1-lt4-piston-design"
+          }
+        ],
+        "dimensions": "0.9431 in (24 mm) dia x ~64 mm",
+        "features": "Full-floating tube pin with round-wire locks",
+        "confidence": "published (dia)"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.rod-bearings",
+      "name": "Connecting rod bearings",
+      "qty": 8,
+      "description": "Rod bearing shell pairs for the 2.100 in rod journals. Road-race engines with long high-g sessions are hard on rod bearings; use a coated, harder race bearing and keep oil pressure/temperature under control.",
+      "location": "Rod big ends on the crank rod journals.",
+      "connectsTo": [
+        "engine.rotating-assembly.connecting-rods",
+        "engine.rotating-assembly.crankshaft"
+      ],
+      "factory": {
+        "name": "GM Gen V rod bearings",
+        "partNumber": "GM 12735504",
+        "notes": "GM 12656817 listed for 2014-2016 LT1/L86/LT4; 12735504 for later 6.2L LT1/L86/L87 and 6.6L L8T."
+      },
+      "raceOptions": [
+        {
+          "name": "King XP rod bearings, std (Gen V LT)",
+          "brand": "King",
+          "partNumber": "CR8057XPN",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "name": "King XP coated rod bearings (Gen V LT)",
+          "brand": "King",
+          "partNumber": "CR8057XPNC",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "name": "King XP rod bearings +.001 clearance",
+          "brand": "King",
+          "partNumber": "CR8057XPNSTDX",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "specs": {
+        "Rod journal": "2.100 in",
+        "Typical race clearance": "0.0022-0.0027 in (estimate - builder to set)"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install shells dry in the rod/cap, lube faces; measure clearance at final rod bolt torque."
+      ],
+      "inspection": [
+        "Cut oil filter every event; trend oil-analysis lead/copper."
+      ],
+      "buildPhase": 5,
+      "installOrder": 17,
+      "tags": [
+        "bearings",
+        "king"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0,
+          0.4,
+          0
+        ],
+        "size": [
+          0.046,
+          0.0566,
+          0.0566
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            -0.123,
+            0.4325,
+            0.0325
+          ],
+          [
+            -0.0112,
+            0.3675,
+            0.0325
+          ],
+          [
+            0.1006,
+            0.4325,
+            -0.0325
+          ],
+          [
+            0.2124,
+            0.3675,
+            -0.0325
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Manley LT1/LT4 forged crankshaft spec sheet (2.559 main / 2.100 rod)",
+            "url": "https://www.manleyperformance.com/product/cranks-kits/crankshafts/man_194358/"
+          }
+        ],
+        "dimensions": "2.100 in journal, 2 shells per journal (2 rods)",
+        "features": "Tri-metal half shells, 2 rods side by side on each pin",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.reluctor-wheel",
+      "name": "58X crankshaft reluctor wheel",
+      "qty": 1,
+      "description": "58-tooth (60-2) trigger wheel pressed onto the crankshaft; read by the crank position sensor. Must be the 58X Gen IV/V style to work with the E92 ECM or most race ECUs’ GM 58X decoder.",
+      "location": "On the crankshaft near the rear main, inside the block.",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "engine.engine-sensors.crank-position-sensor"
+      ],
+      "factory": {
+        "name": "GM 58X reluctor (pressed on crank)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Aftermarket crank with 58X wheel installed",
+          "brand": "Callies / Manley",
+          "notes": "Order with 58X; confirm index position relative to TDC #1 matches GM."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Never remove/re-press without the correct fixture - clocking must match GM."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 10,
+      "tags": [
+        "58x",
+        "crank-trigger"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0.2545,
+          0.4,
+          0
+        ],
+        "size": [
+          0.004,
+          0.19,
+          0.19
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12732518 Gen V forged crankshaft (SD Parts photo)",
+            "url": "https://sdparts.com/i-24139206-genuine-gm-parts-12732518-gen-v-lt1-wet-sump-crankshaft-forged-steel-3-622-stroke.html"
+          }
+        ],
+        "dimensions": "~190 mm dia, 60-2 tooth pattern",
+        "features": "Stamped steel 58X wheel pressed on the rear of the crank",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.rotating-assembly.crank-sprocket",
+      "name": "Crankshaft timing sprocket",
+      "qty": 1,
+      "description": "Steel sprocket on the crank snout that drives the timing chain; keyed to the crank. Cloyes and others offer adjustable (multi-keyway) crank sprockets for degreeing the cam.",
+      "location": "Front of crank snout, behind the oil pump drive and front cover.",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "engine.valvetrain.timing-chain"
+      ],
+      "factory": {
+        "name": "GM Gen V crank sprocket",
+        "notes": "Timing mark aligns with cam phaser sprocket mark per GM procedure."
+      },
+      "raceOptions": [
+        {
+          "name": "Cloyes 9-3678X5 LT timing set (adjustable steel crank gear, single-row true roller)",
+          "brand": "Cloyes",
+          "partNumber": "9-3678X5",
+          "url": "https://90racing.com/products/cloyes-timing-chain-set-9-3678x5"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install with crank key; align timing marks (#1 TDC) before fitting the chain.",
+        "Degree the cam with a degree wheel on the crank snout before the front cover goes on."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 19,
+      "tags": [
+        "timing"
+      ],
+      "sources": [
+        {
+          "title": "90 Racing: Cloyes 9-3678X5 tensioner-elimination timing set, GM LT",
+          "url": "https://90racing.com/products/cloyes-timing-chain-set-9-3678x5"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          -0.22,
+          0.4,
+          0
+        ],
+        "size": [
+          0.014,
+          0.064,
+          0.064
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Gen V timing chain kit: IWIS chain, GM phaser sprocket, tensioner, crank sprocket",
+            "url": "https://www.michiganmotorsports.com/timing-chain-gears-and-vvt/timing-chain-kit-for-2014-l83-l86-lt1-with-iwis-chain-gm-phaser-sprocket-gm-tensioner-gm-crank-sprocket/"
+          }
+        ],
+        "dimensions": "19 teeth, ~64 mm OD (3/8 in pitch)",
+        "features": "Steel sprocket with keyway and oil-pump drive hub",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

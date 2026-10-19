@@ -1,0 +1,979 @@
+{
+  "id": "engine.fuel-injection",
+  "system": "engine",
+  "name": "Fuel Injection (DI & PI)",
+  "description": "Cam-driven DI high-pressure pump and follower, LP feed connection, HP feed line, rails, injectors and seals, plus port-injection conversion options.",
+  "components": [
+    {
+      "id": "engine.fuel-injection.hp-fuel-pump",
+      "name": "High-pressure DI fuel pump (cam-driven)",
+      "qty": 1,
+      "description": "Single-piston high-pressure pump driven by the 4-lobe pump lobe at the rear of the camshaft through a roller follower. It raises low-side fuel (from the tank pump) to up to ~2,900+ psi for the direct injectors, with an ECM-controlled flow-control valve. LT4 pump flows more than the LT1 pump.",
+      "location": "Rear of the lifter valley, under the rear of the intake/supercharger.",
+      "connectsTo": [
+        "engine.fuel-injection.hpfp-follower",
+        "engine.fuel-injection.hp-feed-line",
+        "engine.fuel-injection.lp-feed-connection",
+        "engine.valvetrain.camshaft",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM LT4 high-pressure fuel pump",
+        "partNumber": "GM 12711668",
+        "notes": "Supersedes 12694529. OEM on LT4/LT5; an upgrade for LT1/L86/L83 (requires calibration)."
+      },
+      "raceOptions": [
+        {
+          "name": "Upgraded DI pump (LPE, Katech/XDI)",
+          "brand": "LPE / XDI",
+          "notes": "Katech notes high-flow XDI injectors need upgraded LP and HP pumps; LT4 OEM HP pump rated up to ~3200 psi.",
+          "url": "https://katechengines.com/i-30497708-xdi-high-flow-lt4-lt5-injectors-70.html"
+        },
+        {
+          "name": "Delete pump for port-injection-only (HPFP lifter delete plug)",
+          "brand": "ICT Billet",
+          "notes": "ICT HPFP lifter delete plug.",
+          "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/"
+        }
+      ],
+      "specs": {
+        "Max pressure (LT4 injector rating)": "2,940 psi",
+        "Drive": "4-lobe cam lobe via roller follower"
+      },
+      "hardware": [
+        {
+          "item": "High-pressure fuel pump bolt",
+          "qty": 2,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "Rotate engine so follower is on base circle of the pump lobe; tighten bolts alternately in steps to pull the pump down evenly.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list 18 ft-lb.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Fuel pump lash cap (.060 in)",
+          "qty": 1,
+          "spec": "GM .060 in lash cap",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/",
+          "partNumber": "GM 12596509"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install pump with lobe on base circle (use ICT HPFP install tool if available); new pump O-ring/gasket.",
+        "Cam with a larger fuel lobe (e.g. BTR +32/+38%) requires recalibrated fuel-pump control."
+      ],
+      "inspection": [
+        "Log commanded vs actual rail pressure each session; a widening gap indicates pump/follower wear or LP supply issue."
+      ],
+      "buildPhase": 5,
+      "installOrder": 50,
+      "tags": [
+        "direct-injection",
+        "hpfp"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: GM 12711668 LT4 high-pressure fuel pump",
+          "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Katech: XDI High Flow LT4/LT5 injectors (+70%)",
+          "url": "https://katechengines.com/i-30497708-xdi-high-flow-lt4-lt5-injectors-70.html"
+        },
+        {
+          "title": "Michigan Motorsports: LT4 fuel injector and HPFP upgrade kit for LT1/L83/L86",
+          "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/lt4-fuel-injector-and-fuel-pump-upgrade-kit-for-lt1-l83-l86-engines-includes-injectors-high-pressure-fuel-pump-and-feed-lines/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.3,
+          0.685,
+          0
+        ],
+        "size": [
+          0.11,
+          0.11,
+          0.11
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12711668 LT4 high-pressure fuel pump (SD Parts photos)",
+            "url": "https://sdparts.com/i-24131319-genuine-gm-parts-12711668-gen-v-lt4-high-pressure-fuel-pump.html"
+          },
+          {
+            "title": "GM 12711668 LT4 HPFP (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/"
+          }
+        ],
+        "dimensions": "Approx. 70 mm body dia x 100 mm tall with 2-bolt flange",
+        "features": "Cast aluminium cylindrical pump with domed pressure damper, black solenoid connector on the side, low-pressure inlet and HP outlet fittings; mounts on the rear valley-cover boss",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.hpfp-follower",
+      "name": "HPFP roller follower (pump lifter) & guide",
+      "qty": 1,
+      "description": "Roller lifter between the cam pump lobe and the pump plunger, located by a guide bolted in the valley.",
+      "location": "Rear of the lifter valley under the HP pump.",
+      "connectsTo": [
+        "engine.valvetrain.camshaft",
+        "engine.fuel-injection.hp-fuel-pump"
+      ],
+      "factory": {
+        "name": "GM fuel pump roller follower and guide",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Fuel pump lifter follower guide bolt",
+          "qty": 1,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Oil the follower; orient the roller in line with the cam."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 49,
+      "tags": [
+        "hpfp"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.3,
+          0.575,
+          0
+        ],
+        "size": [
+          0.025,
+          0.05,
+          0.025
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12711668 LT4 high-pressure fuel pump (SD Parts photos)",
+            "url": "https://sdparts.com/i-24131319-genuine-gm-parts-12711668-gen-v-lt4-high-pressure-fuel-pump.html"
+          }
+        ],
+        "dimensions": "~25 mm dia x 50 mm",
+        "features": "Roller follower riding the 4-lobe rear cam lobe",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.lp-feed-connection",
+      "name": "Low-pressure feed connection to HP pump",
+      "qty": 1,
+      "description": "The low-pressure supply from the tank module (engine-support fuel delivery) ends at the HP pump inlet with a 3/8 in SAE quick-connect. Magnuson notes a longer-than-stock hose is needed when the blower is raised.",
+      "location": "Rear of the engine, from the chassis fuel line to the HP pump inlet.",
+      "connectsTo": [
+        "engine.fuel-injection.hp-fuel-pump",
+        "engine-support.fuel-delivery.feed-line",
+        "engine-support.fuel-delivery.engine-quick-disconnect"
+      ],
+      "factory": {
+        "name": "GM engine fuel feed hose with 3/8 in quick connect",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "3/8 in SAE quick-connect",
+          "qty": 1,
+          "spec": "Female SAE quick connect with retainer",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect retainer / O-rings",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Pull-test every quick connect after engagement; keep hose away from exhaust."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 91,
+      "tags": [
+        "fuel-feed"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.6,
+            0.45,
+            0.35
+          ],
+          [
+            0.48,
+            0.52,
+            0.28
+          ],
+          [
+            0.4,
+            0.66,
+            0.12
+          ],
+          [
+            0.34,
+            0.71,
+            0.04
+          ],
+          [
+            0.31,
+            0.71,
+            0.03
+          ]
+        ],
+        "radius": 0.006
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT Billet LT fuel system parts (rails, lines, fittings)",
+            "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+          }
+        ],
+        "dimensions": "3/8 in feed with quick-connects",
+        "features": "Black nylon/rubber line with white quick-connect ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.hp-feed-line",
+      "name": "High-pressure fuel feed line (pump to rails)",
+      "qty": 1,
+      "description": "Steel high-pressure line from the pump outlet that splits to the left and right DI rails.",
+      "location": "Top rear of the valley, under the supercharger.",
+      "connectsTo": [
+        "engine.fuel-injection.hp-fuel-pump",
+        "engine.fuel-injection.di-fuel-rails"
+      ],
+      "factory": {
+        "name": "GM HP fuel feed pipe (LT-specific; LT4 lines differ from LT1)",
+        "notes": "Michigan Motorsports LT4 upgrade kit for LT1 includes LT4-specific lines."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "High-pressure fuel feed line fitting nut",
+          "qty": 3,
+          "spec": "HP tube nut",
+          "grade": "",
+          "torque": "21 ft-lb (28 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none - clean dry",
+          "safetyWire": false,
+          "reuse": "Replace line if disturbed (GM practice for HP lines)",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Start nuts by hand, align line without stress, torque. Leak check with key-on pressure before starting."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 55,
+      "tags": [
+        "direct-injection"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LT4 fuel injector and HPFP upgrade kit for LT1/L83/L86",
+          "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/lt4-fuel-injector-and-fuel-pump-upgrade-kit-for-lt1-l83-l86-engines-includes-injectors-high-pressure-fuel-pump-and-feed-lines/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.3,
+              0.722,
+              0.012
+            ],
+            [
+              0.3,
+              0.72,
+              0.04
+            ],
+            [
+              0.29,
+              0.705,
+              0.055
+            ],
+            [
+              0.2724,
+              0.6947,
+              0.0613
+            ]
+          ],
+          "radius": 0.004
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.3,
+              0.722,
+              -0.012
+            ],
+            [
+              0.3,
+              0.72,
+              -0.04
+            ],
+            [
+              0.29,
+              0.705,
+              -0.055
+            ],
+            [
+              0.2964,
+              0.6947,
+              -0.0613
+            ]
+          ],
+          "radius": 0.004
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT Billet LT fuel system parts (rails, lines, fittings)",
+            "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+          },
+          {
+            "title": "GM 12711668 LT4 HPFP (Michigan Motorsports)",
+            "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/"
+          }
+        ],
+        "dimensions": "~6 mm stainless tube, M12-M14 flare nuts",
+        "features": "Formed stainless lines from the pump outlet to the rear end of each rail",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.di-fuel-rails",
+      "name": "DI fuel rails (L & R) with rail pressure sensor",
+      "qty": 2,
+      "description": "Forged steel high-pressure rails bolted to the heads holding the injectors in their bores; the fuel rail pressure (FRP) sensor is threaded into one rail.",
+      "location": "Along the intake side of each head, under the supercharger runners.",
+      "connectsTo": [
+        "engine.fuel-injection.hp-feed-line",
+        "engine.fuel-injection.di-injectors",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.engine-sensors.fuel-rail-pressure-sensor"
+      ],
+      "factory": {
+        "name": "GM Gen V DI fuel rails",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Fuel rail bolt",
+          "qty": 4,
+          "spec": "M8 bolt (per rail, approximate)",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "Draw rail down evenly so injectors seat squarely, then final torque.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Install new injector seals/backup rings before seating rails."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 53,
+      "tags": [
+        "direct-injection"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.185,
+              0.6947,
+              0.0613
+            ],
+            [
+              0.2604,
+              0.6947,
+              0.0613
+            ]
+          ],
+          "radius": 0.0105
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.161,
+              0.6947,
+              -0.0613
+            ],
+            [
+              0.2844,
+              0.6947,
+              -0.0613
+            ]
+          ],
+          "radius": 0.0105
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT Billet LT fuel system parts (rails, lines, fittings)",
+            "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+          }
+        ],
+        "dimensions": "~21 mm rail tube, ~440 mm long per bank",
+        "features": "Stainless forged rail with 4 angled injector cups, bolt-down bosses between cylinders, pressure sensor on the driver rail rear",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.di-injectors",
+      "name": "Direct injectors",
+      "qty": 8,
+      "description": "Solenoid DI injectors spraying directly into each chamber. LT4: GM 12684130, 141 lb/hr at 2,940 psi; LT1: 12656931, 123 lb/hr at 2,205 psi. Higher power on a DI LT4 needs XDI high-flow injectors plus pump upgrades, or a supplemental/full port-injection conversion.",
+      "location": "In the cylinder head between the intake ports, under the fuel rails.",
+      "connectsTo": [
+        "engine.fuel-injection.di-fuel-rails",
+        "engine.cylinder-heads.cylinder-head",
+        "engine.fuel-injection.injector-seals",
+        "electrical.engine-management.injector-subharness"
+      ],
+      "factory": {
+        "name": "GM LT4 DI injector",
+        "partNumber": "GM 12684130",
+        "notes": "LT1 12656931."
+      },
+      "raceOptions": [
+        {
+          "name": "XDI High Flow LT4/LT5 injectors (+30% / +50% / +65% / +70%)",
+          "brand": "XDI (via Katech)",
+          "notes": "+70% rated 29.2 g/s at 10 MPa vs 17.7 g/s stock; requires LP and HP pump upgrades.",
+          "url": "https://katechengines.com/i-30497707-xdi-high-flow-lt4-lt5-injectors-30.html"
+        }
+      ],
+      "specs": {
+        "LT4 flow": "141 lb/hr @ 2,940 psi",
+        "LT1 flow": "123 lb/hr @ 2,205 psi"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Replace PTFE combustion seal and rail O-ring/backup ring with the proper sizing tools each removal.",
+        "For port-injection-only conversions replace DI injectors with solid plugs (Harrop)."
+      ],
+      "inspection": [
+        "Log injector pulse width/duty; DI injectors carbon up less than PI but check for misfire trends."
+      ],
+      "buildPhase": 5,
+      "installOrder": 52,
+      "tags": [
+        "injectors",
+        "direct-injection"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+        },
+        {
+          "title": "Katech: XDI High Flow LT4/LT5 injectors (+30%)",
+          "url": "https://katechengines.com/i-30497707-xdi-high-flow-lt4-lt5-injectors-30.html"
+        },
+        {
+          "title": "Katech: XDI High Flow LT4/LT5 injectors (+70%)",
+          "url": "https://katechengines.com/i-30497708-xdi-high-flow-lt4-lt5-injectors-70.html"
+        },
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.015,
+            0.07,
+            0.015
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.6593,
+              0.0967
+            ],
+            [
+              -0.0232,
+              0.6593,
+              0.0967
+            ],
+            [
+              0.0886,
+              0.6593,
+              0.0967
+            ],
+            [
+              0.2004,
+              0.6593,
+              0.0967
+            ]
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.015,
+            0.07,
+            0.015
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.6593,
+              -0.0967
+            ],
+            [
+              0.0008,
+              0.6593,
+              -0.0967
+            ],
+            [
+              0.1126,
+              0.6593,
+              -0.0967
+            ],
+            [
+              0.2244,
+              0.6593,
+              -0.0967
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Stanadyne LT4 Gen 1 DI injector datasheet (7.45 mm tip, 6-hole)",
+            "url": "https://www.stanadyne.com/datasheets/lt4-gen1-di-fuel-injectors/"
+          }
+        ],
+        "dimensions": "7.45 mm tip, ~70 mm long, ~15 mm body",
+        "features": "Slim stainless tip with Teflon combustion seal, black body, side connector; sits in the head under each intake port",
+        "confidence": "published (tip), estimated (length)"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.injector-seals",
+      "name": "DI injector combustion seals, backup rings & O-rings",
+      "qty": 8,
+      "description": "Single-use PTFE combustion seal on the injector tip plus the rail-end O-ring and backup ring. Installed with dedicated sizing tools.",
+      "location": "On each DI injector.",
+      "connectsTo": [
+        "engine.fuel-injection.di-injectors"
+      ],
+      "factory": {
+        "name": "GM DI injector seal kit",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "PTFE combustion seal + O-ring/backup ring",
+          "qty": 1,
+          "spec": "Per injector",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Expand seal with the installer cone, then re-size with the sizing sleeve before installing in the head."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 51,
+      "tags": [
+        "seals"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.012,
+            0.01,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            -45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.6381,
+              0.1179
+            ],
+            [
+              -0.0232,
+              0.6381,
+              0.1179
+            ],
+            [
+              0.0886,
+              0.6381,
+              0.1179
+            ],
+            [
+              0.2004,
+              0.6381,
+              0.1179
+            ]
+          ]
+        },
+        {
+          "shape": "torus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.012,
+            0.01,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            45,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.6381,
+              -0.1179
+            ],
+            [
+              0.0008,
+              0.6381,
+              -0.1179
+            ],
+            [
+              0.1126,
+              0.6381,
+              -0.1179
+            ],
+            [
+              0.2244,
+              0.6381,
+              -0.1179
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Stanadyne LT4 Gen 1 DI injector datasheet (7.45 mm tip, 6-hole)",
+            "url": "https://www.stanadyne.com/datasheets/lt4-gen1-di-fuel-injectors/"
+          }
+        ],
+        "dimensions": "~8-12 mm rings",
+        "features": "White PTFE combustion seal at the tip, backup ring and O-ring at the cup end",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.fuel-injection.port-injection-kit",
+      "name": "Port fuel injection conversion / supplemental PI kit (race)",
+      "qty": 1,
+      "description": "Adds port injectors (supplementing or replacing DI) for high-power or E85 race builds. Options include Harrop PI spacer kit (lifts manifold ~28 mm, Bosch EV14K compact injectors with 14.6 mm O-rings, -8 ORB rails), TooHighPSI port plates for Magnuson 2650, Whipple machined bosses, or Holley Lo-Ram/Hi-Ram manifolds. Needs a return-style or high-flow low-pressure fuel system and an ECU able to run PI (or a piggyback controller).",
+      "location": "Between the supercharger/manifold and heads (spacer type) or on the manifold runners.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.intake-manifold.na-intake-manifold",
+        "engine-support.fuel-delivery.feed-line",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "Not fitted (DI only)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Harrop TVS2650 LT4 port injection kit",
+          "brand": "Harrop",
+          "partNumber": "99-AKIT15926",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "name": "TooHighPSI LT1/LT4 port injection plates",
+          "brand": "TooHighPSI",
+          "url": "https://www.enginelabs.com/?p=6192"
+        },
+        {
+          "name": "Holley Lo-Ram with port injection rails",
+          "brand": "Holley",
+          "partNumber": "300-718",
+          "url": "https://briantooleyracing.com/holley-low-ram-intake-manifold-gen-v-lt-with-port-injectors-300-718.html"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Fuel rail -8 ORB fittings",
+          "qty": 4,
+          "spec": "3/4-16 O-ring boss (-8)",
+          "grade": "",
+          "torque": "18-21 ft-lb (24-28 N·m) (typical for -8 ORB into aluminum)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-rings",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Plug DI injector bores with solid plugs if running port-only.",
+        "Confirm hood clearance (spacer adds height)."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 73,
+      "tags": [
+        "port-injection",
+        "e85",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "title": "EngineLabs: SEMA 2021 port fuel injection for LT1/LT4 engines from TooHighPSI",
+          "url": "https://www.enginelabs.com/?p=6192"
+        },
+        {
+          "title": "Brian Tooley Racing: Holley Lo-Ram intake manifold Gen V LT with port injectors 300-718",
+          "url": "https://briantooleyracing.com/holley-low-ram-intake-manifold-gen-v-lt-with-port-injectors-300-718.html"
+        },
+        {
+          "title": "Whipple WK-1025-30 Gen 6 3.0L supercharger upgrade kit, Camaro ZL1 / CTS-V LT4",
+          "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.175,
+              0.8,
+              0.25
+            ],
+            [
+              0.2504,
+              0.8,
+              0.25
+            ]
+          ],
+          "radius": 0.009
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.151,
+              0.8,
+              -0.25
+            ],
+            [
+              0.2744,
+              0.8,
+              -0.25
+            ]
+          ],
+          "radius": 0.009
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT Billet LT fuel system parts (rails, lines, fittings)",
+            "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+          }
+        ],
+        "dimensions": "Aftermarket -6/-8 AN rails ~450 mm",
+        "features": "Red-anodised billet rails with blue AN fittings and 4 port injectors per bank",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

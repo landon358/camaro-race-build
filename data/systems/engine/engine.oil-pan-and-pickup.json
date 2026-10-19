@@ -1,0 +1,678 @@
+{
+  "id": "engine.oil-pan-and-pickup",
+  "system": "engine",
+  "name": "Oil Pump, Pan & Pickup",
+  "description": "Wet-sump oil pump, pickup, windage/baffling, ZL1 oil pan, filter adapter and dipstick/fill; dry-sump pan alternatives (the dry-sump pump/tank/lines live in engine-support).",
+  "components": [
+    {
+      "id": "engine.oil-pan-and-pickup.oil-pump",
+      "name": "Engine oil pump (wet sump, crank-driven variable displacement)",
+      "qty": 1,
+      "description": "Gen V wet-sump engines use a crank-driven, variable-displacement vane pump mounted to the front of the block behind the front cover, with pressure commanded by the ECM. A dry-sump conversion replaces it with an external belt-driven pump (see engine-support).",
+      "location": "Front of block around the crank snout, inside the front cover.",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "engine.oil-pan-and-pickup.oil-pickup",
+        "engine.block.oil-galley-plugs",
+        "engine.front-cover-and-balancer.front-cover",
+        "engine-support.oiling.dry-sump-pump"
+      ],
+      "factory": {
+        "name": "GM LT1/LT4 wet-sump oil pump (2014-2021)",
+        "partNumber": "GM 12686434",
+        "notes": "GM 12744612 listed for 2022-2024 Camaro LT1/LT4. Vendor note: GM variable-vane pumps are prone to failure if removed and reinstalled after use - replace rather than reuse. Will not fit dry-sump engines."
+      },
+      "raceOptions": [
+        {
+          "name": "Katech Gen V LT1/LT4/LT5 wet sump oil pump (billet 4140 gear)",
+          "brand": "Katech",
+          "partNumber": "KAT-A7502",
+          "notes": "Direct replacement, no tuning required per Katech. Doweled-pump Blackwing/Escalade-V need KAT-A7734.",
+          "url": "https://katechengines.com/i-30497857-katech-gen-v-lt1-lt4-lt5-wet-sump-oil-pump.html"
+        },
+        {
+          "name": "Dry-sump conversion (pump in engine-support system)",
+          "brand": "Katech / Fluidworks / Dailey",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Oil pump to block bolt",
+          "qty": 4,
+          "spec": "M8 flange bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 242/243) recommended on race builds",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list 18 ft-lb.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Prime the pump with oil; align the drive to the crank flats; center the pump per GM procedure before torquing.",
+        "Install a NEW inlet O-ring (GM 12666993).",
+        "Prime the whole engine with a pressure primer through a galley port before first start."
+      ],
+      "inspection": [
+        "Log oil pressure vs rpm and oil temp every session; pressure drop in long corners = pickup starvation."
+      ],
+      "buildPhase": 5,
+      "installOrder": 26,
+      "tags": [
+        "oil-pump",
+        "wet-sump"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: Genuine GM 12686434 oil pump, 2014-2021 LT1/LT4 wet sump",
+          "url": "https://michiganmotorsports.com/oil-pumps-oils-and-fluids/genuine-gm-12686434-oil-pump-for-2014-2021-lt1-lt4-wet-sump-camaro-corvette-cts-v"
+        },
+        {
+          "title": "Katech KAT-A7502 Gen V LT1/LT4/LT5 wet sump oil pump",
+          "url": "https://katechengines.com/i-30497857-katech-gen-v-lt1-lt4-lt5-wet-sump-oil-pump.html"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.24,
+          0.385,
+          0
+        ],
+        "size": [
+          0.024,
+          0.13,
+          0.2
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12686434 LT1/LT4 wet-sump oil pump",
+            "url": "https://michiganmotorsports.com/oil-pumps-oils-and-fluids/genuine-gm-12686434-oil-pump-for-2014-2021-lt1-lt4-wet-sump-camaro-corvette-cts-v"
+          }
+        ],
+        "dimensions": "Approx. 200 x 130 x 24 mm",
+        "features": "Crank-driven variable-displacement vane pump on the snout, 4 bolts, pickup port at the bottom",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.oil-pan-and-pickup.oil-pickup",
+      "name": "Oil pickup tube & screen (with inlet O-ring)",
+      "qty": 1,
+      "description": "Tube and screen that draws oil from the pan sump to the pump inlet; sealed at the pump by an O-ring. For road racing, its position relative to the pan baffles/trap door is critical.",
+      "location": "Inside the oil pan, from the sump bowl forward to the pump inlet.",
+      "connectsTo": [
+        "engine.oil-pan-and-pickup.oil-pump",
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.oil-pan-and-pickup.windage-tray"
+      ],
+      "factory": {
+        "name": "GM Gen V pickup tube",
+        "notes": "Inlet seal GM 12666993."
+      },
+      "raceOptions": [
+        {
+          "name": "Pan-matched pickup supplied with aftermarket baffled pans",
+          "brand": "Holley / Improved Racing",
+          "notes": "Use the pickup designed for the pan."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pickup tube bolt",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "88 in-lb (9.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) recommended",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Oil pump inlet O-ring",
+          "qty": 1,
+          "spec": "GM inlet seal",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/gaskets-install-kits/gen-5-lt-gaskets/genuine-gm-12666993-oil-pump-inlet-seal-for-gen-v-lt-engines-lt1-l82-l83-l84-l86-l87-l8b-l8t-o-ring-gasket",
+          "partNumber": "GM 12666993"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Check pickup-to-pan floor clearance (commonly ~0.25-0.375 in, estimate) with clay.",
+        "Lube O-ring; seat fully before bolting."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 27,
+      "tags": [
+        "pickup"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Michigan Motorsports: GM 12666993 oil pump inlet seal, Gen V LT",
+          "url": "https://www.michiganmotorsports.com/gaskets-install-kits/gen-5-lt-gaskets/genuine-gm-12666993-oil-pump-inlet-seal-for-gen-v-lt-engines-lt1-l82-l83-l84-l86-l87-l8b-l8t-o-ring-gasket"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.24,
+            0.325,
+            0
+          ],
+          [
+            -0.215,
+            0.29,
+            0.01
+          ],
+          [
+            -0.12,
+            0.245,
+            0.03
+          ],
+          [
+            0.05,
+            0.2,
+            0.03
+          ],
+          [
+            0.17,
+            0.19,
+            0.03
+          ]
+        ],
+        "radius": 0.013
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12686434 LT1/LT4 wet-sump oil pump",
+            "url": "https://michiganmotorsports.com/oil-pumps-oils-and-fluids/genuine-gm-12686434-oil-pump-for-2014-2021-lt1-lt4-wet-sump-camaro-corvette-cts-v"
+          }
+        ],
+        "dimensions": "~25 mm tube, ~110 x 80 mm screen",
+        "features": "Steel tube with 2-bolt flange at the pump and flat screen in the rear sump",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.oil-pan-and-pickup.windage-tray",
+      "name": "Windage tray / pan baffle",
+      "qty": 1,
+      "description": "Tray between the crank and the oil surface that strips oil off the rotating assembly and keeps sump oil from being whipped up. Race pans add trap-door baffles around the pickup to stop starvation under lateral g.",
+      "location": "Bolted under the main caps / inside the pan.",
+      "connectsTo": [
+        "engine.block.main-caps",
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.oil-pan-and-pickup.oil-pickup"
+      ],
+      "factory": {
+        "name": "GM Gen V pan baffle/windage arrangement (integrated with pan)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Baffled road-race pan with trap doors / crank scraper",
+          "brand": "Holley / aftermarket",
+          "url": "https://schwartzperformance.com/?p=12083"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Check scraper clearance to rods and counterweights (0.060 in min, typical)."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 28,
+      "tags": [
+        "windage",
+        "baffle"
+      ],
+      "sources": [
+        {
+          "title": "Holley LT1 & LT4 Gen V swap oil pan (Schwartz Performance listing)",
+          "url": "https://schwartzperformance.com/?p=12083"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.08,
+          0.3,
+          0
+        ],
+        "size": [
+          0.5,
+          0.008,
+          0.24
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance LS/LT oil pans & accessories",
+            "url": "https://chevrolet.com/performance/engine-components/ls-lt-lsx-series-blocks/oil-pans-and-accessories"
+          }
+        ],
+        "dimensions": "~500 x 240 mm",
+        "features": "Louvred steel tray under the crank",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+      "name": "Oil pan (wet sump, ZL1)",
+      "qty": 1,
+      "description": "Structural cast-aluminum two-piece pan (upper and lower) carrying the sump, filter mount and oil level sensor. Camaro ZL1/1LE wet sumps are well baffled, but hard-tire road racing at sustained >1.2 g usually justifies a dry sump.",
+      "location": "Bottom of the engine, below the crank; bolts to block, front cover and rear cover; sits above the front cradle.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.block.rear-cover-and-seal",
+        "engine.oil-pan-and-pickup.oil-filter-adapter",
+        "engine.engine-sensors.oil-level-temp-sensor",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM Camaro ZL1 LT4 wet-sump oil pan",
+        "notes": "LT4 wet sump capacity 10.0 qt (Summit). Summit lists LT1 wet sump at 6.5 qt - verify Camaro SS capacity against owner’s manual."
+      },
+      "raceOptions": [
+        {
+          "name": "Holley LT1 & LT4 Gen V swap oil pan",
+          "brand": "Holley",
+          "notes": "Swap pan - verify Camaro cradle/steering rack clearance.",
+          "url": "https://schwartzperformance.com/?p=12083"
+        },
+        {
+          "name": "Fluidworks Gen V LT 5-stage billet dry sump pan/pump kit",
+          "brand": "Fluidworks",
+          "partNumber": "5-511",
+          "notes": "Integral pump eliminates external scavenge lines; racing use only.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "name": "Fluidworks Gen V LT 6-stage billet dry sump pan/pump kit",
+          "brand": "Fluidworks",
+          "partNumber": "5-611",
+          "notes": "Fits factory Gen V and Noonan LT blocks, clears up to 4.125 in stroke.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-6-stage-racing-dry-sump-pan-and-pump-5-611"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Oil pan to block bolt",
+          "qty": 16,
+          "spec": "M8 flange bolt (count approximate)",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "Snug all, then center-out to final.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Oil pan to front cover bolt",
+          "qty": 4,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Oil pan to rear cover bolt",
+          "qty": 4,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "106 in-lb (12.0 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Lower pan to upper pan bolt",
+          "qty": 14,
+          "spec": "M6 bolt (count approximate)",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Oil drain plug",
+          "qty": 1,
+          "spec": "Drain plug with new seal",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": true,
+          "reuse": "Replace seal",
+          "tool": "",
+          "notes": "Safety-wire or use a drilled plug for racing (rule requirement in many series).",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Engine oil",
+          "spec": "Street: dexos-approved grade per owner’s manual (verify for your model year); race: 10W-40/15W-50 full synthetic per builder (Mobil 1 / Driven / Motul)",
+          "capacity": "LT4 wet sump 10.0 qt (Summit)"
+        }
+      ],
+      "installNotes": [
+        "Place RTV at the 4 T-joints where front/rear cover meet the block; new pan gasket.",
+        "Align pan flush to rear of block (bellhousing face) with a straightedge before torquing so the trans seats flat.",
+        "Torque pan-to-block, then front and rear cover bolts."
+      ],
+      "inspection": [
+        "Check for cracks/impacts on the pan bottom after off-track excursions; check drain plug safety wire."
+      ],
+      "buildPhase": 5,
+      "installOrder": 33,
+      "tags": [
+        "oil-pan",
+        "wet-sump",
+        "dry-sump-option"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Holley LT1 & LT4 Gen V swap oil pan (Schwartz Performance listing)",
+          "url": "https://schwartzperformance.com/?p=12083"
+        },
+        {
+          "title": "Motion Raceworks: Fluidworks Gen V LT 5-stage billet dry sump pan/pump kit 5-511",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "title": "Motion Raceworks: Fluidworks Gen V LT 6-stage billet dry sump pan/pump kit 5-611",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-6-stage-racing-dry-sump-pan-and-pump-5-611"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.08,
+          0.2375,
+          0
+        ],
+        "size": [
+          0.58,
+          0.145,
+          0.35
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance LS/LT oil pans & accessories",
+            "url": "https://chevrolet.com/performance/engine-components/ls-lt-lsx-series-blocks/oil-pans-and-accessories"
+          }
+        ],
+        "dimensions": "Approx. 580 x 350 mm rail, 60 mm deep front, 145 mm deep rear sump",
+        "features": "Cast aluminium structural pan, shallow front over the crossmember, deep rear sump with ribs, drain plug, oil-filter boss front passenger side, level sensor in the floor",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.oil-pan-and-pickup.oil-filter-adapter",
+      "name": "Oil filter, filter mount & oil-cooler adapter",
+      "qty": 1,
+      "description": "Spin-on full-flow oil filter on the oil pan with the factory oil-cooler adapter/thermostat. Race cars often delete the factory cooler loop with a block-off plate and run a remote filter/cooler (engine-support).",
+      "location": "Front/side of the oil pan.",
+      "connectsTo": [
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine-support.oiling.oil-cooler"
+      ],
+      "factory": {
+        "name": "GM Gen V oil filter adapter & ACDelco oil filter",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "ICT Billet Gen 5 LT oil cooler bypass / delete block-off plate",
+          "brand": "ICT Billet",
+          "partNumber": "551357",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Oil cooler adapter bolt",
+          "qty": 2,
+          "spec": "M6/M8 bolt",
+          "grade": "",
+          "torque": "106 in-lb (12.0 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Pre-fill the filter, oil the gasket, hand tighten plus 3/4 turn (filter maker spec)."
+      ],
+      "inspection": [
+        "Cut open filter after every event."
+      ],
+      "buildPhase": 5,
+      "installOrder": 34,
+      "tags": [
+        "oil-filter"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.12,
+          0.235,
+          -0.205
+        ],
+        "size": [
+          0.068,
+          0.1,
+          0.068
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance LS/LT oil pans & accessories",
+            "url": "https://chevrolet.com/performance/engine-components/ls-lt-lsx-series-blocks/oil-pans-and-accessories"
+          }
+        ],
+        "dimensions": "Filter ~68 mm dia x 75 mm (PF64-type)",
+        "features": "Spin-on can hanging below the cast boss on the front passenger side of the pan",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.oil-pan-and-pickup.dipstick-and-fill",
+      "name": "Oil dipstick, tube & oil filler tube",
+      "qty": 1,
+      "description": "Dipstick tube and oil filler tube with cap. The Gen V uses a separate filler tube (GM 12668614) on top of the engine. Race cars secure the dipstick with a clip/safety wire.",
+      "location": "Filler tube at top-front of the engine; dipstick tube along the side of the block.",
+      "connectsTo": [
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM oil filler tube",
+        "partNumber": "GM 12668614",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Filler / dipstick tube bracket bolt",
+          "qty": 1,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Oil Level Indicator Tube Bolt 10 N·m (88 lb in)'. The 2016-18 Camaro SM (via TightTorque) lists the oil level indicator tube bracket bolt at 10 N·m.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Replace tube O-rings; secure the dipstick so it cannot pop out under crankcase pressure."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 85,
+      "tags": [
+        "dipstick"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: GM 12668614 oil filler tube, 2014+ LT",
+          "url": "https://www.michiganmotorsports.com/cylinder-heads/gm-12668614-oil-filler-tube-for-2014-lt1-lt4-l83-l86-l8b-l8t-5-3l-6-2l-6-6l/"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.17,
+            0.29,
+            -0.165
+          ],
+          [
+            -0.2,
+            0.4,
+            -0.19
+          ],
+          [
+            -0.235,
+            0.55,
+            -0.235
+          ],
+          [
+            -0.24,
+            0.7,
+            -0.27
+          ],
+          [
+            -0.24,
+            0.77,
+            -0.28
+          ]
+        ],
+        "radius": 0.007
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~12 mm tube",
+        "features": "Black tube up the front passenger side with yellow loop handle",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

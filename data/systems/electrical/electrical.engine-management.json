@@ -1,0 +1,896 @@
+{
+  "id": "electrical.engine-management",
+  "system": "electrical",
+  "name": "Engine Management",
+  "description": "Engine control for the Gen V LT direct-injection engine: factory E92 ECM via a Chevrolet Performance Connect & Cruise / controller kit, or a race standalone with direct-injection capability (Holley Terminator X Max GM Gen V LT DI kit, MoTeC M1 GPR-DI). Includes the engine harness interface, drive-by-wire pedal and throttle, DI injector and high-pressure pump drive, ignition coil sub-harness, wideband lambda, flex-fuel option and tuning access.",
+  "components": [
+    {
+      "id": "electrical.engine-management.ecu",
+      "name": "Engine control unit (ECU / ECM)",
+      "qty": 1,
+      "description": "Controls direct injection (high-voltage peak-and-hold DI injectors + cam-driven high-pressure pump solenoid), coil-near-plug ignition, drive-by-wire throttle, VVT cam phaser, AFM/DFM (disable), alternator, fans and fuel pump requests. The factory LT1/LT4 uses the GM E92 ECM; Chevrolet Performance sells pre-calibrated controller kits that run the crate engine standalone (no BCM). A race build moves to a standalone that logs and tunes freely \u2013 but must support GDI, which narrows the choice.",
+      "location": "Factory: engine bay (OE Gen 6 bracket location \u2013 confirm on your car). Race: inside the cabin on the passenger-side electronics panel (x\u22481.00, y\u22480.48, z\u2248-0.30), away from heat and water.",
+      "connectsTo": [
+        "electrical.engine-management.engine-harness",
+        "electrical.power-distribution.pdm",
+        "electrical.dash-and-controls.dash-display",
+        "electrical.engine-management.accelerator-pedal",
+        "engine.intake-manifold.throttle-body",
+        "engine.fuel-injection.di-injectors",
+        "engine.fuel-injection.hp-fuel-pump",
+        "electrical.sensors.engine-sensor-interface",
+        "electrical.grounding.electronics-star-ground",
+        "electrical.main-harness.can-bus-backbone"
+      ],
+      "factory": {
+        "name": "GM E92 ECM (LT4) via Chevrolet Performance LT4 controller kit",
+        "partNumber": "19433248 (LT4 kit, ZL1 6-speed manual / 4L, 3-pin fuel pressure sensor); 19433249 (LT4 kit, 8L90/10L90); 19419241 (earlier LT4 kit, 3-pin FPS, 4L75E/T56)",
+        "notes": "Retailer listings: kit includes programmed E92 controller, engine harness with fuse box, drive-by-wire pedal, 2 O2 sensors with bosses, MAF with boss, oil pressure sensor, fuel pump power module and fuel pressure sensor. Pre-2022 LT1/LT4 controllers must NOT be used with 2022+ LT crate engines. Locked calibrations need HP Tuners/EFILive-style unlocking to tune."
+      },
+      "raceOptions": [
+        {
+          "name": "Holley Terminator X Max GM Gen V LT4 Direct Injection Kit \u2013 Late (3-pin FPS)",
+          "brand": "Holley EFI",
+          "partNumber": "550-1624",
+          "notes": "Includes external GDI controller that drives factory DI injectors, HP pump and VVT; DBW; logging. Early engines with 4-pin fuel pressure sensor use 550-1623.",
+          "url": "https://www.summitracing.com/parts/hly-550-1624/make/chevrolet"
+        },
+        {
+          "name": "MoTeC M1 (M142 / M182) with GPR-DI package",
+          "brand": "MoTeC",
+          "partNumber": "GPR-DI licence 23008",
+          "notes": "General-purpose race GDI package for 1\u201312 cyl with synchronous DI pumps. Does not include OE CAN messaging (ABS, power steering, dash) \u2013 plan for that. Confirm LT-specific sync/injector drive with a MoTeC dealer.",
+          "url": "https://www.motec.com.au/gprdi-m1"
+        },
+        {
+          "name": "MoTeC M150 (port-injection race conversion)",
+          "brand": "MoTeC",
+          "partNumber": "",
+          "notes": "12 P&H injector, 10 half-bridge, 3 CAN, 250 MB logging, Ethernet. Only applicable if the race engine is converted to port injection (common in LT race engines with a port-injected intake).",
+          "url": "https://www.motec.com.au/products/M150"
+        },
+        {
+          "name": "Holley Dominator EFI ECU",
+          "brand": "Holley EFI",
+          "partNumber": "554-114 (554-114LW lightweight)",
+          "notes": "Port-injection only (no GDI controller) \u2013 for a port-injected race LT conversion.",
+          "url": "https://www.holley.com/554-114.asp"
+        }
+      ],
+      "specs": {
+        "Factory ECM": "GM E92",
+        "Injection": "Gasoline direct injection, 8 injectors (~65\u201390 V peak drive)",
+        "Throttle": "Electronic (DBW)",
+        "CAN": "1\u20133 buses (race ECU)"
+      },
+      "hardware": [
+        {
+          "item": "ECU mounting screws",
+          "qty": 4,
+          "spec": "M5 or M6 screws through rubber isolators",
+          "grade": "stainless",
+          "torque": "M5: 3 N\u00b7m; M6: 6 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Factory E92 ECM bracket bolts (if retained in engine bay)",
+          "qty": 3,
+          "spec": "M6 OE bolts",
+          "grade": "OE",
+          "torque": "~9 N\u00b7m (80 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "ECU connectors",
+          "qty": 2,
+          "spec": "E92: 2 x OE header connectors with slide locks; MoTeC M1: Tyco 34 + 26 pin",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.motec.com.au/products/M150"
+        }
+      ],
+      "installNotes": [
+        "Decide ECU strategy before building the harness: OE E92 kit (lowest cost, proven DI control) vs standalone GDI (full logging/tuning control).",
+        "Mount the ECU in the cabin with connectors facing down; leave a service loop.",
+        "Power the ECU from a PDM channel; ECU power grounds to the star ground; sensor grounds only to ECU pins.",
+        "Load base calibration, verify crank/cam sync on the starter (no fuel), then verify fuel pressure and injector drive before first fire."
+      ],
+      "inspection": [
+        "Read fault codes/logs every session.",
+        "Connector locks; mounting isolators."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "ecu",
+        "e92",
+        "holley",
+        "motec",
+        "gdi"
+      ],
+      "sources": [
+        {
+          "title": "Chevrolet Performance LT4 controller 19433249 listing",
+          "url": "https://www.eagleautoparts.com.au/products/chevrolet-lt4-engine-controller-suits-8l90-10l90-transmissions-19433249"
+        },
+        {
+          "title": "LT4 engine controller kit contents (Billy's Speed Shop)",
+          "url": "https://billysspeedshop.com/products/chevrolet-performance-lt4-engine-controller-kit-for-manual-or-4-speed-auto"
+        },
+        {
+          "title": "SD Parts \u2013 Chevrolet Performance Connect & Cruise / controllers",
+          "url": "https://sdparts.com/i-24529103"
+        },
+        {
+          "title": "Holley 550-1624",
+          "url": "https://www.summitracing.com/parts/hly-550-1624/make/chevrolet"
+        },
+        {
+          "title": "MoTeC GPR-DI",
+          "url": "https://www.motec.com.au/gprdi-m1"
+        },
+        {
+          "title": "MoTeC M150",
+          "url": "https://www.motec.com.au/products/M150"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.012,
+          0.43,
+          -0.33
+        ],
+        "size": [
+          0.0405,
+          0.1275,
+          0.162
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC M150 product page \u2013 162 x 127.5 x 40.5 mm, 445 g",
+            "url": "https://www.motec.com.au/products/M150"
+          },
+          {
+            "title": "MoTeC M150 (T1 Race Development)",
+            "url": "https://www.t1racedevelopment.com/product/motec-m150-ecu/"
+          },
+          {
+            "title": "Holley Terminator X Max (9.6 x 4.1 x 1.66 in) \u2013 Billy's Speed Shop",
+            "url": "https://billysspeedshop.com/products/550-931"
+          },
+          {
+            "title": "E92 ECM billet tray (fits 2014-17 Gen V E92)",
+            "url": "https://www.michiganmotorsports.com/ls-lt-swap-mounts-brackets/e92-gen-v-ecm-billet-mounting-tray-2014-l83-l86-lt1-lt4-pcm-swap-mount-bracket/"
+          }
+        ],
+        "dimensions": "Modelled: MoTeC M150 162 x 127.5 x 40.5 mm (Holley Terminator X Max is 244 x 104 x 42 mm).",
+        "features": "Black anodised case with label panel, 4 rubber-isolated mounts, A/B/C/D connectors (34/26/34/26-pin) along one long edge facing down, on the passenger-side electronics panel.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.engine-management.gdi-controller",
+      "name": "Direct-injection driver / GDI controller",
+      "qty": 1,
+      "description": "High-voltage injector driver and HP pump solenoid driver. Inside the factory E92; external box with the Holley Terminator X Max Gen V kit. DI injector wiring carries high voltage \u2013 keep pairs twisted, unspliced and away from sensor signals.",
+      "location": "Next to the ECU in the cabin (Holley), or integrated (E92/MoTeC).",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "electrical.engine-management.injector-subharness",
+        "engine.fuel-injection.hp-fuel-pump"
+      ],
+      "factory": {
+        "name": "Integrated in E92 ECM",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Holley GDI controller (Terminator X Gen V LT)",
+          "brand": "Holley EFI",
+          "partNumber": "554-150 (unconfirmed retailer URL number)",
+          "notes": "Supplied in 550-1623/550-1624 kits; controls injectors, VVT and pumps.",
+          "url": "https://www.efisystempro.com/holley-efi-554-150"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mounting screws",
+          "qty": 4,
+          "spec": "M5",
+          "grade": "stainless",
+          "torque": "3 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount with good airflow; it dissipates heat at high rpm."
+      ],
+      "inspection": [
+        "Connector seating."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "gdi",
+        "injector"
+      ],
+      "sources": [
+        {
+          "title": "Holley Gen V LT DI kits",
+          "url": "https://sdparts.com/holley-efi-550-1623-early-lt4-gdi-kit-h550-1623/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.013,
+          0.43,
+          -0.505
+        ],
+        "size": [
+          0.042,
+          0.105,
+          0.12
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Holley Terminator X Max Gen V LT kit (retailer listing)",
+            "url": "https://billysspeedshop.com/products/550-930"
+          }
+        ],
+        "dimensions": "~120 x 105 x 42 mm (estimated \u2013 no published dimensions found).",
+        "features": "Finned cast-aluminium driver box, two sealed connectors on the bottom edge.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.engine-harness",
+      "name": "Engine harness",
+      "qty": 1,
+      "description": "Harness on the engine from the firewall bulkhead to injectors, coils, crank/cam sensors, knock sensors, ETC throttle, MAP/TMAP, ECT, oil pressure/temp, HP pump, VVT solenoid, fuel-rail pressure, alternator, starter trigger, O2/wideband. Factory/controller-kit harness is PVC/convoluted; a race harness is Tefzel (M22759/32) with DR-25 jacket, Deutsch AS bulkhead and DTM/DT/OE sensor plugs, with a service loop for engine movement.",
+      "location": "On top/sides of the engine, exiting at the passenger firewall bulkhead.",
+      "connectsTo": [
+        "electrical.main-harness.firewall-bulkhead",
+        "electrical.engine-management.ecu",
+        "electrical.engine-management.ignition-coil-subharness",
+        "electrical.engine-management.injector-subharness",
+        "electrical.sensors.engine-sensor-interface",
+        "electrical.charging-starting.alternator-control-connector"
+      ],
+      "factory": {
+        "name": "Engine harness supplied in Chevrolet Performance controller kit",
+        "partNumber": "",
+        "notes": "Kit-specific harness with fuse box; not repairable to motorsport standard but plug-and-play."
+      },
+      "raceOptions": [
+        {
+          "name": "Custom mil-spec engine harness (Spec 55 / DR-25 / Deutsch AS)",
+          "brand": "Professional harness builder",
+          "partNumber": "",
+          "notes": "~40 % lighter and serviceable; built on an engine-shaped harness board."
+        },
+        {
+          "name": "Holley Gen V LT DI main harness (in 550-1624)",
+          "brand": "Holley",
+          "partNumber": "",
+          "notes": "Plug-and-play with OE engine connectors."
+        }
+      ],
+      "specs": {
+        "Wire": "M22759/32 (Spec 55) 22\u201316 AWG; 14\u201312 AWG power",
+        "Jacket": "Raychem DR-25",
+        "Breakouts": "Raychem 202K/ 202D boots with Resintech RT-125 adhesive"
+      },
+      "hardware": [
+        {
+          "item": "Harness P-clamps to engine",
+          "qty": 12,
+          "spec": "Cushioned stainless P-clamps on existing M6/M8 engine studs",
+          "grade": "",
+          "torque": "M6: 10 N\u00b7m (89 in-lb); M8: 25 N\u00b7m (18 ft-lb) \u2013 per the engine stud it shares",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Edge-clip / push-mount harness clips",
+          "qty": 10,
+          "spec": "OE-style fir-tree or edge clips",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Build the race harness on a board using measurements from the installed engine (or a mock-up) so lengths fit exactly.",
+        "Leave ~50\u201375 mm service loop at the bulkhead for engine roll.",
+        "Route away from headers (\u2265 150 mm) or add reflective sleeve; keep DI injector pairs away from crank/cam and knock signals.",
+        "Continuity-test every circuit before connecting the ECU."
+      ],
+      "inspection": [
+        "Chafe at clamps, heat damage near headers, connector locks."
+      ],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "harness",
+        "engine"
+      ],
+      "sources": [
+        {
+          "title": "Raychem DR-25 (Xtra Motorsport)",
+          "url": "https://xtramotorsport.com/motorsport-wiring/raychem-dr-25-heat-shrink/"
+        },
+        {
+          "title": "HPA \u2013 M22759/32 vs Spec 55",
+          "url": "https://www.hpacademy.com/forum/efi-wiring-fundamentals/show/m2275932-vs-spec55-wire/"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.62,
+            0.72,
+            -0.3
+          ],
+          [
+            0.45,
+            0.78,
+            -0.2
+          ],
+          [
+            0.2,
+            0.8,
+            -0.18
+          ],
+          [
+            -0.2,
+            0.78,
+            -0.15
+          ],
+          [
+            -0.3,
+            0.7,
+            0
+          ],
+          [
+            -0.2,
+            0.78,
+            0.15
+          ],
+          [
+            0.2,
+            0.8,
+            0.18
+          ],
+          [
+            0.4,
+            0.76,
+            0.15
+          ]
+        ],
+        "radius": 0.012,
+        "color": "#202020"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Main trunk \u00d8~24 mm over DR-25.",
+        "features": "Black DR-25 jacket, Raychem boots, Autosport bulkhead plug at the firewall, Adel clamps.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.injector-subharness",
+      "name": "DI injector sub-harness",
+      "qty": 2,
+      "description": "Per-bank twisted-pair harness from the ECU/GDI controller to the 4 direct injectors on each bank. High-voltage (boost) drive \u2013 no splices, use OE-spec connectors and keep separate from sensor wiring.",
+      "location": "Under the intake manifold along each cylinder head (DI injectors are in the head).",
+      "connectsTo": [
+        "engine.fuel-injection.di-injectors",
+        "electrical.engine-management.gdi-controller",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "OE engine harness injector branches",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Wire": "18 AWG twisted pair, ~1 twist per 25 mm"
+      },
+      "hardware": [
+        {
+          "item": "Injector connectors",
+          "qty": 4,
+          "spec": "OE GDI injector connector with CPA",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install before the intake manifold goes on."
+      ],
+      "inspection": [
+        "Heat damage; connector locks."
+      ],
+      "buildPhase": 8,
+      "installOrder": 4,
+      "tags": [
+        "injector",
+        "gdi"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.2,
+            0.6,
+            0.2
+          ],
+          [
+            0,
+            0.6,
+            0.21
+          ],
+          [
+            0.2,
+            0.6,
+            0.21
+          ],
+          [
+            0.3,
+            0.62,
+            0.19
+          ]
+        ],
+        "radius": 0.006,
+        "mirror": true,
+        "color": "#303030"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "\u00d8~12 mm branch with an injector plug every cylinder.",
+        "features": "Black jacket, plastic injector connectors.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.ignition-coil-subharness",
+      "name": "Ignition coil sub-harness",
+      "qty": 2,
+      "description": "Per-bank harness to the 4 coil-near-plug coils on each valve cover (power from PDM ignition channel, ground to head, EST signal from ECU).",
+      "location": "Valve cover coil rails, each bank.",
+      "connectsTo": [
+        "engine.ignition.ignition-coils",
+        "electrical.engine-management.engine-harness",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "OE coil harness",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Power": "14 AWG per bank, PDM 20 A channel"
+      },
+      "hardware": [
+        {
+          "item": "Coil ground eyelet bolt",
+          "qty": 1,
+          "spec": "M6 OE coil bracket bolt",
+          "grade": "OE",
+          "torque": "~10 N\u00b7m (89 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Ground the coil bracket to the head with a dedicated eyelet."
+      ],
+      "inspection": [
+        "Connector locks; misfire logging."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "ignition"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.22,
+            0.74,
+            0.25
+          ],
+          [
+            0,
+            0.75,
+            0.26
+          ],
+          [
+            0.25,
+            0.74,
+            0.25
+          ]
+        ],
+        "radius": 0.006,
+        "mirror": true,
+        "color": "#303030"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "\u00d8~12 mm branch along each coil rail.",
+        "features": "Black jacket, plastic coil connectors.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.accelerator-pedal",
+      "name": "Accelerator pedal position sensor (drive-by-wire pedal)",
+      "qty": 1,
+      "description": "Dual-track APP sensor pedal (redundant signals) feeding the ECU, which commands the electronic throttle body. The Chevrolet Performance controller kit includes a GM pedal; race builds often use a floor-mount pedal box with a separate dual-track sensor.",
+      "location": "Driver footwell (x\u22480.90, y\u22480.35, z\u2248+0.28).",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "interior.pedal-box.throttle-pedal",
+        "engine.intake-manifold.throttle-body"
+      ],
+      "factory": {
+        "name": "GM DBW accelerator pedal assembly (included in LT controller kit)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Floor-mount pedal box with Bosch/CTS dual-track pedal sensor",
+          "brand": "Tilton / Wilwood / OBP",
+          "partNumber": "",
+          "notes": "Must match the ECU's APP calibration (two tracks, ratio check)."
+        }
+      ],
+      "specs": {
+        "Signals": "2 x 0\u20135 V tracks (APP1/APP2)"
+      },
+      "hardware": [
+        {
+          "item": "Pedal mounting nuts",
+          "qty": 3,
+          "spec": "M8 flange nut (OE)",
+          "grade": "OE",
+          "torque": "~18 ft-lb (25 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Calibrate pedal min/max in the ECU and check both tracks track correctly before startup."
+      ],
+      "inspection": [
+        "APP fault codes; pedal return."
+      ],
+      "buildPhase": 9,
+      "installOrder": 6,
+      "tags": [
+        "dbw",
+        "pedal"
+      ],
+      "sources": [
+        {
+          "title": "Kit contents incl. throttle pedal",
+          "url": "https://billysspeedshop.com/products/chevrolet-performance-lt4-engine-controller-kit-for-manual-or-4-speed-auto"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.9,
+          0.33,
+          0.28
+        ],
+        "size": [
+          0.06,
+          0.18,
+          0.08
+        ],
+        "rot": [
+          0,
+          0,
+          20
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "GM hanging DBW pedal ~180 mm tall (estimated).",
+        "features": "Black plastic sensor housing/bracket at the top, arm, rubber pad, 6-pin connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.wideband-lambda",
+      "name": "Wideband lambda sensors & controller",
+      "qty": 2,
+      "description": "One Bosch LSU 4.9 wideband per bank for tuning and data (the OE system uses upstream O2 sensors supplied in the controller kit). Mount in the collector/primary merge at 10 or 2 o'clock, \u2265 450 mm from exhaust ports if possible, before any catalyst.",
+      "location": "Exhaust collectors/downpipes, each side under the car (x\u22480.70, y\u22480.25, z\u2248\u00b10.25).",
+      "connectsTo": [
+        "engine-support.exhaust.collector",
+        "electrical.engine-management.ecu",
+        "electrical.data-acquisition.logger"
+      ],
+      "factory": {
+        "name": "GM heated O2 sensors with weld bosses (in controller kit)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch LSU 4.9 + MoTeC LTCD (dual lambda to CAN)",
+          "brand": "MoTeC / Bosch",
+          "partNumber": "",
+          "notes": "CAN output to ECU/logger."
+        },
+        {
+          "name": "AEM X-Series / ECUMaster CAN lambda",
+          "brand": "AEM / ECUMaster",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Thread": "M18 x 1.5"
+      },
+      "hardware": [
+        {
+          "item": "O2 sensor into bung",
+          "qty": 1,
+          "spec": "M18 x 1.5 sensor thread",
+          "grade": "",
+          "torque": "30\u201333 ft-lb (40\u201345 N\u00b7m)",
+          "threadlocker": "anti-seize (sensor pre-coated)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Bosch LSU 4.9 installation torque 40\u201360 N\u00b7m per Bosch guidance; GM O2 sensors 42 N\u00b7m typical.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Weld-in bung",
+          "qty": 1,
+          "spec": "M18 x 1.5 stainless bung",
+          "grade": "304",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "N/A",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount bung above horizontal so condensation drains away from the sensor.",
+        "Never run the engine with a cold, unpowered wideband in the exhaust."
+      ],
+      "inspection": [
+        "Sensor reading sanity at idle/WOT; harness heat damage."
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "lambda",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.62,
+          0.258,
+          0.235
+        ],
+        "size": [
+          0.025,
+          0.085,
+          0.025
+        ],
+        "axis": "y",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch LSU 4.9 data sheet \u2013 M18x1.5, 22 mm hex",
+            "url": "https://www.bosch-motorsport.com/content/downloads/Raceparts/Resources/pdf/Data Sheet_69034379_Lambda_Sensor_LSU_4.9.pdf"
+          },
+          {
+            "title": "MoTeC LTCD lambda-to-CAN \u2013 38 x 26 x 23.5 mm",
+            "url": "https://www.motec.com.au/ltcd/"
+          }
+        ],
+        "dimensions": "M18 x 1.5 thread, 22 mm hex, ~84 mm long without lead, 40\u201360 N\u00b7m.",
+        "features": "Slotted stainless protection tube, hex, crimped body, rubber grommet and lead; sits on top of each downpipe.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.engine-management.flex-fuel-sensor",
+      "name": "Flex-fuel (ethanol content) sensor \u2013 optional",
+      "qty": 1,
+      "description": "Continental/GM-style ethanol-content sensor in the fuel feed line that outputs a frequency (50\u2013150 Hz = 0\u2013100 % ethanol) plus fuel temperature. Lets the ECU blend timing/fuel maps for E85 \u2013 mainly useful on the supercharged LT4 for charge cooling and knock margin. Check series fuel rules first.",
+      "location": "Low-pressure fuel feed line, front of the car near the frame rail before the high-pressure pump.",
+      "connectsTo": [
+        "engine.fuel-injection.lp-feed-connection",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "GM flex fuel sensor (used on GM FFV trucks)",
+        "partNumber": "",
+        "notes": "Part number not verified here."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Fittings": "3/8 in SAE quick-connect (adapt to -6/-8 AN)"
+      },
+      "hardware": [
+        {
+          "item": "Bracket bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Use AN adapter fittings rated for E85."
+      ],
+      "inspection": [
+        "Leaks; ethanol % plausibility."
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "flex-fuel",
+        "e85",
+        "optional"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.4,
+          0.3,
+          -0.55
+        ],
+        "size": [
+          0.08,
+          0.04,
+          0.04
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~85 x 50 x 45 mm with 3/8\" SAE quick-connect ends (estimated).",
+        "features": "Black body, two aluminium quick-connect barrels on the ends, 3-pin connector on top.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.engine-management.tuning-port",
+      "name": "Tuning/diagnostic access port",
+      "qty": 1,
+      "description": "Bulkhead-mounted port for laptop access: OBD-II DLC for the E92 (HP Tuners/EFILive) or Ethernet (MoTeC M1) / USB-CAN (Holley) connector, plus dash/PDM CAN programming connector, mounted where it is reachable with the seat in.",
+      "location": "Passenger side lower dash / center console (x\u22481.10, y\u22480.55, z\u2248-0.15).",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "electrical.main-harness.can-bus-backbone"
+      ],
+      "factory": {
+        "name": "OBD-II DLC (under dash, driver side)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Deutsch AS / DTM panel-mount diagnostic connector",
+          "brand": "TE Deutsch",
+          "partNumber": "",
+          "notes": "Sealed; with dust cap on lanyard."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Panel screws",
+          "qty": 2,
+          "spec": "M3/M4",
+          "grade": "stainless",
+          "torque": "1 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Dust cap fitted."
+      ],
+      "buildPhase": 8,
+      "installOrder": 9,
+      "tags": [
+        "tuning",
+        "diagnostic"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.1,
+          0.55,
+          -0.15
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.05
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Deutsch DTM/DT panel connector pair ~50 x 30 x 30 mm.",
+        "features": "Grey receptacle, black plug with orange wedge lock.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

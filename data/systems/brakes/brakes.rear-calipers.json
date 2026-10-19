@@ -1,0 +1,420 @@
+{
+  "id": "brakes.rear-calipers",
+  "system": "brakes",
+  "name": "Rear Calipers",
+  "description": "ZL1 / ZL1 1LE (J6G): Brembo 4-piston fixed rear calipers (2x32, 2x28 mm) bolted directly to the rear knuckle, 365 x 28 mm one-piece rotors. Base/SS non-1LE (JL9/J55): single-piston floating caliper on a bracket. Race: AP Radi-CAL 4-piston (Essex rear kit) retaining the OEM drum-in-hat park brake.",
+  "components": [
+    {
+      "id": "brakes.rear-calipers.caliper",
+      "name": "Rear brake caliper",
+      "qty": 2,
+      "description": "Rear calipers do ~30–35% of the braking. On ZL1 the rear 4-piston fixed caliper works with a drum-in-hat park brake inside the rotor hat (cable puller, RPO J77) – the caliper itself has no park-brake motor.",
+      "location": "Rear knuckle, approx center x≈2.97, y≈0.37, z≈±0.71 (position approximate – trailing placement assumed; verify on your knuckle).",
+      "connectsTo": [
+        "suspension.rear-knuckle.knuckle",
+        "brakes.rear-rotors.rotor",
+        "brakes.rear-pads.pads",
+        "brakes.lines.rear-flex-hoses",
+        "brakes.rear-calipers.bleeder-screws"
+      ],
+      "factory": {
+        "name": "Brembo 4-piston fixed rear caliper, ZL1 / ZL1 1LE (J6G)",
+        "notes": "Pistons 2x32, 2x28 mm; 365x28 mm rotor. SS 1LE also uses 4-piston rears. GM offered a rear 4-piston kit for SS without 1LE."
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing by Essex Radi-CAL Competition rear kit, 365x30 mm",
+          "brand": "AP Racing / Essex",
+          "partNumber": "Caliper CP9449 (listed by retailer) – another retailer lists CP9450-2/3S4L; confirm with Essex",
+          "notes": "Retains OEM parking brake; saves ~6 lb unsprung vs OEM rear.",
+          "url": "https://www.essexparts.com/news-blog/black-friday-2024-curated-deals-chevrolet-camaro-gen6"
+        },
+        {
+          "name": "Wilwood / StopTech rear kits for Gen 6",
+          "brand": "Wilwood / StopTech",
+          "notes": "Verify park-brake retention."
+        }
+      ],
+      "specs": {
+        "Pistons": "4 – 2x32, 2x28 mm (ZL1)",
+        "Rotor": "365 x 28 mm one-piece (ZL1 1LE)"
+      },
+      "hardware": [
+        {
+          "item": "Rear brake caliper bolt (caliper-to-knuckle), J6G",
+          "qty": 2,
+          "spec": "Flange bolt into knuckle (M12/M14 – verify)",
+          "grade": "GM high-strength",
+          "torque": "92 ft-lb (125 N·m)",
+          "torqueSequence": "Single pass 125 N·m (some owners report an additional 15–30° – verify in GM SI)",
+          "threadlocker": "Blue threadlocker on ~2/3 of thread length (owner-reported procedure)",
+          "safetyWire": false,
+          "reuse": "Replace recommended",
+          "notes": "GM 2016–18 table \"Rear brake caliper bolt 125 N·m J6G\". [2026-10 check] The same camaro6.com SI quote gives rear caliper bolts 125 N·m (92 lb ft) [2x] with no angle step, which matches TightTorque. Not in a GM primary document; stays typical.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Base/SS (JL9/J55) rear caliper bracket bolt – reference only",
+          "qty": 2,
+          "spec": "Bracket bolt",
+          "grade": "GM",
+          "torque": "74 ft-lb (100 N·m)",
+          "torqueSequence": "First pass 100 N·m, then final angle per GM SI",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "notes": "Only for floating-caliper cars.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Base/SS rear caliper guide pin bolt – reference only",
+          "qty": 2,
+          "spec": "Guide pin bolt",
+          "grade": "GM",
+          "torque": "30 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Rear caliper bleeder valve",
+          "qty": 2,
+          "spec": "Bleeder",
+          "grade": "Steel",
+          "torque": "97 in-lb (11 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "GM lists 11 N·m (JL9/J55 rear). Brembo J6G rear bleeder assumed similar – verify.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Brake fluid",
+          "spec": "See brakes.fluid.brake-fluid",
+          "capacity": "≈ 35–45 mL per caliper"
+        }
+      ],
+      "installNotes": [
+        "Install park-brake shoes and rotor first.",
+        "Bleeders up; torque bolts with threadlocker.",
+        "Bleed order: RR, LR, RF, LF; inner bleeder then outer on each caliper."
+      ],
+      "inspection": [
+        "As front; rear pads usually last 2–3x the fronts."
+      ],
+      "buildPhase": 4,
+      "installOrder": 50,
+      "tags": [
+        "brembo",
+        "4-piston",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "NHTSA-filed GM bulletin MC-10126120-9999 (ZL1 1LE: 390x36 front 6-pot, 365x28 rear 4-pot, two-piece front rotors not machinable)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "PMB Performance – Brembo rear caliper seal kit, Camaro ZL1 1LE Gen 6 (2x28/2x32 mm)",
+          "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "CAMARO6 forum – Brake caliper mounting torque specs 20 SS/2SS (150 N·m + 15–30°, rear 125 N·m)",
+          "url": "https://www.camaro6.com/forums/showthread.php?t=619468"
+        },
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        },
+        {
+          "title": "Essex Parts – Black Friday 2024 curated deals: Chevrolet Camaro Gen.6 (front and matching rear kits)",
+          "url": "https://www.essexparts.com/news-blog/black-friday-2024-curated-deals-chevrolet-camaro-gen6"
+        },
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.9404,
+          0.418,
+          0.7548
+        ],
+        "size": [
+          0.1648,
+          0.2612,
+          0.1332
+        ],
+        "mirror": true,
+        "color": "#c62828"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "PMB Performance – Brembo rear seal kit Camaro ZL1 1LE Gen 6",
+            "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+          },
+          {
+            "title": "GM bulletin MC-10126120-9999 (NHTSA) – ZL1 1LE: red Brembo 6-pot 390 x 36 front, 4-pot 365 x 28 rear, 1LE logo",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "~240 mm long, ~95 mm radial (r 112-207 mm), ~125 mm across; pistons 2x28/2x32 mm",
+        "features": "Red Brembo 4-pot fixed caliper, single pad window, 1LE logo; trailing position estimated",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.rear-calipers.pad-hardware",
+      "name": "Rear pad pins, spring & cross bolt",
+      "qty": 2,
+      "description": "Pad retaining pins and anti-rattle spring for the rear Brembo; replace with every pad set.",
+      "location": "Across each rear caliper window.",
+      "connectsTo": [
+        "brakes.rear-calipers.caliper",
+        "brakes.rear-pads.pads"
+      ],
+      "factory": {
+        "name": "Brembo rear pad pin/spring kit",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "AP pad retaining bolts/clips",
+          "brand": "AP Racing",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pad spring cross bolt",
+          "qty": 1,
+          "spec": "Small bolt",
+          "grade": "Steel",
+          "torque": "≈ 10 N·m (7 ft-lb) per owner reading of GM chart – verify",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://www.camaro6.com/forums/showthread.php?t=516448"
+        },
+        {
+          "item": "Pad pin",
+          "qty": 2,
+          "spec": "Press-fit pin",
+          "grade": "Stainless",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with pads",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "installNotes": [
+        "As front."
+      ],
+      "inspection": [
+        "Pins/clips present each session."
+      ],
+      "buildPhase": 4,
+      "installOrder": 52,
+      "tags": [
+        "pad-hardware"
+      ],
+      "sources": [
+        {
+          "title": "CAMARO6 forum – Torque value for caliper bolts 2017 ZL1 (pad pins, cross bolt)",
+          "url": "https://www.camaro6.com/forums/showthread.php?t=516448"
+        },
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.009,
+          0.009,
+          0.13260000000000005
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            2.9956,
+            0.4165,
+            0.759
+          ],
+          [
+            2.9813,
+            0.4557,
+            0.759
+          ]
+        ],
+        "color": "#dddddd"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Two pins across the single pad window",
+        "features": "Stainless pins + clip",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.rear-calipers.bleeder-screws",
+      "name": "Rear caliper bleeder screws",
+      "qty": 4,
+      "description": "Inner and outer bleeders on each rear Brembo.",
+      "location": "Top of each rear caliper half.",
+      "connectsTo": [
+        "brakes.rear-calipers.caliper"
+      ],
+      "factory": {
+        "name": "Brembo bleeder",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bleeder screw",
+          "qty": 1,
+          "spec": "Bleeder",
+          "grade": "Steel",
+          "torque": "97 in-lb (11 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Caps fitted."
+      ],
+      "buildPhase": 4,
+      "installOrder": 53,
+      "tags": [
+        "bleeder"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.01,
+          0.02,
+          0.01
+        ],
+        "axis": "y",
+        "rot": [
+          0,
+          0,
+          -41.0083
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            2.9442,
+            0.5247,
+            0.712
+          ],
+          [
+            2.9442,
+            0.5247,
+            0.8061
+          ]
+        ],
+        "color": "#cccccc"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M10 bleeders at the upper end, inboard + outboard",
+        "features": "Steel bleeder with rubber cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.rear-calipers.piston-seals-boots",
+      "name": "Rear caliper seals & boots (service kit)",
+      "qty": 2,
+      "description": "Rebuild kit for the rear 4-piston Brembos.",
+      "location": "Inside each rear caliper.",
+      "connectsTo": [
+        "brakes.rear-calipers.caliper"
+      ],
+      "factory": {
+        "name": "Brembo rear seal kit",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "PMB Performance rear seal kit (2x28, 2x32 mm per caliper)",
+          "brand": "PMB Performance",
+          "partNumber": "BCSK-4x28mm-4x32mm-Camaro",
+          "notes": "8 seals + 8 boots.",
+          "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        }
+      ],
+      "specs": {
+        "Seal sizes": "28, 32 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Assemble with clean brake fluid."
+      ],
+      "inspection": [
+        "Rebuild each season."
+      ],
+      "buildPhase": 4,
+      "installOrder": 54,
+      "tags": [
+        "service"
+      ],
+      "sources": [
+        {
+          "title": "PMB Performance – Brembo rear caliper seal kit, Camaro ZL1 1LE Gen 6 (2x28/2x32 mm)",
+          "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+        }
+      ]
+    }
+  ]
+}

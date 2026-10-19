@@ -1,0 +1,440 @@
+{
+  "id": "interior.dash",
+  "system": "interior",
+  "name": "Dash",
+  "description": "Either the trimmed factory instrument panel on its cross-car beam or a lightweight race dash panel with digital display, switch panel and center-console delete.",
+  "components": [
+    {
+      "id": "interior.dash.factory-cross-car-beam",
+      "name": "Factory IP cross-car beam (steering column support)",
+      "qty": 1,
+      "description": "Structural beam spanning A-pillar to A-pillar behind the IP that carries the steering column and HVAC. Many builds retain it (with a race dash panel on top) because it locates the column precisely; others replace it with a cage-mounted column bracket off the dash bar.",
+      "location": "Behind the dash between A-pillar bases, x ≈ 0.90, y ≈ 0.70, z ±0.70.",
+      "connectsTo": [
+        "steering.column.column-support",
+        "safety.roll-cage.dash-bar",
+        "interior.dash.race-dash-panel"
+      ],
+      "factory": {
+        "name": "GM Gen 6 Camaro IP cross-car beam",
+        "partNumber": "",
+        "notes": "Retain if keeping factory column and EPS."
+      },
+      "raceOptions": [
+        {
+          "name": "Cage-mounted column support off dash bar",
+          "brand": "Fabricated",
+          "partNumber": "",
+          "notes": "Removes beam weight; column must be rigidly supported.",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Beam-to-A-pillar bolts",
+          "qty": 4,
+          "spec": "M10 x 1.5 flange bolts (GM OE)",
+          "grade": "GM OE (10.9 class)",
+          "torque": "36.9 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Estimate – confirm in GM service information."
+        }
+      ],
+      "installNotes": [
+        "Decide retain vs. delete BEFORE routing the dash bar."
+      ],
+      "inspection": [
+        "Check column mount bolts."
+      ],
+      "buildPhase": 3,
+      "installOrder": 6,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.9,
+            0.7,
+            0.7
+          ],
+          [
+            0.9,
+            0.7,
+            -0.7
+          ]
+        ],
+        "radius": 0.035,
+        "color": "#555555"
+      }
+    },
+    {
+      "id": "interior.dash.race-dash-panel",
+      "name": "Race dash panel (carbon/aluminum) or trimmed factory IP",
+      "qty": 1,
+      "description": "Lightweight dash panel that covers the cross-car beam/dash bar, holds the display and switch panel, and keeps glare off the windshield. Factory ZL1 IP can be retained (heavier, but keeps cluster/defrost ducts) – many classes require some dash.",
+      "location": "Across the cowl area, x ≈ 0.80–1.10, y ≈ 0.65–0.92.",
+      "connectsTo": [
+        "safety.roll-cage.dash-bar",
+        "interior.dash.display-mount",
+        "interior.dash.switch-panel",
+        "safety.fire-suppression.cockpit-nozzles"
+      ],
+      "factory": {
+        "name": "GM ZL1 instrument panel assembly",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom 0.063 in aluminum or carbon sandwich dash",
+          "brand": "Fabricated",
+          "partNumber": "",
+          "notes": "Flat-black finish to avoid windshield reflections.",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Material": "0.063 in 5052 aluminum or 2–3 mm carbon",
+        "Finish": "Matte black"
+      },
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 8,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "To welded dash-bar tabs and cowl."
+        },
+        {
+          "item": "Dzus for removable section",
+          "qty": 4,
+          "spec": "EHF5 quarter-turn + S5 spring",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://blog.demon-tweeks.com/?p=6261"
+        }
+      ],
+      "installNotes": [
+        "Make removable sections for wiring access."
+      ],
+      "inspection": [
+        "Check fasteners/rattles."
+      ],
+      "buildPhase": 9,
+      "installOrder": 7,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+          "url": "https://blog.demon-tweeks.com/?p=6261"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.94,
+          0.8,
+          0
+        ],
+        "size": [
+          0.4,
+          0.36,
+          1.3
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          }
+        ],
+        "dimensions": "~1.3 m wide, top skin windshield base → x 1.13, driver face panel ~0.3 m tall",
+        "features": "Carbon/aluminium race dash: sloped top skin, flat driver panel with column hole and display brow, riveted edges",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "interior.dash.display-mount",
+      "name": "Digital dash/logger display mount",
+      "qty": 1,
+      "description": "Bracket holding the race display (AiM / MoTeC / Racepak etc.) in the driver sight line just above the steering wheel rim, mounted to the dash bar or column.",
+      "location": "x ≈ 1.10, y ≈ 0.88, z ≈ +0.37.",
+      "connectsTo": [
+        "interior.dash.race-dash-panel",
+        "safety.roll-cage.dash-bar",
+        "electrical.main-harness.dash-harness"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Display screws",
+          "qty": 4,
+          "spec": "M5 x 0.8 / display-maker screws",
+          "grade": "Supplied",
+          "torque": "3 ft-lb (4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Bracket-to-tab bolts",
+          "qty": 2,
+          "spec": "M6 x 1.0 + nyloc",
+          "grade": "ISO 8.8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Isolate with rubber grommets to reduce vibration."
+      ],
+      "inspection": [
+        "Check mount tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 8,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.125,
+          0.85,
+          0.37
+        ],
+        "size": [
+          0.015,
+          0.1,
+          0.2
+        ]
+      }
+    },
+    {
+      "id": "interior.dash.switch-panel",
+      "name": "Switch panel / keypad housing",
+      "qty": 1,
+      "description": "Panel in the center stack housing ignition, starter, fan, wipers, rain light and fire/kill controls (switches and keypads belong to electrical). Must be reachable with belts tight.",
+      "location": "Center stack, x ≈ 1.00–1.15, y ≈ 0.62–0.78, z ≈ −0.05 … +0.15.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.battery-and-cutoff.internal-kill-switch",
+        "safety.fire-suppression.internal-pull-cable"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 4,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Over-torquing spins rivnuts; 6–8 N·m typical for steel M6 rivnuts in sheet metal."
+        }
+      ],
+      "installNotes": [
+        "Label every switch."
+      ],
+      "inspection": [
+        "Check labels legible."
+      ],
+      "buildPhase": 9,
+      "installOrder": 9,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.13,
+          0.7,
+          0
+        ],
+        "size": [
+          0.004,
+          0.14,
+          0.56
+        ]
+      }
+    },
+    {
+      "id": "interior.dash.console-delete",
+      "name": "Center console delete / shifter surround",
+      "qty": 1,
+      "description": "Aluminum cover over the transmission tunnel replacing the factory console, with a boot/surround for the shifter and access for the fire-system internal pull handle.",
+      "location": "Tunnel, x ≈ 1.15–1.80, y ≈ 0.35–0.45, z ≈ 0.",
+      "connectsTo": [
+        "drivetrain.shifter.shifter-assembly",
+        "safety.fire-suppression.internal-pull-cable"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 6,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Over-torquing spins rivnuts; 6–8 N·m typical for steel M6 rivnuts in sheet metal."
+        }
+      ],
+      "installNotes": [
+        "Leave access for shifter service."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 10,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.45,
+          0.42,
+          0
+        ],
+        "size": [
+          0.6,
+          0.004,
+          0.22
+        ],
+        "color": "#9aa0a6"
+      }
+    },
+    {
+      "id": "interior.dash.defrost-fan",
+      "name": "Windshield defrost/demist fan (HVAC delete)",
+      "qty": 1,
+      "description": "With the HVAC removed, a 12 V blower or fan ducted to the windshield base keeps the screen clear in rain; some series require functioning defrost.",
+      "location": "Under dash center, ducts to windshield base x ≈ 0.75.",
+      "connectsTo": [
+        "interior.dash.race-dash-panel",
+        "electrical.power-distribution.pdm",
+        "body.glass-and-lexan.windshield"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "12 V inline blower + 2 in SCAT duct",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Fan mount screws",
+          "qty": 4,
+          "spec": "M5 screws + nylocs",
+          "grade": "ISO 8.8",
+          "torque": "3 ft-lb (4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Hose clamps",
+          "qty": 4,
+          "spec": "Worm clamps 2 in",
+          "grade": "n/a",
+          "torque": "2 ft-lb (3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check class rules on HVAC removal."
+      ],
+      "inspection": [
+        "Function test before wet sessions."
+      ],
+      "buildPhase": 9,
+      "installOrder": 11,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.92,
+          0.66,
+          -0.2
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "axis": "x"
+      }
+    }
+  ]
+}

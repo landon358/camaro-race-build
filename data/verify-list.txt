@@ -1,0 +1,277 @@
+## safety
+safety.extinguisher.handheld | Bracket clamp band | Supplied metal band | Snug | typical
+safety.extinguisher.quick-release-mount | Floor mount bolts | 1/4-20 UNC or M6 bolt + nyloc + backing washers / rivnuts | 7.4 ft-lb (10 N·m) | estimate
+safety.extinguisher.quick-release-mount | Cage clamp bolts (if tube mount) | M6 / 1/4-20 clamp screws, 1.75 in clamps | 5.9 ft-lb (8 N·m) | estimate
+safety.fire-suppression.bottle | Operating head pull-cable nipple/clamp | Maker-supplied cable nipple & clamp screw | Snug per maker | typical
+safety.fire-suppression.bottle-bracket | Bracket-to-floor bolts | 5/16-18 UNC or M8 x 1.25 bolt + nyloc + 1.25 in OD fender washer/backing plate under floor | 18.4 ft-lb (25 N·m) | typical
+safety.fire-suppression.bottle-bracket | Strap closure screws | Supplied | Snug | typical
+safety.fire-suppression.distribution-tubing | P-clips | Rubber-lined P-clip + M5/#10 screw or rivnut | 4 ft-lb (5 N·m) | estimate
+safety.fire-suppression.bulkhead-fitting | Bulkhead jam nut | Supplied jam nut + washer | Snug + 1/4 turn | estimate
+safety.fire-suppression.cockpit-nozzles | Nozzle jam nut to bracket | Supplied | Snug | typical
+safety.fire-suppression.cockpit-nozzles | Nozzle bracket | 16 ga steel/aluminum L-bracket riveted or bolted (M6) to dash bar tab | 5.9 ft-lb (8 N·m) | estimate
+safety.fire-suppression.engine-nozzles | Nozzle bracket bolts | M6 x 1.0 bolt + nyloc to inner fender / strut-tower bracket | 7.4 ft-lb (10 N·m) | estimate
+safety.fire-suppression.internal-pull-cable | T-handle mount nut | Supplied panel nut | Snug | typical
+safety.fire-suppression.internal-pull-cable | Cable P-clips | P-clip + M5 screw/rivnut | 3.7 ft-lb (5 N·m) | estimate
+safety.fire-suppression.external-pull-cable | Handle mounting nut/bracket | Supplied nut + 16 ga bracket riveted to cowl | Snug | typical
+safety.fire-suppression.external-pull-cable | Cable P-clips | P-clip + M5/#10 screw | 3.7 ft-lb (5 N·m) | estimate
+safety.fuel-and-firewall-isolation.rear-bulkhead-panel | Removable access-panel fasteners | 1/4-20 / M6 button-head into steel rivnuts, or Dzus EHF5 | 6 ft-lb (8 N·m) | estimate
+safety.fuel-and-firewall-isolation.pass-through-seals | AN bulkhead jam nut | -6/-8 AN bulkhead union jam nut | Snug + 1/8 turn (no published torque) | estimate
+safety.fuel-and-firewall-isolation.firewall-blockoff-plates | Plate screws | M6 x 1.0 button-head into rivnuts or 3/16 rivets | 5.9 ft-lb (8 N·m) | estimate
+safety.harness.belt-guides | Collar clamp screw | 1/4-28 socket head cap screw (supplied) | 13 ft-lb (18 N·m) | estimate
+safety.head-and-neck.helmet-anchors | Anchor post screw | Helmet-maker supplied anchor hardware (often M6) | Per helmet maker | estimate
+safety.kill-switches.external-t-handle | Handle bracket bolts/rivets | 3/16 in steel rivets or M5 screws + nyloc | 3.7 ft-lb (5 N·m) | estimate
+safety.kill-switches.pull-cable | Cable P-clips | Rubber-lined P-clip + M5 screw/rivnut | 3.7 ft-lb (5 N·m) | estimate
+safety.kill-switches.cable-abutment-bracket | Bracket screws | M5 x 0.8 screw + nyloc | 3.7 ft-lb (5 N·m) | estimate
+safety.kill-switches.cable-abutment-bracket | Cable clamp screw | Set screw/clamp barrel | Snug | typical
+safety.roll-cage.main-hoop-plates | Bolt-in alternative: plate bolts | 3/8-16 UNC hex bolt + nyloc + hardened washers, through backing plate of equal size/thickness | 44 ft-lb (60 N·m) | typical
+safety.roll-cage.front-hoop-plates | Bolt-in alternative: plate bolts | 3/8-16 UNC hex bolt + nyloc + hardened washers, through backing plate of equal size/thickness | 44 ft-lb (60 N·m) | typical
+safety.roll-cage.backstay-plates | Bolt-in alternative (FIA): backstay foot bolts | M8 x 1.25 hex bolt + nyloc + washers | 18.4 ft-lb (25 N·m) | typical
+safety.seat-and-mounts.seat-shell | Seat-to-side-bracket bolts | M8 x 1.25 x 20–25 mm hex/button head + flat washer + nyloc/spring washer (Sparco kit: M8 bolts + locking nuts) | 18.4 ft-lb (25 N·m) | typical
+safety.seat-and-mounts.side-brackets | Bracket-to-floor-mount bolts | M8 x 1.25 or 3/8-16 bolt + nyloc + large washers | 18.4 ft-lb (25 N·m) | typical
+safety.seat-and-mounts.floor-mount | Bolt-in base to factory seat studs/holes | Factory GM seat fasteners (M10 class) | 36.9 ft-lb (50 N·m) | estimate
+safety.seat-and-mounts.floor-reinforcement-plates | Bolt-through alternative | 3/8-16 or M10 x 1.5 bolt + nyloc through backing plate | 36.9 ft-lb (50 N·m) | typical
+safety.seat-and-mounts.seat-back-brace | Brace-to-seat bolt | 3/8-16 UNC Grade 8 bolt + large fender washer + nyloc | 30 ft-lb (41 N·m) | estimate
+safety.seat-and-mounts.seat-back-brace | Brace-to-cage tab bolt | 3/8-16 Grade 8 through welded tab (double shear) | 35 ft-lb (47 N·m) | estimate
+safety.tow-hooks.front-tow-strap | Strap mounting bolt | M10 x 1.5 or 3/8-16 bolt + large washer + nyloc through beam | 36.9 ft-lb (50 N·m) | estimate
+safety.tow-hooks.rear-tow-strap | Strap mounting bolt | M10 x 1.5 bolt + washer + nyloc | 36.9 ft-lb (50 N·m) | estimate
+safety.window-net.lower-mount | Lower mounting tab bolts | 1/4-20 UNC button-head bolt + nyloc through welded tab | 9 ft-lb (12 N·m) | estimate
+safety.window-net.latch | Latch mounting bolts | 1/4-20 UNC bolt + nyloc through welded tab | 9 ft-lb (12 N·m) | estimate
+
+## suspension
+suspension.front-cradle.cradle-mounts | Front cradle-to-body bolt | M14 x 1.5 (typical GM cradle bolt; verify) with captured nut in rail | 74 ft-lb (100 N·m) first pass | estimate
+suspension.front-cradle.lower-cradle-brace | Lower cradle brace bolt | M10 flange bolt, 15 mm hex (head size per BMR) | 43 ft-lb (58 N·m) | estimate
+suspension.front-lower-links.lower-control-arm | Lower control arm ball stud nut (to knuckle) | Ball stud nut, 21 mm hex | See GM SI. Secondary source lists 80 ft-lb (108 N·m) + 90 deg | estimate
+suspension.front-lower-links.radius-rod | Radius rod ball stud nut (to knuckle) | Ball stud nut, 21 mm hex | See GM SI (aftermarket BMR FLC363 stud: 94 ft-lb / 127 N·m) | estimate
+suspension.front-struts-springs.camber-caster-plate | Damper rod nut onto caster slider | Factory 18 mm rod nut | 44 ft-lb (60 N·m) | typical
+suspension.front-sway-bar.insulators-and-clamps | Stabilizer shaft insulator clamp nut/bolt | M8, 13 mm hex | 16 ft-lb (22 N·m) | typical
+suspension.rear-cradle.rear-cradle-brace | Brace-to-cradle stud nut (on rearward main cradle bolt stud) | M10/M12 nut on cradle bolt stud (15/18 mm) | 50 ft-lb (68 N·m) per BMR; GM 'suspension bracket nuts' listed at 58 N·m (43 lb ft) | typical
+suspension.rear-knuckles.knuckle | Hub bearing-to-knuckle bolt | Flange bolt, 15 mm hex | 45 ft-lb (61 N·m) per BMR; GM value may include an angle step - see wheels system | typical
+suspension.rear-knuckles.knuckle | Rear wheel speed sensor bolt | M6, 10 mm hex | 89 in-lb (10 N·m) | typical
+suspension.rear-links.lower-control-arm | Rear lower control arm outer bolt + nut (to knuckle) | Flange bolt + nut, 18 mm / 15 mm wrench per BMR | 111 ft-lb (150 N·m) first pass | typical
+suspension.rear-links.upper-control-arm | Upper control arm inner bolt + nut | Flange bolt + prevailing-torque nut, 18 mm | 52 ft-lb (70 N·m) first pass | typical
+suspension.rear-links.upper-control-arm | Upper control arm outer bolt + nut (to knuckle) | Flange bolt + nut, 18 mm | 52 ft-lb (70 N·m) first pass | typical
+suspension.rear-sway-bar.insulators-and-clamps | Stabilizer shaft insulator clamp bolt | Flange bolt; GM P/N 11588723 (per BMR list) | 43 ft-lb (58 N·m) | typical
+suspension.rear-sway-bar.end-links | Rear stabilizer link nut (to bar) | Ball-stud nut, 15 mm, hold with 5 mm hex | 32 ft-lb (43 N·m) | typical
+suspension.rear-sway-bar.end-links | Rear stabilizer link bolt (to knuckle) | M10 bolt, 15 mm | 43 ft-lb (58 N·m) | typical
+suspension.ride-height-sensors.position-sensors | Sensor mounting bolt | M6, 10 mm hex | 89 in-lb (10 N·m) | estimate
+
+## steering
+steering.bump-steer.adjustable-tie-rod-ends | Rod end bolt through steering arm | Per SPL kit (high-strength bolt + nylock) | Per SPL instructions (not in available source) | estimate
+steering.column-and-shaft.column | Steering column mounting nut (to IP beam) | M8 flange nut (size inferred) | 16 ft-lb (22 N·m) | typical
+steering.column-and-shaft.column | Steering column lock control module bolt | Small bolt | 80 in-lb (9 N·m) | typical
+steering.column-and-shaft.column | IP steering column lower trim cover bolt | Trim screw | 27 in-lb (3 N·m) | typical
+steering.column-and-shaft.upper-intermediate-shaft | Upper intermediate steering shaft upper bolt (to column) | Pinch bolt | 22 ft-lb (30 N·m) | typical
+steering.column-and-shaft.upper-intermediate-shaft | Mid intermediate steering shaft bolt | Pinch bolt | 27 ft-lb (36 N·m) | typical
+steering.column-and-shaft.lower-intermediate-shaft | Intermediate steering shaft lower bolt (to pinion) | Pinch bolt through pinion spline groove | 37 ft-lb (50 N·m) | typical
+steering.column-and-shaft.lower-intermediate-shaft | Intermediate steering shaft upper bolt | Pinch bolt | 27 ft-lb (36 N·m) | typical
+steering.column-and-shaft.firewall-seal | Intermediate steering shaft boot nut | Small nut (M6) | 80 in-lb (9 N·m) | typical
+steering.rack.rack-mount-hardware | Steering gear nut (rack to cradle) | Flange nut/bolt (size not verified) | 43 ft-lb (58 N·m) first pass | typical
+steering.tie-rods.inner-tie-rod | Inner tie rod to rack (threaded joint) | Inner tie rod socket thread onto rack bar | 77 ft-lb (105 N·m) | typical
+steering.tie-rods.outer-tie-rod-end | Outer tie rod end stud nut (to knuckle) | Prevailing-torque nut on tapered stud | 26 ft-lb (35 N·m) first pass | typical
+steering.tie-rods.jam-nut | Tie rod jam nut | Jam nut on inner tie rod thread (approx M14-M16 fine thread; verify) | 44-50 ft-lb (60-68 N·m) | estimate
+steering.wheel-and-quick-release.steering-wheel | Steering wheel bolt (OE wheel / hub adapter to column) | Center bolt | 33 ft-lb (45 N·m) | typical
+steering.wheel-and-quick-release.steering-wheel | Wheel-to-quick-release bolts | M5 x 0.8 countersunk or button head (6 x 70 mm PCD) | 5-6 ft-lb (7-8 N·m) | estimate
+steering.wheel-and-quick-release.quick-release | Quick-release to hub adapter bolts | M5 or M6 socket head (per kit) | 5-7 ft-lb (7-10 N·m) | estimate
+steering.wheel-and-quick-release.hub-adapter | Hub adapter retaining (steering wheel) bolt | OE center bolt or kit bolt | 33 ft-lb (45 N·m) | typical
+
+## brakes
+brakes.abs.factory-bpmv-ebcm | Brake pipe fitting to BPMV inlet | Metric ISO bubble-flare tube nut | 24 ft-lb (32 N·m) | typical
+brakes.abs.factory-bpmv-ebcm | Brake pipe fitting to BPMV outlet | Metric ISO bubble-flare tube nut (M10x1 typ.) | 13 ft-lb (18 N·m) | typical
+brakes.abs.factory-bpmv-ebcm | EBCM-to-BPMV screws | Torx screws | 27 in-lb (3 N·m) | typical
+brakes.abs.factory-bpmv-ebcm | Brake pressure modulator valve nut (BPMV to isolator/bracket) | Small nut on isolator stud | 27 in-lb (3 N·m) | typical
+brakes.abs.bpmv-bracket | Brake pressure modulator valve bracket nut | M6 flange nut | 62 in-lb (7 N·m) | typical
+brakes.abs.bosch-motorsport-abs | Hydraulic unit port adaptors (M10x1 / M12x1 to -3 AN) | Steel adaptor with sealing (cone/bubble or washer per Bosch port) | M12x1 ≈ 18–20 N·m; M10x1 ≈ 14–16 N·m (typical metric brake fittings) | estimate
+brakes.abs.bosch-motorsport-abs | Mounting bolts through rubber isolators | M6 or M8 | 71 in-lb (8 N·m) | estimate
+brakes.abs.abs-map-switch | Switch panel nut | Panel nut supplied | Snug (≈ 1.5 N·m) | estimate
+brakes.abs.wheel-speed-sensors-front | Wheel speed sensor harness clips/bracket bolt | M6 bolt / push clips | 80 in-lb (9 N·m) | estimate
+brakes.abs.wheel-speed-sensors-rear | Sensor / harness bracket bolt | M6 | 80 in-lb (9 N·m) | estimate
+brakes.abs.yaw-rate-sensor | Sensor mounting screws | M6 | 71 in-lb (8 N·m) | estimate
+brakes.abs.abs-delete-block | Block mounting screws | M6 or 1/4-20 | 71 in-lb (8 N·m) | estimate
+brakes.abs.abs-delete-block | -3 AN port fittings | -3 AN 37° male | ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.cooling.inlets | Inlet flange rivets / M5 screws to fascia/splitter | 3/16 in rivet or M5 + rivnut | ≈ 25 in-lb (3 N·m) for screws | estimate
+brakes.cooling.duct-hose | Hose clamps / safety-wire wraps each end | 3 in worm clamp or 0.032 in safety wire | Snug (≈ 25 in-lb) | estimate
+brakes.cooling.backing-plates | Plate-to-knuckle bolts (use shield bolt holes) | M6 | 80 in-lb (9 N·m) | typical
+brakes.cooling.rear-ducts | Hose clamps | Worm clamp | Snug | estimate
+brakes.cooling.temperature-indicators | IR sensor bracket bolt | M5/M6 | 53 in-lb (6 N·m) | estimate
+brakes.front-calipers.caliper | Front brake caliper bolt (caliper-to-knuckle) | Large flange bolt into knuckle (M14x1.5 typical – verify size) | 111 ft-lb (150 N·m) | typical
+brakes.front-calipers.caliper | Caliper bleeder valve | M8/M10 bleeder screw with dust cap | 17–20 N·m (13–15 ft-lb) | typical
+brakes.front-calipers.caliper | Race kit: bracket-to-knuckle bolts | Use the OEM caliper bolt holes; bolts supplied/specified by kit maker | Per kit instructions (if kit says OEM: 150 N·m + 15–30°) | estimate
+brakes.front-calipers.caliper | Race kit: caliper-to-bracket radial bolts | M12 radial-mount bolts with shims as required for centering | Per kit instructions (typical M12 12.9 in steel ≈ 80–90 N·m / 59–66 ft-lb) | estimate
+brakes.front-calipers.pad-retaining-pins | Pad spring cross (center) bolt | Small bolt through caliper bridge | ≈ 14 ft-lb (19 N·m) owner-reported; an owner-posted GM chart was read as 9 N·m front / 10 N·m rear | estimate
+brakes.front-calipers.pad-retaining-pins | Pad retaining pin | Press-fit pin (factory) / bolt-in 6 mm pin (AP) | Factory: drift in until flush; AP bolt-in: per AP (light, ≈ 3–5 N·m) | typical
+brakes.front-calipers.bleeder-screws | Bleeder screw | Bleeder | 17–20 N·m (13–15 ft-lb) | typical
+brakes.front-rotors.rotor | Front brake rotor retention screw (Torx, hat to hub) | Countersunk Torx screw (M6 typical) | 80 in-lb (9 N·m) | typical
+brakes.front-rotors.ring-hardware | Ring-to-hat bolt | Serrated-flange bolt (M8 typical – verify) | Per rotor maker; reference: Gen 5 Z/28 ring-to-hat ≈ 7 ft-lb (100 in-lb, 11 N·m) – verify for ZL1/DBA | estimate
+brakes.front-rotors.dust-shield | Brake shield bolt | M6 bolt | 80 in-lb (9 N·m) | typical
+brakes.lines.mc-to-abs-lines | Tube nut at MC outlet (factory) | ISO bubble-flare tube nut | 22 ft-lb (30 N·m) | typical
+brakes.lines.mc-to-abs-lines | Tube nut at BPMV inlet (factory) | ISO bubble-flare tube nut | 24 ft-lb (32 N·m) | typical
+brakes.lines.mc-to-abs-lines | -3 AN hose ends (race) | -3 AN 37° female swivel | ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.front-hard-lines | Brake pipe tube nut (body/hose-bracket end) | M10x1 ISO bubble-flare nut | 13 ft-lb (18 N·m) | typical
+brakes.lines.front-hard-lines | -3 AN tube nut + sleeve (race 37° flare) | 3/8-24 UNF -3 AN tube nut | ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.rear-hard-lines | Tube nut each end | M10x1 bubble or -3 AN | Metric: 13 ft-lb (18 N·m); -3 AN: ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.rear-tee | Tee mounting bolt | M6 / 1/4-20 | 71 in-lb (8 N·m) | estimate
+brakes.lines.rear-tee | -3 AN fittings | -3 AN 37° | ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.rear-axle-lines | Tube nuts | M10x1 bubble or -3 AN | Metric: 13 ft-lb (18 N·m); -3 AN: ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.front-flex-hoses | Hose-to-hard-line tube nut at body bracket | M10x1 bubble-flare | 13 ft-lb (18 N·m) | typical
+brakes.lines.rear-flex-hoses | Tube nut at bracket | M10x1 bubble-flare | 13 ft-lb (18 N·m) | typical
+brakes.lines.hose-brackets | Brake hose bracket bolt | M6 flange bolt | 89 in-lb (10 N·m) | typical
+brakes.lines.bulkhead-fittings | Bulkhead jam nut | -3 AN bulkhead nut (7/16-20) | ≈ 15–20 ft-lb (20–27 N·m) | estimate
+brakes.lines.bulkhead-fittings | -3 AN fittings each side | -3 AN 37° | ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.adaptors | Adaptor | M10x1 bubble → -3 AN | Metric side 13 ft-lb (18 N·m); AN side ≈ 110–130 in-lb (12–15 N·m) for steel -3 AN on 37° flare; ≈ 75–95 in-lb (8.5–11 N·m) for aluminum fittings | typical
+brakes.lines.line-clips | P-clamp screw into rivnut | M5 or 10-32 button head | ≈ 25–35 in-lb (3–4 N·m) | estimate
+brakes.master-cylinders.factory-booster | Power vacuum brake booster nut (to pedal bracket/firewall studs) | M8 flange nut | 18 ft-lb (25 N·m) | typical
+brakes.master-cylinders.booster-vacuum-pump | Power brake booster pump assembly bolt | M8 bolt | 18 ft-lb (25 N·m) | typical
+brakes.master-cylinders.booster-vacuum-pump | Power brake booster pump nut | M8 nut | 16 ft-lb (22 N·m) | typical
+brakes.master-cylinders.factory-tandem-mc | Master cylinder nut (to booster studs) | M10 flange nut | 17 ft-lb (23 N·m) | typical
+brakes.master-cylinders.factory-tandem-mc | Brake pipe fitting at master cylinder outlet | M12x1 / M10x1 ISO bubble-flare tube nut (verify) | 22 ft-lb (30 N·m) | typical
+brakes.master-cylinders.factory-tandem-mc | Master cylinder reservoir bolt | Small M6 screw | 71 in-lb (8 N·m) | typical
+brakes.master-cylinders.front-mc | Master cylinder to pedal box mounting bolts | 5/16-18 or 5/16-24 bolt (per pedal box), with washers | 15 ft-lb (20 N·m) | estimate
+brakes.master-cylinders.front-mc | Outlet fitting (AN3 male adaptor / banjo) | -3 AN, 37° JIC | ≈ 110–130 in-lb (12–15 N·m) for -3 AN steel (typical); aluminum fittings lower | typical
+brakes.master-cylinders.front-mc | Inlet hose barb / AN6 adaptor | -6 AN to reservoir feed hose | Snug + 1/8 turn | estimate
+brakes.master-cylinders.rear-mc | Master cylinder to pedal box mounting bolts | 5/16 bolt per pedal box | 15 ft-lb (20 N·m) | estimate
+brakes.master-cylinders.rear-mc | Outlet fitting -3 AN | -3 AN 37° | ≈ 110–130 in-lb (12–15 N·m) | typical
+brakes.master-cylinders.remote-reservoirs | Reservoir bracket screws | M6x1.0 or 1/4-20 button head + nyloc | 71 in-lb (8 N·m) | estimate
+brakes.master-cylinders.reservoir-feed-hoses | Hose clamps (if barbed) | Small worm or Oetiker clamp | Snug (≈ 15 in-lb) | estimate
+brakes.master-cylinders.brake-pressure-sensors | Sensor thread | 1/8-27 NPT or M10x1 with sealing washer | NPT: 1.5–2 turns past finger tight; M10x1 w/ washer ≈ 15–20 N·m | estimate
+brakes.parking-brake.epb-actuator-module | Electronic parking brake control module bolt | M6 | 62 in-lb (7 N·m) | typical
+brakes.parking-brake.epb-actuator-module | Electronic parking brake control module bracket bolt | M6 | 80 in-lb (9 N·m) | typical
+brakes.parking-brake.intermediate-cable | Parking brake intermediate cable bolt | M6 | 80 in-lb (9 N·m) | typical
+brakes.parking-brake.intermediate-cable | Parking brake intermediate cable nut | M6 nut | 53 in-lb (6 N·m) | typical
+brakes.parking-brake.rear-cables | Parking brake cable bolt (cable bracket to body/knuckle) | M6 | 80 in-lb (9 N·m) | typical
+brakes.parking-brake.hydraulic-handbrake | Lever base mounting bolts | 5/16 or M8 | 18 ft-lb (24 N·m) | estimate
+brakes.pedal-box.pedal-assembly | Factory brake pedal assembly retaining nut (to dash panel studs) | M8 flange nut (GM) | 18 ft-lb (25 N·m) | typical
+brakes.pedal-box.pedal-assembly | Race pedal box base-to-floor-plate bolts | 3/8-16 UNC or M10x1.5 bolt, nyloc nut + large washers each side | 30 ft-lb (41 N·m) | estimate
+brakes.pedal-box.pedal-assembly | Pedal pivot shaft bolt / nut | 3/8 or M10 shoulder bolt, nyloc | 25 ft-lb (34 N·m) | estimate
+brakes.pedal-box.floor-mount-plate | Plate-to-floor bolts (if bolted) | 5/16-18 UNC or M8x1.25, with 3 mm backing washers | 18 ft-lb (24 N·m) | estimate
+brakes.pedal-box.balance-bar | Pushrod jam nut | 3/8-24 UNF thin jam nut | 15 ft-lb (20 N·m) | estimate
+brakes.pedal-box.balance-bar | Balance bar lock / jam nuts at the pedal bearing | 3/8-24 nylon-insert or jam nut | Snug – bar must be able to self-align in spherical bearing; leave 0.5–1 mm end clearance | typical
+brakes.pedal-box.bias-adjuster-cable | Knob panel-mount nut | Thin panel nut supplied with cable (approx. 1/2 or 5/8 in) | Snug (≈ 30–40 in-lb) | estimate
+brakes.pedal-box.bias-adjuster-cable | Cable P-clips | Rubber-lined P-clip, 3/8 in, M5/10-32 screw | 20–25 in-lb (2.3–2.8 N·m) | estimate
+brakes.pedal-box.brake-light-switch | Pressure switch thread | 1/8-27 NPT into tee/block | 1.5–2 turns past finger tight (≈ 10–12 ft-lb) | estimate
+brakes.rear-calipers.caliper | Rear brake caliper bolt (caliper-to-knuckle), J6G | Flange bolt into knuckle (M12/M14 – verify) | 92 ft-lb (125 N·m) | typical
+brakes.rear-calipers.caliper | Base/SS (JL9/J55) rear caliper bracket bolt – reference only | Bracket bolt | 74 ft-lb (100 N·m) | typical
+brakes.rear-calipers.caliper | Base/SS rear caliper guide pin bolt – reference only | Guide pin bolt | 30 ft-lb (40 N·m) | typical
+brakes.rear-calipers.caliper | Rear caliper bleeder valve | Bleeder | 97 in-lb (11 N·m) | typical
+brakes.rear-calipers.pad-hardware | Pad spring cross bolt | Small bolt | ≈ 10 N·m (7 ft-lb) per owner reading of GM chart – verify | estimate
+brakes.rear-calipers.bleeder-screws | Bleeder screw | Bleeder | 97 in-lb (11 N·m) | typical
+brakes.rear-rotors.rotor | Rear brake rotor retention screw | Countersunk Torx | 89 in-lb (10 N·m) | typical
+brakes.rear-rotors.dust-shield-backing-plate | Brake shield bolt | M6 | 80 in-lb (9 N·m) | typical
+
+## wheels
+wheels.front-hubs-bearings.hub-bearing | Front wheel bearing and hub assembly bolt | M12x1.75 flange bolt (count/size per Alpha listing – verify) | 74 ft-lb (100 N·m) | typical
+wheels.rear-hubs-bearings.hub-bearing | Rear wheel bearing and hub bolt | M12 flange bolt (qty/size not confirmed – verify) | 96 ft-lb (130 N·m) | typical
+wheels.rear-hubs-bearings.axle-nut | Rear wheel drive shaft nut | Large flange/staked nut (M24/M27 class – verify) | 199 ft-lb (270 N·m) | typical
+wheels.studs-and-lug-nuts.wheel-studs | Stud installation | Pressed from rear of flange | Press-fit – pull in with a stud installer, not by over-torquing a lug nut | typical
+wheels.tpms.tpms-sensors | TPMS sensor valve nut | Clamp-in nut | ≈ 7 N·m (62 in-lb) typical GM clamp-in – verify | estimate
+wheels.tpms.tpms-receiver | Receiver mounting screws | M5 | 44 in-lb (5 N·m) | estimate
+wheels.wheels.valve-stems | Valve stem clamp nut | Clamp-in stem nut | ≈ 4–7 N·m (35–60 in-lb) per stem maker | estimate
+
+## engine
+engine.accessory-drive.water-pump | Water pump to block bolt | M8 bolt (count approximate) | 18 ft-lb (24 N·m) | typical
+engine.accessory-drive.water-pump | Water pump impeller housing / cover bolt | M6 bolt | 88 in-lb (9.9 N·m) | typical
+engine.accessory-drive.belt-tensioner | Tensioner mounting bolt | M10 bolt | 37 ft-lb (50 N·m) (estimate) | estimate
+engine.accessory-drive.idler-pulleys | Idler pulley bolt | M10 bolt | 37 ft-lb (50 N·m) (estimate) | estimate
+engine.accessory-drive.alternator-mount | Alternator mounting bolt | M10 bolt | 37 ft-lb (50 N·m) (estimate) | estimate
+engine.accessory-drive.ac-compressor-delete | Compressor/delete bracket bolt | M10 bolt | 37 ft-lb (50 N·m) (estimate) | estimate
+engine.accessory-drive.supercharger-belt | SC belt tensioner / idler bolts | M10 bolt | 37 ft-lb (50 N·m) (estimate) | estimate
+engine.block.main-caps | Main cap side (cross) bolt (GM) | M8 cross bolt with sealing washer | 18 ft-lb (24 N·m) then +60° (Summit); Michigan Motorsports lists 22 ft-lb (30 N·m) then +60° | typical
+engine.block.oil-galley-plugs | Threaded oil galley plugs (front/rear) | Metric threaded plug with O-ring or pre-applied sealant (count varies by block - verify) | 44 ft-lb (60 N·m) (estimate for M16 plugs) | estimate
+engine.block.coolant-plugs | Block coolant drain plug | Threaded plug with sealing washer or O-ring (one per side) | 44 ft-lb (60 N·m) (estimate) | estimate
+engine.cylinder-heads.head-fasteners | GM M8 corner head bolt | M8 x 1.25 (count per head varies by block; verify) | 22 ft-lb (30 N·m) (typical - after M12 sequence) | typical
+engine.engine-mounts.engine-mount | Engine mount to bracket bolt | M10/M12 bolt | 43 ft-lb (58 N·m) | typical
+engine.engine-mounts.engine-mount | Engine mount to cradle nut/bolt | M12 nut/bolt | 50 ft-lb (68 N·m) (estimate) | estimate
+engine.engine-mounts.block-brackets | Bracket to block bolt | M10 bolt | 43 ft-lb (58 N·m) (typical) | typical
+engine.engine-sensors.knock-sensors | Knock sensor bolt | M8 bolt | 18 ft-lb (24 N·m) (typical) | typical
+engine.engine-sensors.coolant-temp-sensor | ECT sensor | Threaded sensor with O-ring/sealant | 15 ft-lb (20 N·m) (typical) | typical
+engine.engine-sensors.boost-tmap-sensors | Sensor retaining bolt | M6 button-head | 89 in-lb (10.1 N·m) (estimate) | estimate
+engine.fuel-injection.port-injection-kit | Fuel rail -8 ORB fittings | 3/4-16 O-ring boss (-8) | 18-21 ft-lb (24-28 N·m) (typical for -8 ORB into aluminum) | typical
+engine.ignition.ignition-coils | Coil-to-bracket/valve-cover bolt | M6 bolt | 89 in-lb (10.1 N·m) (estimate) | estimate
+engine.intake-manifold.supercharger-assembly | Supercharger-to-cylinder-head bolt (GM, TTY) | M6 flange bolt, TTY (supplied in GM gasket kit 12679527) | 89 in-lb (10.1 N·m) (Summit "supercharger to block") | typical
+engine.intake-manifold.intercooler-bricks | Supercharger coolant manifold (GM, per Summit) | M6 bolt | 89 in-lb (10.1 N·m) | typical
+engine.intake-manifold.bypass-actuator | Bypass solenoid/actuator bracket bolt | M6 bolt | 89 in-lb (10.1 N·m) (estimate) | estimate
+engine.oil-pan-and-pickup.dipstick-and-fill | Filler / dipstick tube bracket bolt | M6 bolt | 89 in-lb (10.1 N·m) (estimate) | estimate
+engine.rotating-assembly.connecting-rods | Aftermarket rod bolt (ARP 2000 / L19 / Custom Age 625+) | Per rod manufacturer (commonly 7/16 or 3/8 in) | Per rod card - torque to the specified stretch (commonly ~0.0055-0.0065 in for 7/16 ARP 2000) | estimate
+engine.valve-covers.oil-fill-cap-and-breathers | Breather fitting (race, -10 AN ORB) | 7/8-14 ORB | 18-25 ft-lb (24-34 N·m) (typical for -10 ORB into aluminum) | typical
+engine.valvetrain.vvt-solenoid | VVT solenoid retaining bolt | M6 bolt | 89 in-lb (10.1 N·m) (estimate) | estimate
+engine.valvetrain.chain-guide | Chain guide bolt | M6/M8 bolt | 18 ft-lb (24 N·m) (estimate) | estimate
+engine.valvetrain.lifter-trays | Lifter tray bolt | M6 bolt | 89 in-lb (10.1 N·m) (typical) | typical
+
+## drivetrain
+drivetrain.bellhousing.bellhousing | Bellhousing-to-engine block bolt | M10 x 1.5 flange bolt (GM LS/LT pattern), length per bell | 37 ft-lb (50 N·m) | typical
+drivetrain.bellhousing.bellhousing | Bellhousing-to-transmission case bolt | M10/M12 per case (TR-6060 detachable bell) | 37 ft-lb (50 N·m) | estimate
+drivetrain.bellhousing.bellhousing | ARP 12-pt bellhousing bolt kit (GM LS) | Kit | Per ARP sheet | typical
+drivetrain.bellhousing.inspection-cover | Cover screw | M6 x 1.0 | 7 ft-lb (10 N·m) | estimate
+drivetrain.clutch-hydraulics.clutch-pedal | Pedal assembly-to-dash/firewall nut | M8 x 1.25 flange nut | 18 ft-lb (25 N·m) | estimate
+drivetrain.clutch-hydraulics.master-cylinder | Master cylinder-to-firewall/pedal-box nut | M8 x 1.25 (OEM) or 5/16-18 (Tilton) | 18 ft-lb (25 N·m) | estimate
+drivetrain.clutch-hydraulics.master-cylinder | Pressure outlet fitting | OEM quick-connect or -3 AN adapter (Tilton 7/16-20 UNF port) | Snug + 1/8 turn; AN: ≈10-12 ft-lb (14-16 N·m) | estimate
+drivetrain.clutch-hydraulics.reservoir | Reservoir bracket screw | M6 x 1.0 or 1/4-20 | 7 ft-lb (10 N·m) | estimate
+drivetrain.clutch-hydraulics.pressure-line | AN -3 hose end | -3 AN 37° flare | ≈10-12 ft-lb (14-16 N·m) / hand-tight + 1/8 turn | estimate
+drivetrain.clutch-hydraulics.pressure-line | P-clip / Adel clamp | Cushioned clamp + M6 screw or rivnut | 7 ft-lb (10 N·m) | estimate
+drivetrain.clutch-hydraulics.bulkhead-fitting | Bulkhead jam nut | -3 AN bulkhead nut | 15 ft-lb (20 N·m) | estimate
+drivetrain.clutch-hydraulics.release-bearing | CSC-to-front-bearing-retainer bolt (OEM) | OEM metric bolt | 22 ft-lb (30 N·m) as posted (GM SI list, TR-6060) - verify thread size | typical
+drivetrain.clutch-hydraulics.release-bearing | Race HRB mounting screw (to retainer adapter) | Per HRB kit (typically 1/4-20 or M6 socket-head) | 8 ft-lb (11 N·m) | estimate
+drivetrain.clutch-hydraulics.remote-bleeder | Bleed screw | Bleed nipple (per kit) | ≈7 ft-lb (10 N·m) | estimate
+drivetrain.clutch-hydraulics.remote-bleeder | Bleeder bracket screw | M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.clutch-hydraulics.clutch-pedal-position-sensor | Sensor mounting screw | M5/M6 screw | ≈2-4 ft-lb (3-5 N·m) | estimate
+drivetrain.clutch-hydraulics.pedal-stop | Stop bolt + jam nut | M8 or 5/16 bolt with jam nut | 15 ft-lb (20 N·m) | estimate
+drivetrain.coolers.trans-cooler | Cooler isolator mount bolt | M6 + rubber isolator | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.trans-cooler | -8 AN hose end / fitting | -8 AN 37° flare (aluminum) | ≈20-25 ft-lb (27-34 N·m) | estimate
+drivetrain.coolers.trans-cooler-pump | Pump bracket bolt | M6/M8 with isolators | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.trans-cooler-pump | -8 AN hose end / fitting | -8 AN 37° flare (aluminum) | ≈20-25 ft-lb (27-34 N·m) | estimate
+drivetrain.coolers.trans-thermostat | -8 AN hose end / fitting | -8 AN 37° flare (aluminum) | ≈20-25 ft-lb (27-34 N·m) | estimate
+drivetrain.coolers.trans-thermostat | Thermostat bracket bolt | M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.trans-cooler-lines | -8 AN hose end / fitting | -8 AN 37° flare (aluminum) | ≈20-25 ft-lb (27-34 N·m) | estimate
+drivetrain.coolers.trans-cooler-lines | Adel/P-clamp | Cushioned clamp + M6 screw/rivnut | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.trans-cooler-fittings | Port adapter (case thread to -8 AN) | Case thread with crush washer / O-ring | ≈25 ft-lb (34 N·m) - aluminum case, do not exceed plug torque | estimate
+drivetrain.coolers.diff-cooler | Cooler isolator mount bolt | M6 + rubber isolator | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.diff-cooler | -10 AN hose end / fitting | -10 AN 37° flare (aluminum) | ≈30-35 ft-lb (41-47 N·m) | estimate
+drivetrain.coolers.diff-cooler-pump | Pump bracket bolt | M6/M8 with isolators | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.diff-cooler-pump | -10 AN hose end / fitting | -10 AN 37° flare (aluminum) | ≈30-35 ft-lb (41-47 N·m) | estimate
+drivetrain.coolers.diff-thermostat | -10 AN hose end / fitting | -10 AN 37° flare (aluminum) | ≈30-35 ft-lb (41-47 N·m) | estimate
+drivetrain.coolers.diff-cooler-lines | -10 AN hose end / fitting | -10 AN 37° flare (aluminum) | ≈30-35 ft-lb (41-47 N·m) | estimate
+drivetrain.coolers.diff-cooler-lines | Adel/P-clamp | Cushioned clamp + M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.coolers.diff-cooler-fittings | ORB port adapter (-10) | -10 ORB with O-ring | ≈25 ft-lb (34 N·m) aluminum | estimate
+drivetrain.coolers.inline-filters | -8/-10 AN hose end / fitting | -8/-10 AN 37° flare (aluminum) | ≈20-35 ft-lb (27-47 N·m) by size | estimate
+drivetrain.driveshaft.front-driveshaft | Driveshaft-to-front-coupler bolt/nut | M12 Torx-head bolt + lock nut (OEM) | 67 ft-lb (91 N·m) | typical
+drivetrain.driveshaft.rear-driveshaft | Driveshaft-to-rear-coupler bolt/nut | M12 Torx-head bolt + lock nut (OEM) | 67 ft-lb (91 N·m) | typical
+drivetrain.driveshaft.center-support-bearing | Center bearing bracket bolt | M10 x 1.5 (typ.) | 37 ft-lb (50 N·m) | estimate
+drivetrain.driveshaft.front-flex-coupler | Coupler-to-transmission flange bolt | M12 bolt (OEM) | 72 ft-lb (98 N·m) | typical
+drivetrain.driveshaft.rear-flex-coupler | Coupler-to-differential pinion flange bolt | M12 bolt (OEM) | 85 ft-lb (115 N·m) | typical
+drivetrain.driveshaft.safety-loop | Loop mounting bolt | 3/8-16 or M10 Gr 8/10.9 with large washers / backing plates | 37 ft-lb (50 N·m) | estimate
+drivetrain.driveshaft.tunnel-heat-shield | Heat shield nut/push-on | M6 nut / speed clip | 7 ft-lb (10 N·m) | estimate
+drivetrain.flywheel-clutch.flywheel | Flywheel-to-crankshaft bolt (OEM) | M11 x 1.5 flange bolt (GM LT) | 15 ft-lb (20 N·m), then 37 ft-lb (50 N·m), then 74 ft-lb (100 N·m) | typical
+drivetrain.flywheel-clutch.flywheel | Flywheel-to-crankshaft bolt (race, ARP 234-2802) | ARP GM LT1 6.2L flywheel bolt, 12-pt, 0.900 in UHL | ≈85 ft-lb (115 N·m) with ARP Ultra-Torque - confirm on ARP sheet in kit | typical
+drivetrain.flywheel-clutch.pressure-plate | Pressure plate (cover)-to-flywheel bolt | Bolt size per cover (OEM GM / kit-supplied) | 52 ft-lb (70 N·m) OEM-style GM cover; aftermarket covers: maker value (often 20-30 ft-lb / 27-41 N·m for M8/5-16 in) | typical
+drivetrain.halfshafts.axle-nut | Rear axle (wheel drive shaft) nut | OEM prevailing-torque nut + washer (large, ≈M24-M27) | Per GM SI (Gen 6) - forum-cited 199 ft-lb (270 N·m) for 5th-gen, unverified | estimate
+drivetrain.rear-differential.ring-and-pinion | Ring gear bolts (set) | OEM ring gear bolts | Per GM SI | estimate
+drivetrain.rear-differential.elsd-actuator | Actuator-to-housing bolt | M8 (typ.) | 18 ft-lb (25 N·m) | estimate
+drivetrain.rear-differential.elsd-control-module | Module bracket bolt | M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.rear-differential.pinion-flange | Pinion nut | OEM pinion nut | Per GM SI (preload procedure) | estimate
+drivetrain.rear-differential.cover-and-gasket | Cover bolt | M8 x 1.25 (typ.) | 18 ft-lb (25 N·m) | estimate
+drivetrain.rear-differential.fill-drain-plugs | Fill plug | OEM plug + seal | 22 ft-lb (30 N·m) | estimate
+drivetrain.rear-differential.fill-drain-plugs | Drain plug | OEM plug + seal | 22 ft-lb (30 N·m) | estimate
+drivetrain.rear-differential.temperature-sensor | Sensor | 1/8 NPT | ≈10-15 ft-lb (14-20 N·m) | estimate
+drivetrain.shifter.shifter-assembly | Shifter base-to-body/bracket bolt | M8 x 1.25 | 18 ft-lb (25 N·m) | estimate
+drivetrain.shifter.shifter-assembly | Shift lever-to-base pivot fastener | Per shifter | Per shifter maker | estimate
+drivetrain.shifter.shift-rod | Rod-end pivot bolt + nylock nut | M8 or 5/16 in | 18 ft-lb (25 N·m) | estimate
+drivetrain.shifter.shift-rod | Rod-end jam nut | Per rod-end thread | 15 ft-lb (20 N·m) | estimate
+drivetrain.shifter.shifter-isolator | Isolator stud nut | M8 | 18 ft-lb (25 N·m) | estimate
+drivetrain.shifter.shift-knob | Knob jam nut / set screw | Per lever thread | Hand tight + jam nut | typical
+drivetrain.shifter.shift-boots | Boot ring screw | M5 / #10 | ≈2-3 ft-lb (3-4 N·m) | estimate
+drivetrain.shifter.paddle-shifters | Paddle mount screw | M5 | ≈3 ft-lb (4 N·m) | estimate
+drivetrain.shifter.shift-controller | GCU mounting screw (on AV mounts) | M5 | ≈3 ft-lb (4 N·m) | estimate
+drivetrain.shifter.pneumatic-actuator | Actuator bracket bolt | M8 | 18 ft-lb (25 N·m) | estimate
+drivetrain.shifter.pneumatic-actuator | Rod-end pivot bolt | M8 | 18 ft-lb (25 N·m) | estimate
+drivetrain.shifter.air-supply | Tank strap bolt | M6/M8 | 15 ft-lb (20 N·m) | estimate
+drivetrain.trans-mount-crossmember.crossmember | Crossmember-to-body bolt | M12 x 1.75 flange bolt (typ.) | 58 ft-lb (79 N·m) | estimate
+drivetrain.trans-mount-crossmember.transmission-mount | Mount-to-crossmember nut | M10 x 1.5 | 37 ft-lb (50 N·m) | estimate
+drivetrain.trans-mount-crossmember.mount-bracket | Bracket-to-tailhousing bolt | M10 x 1.5 | 37 ft-lb (50 N·m) | estimate
+drivetrain.transmission.output-flange | Output flange retaining nut | Mainshaft nut (staked) | Per TREMEC service manual | estimate
+drivetrain.transmission.fill-drain-plugs | Drain plug (magnetic) | Tapered/straight-thread plug per case | ≈25 ft-lb (34 N·m) | estimate
+drivetrain.transmission.fill-drain-plugs | Fill plug | Plug per case | ≈25 ft-lb (34 N·m) | estimate
+drivetrain.transmission.skip-shift-solenoid | Solenoid retaining bolt | M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.transmission.reverse-lockout-solenoid | Solenoid retaining bolt | M6 | 7 ft-lb (10 N·m) | estimate
+drivetrain.transmission.reverse-lamp-switch | Reverse lamp switch (threaded) | Threaded switch with sealing washer | ≈15 ft-lb (20 N·m) | estimate
+drivetrain.transmission.gear-position-sensor | Sensor screws | M5/M6 | ≈4-7 ft-lb (5-10 N·m) | estimate
+drivetrain.transmission.temperature-sensor | Temp sensor | Threaded sensor (OEM thread / 1/8 NPT race) | ≈15 ft-lb (20 N·m) | estimate
+drivetrain.transmission.output-speed-sensor | Sensor retaining bolt | M6 | 7 ft-lb (10 N·m) | estimate

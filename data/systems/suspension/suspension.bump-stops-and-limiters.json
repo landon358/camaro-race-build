@@ -1,0 +1,230 @@
+{
+  "id": "suspension.bump-stops-and-limiters",
+  "system": "suspension",
+  "name": "Bump Stops, Packers & Droop Limiters",
+  "description": "Jounce bumpers on the front strut and rear shock shafts, packers/spacers that set when the bump stop engages, and droop limiters. On a lowered race car the bump stop is a tuning element (it is effectively a rising-rate spring), not just a crash stop.",
+  "components": [
+    {
+      "id": "suspension.bump-stops-and-limiters.front-jounce-bumper",
+      "name": "Front jounce bumper (bump stop) and dust boot",
+      "qty": 2,
+      "description": "Microcellular urethane bump stop on the front strut rod inside the dust boot ('front shock absorber boot with jounce bumper', reused when changing struts per GM). When lowering, cut-down or shorter progressive race bump stops keep the car from riding on the stop mid-corner.",
+      "location": "On front strut rod under the top mount, approx (x 0.045, y 0.76, z +/-0.57).",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut",
+        "suspension.front-struts-springs.strut-mount"
+      ],
+      "factory": {
+        "name": "GM front shock absorber boot with jounce bumper",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Race bump rubber (progressive) from damper manufacturer",
+          "brand": "Öhlins / Penske / KW / MCS",
+          "notes": "Choose length/stiffness with the damper builder; measure shaft travel with a zip-tie on the rod."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "With spring removed, cycle suspension to full bump and record shaft travel to bump-stop contact and to tire/fender contact."
+      ],
+      "inspection": [
+        "Zip-tie on shaft to log max travel each session."
+      ],
+      "buildPhase": 3,
+      "installOrder": 80,
+      "tags": [
+        "bump-stop",
+        "jounce"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.0388,
+            0.77,
+            0.5481
+          ],
+          "size": [
+            0.045,
+            0.0624,
+            0.045
+          ],
+          "axis": "y",
+          "rot": [
+            -15,
+            0,
+            -5.9
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 45 mm OD x 60 mm",
+        "features": "Convoluted MCU foam jounce bumper on the strut rod inside the dust boot",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.bump-stops-and-limiters.rear-jounce-bumper",
+      "name": "Rear jounce bumper and shock boot",
+      "qty": 2,
+      "description": "Bump stop on the rear shock rod, transferred to replacement shocks (GM SG3). Because of the LCA motion ratio, rear shock shaft travel is less than wheel travel; size the stop accordingly.",
+      "location": "Upper rear shock shaft, approx (x 2.76, y 0.64, z +/-0.58).",
+      "connectsTo": [
+        "suspension.rear-dampers-springs.shock",
+        "suspension.rear-dampers-springs.upper-shock-mount"
+      ],
+      "factory": {
+        "name": "GM rear shock absorber jounce bumper + boot",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Race bump rubber (progressive)",
+          "brand": "Damper manufacturer",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [
+        "Check for crumbling/splitting."
+      ],
+      "buildPhase": 3,
+      "installOrder": 81,
+      "tags": [
+        "bump-stop"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.9329,
+            0.66,
+            0.5779
+          ],
+          "size": [
+            0.04,
+            0.06,
+            0.04
+          ],
+          "axis": "y",
+          "rot": [
+            -6.5,
+            0,
+            2.3
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 40 mm OD x 60 mm",
+        "features": "Foam jounce bumper on the shock rod under the upper mount, inside the shock boot (item 8)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.bump-stops-and-limiters.packers",
+      "name": "Bump stop packers / spacers",
+      "qty": 4,
+      "description": "Thin spacer washers (typically 2-5 mm) stacked on the damper shaft above the bump stop to bring forward bump-stop engagement without changing the bump stop itself. Used for fine aero platform control and to tune balance (more front packer = earlier front stop engagement = more understeer under heavy load).",
+      "location": "On damper rods under the top mounts.",
+      "connectsTo": [
+        "suspension.bump-stops-and-limiters.front-jounce-bumper",
+        "suspension.bump-stops-and-limiters.rear-jounce-bumper"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Split packer washers sized to shaft",
+          "brand": "Damper manufacturer",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Document packer stack on setup sheet per corner."
+      ],
+      "inspection": [],
+      "buildPhase": 11,
+      "installOrder": 82,
+      "tags": [
+        "packers",
+        "setup"
+      ],
+      "sources": []
+    },
+    {
+      "id": "suspension.bump-stops-and-limiters.droop-limiters",
+      "name": "Droop (rebound) limiters",
+      "qty": 4,
+      "description": "Internal damper droop spacers or external limit straps that limit extension. Used to reduce inside-wheel lift and control weight transfer/aero pitch; also prevents CV/halfshaft overextension at the rear and protects brake hoses and wheel-speed-sensor leads at full droop.",
+      "location": "Inside dampers (internal spacer) or between body and LCA/knuckle (strap).",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut",
+        "suspension.rear-dampers-springs.shock",
+        "drivetrain.halfshafts.rear-halfshaft"
+      ],
+      "factory": {
+        "name": "Damper internal rebound stop",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Internal droop spacers (built by damper manufacturer)",
+          "brand": "Penske / Öhlins / JRi / MCS",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Check that at full droop the brake hoses, WSS leads and halfshaft angles are within limits."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 83,
+      "tags": [
+        "droop",
+        "limiter"
+      ],
+      "sources": []
+    }
+  ]
+}

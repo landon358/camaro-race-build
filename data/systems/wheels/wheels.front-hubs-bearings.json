@@ -1,0 +1,115 @@
+{
+  "id": "wheels.front-hubs-bearings",
+  "system": "wheels",
+  "name": "Front Hubs & Bearings",
+  "description": "Non-driven front corners use a sealed, bolt-on hub bearing unit (Gen 3 style) with pressed wheel studs and an integral magnetic ABS encoder, bolted to the front knuckle from the inboard side.",
+  "components": [
+    {
+      "id": "wheels.front-hubs-bearings.hub-bearing",
+      "name": "Front wheel bearing & hub assembly",
+      "qty": 2,
+      "description": "Sealed double-row angular-contact bearing unit with hub flange and five M14x1.5 studs. Slicks and big brakes load these bearings far beyond street use – treat as a consumable and check play every event.",
+      "location": "Front knuckle bore, each side; flange outboard at z≈±0.72–0.76.",
+      "connectsTo": [
+        "suspension.front-knuckle.knuckle",
+        "brakes.front-rotors.hat",
+        "wheels.studs-and-lug-nuts.wheel-studs",
+        "brakes.abs.wheel-speed-sensors-front",
+        "brakes.cooling.backing-plates"
+      ],
+      "factory": {
+        "name": "GM front wheel bearing and hub assembly (Gen 6 Camaro, RWD)",
+        "notes": "Alpha-platform front hub units use 3x M12x1.75 knuckle bolts (Timken ATS listing – verify count on Camaro)."
+      },
+      "raceOptions": [
+        {
+          "name": "New OEM GM/ACDelco or Timken/SKF unit each season",
+          "brand": "GM / Timken / SKF",
+          "notes": "Most Gen 6 racers stay with OE-type sealed units and replace on a schedule."
+        },
+        {
+          "name": "Race hub with serviceable tapered bearings / larger studs",
+          "brand": "Custom (e.g. for Trans Am style builds)",
+          "notes": "Only if moving to center-lock or larger studs."
+        }
+      ],
+      "specs": {
+        "Bolt pattern": "5 x 120 mm",
+        "Pilot diameter": "66.9 mm (some sources 67.1 mm)",
+        "Studs": "M14 x 1.5"
+      },
+      "hardware": [
+        {
+          "item": "Front wheel bearing and hub assembly bolt",
+          "qty": 3,
+          "spec": "M12x1.75 flange bolt (count/size per Alpha listing – verify)",
+          "grade": "GM 10.9",
+          "torque": "74 ft-lb (100 N·m) first pass + 15–30°",
+          "torqueSequence": "Clean the old threadlocker off the threads and apply new threadlocker. Torque all bolts in a cross pattern to 100 N·m (74 ft-lb), then turn each a further 15–30°.",
+          "threadlocker": "Clean threads; re-apply threadlocker per SKF/OE (verify GM spec)",
+          "safetyWire": false,
+          "reuse": "Replace (GM typically specifies new hub bolts)",
+          "tool": "15/18 mm socket, angle gauge",
+          "notes": "From GM 2016–18 table via TightTorque (\"First pass\"). [2026-10 check] The final angle is now filled in. The SKF 2023 Torque Specification Guide gives 2016–21 Camaro front hub mount at 74 ft-lb (100 N·m) with footnote [32] (+15° to 30°) and footnote [45] (new threadlocker). A camaro6.com owner quoting the SI for a 2018 ZL1 1LE gives 74 lb-ft + 15–30°, and TightTorque gives 100 N·m first pass. Note that the threadlocker field says 'none', but SKF says to re-apply threadlocker.",
+          "confidence": "typical",
+          "source": "https://cdn.skfmediahub.skf.com/api/public/094dddb2a353170f/pdf_preview_medium/094dddb2a353170f_pdf_preview_medium.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clean the knuckle bore and mating face; lightly coat the pilot with anti-seize to ease future removal.",
+        "Fit backing plate/dust shield first if it is clamped behind the hub.",
+        "Torque bolts in a cross pattern to the first-pass value, then apply the GM final angle.",
+        "Connect the wheel speed sensor and verify signal before closing up."
+      ],
+      "inspection": [
+        "With the car on stands, rock the tire at 12/6 o'clock: any perceptible play = replace.",
+        "Spin and listen for roughness after each event.",
+        "Check rotor runout (bad bearings cause pad knock-back and long pedal)."
+      ],
+      "buildPhase": 4,
+      "installOrder": 1,
+      "tags": [
+        "hub",
+        "bearing",
+        "front"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Timken HA590488 – Alpha-platform (Cadillac ATS RWD) front hub assembly, 3x M12x1.75 bolts",
+          "url": "https://1qwr8ubx.navbeta.traceparts.com/item/engineered-bearings/automotive-aftermarket-hub-assemblies/ha590488"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0,
+          0.3715,
+          0.7475
+        ],
+        "size": [
+          0.17,
+          0.17,
+          0.095
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#9e9e9e"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "Flange face at z=0.780 (rotor hat 7 mm, wheel face 0.787); 5 x 120 lobed flange ~148 mm, 66.9 mm pilot, 3-bolt knuckle flange",
+        "features": "Bolt-on gen-3 unit: 5-lobe flange with pressed studs, pilot spigot, cast bearing housing with 3 ears, WSS boss",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

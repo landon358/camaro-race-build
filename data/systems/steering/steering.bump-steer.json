@@ -1,0 +1,167 @@
+{
+  "id": "steering.bump-steer",
+  "system": "steering",
+  "name": "Bump Steer Correction",
+  "description": "Bump steer is toe change with suspension travel caused by the tie rod not following the arc of the lower links/strut. Lowering a Gen 6 Camaro or changing radius rods/LCAs changes it; it is corrected by moving the outer tie rod pivot height with an adjustable tie rod end and spacers, measured with a bump-steer gauge.",
+  "components": [
+    {
+      "id": "steering.bump-steer.adjustable-tie-rod-ends",
+      "name": "Bump-steer adjustable outer tie rod ends",
+      "qty": 2,
+      "description": "Replace the OE outer tie rod ends with a chromoly shank, spherical rod end and spacer stack so the outer pivot height can be moved to match the lower-link geometry. Also prevents inner tie rod binding on heavily lowered cars.",
+      "location": "Knuckle steering arm, approx (x -0.12, y 0.25, z +/-0.68).",
+      "connectsTo": [
+        "steering.tie-rods.inner-tie-rod",
+        "suspension.front-knuckles.knuckle",
+        "steering.bump-steer.spacer-kit"
+      ],
+      "factory": {
+        "name": "N/A (OE tie rod end)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts TRE CAM6 bumpsteer adjustable front tie rod ends",
+          "brand": "SPL Parts",
+          "partNumber": "SPL TRE CAM6",
+          "notes": "4140 chromoly shanks, 2024 aluminum turnbuckles, Teflon-lined FK rod ends (19 deg misalignment), stainless spacers. Designed for 19-20 in wheels; 18 in wheels require cutting the stud.",
+          "url": "https://durable.parts/product/spl-tre-cam6/"
+        }
+      ],
+      "specs": {
+        "Rod end misalignment": "19 deg (SPL)"
+      },
+      "hardware": [
+        {
+          "item": "Rod end bolt through steering arm",
+          "qty": 1,
+          "spec": "Per SPL kit (high-strength bolt + nylock)",
+          "grade": "Supplied",
+          "torque": "Per SPL instructions (not in available source)",
+          "threadlocker": "Per kit",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "estimate",
+          "source": "https://durable.parts/product/spl-tre-cam6/"
+        }
+      ],
+      "installNotes": [
+        "Set total length equal to OE tie rod end center-to-center first, then fine-tune toe.",
+        "Check wheel barrel clearance at full lock and full bump."
+      ],
+      "inspection": [
+        "Check rod-end play and turnbuckle lock each event."
+      ],
+      "buildPhase": 11,
+      "installOrder": 30,
+      "tags": [
+        "bump-steer",
+        "tie-rod-end",
+        "spl"
+      ],
+      "sources": [
+        {
+          "title": "SPL TRE CAM6",
+          "url": "https://durable.parts/product/spl-tre-cam6/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.135,
+            0.27,
+            0.645
+          ],
+          "size": [
+            0.05,
+            0.08,
+            0.05
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SPL Parts FLCA CAM6 front lower control arm (Gen 6 Camaro)",
+            "url": "https://www.splparts.com/products/camaro-front-lower-control-arms-gen6.html"
+          }
+        ],
+        "dimensions": "approx 50 x 80 mm",
+        "features": "Rod end on a vertical stud with spacer stack for bump-steer height, threaded shank inboard",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.bump-steer.spacer-kit",
+      "name": "Bump steer spacer stack",
+      "qty": 2,
+      "description": "Stainless steel spacers of several thicknesses that move the rod end up/down on the shank to change outer tie rod height. Typical aim: less than approx 0.010 in (0.25 mm) toe change per inch of travel through +/-2 in of travel, with slight toe-out in bump preferred by many racers.",
+      "location": "On tie rod end shank at steering arm.",
+      "connectsTo": [
+        "steering.bump-steer.adjustable-tie-rod-ends"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Target": "< approx 0.010 in toe change per in of travel (typical)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Measure with springs removed (or with a bump-steer fixture), moving the hub through travel in 1/2 in steps."
+      ],
+      "inspection": [],
+      "buildPhase": 11,
+      "installOrder": 31,
+      "tags": [
+        "bump-steer",
+        "spacers"
+      ],
+      "sources": [
+        {
+          "title": "SPL TRE CAM6",
+          "url": "https://durable.parts/product/spl-tre-cam6/"
+        }
+      ]
+    },
+    {
+      "id": "steering.bump-steer.measurement-fixture",
+      "name": "Bump steer gauge / measurement fixture (tool)",
+      "qty": 1,
+      "description": "Plate bolted to the hub with dial indicators (or a laser) that measure toe change as the suspension is cycled with the spring removed or a solid spacer in place of the damper. Used with the adjustable tie rod ends to set bump steer after ride height and alignment geometry are final.",
+      "location": "Bolted to front hub (tool, not installed on car).",
+      "connectsTo": [
+        "steering.bump-steer.adjustable-tie-rod-ends",
+        "suspension.front-knuckles.knuckle"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bump steer gauge",
+          "brand": "Longacre / Intercomp / fabricated",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Lock steering at center; support chassis at race ride height on stands."
+      ],
+      "inspection": [],
+      "buildPhase": 11,
+      "installOrder": 32,
+      "tags": [
+        "tool",
+        "bump-steer"
+      ],
+      "sources": []
+    }
+  ]
+}

@@ -1,0 +1,732 @@
+{
+  "id": "electrical.dash-and-controls",
+  "system": "electrical",
+  "name": "Dash & Driver Controls",
+  "description": "Driver display/logger, CAN keypad or switch panel, ignition and start controls, steering-wheel buttons via quick-release connector or wireless system, shift lights, warning lamps and rotary map/traction switches. Replaces the factory IPC, BCM-driven switches and infotainment.",
+  "components": [
+    {
+      "id": "electrical.dash-and-controls.dash-display",
+      "name": "Dash display / display-logger",
+      "qty": 1,
+      "description": "Colour TFT display showing rpm, gear, speed, lap/delta, temps/pressures and alarms; most race dashes also log (the logger heart of the data system) and drive shift lights. Receives ECU, PDM, ABS, GPS and sensor data over CAN.",
+      "location": "In front of the driver behind the steering wheel, on a bracket from the dash bar (x\u22481.15, y\u22480.85, z=+0.37).",
+      "connectsTo": [
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.engine-management.ecu",
+        "electrical.power-distribution.pdm",
+        "electrical.data-acquisition.logger",
+        "electrical.data-acquisition.gps-imu",
+        "electrical.dash-and-controls.keypad",
+        "safety.roll-cage.dash-bar"
+      ],
+      "factory": {
+        "name": "GM instrument panel cluster (IPC) + Head-up display (ZL1)",
+        "partNumber": "",
+        "notes": "Requires BCM/GMLAN; removed in a standalone build."
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC C187 display logger",
+          "brand": "MoTeC",
+          "partNumber": "18072 (part number recently changed \u2013 confirm)",
+          "notes": "7 in colour, 4 CAN buses, 10 AV / 4 AT inputs (20/8 with I/O upgrade 29900), 250 MB logging, 79-pin Autosport connector.",
+          "url": "https://www.motec.com.au/products/C187"
+        },
+        {
+          "name": "MoTeC C127 display",
+          "brand": "MoTeC",
+          "partNumber": "18069",
+          "notes": "7 in, 2 CAN, logging optional (120 MB). Listed obsolete by MoTeC \u2013 buy C1212/C1812 class replacement.",
+          "url": "https://www.motec.com.au/c127"
+        },
+        {
+          "name": "AiM PDM32 with 6 in or 10 in display (combined PDM/logger/dash)",
+          "brand": "AiM",
+          "partNumber": "XC1PDM3201 + display",
+          "notes": "One-box alternative to PDM + dash.",
+          "url": "https://dwls.aim-sportline.com/technical-sheets/aim_pdm32_tech_sheet.pdf"
+        }
+      ],
+      "specs": {
+        "Screen": "7 in TFT 800x480 (C127/C187)",
+        "Sealing": "IP67"
+      },
+      "hardware": [
+        {
+          "item": "Dash mounting screws (to bracket via isolators)",
+          "qty": 4,
+          "spec": "M4 or M5 screws into display inserts",
+          "grade": "stainless",
+          "torque": "M4: 1.5 N\u00b7m; M5: 2.5 N\u00b7m",
+          "threadlocker": "Blue (sparingly)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Do not exceed insert depth.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Dash bracket clamps to dash bar",
+          "qty": 2,
+          "spec": "Tube clamps for 38\u201345 mm cage tube, M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m (71 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount where it is visible through the wheel at full belt tension; avoid glare angle.",
+        "Configure channels, alarms and shift-light thresholds before first start.",
+        "Set logger trigger (e.g. speed > 30 km/h or rpm > 500)."
+      ],
+      "inspection": [
+        "Download data after every session; check alarms log."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "dash",
+        "display",
+        "motec",
+        "aim"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC C187",
+          "url": "https://www.motec.com.au/products/C187"
+        },
+        {
+          "title": "MoTeC C127",
+          "url": "https://www.motec.com.au/c127"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.13,
+          0.86,
+          0.37
+        ],
+        "size": [
+          0.05,
+          0.1225,
+          0.1962
+        ],
+        "rot": [
+          0,
+          0,
+          15
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC C127 product page (motec.com.au)",
+            "url": "https://motec.com.au/products/C127 - OBSOLETE"
+          },
+          {
+            "title": "MoTeC C187 product page \u2013 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
+            "url": "https://www.motec.com.au/products/C187"
+          },
+          {
+            "title": "HP Academy: MoTeC C127 / C187 release (LED layout)",
+            "url": "https://www.hpacademy.com/blog/motec-have-just-released-their-new-c127-and-c187"
+          }
+        ],
+        "dimensions": "196.2 x 122.5 x 24.9 mm (excl. connector), 7\" (176\u2013178 mm) 800 x 480 TFT, 670\u2013715 g.",
+        "features": "Black bezel, wide 7\" screen low in the face, row of 10 RGB shift LEDs above the screen, 3 alarm LEDs down each side, single 79-pin Autosport connector at the rear, 4 rear threaded mounts. Tilted back ~15\u00b0 toward the driver.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.keypad",
+      "name": "CAN keypad / switch panel",
+      "qty": 1,
+      "description": "Sealed CAN keypad replacing toggle switches: ignition, start, fuel pumps prime, fans override, lights, rain light, wipers, pit limiter, cool-suit, radio, dash page, alarm acknowledge. Each button LED shows PDM output state. Alternatively the Cartek PDP-16 has its own integrated button panel.",
+      "location": "Center console/dash center, reachable with belts tight (x\u22481.15, y\u22480.70, z\u2248+0.05).",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.dash-and-controls.dash-display"
+      ],
+      "factory": {
+        "name": "GM center stack switches (BCM inputs)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC 15 Button CAN Keypad",
+          "brand": "MoTeC",
+          "partNumber": "41400",
+          "notes": "IP67, 3x5 layout, 3 LEDs per button, 4-wire CAN.",
+          "url": "https://xtramotorsport.com/product/motec-15-button-can-keypad/"
+        },
+        {
+          "name": "Grayhill 3K 15-key CAN keypad (J1939)",
+          "brand": "Grayhill",
+          "partNumber": "3K015-3RC3AG",
+          "notes": "Illuminated, IP67; commonly used with PDMs supporting J1939/CANopen keypads.",
+          "url": "https://www.grayhill.com/wp-content/uploads/media/3kg1-datasheet.pdf"
+        },
+        {
+          "name": "ECUMaster CAN keypad (4/8/12 keys)",
+          "brand": "ECUMaster",
+          "partNumber": "",
+          "notes": "For PMU16.",
+          "url": "https://ecumasterusa.com/products/ecumaster-pmu16-power-management-unit"
+        }
+      ],
+      "specs": {
+        "Keys": "15 (3 x 5)",
+        "Interface": "CAN"
+      },
+      "hardware": [
+        {
+          "item": "Keypad panel screws",
+          "qty": 4,
+          "spec": "M4 screws + nyloc",
+          "grade": "stainless",
+          "torque": "1.5 N\u00b7m (13 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Label buttons with durable inserts; put IGN and START on the bottom row and keep a hardwired backup for IGN if rules/experience demand."
+      ],
+      "inspection": [
+        "Every button and LED functional."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "keypad",
+        "can",
+        "switches"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC 15 Button CAN Keypad",
+          "url": "https://xtramotorsport.com/product/motec-15-button-can-keypad/"
+        },
+        {
+          "title": "Grayhill 3KG1 datasheet",
+          "url": "https://www.grayhill.com/wp-content/uploads/media/3kg1-datasheet.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.15,
+          0.7,
+          0.05
+        ],
+        "size": [
+          0.035,
+          0.0895,
+          0.1295
+        ],
+        "rot": [
+          0,
+          0,
+          25
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC keypads (motec.com.au) \u2013 41400 15-button 129.54 x 89.46 x 15.74 mm",
+            "url": "https://www.motec.com.au/keypads"
+          },
+          {
+            "title": "MoTeC 15 Button CAN Keypad (Xtra Motorsport)",
+            "url": "https://xtramotorsport.com/product/motec-15-button-can-keypad/"
+          }
+        ],
+        "dimensions": "129.5 x 89.5 x 15.7 mm without connector, 175 g, 5 x 3 buttons.",
+        "features": "Black rubber keys in a 5-wide x 3-high grid, each with a 3-LED bar and legend label; moulded DT04-4P connector on the back; IP67.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.ignition-start-buttons",
+      "name": "Ignition switch & start button (hardwired)",
+      "qty": 1,
+      "description": "Guarded ignition toggle and a momentary start button, either as keypad inputs or hardwired to PDM switch inputs. A hardwired ignition input is a robust fallback if CAN is lost.",
+      "location": "Switch panel left of keypad.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.charging-starting.starter-trigger"
+      ],
+      "factory": {
+        "name": "Keyless push-button start (BCM)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Guarded toggle + sealed momentary push button",
+          "brand": "APEM / Honeywell / Cartek",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Switch panel nuts",
+          "qty": 2,
+          "spec": "Supplied 12 mm or 15/32 panel nut",
+          "grade": "",
+          "torque": "1\u20132 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Function."
+      ],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "ignition",
+        "start"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.14,
+          0.68,
+          -0.07
+        ],
+        "size": [
+          0.04,
+          0.055,
+          0.065
+        ],
+        "rot": [
+          0,
+          0,
+          25
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Small switch plate ~65 x 55 mm (estimated).",
+        "features": "Aluminium plate with red flip-guarded ignition toggle and a momentary start button.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.steering-wheel-controls",
+      "name": "Steering-wheel buttons & quick-release electrical connector",
+      "qty": 1,
+      "description": "Buttons on the race wheel for radio PTT, pit limiter, dash page/lap marker, flash/high beam, and ack. Signals pass through a quick-release hub with integrated multi-pin connector, or via an infrared wireless system so no wires cross the quick release.",
+      "location": "Steering wheel (x\u22481.25, y\u22480.80, z=+0.37).",
+      "connectsTo": [
+        "steering.column.quick-release",
+        "electrical.power-distribution.pdm",
+        "electrical.dash-and-controls.dash-display",
+        "electrical.comms-video-timing.radio"
+      ],
+      "factory": {
+        "name": "GM steering-wheel controls via clockspring (LIN to BCM)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cartek Wireless Steering Wheel Control System",
+          "brand": "Cartek",
+          "partNumber": "CK-WS-09",
+          "notes": "8-button IR wheel panel, receiver with 10 A relay channels (momentary/latching/flashing); 6 x 70 mm hub pattern.",
+          "url": "https://www.cartekmotorsport.com/wireless-control-system/"
+        },
+        {
+          "name": "OMP quick-release hub with 11-pole connector",
+          "brand": "OMP",
+          "partNumber": "",
+          "notes": "IP68, 10,000 cycles.",
+          "url": "https://discoveryparts.com/products/omp-quick-release-hub-bolt-on-with-11-pole-connector"
+        },
+        {
+          "name": "Krontec bolt-on QR with 22-pin connector",
+          "brand": "Krontec",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.bimmerworld.com/Safety-Race-Interior/Steering-Wheels/Krontec-Bolt-On-Steering-Quick-Release-6-Bolt-22P.html"
+        }
+      ],
+      "specs": {
+        "Hub pattern": "6 x 70 mm"
+      },
+      "hardware": [
+        {
+          "item": "Button box to wheel screws",
+          "qty": 6,
+          "spec": "M5 x 0.8 countersunk",
+          "grade": "10.9 / stainless",
+          "torque": "5 N\u00b7m (44 in-lb)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Wheel-to-hub bolts belong to steering system.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route the column-side lead with a coil cord or fixed clamp so it cannot wrap at full lock."
+      ],
+      "inspection": [
+        "Connector pins clean; all buttons respond."
+      ],
+      "buildPhase": 9,
+      "installOrder": 4,
+      "tags": [
+        "steering-wheel",
+        "buttons"
+      ],
+      "sources": [
+        {
+          "title": "Cartek wireless control system",
+          "url": "https://www.cartekmotorsport.com/wireless-control-system/"
+        },
+        {
+          "title": "OMP QR with 11-pole connector",
+          "url": "https://discoveryparts.com/products/omp-quick-release-hub-bolt-on-with-11-pole-connector"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.265,
+          0.8,
+          0.37
+        ],
+        "size": [
+          0.02,
+          0.09,
+          0.15
+        ],
+        "rot": [
+          0,
+          0,
+          25
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cartek Wireless Control System (8 buttons)",
+            "url": "https://www.cartekmotorsport.com/wireless-control-system/"
+          }
+        ],
+        "dimensions": "Button panel ~150 x 90 mm on the wheel face (estimated).",
+        "features": "8 sealed push buttons (4 each side of the hub), coloured caps, IR transmitter pod behind.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.shift-lights",
+      "name": "Shift lights",
+      "qty": 1,
+      "description": "Sequential LED shift lights (integrated in the C187/C127 top LED bar or an external CAN shift-light module) driven from rpm and gear; also used for alarm flashing and pit-limiter indication.",
+      "location": "Top of dash display / dash bar in line of sight (x\u22481.14, y\u22480.93, z=+0.37).",
+      "connectsTo": [
+        "electrical.dash-and-controls.dash-display"
+      ],
+      "factory": {
+        "name": "ZL1 HUD/ cluster shift light (BCM/IPC)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Integrated in MoTeC C1xx (16 RGB LEDs on C127)",
+          "brand": "MoTeC",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.motec.com.au/c127"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "External shift-light module screws (if not integrated)",
+          "qty": 2,
+          "spec": "M3 stainless",
+          "grade": "",
+          "torque": "0.8 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set gear-dependent shift points from dyno/accel data."
+      ],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "shift-light"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.13,
+          0.86,
+          0.37
+        ],
+        "size": [
+          0.05,
+          0.1225,
+          0.1962
+        ],
+        "rot": [
+          0,
+          0,
+          15
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC C127 product page (motec.com.au)",
+            "url": "https://motec.com.au/products/C127 - OBSOLETE"
+          },
+          {
+            "title": "MoTeC C187 product page \u2013 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
+            "url": "https://www.motec.com.au/products/C187"
+          },
+          {
+            "title": "HP Academy: MoTeC C127 / C187 release (LED layout)",
+            "url": "https://www.hpacademy.com/blog/motec-have-just-released-their-new-c127-and-c187"
+          }
+        ],
+        "dimensions": "Integrated in the C127/C187 bezel: 10 LEDs across the top + 3 per side.",
+        "features": "LED row above the screen; same box as the dash display.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.warning-lamps",
+      "name": "Hardwired warning lamps (oil pressure / master alarm)",
+      "qty": 2,
+      "description": "Large, bright LED lamps for low oil pressure and master alarm, driven by a dash/PDM output \u2013 visible even if the dash page is changed. Cheap insurance for a dry-sump race engine.",
+      "location": "Dash bar either side of display.",
+      "connectsTo": [
+        "electrical.dash-and-controls.dash-display",
+        "electrical.sensors.oil-pressure-sensor-race"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Size": "22\u201330 mm LED"
+      },
+      "hardware": [
+        {
+          "item": "Panel nut",
+          "qty": 1,
+          "spec": "Supplied",
+          "grade": "",
+          "torque": "Hand tight",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Lamp test at power-up."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "warning"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.13,
+          0.88,
+          0.24
+        ],
+        "size": [
+          0.04,
+          0.028,
+          0.028
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            1.13,
+            0.88,
+            0.24
+          ],
+          [
+            1.13,
+            0.88,
+            0.5
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "22 mm panel-mount LED pilot lamps, bezel \u00d8~28 mm, ~40 mm deep.",
+        "features": "Chrome bezel, red domed lens, black threaded body with jam nut.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.rotary-switches",
+      "name": "Rotary switches (traction control, ABS map, fuel map)",
+      "qty": 2,
+      "description": "12-position rotary switches read by the ECU (analogue input) or by the ABS (Bosch ABS M5 uses a 12-position switch or CAN for map selection).",
+      "location": "Dash/center console near keypad.",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.abs.abs-map-switch"
+      ],
+      "factory": {
+        "name": "GM Performance Traction Management / drive-mode selector (BCM)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport 12-position switch",
+          "brand": "Bosch Motorsport",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.bosch-motorsport.com/products/brake/antilock-braking-systems-abs/abs-m5-kit/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Panel nut",
+          "qty": 1,
+          "spec": "Supplied",
+          "grade": "",
+          "torque": "1.5 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Each position reads correctly in data."
+      ],
+      "buildPhase": 8,
+      "installOrder": 7,
+      "tags": [
+        "rotary",
+        "traction"
+      ],
+      "sources": [
+        {
+          "title": "Bosch ABS M5 kit",
+          "url": "https://www.bosch-motorsport.com/products/brake/antilock-braking-systems-abs/abs-m5-kit/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.15,
+          0.74,
+          0.18
+        ],
+        "size": [
+          0.05,
+          0.03,
+          0.03
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            1.15,
+            0.74,
+            0.18
+          ],
+          [
+            1.15,
+            0.74,
+            0.24
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "12-position rotary switch, knob \u00d8~30 mm, ~50 mm overall depth (estimated).",
+        "features": "Black knob with white pointer, chrome jam nut, black body with solder pins.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.dash-and-controls.factory-body-electronics",
+      "name": "Factory body electronics (BCM, IPC, radio, airbag) \u2013 removal/retention",
+      "qty": 1,
+      "description": "Gen 6 body control module (BCM), instrument cluster, infotainment, airbag SDM, keyless entry, column modules. With a Chevrolet Performance controller kit or race standalone ECU the engine runs without them; removing them saves weight and failure points. Retaining OE ABS/stability and electric power steering requires those modules (and their CAN messages) to be satisfied \u2013 a key decision tied to the steering and brakes systems.",
+      "location": "Throughout the factory dash/body (removed in phase 1 strip).",
+      "connectsTo": [
+        "steering.power-steering.eps-module",
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.abs.factory-bpmv-ebcm"
+      ],
+      "factory": {
+        "name": "GM BCM / IPC / SDM / radio",
+        "partNumber": "",
+        "notes": "Global A modules are VIN-matched; they cannot simply be swapped between vehicles."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Decide early: OE EPS + ABS retained (needs GMLAN data such as vehicle speed/engine-run) vs. race ABS (Bosch M5) and hydraulic/ standalone-EPS steering."
+      ],
+      "inspection": [],
+      "buildPhase": 1,
+      "installOrder": 8,
+      "tags": [
+        "bcm",
+        "factory",
+        "removal"
+      ],
+      "sources": [
+        {
+          "title": "GM TechLink \u2013 Global A module security",
+          "url": "https://gm-techlink.com/?p=11221"
+        }
+      ]
+    }
+  ]
+}

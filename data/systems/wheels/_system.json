@@ -1,0 +1,379 @@
+{
+  "id": "wheels",
+  "name": "Wheels, Tires & Hubs",
+  "summary": "Gen 6 Camaro corners use bolt-on sealed hub bearings (front non-driven, rear splined with an axle nut), 5x120 mm M14x1.5 studs, and 60° conical lug nuts at 190 N·m (140 ft-lb). The ZL1 1LE runs forged 19x11 ET≈11 / 19x12 ET≈41 wheels on Goodyear Eagle F1 SuperCar 3R 305/30R19 and 325/30R19; race builds use lightweight forged 18–19 in wheels on R-compounds or slicks, with extended studs, open-end nuts and TPMS deleted or replaced by motorsport TPMS.",
+  "overview": "Stack-up (outboard): knuckle → hub bearing (bolted from inboard) → wheel studs pressed in the hub flange → rotor hat (or one-piece rotor) → optional hub-centric spacer → wheel (hub-centric on 66.9 mm pilot) → lug nuts. Rear adds the halfshaft CV stub through the splined hub, clamped by the axle nut.\n\nRace considerations: wheel diameter is dictated by the brake package (factory 390 mm rotors need 19 in; Essex/AP 372 mm kits clear 18 in ATS-V-size wheels). Offsets near OE (front ET≈11 on 11 in, rear ET≈41 on 12 in) keep scrub radius and fender clearance sane; ZL1 1LE owners commonly run ≈ -3.2° front camber. Many rulebooks set a maximum wheel width/tire size per class and require full thread engagement of lug nuts (≥ 1x stud diameter) – fit extended studs whenever spacers or thick race-wheel pads are used.\n\nHub bearings are consumables on a slick-shod 3,700 lb car: check play every event and replace on a schedule; worn bearings cause pad knock-back and long pedal. Re-torque lug nuts after the first session on freshly mounted wheels and never use an impact gun for final torque.",
+  "buildNotes": [
+    "Phase 4 (after suspension): install front/rear hub bearings with new bolts (front 100 N·m first pass + GM final angle; rear 130 N·m), wheel speed sensors, then brakes.",
+    "Press extended studs (if used) with hubs on the bench before installation.",
+    "Phase 6: insert halfshafts and torque new rear axle nuts (270 N·m) with the car on the ground or rotor locked.",
+    "Template-check race wheels against the chosen calipers before ordering; specify offset to match OE track unless suspension is re-engineered.",
+    "Mount/balance tires; install metal valve stems or motorsport TPMS; record sensor IDs.",
+    "Phase 11: torque lug nuts 190 N·m (140 ft-lb) in star pattern, re-check after first shakedown session; set cold pressures from hot targets."
+  ],
+  "schematics": [
+    {
+      "id": "wheels.hub-stackup-front",
+      "title": "Front corner mechanical stack-up",
+      "type": "mechanical",
+      "description": "Load path and clamp stack at a front corner, inboard to outboard.",
+      "nodes": [
+        {
+          "id": "knuckle",
+          "label": "Front knuckle",
+          "componentId": "suspension.front-knuckle.knuckle"
+        },
+        {
+          "id": "shield",
+          "label": "Dust shield / duct backing plate",
+          "componentId": "brakes.cooling.backing-plates"
+        },
+        {
+          "id": "hub",
+          "label": "Hub bearing unit",
+          "componentId": "wheels.front-hubs-bearings.hub-bearing"
+        },
+        {
+          "id": "wss",
+          "label": "Wheel speed sensor",
+          "componentId": "brakes.abs.wheel-speed-sensors-front"
+        },
+        {
+          "id": "studs",
+          "label": "M14x1.5 studs x5",
+          "componentId": "wheels.studs-and-lug-nuts.wheel-studs"
+        },
+        {
+          "id": "hat",
+          "label": "Rotor hat",
+          "componentId": "brakes.front-rotors.hat"
+        },
+        {
+          "id": "ring",
+          "label": "Rotor ring",
+          "componentId": "brakes.front-rotors.rotor"
+        },
+        {
+          "id": "caliper",
+          "label": "Caliper (on knuckle)",
+          "componentId": "brakes.front-calipers.caliper"
+        },
+        {
+          "id": "spacer",
+          "label": "Hub-centric spacer (optional)",
+          "componentId": "wheels.spacers.front-spacers"
+        },
+        {
+          "id": "ring-hc",
+          "label": "Hub-centric ring",
+          "componentId": "wheels.wheels.hub-centric-rings"
+        },
+        {
+          "id": "wheel",
+          "label": "Wheel 19x11",
+          "componentId": "wheels.wheels.front-wheel"
+        },
+        {
+          "id": "tire",
+          "label": "Tire 305/30R19",
+          "componentId": "wheels.tires.front-tire"
+        },
+        {
+          "id": "nuts",
+          "label": "Lug nuts x5 (190 N·m)",
+          "componentId": "wheels.studs-and-lug-nuts.lug-nuts"
+        }
+      ],
+      "edges": [
+        {
+          "from": "knuckle",
+          "to": "shield",
+          "label": "M6 x3 (9 N·m)",
+          "kind": "mechanical"
+        },
+        {
+          "from": "knuckle",
+          "to": "hub",
+          "label": "hub bolts (100 N·m + angle)",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hub",
+          "to": "wss",
+          "label": "encoder signal",
+          "kind": "signal"
+        },
+        {
+          "from": "hub",
+          "to": "studs",
+          "label": "pressed knurl",
+          "kind": "mechanical"
+        },
+        {
+          "from": "studs",
+          "to": "hat",
+          "label": "pass through",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hat",
+          "to": "ring",
+          "label": "ring bolts / bobbins",
+          "kind": "mechanical"
+        },
+        {
+          "from": "knuckle",
+          "to": "caliper",
+          "label": "caliper bolts 150 N·m +15–30°",
+          "kind": "mechanical"
+        },
+        {
+          "from": "caliper",
+          "to": "ring",
+          "label": "pad clamp",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hat",
+          "to": "spacer",
+          "label": "clamped",
+          "kind": "mechanical"
+        },
+        {
+          "from": "spacer",
+          "to": "wheel",
+          "label": "clamped",
+          "kind": "mechanical"
+        },
+        {
+          "from": "ring-hc",
+          "to": "wheel",
+          "label": "centers on 66.9 mm pilot",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hat",
+          "to": "wheel",
+          "label": "clamped (no spacer)",
+          "kind": "mechanical"
+        },
+        {
+          "from": "wheel",
+          "to": "tire",
+          "label": "bead seat",
+          "kind": "mechanical"
+        },
+        {
+          "from": "nuts",
+          "to": "wheel",
+          "label": "60° cone seat",
+          "kind": "mechanical"
+        },
+        {
+          "from": "nuts",
+          "to": "studs",
+          "label": "M14x1.5 thread",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "wheels.hub-stackup-rear",
+      "title": "Rear corner mechanical & torque stack-up",
+      "type": "mechanical",
+      "description": "Rear driven corner: drive torque from the halfshaft through the hub splines to the wheel; clamp stack as front.",
+      "nodes": [
+        {
+          "id": "diff",
+          "label": "Differential output",
+          "componentId": "drivetrain.differential.diff"
+        },
+        {
+          "id": "shaft",
+          "label": "Halfshaft",
+          "componentId": "drivetrain.halfshafts.halfshaft"
+        },
+        {
+          "id": "knuckle",
+          "label": "Rear knuckle",
+          "componentId": "suspension.rear-knuckle.knuckle"
+        },
+        {
+          "id": "plate",
+          "label": "Shield / park-brake backing plate",
+          "componentId": "brakes.rear-rotors.dust-shield-backing-plate"
+        },
+        {
+          "id": "hub",
+          "label": "Rear hub bearing",
+          "componentId": "wheels.rear-hubs-bearings.hub-bearing"
+        },
+        {
+          "id": "nut",
+          "label": "Axle nut (270 N·m)",
+          "componentId": "wheels.rear-hubs-bearings.axle-nut"
+        },
+        {
+          "id": "studs",
+          "label": "Studs x5",
+          "componentId": "wheels.studs-and-lug-nuts.wheel-studs"
+        },
+        {
+          "id": "rotor",
+          "label": "Rear rotor (drum-in-hat)",
+          "componentId": "brakes.rear-rotors.rotor"
+        },
+        {
+          "id": "wheel",
+          "label": "Wheel 19x12",
+          "componentId": "wheels.wheels.rear-wheel"
+        },
+        {
+          "id": "tire",
+          "label": "Tire 325/30R19",
+          "componentId": "wheels.tires.rear-tire"
+        },
+        {
+          "id": "nuts",
+          "label": "Lug nuts x5",
+          "componentId": "wheels.studs-and-lug-nuts.lug-nuts"
+        }
+      ],
+      "edges": [
+        {
+          "from": "diff",
+          "to": "shaft",
+          "label": "drive torque",
+          "kind": "torque"
+        },
+        {
+          "from": "shaft",
+          "to": "hub",
+          "label": "splines",
+          "kind": "torque"
+        },
+        {
+          "from": "nut",
+          "to": "shaft",
+          "label": "clamps CV stub",
+          "kind": "mechanical"
+        },
+        {
+          "from": "knuckle",
+          "to": "plate",
+          "label": "M6 (9 N·m)",
+          "kind": "mechanical"
+        },
+        {
+          "from": "knuckle",
+          "to": "hub",
+          "label": "hub bolts 130 N·m",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hub",
+          "to": "studs",
+          "label": "pressed",
+          "kind": "mechanical"
+        },
+        {
+          "from": "studs",
+          "to": "rotor",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "rotor",
+          "to": "wheel",
+          "label": "clamped",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hub",
+          "to": "wheel",
+          "label": "drive torque via clamp",
+          "kind": "torque"
+        },
+        {
+          "from": "wheel",
+          "to": "tire",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "nuts",
+          "to": "wheel",
+          "label": "190 N·m",
+          "kind": "mechanical"
+        }
+      ]
+    }
+  ],
+  "routes": [],
+  "sources": [
+    {
+      "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+      "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+    },
+    {
+      "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+      "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+    },
+    {
+      "title": "TightTorque – axle nut & wheel bearing torque chart (Camaro 2016–2024 rows)",
+      "url": "https://tighttorque.com/torque-specs/axle-nut-wheel-bearing-torque"
+    },
+    {
+      "title": "wheel-sizes.com – Chevrolet Camaro lug nut size, torque & thread (M14x1.5, 190 N·m)",
+      "url": "https://wheel-sizes.com/lugnuts/chevrolet/camaro/"
+    },
+    {
+      "title": "wheel-sizes.com – Chevrolet Camaro hub bore",
+      "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+    },
+    {
+      "title": "wheel-size.com – 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+      "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
+    },
+    {
+      "title": "Velgen – Chevrolet Camaro wheel torque specs (6th gen 140 ft-lb)",
+      "url": "https://www.velgenwheels.com/blogs/blog/chevrolet-camaro-wheel-torque-specs"
+    },
+    {
+      "title": "Expressway tire/wheel guide – Camaro center bore 66.9 mm, 5x120, M14x1.5",
+      "url": "https://www.expressway.ph/tires/vehicles/chevrolet/camaro"
+    },
+    {
+      "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
+      "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+    },
+    {
+      "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE 19in VS-5RS (front ET9 / rear ET41)",
+      "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-vs-5rs-brushed-clear-1740"
+    },
+    {
+      "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE 19in SM-10RS (camber -3.2 F / -1.8 R)",
+      "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-sm-10rs-satin-bronze-2990"
+    },
+    {
+      "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+      "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+    },
+    {
+      "title": "Essex Parts – AP Racing by Essex brakes on SavageGeese Camaro SS 1LE (372mm CP9668, Apex 19x11 ET36)",
+      "url": "https://www.essexparts.com/ap-racing-by-essex-brakes-featured-on-savagegeese-camaro-ss-1le-dream-build"
+    },
+    {
+      "title": "Timken HA590488 – Alpha-platform (Cadillac ATS RWD) front hub assembly, 3x M12x1.75 bolts",
+      "url": "https://1qwr8ubx.navbeta.traceparts.com/item/engineered-bearings/automotive-aftermarket-hub-assemblies/ha590488"
+    },
+    {
+      "title": "AmericanMuscle – Camaro rear wheel bearing & hub assembly (bolt-in unit, 2016–2017)",
+      "url": "https://americanmuscle.com/camaro-wheel-bearing-hub-assembly-rear-100007.html"
+    },
+    {
+      "title": "Wikipedia – Chevrolet Camaro (sixth generation)",
+      "url": "https://en.wikipedia.org/wiki/Chevrolet_Camaro_(sixth_generation)"
+    }
+  ]
+}

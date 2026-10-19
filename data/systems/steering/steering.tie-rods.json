@@ -1,0 +1,274 @@
+{
+  "id": "steering.tie-rods",
+  "system": "steering",
+  "name": "Tie Rods",
+  "description": "Inner tie rods (ball joint threaded onto the rack bar), outer tie rod ends (tapered stud into the knuckle steering arm) and the jam nuts that lock toe.",
+  "components": [
+    {
+      "id": "steering.tie-rods.inner-tie-rod",
+      "name": "Inner tie rod",
+      "qty": 2,
+      "description": "Axial ball joint threaded onto the end of the rack bar, protected by the rack boot. Its threaded outer end receives the outer tie rod end; turning it changes toe. On lowered cars the inner joint can bind at full bump/lock - check articulation (SPL notes binding can bend/break inner tie rods on heavily lowered cars).",
+      "location": "From rack end approx (x -0.13, y 0.26, z +/-0.38) outward to approx z +/-0.60.",
+      "connectsTo": [
+        "steering.rack.eps-gear",
+        "steering.rack.rack-boots",
+        "steering.tie-rods.outer-tie-rod-end",
+        "steering.tie-rods.jam-nut"
+      ],
+      "factory": {
+        "name": "GM/ZF inner tie rod",
+        "notes": "Part number not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "OE inner with SPL TRE CAM6 outer assembly",
+          "brand": "SPL Parts",
+          "notes": "SPL bump-steer tie rod ends thread onto the OE inner tie rod (see steering.bump-steer)."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Inner tie rod to rack (threaded joint)",
+          "qty": 1,
+          "spec": "Inner tie rod socket thread onto rack bar",
+          "grade": "OE",
+          "torque": "77 ft-lb (105 N·m)",
+          "torqueSequence": "Hold rack bar to avoid loading pinion teeth",
+          "threadlocker": "Per GM SI (typically threadlocker on rack thread)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "tool": "Inner tie rod tool",
+          "notes": "Value from a GM SI-derived listing; another secondary source lists 50 ft-lb - verify.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Count turns when removing to preserve approximate toe.",
+        "Stake/lock per GM procedure if applicable."
+      ],
+      "inspection": [
+        "Check axial play by gripping through boot (wheels on ground, rock steering)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 6,
+      "tags": [
+        "tie-rod",
+        "inner"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Chevy-Specs 2016 Camaro 6.2 front torque",
+          "url": "https://chevy-specs.com/cars/2016/camaro6.2/torque-specs_front.php"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.115,
+              0.22,
+              0.33
+            ],
+            [
+              -0.124,
+              0.24,
+              0.575
+            ]
+          ],
+          "radius": 0.009,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro EPS gear close-up: belt-drive motor/controller, boot, inner tie rod, outer tie-rod end",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/40ce926b531163e69a803dd9e9d6be93/0545e0da2090d05a9e19474299f07e62.png"
+          }
+        ],
+        "dimensions": "approx 250 mm",
+        "features": "Axial ball socket on the rack end, straight rod, threaded end (item 7)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.tie-rods.outer-tie-rod-end",
+      "name": "Outer tie rod end",
+      "qty": 2,
+      "description": "Ball joint with a tapered stud that fits the knuckle steering arm and threads onto the inner tie rod. Its stud height relative to the lower links governs bump steer - the race replacement is an adjustable-height rod-end assembly (SPL TRE CAM6).",
+      "location": "Steering arm at front of knuckle, approx (x -0.12, y 0.25, z +/-0.68).",
+      "connectsTo": [
+        "steering.tie-rods.inner-tie-rod",
+        "suspension.front-knuckles.knuckle",
+        "steering.tie-rods.jam-nut"
+      ],
+      "factory": {
+        "name": "GM outer tie rod end",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts TRE CAM6 bumpsteer-adjustable tie rod ends",
+          "brand": "SPL Parts",
+          "partNumber": "SPL TRE CAM6",
+          "notes": "See steering.bump-steer.adjustable-tie-rod-ends.",
+          "url": "https://durable.parts/product/spl-tre-cam6/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Outer tie rod end stud nut (to knuckle)",
+          "qty": 1,
+          "spec": "Prevailing-torque nut on tapered stud",
+          "grade": "OE",
+          "torque": "26 ft-lb (35 N·m) first pass",
+          "torqueSequence": "35 N·m first pass + final angle per GM SI (angle not in available source). Secondary source lists 42 ft-lb.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nut",
+          "notes": "GM SI-derived listing also shows a 'steering knuckle nut' 40 N·m first pass - confirm which applies in GM SI. [2026-10 check] No Gen 6 or Alpha source with the final angle was found. Zeta cars (Chevy SS, G8) use 18 lb-ft + 115–125°, but that platform differs and its value should not be used here. The first pass stays per TightTorque.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Clean taper dry; hold stud with hex key if it spins."
+      ],
+      "inspection": [
+        "Check for play and boot condition."
+      ],
+      "buildPhase": 3,
+      "installOrder": 7,
+      "tags": [
+        "tie-rod-end",
+        "outer"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.125,
+              0.241,
+              0.585
+            ],
+            [
+              -0.135,
+              0.25,
+              0.645
+            ]
+          ],
+          "radius": 0.011,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro EPS gear close-up: belt-drive motor/controller, boot, inner tie rod, outer tie-rod end",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/40ce926b531163e69a803dd9e9d6be93/0545e0da2090d05a9e19474299f07e62.png"
+          }
+        ],
+        "dimensions": "approx 90 mm body",
+        "features": "Forged cranked tie-rod end with ball stud pointing up into the knuckle steering arm (item 4)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.tie-rods.jam-nut",
+      "name": "Tie rod jam nut",
+      "qty": 2,
+      "description": "Lock nut that clamps the outer tie rod end to the inner tie rod after toe is set.",
+      "location": "Between inner tie rod and outer tie rod end, approx z +/-0.61.",
+      "connectsTo": [
+        "steering.tie-rods.inner-tie-rod",
+        "steering.tie-rods.outer-tie-rod-end"
+      ],
+      "factory": {
+        "name": "GM tie rod jam nut",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tie rod jam nut",
+          "qty": 1,
+          "spec": "Jam nut on inner tie rod thread (approx M14-M16 fine thread; verify)",
+          "grade": "OE",
+          "torque": "44-50 ft-lb (60-68 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM value range; not verified for Gen 6 - check SI.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Hold the outer tie rod end flat while tightening so the ball stud is centered in its travel."
+      ],
+      "inspection": [
+        "Paint-mark after alignment."
+      ],
+      "buildPhase": 11,
+      "installOrder": 8,
+      "tags": [
+        "jam-nut",
+        "toe"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.1245,
+            0.2405,
+            0.58
+          ],
+          "size": [
+            0.024,
+            0.024,
+            0.012
+          ],
+          "axis": "z",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro steering gear diagram: ZF EPS rack, 2 mounting bolts, boots, inner/outer tie rods",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/fd463a1f22bcacc33a04ea7b7ea05e91/bd5b80cb6c1377a9f3110f3d34b1eebf.png"
+          }
+        ],
+        "dimensions": "approx 24 mm hex",
+        "features": "Jam nut on the inner tie-rod thread (item 8)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3507 @@
+{
+  "id": "engine-support",
+  "name": "Engine Support Systems",
+  "summary": "Everything that keeps the race LT engine alive but is not the long block: dry-sump lubrication, engine coolant circuit, the LT4 supercharger low-temp intercooler loop, FT3 fuel cell and surge-tank fuel delivery, induction, exhaust, breathers, and the front cooler stack. The ZL1 baseline is a WET-sump LT4 with a returnless PWM fuel system and an 11-heat-exchanger cooling package; the race build converts to a dry sump, a trunk-mounted FT3 cell with a surge tank and a constant ~72 psi low-side supply, long-tube headers and a fully ducted cooling stack.",
+  "overview": "Factory baseline. Contrary to a common assumption, the 6th-gen Camaro ZL1 LT4 is wet-sump (~10 qt, GM TechLink lists Camaro LT1/LT4 at 9.5 L / 10.0 qt of 0W-40); only the C7 Corvette Z51/Z06 LT engines got GM's factory dry sump. The ZL1 feeds its direct-injection high-pressure pump from a returnless, PWM-controlled in-tank pump (≈58 psi cruise / ≈72 psi WOT). Cooling is a large radiator plus a separate low-temperature loop (front heat exchanger, electric pump) for the supercharger's two intercooler bricks, and the track package adds engine oil, transmission and differential coolers.\n\nLubrication. Sustained road-race g-loads on slicks starve a wet sump, so the race build uses a billet dry-sump pan with 4-5 scavenge stages (one per crank-bay pair plus timing case), a belt-driven external pump with built-in pressure regulation, a de-aerating remote tank in the right front of the engine bay, a remote filter, a thermostatically controlled oil cooler in the right front corner, and -16/-12 AN plumbing. If the engine must stay wet-sump, run a trap-door baffle and an Accusump.\n\nCooling. Keep the engine circuit (radiator + pressurized surge/degas tank + 160-180 °F thermostat) and the LT4 intercooler loop completely separate. The IC heat exchanger sits first in the airflow. Duct every core so no air bypasses, vent the exit air through the hood, and use water + surfactant instead of glycol where the track bans antifreeze. Upgrading the IC heat exchanger and reservoir volume is the most effective cure for ZL1 heat soak.\n\nFuel. The factory saddle tank is removed and an FIA FT3 cell (e.g., Fuel Safe ED122B 22 gal / 19.3 usable) sits in a steel or aluminum can in the trunk behind the axle, behind a sealed bulkhead (NASA CCR 15.4.1.1; SCCA metal bulkhead). From 2026 NASA requires the cell to be entirely rearward of the seat rear mounts. FT3 certification expires 5 years after manufacture. A lift pump keeps a surge tank full; twin feed pumps in the surge tank supply a bypass regulator at the tank (short-loop return) so only one -8 line runs forward, under the passenger floor, to the engine-driven DI pump. Hold low-side pressure at ≈72 psi (not below 68 psi with a Lingenfelter big-bore DI pump).\n\nExhaust. Stainless long-tubes (1-7/8 in common, 2 in for big power) replace the ZL1 tri-Y manifolds; check dry-sump pump and steering-shaft clearance. Use V-band collectors, wideband O2 per bank, a 3 in X-pipe in the tunnel, flex joints, and race mufflers behind the axle (or side exits if rules/sound allow). Heat-shield the tunnel, floor and the trunk floor under the fuel cell.\n\nCommon failure points: dry-sump belt failure (carry spares, guard it), oil blowing out the tank breather (overfilled tank/undersized vent), fuel pressure drop in long corners (lift pump/pickup), expired or foam-degraded cells, cracked header flanges/loose header bolts, air trapped in the IC loop, and undersized or poorly ducted radiators.",
+  "buildNotes": [
+    "Phase 1: weld fuel-cell cradle, strap anchors, rear bulkhead, oil-tank and cooler-stack brackets before paint; remove factory tank, EVAP and fuel lines.",
+    "Phase 2: install the fuel cell, surge tank, pumps, filters, regulator and run the single -8 feed line and vent lines while the chassis is bare.",
+    "Phase 5 (engine on stand): fit dry-sump pan, pump bracket, mandrel, pulleys, belt and pump fittings; verify pickup clearances; set up header clearance mock-up.",
+    "Phase 6: install engine/trans; confirm pan-to-ground and header clearances at race ride height.",
+    "Phase 7: install headers and exhaust from the front back; then oil tank, filter, thermostat, cooler and all -AN oil lines; then cooler stack, radiator, IC heat exchanger, pump and reservoir, all coolant hoses; then intake and breathers.",
+    "Phase 8: wire pumps and fans through the PDM with kill-switch and stall shutoff; add oil/fuel/coolant pressure and temperature sensors.",
+    "Phase 11: fill fuel and leak-check at pressure; prime oil system (ignition/fuel disabled) until pressure registers; vacuum-fill engine coolant and IC loop; first start, check leaks, bleed, re-torque header/clamps after heat cycle; set dry-sump tank level hot at idle."
+  ],
+  "schematics": [
+    {
+      "id": "engine-support.dry-sump-oil",
+      "title": "Dry-sump oil circuit",
+      "type": "hydraulic",
+      "description": "Complete dry-sump path: crankcase is scavenged by 4 pump stages into the tank, de-aerated oil feeds the pressure stage, then filter → thermostat (→ cooler) → engine gallery. Tank vents to the catch can. Optional Accusump on the pressure side.",
+      "nodes": [
+        {
+          "id": "crankcase",
+          "label": "Crankcase / pan sections (front, 1-2, 3-4/5-6, rear)",
+          "componentId": "engine-support.lubrication.dry-sump-pan"
+        },
+        {
+          "id": "scr",
+          "label": "Scavenge screens",
+          "componentId": "engine-support.lubrication.scavenge-inline-screens"
+        },
+        {
+          "id": "sc1",
+          "label": "Scavenge stage 1",
+          "componentId": "engine-support.lubrication.dry-sump-pump"
+        },
+        {
+          "id": "sc2",
+          "label": "Scavenge stage 2",
+          "componentId": "engine-support.lubrication.dry-sump-pump"
+        },
+        {
+          "id": "sc3",
+          "label": "Scavenge stage 3",
+          "componentId": "engine-support.lubrication.dry-sump-pump"
+        },
+        {
+          "id": "sc4",
+          "label": "Scavenge stage 4",
+          "componentId": "engine-support.lubrication.dry-sump-pump"
+        },
+        {
+          "id": "ret",
+          "label": "-16 scavenge return",
+          "componentId": "engine-support.lubrication.scavenge-return-line"
+        },
+        {
+          "id": "tank",
+          "label": "Oil tank (tangential inlet, de-aeration)",
+          "componentId": "engine-support.lubrication.oil-tank"
+        },
+        {
+          "id": "vent",
+          "label": "-12 tank vent",
+          "componentId": "engine-support.catch-cans-and-breathers.tank-vent-line"
+        },
+        {
+          "id": "can",
+          "label": "Catch can / air-oil separator",
+          "componentId": "engine-support.catch-cans-and-breathers.catch-can"
+        },
+        {
+          "id": "drain",
+          "label": "Catch-can drain-back (check valve)",
+          "componentId": "engine-support.catch-cans-and-breathers.catch-can-drain"
+        },
+        {
+          "id": "feed",
+          "label": "-16 tank feed",
+          "componentId": "engine-support.lubrication.tank-feed-line"
+        },
+        {
+          "id": "ps",
+          "label": "Pressure stage + regulator/bypass",
+          "componentId": "engine-support.lubrication.dry-sump-pump"
+        },
+        {
+          "id": "pline",
+          "label": "-12 pressure line",
+          "componentId": "engine-support.lubrication.pressure-line"
+        },
+        {
+          "id": "filter",
+          "label": "Remote filter (bypass valve)",
+          "componentId": "engine-support.lubrication.oil-filter"
+        },
+        {
+          "id": "stat",
+          "label": "Oil thermostat (~85 °C)",
+          "componentId": "engine-support.lubrication.oil-thermostat"
+        },
+        {
+          "id": "cooler",
+          "label": "Oil cooler (front right)",
+          "componentId": "engine-support.lubrication.oil-cooler"
+        },
+        {
+          "id": "inlet",
+          "label": "-12 engine inlet line",
+          "componentId": "engine-support.lubrication.engine-inlet-line"
+        },
+        {
+          "id": "sens",
+          "label": "Pressure/temp sensor block",
+          "componentId": "engine-support.lubrication.sensor-manifold"
+        },
+        {
+          "id": "acc",
+          "label": "Accusump (optional, EPC valve)",
+          "componentId": "engine-support.lubrication.accumulator"
+        },
+        {
+          "id": "gallery",
+          "label": "Main oil gallery → mains/rods/cam/lifters/chain",
+          "componentId": "engine.block.block"
+        },
+        {
+          "id": "drive",
+          "label": "Crank mandrel → HTD belt → pump",
+          "componentId": "engine-support.lubrication.drive-belt"
+        }
+      ],
+      "edges": [
+        {
+          "from": "crankcase",
+          "to": "scr",
+          "label": "oil+air",
+          "kind": "oil"
+        },
+        {
+          "from": "scr",
+          "to": "sc1",
+          "label": "-12",
+          "kind": "oil"
+        },
+        {
+          "from": "scr",
+          "to": "sc2",
+          "label": "-12",
+          "kind": "oil"
+        },
+        {
+          "from": "scr",
+          "to": "sc3",
+          "label": "-12",
+          "kind": "oil"
+        },
+        {
+          "from": "scr",
+          "to": "sc4",
+          "label": "-12",
+          "kind": "oil"
+        },
+        {
+          "from": "sc1",
+          "to": "ret",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "sc2",
+          "to": "ret",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "sc3",
+          "to": "ret",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "sc4",
+          "to": "ret",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "ret",
+          "to": "tank",
+          "label": "-16 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "tank",
+          "to": "vent",
+          "label": "air/mist",
+          "kind": "air"
+        },
+        {
+          "from": "vent",
+          "to": "can",
+          "label": "-12 AN",
+          "kind": "air"
+        },
+        {
+          "from": "can",
+          "to": "drain",
+          "label": "separated oil",
+          "kind": "oil"
+        },
+        {
+          "from": "drain",
+          "to": "tank",
+          "label": "-6 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "tank",
+          "to": "feed",
+          "label": "de-aerated oil",
+          "kind": "oil"
+        },
+        {
+          "from": "feed",
+          "to": "ps",
+          "label": "-16 AN suction",
+          "kind": "oil"
+        },
+        {
+          "from": "ps",
+          "to": "pline",
+          "label": "60-75 psi hot @ rpm",
+          "kind": "oil"
+        },
+        {
+          "from": "pline",
+          "to": "filter",
+          "label": "-12 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "filter",
+          "to": "stat",
+          "label": "-12 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "stat",
+          "to": "cooler",
+          "label": "when hot",
+          "kind": "oil"
+        },
+        {
+          "from": "cooler",
+          "to": "stat",
+          "label": "cooled",
+          "kind": "oil"
+        },
+        {
+          "from": "stat",
+          "to": "inlet",
+          "label": "-12 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "inlet",
+          "to": "sens",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "sens",
+          "to": "gallery",
+          "label": "pan pressure inlet",
+          "kind": "oil"
+        },
+        {
+          "from": "acc",
+          "to": "inlet",
+          "label": "-10 AN tee",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "crankcase",
+          "label": "drains to pan",
+          "kind": "oil"
+        },
+        {
+          "from": "drive",
+          "to": "ps",
+          "label": "belt drive ~0.5x crank",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.coolant",
+      "title": "Engine coolant circuit (high-temp)",
+      "type": "flow",
+      "description": "Water pump → block/heads → water outlet → upper hose → radiator → lower hose → thermostat housing → pump. Degas lines from the radiator and the engine high point feed the pressurized surge tank, whose make-up line returns solid coolant to the pump inlet. Heater core deleted with a bypass loop.",
+      "nodes": [
+        {
+          "id": "wp",
+          "label": "Water pump (engine)",
+          "componentId": "engine-support.cooling.water-pump-interface"
+        },
+        {
+          "id": "eng",
+          "label": "Block & heads",
+          "componentId": "engine.block.block"
+        },
+        {
+          "id": "out",
+          "label": "Water outlet",
+          "componentId": "engine-support.cooling.water-outlet"
+        },
+        {
+          "id": "sens",
+          "label": "Coolant temp/pressure sensors",
+          "componentId": "engine-support.cooling.coolant-sensors"
+        },
+        {
+          "id": "uh",
+          "label": "Upper hose",
+          "componentId": "engine-support.cooling.upper-hose"
+        },
+        {
+          "id": "rad",
+          "label": "Radiator",
+          "componentId": "engine-support.cooling.radiator"
+        },
+        {
+          "id": "fan",
+          "label": "Fans + shroud",
+          "componentId": "engine-support.cooling.fan-assembly"
+        },
+        {
+          "id": "lh",
+          "label": "Lower hose",
+          "componentId": "engine-support.cooling.lower-hose"
+        },
+        {
+          "id": "tstat",
+          "label": "Thermostat (160-180 °F race)",
+          "componentId": "engine-support.cooling.thermostat"
+        },
+        {
+          "id": "th",
+          "label": "Thermostat housing / inlet",
+          "componentId": "engine-support.cooling.thermostat-housing"
+        },
+        {
+          "id": "degas",
+          "label": "Radiator degas line -6",
+          "componentId": "engine-support.cooling.degas-line"
+        },
+        {
+          "id": "steam",
+          "label": "Engine steam line -6",
+          "componentId": "engine-support.cooling.steam-vent-line"
+        },
+        {
+          "id": "surge",
+          "label": "Surge tank",
+          "componentId": "engine-support.cooling.surge-tank"
+        },
+        {
+          "id": "cap",
+          "label": "20 psi cap",
+          "componentId": "engine-support.cooling.pressure-cap"
+        },
+        {
+          "id": "makeup",
+          "label": "Make-up line 3/4 in",
+          "componentId": "engine-support.cooling.makeup-line"
+        },
+        {
+          "id": "heat",
+          "label": "Heater bypass loop",
+          "componentId": "engine-support.cooling.heater-bypass"
+        },
+        {
+          "id": "duct",
+          "label": "Sealed inlet duct",
+          "componentId": "engine-support.cooling.radiator-ducting"
+        },
+        {
+          "id": "hood",
+          "label": "Hood extractor",
+          "componentId": "engine-support.coolers-auxiliary.hood-heat-extraction"
+        }
+      ],
+      "edges": [
+        {
+          "from": "wp",
+          "to": "eng",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "eng",
+          "to": "out",
+          "label": "hot",
+          "kind": "coolant"
+        },
+        {
+          "from": "out",
+          "to": "sens",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "out",
+          "to": "uh",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "uh",
+          "to": "rad",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "rad",
+          "to": "lh",
+          "label": "cooled",
+          "kind": "coolant"
+        },
+        {
+          "from": "lh",
+          "to": "th",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "tstat",
+          "to": "th",
+          "label": "regulates",
+          "kind": "mechanical"
+        },
+        {
+          "from": "th",
+          "to": "wp",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "rad",
+          "to": "degas",
+          "label": "air bleed",
+          "kind": "coolant"
+        },
+        {
+          "from": "degas",
+          "to": "surge",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "eng",
+          "to": "steam",
+          "label": "high point bleed",
+          "kind": "coolant"
+        },
+        {
+          "from": "steam",
+          "to": "surge",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "cap",
+          "to": "surge",
+          "label": "pressurizes",
+          "kind": "mechanical"
+        },
+        {
+          "from": "surge",
+          "to": "makeup",
+          "label": "solid coolant",
+          "kind": "coolant"
+        },
+        {
+          "from": "makeup",
+          "to": "th",
+          "label": "pump inlet",
+          "kind": "coolant"
+        },
+        {
+          "from": "eng",
+          "to": "heat",
+          "label": "heater out",
+          "kind": "coolant"
+        },
+        {
+          "from": "heat",
+          "to": "eng",
+          "label": "heater return",
+          "kind": "coolant"
+        },
+        {
+          "from": "duct",
+          "to": "rad",
+          "label": "ram air",
+          "kind": "air"
+        },
+        {
+          "from": "fan",
+          "to": "rad",
+          "label": "low-speed airflow",
+          "kind": "air"
+        },
+        {
+          "from": "rad",
+          "to": "hood",
+          "label": "exit air",
+          "kind": "air"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.intercooler-loop",
+      "title": "LT4 supercharger intercooler loop (low-temp)",
+      "type": "flow",
+      "description": "Electric pump → supercharger intercooler bricks → reservoir (degas) → front heat exchanger → pump. Completely separate from the engine coolant circuit.",
+      "nodes": [
+        {
+          "id": "hx",
+          "label": "Front heat exchanger (LTR)",
+          "componentId": "engine-support.intercooler-loop.heat-exchanger"
+        },
+        {
+          "id": "h1",
+          "label": "HX→pump hose",
+          "componentId": "engine-support.intercooler-loop.hx-to-pump-hose"
+        },
+        {
+          "id": "t",
+          "label": "IC temp sensor",
+          "componentId": "engine-support.intercooler-loop.ic-temp-sensor"
+        },
+        {
+          "id": "pump",
+          "label": "Electric IC pump (PDM)",
+          "componentId": "engine-support.intercooler-loop.ic-pump"
+        },
+        {
+          "id": "h2",
+          "label": "Pump→SC hose",
+          "componentId": "engine-support.intercooler-loop.pump-to-sc-hose"
+        },
+        {
+          "id": "sc",
+          "label": "Supercharger bricks (L+R)",
+          "componentId": "engine-support.intercooler-loop.sc-intercooler-interface"
+        },
+        {
+          "id": "h3",
+          "label": "SC→reservoir hose",
+          "componentId": "engine-support.intercooler-loop.sc-to-reservoir-hose"
+        },
+        {
+          "id": "res",
+          "label": "Reservoir / degas",
+          "componentId": "engine-support.intercooler-loop.ic-reservoir"
+        },
+        {
+          "id": "h4",
+          "label": "Reservoir→HX hose",
+          "componentId": "engine-support.intercooler-loop.reservoir-to-hx-hose"
+        },
+        {
+          "id": "air",
+          "label": "Charge air (boost) through bricks",
+          "componentId": "engine.supercharger.rotor-pack"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM channel",
+          "componentId": "electrical.pdm.pdm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "hx",
+          "to": "h1",
+          "label": "cold",
+          "kind": "coolant"
+        },
+        {
+          "from": "h1",
+          "to": "t",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "h1",
+          "to": "pump",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "pump",
+          "to": "h2",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "h2",
+          "to": "sc",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "air",
+          "to": "sc",
+          "label": "hot boost air",
+          "kind": "boost"
+        },
+        {
+          "from": "sc",
+          "to": "h3",
+          "label": "heated",
+          "kind": "coolant"
+        },
+        {
+          "from": "h3",
+          "to": "res",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "res",
+          "to": "h4",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "h4",
+          "to": "hx",
+          "label": "",
+          "kind": "coolant"
+        },
+        {
+          "from": "pdm",
+          "to": "pump",
+          "label": "12 V",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.fuel",
+      "title": "Fuel system (cell → surge → feed → DI pump)",
+      "type": "hydraulic",
+      "description": "Cell pickup → 100 µm pre-filter → lift pump → surge tank → twin feed pumps → 10 µm filter → bypass regulator (~72 psi) with short-loop return to the surge tank → single -8 feed line → bulkheads → engine dry-break → DI high-pressure pump (engine). Surge overflow returns to the cell; cell vents through a rollover valve.",
+      "nodes": [
+        {
+          "id": "filler",
+          "label": "Filler / dry-break + check valve",
+          "componentId": "engine-support.fuel-cell.filler-neck"
+        },
+        {
+          "id": "cell",
+          "label": "FT3 fuel cell (bladder + foam)",
+          "componentId": "engine-support.fuel-cell.bladder"
+        },
+        {
+          "id": "rov",
+          "label": "Rollover vent valve",
+          "componentId": "engine-support.fuel-cell.rollover-vent-valve"
+        },
+        {
+          "id": "vent",
+          "label": "Vent line → outlet",
+          "componentId": "engine-support.fuel-cell.vent-line"
+        },
+        {
+          "id": "sender",
+          "label": "Level sender",
+          "componentId": "engine-support.fuel-cell.level-sender"
+        },
+        {
+          "id": "pick",
+          "label": "Pickup / sump",
+          "componentId": "engine-support.fuel-cell.pickup-and-sump"
+        },
+        {
+          "id": "pre",
+          "label": "100 µm pre-filter",
+          "componentId": "engine-support.fuel-delivery.lift-pump-prefilter"
+        },
+        {
+          "id": "lift",
+          "label": "Lift pump",
+          "componentId": "engine-support.fuel-delivery.lift-pump"
+        },
+        {
+          "id": "surge",
+          "label": "Surge tank",
+          "componentId": "engine-support.fuel-delivery.surge-tank"
+        },
+        {
+          "id": "fp",
+          "label": "Twin feed pumps",
+          "componentId": "engine-support.fuel-delivery.feed-pumps"
+        },
+        {
+          "id": "flt",
+          "label": "10 µm filter",
+          "componentId": "engine-support.fuel-delivery.post-pump-filter"
+        },
+        {
+          "id": "reg",
+          "label": "Bypass regulator ~72 psi",
+          "componentId": "engine-support.fuel-delivery.fuel-pressure-regulator"
+        },
+        {
+          "id": "fps",
+          "label": "Fuel pressure sensor",
+          "componentId": "engine-support.fuel-delivery.fuel-pressure-sensor"
+        },
+        {
+          "id": "ret",
+          "label": "Short-loop return -6",
+          "componentId": "engine-support.fuel-delivery.regulator-return-line"
+        },
+        {
+          "id": "ovf",
+          "label": "Surge overflow -6",
+          "componentId": "engine-support.fuel-delivery.surge-overflow-line"
+        },
+        {
+          "id": "bh",
+          "label": "Bulkhead fittings",
+          "componentId": "engine-support.fuel-delivery.bulkhead-fittings"
+        },
+        {
+          "id": "feed",
+          "label": "-8 feed line (passenger floor)",
+          "componentId": "engine-support.fuel-delivery.feed-line"
+        },
+        {
+          "id": "qd",
+          "label": "Engine-bay dry-break",
+          "componentId": "engine-support.fuel-delivery.engine-quick-disconnect"
+        },
+        {
+          "id": "adp",
+          "label": "AN→GM inlet adapter",
+          "componentId": "engine-support.fuel-delivery.engine-feed-adapter"
+        },
+        {
+          "id": "hpp",
+          "label": "DI high-pressure pump (cam-driven)",
+          "componentId": "engine.fuel-injection.high-pressure-pump"
+        },
+        {
+          "id": "rails",
+          "label": "DI fuel rails & injectors",
+          "componentId": "engine.fuel-injection.fuel-rails"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM pump outputs / kill",
+          "componentId": "engine-support.fuel-delivery.pump-power-and-control"
+        }
+      ],
+      "edges": [
+        {
+          "from": "filler",
+          "to": "cell",
+          "label": "2 in hose",
+          "kind": "fuel"
+        },
+        {
+          "from": "cell",
+          "to": "rov",
+          "label": "",
+          "kind": "fuel-vapor"
+        },
+        {
+          "from": "rov",
+          "to": "vent",
+          "label": "-8 AN",
+          "kind": "fuel-vapor"
+        },
+        {
+          "from": "sender",
+          "to": "cell",
+          "label": "level",
+          "kind": "signal"
+        },
+        {
+          "from": "cell",
+          "to": "pick",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "pick",
+          "to": "pre",
+          "label": "-8 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "pre",
+          "to": "lift",
+          "label": "-8 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "lift",
+          "to": "surge",
+          "label": "-8 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "surge",
+          "to": "fp",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "fp",
+          "to": "flt",
+          "label": "-8/-10 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "flt",
+          "to": "reg",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "reg",
+          "to": "fps",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "reg",
+          "to": "ret",
+          "label": "bypass",
+          "kind": "fuel"
+        },
+        {
+          "from": "ret",
+          "to": "surge",
+          "label": "-6 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "surge",
+          "to": "ovf",
+          "label": "excess + vapor",
+          "kind": "fuel"
+        },
+        {
+          "from": "ovf",
+          "to": "cell",
+          "label": "-6 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "reg",
+          "to": "bh",
+          "label": "72 psi",
+          "kind": "fuel"
+        },
+        {
+          "from": "bh",
+          "to": "feed",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "feed",
+          "to": "qd",
+          "label": "-8 AN",
+          "kind": "fuel"
+        },
+        {
+          "from": "qd",
+          "to": "adp",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "adp",
+          "to": "hpp",
+          "label": "low side",
+          "kind": "fuel"
+        },
+        {
+          "from": "hpp",
+          "to": "rails",
+          "label": "~2,200-3,000 psi",
+          "kind": "fuel"
+        },
+        {
+          "from": "pdm",
+          "to": "lift",
+          "label": "12 V",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "fp",
+          "label": "12 V staged",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.exhaust-flow",
+      "title": "Exhaust flow",
+      "type": "flow",
+      "description": "Each bank: 4 primaries → collector → V-band → catted/test connection pipe (wideband O2) → X-pipe → flex → mid pipe → muffler → tip. Side-exit option branches after the X-pipe.",
+      "nodes": [
+        {
+          "id": "lh",
+          "label": "Left bank (1-3-5-7) primaries",
+          "componentId": "engine-support.exhaust.headers"
+        },
+        {
+          "id": "rh",
+          "label": "Right bank (2-4-6-8) primaries",
+          "componentId": "engine-support.exhaust.headers"
+        },
+        {
+          "id": "egt",
+          "label": "EGT probes",
+          "componentId": "engine-support.exhaust.egt-probes"
+        },
+        {
+          "id": "lc",
+          "label": "L collector + V-band",
+          "componentId": "engine-support.exhaust.collector-joints"
+        },
+        {
+          "id": "rc",
+          "label": "R collector + V-band",
+          "componentId": "engine-support.exhaust.collector-joints"
+        },
+        {
+          "id": "lcp",
+          "label": "L connection pipe / cat",
+          "componentId": "engine-support.exhaust.connection-pipes"
+        },
+        {
+          "id": "rcp",
+          "label": "R connection pipe / cat",
+          "componentId": "engine-support.exhaust.connection-pipes"
+        },
+        {
+          "id": "o2",
+          "label": "Wideband O2 (each bank)",
+          "componentId": "engine-support.exhaust.o2-sensors"
+        },
+        {
+          "id": "x",
+          "label": "X-pipe",
+          "componentId": "engine-support.exhaust.x-pipe"
+        },
+        {
+          "id": "flex",
+          "label": "Flex joints",
+          "componentId": "engine-support.exhaust.flex-joints"
+        },
+        {
+          "id": "lm",
+          "label": "L mid pipe",
+          "componentId": "engine-support.exhaust.mid-pipes"
+        },
+        {
+          "id": "rm",
+          "label": "R mid pipe",
+          "componentId": "engine-support.exhaust.mid-pipes"
+        },
+        {
+          "id": "lmuf",
+          "label": "L muffler",
+          "componentId": "engine-support.exhaust.mufflers"
+        },
+        {
+          "id": "rmuf",
+          "label": "R muffler",
+          "componentId": "engine-support.exhaust.mufflers"
+        },
+        {
+          "id": "tips",
+          "label": "Tailpipes / tips",
+          "componentId": "engine-support.exhaust.tailpipes"
+        },
+        {
+          "id": "side",
+          "label": "Side-exit option",
+          "componentId": "engine-support.exhaust.side-exit-option"
+        },
+        {
+          "id": "hs",
+          "label": "Heat shields",
+          "componentId": "engine-support.exhaust.heat-shields"
+        }
+      ],
+      "edges": [
+        {
+          "from": "lh",
+          "to": "lc",
+          "label": "1-7/8 or 2 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "rh",
+          "to": "rc",
+          "label": "1-7/8 or 2 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "egt",
+          "to": "lh",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "lc",
+          "to": "lcp",
+          "label": "3 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "rc",
+          "to": "rcp",
+          "label": "3 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "o2",
+          "to": "lcp",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "o2",
+          "to": "rcp",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "lcp",
+          "to": "x",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "rcp",
+          "to": "x",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "x",
+          "to": "flex",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "flex",
+          "to": "lm",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "flex",
+          "to": "rm",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "lm",
+          "to": "lmuf",
+          "label": "3 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "rm",
+          "to": "rmuf",
+          "label": "3 in",
+          "kind": "exhaust"
+        },
+        {
+          "from": "lmuf",
+          "to": "tips",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "rmuf",
+          "to": "tips",
+          "label": "",
+          "kind": "exhaust"
+        },
+        {
+          "from": "x",
+          "to": "side",
+          "label": "option",
+          "kind": "exhaust"
+        },
+        {
+          "from": "hs",
+          "to": "lm",
+          "label": "protects floor",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.air-intake",
+      "title": "Air intake path & crankcase ventilation",
+      "type": "flow",
+      "description": "Fascia snorkel → sealed air box → filter → MAF/IAT → intake tube → couplers → throttle body → LT4 supercharger. Crankcase/tank vapors go to the catch can; can vents to filter or the fresh-air port.",
+      "nodes": [
+        {
+          "id": "sn",
+          "label": "Fascia snorkel",
+          "componentId": "engine-support.induction.fascia-snorkel"
+        },
+        {
+          "id": "box",
+          "label": "Sealed air box",
+          "componentId": "engine-support.induction.airbox"
+        },
+        {
+          "id": "f",
+          "label": "Air filter",
+          "componentId": "engine-support.induction.air-filter"
+        },
+        {
+          "id": "maf",
+          "label": "MAF/IAT",
+          "componentId": "engine-support.induction.maf-sensor"
+        },
+        {
+          "id": "tube",
+          "label": "Intake tube",
+          "componentId": "engine-support.induction.intake-tube"
+        },
+        {
+          "id": "cpl",
+          "label": "Couplers",
+          "componentId": "engine-support.induction.couplers"
+        },
+        {
+          "id": "tb",
+          "label": "Throttle body",
+          "componentId": "engine-support.induction.throttle-body-interface"
+        },
+        {
+          "id": "sc",
+          "label": "LT4 supercharger",
+          "componentId": "engine.supercharger.rotor-pack"
+        },
+        {
+          "id": "vc",
+          "label": "Valve-cover breathers",
+          "componentId": "engine-support.catch-cans-and-breathers.valve-cover-breathers"
+        },
+        {
+          "id": "tank",
+          "label": "Dry-sump tank vent",
+          "componentId": "engine-support.catch-cans-and-breathers.tank-vent-line"
+        },
+        {
+          "id": "can",
+          "label": "Catch can",
+          "componentId": "engine-support.catch-cans-and-breathers.catch-can"
+        },
+        {
+          "id": "bf",
+          "label": "Breather filter",
+          "componentId": "engine-support.catch-cans-and-breathers.breather-filter"
+        },
+        {
+          "id": "fa",
+          "label": "Fresh-air port",
+          "componentId": "engine-support.catch-cans-and-breathers.pcv-fresh-air"
+        }
+      ],
+      "edges": [
+        {
+          "from": "sn",
+          "to": "box",
+          "label": "ram air",
+          "kind": "air"
+        },
+        {
+          "from": "box",
+          "to": "f",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "f",
+          "to": "maf",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "maf",
+          "to": "tube",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "tube",
+          "to": "cpl",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "cpl",
+          "to": "tb",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "tb",
+          "to": "sc",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "vc",
+          "to": "can",
+          "label": "-10 AN",
+          "kind": "air"
+        },
+        {
+          "from": "tank",
+          "to": "can",
+          "label": "-12 AN",
+          "kind": "air"
+        },
+        {
+          "from": "can",
+          "to": "bf",
+          "label": "vent",
+          "kind": "air"
+        },
+        {
+          "from": "can",
+          "to": "fa",
+          "label": "optional return",
+          "kind": "air"
+        },
+        {
+          "from": "fa",
+          "to": "tube",
+          "label": "",
+          "kind": "air"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "engine-support.route.oil-tank-feed",
+      "name": "Dry-sump tank → pump feed (-16)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.tank-feed-line",
+      "radius": 0.016,
+      "points": [
+        [
+          -0.42,
+          0.23,
+          -0.5
+        ],
+        [
+          -0.42,
+          0.18,
+          -0.46
+        ],
+        [
+          -0.4,
+          0.18,
+          -0.36
+        ],
+        [
+          -0.34,
+          0.2,
+          -0.3
+        ],
+        [
+          -0.22,
+          0.24,
+          -0.27
+        ],
+        [
+          -0.14,
+          0.26,
+          -0.26
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-scavenge-return",
+      "name": "Pump scavenge → tank (-16)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.scavenge-return-line",
+      "radius": 0.016,
+      "points": [
+        [
+          -0.24,
+          0.32,
+          -0.27
+        ],
+        [
+          -0.3,
+          0.36,
+          -0.34
+        ],
+        [
+          -0.36,
+          0.48,
+          -0.4
+        ],
+        [
+          -0.4,
+          0.62,
+          -0.43
+        ],
+        [
+          -0.42,
+          0.72,
+          -0.44
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-scavenge-1",
+      "name": "Pan scavenge section 1 → pump (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.scavenge-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.22,
+          0.19,
+          -0.15
+        ],
+        [
+          -0.23,
+          0.205,
+          -0.175
+        ],
+        [
+          -0.24,
+          0.22,
+          -0.2
+        ],
+        [
+          -0.25,
+          0.24,
+          -0.21
+        ],
+        [
+          -0.26,
+          0.26,
+          -0.22
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-scavenge-2",
+      "name": "Pan scavenge section 2 → pump (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.scavenge-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.06,
+          0.19,
+          -0.15
+        ],
+        [
+          -0.08,
+          0.205,
+          -0.175
+        ],
+        [
+          -0.1,
+          0.22,
+          -0.2
+        ],
+        [
+          -0.13,
+          0.235,
+          -0.215
+        ],
+        [
+          -0.16,
+          0.25,
+          -0.23
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-scavenge-3",
+      "name": "Pan scavenge section 3 → pump (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.scavenge-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          0.1,
+          0.19,
+          -0.15
+        ],
+        [
+          0.06,
+          0.205,
+          -0.175
+        ],
+        [
+          0.02,
+          0.22,
+          -0.2
+        ],
+        [
+          -0.055,
+          0.235,
+          -0.22
+        ],
+        [
+          -0.13,
+          0.25,
+          -0.24
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-scavenge-4",
+      "name": "Pan scavenge section 4 → pump (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.scavenge-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          0.26,
+          0.19,
+          -0.15
+        ],
+        [
+          0.2,
+          0.205,
+          -0.18
+        ],
+        [
+          0.14,
+          0.22,
+          -0.21
+        ],
+        [
+          0.01,
+          0.23,
+          -0.23
+        ],
+        [
+          -0.12,
+          0.24,
+          -0.25
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-pressure",
+      "name": "Pump pressure → filter (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.pressure-line",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.38,
+          0.3,
+          -0.27
+        ],
+        [
+          -0.41,
+          0.31,
+          -0.285
+        ],
+        [
+          -0.44,
+          0.32,
+          -0.3
+        ],
+        [
+          -0.47,
+          0.34,
+          -0.305
+        ],
+        [
+          -0.5,
+          0.36,
+          -0.31
+        ],
+        [
+          -0.525,
+          0.38,
+          -0.305
+        ],
+        [
+          -0.55,
+          0.4,
+          -0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-filter-stat",
+      "name": "Filter → thermostat (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.oil-cooler-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.55,
+          0.38,
+          -0.3
+        ],
+        [
+          -0.565,
+          0.37,
+          -0.33
+        ],
+        [
+          -0.58,
+          0.36,
+          -0.36
+        ],
+        [
+          -0.59,
+          0.345,
+          -0.39
+        ],
+        [
+          -0.6,
+          0.33,
+          -0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-cooler-feed",
+      "name": "Thermostat → oil cooler (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.oil-cooler-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.6,
+          0.33,
+          -0.42
+        ],
+        [
+          -0.64,
+          0.325,
+          -0.45
+        ],
+        [
+          -0.68,
+          0.32,
+          -0.48
+        ],
+        [
+          -0.715,
+          0.31,
+          -0.51
+        ],
+        [
+          -0.75,
+          0.3,
+          -0.54
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-cooler-return",
+      "name": "Oil cooler → thermostat (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.oil-cooler-lines",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.75,
+          0.26,
+          -0.62
+        ],
+        [
+          -0.715,
+          0.25,
+          -0.57
+        ],
+        [
+          -0.68,
+          0.24,
+          -0.52
+        ],
+        [
+          -0.645,
+          0.265,
+          -0.48
+        ],
+        [
+          -0.61,
+          0.29,
+          -0.44
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-engine-inlet",
+      "name": "Thermostat → engine inlet (-12)",
+      "kind": "oil",
+      "componentId": "engine-support.lubrication.engine-inlet-line",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.6,
+          0.3,
+          -0.44
+        ],
+        [
+          -0.54,
+          0.24,
+          -0.36
+        ],
+        [
+          -0.44,
+          0.2,
+          -0.24
+        ],
+        [
+          -0.34,
+          0.2,
+          -0.16
+        ],
+        [
+          -0.3,
+          0.21,
+          -0.12
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-tank-vent",
+      "name": "Oil tank vent → catch can (-12)",
+      "kind": "air",
+      "componentId": "engine-support.catch-cans-and-breathers.tank-vent-line",
+      "radius": 0.012,
+      "points": [
+        [
+          -0.42,
+          0.83,
+          -0.5
+        ],
+        [
+          -0.38,
+          0.86,
+          -0.46
+        ],
+        [
+          -0.2,
+          0.86,
+          -0.5
+        ],
+        [
+          0.1,
+          0.84,
+          -0.52
+        ],
+        [
+          0.38,
+          0.82,
+          -0.48
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.oil-catch-can-drain",
+      "name": "Catch can drain → tank (-6)",
+      "kind": "oil",
+      "componentId": "engine-support.catch-cans-and-breathers.catch-can-drain",
+      "radius": 0.006,
+      "points": [
+        [
+          0.38,
+          0.6,
+          -0.48
+        ],
+        [
+          0.29,
+          0.5,
+          -0.49
+        ],
+        [
+          0.2,
+          0.4,
+          -0.5
+        ],
+        [
+          0.05,
+          0.38,
+          -0.51
+        ],
+        [
+          -0.1,
+          0.36,
+          -0.52
+        ],
+        [
+          -0.24,
+          0.38,
+          -0.51
+        ],
+        [
+          -0.38,
+          0.4,
+          -0.5
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.vc-breather-left",
+      "name": "Left valve-cover breather → can (-10)",
+      "kind": "air",
+      "componentId": "engine-support.catch-cans-and-breathers.breather-hoses",
+      "radius": 0.01,
+      "points": [
+        [
+          0.05,
+          0.82,
+          0.24
+        ],
+        [
+          0.2,
+          0.88,
+          0.22
+        ],
+        [
+          0.35,
+          0.86,
+          0.1
+        ],
+        [
+          0.42,
+          0.82,
+          -0.3
+        ],
+        [
+          0.4,
+          0.8,
+          -0.44
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.vc-breather-right",
+      "name": "Right valve-cover breather → can (-10)",
+      "kind": "air",
+      "componentId": "engine-support.catch-cans-and-breathers.breather-hoses",
+      "radius": 0.01,
+      "points": [
+        [
+          0.05,
+          0.82,
+          -0.24
+        ],
+        [
+          0.125,
+          0.845,
+          -0.27
+        ],
+        [
+          0.2,
+          0.87,
+          -0.3
+        ],
+        [
+          0.29,
+          0.845,
+          -0.36
+        ],
+        [
+          0.38,
+          0.82,
+          -0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-upper",
+      "name": "Upper radiator hose",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.upper-hose",
+      "radius": 0.022,
+      "points": [
+        [
+          -0.36,
+          0.64,
+          0.06
+        ],
+        [
+          -0.4,
+          0.65,
+          0.09
+        ],
+        [
+          -0.44,
+          0.66,
+          0.12
+        ],
+        [
+          -0.485,
+          0.67,
+          0.16
+        ],
+        [
+          -0.53,
+          0.68,
+          0.2
+        ],
+        [
+          -0.565,
+          0.675,
+          0.23
+        ],
+        [
+          -0.6,
+          0.67,
+          0.26
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-lower",
+      "name": "Lower radiator hose",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.lower-hose",
+      "radius": 0.024,
+      "points": [
+        [
+          -0.6,
+          0.29,
+          -0.27
+        ],
+        [
+          -0.56,
+          0.285,
+          -0.255
+        ],
+        [
+          -0.52,
+          0.28,
+          -0.24
+        ],
+        [
+          -0.48,
+          0.305,
+          -0.21
+        ],
+        [
+          -0.44,
+          0.33,
+          -0.18
+        ],
+        [
+          -0.415,
+          0.375,
+          -0.14
+        ],
+        [
+          -0.39,
+          0.42,
+          -0.1
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-degas",
+      "name": "Radiator degas → surge tank",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.degas-line",
+      "radius": 0.006,
+      "points": [
+        [
+          -0.62,
+          0.7,
+          0.3
+        ],
+        [
+          -0.5,
+          0.8,
+          0.1
+        ],
+        [
+          -0.3,
+          0.84,
+          -0.2
+        ],
+        [
+          -0.16,
+          0.82,
+          -0.4
+        ],
+        [
+          -0.18,
+          0.79,
+          -0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-steam",
+      "name": "Engine steam line → surge tank",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.steam-vent-line",
+      "radius": 0.006,
+      "points": [
+        [
+          0.28,
+          0.66,
+          0
+        ],
+        [
+          0.24,
+          0.74,
+          -0.05
+        ],
+        [
+          0.2,
+          0.82,
+          -0.1
+        ],
+        [
+          0.1,
+          0.84,
+          -0.21
+        ],
+        [
+          0,
+          0.86,
+          -0.32
+        ],
+        [
+          -0.07,
+          0.825,
+          -0.36
+        ],
+        [
+          -0.14,
+          0.79,
+          -0.4
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-makeup",
+      "name": "Surge tank make-up → pump inlet",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.makeup-line",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.18,
+          0.66,
+          -0.42
+        ],
+        [
+          -0.2,
+          0.59,
+          -0.39
+        ],
+        [
+          -0.22,
+          0.52,
+          -0.36
+        ],
+        [
+          -0.26,
+          0.47,
+          -0.3
+        ],
+        [
+          -0.3,
+          0.42,
+          -0.24
+        ],
+        [
+          -0.34,
+          0.42,
+          -0.18
+        ],
+        [
+          -0.38,
+          0.42,
+          -0.12
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.coolant-heater-bypass",
+      "name": "Heater bypass loop",
+      "kind": "coolant",
+      "componentId": "engine-support.cooling.heater-bypass",
+      "radius": 0.009,
+      "points": [
+        [
+          0.3,
+          0.58,
+          0.1
+        ],
+        [
+          0.33,
+          0.59,
+          0.05
+        ],
+        [
+          0.36,
+          0.6,
+          0
+        ],
+        [
+          0.33,
+          0.59,
+          -0.05
+        ],
+        [
+          0.3,
+          0.58,
+          -0.1
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.ic-hx-pump",
+      "name": "IC: HX → pump",
+      "kind": "coolant",
+      "componentId": "engine-support.intercooler-loop.hx-to-pump-hose",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.76,
+          0.24,
+          -0.3
+        ],
+        [
+          -0.74,
+          0.22,
+          -0.31
+        ],
+        [
+          -0.72,
+          0.2,
+          -0.32
+        ],
+        [
+          -0.7,
+          0.2,
+          -0.34
+        ],
+        [
+          -0.68,
+          0.2,
+          -0.36
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.ic-pump-sc",
+      "name": "IC: pump → supercharger",
+      "kind": "coolant",
+      "componentId": "engine-support.intercooler-loop.pump-to-sc-hose",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.64,
+          0.21,
+          -0.24
+        ],
+        [
+          -0.6,
+          0.26,
+          -0.36
+        ],
+        [
+          -0.55,
+          0.45,
+          -0.37
+        ],
+        [
+          -0.48,
+          0.65,
+          -0.3
+        ],
+        [
+          -0.36,
+          0.84,
+          -0.14
+        ],
+        [
+          -0.25,
+          0.88,
+          -0.08
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.ic-sc-res",
+      "name": "IC: supercharger → reservoir",
+      "kind": "coolant",
+      "componentId": "engine-support.intercooler-loop.sc-to-reservoir-hose",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.24,
+          0.88,
+          0.08
+        ],
+        [
+          -0.26,
+          0.875,
+          0.165
+        ],
+        [
+          -0.28,
+          0.87,
+          0.25
+        ],
+        [
+          -0.25,
+          0.845,
+          0.335
+        ],
+        [
+          -0.22,
+          0.82,
+          0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.ic-res-hx",
+      "name": "IC: reservoir → HX",
+      "kind": "coolant",
+      "componentId": "engine-support.intercooler-loop.reservoir-to-hx-hose",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.2,
+          0.67,
+          0.44
+        ],
+        [
+          -0.3,
+          0.55,
+          0.42
+        ],
+        [
+          -0.5,
+          0.45,
+          0.4
+        ],
+        [
+          -0.66,
+          0.42,
+          0.34
+        ],
+        [
+          -0.75,
+          0.42,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-lift",
+      "name": "Cell → pre-filter → lift pump → surge (-8)",
+      "kind": "fuel",
+      "componentId": "engine-support.fuel-delivery.lift-pump-line",
+      "radius": 0.009,
+      "points": [
+        [
+          3.15,
+          0.78,
+          0
+        ],
+        [
+          3.13,
+          0.82,
+          -0.15
+        ],
+        [
+          3.1,
+          0.78,
+          -0.35
+        ],
+        [
+          3.1,
+          0.55,
+          -0.42
+        ],
+        [
+          3.15,
+          0.45,
+          -0.45
+        ],
+        [
+          3.2,
+          0.44,
+          -0.52
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-feed",
+      "name": "Main feed: regulator → engine DI pump (-8)",
+      "kind": "fuel",
+      "componentId": "engine-support.fuel-delivery.feed-line",
+      "radius": 0.008,
+      "points": [
+        [
+          3.22,
+          0.84,
+          -0.56
+        ],
+        [
+          3.15,
+          0.87,
+          -0.56
+        ],
+        [
+          3.08,
+          0.8,
+          -0.56
+        ],
+        [
+          3.08,
+          0.62,
+          -0.56
+        ],
+        [
+          3.08,
+          0.52,
+          -0.56
+        ],
+        [
+          3.05,
+          0.4,
+          -0.55
+        ],
+        [
+          2.95,
+          0.26,
+          -0.55
+        ],
+        [
+          2.85,
+          0.2,
+          -0.55
+        ],
+        [
+          2.4,
+          0.19,
+          -0.56
+        ],
+        [
+          1.8,
+          0.19,
+          -0.56
+        ],
+        [
+          1.2,
+          0.19,
+          -0.56
+        ],
+        [
+          0.75,
+          0.21,
+          -0.55
+        ],
+        [
+          0.58,
+          0.32,
+          -0.52
+        ],
+        [
+          0.52,
+          0.55,
+          -0.48
+        ],
+        [
+          0.48,
+          0.72,
+          -0.4
+        ],
+        [
+          0.4,
+          0.82,
+          -0.2
+        ],
+        [
+          0.3,
+          0.86,
+          -0.06
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-return",
+      "name": "Regulator short-loop return (-6)",
+      "kind": "fuel",
+      "componentId": "engine-support.fuel-delivery.regulator-return-line",
+      "radius": 0.007,
+      "points": [
+        [
+          3.1,
+          0.5,
+          -0.58
+        ],
+        [
+          3.12,
+          0.49,
+          -0.59
+        ],
+        [
+          3.14,
+          0.48,
+          -0.6
+        ],
+        [
+          3.155,
+          0.49,
+          -0.59
+        ],
+        [
+          3.17,
+          0.5,
+          -0.58
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-surge-overflow",
+      "name": "Surge overflow → cell (-6)",
+      "kind": "fuel",
+      "componentId": "engine-support.fuel-delivery.surge-overflow-line",
+      "radius": 0.007,
+      "points": [
+        [
+          3.24,
+          0.84,
+          -0.54
+        ],
+        [
+          3.25,
+          0.86,
+          -0.445
+        ],
+        [
+          3.26,
+          0.88,
+          -0.35
+        ],
+        [
+          3.25,
+          0.87,
+          -0.25
+        ],
+        [
+          3.24,
+          0.86,
+          -0.15
+        ],
+        [
+          3.23,
+          0.825,
+          -0.075
+        ],
+        [
+          3.22,
+          0.79,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-cell-vent",
+      "name": "Cell rollover valve → vent outlet (-8)",
+      "kind": "fuel-vapor",
+      "componentId": "engine-support.fuel-cell.vent-line",
+      "radius": 0.008,
+      "points": [
+        [
+          3.4,
+          0.79,
+          -0.12
+        ],
+        [
+          3.42,
+          0.92,
+          -0.15
+        ],
+        [
+          3.55,
+          0.95,
+          -0.15
+        ],
+        [
+          3.68,
+          0.85,
+          -0.12
+        ],
+        [
+          3.72,
+          0.55,
+          -0.1
+        ],
+        [
+          3.72,
+          0.26,
+          -0.1
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.fuel-filler",
+      "name": "Filler neck",
+      "kind": "fuel",
+      "componentId": "engine-support.fuel-cell.filler-neck",
+      "radius": 0.026,
+      "points": [
+        [
+          3.3,
+          0.76,
+          0.2
+        ],
+        [
+          3.275,
+          0.82,
+          0.35
+        ],
+        [
+          3.25,
+          0.88,
+          0.5
+        ],
+        [
+          3.185,
+          0.91,
+          0.65
+        ],
+        [
+          3.12,
+          0.94,
+          0.8
+        ],
+        [
+          3.085,
+          0.945,
+          0.845
+        ],
+        [
+          3.05,
+          0.95,
+          0.84
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.intake-snorkel",
+      "name": "Fascia snorkel → air box",
+      "kind": "air",
+      "componentId": "engine-support.induction.fascia-snorkel",
+      "radius": 0.05,
+      "points": [
+        [
+          -0.9,
+          0.5,
+          0.45
+        ],
+        [
+          -0.875,
+          0.52,
+          0.45
+        ],
+        [
+          -0.82,
+          0.54,
+          0.47
+        ],
+        [
+          -0.76,
+          0.57,
+          0.475
+        ],
+        [
+          -0.7,
+          0.6,
+          0.48
+        ],
+        [
+          -0.66,
+          0.63,
+          0.47
+        ],
+        [
+          -0.62,
+          0.66,
+          0.46
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.intake-tube",
+      "name": "Air box → throttle body",
+      "kind": "air",
+      "componentId": "engine-support.induction.intake-tube",
+      "radius": 0.05,
+      "points": [
+        [
+          -0.48,
+          0.76,
+          0.38
+        ],
+        [
+          -0.44,
+          0.8,
+          0.26
+        ],
+        [
+          -0.39,
+          0.81,
+          0.12
+        ],
+        [
+          -0.34,
+          0.81,
+          0.03
+        ],
+        [
+          -0.31,
+          0.8,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-l1",
+      "name": "Left header primary 1",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          -0.2,
+          0.55,
+          0.33
+        ],
+        [
+          -0.19,
+          0.48,
+          0.42
+        ],
+        [
+          -0.12,
+          0.34,
+          0.4
+        ],
+        [
+          0.05,
+          0.25,
+          0.34
+        ],
+        [
+          0.3,
+          0.22,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-l2",
+      "name": "Left header primary 2",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          -0.09,
+          0.55,
+          0.33
+        ],
+        [
+          -0.08,
+          0.47,
+          0.42
+        ],
+        [
+          0,
+          0.33,
+          0.4
+        ],
+        [
+          0.12,
+          0.25,
+          0.34
+        ],
+        [
+          0.3,
+          0.22,
+          0.29
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-l3",
+      "name": "Left header primary 3",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          0.02,
+          0.55,
+          0.33
+        ],
+        [
+          0.04,
+          0.46,
+          0.42
+        ],
+        [
+          0.1,
+          0.33,
+          0.41
+        ],
+        [
+          0.18,
+          0.25,
+          0.35
+        ],
+        [
+          0.3,
+          0.22,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-l4",
+      "name": "Left header primary 4",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          0.13,
+          0.55,
+          0.33
+        ],
+        [
+          0.16,
+          0.46,
+          0.41
+        ],
+        [
+          0.2,
+          0.34,
+          0.4
+        ],
+        [
+          0.24,
+          0.26,
+          0.35
+        ],
+        [
+          0.3,
+          0.23,
+          0.31
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-r1",
+      "name": "Right header primary 1",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          -0.2,
+          0.55,
+          -0.33
+        ],
+        [
+          -0.19,
+          0.48,
+          -0.42
+        ],
+        [
+          -0.12,
+          0.34,
+          -0.4
+        ],
+        [
+          0.05,
+          0.25,
+          -0.34
+        ],
+        [
+          0.3,
+          0.22,
+          -0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-r2",
+      "name": "Right header primary 2",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          -0.09,
+          0.55,
+          -0.33
+        ],
+        [
+          -0.08,
+          0.47,
+          -0.42
+        ],
+        [
+          0,
+          0.33,
+          -0.4
+        ],
+        [
+          0.12,
+          0.25,
+          -0.34
+        ],
+        [
+          0.3,
+          0.22,
+          -0.29
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-r3",
+      "name": "Right header primary 3",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          0.02,
+          0.55,
+          -0.33
+        ],
+        [
+          0.04,
+          0.46,
+          -0.42
+        ],
+        [
+          0.1,
+          0.33,
+          -0.41
+        ],
+        [
+          0.18,
+          0.25,
+          -0.35
+        ],
+        [
+          0.3,
+          0.22,
+          -0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-primary-r4",
+      "name": "Right header primary 4",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.024,
+      "points": [
+        [
+          0.13,
+          0.55,
+          -0.33
+        ],
+        [
+          0.16,
+          0.46,
+          -0.41
+        ],
+        [
+          0.2,
+          0.34,
+          -0.4
+        ],
+        [
+          0.24,
+          0.26,
+          -0.35
+        ],
+        [
+          0.3,
+          0.23,
+          -0.31
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-collector-l",
+      "name": "Left collector",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.04,
+      "points": [
+        [
+          0.3,
+          0.225,
+          0.3
+        ],
+        [
+          0.36,
+          0.218,
+          0.29
+        ],
+        [
+          0.42,
+          0.21,
+          0.28
+        ],
+        [
+          0.47,
+          0.205,
+          0.27
+        ],
+        [
+          0.52,
+          0.2,
+          0.26
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-collector-r",
+      "name": "Right collector",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.headers",
+      "radius": 0.04,
+      "points": [
+        [
+          0.3,
+          0.225,
+          -0.3
+        ],
+        [
+          0.36,
+          0.218,
+          -0.29
+        ],
+        [
+          0.42,
+          0.21,
+          -0.28
+        ],
+        [
+          0.47,
+          0.205,
+          -0.27
+        ],
+        [
+          0.52,
+          0.2,
+          -0.26
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-downpipe-l",
+      "name": "Left connection pipe",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.connection-pipes",
+      "radius": 0.038,
+      "points": [
+        [
+          0.52,
+          0.2,
+          0.26
+        ],
+        [
+          0.61,
+          0.2,
+          0.24
+        ],
+        [
+          0.7,
+          0.2,
+          0.22
+        ],
+        [
+          0.8,
+          0.2,
+          0.2
+        ],
+        [
+          0.9,
+          0.2,
+          0.18
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-downpipe-r",
+      "name": "Right connection pipe",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.connection-pipes",
+      "radius": 0.038,
+      "points": [
+        [
+          0.52,
+          0.2,
+          -0.26
+        ],
+        [
+          0.61,
+          0.2,
+          -0.24
+        ],
+        [
+          0.7,
+          0.2,
+          -0.22
+        ],
+        [
+          0.8,
+          0.2,
+          -0.2
+        ],
+        [
+          0.9,
+          0.2,
+          -0.18
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-x-l2r",
+      "name": "X-pipe (left → right)",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.x-pipe",
+      "radius": 0.038,
+      "points": [
+        [
+          0.9,
+          0.2,
+          0.18
+        ],
+        [
+          1.1,
+          0.2,
+          0.13
+        ],
+        [
+          1.25,
+          0.2,
+          0.09
+        ],
+        [
+          1.35,
+          0.2,
+          0
+        ],
+        [
+          1.45,
+          0.2,
+          -0.09
+        ],
+        [
+          1.6,
+          0.2,
+          -0.11
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-x-r2l",
+      "name": "X-pipe (right → left)",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.x-pipe",
+      "radius": 0.038,
+      "points": [
+        [
+          0.9,
+          0.2,
+          -0.18
+        ],
+        [
+          1.1,
+          0.2,
+          -0.13
+        ],
+        [
+          1.25,
+          0.2,
+          -0.09
+        ],
+        [
+          1.35,
+          0.2,
+          0
+        ],
+        [
+          1.45,
+          0.2,
+          0.09
+        ],
+        [
+          1.6,
+          0.2,
+          0.11
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-mid-l",
+      "name": "Left mid pipe → muffler",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.mid-pipes",
+      "radius": 0.038,
+      "points": [
+        [
+          1.6,
+          0.2,
+          0.11
+        ],
+        [
+          1.8,
+          0.2,
+          0.13
+        ],
+        [
+          2.2,
+          0.21,
+          0.18
+        ],
+        [
+          2.5,
+          0.23,
+          0.24
+        ],
+        [
+          2.75,
+          0.27,
+          0.3
+        ],
+        [
+          3,
+          0.28,
+          0.36
+        ],
+        [
+          3.15,
+          0.28,
+          0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-mid-r",
+      "name": "Right mid pipe → muffler",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.mid-pipes",
+      "radius": 0.038,
+      "points": [
+        [
+          1.6,
+          0.2,
+          -0.11
+        ],
+        [
+          1.8,
+          0.2,
+          -0.13
+        ],
+        [
+          2.2,
+          0.21,
+          -0.18
+        ],
+        [
+          2.5,
+          0.23,
+          -0.24
+        ],
+        [
+          2.75,
+          0.27,
+          -0.3
+        ],
+        [
+          3,
+          0.28,
+          -0.36
+        ],
+        [
+          3.15,
+          0.28,
+          -0.42
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-tail-l",
+      "name": "Left tailpipe",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.tailpipes",
+      "radius": 0.04,
+      "points": [
+        [
+          3.55,
+          0.28,
+          0.45
+        ],
+        [
+          3.625,
+          0.285,
+          0.46
+        ],
+        [
+          3.7,
+          0.29,
+          0.47
+        ],
+        [
+          3.785,
+          0.295,
+          0.475
+        ],
+        [
+          3.79,
+          0.3,
+          0.48
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-tail-r",
+      "name": "Right tailpipe",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.tailpipes",
+      "radius": 0.04,
+      "points": [
+        [
+          3.55,
+          0.28,
+          -0.45
+        ],
+        [
+          3.625,
+          0.285,
+          -0.46
+        ],
+        [
+          3.7,
+          0.29,
+          -0.47
+        ],
+        [
+          3.785,
+          0.295,
+          -0.475
+        ],
+        [
+          3.79,
+          0.3,
+          -0.48
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-side-exit-l",
+      "name": "Side-exit option left",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.side-exit-option",
+      "radius": 0.038,
+      "points": [
+        [
+          1.6,
+          0.2,
+          0.11
+        ],
+        [
+          1.7,
+          0.19,
+          0.3
+        ],
+        [
+          1.9,
+          0.18,
+          0.62
+        ],
+        [
+          2.05,
+          0.18,
+          0.9
+        ],
+        [
+          2.12,
+          0.18,
+          0.9
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.exh-side-exit-r",
+      "name": "Side-exit option right",
+      "kind": "exhaust",
+      "componentId": "engine-support.exhaust.side-exit-option",
+      "radius": 0.038,
+      "points": [
+        [
+          1.6,
+          0.2,
+          -0.11
+        ],
+        [
+          1.7,
+          0.19,
+          -0.3
+        ],
+        [
+          1.9,
+          0.18,
+          -0.62
+        ],
+        [
+          2.05,
+          0.18,
+          -0.89
+        ],
+        [
+          2.12,
+          0.18,
+          -0.89
+        ]
+      ]
+    },
+    {
+      "id": "engine-support.route.dry-sump-belt",
+      "name": "Dry-sump drive belt",
+      "kind": "mechanical",
+      "componentId": "engine-support.lubrication.drive-belt",
+      "radius": 0.008,
+      "points": [
+        [
+          -0.45,
+          0.435,
+          0
+        ],
+        [
+          -0.45,
+          0.33,
+          -0.25
+        ],
+        [
+          -0.45,
+          0.21,
+          -0.23
+        ],
+        [
+          -0.45,
+          0.26,
+          -0.15
+        ],
+        [
+          -0.45,
+          0.365,
+          0
+        ],
+        [
+          -0.45,
+          0.435,
+          0
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "GM TechLink 2019-2020 engine oil capacities (Camaro LT1/LT4 10.0 qt, 0W-40)",
+      "url": "https://gm-techlink.com/wp-content/uploads/2024/11/TechLink-engine-oil-capacities-2019-2020_C.pdf"
+    },
+    {
+      "title": "Motor1: Chevy builds last Camaro ZL1 LT4 (ZL1 = wet sump, Z06 = dry sump)",
+      "url": "https://www.motor1.com/news/697289/last-camaro-lt4-engine-built/"
+    },
+    {
+      "title": "Hot Rod (May 2017) ZL1 LT4: tri-Y manifolds, wet sump",
+      "url": "https://www.magzter.com/articles/5690/210624/58af572c12303"
+    },
+    {
+      "title": "Summit Racing: Chevrolet LT Gen 5 LT4/LT5 torque specs",
+      "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+    },
+    {
+      "title": "Michigan Motorsports: LS/LT engine torque specs",
+      "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+    },
+    {
+      "title": "Fluidworks Gen V LT 5-stage dry-sump kit (5-511-1)",
+      "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+    },
+    {
+      "title": "Fluidworks Gen V LT 6-stage dry-sump kit",
+      "url": "https://motionraceworks.com/en-ca/products/fluidworks-lt-kit-6-stage-racing-dry-sump-pan-and-pump-5-611"
+    },
+    {
+      "title": "Dailey Engineering dry-sump systems (EngineLabs)",
+      "url": "https://www.enginelabs.com/?p=112873"
+    },
+    {
+      "title": "Aviaid dry-sump solutions (EngineLabs)",
+      "url": "https://www.enginelabs.com/news/discussing-aviaids-dry-sump-oiling-solutions-for-ls-engines"
+    },
+    {
+      "title": "Katech Gen V high-capacity scavenge pump",
+      "url": "https://katechengines.com/i-30497859-katech-gen-v-lt1-lt4-lt5-high-capacity-scavenge-dry-sump-oil-pump.html"
+    },
+    {
+      "title": "Chevrolet Performance 25534412 dry-sump hose adapters",
+      "url": "https://sdparts.com/i-19866934-chevrolet-performance-25534412-dry-sump-oil-hose-adapters.html"
+    },
+    {
+      "title": "Chevrolet Performance LT1 dry-sump crate engine (needs tank/lines)",
+      "url": "https://www.jegs.com/i/Chevrolet-Performance/809/19329997/10002/-1"
+    },
+    {
+      "title": "Peterson PFS08-0007 2.5 gal dry-sump tank",
+      "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+    },
+    {
+      "title": "Dragzine: dry-sump tank fill guidance",
+      "url": "https://www.dragzine.com/?p=1087197"
+    },
+    {
+      "title": "AN fitting torque guide (speeding.fi)",
+      "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+    },
+    {
+      "title": "Van's Aircraft aluminum fitting torque",
+      "url": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+    },
+    {
+      "title": "Lingenfelter Gen V 160 °F thermostat",
+      "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+    },
+    {
+      "title": "Camaro surge tank cap (20 psi)",
+      "url": "https://www.americanmuscle.com/camaro-engine-coolant-reservoir-cap-t62.html"
+    },
+    {
+      "title": "AFCO ZL1 heat exchanger",
+      "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-heat-exchanger-afco-racing/"
+    },
+    {
+      "title": "CSF/GMS ZL1 supercharger cooling package",
+      "url": "https://csfrace.com/products/gms8205-s1-gms-camaro-zl1-stage-i-super-charger-cooling-package"
+    },
+    {
+      "title": "CSF/GMS ZL1 oil cooler impact frame package",
+      "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+    },
+    {
+      "title": "PLM ZL1 XL heat exchanger",
+      "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-6-2-lt4-xl-heat-exchanger-75-larger-plm/"
+    },
+    {
+      "title": "Lingenfelter ZL1 intercooler reservoir",
+      "url": "https://lingenfelter.com/product/camaro-intercooler-coolant-reservoir-tank"
+    },
+    {
+      "title": "Street Muscle: adding cooling capacity to ZL1 supercharger system",
+      "url": "https://www.streetmusclemag.com/?p=2403861"
+    },
+    {
+      "title": "Camaro5: ZL1 IC pump wiring",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=8265917"
+    },
+    {
+      "title": "AIRAID: 2017 Camaro ZL1 specs (11 heat exchangers, track cooling pack)",
+      "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+    },
+    {
+      "title": "EngineLabs: Gen V DI fuel system for swaps (58/72 psi)",
+      "url": "https://www.enginelabs.com/?p=11612"
+    },
+    {
+      "title": "ICT Billet LT fuel system (5 bar)",
+      "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+    },
+    {
+      "title": "Lingenfelter big-bore DI pump (>= 68 psi low side)",
+      "url": "https://sdparts.com/i-24529492"
+    },
+    {
+      "title": "Radium Engineering FST installation instructions",
+      "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+    },
+    {
+      "title": "Radium MPFST multi-pump surge tank",
+      "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+    },
+    {
+      "title": "Radium: fuel cell construction & certification",
+      "url": "https://www.radiumauto.com/a/blog/post/all-about-fuel-cells"
+    },
+    {
+      "title": "NASA: updated fuel cell regulations in CCR 15.4",
+      "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+    },
+    {
+      "title": "Fuel Safe ED122B Enduro Cell",
+      "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+    },
+    {
+      "title": "Fuel Safe vent/rollover valves",
+      "url": "https://fuelsafe.com/collections/vent-rollover-valves"
+    },
+    {
+      "title": "ATL Saver Cell series",
+      "url": "https://atlinc.com/saver-cell-series.html"
+    },
+    {
+      "title": "Mid-Central SCCA GCR appendices (fuel cell recs)",
+      "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+    },
+    {
+      "title": "HPAcademy: fuel tank venting (SCCA vent rule quote)",
+      "url": "https://www.hpacademy.com/forum/motorsport-plumbing-systems/show/fuel-tank-venting/"
+    },
+    {
+      "title": "Kooks 2260H430 headers w/ green cats",
+      "url": "https://billysspeedshop.com/products/2260h430"
+    },
+    {
+      "title": "Kooks 22603300 catted connection pipes",
+      "url": "https://onefastshop.com/products/kooks-green-high-flow-catted-connection-pipes-3in-x-2-75in-chevrolet-camaro-ss-zl1-2016-2024"
+    },
+    {
+      "title": "Kooks 2260F438 header-back kit",
+      "url": "https://jbspowercentre.com/products/flrq-2260f438"
+    },
+    {
+      "title": "ARH CAV8-16178300LSWC long system",
+      "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats-cav8-16178300lswc"
+    },
+    {
+      "title": "Stainless Works SSWCA16HCAT",
+      "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+    },
+    {
+      "title": "Speed Engineering 25-1061",
+      "url": "https://berryperformancesales.com/products/speed-engineering-2016-camaro-ss-zl1-2-longtube-headers-x-pipe-full-kit-lt1-lt4-engines-25-1061"
+    },
+    {
+      "title": "GM 12657093 Gen V exhaust gasket kit",
+      "url": "https://www.michiganmotorsports.com/gaskets-seals-and-sensors/gm-12657093-gen-v-exhaust-manifold-header-gasket-pair-with-bolts-for-2014-lt-based-engines-lt1-lt4-l82-l83-l84-l86-l87-l8t"
+    },
+    {
+      "title": "OEM Camaro exhaust manifold bolt kit (replace bolts)",
+      "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-oem-exhaust-manifold-bolt-kit-includes-10-general-motors"
+    },
+    {
+      "title": "Roto-Fab ZL1 cold air intake 10161056",
+      "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+    },
+    {
+      "title": "Improved Racing Gen 6 Camaro oil pan baffle",
+      "url": "https://www.improvedracing.com/gen-6-camaro-ss-gen-3-cts-v-racing-oil-pan-baffle.html"
+    }
+  ]
+}

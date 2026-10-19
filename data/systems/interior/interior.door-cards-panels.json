@@ -1,0 +1,244 @@
+{
+  "id": "interior.door-cards-panels",
+  "system": "interior",
+  "name": "Door Cards & Interior Panels",
+  "description": "Lightweight aluminum/composite door cards, door release pulls and pillar close-outs replacing factory trim.",
+  "components": [
+    {
+      "id": "interior.door-cards-panels.door-card-left",
+      "name": "Driver door card (aluminum/carbon)",
+      "qty": 1,
+      "description": "Flat panel closing the gutted driver door inner around the NASCAR door bars, protecting the driver from sharp edges and keeping debris out.",
+      "location": "Driver door inner, x ≈ 0.95–2.05, y ≈ 0.35–0.90, z ≈ +0.84.",
+      "connectsTo": [
+        "body.panels.doors",
+        "safety.roll-cage.driver-door-bars",
+        "interior.door-cards-panels.door-pulls"
+      ],
+      "factory": {
+        "name": "GM door trim panel (with switches, speaker, armrest)",
+        "partNumber": "",
+        "notes": "Deleted."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.040–0.050 in aluminum or 1.5 mm carbon"
+      },
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 8,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Or Dzus EHF5 for quick removal."
+        }
+      ],
+      "installNotes": [
+        "Notch around door-bar intrusion; door must open and shut fully."
+      ],
+      "inspection": [
+        "Check fasteners."
+      ],
+      "buildPhase": 9,
+      "installOrder": 22,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.5,
+            0.62,
+            0.84
+          ],
+          "size": [
+            1.1,
+            0.55,
+            0.004
+          ],
+          "color": "#9aa0a6"
+        }
+      ]
+    },
+    {
+      "id": "interior.door-cards-panels.door-card-right",
+      "name": "Passenger door card",
+      "qty": 1,
+      "description": "Matching panel on the gutted passenger door.",
+      "location": "Passenger door inner, z ≈ −0.84.",
+      "connectsTo": [
+        "body.panels.doors",
+        "safety.roll-cage.passenger-door-bars"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.040 in aluminum"
+      },
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 8,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Over-torquing spins rivnuts; 6–8 N·m typical for steel M6 rivnuts in sheet metal."
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 23,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.5,
+            0.62,
+            -0.84
+          ],
+          "size": [
+            1.1,
+            0.55,
+            0.004
+          ],
+          "color": "#9aa0a6"
+        }
+      ]
+    },
+    {
+      "id": "interior.door-cards-panels.door-pulls",
+      "name": "Door release pulls & pull straps",
+      "qty": 2,
+      "description": "Cable/strap pull on the factory latch release and a strap to close the door, replacing the factory interior handle.",
+      "location": "Door cards, front upper corner.",
+      "connectsTo": [
+        "body.panels.doors",
+        "body.panels.doors"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Strap screws",
+          "qty": 2,
+          "spec": "M6 button head into rivnut",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Make sure the release is reachable while belted."
+      ],
+      "inspection": [
+        "Test release."
+      ],
+      "buildPhase": 9,
+      "installOrder": 24,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.1,
+            0.85,
+            0.83
+          ],
+          "size": [
+            0.15,
+            0.03,
+            0.01
+          ],
+          "mirror": true,
+          "color": "#c0392b"
+        }
+      ]
+    },
+    {
+      "id": "interior.door-cards-panels.pillar-closeouts",
+      "name": "Pillar & rear-quarter close-out panels",
+      "qty": 4,
+      "description": "Aluminum panels over B-pillar and rear quarter cavities and around the backstay pass-throughs.",
+      "location": "B-pillars and rear quarters, x ≈ 2.1–2.6.",
+      "connectsTo": [
+        "safety.fuel-and-firewall-isolation.rear-bulkhead-panel"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Blind rivets",
+          "qty": 10,
+          "spec": "1/8 in aluminum blind rivet, steel mandrel",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 25,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.35,
+            0.85,
+            0.74
+          ],
+          "size": [
+            0.4,
+            0.4,
+            0.004
+          ],
+          "mirror": true,
+          "color": "#9aa0a6"
+        }
+      ]
+    }
+  ]
+}

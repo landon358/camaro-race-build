@@ -1,0 +1,1127 @@
+{
+  "id": "drivetrain.rear-differential",
+  "system": "drivetrain",
+  "name": "Rear Differential",
+  "description": "Cradle-mounted 226 mm IRS differential with GM eLSD (ZL1/1LE), ring & pinion, mounts/bushings and lockout kits, cover, plugs, vent, seals and sensors.",
+  "components": [
+    {
+      "id": "drivetrain.rear-differential.differential-assembly",
+      "name": "Rear differential assembly (226 mm, eLSD)",
+      "qty": 1,
+      "description": "Aluminum-cased independent-rear-suspension differential carried in the rear cradle on three bushings (two front, one rear). ZL1/1LE cars use a 226 mm unit with a GM electronic limited-slip differential (eLSD): a hydraulically actuated clutch pack that varies locking between 0 and 2,000 N\u00b7m (1,475 lb-ft) breakaway torque and reaches full engagement within 0.150 s, integrated with Performance Traction Management. Ratio 3.73:1 with the manual transmission.",
+      "location": "Rear cradle, center at x\u22482.80, y\u22480.36, z=0; pinion faces forward (flange x\u22482.62); halfshafts plug in each side.",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "drivetrain.rear-differential.front-mount-bushings",
+        "drivetrain.rear-differential.rear-mount-bushing",
+        "drivetrain.rear-differential.pinion-flange",
+        "drivetrain.rear-differential.elsd-actuator",
+        "drivetrain.halfshafts.halfshaft",
+        "drivetrain.coolers.diff-cooler-fittings"
+      ],
+      "factory": {
+        "name": "GM 226 mm rear drive module with eLSD (ZL1 / ZL1 1LE / SS 1LE)",
+        "notes": "eLSD (RPO G96) on 2017+ ZL1 and SS 1LE, 2018+ ZL1 1LE (as quoted from GM). Final drive 3.73 (manual), 2.85 (ZL1 10-speed auto). Rear axle needs 1,500 mi (2,400 km) break-in before track use; standard rear diff cooler on ZL1 1LE. The eLSD is controlled through the GM vehicle network - with a non-GM race ECU/chassis electronics it will not be commanded correctly, which is the main reason race builds convert to a mechanical LSD."
+      },
+      "raceOptions": [
+        {
+          "name": "Xtrac race LSD (as on Camaro GT4.R)",
+          "brand": "Xtrac",
+          "notes": "The GT4.R lists an Xtrac limited-slip differential among its unique features; supplied via customer racing channels.",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        },
+        {
+          "name": "Mechanical plate-type LSD conversion for the GM 226 mm IRS unit",
+          "brand": "Cusco / OS Giken / Wavetrac / Torsen-type",
+          "notes": "Choose ramp angles/preload for road racing (e.g. 1.5-way). Confirm availability for this exact carrier before planning around it."
+        },
+        {
+          "name": "Retain eLSD with GM controls",
+          "brand": "GM",
+          "notes": "Only practical if the car keeps GM ECM/EBCM networking; keep the 160 mL actuation fluid fresh."
+        }
+      ],
+      "specs": {
+        "Ring gear size": "226 mm",
+        "Ratio (manual)": "3.73:1",
+        "Ratio (ZL1 auto)": "2.85:1",
+        "eLSD range": "0-2,000 N\u00b7m (1,475 lb-ft) breakaway",
+        "eLSD response": "\u22640.150 s to full engagement",
+        "Mounts": "2 front bushings + 1 rear bushing to cradle"
+      },
+      "fluids": [
+        {
+          "name": "Rear axle lubricant",
+          "spec": "GM: 'see your dealer' (synthetic 75W-90 axle lube per GM spec for the 226 mm unit; a retailer lists GM 88862624 as ZL1 OE gear oil - unverified). Race clutch-type LSD: synthetic GL-5 75W-90/75W-140 with friction modifier as the LSD maker specifies.",
+          "capacity": "Coupe with eLSD: 1.5 L (1.6 qt); LT1 / non-eLSD: 1.1 L (1.2 qt). Drain/refill after first track event, then every 24 h of racing (GM). Add cooler/line volume when a cooler is fitted."
+        },
+        {
+          "name": "eLSD clutch hydraulic actuation fluid",
+          "spec": "GM-specified fluid (see dealer/GM SI)",
+          "capacity": "160 mL (5.4 oz) - ZL1 and SS 1LE"
+        }
+      ],
+      "hardware": [],
+      "installNotes": [
+        "Fit new mount bushings/lockouts to the housing or cradle first (see mount components).",
+        "Raise diff into cradle on a jack; start the large rear bolt by hand to avoid cross-threading, then the two front bolts.",
+        "Torque front bolts, then rear TAY bolt (162 ft-lb + 60\u00b0).",
+        "Install halfshafts (seat circlips), connect eLSD harness/vent/cooler lines, fill with fluid before first rotation.",
+        "Set pinion angle relative to trans output to keep driveshaft joint angles within maker limits."
+      ],
+      "inspection": [
+        "Fluid change after first event, then every 24 h racing",
+        "Magnetic drain debris",
+        "Seal leaks (pinion, axle)",
+        "Bushing deflection witness marks",
+        "Diff temperature in data"
+      ],
+      "buildPhase": 3,
+      "installOrder": 1,
+      "tags": [
+        "differential",
+        "elsd",
+        "226mm",
+        "irs"
+      ],
+      "sources": [
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        },
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        },
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "MuscleCarsAndTrucks - GM eLSD drag calibration for Gen 6 Camaro ZL1 (quotes GM: eLSD RPO G96 on 2017+ ZL1, SS 1LE, ZL1 1LE)",
+          "url": "https://www.musclecarsandtrucks.com/gm-releases-new-elsd-drag-racing-calibration-for-gen-6-camaro-zl1/"
+        },
+        {
+          "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+          "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.805,
+            0.372,
+            0
+          ],
+          "size": [
+            0.33,
+            0.28,
+            0.38
+          ],
+          "color": "#9da3a8"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          },
+          {
+            "title": "GM eLSD calibration for Gen 6 Camaro ZL1",
+            "url": "https://www.musclecarsandtrucks.com/gm-releases-new-elsd-drag-racing-calibration-for-gen-6-camaro-zl1/"
+          },
+          {
+            "title": "Used ZL1 manual rear diff carriers 84173770 (photos, PartRequest)",
+            "url": "https://www.partrequest.com/catalog/differential-assemblies/chevrolet/chevrolet-camaro"
+          },
+          {
+            "title": "Holley/DSE 6th-gen Camaro instructions: drop rear axle housing from the cradle",
+            "url": "https://documents.holley.com/dse-f501-206.pdf"
+          }
+        ],
+        "dimensions": "~330 mm pinion nose to cover, ~380 mm across the side seals, ~280 mm tall; 226 mm ring gear",
+        "features": "Cast-aluminium pumpkin with pinion nose (20 mm hypoid drop), side output bosses, two front mount ears + one rear lug (3-bolt mounting to the rear cradle), front stiffening ribs, eLSD actuator on the right side",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.ring-and-pinion",
+      "name": "Ring & pinion gear set",
+      "qty": 1,
+      "description": "Hypoid final-drive gear set. With the close-ratio MH3 box, 3.73 gives a short, track-oriented spread; changing ratio requires carrier setup (pinion depth, backlash, preload) by a qualified diff builder.",
+      "location": "Inside the differential housing (ring gear on carrier, pinion forward).",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.rear-differential.pinion-flange"
+      ],
+      "factory": {
+        "name": "GM 3.73:1 (manual)",
+        "notes": "2.85:1 on ZL1 automatic; 3.73 on ZL1 1LE manual."
+      },
+      "raceOptions": [
+        {
+          "name": "Alternative ratio set",
+          "brand": "GM / race diff supplier",
+          "notes": "Gear the car so the longest straight ends near the rev limit in top gear; few aftermarket ratios exist for this unit - verify."
+        }
+      ],
+      "specs": {
+        "Ratio": "3.73:1 (manual)"
+      },
+      "hardware": [
+        {
+          "item": "Ring gear bolts (set)",
+          "qty": 1,
+          "spec": "OEM ring gear bolts",
+          "grade": "",
+          "torque": "Per GM SI",
+          "torqueSequence": "",
+          "threadlocker": "Red/OEM pre-coated",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "notes": "Only removed during diff rebuild - follow GM SI or diff builder.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Gear setup is a specialist job - check pattern with marking compound."
+      ],
+      "inspection": [
+        "Gear noise change",
+        "Metal on drain magnet"
+      ],
+      "buildPhase": 3,
+      "installOrder": 2,
+      "tags": [
+        "ring-pinion",
+        "final-drive"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.8,
+          0.372,
+          -0.035
+        ],
+        "size": [
+          0.226,
+          0.226,
+          0.15
+        ],
+        "axis": "z",
+        "color": "#c49a3a"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          }
+        ],
+        "dimensions": "226 mm ring gear (3.73:1 manual), carrier ~150 mm wide",
+        "features": "Hypoid ring gear on the passenger side of the carrier with 10 bolts, pinion entering from the front",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.elsd-actuator",
+      "name": "eLSD hydraulic actuator & clutch pack",
+      "qty": 1,
+      "description": "Electro-hydraulic actuator (motor-driven pump/piston) that clamps the eLSD clutch pack. Has its own sealed actuation fluid (160 mL). Control comes from the GM chassis controller over the vehicle network.",
+      "location": "Side of the differential housing (x\u22482.82, y\u22480.30, z\u2248-0.18).",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.rear-differential.elsd-control-module"
+      ],
+      "factory": {
+        "name": "GM eLSD actuator",
+        "notes": "Low lube can set a 'service differential' message (anecdotal)."
+      },
+      "raceOptions": [
+        {
+          "name": "Delete with mechanical LSD conversion",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Actuation fluid": "160 mL (5.4 oz)"
+      },
+      "fluids": [
+        {
+          "name": "eLSD clutch hydraulic actuation fluid",
+          "spec": "GM-specified fluid (see dealer/GM SI)",
+          "capacity": "160 mL (5.4 oz) - ZL1 and SS 1LE"
+        }
+      ],
+      "hardware": [
+        {
+          "item": "Actuator-to-housing bolt",
+          "qty": 4,
+          "spec": "M8 (typ.)",
+          "grade": "",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "OEM",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Estimate - follow GM SI.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Do not run the car with eLSD disconnected if the GM system is retained (DTCs, stability-system interaction)."
+      ],
+      "inspection": [
+        "Fluid weep",
+        "Connector"
+      ],
+      "buildPhase": 3,
+      "installOrder": 3,
+      "tags": [
+        "elsd",
+        "actuator"
+      ],
+      "sources": [
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        },
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.9,
+          0.3,
+          -0.12
+        ],
+        "size": [
+          0.1,
+          0.08,
+          0.07
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM eLSD calibration for Gen 6 Camaro ZL1",
+            "url": "https://www.musclecarsandtrucks.com/gm-releases-new-elsd-drag-racing-calibration-for-gen-6-camaro-zl1/"
+          }
+        ],
+        "dimensions": "~100 x 80 x 70 mm",
+        "features": "Electro-hydraulic pump/motor with valve body and connector, bolted to the housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.elsd-control-module",
+      "name": "eLSD control module / harness",
+      "qty": 1,
+      "description": "Electronic control for the eLSD (modes 1-4 tied to traction/stability/PTM settings). Part of the GM chassis network; requires GM ECM/EBCM data to function.",
+      "location": "On/near the differential (x\u22482.90, y\u22480.46, z\u2248+0.15).",
+      "connectsTo": [
+        "drivetrain.rear-differential.elsd-actuator",
+        "electrical.harness.chassis-harness",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "GM eLSD control module",
+        "notes": "Modes: 1 stability, 2 TCS+StabiliTrak off, 3 PTM Dry/Sport/Race, 4 TCS off/StabiliTrak on."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Network": "GM CAN"
+      },
+      "hardware": [
+        {
+          "item": "Module bracket bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Connector seal / chafe"
+      ],
+      "buildPhase": 8,
+      "installOrder": 67,
+      "tags": [
+        "elsd",
+        "module",
+        "can"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.9,
+          0.47,
+          0.15
+        ],
+        "size": [
+          0.08,
+          0.03,
+          0.06
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM eLSD calibration for Gen 6 Camaro ZL1",
+            "url": "https://www.musclecarsandtrucks.com/gm-releases-new-elsd-drag-racing-calibration-for-gen-6-camaro-zl1/"
+          }
+        ],
+        "dimensions": "~80 x 60 mm",
+        "features": "eLSD control module + harness",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.front-mount-bushings",
+      "name": "Differential front mount bushings",
+      "qty": 2,
+      "description": "Two rubber bushings at the front ears of the differential that bolt it to the rear cradle. Large voids allow pinion wind-up and wheel hop; lockout inserts, poly or aluminum bushings stop the movement.",
+      "location": "Front ears of diff housing, x\u22482.68, y\u22480.42, z\u2248\u00b10.13, bolted to rear cradle.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM rubber diff bushings",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR differential lockout bushing kit (aluminum inserts)",
+          "brand": "BMR",
+          "partNumber": "BK060",
+          "notes": "Installs into factory bushings; fits 2016-2024 Camaro and CT4/CTS-V Alpha cars.",
+          "url": "https://bmrsuspension.com/product/1650"
+        },
+        {
+          "name": "BMR differential bushing kit, aluminum",
+          "brand": "BMR",
+          "partNumber": "BK059",
+          "notes": "Full replacement solid bushings.",
+          "url": "https://bmrsuspension.com/product/1650"
+        },
+        {
+          "name": "BMR differential bushing kit, polyurethane",
+          "brand": "BMR",
+          "partNumber": "BK058",
+          "notes": "",
+          "url": "https://bmrsuspension.com/product/1650"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Differential front mount bolt (to cradle)",
+          "qty": 1,
+          "spec": "18 mm hex bolt (OEM)",
+          "grade": "OEM",
+          "torque": "45 ft-lb (61 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect / replace per GM (TAY)",
+          "tool": "18 mm socket + wrench",
+          "notes": "BMR instruction value used with their lockouts 'to ensure full engagement'. BMR notes GM specifies replacement of the rear diff bolts (TAY).",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+        }
+      ],
+      "installNotes": [
+        "With diff lowered, press BMR lockouts into front of each bushing by hand; raise diff and torque."
+      ],
+      "inspection": [
+        "Bushing cracking / insert walk-out",
+        "Bolt torque marks"
+      ],
+      "buildPhase": 3,
+      "installOrder": 4,
+      "tags": [
+        "bushing",
+        "mount",
+        "bmr"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK060 differential lockout bushing kit installation instructions (6th-gen Camaro)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+        },
+        {
+          "title": "BMR BK060 product page (related BK058 polyurethane, BK059 aluminum diff bushing kits)",
+          "url": "https://bmrsuspension.com/product/1650"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.685,
+          0.432,
+          0.13
+        ],
+        "size": [
+          0.055,
+          0.05,
+          0.055
+        ],
+        "axis": "y",
+        "mirror": true,
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "BMR 6th-gen Camaro rear cradle / diff bushing kit",
+            "url": "https://centuryperformance.com/bmr-16-17-6th-gen-camaro-rear-cradle-bushing-kit-polyurethane-red/"
+          },
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          }
+        ],
+        "dimensions": "~55 mm OD x 50 mm",
+        "features": "Voided rubber bushings pressed in the two front ears, vertical bolts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.rear-mount-bushing",
+      "name": "Differential rear mount bushing",
+      "qty": 1,
+      "description": "Single large bushing at the rear of the differential, through-bolted to the rear of the cradle with a large torque-angle-yield bolt.",
+      "location": "Rear of diff housing / rear cradle cross-member, x\u22483.00, y\u22480.40, z=0.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM rubber rear diff bushing (often oblong bore)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR large rear lockout (part of BK060)",
+          "brand": "BMR",
+          "partNumber": "BK060",
+          "notes": "Smaller counterbore faces rearward; tap in evenly; seat fully by torquing the bolt.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Differential rear mount bolt (large, through cradle)",
+          "qty": 1,
+          "spec": "Large bolt, 24 mm head (OEM)",
+          "grade": "OEM TAY",
+          "torque": "162 ft-lb (220 N\u00b7m) + 60\u00b0",
+          "torqueSequence": "Thread in by hand to avoid misalignment; torque to 162 ft-lb then turn an additional 60\u00b0",
+          "threadlocker": "none (OEM coated)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "24 mm socket, angle gauge",
+          "notes": "Value as given in BMR instructions quoting GM; GM requires replacement (Torque-Angle-Yield).",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+        }
+      ],
+      "installNotes": [
+        "Support the diff before removing this bolt.",
+        "Lower exhaust ~8 in for access (BMR)."
+      ],
+      "inspection": [
+        "Bushing condition",
+        "Bolt torque mark"
+      ],
+      "buildPhase": 3,
+      "installOrder": 5,
+      "tags": [
+        "bushing",
+        "mount",
+        "tay"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK060 differential lockout bushing kit installation instructions (6th-gen Camaro)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.995,
+          0.405,
+          0
+        ],
+        "size": [
+          0.05,
+          0.07,
+          0.07
+        ],
+        "axis": "x",
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "BMR 6th-gen Camaro rear cradle / diff bushing kit",
+            "url": "https://centuryperformance.com/bmr-16-17-6th-gen-camaro-rear-cradle-bushing-kit-polyurethane-red/"
+          },
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          }
+        ],
+        "dimensions": "~70 mm OD",
+        "features": "Single rear bushing in the cover-side lug",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.pinion-flange",
+      "name": "Pinion flange, nut & pinion seal",
+      "qty": 1,
+      "description": "Flange on the pinion shaft that receives the rear driveshaft coupler or the one-piece shaft flange; pinion seal behind it keeps lube in. Pinion nut sets bearing preload - do not loosen casually.",
+      "location": "Front of diff, x\u22482.62, y\u22480.36, z=0.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.driveshaft.rear-flex-coupler",
+        "drivetrain.driveshaft.one-piece-driveshaft"
+      ],
+      "factory": {
+        "name": "GM pinion flange & seal",
+        "notes": "6th-gen pinion flange uses bolts with nuts for the driveshaft (QA1)."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pinion nut",
+          "qty": 1,
+          "spec": "OEM pinion nut",
+          "grade": "",
+          "torque": "Per GM SI (preload procedure)",
+          "torqueSequence": "",
+          "threadlocker": "OEM",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "Do not exceed original preload; mark nut/shaft position before any seal change.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Replace seal with flange removed only if leaking; follow GM preload procedure."
+      ],
+      "inspection": [
+        "Seal leak",
+        "Flange play"
+      ],
+      "buildPhase": 3,
+      "installOrder": 6,
+      "tags": [
+        "pinion",
+        "seal"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.634,
+          0.352,
+          0
+        ],
+        "size": [
+          0.02,
+          0.12,
+          0.12
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84048448 prop shaft coupling kit, 2017-24 Camaro 6.2L (gmpartsgiant)",
+            "url": "https://www.gmpartsgiant.com/parts/gm-coupling-kit-prop-shf-84048448.html"
+          }
+        ],
+        "dimensions": "~120 mm across the arms",
+        "features": "3-arm pinion flange for the rear guibo, hub into the pinion seal",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.axle-seals",
+      "name": "Differential side (axle) seals",
+      "qty": 2,
+      "description": "Lip seals where each halfshaft enters the diff. Damaged easily when installing halfshafts - use a seal protector.",
+      "location": "Left/right output bores, x\u22482.80, y\u22480.36, z\u2248\u00b10.17.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.halfshafts.halfshaft"
+      ],
+      "factory": {
+        "name": "GM axle seals",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Drive square; lube lip; guide halfshaft splines through without touching lip."
+      ],
+      "inspection": [
+        "Wetness at seal / CV inner boot area"
+      ],
+      "buildPhase": 3,
+      "installOrder": 7,
+      "tags": [
+        "seal"
+      ],
+      "sources": [
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          2.805,
+          0.372,
+          0.188
+        ],
+        "size": [
+          0.07,
+          0.07,
+          0.01
+        ],
+        "axis": "z",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~70 mm OD",
+        "features": "Side seals in the output bores",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.cover-and-gasket",
+      "name": "Differential cover & gasket / RTV",
+      "qty": 1,
+      "description": "Rear cover of the differential housing. Seal with the GM-specified gasket or RTV bead. Finned aluminum race covers add capacity and cooling and can carry cooler ports and a temp sensor boss.",
+      "location": "Rear face of diff, x\u22482.96, y\u22480.36.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.rear-differential.fill-drain-plugs",
+        "drivetrain.coolers.diff-cooler-fittings"
+      ],
+      "factory": {
+        "name": "GM aluminum cover",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Finned/high-capacity cover with -10 AN ports",
+          "brand": "custom / diff specialist",
+          "notes": "Verify ring-gear clearance."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Cover bolt",
+          "qty": 10,
+          "spec": "M8 x 1.25 (typ.)",
+          "grade": "8.8",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "Criss-cross pattern",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists differential carrier cover bolts at 38 N\u00b7m (28 ft-lb) on the 200 mm axle. For the 225 mm axle it lists Torx bolts at 105 N\u00b7m and hex bolts at 90 N\u00b7m first pass, plus side cover bolts at 54 N\u00b7m. Those larger values are for structural housing bolts, not M8 cover screws. Identify your axle and bolt size before torquing. Still an estimate.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Sealant",
+          "spec": "GM-specified RTV silicone (per GM SI) or gasket",
+          "capacity": "3-5 mm bead inside bolt holes"
+        }
+      ],
+      "installNotes": [
+        "Clean both faces to bare metal, oil-free.",
+        "Bead RTV inside bolt circle, install within skin-over time, torque criss-cross, wait cure time before fill."
+      ],
+      "inspection": [
+        "Weep at cover seam"
+      ],
+      "buildPhase": 3,
+      "installOrder": 8,
+      "tags": [
+        "cover",
+        "rtv"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.955,
+          0.372,
+          0
+        ],
+        "size": [
+          0.03,
+          0.26,
+          0.29
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          },
+          {
+            "title": "Used ZL1 manual rear diff carriers 84173770 (photos, PartRequest)",
+            "url": "https://www.partrequest.com/catalog/differential-assemblies/chevrolet/chevrolet-camaro"
+          }
+        ],
+        "dimensions": "~260 x 290 mm",
+        "features": "Finned cast-aluminium rear cover, 10 perimeter bolts, RTV line",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.fill-drain-plugs",
+      "name": "Differential fill and drain plugs",
+      "qty": 1,
+      "description": "Fill/level plug and (magnetic) drain plug. Fill to the bottom of the fill hole with the car level. Use new washers/O-rings.",
+      "location": "Fill: rear/side of housing (x\u22482.95, y\u22480.39). Drain: bottom (x\u22482.82, y\u22480.23).",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly"
+      ],
+      "factory": {
+        "name": "GM plugs",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Magnetic drain plug / safety-wire-drilled plugs",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "fluids": [
+        {
+          "name": "Rear axle lubricant",
+          "spec": "GM: 'see your dealer' (synthetic 75W-90 axle lube per GM spec for the 226 mm unit; a retailer lists GM 88862624 as ZL1 OE gear oil - unverified). Race clutch-type LSD: synthetic GL-5 75W-90/75W-140 with friction modifier as the LSD maker specifies.",
+          "capacity": "Coupe with eLSD: 1.5 L (1.6 qt); LT1 / non-eLSD: 1.1 L (1.2 qt). Drain/refill after first track event, then every 24 h of racing (GM). Add cooler/line volume when a cooler is fitted."
+        }
+      ],
+      "hardware": [
+        {
+          "item": "Fill plug",
+          "qty": 1,
+          "spec": "OEM plug + seal",
+          "grade": "",
+          "torque": "33 ft-lb (45 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace seal",
+          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential fill plug at 45 N\u00b7m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Drain plug",
+          "qty": 1,
+          "spec": "OEM plug + seal",
+          "grade": "",
+          "torque": "33 ft-lb (45 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace seal",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential drain plug at 45 N\u00b7m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Crack fill plug first; then drain.",
+        "Lockwire if class rules require."
+      ],
+      "inspection": [
+        "Magnet debris",
+        "Fluid level"
+      ],
+      "buildPhase": 11,
+      "installOrder": 88,
+      "tags": [
+        "fill-plug",
+        "drain-plug"
+      ],
+      "sources": [
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        },
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.972,
+            0.4,
+            0.07
+          ],
+          "size": [
+            0.02,
+            0.022,
+            0.022
+          ],
+          "axis": "x"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.82,
+            0.233,
+            0
+          ],
+          "size": [
+            0.022,
+            0.02,
+            0.022
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~22 mm plugs",
+        "features": "Fill plug in the cover, drain plug at the bottom of the housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.vent",
+      "name": "Differential vent / breather hose",
+      "qty": 1,
+      "description": "Breather that relieves housing pressure. Extend with a hose to a high point or catch bottle so hot lube is not pushed out onto the exhaust/brakes.",
+      "location": "Top of housing (x\u22482.80, y\u22480.50) with hose up into trunk area.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly"
+      ],
+      "factory": {
+        "name": "GM vent",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Remote breather to catch can",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hose clamp",
+          "qty": 1,
+          "spec": "Small clamp",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep hose above diff fluid level, no sags."
+      ],
+      "inspection": [
+        "Lube at vent / catch can"
+      ],
+      "buildPhase": 7,
+      "installOrder": 53,
+      "tags": [
+        "vent",
+        "breather"
+      ],
+      "sources": [
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.79,
+            0.51,
+            0.03
+          ],
+          [
+            2.8,
+            0.58,
+            0.06
+          ],
+          [
+            2.92,
+            0.64,
+            0.1
+          ]
+        ],
+        "radius": 0.004
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Holley/DSE 6th-gen Camaro instructions: drop rear axle housing from the cradle",
+            "url": "https://documents.holley.com/dse-f501-206.pdf"
+          }
+        ],
+        "dimensions": "~8 mm hose",
+        "features": "Vent/breather hose from the housing top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.rear-differential.temperature-sensor",
+      "name": "Differential temperature sensor (race add-on)",
+      "qty": 1,
+      "description": "Fluid temperature sensor logged on the race dash and used to switch the diff cooler pump. Diff temps climb fast on track - GM warns of high rear axle temperatures on a first track event.",
+      "location": "Cover boss or cooler pickup fitting (x\u22482.95, y\u22480.30, z\u2248-0.08).",
+      "connectsTo": [
+        "drivetrain.rear-differential.cover-and-gasket",
+        "drivetrain.coolers.diff-cooler-pump",
+        "electrical.dash-logger.dash"
+      ],
+      "factory": {
+        "name": "Not fitted as a separate sensor (GM monitors via eLSD system)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "1/8 NPT motorsport temp sensor",
+          "brand": "Bosch / MoTeC / AEM",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor",
+          "qty": 1,
+          "spec": "1/8 NPT",
+          "grade": "",
+          "torque": "\u224810-15 ft-lb (14-20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Reading plausibility"
+      ],
+      "buildPhase": 8,
+      "installOrder": 68,
+      "tags": [
+        "sensor",
+        "temperature"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.975,
+          0.33,
+          -0.07
+        ],
+        "size": [
+          0.03,
+          0.015,
+          0.015
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M12-ish",
+        "features": "Race add-on sensor in the cover",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

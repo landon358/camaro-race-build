@@ -1,0 +1,1003 @@
+{
+  "id": "chassis.unibody",
+  "system": "chassis",
+  "name": "Unibody (Body-in-White)",
+  "description": "The bare steel Gen 6 (GM Alpha-derived) unibody shell as delivered for the build: floor pan, rockers, front and rear rails, strut/shock towers, dash panel, pillars, roof and trunk floor. Every suspension, drivetrain and safety load ultimately ends here, so it is measured, stripped, repaired and reinforced before anything is bolted on.",
+  "components": [
+    {
+      "id": "chassis.unibody.body-in-white",
+      "name": "Body-in-white shell (bare unibody)",
+      "qty": 1,
+      "description": "Complete welded steel monocoque of the 2016-2024 Camaro coupe. GM states the Gen 6 structure is 28% stiffer in torsion and 133 lb (60.5 kg) lighter than the Gen 5 body, largely through more high-strength steel and an aluminum instrument-panel frame. For a race build it is the reference for every hard point; it should be put on a rotisserie or measuring jig, stripped to bare metal in critical areas, and checked against GM body dimension charts before any welding.",
+      "location": "Whole car, front bumper beam (x approx -0.95) to rear panel (x approx 3.8).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "suspension.rear-cradle.cradle",
+        "safety.roll-cage.main-hoop",
+        "body.panels.front-fenders",
+        "chassis.unibody.front-frame-rails",
+        "chassis.unibody.rocker-sills"
+      ],
+      "factory": {
+        "name": "GM Gen 6 Camaro coupe body structure (Alpha architecture, Lansing Grand River)",
+        "notes": "Steel unibody with bolt-on aluminum hood and front fenders (body system). Coupe is far stiffer than the convertible; always start a road-race build from a coupe shell. ZL1/ZL1 1LE and SS share the body-in-white; ZL1 adds unique fascia, cooling openings and cradle/brace details."
+      },
+      "raceOptions": [
+        {
+          "name": "Seam/stitch-welded and cage-integrated shell",
+          "brand": "Fabricator built",
+          "notes": "Most effective stiffness upgrade: stitch weld critical seams and tie a multi-point cage into strut towers, A/B pillars, rockers and rear shock towers (see chassis.seam-welding-and-reinforcement and safety.roll-cage)."
+        }
+      ],
+      "specs": {
+        "Wheelbase": "110.7 in / 2811 mm",
+        "Overall length": "190.2 in / 4812 mm (ZL1)",
+        "Overall width": "74.7 in / 1897 mm (ZL1)",
+        "Track (ZL1)": "Front 63.4 in / 1610 mm; rear 62.6 in / 1591 mm",
+        "Torsional stiffness": "+28% vs Gen 5 (GM)",
+        "BIW mass reduction": "133 lb / 60.5 kg vs Gen 5 (GM)",
+        "Curb weight reference": "ZL1 coupe manual 3883 lb; ZL1 1LE approx 3820 lb (GM est.)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Mount the shell on a rotisserie or a bench jig using the cradle mounting points so the body is supported on its own hard points and does not sag while stripped.",
+        "Measure all front and rear cradle mounting holes, strut tower top-mount holes and rear shock tower holes against GM body dimension data (corner-to-corner diagonals). Record the numbers before welding; re-measure after welding.",
+        "Remove all sealers, deadener and undercoating only where welding or cage plates will go; keep the factory e-coat elsewhere to preserve corrosion protection.",
+        "Plug or document every unused hole; keep the factory locating holes (datum holes) open - they are needed for measuring and for refitting cradles."
+      ],
+      "inspection": [
+        "Check for cracked spot welds and paint cracking at strut towers, front rail kick-ups, rocker-to-floor joints and rear shock towers after every few events.",
+        "Re-measure cradle-mount diagonals after any off-track excursion or impact."
+      ],
+      "buildPhase": 1,
+      "installOrder": 1,
+      "tags": [
+        "unibody",
+        "biw",
+        "alpha",
+        "structure"
+      ],
+      "sources": [
+        {
+          "title": "2016 Camaro launch technical details (reprint of GM release)",
+          "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+        },
+        {
+          "title": "2019 Camaro ZL1 product guide / specifications (GM)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.79,
+            0.43,
+            0
+          ],
+          "size": [
+            0.18,
+            0.1,
+            1
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.72,
+            0.6,
+            0
+          ],
+          "size": [
+            0.1,
+            0.3,
+            1
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            1.95,
+            1.27,
+            0
+          ],
+          "size": [
+            0.5,
+            0.05,
+            1
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0.75,
+            0.74
+          ],
+          "size": [
+            0.2,
+            0.1,
+            0.28
+          ],
+          "instances": [
+            [
+              0,
+              0.75,
+              0.74
+            ],
+            [
+              0,
+              0.75,
+              -0.74
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.811,
+            0.82,
+            0.74
+          ],
+          "size": [
+            0.2,
+            0.1,
+            0.28
+          ],
+          "instances": [
+            [
+              2.811,
+              0.82,
+              0.74
+            ],
+            [
+              2.811,
+              0.82,
+              -0.74
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.45,
+            0.36,
+            0
+          ],
+          "size": [
+            0.1,
+            0.3,
+            1
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "wheelbase 2811 mm, length 4812 mm, width 1897 mm (ZL1)",
+        "features": "Skeleton of the structure not modeled by the other unibody parts: bumper beams, radiator support, apron (shotgun) rails, wheelhouse arches, cowl, roof header/bows, package shelf, seat riser, rear panel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.front-frame-rails",
+      "name": "Front frame rails (longitudinal members) and lower load path",
+      "qty": 2,
+      "description": "Closed-section steel rails running from the front bumper beam back under the dash to the floor. The front cradle bolts up into captured nuts in these rails, and the engine/front suspension loads pass through them into the rockers and tunnel. Their kick-up under the toe board is a common crack/buckle location on hard-driven cars.",
+      "location": "Engine bay, both sides of engine, x approx -0.9 to 0.65, y approx 0.35-0.55, z approx +/-0.42.",
+      "connectsTo": [
+        "suspension.front-cradle.cradle-mounts",
+        "chassis.unibody.front-strut-towers",
+        "chassis.unibody.dash-panel-and-cowl",
+        "body.bumpers.front-bumper-beam",
+        "chassis.mounting-points.front-tow-eye-receptacle"
+      ],
+      "factory": {
+        "name": "GM stamped/welded high-strength steel front rails with crush zones",
+        "notes": "Front crush cans/bumper beam bolt to the rail tips. Do not drill or notch the rails for line routing; use rivnuts on non-structural flanges."
+      },
+      "raceOptions": [
+        {
+          "name": "Stitch-welded rails with gusseted kick-up and cage tie-in bars to strut towers",
+          "brand": "Fabricator built",
+          "notes": "Commonly done in conjunction with a cage that extends forward through the firewall (if allowed by class rules)."
+        }
+      ],
+      "specs": {
+        "Material": "High-strength steel, spot-welded box section",
+        "Front cradle attachment": "Bolts into captured weld nuts in rail (verify thread)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Chase all captured cradle nuts with a thread chaser (not a cutting tap) and blow out debris before the cradle goes in.",
+        "If cage tubes are run forward to the rails/towers, use spreader plates and weld to clean bare metal."
+      ],
+      "inspection": [
+        "Inspect rail kick-ups below the dash and rail-to-tower junctions for paint cracking or buckling.",
+        "Check captured nuts for spinning or pulled threads whenever cradle bolts are serviced."
+      ],
+      "buildPhase": 1,
+      "installOrder": 2,
+      "tags": [
+        "frame-rail",
+        "front-structure"
+      ],
+      "sources": [
+        {
+          "title": "2016 Camaro launch technical details",
+          "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.85,
+              0.47,
+              0.46
+            ],
+            [
+              -0.45,
+              0.46,
+              0.46
+            ],
+            [
+              0.2,
+              0.45,
+              0.46
+            ],
+            [
+              0.42,
+              0.33,
+              0.46
+            ],
+            [
+              0.62,
+              0.255,
+              0.46
+            ],
+            [
+              0.95,
+              0.24,
+              0.46
+            ]
+          ],
+          "radius": 0.06,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          },
+          {
+            "title": "GM Gen 6 Camaro front cradle mounting diagram: cradle, 4 isolators, TTY bolts, lower brace bar and brackets",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/c02b49f8fe0954d46ad8492e17127e20/5e6fad87434ca647dd1ae217c728d6a8.png"
+          }
+        ],
+        "dimensions": "approx 120 x 85 mm box section",
+        "features": "Straight front rails (Alpha: suspension bolts to straight rails) kicking down under the dash to the floor; carry the front cradle mounts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.front-strut-towers",
+      "name": "Front strut towers (shock towers)",
+      "qty": 2,
+      "description": "Stamped steel towers that take the full vertical load of the front MacPherson struts through three top-mount bolts per side (plus the strut rod on ZL1 1LE hard-mounted DSSV top mounts). They are the primary target for seam welding, gusseting, strut-tower bracing and cage tie-ins.",
+      "location": "Engine bay corners, top at x approx 0.05, y approx 0.85, z approx +/-0.55.",
+      "connectsTo": [
+        "suspension.front-struts-springs.strut-mount",
+        "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace",
+        "chassis.unibody.front-frame-rails",
+        "chassis.unibody.dash-panel-and-cowl",
+        "safety.roll-cage.front-down-bars"
+      ],
+      "factory": {
+        "name": "GM stamped steel strut tower with 3-bolt top mount pattern",
+        "notes": "Factory top mount fastens with 3 bolts (13 mm head) per side; ZL1 1LE DSSV top mounts are hard mounted (no rubber isolation) and can be rotated 180 deg for more negative camber."
+      },
+      "raceOptions": [
+        {
+          "name": "Caster/camber plates (BMR WAK360 for OE springs, WAK361 for coilovers)",
+          "brand": "BMR Suspension",
+          "partNumber": "WAK360 / WAK361",
+          "notes": "Uses an aluminum spacer bracket bolted into the tower; adds approx 2.5 deg total camber range plus caster adjustment.",
+          "url": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+        }
+      ],
+      "specs": {
+        "Top mount fasteners": "3 bolts per side (13 mm hex), 22 N·m (16 lb ft)",
+        "Tower top": "approx 850 mm above ground at race ride height"
+      },
+      "hardware": [
+        {
+          "item": "Strut upper mounting bolt (strut mount to tower)",
+          "qty": 3,
+          "spec": "M8 class flange bolt, 13 mm hex (thread size inferred from 13 mm head)",
+          "grade": "10.9 (OE, assumed)",
+          "torque": "16 ft-lb (22 N·m)",
+          "torqueSequence": "Install all three loosely, install strut-to-knuckle fasteners, then torque the three upper bolts",
+          "threadlocker": "none (GM: no lubricants/coatings unless specified)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "tool": "13 mm socket",
+          "notes": "Per side. BMR STB018 strut-tower brace replaces these with longer bolts at the same 16 ft-lb.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Seam weld the tower-to-apron and tower-to-rail seams (see chassis.seam-welding-and-reinforcement.strut-tower-gussets).",
+        "Clean paint off the top-mount landing face only if a camber plate spacer requires metal contact; otherwise keep it coated.",
+        "Check that strut top-mount holes are round and undamaged; elongated holes indicate the strut has been moving and must be repaired before alignment."
+      ],
+      "inspection": [
+        "Look for cracking radiating from the three bolt holes and the center hole.",
+        "Re-torque top-mount bolts after the first shakedown."
+      ],
+      "buildPhase": 1,
+      "installOrder": 3,
+      "tags": [
+        "strut-tower",
+        "shock-tower",
+        "front-structure"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "GM bulletin 19-NA-038 (ZL1 1LE suspension features)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.05,
+            0.78,
+            0.52
+          ],
+          "size": [
+            0.25,
+            0.19,
+            0.25
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          },
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          }
+        ],
+        "dimensions": "approx 250 mm dia base, top at y 0.875",
+        "features": "Tapered tower shell with cap: centre hole + 3-stud mount pattern",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.dash-panel-and-cowl",
+      "name": "Dash panel (firewall), cowl and plenum",
+      "qty": 1,
+      "description": "Steel bulkhead separating engine bay and cockpit plus the cowl box under the windshield. Ties the strut towers and A-pillars together and carries the steering column support and pedal box. Pass-throughs for the intermediate steering shaft, brake lines, harnesses and (in race builds) fuel and cooling lines must be grommeted and sealed.",
+      "location": "x approx 0.60-0.70, y approx 0.25-0.95, full width.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "steering.column-and-shaft.firewall-seal",
+        "brakes.pedal-box.pedal-assembly",
+        "chassis.unibody.pillars-and-roof-structure"
+      ],
+      "factory": {
+        "name": "GM dash panel with sound insulation, cowl/plenum with wiper module",
+        "notes": "The factory instrument panel frame (cross-car beam) is aluminum on Gen 6 (saves 9.2 lb per GM); it carries the column. In a race build the IP beam is often replaced by a steel dash bar in the cage."
+      },
+      "raceOptions": [
+        {
+          "name": "Cage dash bar with fabricated column mount",
+          "brand": "Fabricator built",
+          "notes": "Required if the factory IP beam is removed; design column mount to hold factory column or a race column (steering.column-and-shaft.column)."
+        }
+      ],
+      "specs": {
+        "Material": "Steel dash panel; aluminum IP cross-car beam (factory)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Remove all factory deadener from the cockpit side before seam sealing/painting.",
+        "Plan every firewall pass-through before painting: bulkhead connectors for harness, bulkhead fittings for fuel/brake/oil lines, and the I-shaft boot."
+      ],
+      "inspection": [
+        "Check pass-through grommets for chafing and heat damage (exhaust headers run close on the driver side)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 4,
+      "tags": [
+        "firewall",
+        "cowl",
+        "dash"
+      ],
+      "sources": [
+        {
+          "title": "2016 Camaro launch technical details",
+          "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.66,
+            0.58,
+            0
+          ],
+          "size": [
+            0.05,
+            0.62,
+            1.42
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "approx 1420 x 620 mm",
+        "features": "Pressed firewall with steering-shaft, pedal and HVAC pass-throughs, tunnel arch, cowl lip",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.rocker-sills",
+      "name": "Rocker panels (sills)",
+      "qty": 2,
+      "description": "Closed-section longitudinal members along each side of the floor that carry most of the bending and torsional load between front and rear structures. Factory lift/jack points are on the rocker pinch welds. Cage main-hoop and door-bar feet usually land on or next to the rockers.",
+      "location": "Under each door, x approx 0.75-2.45, bottom y approx 0.14, z approx +/-0.86.",
+      "connectsTo": [
+        "chassis.mounting-points.lift-and-jack-points",
+        "safety.roll-cage.door-bars",
+        "chassis.unibody.floor-pan",
+        "chassis.unibody.pillars-and-roof-structure"
+      ],
+      "factory": {
+        "name": "GM steel rocker inner/outer with pinch-weld flange",
+        "notes": "Outer rocker cover is a plastic body panel on Gen 6 (body system)."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Bottom height (race ride height)": "approx 140 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Stitch weld the rocker-to-floor seam from inside the cockpit where accessible.",
+        "Use a slotted rubber pinch-weld adapter on jacks/stands; never lift on the plastic rocker cover."
+      ],
+      "inspection": [
+        "Check pinch weld flanges for crush damage from jacks."
+      ],
+      "buildPhase": 1,
+      "installOrder": 5,
+      "tags": [
+        "rocker",
+        "sill"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.6,
+            0.21,
+            0.84
+          ],
+          "size": [
+            1.7,
+            0.14,
+            0.12
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 1700 x 140 x 120 mm",
+        "features": "Closed box sill with pinch-weld flange and lift-point marks",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.floor-pan",
+      "name": "Floor pan and seat cross-members",
+      "qty": 1,
+      "description": "Stamped steel front and rear floor sections with seat cross-members, welded to the rockers and the transmission/driveshaft tunnel. In a race car the factory seat mounts are replaced by cage-mounted or floor-plated race seat mounts and the fuel cell area at the rear floor may be modified.",
+      "location": "Cockpit floor, x approx 0.75-2.6, y approx 0.15-0.18.",
+      "connectsTo": [
+        "chassis.unibody.rocker-sills",
+        "chassis.floor-and-tunnel.tunnel",
+        "safety.seat.seat-mounts",
+        "chassis.seam-welding-and-reinforcement.cage-mount-backing-plates"
+      ],
+      "factory": {
+        "name": "GM steel floor pan with seat cross members",
+        "notes": "Contains several body plugs/drain holes (see chassis.floor-and-tunnel.body-plugs-and-grommets)."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Underside height": "approx 150-180 mm at race ride height"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Mark and remove unused factory brackets (carpet studs, console brackets) only after the cage and seat layout is final."
+      ],
+      "inspection": [
+        "Check floor around seat-mount plates and cage feet for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 6,
+      "tags": [
+        "floor"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.65,
+            0.17,
+            0
+          ],
+          "size": [
+            1.8,
+            0.02,
+            1.48
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 1800 x 1480 mm",
+        "features": "Floor halves either side of the tunnel with stamped beads and seat cross-members",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.pillars-and-roof-structure",
+      "name": "A/B/C pillars, roof rails and roof bows",
+      "qty": 1,
+      "description": "Upper body ring that closes the torsion box. Cage tubes run close to the A-pillars, B-pillars and roof rails and are typically welded to them via plates (where class rules allow) to dramatically increase torsional stiffness.",
+      "location": "A-pillar base x approx 0.70, B-pillar x approx 2.15, roof y approx 1.36, x approx 1.2-2.6.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.a-pillar-bars",
+        "chassis.unibody.rocker-sills"
+      ],
+      "factory": {
+        "name": "GM high-strength steel pillars and roof rails",
+        "notes": "Coupe roof; convertible lacks this ring and is unsuitable for racing."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Remove headliner, pillar trims and curtain airbags (disable the SRS system first) before cage fitting."
+      ],
+      "inspection": [
+        "Inspect cage-to-pillar welds and plates."
+      ],
+      "buildPhase": 1,
+      "installOrder": 7,
+      "tags": [
+        "pillars",
+        "roof"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.7,
+              0.9,
+              0.72
+            ],
+            [
+              1.25,
+              1.3,
+              0.62
+            ],
+            [
+              2.4,
+              1.28,
+              0.62
+            ],
+            [
+              3.2,
+              1,
+              0.66
+            ]
+          ],
+          "radius": 0.035,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.7,
+              0.9,
+              -0.72
+            ],
+            [
+              1.25,
+              1.3,
+              -0.62
+            ],
+            [
+              2.4,
+              1.28,
+              -0.62
+            ],
+            [
+              3.2,
+              1,
+              -0.66
+            ]
+          ],
+          "radius": 0.035,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.15,
+            0.75,
+            0.62
+          ],
+          "size": [
+            0.1,
+            1.1,
+            0.06
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 70 x 50 mm sections",
+        "features": "A/B/C pillars and roof rails",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.rear-rails",
+      "name": "Rear frame rails and rear cradle mounting structure",
+      "qty": 2,
+      "description": "Longitudinal rails from the rear floor kick-up back to the rear panel. The rear cradle (rear suspension bracket) bolts into these rails at four points with torque-to-yield bolts, and the factory front and rear cradle braces bolt to the rail/floor.",
+      "location": "Under rear seat and trunk, x approx 2.3-3.8, y approx 0.35-0.50, z approx +/-0.50.",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle-bushings",
+        "suspension.rear-cradle.front-cradle-braces",
+        "suspension.rear-cradle.rear-cradle-brace",
+        "chassis.unibody.trunk-floor",
+        "chassis.mounting-points.rear-tow-point"
+      ],
+      "factory": {
+        "name": "GM steel rear rails with captured nuts for rear cradle and braces",
+        "notes": "Rear cradle bolts thread up into the body; the rear bolts are a bolt/stud that also carries the rear cradle brace."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Rear cradle attachment": "4 main TAY bolts, 74 lb ft (100 N·m) + 90-105 deg"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Chase captured nuts for rear cradle and braces before installing the cradle; replace any spun nut by welding in a new captured nut plate."
+      ],
+      "inspection": [
+        "Check rear rail kick-ups for cracking (high torque launches/curbing)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 8,
+      "tags": [
+        "rear-rail",
+        "rear-structure"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK061 rear cradle bushing instructions (GM TAY bolt data)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.1,
+              0.24,
+              0.48
+            ],
+            [
+              2.3,
+              0.44,
+              0.49
+            ],
+            [
+              3,
+              0.46,
+              0.5
+            ],
+            [
+              3.8,
+              0.47,
+              0.5
+            ]
+          ],
+          "radius": 0.05,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          },
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 100 x 70 mm box section",
+        "features": "Rear rails kicking up over the rear cradle, carrying the cradle bushings and spring seats",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.rear-shock-towers",
+      "name": "Rear shock towers / shock mounting pads",
+      "qty": 2,
+      "description": "Reinforced body pockets that receive the rear shock upper mounts (three nuts per side on Gen 6). On ZL1 1LE the DSSV rear dampers are hard mounted. Rear coilover conversions put spring load into this area as well, so it must be reinforced for a race car.",
+      "location": "Inside rear wheelhouse/trunk sides, top at x approx 2.75, y approx 0.70, z approx +/-0.58.",
+      "connectsTo": [
+        "suspension.rear-dampers-springs.upper-shock-mount",
+        "chassis.strut-tower-and-chassis-braces.rear-shock-tower-brace",
+        "safety.roll-cage.rear-down-bars"
+      ],
+      "factory": {
+        "name": "GM stamped steel rear shock mounting pads",
+        "notes": "Factory design carries only damper loads (rear springs sit on the lower control arm and the body spring seat)."
+      },
+      "raceOptions": [
+        {
+          "name": "Rear coilover conversion reinforcement",
+          "brand": "Fabricator built",
+          "notes": "If converting to rear coilovers (e.g. with BMR LCA361/LCA362 lower arms), add a doubler plate and tie the tower to the cage rear down tubes; the stock pad was not designed for full spring load."
+        }
+      ],
+      "specs": {
+        "Upper shock mount fasteners": "3 nuts per side, 43 N·m (32 lb ft)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Weld a doubler/spreader to the shock pad and tie into cage rear down tubes before running coilovers."
+      ],
+      "inspection": [
+        "Check for cracking around the three mount studs."
+      ],
+      "buildPhase": 1,
+      "installOrder": 9,
+      "tags": [
+        "rear-shock-tower"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 Sport Suspension installation instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.93,
+            0.715,
+            0.57
+          ],
+          "size": [
+            0.18,
+            0.09,
+            0.18
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 180 mm",
+        "features": "Pressed rear shock mounting pad with 3 holes",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.trunk-floor",
+      "name": "Trunk floor / rear floor pan",
+      "qty": 1,
+      "description": "Rear floor pan aft of the rear cradle including the spare-tire area. In road-race builds this is typically cut and replaced with a flat panel or a fuel-cell well/mounting frame, and it carries the fuel cell, battery box or ballast mounts.",
+      "location": "x approx 3.0-3.7, y approx 0.40.",
+      "connectsTo": [
+        "engine-support.fuel-cell.cell-mounting-frame",
+        "chassis.unibody.rear-rails",
+        "electrical.battery-and-cutoff.battery-box"
+      ],
+      "factory": {
+        "name": "GM stamped steel trunk floor",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fuel cell well / flat floor panel",
+          "brand": "Fabricator built",
+          "notes": "Follow class rules for firewall between fuel cell and cockpit (NASA/SCCA require a sealed bulkhead)."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Finalize fuel cell, battery and ballast locations before cutting; keep rear rails intact."
+      ],
+      "inspection": [
+        "Inspect cell mounting straps and floor welds."
+      ],
+      "buildPhase": 1,
+      "installOrder": 10,
+      "tags": [
+        "trunk",
+        "rear-floor"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.35,
+            0.4,
+            0
+          ],
+          "size": [
+            0.75,
+            0.02,
+            1.2
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 750 x 1200 mm",
+        "features": "Stamped trunk floor with beads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.unibody.datum-holes",
+      "name": "Body datum / locating holes (measurement reference)",
+      "qty": 1,
+      "description": "Factory gauge holes and cradle locating holes used by the body shop and assembly plant to locate the cradles and to measure the body. They are the reference for setting up a jig, measuring after welding, and re-installing cradles in the exact factory position (important because front caster and rear toe/camber depend on cradle position).",
+      "location": "Underside: front rails near cradle mounts, rocker pinch welds, rear rails near rear cradle mounts.",
+      "connectsTo": [
+        "suspension.front-cradle.cradle-mounts",
+        "suspension.rear-cradle.cradle-bushings"
+      ],
+      "factory": {
+        "name": "GM body dimension reference holes",
+        "notes": "Obtain body dimension (underbody) charts from GM service information (Body Repair - Underbody Dimensions)."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Never weld over or enlarge datum holes; mask them during undercoating removal and painting."
+      ],
+      "inspection": [
+        "Use them for post-crash measurement."
+      ],
+      "buildPhase": 1,
+      "installOrder": 11,
+      "tags": [
+        "measurement",
+        "datum"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.3,
+            0.3,
+            0.42
+          ],
+          "size": [
+            0.03,
+            0.01,
+            0.03
+          ],
+          "instances": [
+            [
+              0.3,
+              0.3,
+              0.42
+            ],
+            [
+              0.3,
+              0.3,
+              -0.42
+            ],
+            [
+              2.45,
+              0.38,
+              0.5
+            ],
+            [
+              2.45,
+              0.38,
+              -0.5
+            ]
+          ],
+          "color": "#ffcc00"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 20-30 mm holes",
+        "features": "Body datum holes (marked)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

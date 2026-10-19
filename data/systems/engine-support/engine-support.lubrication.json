@@ -1,0 +1,2966 @@
+{
+  "id": "engine-support.lubrication",
+  "system": "engine-support",
+  "name": "Lubrication (dry-sump oiling)",
+  "description": "Converts the ZL1 LT4 (factory wet sump, ~10 qt) to a multi-stage dry-sump system: billet pan, belt-driven external pump, remote de-aerating tank, remote filter, thermostatically controlled oil cooler and -12/-16 AN plumbing.",
+  "components": [
+    {
+      "id": "engine-support.lubrication.factory-wet-sump-pan",
+      "name": "Factory LT4 wet-sump oil pan (ZL1 baseline, replaced by dry sump)",
+      "qty": 1,
+      "description": "IMPORTANT: the 6th-gen Camaro ZL1 LT4 left the factory with a WET-sump oiling system (only the C7 Corvette Z06/Z51 LT engines got the factory dry sump). The ZL1 cast-aluminum pan holds ~10 qt and uses the internal variable-displacement vane pump. Listed here as the baseline and as the fallback configuration if the race engine stays wet-sump (add a baffle/trap-door kit and an Accusump in that case).",
+      "location": "Bottom of the engine block, between the front subframe rails; filter pad at the front passenger-side corner of the pan.",
+      "connectsTo": [
+        "engine.block.block",
+        "engine.oil-pump.pump",
+        "engine-support.lubrication.oil-filter"
+      ],
+      "factory": {
+        "name": "GM LT4 (ZL1) structural cast-aluminum wet-sump oil pan",
+        "notes": "Shared basic design with Camaro SS LT1. GM TechLink lists Camaro 6.2L V8 (LT1, LT4) oil capacity 9.5 L / 10.0 qt, 0W-40 dexos-licensed oil (2019–2020). Hot Rod and Motor1 both confirm the Camaro ZL1 LT4 is wet sump."
+      },
+      "raceOptions": [
+        {
+          "name": "Gen 6 Camaro SS / ZL1 racing oil-pan baffle (drop-in trap-door)",
+          "brand": "Improved Racing",
+          "notes": "Vendor states the ZL1 pan has ~10 qt but lacks road-race baffling; drop-in baffle for 2017-2024 ZL1. Use only if staying wet-sump.",
+          "url": "https://www.improvedracing.com/gen-6-camaro-ss-gen-3-cts-v-racing-oil-pan-baffle.html"
+        },
+        {
+          "name": "Convert to dry sump (this subsystem)",
+          "brand": "Dailey / ARE / Aviaid / Fluidworks / Peterson",
+          "notes": "Recommended for sustained >1.3 g road racing on R-compound or slicks."
+        }
+      ],
+      "specs": {
+        "Oil capacity (with filter)": "9.5 L / 10.0 qt (GM TechLink, Camaro LT1/LT4)",
+        "Viscosity (GM)": "0W-40 dexos R (2019-2020 TechLink)",
+        "Type": "Wet sump, internal crank-driven variable-displacement vane pump"
+      },
+      "hardware": [
+        {
+          "item": "Oil pan to block bolts",
+          "qty": 18,
+          "spec": "M8 flange bolt (count varies by pan; verify)",
+          "grade": "GM OE",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Summit Gen V LT4 sheet: pan-to-block 18 ft-lb. Bolt count is an estimate. Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Oil pan to front cover bolts",
+          "qty": 2,
+          "spec": "M6/M8 flange bolt",
+          "grade": "GM OE",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Oil pan to rear cover bolts",
+          "qty": 2,
+          "spec": "M6 flange bolt",
+          "grade": "GM OE",
+          "torque": "106 in-lb (12 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Oil drain plug",
+          "qty": 1,
+          "spec": "M12 x 1.75 drain plug with seal washer",
+          "grade": "GM OE",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace seal washer each oil change",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Oil pickup tube bolts",
+          "qty": 2,
+          "spec": "M6 flange bolt",
+          "grade": "GM OE",
+          "torque": "88 in-lb (9.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Replace pickup O-ring whenever removed. Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Engine oil",
+          "spec": "GM dexos R 0W-40 (factory); race: 5W-40/10W-40/15W-50 full-synthetic race oil per engine builder",
+          "capacity": "9.5 L / 10.0 qt with filter (wet sump)"
+        }
+      ],
+      "installNotes": [
+        "Only relevant for a wet-sump build. For dry-sump, remove pan, pickup and internal pump per engine team and install the dry-sump pan (below).",
+        "Use new pan gasket/RTV per GM and torque pan-to-block bolts to 18 ft-lb."
+      ],
+      "inspection": [
+        "Check drain plug and pan rail for leaks",
+        "Cut the oil filter open after each event and look for bearing material"
+      ],
+      "buildPhase": 5,
+      "installOrder": 1,
+      "tags": [
+        "factory",
+        "wet-sump",
+        "zl1",
+        "baseline"
+      ],
+      "sources": [
+        {
+          "title": "GM TechLink 2019-2020 engine oil capacities",
+          "url": "https://gm-techlink.com/wp-content/uploads/2024/11/TechLink-engine-oil-capacities-2019-2020_C.pdf"
+        },
+        {
+          "title": "Motor1: last Camaro LT4 built (ZL1 wet sump)",
+          "url": "https://www.motor1.com/news/697289/last-camaro-lt4-engine-built/"
+        },
+        {
+          "title": "Hot Rod ZL1 LT4 wet sump",
+          "url": "https://www.magzter.com/articles/5690/210624/58af572c12303"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.08,
+            0.245,
+            0
+          ],
+          "size": [
+            0.6,
+            0.15,
+            0.32
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Improved Racing Gen 6 Camaro SS / CTS-V oil pan baffle (shows LT wet-sump pan)",
+            "url": "https://www.improvedracing.com/gen-6-camaro-ss-gen-3-cts-v-racing-oil-pan-baffle.html"
+          }
+        ],
+        "dimensions": "~600 x 320 mm footprint, ~150 mm deep",
+        "features": "Structural cast-aluminium pan with deep rear sump, front filter boss",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.dry-sump-pan",
+      "name": "Dry-sump oil pan (billet, Gen V LT)",
+      "qty": 1,
+      "description": "Shallow billet-aluminum pan that replaces the wet sump. Scavenge pickups (one per section / crank bay pair) pull oil out of the crankcase as fast as it drains so the crank never windages through oil, and the shallow depth allows a lower engine position. Includes a pressure-oil inlet that feeds filtered, cooled oil into the block main gallery.",
+      "location": "Bolted to the bottom of the LT block and front/rear covers; lowest point of the engine.",
+      "connectsTo": [
+        "engine.block.block",
+        "engine-support.lubrication.dry-sump-pump",
+        "engine-support.lubrication.scavenge-lines",
+        "engine-support.lubrication.engine-inlet-line"
+      ],
+      "factory": {
+        "name": "None on Camaro (ZL1 is wet sump). GM C7 Corvette Z06 LT4 factory dry-sump pan exists; Chevrolet Performance 25534412 hose adapters bolt to the factory LT1/LT4 dry-sump pan to accept -12 AN.",
+        "partNumber": "",
+        "notes": "Factory Corvette LT dry-sump uses an internal 2-stage pump; insufficient scavenge for a road-race Camaro without upgrades (Katech high-capacity scavenge pump available)."
+      },
+      "raceOptions": [
+        {
+          "name": "Fluidworks Gen V LT 5-stage billet dry-sump pan/pump combo",
+          "brand": "Fluidworks / Motion Raceworks",
+          "partNumber": "5-511-1",
+          "notes": "4 x 1.380\" spur-gear scavenge + 1 pressure; captured O-ring pan rail; integrated pickups (no external scavenge hoses); clears 4.125\" stroke. 16AN pressure inlet, 12AN pressure outlet, 16AN scavenge return.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "name": "Fluidworks Gen V LT 6-stage pan/pump combo",
+          "brand": "Fluidworks / Motion Raceworks",
+          "partNumber": "5-611",
+          "notes": "Extra scavenge stage for higher-rpm/high-blow-by engines.",
+          "url": "https://motionraceworks.com/en-ca/products/fluidworks-lt-kit-6-stage-racing-dry-sump-pan-and-pump-5-611"
+        },
+        {
+          "name": "Dailey Engineering custom billet pan + roots-style pump",
+          "brand": "Dailey Engineering",
+          "notes": "Made-to-order, 6061-T6 billet pan with O-ring sealing; typically one scavenge stage per pair of cylinders.",
+          "url": "https://www.enginelabs.com/?p=112873"
+        },
+        {
+          "name": "Aviaid LT block-hugging dry-sump pan (LH or RH pump)",
+          "brand": "Aviaid",
+          "url": "https://www.enginelabs.com/news/discussing-aviaids-dry-sump-oiling-solutions-for-ls-engines"
+        },
+        {
+          "name": "Chevrolet Performance 25534412 dry-sump hose adapters on factory Corvette LT dry-sump pan",
+          "brand": "Chevrolet Performance",
+          "partNumber": "25534412",
+          "notes": "Bolts to factory LT1/LT4/LS7/LS9 dry-sump pan; AN-12 male outlet; kit = 1 adapter, 2 fittings, 2 bolts, 2 gaskets.",
+          "url": "https://sdparts.com/i-19866934-chevrolet-performance-25534412-dry-sump-oil-hose-adapters.html"
+        }
+      ],
+      "specs": {
+        "Material": "6061-T6 billet aluminum",
+        "Sealing": "Captured O-ring pan rail (Fluidworks/Dailey)",
+        "Typical depth": "~3.5-4 in (shallow)",
+        "Scavenge sections": "4-5 (one per crank-bay pair + front/timing)"
+      },
+      "hardware": [
+        {
+          "item": "Pan-to-block bolts",
+          "qty": 18,
+          "spec": "M8 x 1.25 socket-head or flange bolts (supplied with pan)",
+          "grade": "10.9 / 12.9",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "Center outward in a spiral, two passes",
+          "threadlocker": "none — lightly oil threads",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "GM value for pan-to-block is 18 ft-lb; follow pan maker if different — O-ring pans bottom metal-to-metal.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Pan-to-front cover bolts",
+          "qty": 2,
+          "spec": "M6/M8 bolt",
+          "grade": "10.9",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Pan-to-rear cover bolts",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "10.9",
+          "torque": "106 in-lb (12 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Scavenge section drain plugs",
+          "qty": 4,
+          "spec": "-4 or -6 ORB plug with O-ring",
+          "grade": "Aluminum",
+          "torque": "10–14 ft-lb (14–19 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "notes": "Fluidworks pan has scavenge-section drains for draining without removing pan.",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "item": "Pan rail O-ring",
+          "qty": 1,
+          "spec": "Captured Viton O-ring cord (supplied)",
+          "grade": "FKM",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "installNotes": [
+        "Engine on stand, inverted: verify rod/crank clearance to scavenge pickups (>=0.125 in) with clay before final install.",
+        "Install new O-rings, lightly oil, set pan, run all bolts finger-tight, then torque center-out.",
+        "Install scavenge drain plugs and pressure-inlet fitting before engine goes in the car.",
+        "Confirm pan-to-crossmember and pan-to-ground clearance with engine at final mount height (aim >= 3.5 in to ground at race ride height)."
+      ],
+      "inspection": [
+        "Look for weeping at pan rail and drain plugs",
+        "Check pan for rock/curb strikes",
+        "At teardown, check scavenge screens for debris"
+      ],
+      "buildPhase": 5,
+      "installOrder": 2,
+      "tags": [
+        "dry-sump",
+        "billet",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks 5-stage Gen V LT kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "title": "Dailey Engineering systems (EngineLabs)",
+          "url": "https://www.enginelabs.com/?p=112873"
+        },
+        {
+          "title": "CP 25534412 dry sump adapters",
+          "url": "https://sdparts.com/i-19866934-chevrolet-performance-25534412-dry-sump-oil-hose-adapters.html"
+        },
+        {
+          "title": "Summit Gen V LT4 torque specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.08,
+            0.272,
+            0
+          ],
+          "size": [
+            0.6,
+            0.095,
+            0.3
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "~600 x 300 mm, ~3.5-4 in (90-100 mm) deep",
+        "features": "Billet 6061 pan, captured O-ring rail, integrated scavenge sections, drain bosses, cooling fins",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.dry-sump-pump",
+      "name": "Multi-stage dry-sump oil pump",
+      "qty": 1,
+      "description": "External belt-driven pump with several scavenge stages (pull oil/air from the pan sections) and one pressure stage (feeds the engine from the tank). Built-in adjustable pressure regulator/bypass sets running pressure. Scavenge capacity must exceed pressure-stage capacity ~2-3:1 because it moves aerated oil.",
+      "location": "Bolted low on the passenger side of the block via a bracket, pulley aligned with the crank mandrel at the front of the engine.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pan",
+        "engine-support.lubrication.pump-bracket",
+        "engine-support.lubrication.pump-pulley",
+        "engine-support.lubrication.tank-feed-line",
+        "engine-support.lubrication.scavenge-return-line",
+        "engine-support.lubrication.pressure-line",
+        "engine-support.lubrication.scavenge-lines"
+      ],
+      "factory": {
+        "name": "N/A (ZL1 uses internal wet-sump vane pump; C7 Z06 factory dry-sump uses internal 2-stage pump)",
+        "notes": "Katech KAT-A7092 high-capacity scavenge pump upgrades factory Corvette LT dry-sump engines."
+      },
+      "raceOptions": [
+        {
+          "name": "Fluidworks 5-stage pump (4 scavenge + 1 pressure, 1.380 in spur gears)",
+          "brand": "Fluidworks",
+          "partNumber": "5-511-1 (kit)",
+          "notes": "Built-in adjustable regulator/bypass; 5/8 in shaft with 3/16 in key; serviceable scavenge screens; optional rear 3/8 hex drive.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "name": "Dailey roots-style pump (Small/Big pump)",
+          "brand": "Dailey Engineering",
+          "notes": "Roots rotors move more air-entrained oil; typically one scavenge stage per cylinder pair; can integrate vacuum.",
+          "url": "https://www.enginelabs.com/?p=112873"
+        },
+        {
+          "name": "Peterson R4/R5 series pump",
+          "brand": "Peterson Fluid Systems",
+          "notes": "Gerotor, stackable stages."
+        },
+        {
+          "name": "Katech Gen V LT1/LT4/LT5 high-capacity scavenge dry-sump pump",
+          "brand": "Katech",
+          "partNumber": "KAT-A7092",
+          "notes": "For factory (Corvette-style) internal dry-sump arrangement.",
+          "url": "https://katechengines.com/i-30497859-katech-gen-v-lt1-lt4-lt5-high-capacity-scavenge-dry-sump-oil-pump.html"
+        }
+      ],
+      "specs": {
+        "Stages": "4-6 (e.g., 4 scavenge + 1 pressure)",
+        "Drive ratio": "~0.5:1 pump:crank typical (18T mandrel to 36T pump pulley, inferred from Fluidworks kit)",
+        "Target hot oil pressure": "~10 psi per 1000 rpm, 60-75 psi at peak rpm (typical; set per engine builder)",
+        "Ports": "-16 pressure inlet, -12 pressure out, -16 scavenge out (Fluidworks)"
+      },
+      "hardware": [
+        {
+          "item": "Pump-to-bracket bolts",
+          "qty": 4,
+          "spec": "5/16-18 or 3/8-16 socket-head cap screw (per pump maker)",
+          "grade": "Grade 8 / 12.9",
+          "torque": "18–25 ft-lb (24–34 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": true,
+          "reuse": "Reusable",
+          "notes": "Safety-wire pairs on road-race cars.",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "item": "Pump pulley retaining nut/bolt + key",
+          "qty": 1,
+          "spec": "5/8 in shaft, 3/16 in key, jam nut or set screws",
+          "grade": "Steel",
+          "torque": "25–35 ft-lb (34–47 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) on set screws",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "item": "Pressure regulator adjuster lock nut",
+          "qty": 1,
+          "spec": "Built-in bypass adjuster",
+          "grade": "Aluminum/steel",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Set pressure hot on the dyno; lock and witness-mark.",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "item": "Pressure-stage inlet fitting (-16)",
+          "qty": 1,
+          "spec": "-16 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "45–55 ft-lb (61–75 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Pressure-stage outlet fitting (-12)",
+          "qty": 1,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Scavenge outlet fitting (-16)",
+          "qty": 1,
+          "spec": "-16 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "45–55 ft-lb (61–75 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Pre-assemble pump, bracket and fittings on the engine stand; clock fittings to point at their hoses.",
+        "Align pump pulley to crank mandrel pulley with a straightedge (<0.5 mm offset).",
+        "Prime: fill tank, disable ignition/fuel, crank or use a priming drill until oil pressure registers before first fire.",
+        "Set pressure regulator per engine builder (hot idle typically 25-35 psi)."
+      ],
+      "inspection": [
+        "Check belt tension/condition and pulley alignment",
+        "Check pump body for leaks at section seams",
+        "Clean scavenge screens every few events",
+        "Log oil pressure vs rpm and compare event to event"
+      ],
+      "buildPhase": 5,
+      "installOrder": 3,
+      "tags": [
+        "dry-sump",
+        "pump",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks 5-stage kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "title": "Dailey (EngineLabs)",
+          "url": "https://www.enginelabs.com/?p=112873"
+        },
+        {
+          "title": "Katech LT high-capacity scavenge pump",
+          "url": "https://katechengines.com/i-30497859-katech-gen-v-lt1-lt4-lt5-high-capacity-scavenge-dry-sump-oil-pump.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.235,
+            0.36,
+            -0.25
+          ],
+          "size": [
+            0.3,
+            0.1,
+            0.1
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          },
+          {
+            "title": "Motion Raceworks 5-00080 Fluidworks Gen V LT passenger-side pump bracket",
+            "url": "https://sdparts.com/i-24532316-motion-raceworks-5-00080-fluidworks-gen-v-lt-wet-sump-dry-sump-passenger-side-mounting-bracket.html"
+          }
+        ],
+        "dimensions": "~300 mm long, ~100 mm section; 4 x 1.380 in scavenge + 1 x 1.380 in pressure",
+        "features": "Spur-gear stacked sections, 5/8 in keyed shaft, 16AN inlet, 12AN pressure out, 16AN scavenge out, built-in bypass",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.pump-bracket",
+      "name": "Dry-sump pump mounting bracket",
+      "qty": 1,
+      "description": "Billet bracket that bolts to the block/front cover bosses and holds the pump at the correct belt center distance and alignment. Must be rigid—any flex lets the belt jump teeth.",
+      "location": "Passenger-side lower front of block.",
+      "connectsTo": [
+        "engine.block.block",
+        "engine-support.lubrication.dry-sump-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "Pan/pump maker bracket (Dailey/ARE/Aviaid/Fluidworks)",
+          "brand": "Various",
+          "notes": "Fluidworks integrates the pump into the pan so a separate bracket may not be needed.",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Material": "6061-T6 billet aluminum"
+      },
+      "hardware": [
+        {
+          "item": "Bracket-to-block bolts",
+          "qty": 3,
+          "spec": "M10 x 1.5 bolt into block boss (verify length/engagement >= 1.5 x dia)",
+          "grade": "10.9",
+          "torque": "37–44 ft-lb (50–60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Value is typical for M10 10.9 into cast aluminum; use bracket maker value if given.",
+          "confidence": "estimate",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Bracket-to-front cover bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 bolt",
+          "grade": "10.9",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Install before engine goes in the car; check bracket clears steering shaft, header primaries and subframe."
+      ],
+      "inspection": [
+        "Check bolts with torque stripe for movement"
+      ],
+      "buildPhase": 5,
+      "installOrder": 4,
+      "tags": [
+        "dry-sump",
+        "bracket"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.36,
+            0.38,
+            -0.19
+          ],
+          "size": [
+            0.015,
+            0.14,
+            0.16
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Motion Raceworks 5-00080 Fluidworks Gen V LT passenger-side pump bracket",
+            "url": "https://sdparts.com/i-24532316-motion-raceworks-5-00080-fluidworks-gen-v-lt-wet-sump-dry-sump-passenger-side-mounting-bracket.html"
+          },
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "~160 x 140 x 15 mm billet plate",
+        "features": "6061 billet bracket with lightening pockets bolted to block/front cover",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.drive-mandrel",
+      "name": "Crank drive mandrel (balancer hub adapter)",
+      "qty": 1,
+      "description": "Bolts to the front of the aftermarket harmonic damper and carries the toothed drive pulley for the dry-sump belt. Many kits use a 3-bolt mandrel matched to ATI or Innovators West dampers.",
+      "location": "Front of crankshaft damper, engine centerline.",
+      "connectsTo": [
+        "engine.front-accessory.harmonic-balancer",
+        "engine-support.lubrication.crank-drive-pulley"
+      ],
+      "raceOptions": [
+        {
+          "name": "Motion Raceworks 3-bolt 18T mandrel",
+          "brand": "Motion Raceworks",
+          "notes": "Bolts to most ATI and Innovators West balancers (included in Fluidworks 5-511-1 kit).",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Interface": "3-bolt to damper face"
+      },
+      "hardware": [
+        {
+          "item": "Mandrel-to-damper bolts",
+          "qty": 3,
+          "spec": "3/8-24 or M10 SHCS (per damper)",
+          "grade": "Grade 8 / 12.9",
+          "torque": "30–35 ft-lb (41–47 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Red (Loctite 271)",
+          "safetyWire": true,
+          "reuse": "Inspect",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "installNotes": [
+        "Damper bolt is TTY per GM (balancer procedure is engine team); install mandrel after damper is final-torqued.",
+        "Check mandrel runout with dial indicator (<0.003 in)."
+      ],
+      "inspection": [
+        "Check bolts for looseness, look for fretting at damper face"
+      ],
+      "buildPhase": 5,
+      "installOrder": 5,
+      "tags": [
+        "dry-sump",
+        "drive"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks/Motion kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.385,
+            0.4,
+            0
+          ],
+          "size": [
+            0.04,
+            0.07,
+            0.07
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "3-bolt, ~70 mm flange, 18T drive",
+        "features": "Billet mandrel bolted to balancer face",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.crank-drive-pulley",
+      "name": "Crank HTD drive pulley (18-tooth typical)",
+      "qty": 1,
+      "description": "Small toothed pulley on the mandrel that drives the pump belt. Tooth ratio with the pump pulley sets pump speed (typically ~50% of crank).",
+      "location": "On the mandrel at the front of the engine.",
+      "connectsTo": [
+        "engine-support.lubrication.drive-mandrel",
+        "engine-support.lubrication.drive-belt"
+      ],
+      "raceOptions": [
+        {
+          "name": "18T HTD pulley (Motion/Fluidworks)",
+          "brand": "Motion Raceworks",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Belt profile": "HTD 8 mm or 3/8 pitch Gilmer (per kit)"
+      },
+      "hardware": [
+        {
+          "item": "Pulley retaining bolts",
+          "qty": 3,
+          "spec": "Shared with mandrel bolts or separate 1/4-28",
+          "grade": "Grade 8",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "installNotes": [
+        "Verify belt flange/guide washers are on the pulley that needs them."
+      ],
+      "inspection": [
+        "Check teeth for wear and debris"
+      ],
+      "buildPhase": 5,
+      "installOrder": 6,
+      "tags": [
+        "dry-sump",
+        "drive"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks/Motion kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            -0.415,
+            0.4,
+            0
+          ],
+          "size": [
+            0.03,
+            0.055,
+            0.055
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "18T HTD 8M: 45.8 mm PD, ~55 mm flange",
+        "features": "Toothed aluminium pulley with flanges",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.pump-pulley",
+      "name": "Pump HTD pulley (36-tooth typical)",
+      "qty": 1,
+      "description": "Toothed pulley keyed to the pump shaft.",
+      "location": "Front of the dry-sump pump, in line with the crank pulley.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pump",
+        "engine-support.lubrication.drive-belt"
+      ],
+      "raceOptions": [
+        {
+          "name": "36T HTD pump pulley",
+          "brand": "Fluidworks",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Bore": "5/8 in with 3/16 in keyway (Fluidworks)"
+      },
+      "hardware": [
+        {
+          "item": "Pulley set screws / shaft nut",
+          "qty": 2,
+          "spec": "1/4-28 set screws or shaft nut",
+          "grade": "Alloy steel",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "installNotes": [
+        "Align with straightedge to crank pulley before tightening."
+      ],
+      "inspection": [
+        "Check key/keyway for wallowing"
+      ],
+      "buildPhase": 5,
+      "installOrder": 7,
+      "tags": [
+        "dry-sump",
+        "drive"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            -0.415,
+            0.36,
+            -0.25
+          ],
+          "size": [
+            0.03,
+            0.1,
+            0.1
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "36T HTD 8M: 91.7 mm PD, ~100 mm flange, 5/8 in keyed bore",
+        "features": "Toothed aluminium pulley with one flange",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.drive-belt",
+      "name": "Dry-sump drive belt (HTD)",
+      "qty": 1,
+      "description": "Toothed (HTD/Gilmer) belt from the crank mandrel pulley to the pump pulley. Positive drive—no slip—so a failed belt means instant loss of oil pressure; carry spares.",
+      "location": "Front of the engine, passenger side lower.",
+      "connectsTo": [
+        "engine-support.lubrication.crank-drive-pulley",
+        "engine-support.lubrication.pump-pulley"
+      ],
+      "raceOptions": [
+        {
+          "name": "Kit HTD belt (length per center distance)",
+          "brand": "Fluidworks/Dailey/Peterson",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Tension": "Light—about 1/4-1/2 in deflection mid-span; HTD belts should not be drum-tight (typical guidance)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Install belt with pump bolts loose, set deflection, torque pump/bracket bolts.",
+        "Fit a belt guard to keep debris out."
+      ],
+      "inspection": [
+        "Replace at any sign of cracking, missing teeth or fraying; replace on a time schedule (e.g., each season)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "dry-sump",
+        "belt",
+        "wear-item"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.415,
+              0.425,
+              -0.002
+            ],
+            [
+              -0.415,
+              0.422,
+              0.012
+            ],
+            [
+              -0.415,
+              0.411,
+              0.022
+            ],
+            [
+              -0.415,
+              0.397,
+              0.025
+            ],
+            [
+              -0.415,
+              0.383,
+              0.019
+            ],
+            [
+              -0.415,
+              0.376,
+              0.006
+            ],
+            [
+              -0.415,
+              0.314,
+              -0.238
+            ],
+            [
+              -0.415,
+              0.313,
+              -0.261
+            ],
+            [
+              -0.415,
+              0.323,
+              -0.281
+            ],
+            [
+              -0.415,
+              0.342,
+              -0.294
+            ],
+            [
+              -0.415,
+              0.364,
+              -0.298
+            ],
+            [
+              -0.415,
+              0.385,
+              -0.291
+            ],
+            [
+              -0.415,
+              0.401,
+              -0.275
+            ],
+            [
+              -0.415,
+              0.408,
+              -0.253
+            ],
+            [
+              -0.415,
+              0.425,
+              -0.002
+            ]
+          ],
+          "radius": 0.008
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "HTD 8M, ~20 mm wide",
+        "features": "Black toothed belt crank 18T -> pump 36T (2:1)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.belt-guard",
+      "name": "Dry-sump belt guard",
+      "qty": 1,
+      "description": "Thin aluminum or carbon guard that keeps stones, cable ties and debris off the dry-sump belt and protects hands during warm-ups.",
+      "location": "In front of the dry-sump belt drive.",
+      "connectsTo": [
+        "engine-support.lubrication.drive-belt",
+        "engine-support.lubrication.pump-bracket"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fabricated 0.063 in aluminum guard",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Guard mounting screws",
+          "qty": 3,
+          "spec": "M6 or 1/4-20 button-head with nyloc",
+          "grade": "8.8 / Grade 5",
+          "torque": "70–90 in-lb (7.9–10.2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Allow 6 mm clearance to belt in all directions."
+      ],
+      "inspection": [
+        "Check for rubbing marks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 9,
+      "tags": [
+        "dry-sump",
+        "guard"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.445,
+            0.38,
+            -0.125
+          ],
+          "size": [
+            0.01,
+            0.16,
+            0.34
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "~300 x 220 mm, 0.063 in aluminium",
+        "features": "Formed aluminium guard on stand-offs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.scavenge-lines",
+      "name": "Scavenge hoses, pan sections to pump (-12 AN)",
+      "qty": 4,
+      "description": "Short hoses that connect each pan scavenge section to its pump scavenge stage (not needed with integrated pan/pump designs like Fluidworks). Use hose rated for suction (PTFE with stainless braid or push-lock suction-rated hose) so it cannot collapse.",
+      "location": "Passenger side of the oil pan, between pan ports and pump.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pan",
+        "engine-support.lubrication.dry-sump-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "XRP / Earl's / Fragola -12 PTFE stainless-braided hose with swivel ends",
+          "brand": "XRP / Earl's / Fragola"
+        }
+      ],
+      "specs": {
+        "Size": "-12 AN typical per stage",
+        "Hose": "PTFE-lined stainless braid (non-collapsing)"
+      },
+      "hardware": [
+        {
+          "item": "Scavenge hose ends (both ends)",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Keep runs short and avoid high points that can trap air.",
+        "Route clear of header primaries; add heat sleeve where within 4 in."
+      ],
+      "inspection": [
+        "Check for chafe and heat damage near headers"
+      ],
+      "buildPhase": 7,
+      "installOrder": 10,
+      "tags": [
+        "dry-sump",
+        "AN-12",
+        "hose"
+      ],
+      "sources": [
+        {
+          "title": "AN torque guide",
+          "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.17,
+              0.25,
+              -0.15
+            ],
+            [
+              -0.17,
+              0.235,
+              -0.22
+            ],
+            [
+              -0.183,
+              0.28,
+              -0.32
+            ],
+            [
+              -0.183,
+              0.35,
+              -0.335
+            ]
+          ],
+          "radius": 0.0118
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0,
+              0.25,
+              -0.15
+            ],
+            [
+              -0.05,
+              0.235,
+              -0.22
+            ],
+            [
+              -0.2,
+              0.27,
+              -0.33
+            ],
+            [
+              -0.236,
+              0.35,
+              -0.335
+            ]
+          ],
+          "radius": 0.0118
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.17,
+              0.25,
+              -0.15
+            ],
+            [
+              0.1,
+              0.24,
+              -0.23
+            ],
+            [
+              -0.15,
+              0.27,
+              -0.34
+            ],
+            [
+              -0.288,
+              0.35,
+              -0.335
+            ]
+          ],
+          "radius": 0.0118
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.33,
+              0.25,
+              -0.15
+            ],
+            [
+              0.25,
+              0.24,
+              -0.24
+            ],
+            [
+              -0.09,
+              0.285,
+              -0.345
+            ],
+            [
+              -0.13,
+              0.35,
+              -0.335
+            ]
+          ],
+          "radius": 0.0118
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD) jumpers (Fluidworks pans route scavenge internally)",
+        "features": "PTFE stainless braided hose with swivel ends",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.scavenge-inline-screens",
+      "name": "Inline scavenge screens / filters (-12 AN)",
+      "qty": 4,
+      "description": "Coarse (~60-100 mesh) screens in each scavenge path that catch debris before it reaches the pump rotors. Many pumps have internal serviceable screens (Fluidworks); otherwise use inline -12 screens.",
+      "location": "In each scavenge hose near the pump.",
+      "connectsTo": [
+        "engine-support.lubrication.scavenge-lines",
+        "engine-support.lubrication.dry-sump-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "Pump-integrated serviceable scavenge screens",
+          "brand": "Fluidworks",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "specs": {
+        "Mesh": "~60-100 mesh (coarse) typical"
+      },
+      "hardware": [
+        {
+          "item": "Inline screen end fittings",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Install with flow arrows toward the pump."
+      ],
+      "inspection": [
+        "Pull and inspect after every race weekend—first indicator of engine damage"
+      ],
+      "buildPhase": 7,
+      "installOrder": 11,
+      "tags": [
+        "dry-sump",
+        "filter",
+        "inspection"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.1,
+            0.25,
+            -0.2
+          ],
+          "size": [
+            0.08,
+            0.035,
+            0.035
+          ],
+          "axis": "x",
+          "instances": [
+            [
+              -0.1,
+              0.25,
+              -0.2
+            ],
+            [
+              0.1,
+              0.245,
+              -0.215
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "~35 mm dia x 80 mm, -12 AN",
+        "features": "Anodised billet inline screen with hex ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-tank",
+      "name": "Dry-sump oil tank (with de-aeration baffles)",
+      "qty": 1,
+      "description": "Remote reservoir that receives scavenged oil/air, de-aerates it (tangential inlet / internal baffles / screen) and holds a tall column of oil over the bottom outlet that feeds the pressure stage. Mount it with the outlet at the bottom and a short, straight drop to the pump so the outlet stays submerged under all g-loads.",
+      "location": "Passenger-side front corner of the engine bay ahead of the right strut tower (alternative: passenger footwell behind a firewall bulkhead for better weight distribution).",
+      "connectsTo": [
+        "engine-support.lubrication.scavenge-return-line",
+        "engine-support.lubrication.tank-feed-line",
+        "engine-support.catch-cans-and-breathers.tank-vent-line",
+        "engine-support.lubrication.tank-sensors-and-dipstick"
+      ],
+      "factory": {
+        "name": "C7 Corvette Z06/Z51 LT dry-sump tank (not fitted to Camaro)",
+        "notes": "Corvette Z06 LT4 total dry-sump capacity cited as 10.5 qt."
+      },
+      "raceOptions": [
+        {
+          "name": "Peterson 2.5 gal round tank, 6 in dia x 24 in",
+          "brand": "Peterson Fluid Systems",
+          "partNumber": "PFS08-0007",
+          "notes": "10 qt; -12 AN female inlet and outlet; internal baffling de-aerates scavenge oil; rotatable top.",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        },
+        {
+          "name": "Peterson 2.5 gal dual-scavenge-inlet tank",
+          "brand": "Peterson Fluid Systems",
+          "partNumber": "PFS08-0008",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0008-dry-sump-oil-tank-2-5-gal-9-5l-dual-scavenge-inlet"
+        },
+        {
+          "name": "Dailey / ARE / Aviaid / Moroso tanks",
+          "brand": "Various",
+          "notes": "Choose a tank with a center standpipe and screen for de-aeration."
+        }
+      ],
+      "specs": {
+        "Capacity": "2.5 gal (10 qt) tank typical; system 10-12 qt with lines/cooler",
+        "Inlet": "-12/-16 AN tangential",
+        "Outlet": "-12/-16 AN bottom",
+        "Vent": "-10/-12 AN top",
+        "Fill level": "About 2/3 full running; Peterson staff cite ~70-80%"
+      },
+      "hardware": [
+        {
+          "item": "Tank inlet fitting",
+          "qty": 1,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Tank outlet fitting",
+          "qty": 1,
+          "spec": "-16 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "45–55 ft-lb (61–75 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Tank vent fitting",
+          "qty": 1,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Tank drain plug",
+          "qty": 1,
+          "spec": "-6 ORB plug or magnetic drain",
+          "grade": "Aluminum/steel",
+          "torque": "14–16 ft-lb (19–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Engine oil (race synthetic)",
+          "spec": "Per engine builder (e.g., 5W-40 / 10W-40 / 15W-50 racing synthetic)",
+          "capacity": "Tank ~2/3 full hot; total system ~11-12 qt (estimate incl. cooler and -12/-16 lines)"
+        }
+      ],
+      "installNotes": [
+        "Mount tank vertical with outlet at the bottom; keep the feed line short with no high points.",
+        "Fill tank, prime, run engine to temperature, shut off and re-check level within 1 minute (tank level rises after shutdown as pan drains — check it consistently, engine running at idle is best).",
+        "If oil blows out the breather, lower level by about 1 qt (Peterson guidance)."
+      ],
+      "inspection": [
+        "Check level hot at idle after each session",
+        "Check mounting straps and rubber isolators",
+        "Inspect tank screen at oil change"
+      ],
+      "buildPhase": 7,
+      "installOrder": 12,
+      "tags": [
+        "dry-sump",
+        "tank",
+        "race"
+      ],
+      "sources": [
+        {
+          "title": "Peterson PFS08-0007",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        },
+        {
+          "title": "Dragzine dry sump tank tips",
+          "url": "https://www.dragzine.com/?p=1087197"
+        },
+        {
+          "title": "Corvette Z06 LT4 overview",
+          "url": "https://www.corvetteactioncenter.com/specs/c7-corvette/2015-c7-corvette/2015-c7-corvette-z06-lt4-engine-overview.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.42,
+            0.53,
+            -0.53
+          ],
+          "size": [
+            0.152,
+            0.61,
+            0.152
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Peterson 08-0007 dry-sump tank 2.5 gal, 6 in dia x 24 in",
+            "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+          },
+          {
+            "title": "JJ Motorsports: Peterson 08-0007 (-12 inlet/outlet/breather; straps 08-0100 sold separately)",
+            "url": "https://jj-motorsports.com/dry-sump-tank-2-5-gal-ptr08-0007/"
+          }
+        ],
+        "dimensions": "6 in (152 mm) OD x 24 in (610 mm), 2.5 gal / 10 qt",
+        "features": "Spun aluminium tank with dished ends, tangential -12 inlet, -12 bottom outlet, -12 breather + filler cap on top",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-tank-mount",
+      "name": "Oil tank mounting bracket and straps",
+      "qty": 1,
+      "description": "Welded/bolted bracket to the frame rail or radiator support with two band clamps (rubber-lined) around the tank.",
+      "location": "Right front frame rail / radiator support.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-tank",
+        "chassis.front-structure.frame-rail-right"
+      ],
+      "raceOptions": [
+        {
+          "name": "Tank maker mounting bands (rubber-lined)",
+          "brand": "Peterson/ARE/Dailey"
+        }
+      ],
+      "specs": {
+        "Isolation": "Rubber-lined bands"
+      },
+      "hardware": [
+        {
+          "item": "Band clamp bolts",
+          "qty": 2,
+          "spec": "1/4-20 or M6 with nyloc",
+          "grade": "Grade 5 / 8.8",
+          "torque": "80–100 in-lb (9–11.3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nyloc each removal",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Bracket-to-chassis bolts / rivnuts",
+          "qty": 4,
+          "spec": "M8 x 1.25 into rivnut or welded nut",
+          "grade": "8.8",
+          "torque": "15–18 ft-lb (20–24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld bracket tabs to rail in phase 1 if possible."
+      ],
+      "inspection": [
+        "Check bands for loosening"
+      ],
+      "buildPhase": 1,
+      "installOrder": 13,
+      "tags": [
+        "dry-sump",
+        "mount"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.42,
+            0.53,
+            -0.53
+          ],
+          "size": [
+            0.17,
+            0.4,
+            0.17
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "JJ Motorsports: Peterson 08-0007 (-12 inlet/outlet/breather; straps 08-0100 sold separately)",
+            "url": "https://jj-motorsports.com/dry-sump-tank-2-5-gal-ptr08-0007/"
+          }
+        ],
+        "dimensions": "Two bands ~25 mm wide for 6 in tank, ~400 mm apart",
+        "features": "Rubber-lined aluminium bands (Peterson 08-0100) on a steel mounting plate",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.tank-feed-line",
+      "name": "Tank-to-pump feed line (pressure-stage inlet, -16 AN)",
+      "qty": 1,
+      "description": "Large suction line from tank bottom outlet to the pump pressure-stage inlet. Keep it big, short and free of restrictions so the pressure stage never cavitates.",
+      "location": "From tank bottom down and rearward to the pump.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-tank",
+        "engine-support.lubrication.dry-sump-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "-16 PTFE stainless-braided hose with full-flow swivel ends",
+          "brand": "XRP / Earl's / Fragola"
+        }
+      ],
+      "specs": {
+        "Size": "-16 AN (Fluidworks pump inlet is 16AN)",
+        "Hose": "Suction-rated, non-collapsing"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-16 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "58–70 ft-lb (79–95 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-16 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "No filters on the suction side except a coarse tank screen.",
+        "Use full-flow (forged, large-bore) hose ends."
+      ],
+      "inspection": [
+        "Check for chafe, heat soak near headers"
+      ],
+      "buildPhase": 7,
+      "installOrder": 14,
+      "tags": [
+        "dry-sump",
+        "AN-16",
+        "hose"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        },
+        {
+          "title": "AN torque",
+          "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.42,
+              0.22,
+              -0.53
+            ],
+            [
+              -0.42,
+              0.19,
+              -0.48
+            ],
+            [
+              -0.4,
+              0.2,
+              -0.4
+            ],
+            [
+              -0.36,
+              0.27,
+              -0.36
+            ],
+            [
+              -0.341,
+              0.343,
+              -0.338
+            ]
+          ],
+          "radius": 0.0147
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "-16 AN (1.156 in OD)",
+        "features": "Suction-rated PTFE braided hose with full-flow swivel ends",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.scavenge-return-line",
+      "name": "Scavenge return line, pump to tank (-16 AN)",
+      "qty": 1,
+      "description": "Combined scavenge output (oil + air) returns to the tank tangential inlet. Size it generously (-16) to avoid back pressure in the scavenge stages.",
+      "location": "From pump scavenge outlet up to the tank upper inlet.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pump",
+        "engine-support.lubrication.oil-tank"
+      ],
+      "raceOptions": [
+        {
+          "name": "-16 PTFE/braided hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-16 AN (Fluidworks scavenge return is 16AN; tank inlet -12 requires reducer or -16 tank inlet)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-16 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "58–70 ft-lb (79–95 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-16 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Enter tank tangentially near the top so oil swirls and de-aerates."
+      ],
+      "inspection": [
+        "Check for leaks at tank inlet"
+      ],
+      "buildPhase": 7,
+      "installOrder": 15,
+      "tags": [
+        "dry-sump",
+        "AN-16"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.129,
+              0.44,
+              -0.25
+            ],
+            [
+              -0.16,
+              0.5,
+              -0.3
+            ],
+            [
+              -0.26,
+              0.58,
+              -0.36
+            ],
+            [
+              -0.36,
+              0.68,
+              -0.42
+            ],
+            [
+              -0.4,
+              0.76,
+              -0.46
+            ]
+          ],
+          "radius": 0.0147
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "-16 AN (1.156 in OD)",
+        "features": "Braided hose into the tank tangential inlet",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.pressure-line",
+      "name": "Pressure line, pump to remote filter (-12 AN)",
+      "qty": 1,
+      "description": "High-pressure line from the pump pressure stage to the remote filter mount. Must be pressure-rated hose (braided rubber or PTFE, >= 1000 psi working).",
+      "location": "Pump outlet forward to the filter mount on the right side of the radiator support.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pump",
+        "engine-support.lubrication.remote-filter-mount"
+      ],
+      "raceOptions": [
+        {
+          "name": "-12 stainless-braided hose",
+          "brand": "XRP / Earl's / Fragola"
+        }
+      ],
+      "specs": {
+        "Size": "-12 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Route away from belt and steering shaft; P-clamp every ~12 in."
+      ],
+      "inspection": [
+        "Look for weeping at hose ends"
+      ],
+      "buildPhase": 7,
+      "installOrder": 16,
+      "tags": [
+        "dry-sump",
+        "AN-12",
+        "pressure"
+      ],
+      "sources": [
+        {
+          "title": "AN torque",
+          "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.341,
+              0.44,
+              -0.25
+            ],
+            [
+              -0.38,
+              0.5,
+              -0.29
+            ],
+            [
+              -0.45,
+              0.53,
+              -0.34
+            ],
+            [
+              -0.49,
+              0.545,
+              -0.36
+            ]
+          ],
+          "radius": 0.0118
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD)",
+        "features": "Braided hose pump -> remote filter",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.remote-filter-mount",
+      "name": "Remote oil filter mount (-12 AN in/out)",
+      "qty": 1,
+      "description": "Billet head that holds a spin-on (or canister) filter away from the engine for easy access and keeps the filter clear of headers. Many race filter heads include a bypass valve and pressure/temperature sensor ports.",
+      "location": "Right side of the radiator support/front crossmember, accessible through the grille or wheel well.",
+      "connectsTo": [
+        "engine-support.lubrication.pressure-line",
+        "engine-support.lubrication.oil-filter",
+        "engine-support.lubrication.oil-thermostat"
+      ],
+      "factory": {
+        "name": "N/A (factory filter mounts directly to ZL1 oil pan)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Single remote filter mount, -12 ORB ports",
+          "brand": "Earl's / Canton / Moroso / Setrab"
+        },
+        {
+          "name": "Canister filter with cleanable 45-60 micron stainless element",
+          "brand": "Peterson / XRP / Pro-Filter",
+          "notes": "Preferred in endurance racing—inspectable element."
+        }
+      ],
+      "specs": {
+        "Filter thread": "22 mm x 1.5 (GM PF64 style) or 13/16-16 per mount",
+        "Bypass": "Integral bypass valve (if equipped)"
+      },
+      "hardware": [
+        {
+          "item": "Inlet/outlet port fittings",
+          "qty": 2,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Mount-to-bracket bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 or 5/16-18",
+          "grade": "8.8 / Grade 5",
+          "torque": "15–18 ft-lb (20–24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount with filter pointing down or horizontal to minimize mess at changes.",
+        "Ensure correct flow direction (IN to filter outer ring)."
+      ],
+      "inspection": [
+        "Check mount bolts, look for leaks at gasket"
+      ],
+      "buildPhase": 7,
+      "installOrder": 17,
+      "tags": [
+        "filter",
+        "remote"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.49,
+            0.58,
+            -0.36
+          ],
+          "size": [
+            0.06,
+            0.07,
+            0.08
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "O'Reilly: ACDelco PF64 (3-1/8 in OD, 3-5/16 in tall, M22 x 1.5)",
+            "url": "https://oreillyauto.com/detail/c/duraguard/acdelco-duraguard-oil-filter/acd4/pf64"
+          }
+        ],
+        "dimensions": "~60 x 70 x 80 mm billet, -12 ORB in/out, M22 x 1.5 nipple",
+        "features": "Anodised billet block with filter thread boss",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-filter",
+      "name": "Engine oil filter",
+      "qty": 1,
+      "description": "Full-flow filter on the remote mount. For a race engine, use a high-burst, high-flow race filter or a cleanable stainless canister so you can inspect debris.",
+      "location": "On the remote filter mount (dry sump) or the front of the factory pan (wet sump).",
+      "connectsTo": [
+        "engine-support.lubrication.remote-filter-mount"
+      ],
+      "factory": {
+        "name": "ACDelco PF64 spin-on (LT1/LT4) — verify fitment",
+        "notes": "Factory filter screws onto the ZL1 pan filter adapter."
+      },
+      "raceOptions": [
+        {
+          "name": "Canister filter with 45-60 micron cleanable element",
+          "brand": "Peterson / XRP"
+        },
+        {
+          "name": "High-burst race spin-on (e.g., Wix/K&N racing)",
+          "brand": "Wix / K&N"
+        }
+      ],
+      "specs": {
+        "Filtration": "~20-30 micron (paper spin-on) or 45-60 micron (stainless race element)"
+      },
+      "hardware": [
+        {
+          "item": "Spin-on filter",
+          "qty": 1,
+          "spec": "Spin-on, gasket oiled",
+          "grade": "N/A",
+          "torque": "Hand-tight: 3/4 to 1 turn after gasket contact (filter maker guidance)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each oil change",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Pre-fill filter where orientation allows; oil gasket."
+      ],
+      "inspection": [
+        "Cut open/inspect element each event",
+        "Check filter tightness (witness mark)"
+      ],
+      "buildPhase": 11,
+      "installOrder": 18,
+      "tags": [
+        "filter",
+        "wear-item"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.562,
+            0.58,
+            -0.36
+          ],
+          "size": [
+            0.084,
+            0.079,
+            0.079
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "O'Reilly: ACDelco PF64 (3-1/8 in OD, 3-5/16 in tall, M22 x 1.5)",
+            "url": "https://oreillyauto.com/detail/c/duraguard/acdelco-duraguard-oil-filter/acd4/pf64"
+          },
+          {
+            "title": "FindItParts: ACDelco PF64 dimensions",
+            "url": "https://finditparts.com/products/3862554/acdelco-pf64"
+          }
+        ],
+        "dimensions": "3-1/8 in (79 mm) OD x 3-5/16 in (84 mm), M22 x 1.5",
+        "features": "Spin-on can with domed end, base plate and gasket",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-thermostat",
+      "name": "Oil thermostat / cooler bypass valve",
+      "qty": 1,
+      "description": "Thermostatic sandwich/inline valve that bypasses the cooler until oil reaches ~80-90 °C, so the engine warms quickly and is not over-cooled on cold mornings.",
+      "location": "Inline between filter and cooler, right front of engine bay.",
+      "connectsTo": [
+        "engine-support.lubrication.remote-filter-mount",
+        "engine-support.lubrication.oil-cooler-lines",
+        "engine-support.lubrication.engine-inlet-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Mocal / Setrab / Earl's inline thermostat, -12 ports",
+          "brand": "Mocal / Setrab / Earl's",
+          "notes": "Choose ~185 °F (85 °C) opening for road racing (typical)."
+        }
+      ],
+      "specs": {
+        "Opening temp": "~80-90 °C typical",
+        "Ports": "-12 ORB/AN x4"
+      },
+      "hardware": [
+        {
+          "item": "Thermostat port fittings",
+          "qty": 4,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Mounting bolts",
+          "qty": 2,
+          "spec": "M6/M8 to bracket",
+          "grade": "8.8",
+          "torque": "80–100 in-lb (9–11.3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Observe IN/OUT/TO COOLER/FROM COOLER markings."
+      ],
+      "inspection": [
+        "Verify oil temp stabilizes ~100-120 °C on track"
+      ],
+      "buildPhase": 7,
+      "installOrder": 19,
+      "tags": [
+        "cooler",
+        "thermostat"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.5,
+            0.42,
+            -0.3
+          ],
+          "size": [
+            0.08,
+            0.055,
+            0.045
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Mocal -12 AN inline oil thermostat (180 F)",
+            "url": "https://pmbperformance.com/products/mocal-180-oil-thermostat"
+          },
+          {
+            "title": "Mocal inline fluid thermostat",
+            "url": "https://lojkits.com/products/mocal-inline-fluid-thermostat"
+          }
+        ],
+        "dimensions": "~80 x 55 x 45 mm body, 4 x -12 ports",
+        "features": "Black/blue anodised inline thermostat block, 80-82 C",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-cooler",
+      "name": "Engine oil cooler (air-to-oil)",
+      "qty": 1,
+      "description": "Stacked-plate cooler in a ducted opening of the front fascia. The ZL1 has a factory engine oil cooler as part of its 11-heat-exchanger package; road racing usually needs a larger Setrab/Mocal cooler with dedicated ducting.",
+      "location": "Right front corner of the nose, ahead of the right front wheel / outboard of the radiator stack.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-cooler-lines",
+        "engine-support.coolers-auxiliary.cooler-stack-frame",
+        "aero.front-fascia.duct-right"
+      ],
+      "factory": {
+        "name": "ZL1 factory engine oil cooler (front heat exchanger)",
+        "notes": "CSF/GMS offer a Stage I ZL1 oil cooler upgrade on an impact frame (GMS8066)."
+      },
+      "raceOptions": [
+        {
+          "name": "Setrab Series 6 (e.g., 25-34 row) with M22 or -10/-12 ports",
+          "brand": "Setrab"
+        },
+        {
+          "name": "Mocal 19-25 row stacked-plate",
+          "brand": "Mocal"
+        },
+        {
+          "name": "GMS/CSF Camaro ZL1 Stage I oil cooler + impact frame package",
+          "brand": "CSF / GMS",
+          "partNumber": "GMS8066",
+          "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+        }
+      ],
+      "specs": {
+        "Core": "Stacked-plate aluminum",
+        "Ports": "M22 x 1.5 or -10/-12 ORB"
+      },
+      "hardware": [
+        {
+          "item": "Cooler rubber-isolated mounts",
+          "qty": 4,
+          "spec": "M6 rubber isolator + nyloc",
+          "grade": "Rubber/steel",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Never hard-mount stacked-plate coolers—vibration cracks the tanks.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Port adapters (M22/ORB to AN)",
+          "qty": 2,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Fully duct the cooler (sealed inlet, unobstructed exit).",
+        "Protect face with mesh against stones.",
+        "Fill cooler and lines before first start or allow for system capacity."
+      ],
+      "inspection": [
+        "Check for bent fins, debris, cracked tank ends",
+        "Clean with low-pressure water"
+      ],
+      "buildPhase": 7,
+      "installOrder": 20,
+      "tags": [
+        "cooler",
+        "setrab",
+        "mocal"
+      ],
+      "sources": [
+        {
+          "title": "CSF/GMS ZL1 oil cooler package",
+          "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+        },
+        {
+          "title": "AIRAID ZL1 specs (11 heat exchangers)",
+          "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.655,
+            0.32,
+            0.57
+          ],
+          "size": [
+            0.05,
+            0.194,
+            0.33
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Setrab ProLine Series 6, 25 rows (330 x 194 x 50 mm)",
+            "url": "https://www.bar-tek.com/oil-cooler-pro-line-series-6-330x194"
+          },
+          {
+            "title": "Improved Racing: Setrab 25-row Series 6 (core 228 x 194 x 50.8 mm)",
+            "url": "https://www.improvedracing.com/setrab-25-row-series-6-oil-cooler.html"
+          },
+          {
+            "title": "CSF/GMS 8066 Camaro ZL1 Stage I oil cooler + impact frame package",
+            "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+          }
+        ],
+        "dimensions": "330 x 194 x 50 mm (core 228 x 194 x 50.8), 25 rows, M22 ports",
+        "features": "Black stacked-plate cooler, end tanks with M22 port bosses, rubber-mounted brackets",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.oil-cooler-lines",
+      "name": "Oil cooler lines (-12 AN)",
+      "qty": 2,
+      "description": "Feed and return hoses between the thermostat and the cooler.",
+      "location": "Right front of engine bay to the right front fascia corner.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-thermostat",
+        "engine-support.lubrication.oil-cooler"
+      ],
+      "raceOptions": [
+        {
+          "name": "-12 stainless braided or PTFE hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-12 AN (-10 acceptable for smaller cooler)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        },
+        {
+          "item": "P-clamps (cushioned)",
+          "qty": 3,
+          "spec": "3/4 in cushioned Adel clamp, 1/4-20 or M6",
+          "grade": "Steel/EPDM",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep lines out of the crash structure where possible; use dry-break couplings if the nose must come off frequently."
+      ],
+      "inspection": [
+        "Chafe at bumper/brackets"
+      ],
+      "buildPhase": 7,
+      "installOrder": 21,
+      "tags": [
+        "AN-12",
+        "cooler"
+      ],
+      "sources": [
+        {
+          "title": "AN torque",
+          "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.5,
+              0.42,
+              -0.275
+            ],
+            [
+              -0.55,
+              0.26,
+              -0.24
+            ],
+            [
+              -0.6,
+              0.21,
+              0
+            ],
+            [
+              -0.605,
+              0.215,
+              0.3
+            ],
+            [
+              -0.615,
+              0.3,
+              0.4
+            ],
+            [
+              -0.6,
+              0.363,
+              0.433
+            ]
+          ],
+          "radius": 0.0118
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.6,
+              0.277,
+              0.433
+            ],
+            [
+              -0.61,
+              0.24,
+              0.38
+            ],
+            [
+              -0.585,
+              0.19,
+              0
+            ],
+            [
+              -0.55,
+              0.22,
+              -0.24
+            ],
+            [
+              -0.51,
+              0.395,
+              -0.28
+            ]
+          ],
+          "radius": 0.0118
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Setrab ProLine Series 6, 25 rows (330 x 194 x 50 mm)",
+            "url": "https://www.bar-tek.com/oil-cooler-pro-line-series-6-330x194"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD)",
+        "features": "Braided hoses thermostat <-> cooler run along the radiator bottom",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.engine-inlet-line",
+      "name": "Engine oil inlet line (cooled/filtered oil to pan/block gallery, -12 AN)",
+      "qty": 1,
+      "description": "Final pressure line carrying filtered, temperature-controlled oil to the pressure inlet on the dry-sump pan (which feeds the block main gallery).",
+      "location": "From thermostat back to the front passenger side of the pan.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-thermostat",
+        "engine-support.lubrication.dry-sump-pan",
+        "engine-support.lubrication.sensor-manifold"
+      ],
+      "raceOptions": [
+        {
+          "name": "-12 braided hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-12 AN (Fluidworks pressure outlet 12AN)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Install oil pressure/temperature sensor tee/manifold close to the engine inlet."
+      ],
+      "inspection": [
+        "Leak check at hose ends"
+      ],
+      "buildPhase": 7,
+      "installOrder": 22,
+      "tags": [
+        "AN-12",
+        "pressure"
+      ],
+      "sources": [
+        {
+          "title": "Fluidworks kit",
+          "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.48,
+              0.4,
+              -0.27
+            ],
+            [
+              -0.47,
+              0.36,
+              -0.17
+            ],
+            [
+              -0.42,
+              0.28,
+              -0.12
+            ],
+            [
+              -0.3,
+              0.265,
+              -0.1
+            ],
+            [
+              -0.225,
+              0.27,
+              -0.1
+            ]
+          ],
+          "radius": 0.0118
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Fluidworks 5-511 Gen V LT 5-stage billet dry-sump pan/pump combo (Motion Raceworks)",
+            "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD)",
+        "features": "Braided hose into the pan/block pressure inlet",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.sensor-manifold",
+      "name": "Oil pressure / temperature sensor manifold",
+      "qty": 1,
+      "description": "Small billet block (or tee) at the engine inlet with 1/8 NPT ports for the race data system oil pressure sensor (0-150 psi) and oil temperature sensor, plus the factory ECM sensor if retained.",
+      "location": "At the pan pressure inlet, front right of engine.",
+      "connectsTo": [
+        "engine-support.lubrication.engine-inlet-line",
+        "electrical.sensors.oil-pressure-sensor",
+        "electrical.sensors.oil-temp-sensor"
+      ],
+      "factory": {
+        "name": "GM engine oil pressure sensor in block (LT)",
+        "notes": "GM oil pressure sensor torque 26 ft-lb (Michigan Motorsports LT list)."
+      },
+      "raceOptions": [
+        {
+          "name": "Sensor block with 1/8 NPT ports, -12 inline",
+          "brand": "Earl's / Setrab / Motec-compatible"
+        }
+      ],
+      "specs": {
+        "Sensor ports": "1/8-27 NPT",
+        "Sensors": "0-150 psi sealed-gauge pressure; NTC temp"
+      },
+      "hardware": [
+        {
+          "item": "Factory oil pressure sensor (in block)",
+          "qty": 1,
+          "spec": "M16 x 1.5 (verify)",
+          "grade": "OE",
+          "torque": "26 ft-lb (35 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "1/8 NPT race sensors",
+          "qty": 2,
+          "spec": "1/8-27 NPT",
+          "grade": "Brass/SS",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste sealant (not tape)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Do not over-torque NPT into aluminum.",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Rubber-isolate or remote-mount pressure sensors from engine vibration (short braided pigtail)."
+      ],
+      "inspection": [
+        "Compare data-log pressure to mechanical gauge annually"
+      ],
+      "buildPhase": 7,
+      "installOrder": 23,
+      "tags": [
+        "sensor",
+        "data"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports LT torque specs",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.33,
+            0.265,
+            -0.1
+          ],
+          "size": [
+            0.05,
+            0.04,
+            0.04
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Michigan Motorsports LS/LT torque specs",
+            "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+          }
+        ],
+        "dimensions": "~50 x 40 x 40 mm, 1/8 NPT ports",
+        "features": "Billet log with pressure and temp sensors",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.tank-sensors-and-dipstick",
+      "name": "Oil tank dipstick, level sight and optional heater/temp sensor",
+      "qty": 1,
+      "description": "Dipstick through the tank cap (or a sight tube), optional tank oil-temperature sensor and optional bung-mounted tank heater for pre-heating oil in the paddock.",
+      "location": "Top and side of the dry-sump tank.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-tank",
+        "electrical.sensors.oil-temp-sensor"
+      ],
+      "raceOptions": [
+        {
+          "name": "Peterson heater bung + heater element (sold separately)",
+          "brand": "Peterson",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Temp sensor",
+          "qty": 1,
+          "spec": "1/8 NPT",
+          "grade": "Brass",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Make a dipstick from a wood dowel or tape measure through the cap if none is supplied (Peterson)."
+      ],
+      "inspection": [
+        "Check level hot at idle"
+      ],
+      "buildPhase": 7,
+      "installOrder": 24,
+      "tags": [
+        "tank",
+        "level"
+      ],
+      "sources": [
+        {
+          "title": "Peterson tank",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.42,
+            0.85,
+            -0.53
+          ],
+          "size": [
+            0.06,
+            0.03,
+            0.06
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Peterson 08-0007 dry-sump tank 2.5 gal, 6 in dia x 24 in",
+            "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+          }
+        ],
+        "dimensions": "~60 mm cap with dipstick",
+        "features": "Billet filler cap with dipstick",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.accumulator",
+      "name": "Oil accumulator (Accusump) — optional / wet-sump insurance",
+      "qty": 1,
+      "description": "Pressurized oil reservoir that discharges into the gallery when pressure drops (cornering surge). Essential if the engine stays wet-sump; optional insurance with a correctly-sized dry sump. Use an electric pressure-control valve (EPC) so it holds a charge at shut-down and can pre-lube before start.",
+      "location": "Passenger footwell (lines pass through firewall bulkhead fittings); teed into the pressure line after the filter.",
+      "connectsTo": [
+        "engine-support.lubrication.engine-inlet-line",
+        "electrical.pdm.accusump-valve"
+      ],
+      "raceOptions": [
+        {
+          "name": "Canton Accusump 2-3 qt with EPC valve",
+          "brand": "Canton Racing Products"
+        }
+      ],
+      "specs": {
+        "Capacity": "2-3 qt",
+        "Line": "-10 AN"
+      },
+      "hardware": [
+        {
+          "item": "Mounting clamps",
+          "qty": 2,
+          "spec": "Accusump band clamps, 1/4-20",
+          "grade": "Steel",
+          "torque": "80–100 in-lb (9–11.3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-10 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "30–36 ft-lb (41–49 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-10 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Mount horizontally, valve end toward the engine.",
+        "Pre-charge air per maker (typ. 7-10 psi)."
+      ],
+      "inspection": [
+        "Verify charge pressure gauge reads engine pressure when running"
+      ],
+      "buildPhase": 7,
+      "installOrder": 25,
+      "tags": [
+        "optional",
+        "accusump"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1,
+            0.24,
+            -0.22
+          ],
+          "size": [
+            0.46,
+            0.108,
+            0.108
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Canton 24-006 Accusump 3 qt (16 in x 4-1/4 in body)",
+            "url": "https://www.cantonracingproducts.com/canton-24-006-accusump-3-qt-no-valve/"
+          },
+          {
+            "title": "Canton 24-016 Accusump 3 qt high pressure (22 in x 4-1/4 in)",
+            "url": "https://cantonracingproducts.com/products/24-016-accusump-3-qt-high-pressure-no-valve.html"
+          }
+        ],
+        "dimensions": "16 in body x 4-1/4 in (108 mm) dia + valve/gauge ~460 mm",
+        "features": "Anodised aluminium cylinder with end caps, air valve + gauge at one end, EPC/manual valve at oil end",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.lubrication.engine-oil",
+      "name": "Engine oil (fill)",
+      "qty": 1,
+      "description": "Lubricant for the race LT engine. Factory spec for Camaro LT1/LT4 is a dexos-licensed 0W-40; race engines use the builder-specified full-synthetic race oil (often a 5W-40, 10W-40 or 15W-50 grade chosen by the engine builder for bearing clearances and oil temperature).",
+      "location": "Dry-sump tank and engine.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-tank"
+      ],
+      "factory": {
+        "name": "GM dexos R 0W-40",
+        "notes": "Camaro LT1/LT4: 9.5 L / 10.0 qt (TechLink 2019-2020)."
+      },
+      "raceOptions": [
+        {
+          "name": "Race synthetic (Mobil 1 Racing, Motul 300V, Red Line, Driven)",
+          "brand": "Various"
+        }
+      ],
+      "specs": {
+        "Factory capacity": "10.0 qt (wet sump)",
+        "Dry sump est.": "11-12 qt incl. tank, cooler, lines (estimate)"
+      },
+      "hardware": [],
+      "fluids": [
+        {
+          "name": "Engine oil",
+          "spec": "dexos R 0W-40 (factory) or builder-specified race synthetic",
+          "capacity": "10.0 qt factory; ~11-12 qt dry sump (estimate)"
+        }
+      ],
+      "installNotes": [
+        "Change after shakedown/break-in, then every 1-2 race weekends; send samples for analysis."
+      ],
+      "inspection": [
+        "Oil analysis each change"
+      ],
+      "buildPhase": 11,
+      "installOrder": 26,
+      "tags": [
+        "fluid"
+      ],
+      "sources": [
+        {
+          "title": "GM TechLink oil capacities",
+          "url": "https://gm-techlink.com/wp-content/uploads/2024/11/TechLink-engine-oil-capacities-2019-2020_C.pdf"
+        }
+      ]
+    }
+  ]
+}

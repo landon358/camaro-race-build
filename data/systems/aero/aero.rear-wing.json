@@ -1,0 +1,442 @@
+{
+  "id": "aero.rear-wing",
+  "system": "aero",
+  "name": "Rear Wing",
+  "description": "Rear wing assembly: factory ZL1 1LE carbon wing on the decklid, or a chassis-mounted adjustable race wing with endplates, uprights, mount plates and Gurney flap.",
+  "components": [
+    {
+      "id": "aero.rear-wing.main-element",
+      "name": "Wing main element",
+      "qty": 1,
+      "description": "Inverted airfoil generating rear downforce. The ZL1 1LE uses a large exposed carbon-fiber wing (GM RPO T42 \"exposed weave carbon fiber rear spoiler\"); a press report quotes ~300 lb downforce at top speed. Race options are adjustable chassis-mounted wings (e.g. APR GTC-500 style).",
+      "location": "Above decklid trailing edge, x ≈ 3.70, y ≈ 1.28, span ≈ 1.70 m.",
+      "connectsTo": [
+        "aero.rear-wing.endplates",
+        "aero.rear-wing.uprights",
+        "aero.rear-wing.gurney-flap"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE carbon-fiber rear wing (RPO T42 exposed weave)",
+        "partNumber": "",
+        "notes": "Fixed unit per one source; downforce figure (300 lb at top speed) from one press article – not verified by GM."
+      },
+      "raceOptions": [
+        {
+          "name": "APR Performance GTC-500 adjustable carbon wing (Camaro kit – confirm PN with APR)",
+          "brand": "APR Performance",
+          "partNumber": "",
+          "notes": "Camaro-specific PN not found in sources.",
+          "url": "https://vividracing.com/blog/porsche-gt3-991-with-apr-performance-gtc-500-rear-wing"
+        }
+      ],
+      "specs": {
+        "Construction": "Carbon prepreg or aluminum",
+        "Typical race span": "≈ 66–71 in (class-limited)",
+        "AoA": "Adjustable via upright holes"
+      },
+      "hardware": [
+        {
+          "item": "Element-to-upright bolts",
+          "qty": 4,
+          "spec": "M6 x 1.0 socket head + nyloc / rivnut in wing",
+          "grade": "ISO 10.9",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set angle of attack at a baseline (e.g. middle hole), then balance with front aero during testing."
+      ],
+      "inspection": [
+        "Check for cracks at mounting points."
+      ],
+      "buildPhase": 10,
+      "installOrder": 11,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Carscoops – 2018 Camaro ZL1 1LE aero package",
+          "url": "https://www.carscoops.com/2017/02/new-2018-chevrolet-camaro-zl1-1le-puts/"
+        },
+        {
+          "title": "Motor Authority – Camaro ZL1 1LE",
+          "url": "https://www.motorauthority.com/news/1109057_the-chevrolet-camaro-zl1-1le-just-arrived-to-destroy-everything"
+        },
+        {
+          "title": "evo – Camaro ZL1 gets hardcore 1LE package",
+          "url": "https://evo.co.uk/news/18903/chevrolet-camaro-zl1-gets-a-hardcore-1le-package"
+        },
+        {
+          "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+          "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.62,
+            1.31,
+            0
+          ],
+          "size": [
+            0.305,
+            0.045,
+            1.549
+          ],
+          "rot": [
+            0,
+            0,
+            8
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "APR GTC-300 adjustable wing for 2016-24 Camaro, AS-106776 (67 in span)",
+            "url": "https://www.americanmuscle.com/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.html"
+          },
+          {
+            "title": "APR GTC-300 Camaro wing photo",
+            "url": "https://www.americanmuscle.com/image/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.CC5275.jpg?obj=car&fit=fit,1&wid=640&hei=480&sharpen=1"
+          },
+          {
+            "title": "APR GTC-500 universal adjustable wing (70-74 in)",
+            "url": "https://shop.aprperformance.com/products/universal-fitment-gtc-500-adjustable-wing"
+          }
+        ],
+        "dimensions": "APR GTC-300 Camaro kit AS-106776, 61 in (1549 mm) span option (67 in also offered — overhangs the quarters), 10-12 in (254-305 mm) variable chord, up to 13 in tall, AoA 0-15°",
+        "features": "Inverted high-camber carbon element, deeper centre chord, outer sections at higher AoA; set at ~8° here",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "aero.rear-wing.endplates",
+      "name": "Wing endplates",
+      "qty": 2,
+      "description": "Side plates reducing wingtip vortex losses; also lock element angle on some designs.",
+      "location": "Wing tips, z ±0.86.",
+      "connectsTo": [
+        "aero.rear-wing.main-element"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Endplate screws",
+          "qty": 4,
+          "spec": "M5 x 0.8 button head + nyloc",
+          "grade": "Stainless",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check screws."
+      ],
+      "buildPhase": 10,
+      "installOrder": 12,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.63,
+            1.3,
+            0.778
+          ],
+          "size": [
+            0.33,
+            0.21,
+            0.006
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "APR GTC-300 adjustable wing for 2016-24 Camaro, AS-106776 (67 in span)",
+            "url": "https://www.americanmuscle.com/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.html"
+          }
+        ],
+        "dimensions": "~330 x 210 mm carbon side plates (estimated)",
+        "features": "Flat carbon side plates, rounded lower-front edge, 4 bolts into the element",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.rear-wing.gurney-flap",
+      "name": "Gurney flap",
+      "qty": 1,
+      "description": "Small 90° lip on the wing trailing edge (typically 0.5–1 in) that adds downforce for little drag; easy balance tuning item.",
+      "location": "Wing trailing edge, x ≈ 3.84, y ≈ 1.30.",
+      "connectsTo": [
+        "aero.rear-wing.main-element"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Height": "0.5–1.0 in typical",
+        "Material": "Aluminum angle or carbon"
+      },
+      "hardware": [
+        {
+          "item": "Gurney screws",
+          "qty": 8,
+          "spec": "#8 / M4 screws + nyloc",
+          "grade": "Stainless",
+          "torque": "2.2 ft-lb (3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 13,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.766,
+            1.357,
+            0
+          ],
+          "size": [
+            0.004,
+            0.016,
+            1.54
+          ],
+          "rot": [
+            0,
+            0,
+            8
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "APR GTC-300 adjustable wing for 2016-24 Camaro, AS-106776 (67 in span)",
+            "url": "https://www.americanmuscle.com/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.html"
+          }
+        ],
+        "dimensions": "~5/8 in (16 mm) L-angle along the full span (optional APR carbon gurney)",
+        "features": "Thin L-section on the trailing edge, upper surface",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.rear-wing.uprights",
+      "name": "Wing uprights / stands",
+      "qty": 2,
+      "description": "Aluminum or carbon uprights carrying wing load down to the mount plates. On a race build they should pass through the decklid to chassis-mounted plates or a trunk crossbar rather than relying on the lid skin.",
+      "location": "x ≈ 3.58–3.66, y ≈ 0.99–1.27, z ±0.40.",
+      "connectsTo": [
+        "aero.rear-wing.main-element",
+        "aero.rear-wing.mount-plates",
+        "body.panels.decklid"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "6061-T6 aluminum plate 3/8–1/2 in or carbon",
+        "AoA holes": "Multiple"
+      },
+      "hardware": [
+        {
+          "item": "Upright-to-mount-plate bolts",
+          "qty": 4,
+          "spec": "M8 x 1.25 socket head + nyloc",
+          "grade": "ISO 10.9",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check uprights vertical and parallel; shim if needed."
+      ],
+      "inspection": [
+        "Check bolts each event."
+      ],
+      "buildPhase": 10,
+      "installOrder": 14,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.575,
+              1.04,
+              0.4
+            ],
+            [
+              3.625,
+              1.285,
+              0.4
+            ]
+          ],
+          "radius": 0.012
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.575,
+              1.04,
+              -0.4
+            ],
+            [
+              3.625,
+              1.285,
+              -0.4
+            ]
+          ],
+          "radius": 0.012
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "APR GTC-300 adjustable wing for 2016-24 Camaro, AS-106776 (67 in span)",
+            "url": "https://www.americanmuscle.com/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.html"
+          },
+          {
+            "title": "APR GTC-300 Camaro wing photo",
+            "url": "https://www.americanmuscle.com/image/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.CC5275.jpg?obj=car&fit=fit,1&wid=640&hei=480&sharpen=1"
+          }
+        ],
+        "dimensions": "10 mm 6061 billet pedestals, ~245 mm tall, ±400 mm from centre",
+        "features": "Pedestal-style risers with lightening slot, bolted to carbon base plates in the factory spoiler holes",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "aero.rear-wing.mount-plates",
+      "name": "Wing mount plates & decklid/chassis reinforcement",
+      "qty": 2,
+      "description": "Backing plates under the decklid or welded chassis pick-ups (rear rails/trunk crossbar) that take the wing load. Decklid-skin-only mounting will tear under race downforce.",
+      "location": "Decklid/trunk, x ≈ 3.55, y ≈ 0.99, z ±0.40.",
+      "connectsTo": [
+        "aero.rear-wing.uprights",
+        "body.panels.decklid",
+        "chassis.unibody.rear-rails"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "3/16–1/4 in aluminum or 1/8 in steel",
+        "Footprint": "≥ 4 x 3 in per upright typical"
+      },
+      "hardware": [
+        {
+          "item": "Mount plate through-bolts",
+          "qty": 4,
+          "spec": "M8 x 1.25 + nyloc + backing plate",
+          "grade": "ISO 10.9",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Weather seal",
+          "qty": 1,
+          "spec": "Rubber gasket/foam at decklid penetration",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Prefer chassis-mount struts through decklid with sealed grommets."
+      ],
+      "inspection": [
+        "Check decklid for cracks around plates."
+      ],
+      "buildPhase": 10,
+      "installOrder": 15,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.56,
+            1.067,
+            0.4
+          ],
+          "size": [
+            0.16,
+            0.006,
+            0.075
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "APR GTC-300 adjustable wing for 2016-24 Camaro, AS-106776 (67 in span)",
+            "url": "https://www.americanmuscle.com/apr-performance-camaro-gtc-300-adjustable-wing-as-106776.html"
+          }
+        ],
+        "dimensions": "~160 x 75 mm carbon base plates",
+        "features": "Carbon bottom plates (vehicle-specific) with 4 bolts each",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

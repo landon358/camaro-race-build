@@ -1,0 +1,471 @@
+{
+  "id": "brakes.cooling",
+  "system": "brakes",
+  "name": "Brake Cooling",
+  "description": "Ducts that take high-pressure air from the front fascia/splitter and feed it to the eye (center) of each front rotor so the vanes pump it out through the ring. A heavy (~3,700 lb) car with 600+ hp needs ducting to keep pads in their window and fluid below boiling. Rear ducting is optional.",
+  "components": [
+    {
+      "id": "brakes.cooling.inlets",
+      "name": "Brake duct inlets (fascia / splitter)",
+      "qty": 2,
+      "description": "Inlet openings in the high-pressure zone of the front fascia or splitter with a round hose flange. Use existing fascia openings (fog-light/brake-duct apertures) where possible to avoid adding drag.",
+      "location": "Lower front fascia, outboard, x≈-0.94, y≈0.30, z≈±0.55.",
+      "connectsTo": [
+        "brakes.cooling.duct-hose",
+        "body.front-fascia.fascia",
+        "aero.splitter.splitter"
+      ],
+      "factory": {
+        "name": "ZL1/1LE fascia openings and underbody air guides (exact GM brake-cooling parts not confirmed in sources)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated / carbon 3 in (76 mm) inlet flange or NACA in splitter",
+          "brand": "Fabricated",
+          "notes": "3 in is common; 3.5–4 in for endurance."
+        }
+      ],
+      "specs": {
+        "Hose size": "3 in (76 mm) ID typical"
+      },
+      "hardware": [
+        {
+          "item": "Inlet flange rivets / M5 screws to fascia/splitter",
+          "qty": 4,
+          "spec": "3/16 in rivet or M5 + rivnut",
+          "grade": "Al/SS",
+          "torque": "≈ 25 in-lb (3 N·m) for screws",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit after fascia/splitter is final (phase 10), but plan hose path in phase 4."
+      ],
+      "inspection": [
+        "Clear debris/grass from inlets after off-track moments."
+      ],
+      "buildPhase": 10,
+      "installOrder": 60,
+      "tags": [
+        "cooling",
+        "duct"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.78,
+          0.3,
+          0.52
+        ],
+        "size": [
+          0.05,
+          0.12,
+          0.16
+        ],
+        "axis": "x",
+        "mirror": true,
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Oval ~160 x 120 mm face to 3 in (76 mm) spigot",
+        "features": "Carbon bell-mouth with flange behind the fascia brake opening",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.cooling.duct-hose",
+      "name": "Brake duct hose",
+      "qty": 2,
+      "description": "High-temperature flexible duct (silicone/Kevlar or SCAT-type) from inlet to backing plate, with enough slack for steering lock and suspension travel.",
+      "location": "Front wheel well / behind fascia, along the inner fender to the knuckle.",
+      "connectsTo": [
+        "brakes.cooling.inlets",
+        "brakes.cooling.backing-plates"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "3 in high-temp brake duct hose (silicone-coated fiberglass/Kevlar)",
+          "brand": "Various",
+          "notes": "Rated ≥ 300 °C near rotors."
+        }
+      ],
+      "specs": {
+        "Diameter": "76 mm",
+        "Length": "≈ 1.0–1.2 m per side"
+      },
+      "hardware": [
+        {
+          "item": "Hose clamps / safety-wire wraps each end",
+          "qty": 2,
+          "spec": "3 in worm clamp or 0.032 in safety wire",
+          "grade": "SS",
+          "torque": "Snug (≈ 25 in-lb)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Turn lock-to-lock at full bump/droop: hose must not kink, touch the tire, or pull off."
+      ],
+      "inspection": [
+        "Check for melted/chafed hose every event."
+      ],
+      "buildPhase": 10,
+      "installOrder": 61,
+      "tags": [
+        "cooling",
+        "duct"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.755,
+            0.3,
+            0.52
+          ],
+          [
+            -0.69,
+            0.29,
+            0.545
+          ],
+          [
+            -0.55,
+            0.29,
+            0.575
+          ],
+          [
+            -0.38,
+            0.3,
+            0.575
+          ],
+          [
+            -0.22,
+            0.335,
+            0.57
+          ],
+          [
+            -0.13,
+            0.355,
+            0.585
+          ],
+          [
+            -0.1,
+            0.3615,
+            0.615
+          ],
+          [
+            -0.1,
+            0.3615,
+            0.637
+          ]
+        ],
+        "radius": 0.038,
+        "mirror": true,
+        "color": "#d32f2f"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "3 in (76 mm) ID, ~1.0 m per side",
+        "features": "Red corrugated high-temp hose with wire helix, clamped at both ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.cooling.backing-plates",
+      "name": "Brake duct backing plates (rotor-eye ducts)",
+      "qty": 2,
+      "description": "Plate that replaces the factory dust shield, bolting to the knuckle and directing duct air into the rotor eye/hat center (not onto the rotor face).",
+      "location": "Front knuckle behind the rotor, duct outlet at the hat center, z≈±0.62.",
+      "connectsTo": [
+        "brakes.cooling.duct-hose",
+        "suspension.front-knuckle.knuckle",
+        "brakes.front-rotors.rotor",
+        "brakes.front-rotors.dust-shield"
+      ],
+      "factory": {
+        "name": "Replaces GM front brake shield",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated aluminum backing plate with 3 in spigot (Gen 6 specific kits exist)",
+          "brand": "Fabricated / various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Plate-to-knuckle bolts (use shield bolt holes)",
+          "qty": 3,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install in place of the dust shield before the hub/rotor; check clearance to rotor (≥ 5 mm) at full steering lock."
+      ],
+      "inspection": [
+        "Check plate for cracks and rotor rub marks."
+      ],
+      "buildPhase": 4,
+      "installOrder": 32,
+      "tags": [
+        "cooling"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            0,
+            0.3715,
+            0.7
+          ],
+          "size": [
+            0.26,
+            0.26,
+            0.003
+          ],
+          "axis": "z",
+          "mirror": true,
+          "color": "#9e9e9e"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.1,
+            0.3615,
+            0.665
+          ],
+          "size": [
+            0.08,
+            0.08,
+            0.06
+          ],
+          "axis": "z",
+          "mirror": true,
+          "color": "#9e9e9e"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Plate ~260 mm, 3 in spigot feeding the rotor eye",
+        "features": "Aluminium plate on the knuckle bolts with turned lip and hose spigot",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.cooling.rear-ducts",
+      "name": "Rear brake ducts (optional)",
+      "qty": 2,
+      "description": "Underfloor NACA or scoop feeding 2–2.5 in hose to the rear rotor eye. Usually only needed for endurance or very heavy braking tracks.",
+      "location": "Underfloor ahead of rear wheels to rear knuckles.",
+      "connectsTo": [
+        "brakes.rear-rotors.rotor",
+        "aero.diffuser.diffuser"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "2.5 in duct + NACA",
+          "brand": "Fabricated",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Diameter": "63 mm"
+      },
+      "hardware": [
+        {
+          "item": "Hose clamps",
+          "qty": 2,
+          "spec": "Worm clamp",
+          "grade": "SS",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route clear of halfshafts and exhaust."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 62,
+      "tags": [
+        "cooling",
+        "optional"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.2,
+            0.17,
+            0.52
+          ],
+          [
+            2.4,
+            0.2,
+            0.55
+          ],
+          [
+            2.58,
+            0.29,
+            0.58
+          ],
+          [
+            2.67,
+            0.345,
+            0.6
+          ],
+          [
+            2.705,
+            0.36,
+            0.635
+          ],
+          [
+            2.711,
+            0.3615,
+            0.66
+          ]
+        ],
+        "radius": 0.03,
+        "mirror": true,
+        "color": "#d32f2f"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "2.5 in (63 mm) hose",
+        "features": "Corrugated duct hose to the rear rotor eye",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.cooling.temperature-indicators",
+      "name": "Rotor/caliper temperature paint & sensors",
+      "qty": 4,
+      "description": "Thermal paint stripes on rotor edges and calipers (or IR rotor sensors logged to the dash) to verify ducting: target race-pad windows ~400–650 °C rotor, caliper body < ~200 °C, fluid well under its wet boiling point.",
+      "location": "Rotor outer edge and caliper body; IR sensors on a bracket aimed at the rotor face.",
+      "connectsTo": [
+        "brakes.front-rotors.rotor",
+        "brakes.rear-rotors.rotor",
+        "brakes.front-calipers.caliper",
+        "electrical.data-logger.logger"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tempilaq / AP thermal paint; IR brake temperature sensors",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "IR sensor bracket bolt",
+          "qty": 1,
+          "spec": "M5/M6",
+          "grade": "8.8",
+          "torque": "53 in-lb (6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Apply three paint grades per rotor before shakedown."
+      ],
+      "inspection": [
+        "Read paint after each session; repaint when all grades have changed."
+      ],
+      "buildPhase": 11,
+      "installOrder": 63,
+      "tags": [
+        "data",
+        "cooling"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.018,
+          0.018,
+          0.04
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            -0.06,
+            0.21,
+            0.69
+          ],
+          [
+            2.751,
+            0.21,
+            0.722
+          ]
+        ],
+        "color": "#1e5aa8"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M12 IR sensor ~40 mm, 25 mm from the rotor inboard face",
+        "features": "Stainless IR sensor on a bracket aimed at the friction face",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

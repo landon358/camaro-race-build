@@ -1,0 +1,585 @@
+{
+  "id": "brakes.pedal-box",
+  "system": "brakes",
+  "name": "Pedal Box & Brake Bias",
+  "description": "Driver input end of the brake system. Factory: GM hanging pedal bracket pushing a vacuum booster. Race: floor-mount pedal box with a threaded balance bar splitting pedal force between separate front and rear master cylinders, adjustable from the cockpit by a remote cable.",
+  "components": [
+    {
+      "id": "brakes.pedal-box.pedal-assembly",
+      "name": "Brake pedal assembly (pedal box)",
+      "qty": 1,
+      "description": "Holds the brake (and clutch/throttle) pedals and reacts the full pedal load (race drivers can exceed 100–150 lbf at the pad, ~1,000+ lbf at the master-cylinder pushrod with a 5–6:1 ratio). On a bare-shell build the floor-mount race box is the norm because it puts the master cylinders inside the cockpit, removes the booster, and lets you set pedal ratio and bias.",
+      "location": "Driver footwell, bolted to the floor pan / a reinforcing plate tied to the cage, pedal pads at x≈0.85–0.95, z≈+0.30–0.45. Factory unit hangs from the dash/cowl structure and pushes through the firewall into the booster.",
+      "connectsTo": [
+        "brakes.pedal-box.balance-bar",
+        "brakes.pedal-box.floor-mount-plate",
+        "brakes.master-cylinders.factory-booster",
+        "chassis.floor.driver-footwell",
+        "safety.roll-cage.cage"
+      ],
+      "factory": {
+        "name": "GM Gen 6 Camaro hanging brake pedal bracket (manual-trans cars share the bracket with the clutch pedal)",
+        "notes": "Steel stamped bracket; pedal pushrod feeds the vacuum booster through the firewall. Retained by studs/nuts at the dash panel. Brake pedal position (BPP) sensor on the bracket feeds ECM/EBCM/brake lights."
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton 800/900-Series floor-mount pedal assembly",
+          "brand": "Tilton Racing",
+          "notes": "Tilton states its 78-Series master cylinders fit 800- and 900-Series pedal assemblies. Forward- or reverse-mount, adjustable ratio, integral balance bar.",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        },
+        {
+          "name": "Tilton 600-Series floor-mount pedal assembly",
+          "brand": "Tilton Racing",
+          "notes": "Common in production-based race cars (dual master + clutch). Verify footwell clearance against the Gen 6 tunnel."
+        },
+        {
+          "name": "Wilwood Tru-Bar / Triple floor-mount pedal assembly",
+          "brand": "Wilwood",
+          "notes": "Lower-cost option with balance bar and compact remote-reservoir masters."
+        },
+        {
+          "name": "OBP / AP Racing CP5500-series pedal box",
+          "brand": "AP Racing / OBP",
+          "notes": "Alternative race pedal boxes; AP CP-series pairs with AP CP2xxx/CP7855 master cylinders."
+        }
+      ],
+      "specs": {
+        "Pedal ratio (race target)": "5.0–6.0 : 1 (typical race floor mount with no booster)",
+        "Pedal ratio (factory)": "Approx. 3–4 : 1 with vacuum boost (estimate)",
+        "Pedal travel to firm": "Aim for firm pedal within ~1–1.5 in (25–38 mm) travel"
+      },
+      "hardware": [
+        {
+          "item": "Factory brake pedal assembly retaining nut (to dash panel studs)",
+          "qty": 4,
+          "spec": "M8 flange nut (GM)",
+          "grade": "GM metric 8/10",
+          "torque": "18 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm socket",
+          "notes": "Value from GM 2016–18 SM table (\"Brake pedal assembly nut\"). Quantity estimated.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Race pedal box base-to-floor-plate bolts",
+          "qty": 4,
+          "spec": "3/8-16 UNC or M10x1.5 bolt, nyloc nut + large washers each side",
+          "grade": "SAE Grade 8 / ISO 10.9",
+          "torque": "30 ft-lb (41 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) or nyloc",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Engineering value for 3/8 Grade 8 into a 3–5 mm steel plate; follow pedal box manufacturer if specified. Bolts must clamp through a doubler, never thin floor sheet alone.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Pedal pivot shaft bolt / nut",
+          "qty": 1,
+          "spec": "3/8 or M10 shoulder bolt, nyloc",
+          "grade": "Grade 8",
+          "torque": "25 ft-lb (34 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "nyloc nut",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "notes": "Torque only until pedals pivot freely without axial play.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set seat position and steering column first, then position the pedal box so the brake pedal pad sits on the driver's natural foot line with heel-and-toe spacing to the throttle (throttle pedal is in the engine/interior systems).",
+        "Fabricate a 3–5 mm steel (or 6 mm aluminum) floor plate that spreads load across the floor pan and ties to the cage / footbox; weld or through-bolt with backing plates.",
+        "Set pedal ratio on the pedal (most race boxes have 2–3 pushrod hole positions). Start ~5.5:1 with 0.70/0.75 in front/rear masters, then tune.",
+        "After plumbing and bleeding, check that the pedal hits a firm stop well before the pedal stop/floor; add a positive pedal over-travel stop.",
+        "Factory pedal: torque nuts to spec, reconnect BPP sensor and confirm brake lights / EBCM see the switch."
+      ],
+      "inspection": [
+        "Check pedal pivot for play and cracked welds at the floor plate each event.",
+        "Confirm pedal pad bolts tight and pedal stop not contacted under max braking."
+      ],
+      "buildPhase": 2,
+      "installOrder": 1,
+      "tags": [
+        "pedal-box",
+        "floor-mount",
+        "tilton",
+        "wilwood"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Tilton Racing – 78-Series master cylinders (bores, AN3 outlet, AN6 inlet, 3/8-24 pushrod; not for ABS, use 79-Series)",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.8975,
+          0.3575,
+          0.37
+        ],
+        "size": [
+          0.205,
+          0.285,
+          0.26
+        ],
+        "color": "#555555"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Tilton 600-series 3-pedal floor-mount assembly",
+            "url": "https://tiltonracing.com/product/600-series-3-pedal-floor-mount-assembly/"
+          },
+          {
+            "title": "Tilton 600-series pedal assemblies spec sheet (Porterfield PDF)",
+            "url": "https://porterfield-brakes.com/wp-content/uploads/2022/02/600-Series-Pedal-Assemblies.pdf"
+          }
+        ],
+        "dimensions": "Floor-mount box ~200 x 270 mm footprint, pivot at y=0.24, pads 0.42-0.46 high",
+        "features": "Aluminium base + front MC bulkhead, common pivot shaft, 3 forged pedals (clutch / brake with balance-bar tube / throttle), black pads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.pedal-box.floor-mount-plate",
+      "name": "Pedal box floor reinforcement plate",
+      "qty": 1,
+      "description": "Steel doubler that spreads pedal box loads into the unibody floor and cage. Without it the thin factory floor flexes, giving a long, inconsistent pedal.",
+      "location": "Driver footwell floor under the pedal box, x≈0.80–1.00, z≈+0.25–0.50.",
+      "connectsTo": [
+        "brakes.pedal-box.pedal-assembly",
+        "chassis.floor.driver-footwell",
+        "safety.roll-cage.cage"
+      ],
+      "factory": {
+        "name": "None (factory pedal hangs from dash structure)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated 3/16 in (4.8 mm) steel plate with gussets",
+          "brand": "Fabricated",
+          "notes": "Stitch/plug weld to floor or through-bolt with backing plates; tie forward edge to the firewall and/or cage foot bars."
+        }
+      ],
+      "specs": {
+        "Material": "Mild steel 3–5 mm or 6061-T6 6 mm",
+        "Attachment": "Plug weld or 8x M8/5/16 bolts with backing plates"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-floor bolts (if bolted)",
+          "qty": 8,
+          "spec": "5/16-18 UNC or M8x1.25, with 3 mm backing washers",
+          "grade": "Grade 8 / 10.9",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "nyloc nut",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install during chassis prep before paint and before the brake hard lines are routed.",
+        "Pre-drill master cylinder pushrod and line clearance holes in the firewall/footbox before paint."
+      ],
+      "inspection": [
+        "Check for cracking at welds around plate perimeter annually."
+      ],
+      "buildPhase": 1,
+      "installOrder": 2,
+      "tags": [
+        "fabrication",
+        "reinforcement"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.89,
+          0.206,
+          0.37
+        ],
+        "size": [
+          0.3,
+          0.006,
+          0.3
+        ],
+        "color": "#888888"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "300 x 300 x 6 mm plate",
+        "features": "Steel plate bolted / welded to the footwell floor",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.pedal-box.balance-bar",
+      "name": "Brake balance (bias) bar",
+      "qty": 1,
+      "description": "Threaded bar passing through a spherical bearing in the brake pedal; each end carries a clevis to a master cylinder pushrod. Turning the bar shifts the pivot point toward one master cylinder, changing the front/rear force split mechanically (typical adjustment range ~60/40 to 40/60 of pedal force).",
+      "location": "Across the top of the brake pedal in the pedal box, x≈0.84, y≈0.27, z≈+0.37.",
+      "connectsTo": [
+        "brakes.pedal-box.pedal-assembly",
+        "brakes.master-cylinders.front-mc",
+        "brakes.master-cylinders.rear-mc",
+        "brakes.pedal-box.bias-adjuster-cable"
+      ],
+      "factory": {
+        "name": "Not fitted (factory uses fixed hydraulic split + EBCM electronic brake-force distribution)",
+        "notes": "Gen 6 uses Dynamic Rear Proportioning/EBD in the EBCM instead of a mechanical valve."
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton balance bar assembly (supplied with Tilton pedal boxes)",
+          "brand": "Tilton Racing",
+          "notes": "3/8-24 threads to match Tilton 76/77/78-series pushrods."
+        },
+        {
+          "name": "Wilwood balance bar kit",
+          "brand": "Wilwood",
+          "notes": "For Wilwood pedal assemblies."
+        }
+      ],
+      "specs": {
+        "Thread": "3/8-24 UNF (Tilton standard)",
+        "Initial setup": "Center the bar so both clevises are equidistant from the pedal bearing and the bar is square to the pedal at rest; both pushrods should start moving at the same time"
+      },
+      "hardware": [
+        {
+          "item": "Master cylinder pushrod clevis",
+          "qty": 2,
+          "spec": "3/8-24 female clevis with clevis pin",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "notes": "Clevis must thread onto pushrod at least 1x diameter (≈10 mm) engagement.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Pushrod jam nut",
+          "qty": 2,
+          "spec": "3/8-24 UNF thin jam nut",
+          "grade": "Grade 8",
+          "torque": "15 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (jam against clevis)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Balance bar lock / jam nuts at the pedal bearing",
+          "qty": 2,
+          "spec": "3/8-24 nylon-insert or jam nut",
+          "grade": "Grade 8",
+          "torque": "Snug – bar must be able to self-align in spherical bearing; leave 0.5–1 mm end clearance",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nyloc if spun repeatedly",
+          "notes": "If too tight the bar cannot pivot and bias becomes unpredictable.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Clevis pin + retaining clip/cotter",
+          "qty": 2,
+          "spec": "5/16 in clevis pin with R-clip or cotter pin",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace cotter each removal",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "With masters installed, thread both clevises equally, then set the bar so the pedal sits square at rest with ~0.5–1 mm free play before either master piston moves (masters must fully return to uncover compensating ports).",
+        "Record the baseline bias position (number of exposed threads each side) in the setup sheet.",
+        "Verify bias on track with front and rear line pressure sensors or by threshold-brake testing: rears should lock just after the fronts."
+      ],
+      "inspection": [
+        "Check clevis pins, clips and jam nuts every event.",
+        "Confirm bar still free to swivel in the pedal bearing.",
+        "Note bias knob turns from baseline in log book."
+      ],
+      "buildPhase": 9,
+      "installOrder": 3,
+      "tags": [
+        "bias",
+        "balance-bar",
+        "adjustable"
+      ],
+      "sources": [
+        {
+          "title": "Tilton Racing – 78-Series master cylinders (bores, AN3 outlet, AN6 inlet, 3/8-24 pushrod; not for ABS, use 79-Series)",
+          "url": "https://www.tiltonracing.com/product/78-series-master-cylinders/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.855,
+          0.272,
+          0.37
+        ],
+        "size": [
+          0.024,
+          0.024,
+          0.13
+        ],
+        "axis": "z",
+        "color": "#c0c0c0"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Tilton 600-series 3-pedal floor-mount assembly",
+            "url": "https://tiltonracing.com/product/600-series-3-pedal-floor-mount-assembly/"
+          }
+        ],
+        "dimensions": "3/8-24 threaded bar, ~130 mm between clevis ends",
+        "features": "Spherical bearing tube in the pedal, two clevises, adjuster end",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.pedal-box.bias-adjuster-cable",
+      "name": "Remote brake-bias adjuster cable & knob",
+      "qty": 1,
+      "description": "Flexible push-pull/rotary cable that turns the balance bar from the cockpit so the driver can shift bias as fuel burns off and tires wear. A knob with detents (clicks) is mounted within reach on the dash or center console.",
+      "location": "Cable from the balance bar end up under the dash to a knob on the dash or console (x≈1.1–1.2, near the steering column, driver side).",
+      "connectsTo": [
+        "brakes.pedal-box.balance-bar",
+        "interior.dash.switch-panel"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton remote bias adjuster cable (various lengths)",
+          "brand": "Tilton Racing",
+          "notes": "Match the cable end to the balance bar (square drive)."
+        },
+        {
+          "name": "Wilwood remote balance bar adjuster",
+          "brand": "Wilwood",
+          "notes": "Cable with knob."
+        }
+      ],
+      "specs": {
+        "Cable length": "Measure routed length +10% (typically 36–48 in for a dash-mount knob)",
+        "Bend radius": "Minimum ~6 in (150 mm) to avoid binding"
+      },
+      "hardware": [
+        {
+          "item": "Knob panel-mount nut",
+          "qty": 1,
+          "spec": "Thin panel nut supplied with cable (approx. 1/2 or 5/8 in)",
+          "grade": "Steel/Al",
+          "torque": "Snug (≈ 30–40 in-lb)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Cable P-clips",
+          "qty": 3,
+          "spec": "Rubber-lined P-clip, 3/8 in, M5/10-32 screw",
+          "grade": "Steel",
+          "torque": "20–25 in-lb (2.3–2.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route with gentle bends, clear of steering column, throttle and pedal travel; support every 200–300 mm.",
+        "Label the knob direction (more front / more rear) and count detents per full turn."
+      ],
+      "inspection": [
+        "Turn the knob full range in the paddock to confirm it moves the bar without binding."
+      ],
+      "buildPhase": 9,
+      "installOrder": 4,
+      "tags": [
+        "bias",
+        "cockpit-adjustable"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.855,
+              0.272,
+              0.44
+            ],
+            [
+              0.83,
+              0.3,
+              0.445
+            ],
+            [
+              0.8,
+              0.4,
+              0.44
+            ],
+            [
+              0.86,
+              0.55,
+              0.38
+            ],
+            [
+              1,
+              0.62,
+              0.28
+            ],
+            [
+              1.16,
+              0.64,
+              0.17
+            ]
+          ],
+          "radius": 0.004,
+          "color": "#222222"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.17,
+            0.64,
+            0.15
+          ],
+          "size": [
+            0.035,
+            0.035,
+            0.035
+          ],
+          "axis": "x",
+          "color": "#d4202a"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Cable ~0.9 m, knob ~35 mm",
+        "features": "Black sheathed cable, red knurled knob",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.pedal-box.brake-light-switch",
+      "name": "Brake light switch / brake pressure switch",
+      "qty": 1,
+      "description": "Signals brake application to the brake lights and to the ECU/data system. Factory uses a brake pedal position (BPP) sensor that also feeds the EBCM. Race builds typically use a hydraulic pressure switch or (better) line-pressure transducers that drive the rain/brake light through the PDM.",
+      "location": "Factory: on the pedal bracket. Race: teed into the rear master cylinder outlet or a brake distribution block.",
+      "connectsTo": [
+        "brakes.pedal-box.pedal-assembly",
+        "brakes.master-cylinders.brake-pressure-sensors",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM brake pedal position (BPP) sensor",
+        "notes": "Required by the factory ECM for cruise/torque management and by the EBCM; an ECU swap must still receive a brake signal for traction/launch logic."
+      },
+      "raceOptions": [
+        {
+          "name": "Hydraulic brake light pressure switch, 1/8 NPT or M10x1",
+          "brand": "Wilwood / Tilton / Longacre",
+          "notes": "Low-pressure (approx. 65–100 psi) closing switch."
+        }
+      ],
+      "specs": {
+        "Switch type": "Normally open, closes on pressure"
+      },
+      "hardware": [
+        {
+          "item": "Pressure switch thread",
+          "qty": 1,
+          "spec": "1/8-27 NPT into tee/block",
+          "grade": "Brass/steel",
+          "torque": "1.5–2 turns past finger tight (≈ 10–12 ft-lb)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste rated for brake fluid (no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install in rear circuit tee or distribution block before bleeding; wire via PDM to brake light / rain light."
+      ],
+      "inspection": [
+        "Confirm brake light works at each tech inspection."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "switch",
+        "brake-light"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.705,
+          0.25,
+          0.3
+        ],
+        "size": [
+          0.022,
+          0.035,
+          0.022
+        ],
+        "axis": "y",
+        "color": "#444444"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "1/8 NPT pressure switch, ~35 mm",
+        "features": "Hex body, two spade terminals",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

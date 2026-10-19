@@ -1,0 +1,206 @@
+{
+  "id": "chassis.strut-tower-and-chassis-braces",
+  "system": "chassis",
+  "name": "Strut Tower & Chassis Braces",
+  "description": "Bolt-on braces tying the front strut towers together and the rear shock towers together. (Cradle braces are listed with the cradles under suspension.front-cradle / suspension.rear-cradle; the tunnel brace is under chassis.floor-and-tunnel.)",
+  "components": [
+    {
+      "id": "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace",
+      "name": "Front strut tower brace",
+      "qty": 1,
+      "description": "Cross-car bar bolted to the three strut top-mount bolt locations on each tower, reducing tower-to-tower flex and keeping front camber consistent under load. On the Gen 6 V8 cars the bar must clear the LT1 intake or LT4 supercharger lid. If a cage with forward tubes to the towers is fitted, the brace becomes largely redundant.",
+      "location": "Across the engine bay at the tower tops, x approx 0.05, y approx 0.87, z from +0.55 to -0.55.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "suspension.front-struts-springs.strut-mount",
+        "suspension.front-struts-springs.camber-caster-plate"
+      ],
+      "factory": {
+        "name": "Not fitted on most Gen 6 trims",
+        "notes": "Verify for your car; several trims have no factory bar."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR STB018 front strut tower brace (V8 only)",
+          "brand": "BMR Suspension",
+          "partNumber": "STB018",
+          "notes": "Replaces all 6 strut tower bolts with supplied longer bolts and spacers, torque 16 ft-lb. Does not fit V6/2.0T. If using BMR WAK360/361 camber plates use the longer plate bolts supplied for the brace.",
+          "url": "https://www.bmrsuspension.com/siteart/install/STB018.pdf"
+        },
+        {
+          "name": "Cage forward tubes to towers (if class allows)",
+          "brand": "Fabricator built",
+          "notes": "Stiffer than any bolt-on brace."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Strut tower brace bolt (replaces strut upper mounting bolt)",
+          "qty": 6,
+          "spec": "M8 long flange bolt + spacer (supplied with brace), 13 mm hex",
+          "grade": "10.9 (assumed)",
+          "torque": "16 ft-lb (22 N·m)",
+          "torqueSequence": "Wheels on ground or strut supported so it cannot drop; snug all, then torque",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm socket",
+          "notes": "Discard the factory bolts per BMR; same torque as GM strut upper mounting bolt.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/STB018.pdf"
+        }
+      ],
+      "installNotes": [
+        "Install with the car on its wheels (or the knuckles supported) so the struts do not drop out of the locator holes when bolts are removed.",
+        "Install after camber plates and after the engine (supercharger/intake clearance)."
+      ],
+      "inspection": [
+        "Re-torque bolts after first session; check for contact with intake/supercharger under engine rock."
+      ],
+      "buildPhase": 3,
+      "installOrder": 24,
+      "tags": [
+        "strut-tower-brace",
+        "bmr"
+      ],
+      "sources": [
+        {
+          "title": "BMR STB018 installation instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/STB018.pdf"
+        },
+        {
+          "title": "BMR 6th gen Camaro product line overview",
+          "url": "https://gm-efi.com/bmr-suspensions-6th-gen-camaro-product-line/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.05,
+              0.9,
+              0.52
+            ],
+            [
+              0.08,
+              0.94,
+              0.3
+            ],
+            [
+              0.09,
+              0.955,
+              0
+            ],
+            [
+              0.08,
+              0.94,
+              -0.3
+            ],
+            [
+              0.05,
+              0.9,
+              -0.52
+            ]
+          ],
+          "radius": 0.018
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 1.1 m tube",
+        "features": "Tube brace with 3-stud end plates on the strut tops, arched over the engine",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.strut-tower-and-chassis-braces.rear-shock-tower-brace",
+      "name": "Rear shock tower brace / trunk cross-brace",
+      "qty": 1,
+      "description": "Cross-car brace between the rear shock towers (trunk side) or cage rear down-tube cross bar. Stiffens the rear damper mounts, which matters more if the car is converted to rear coilovers that put spring load into the shock pad.",
+      "location": "Trunk, x approx 2.75, y approx 0.72, z +/-0.58.",
+      "connectsTo": [
+        "chassis.unibody.rear-shock-towers",
+        "safety.roll-cage.rear-down-bars",
+        "suspension.rear-dampers-springs.upper-shock-mount"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated tubular bar or cage cross tube",
+          "brand": "Fabricator built",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brace-to-tower bolt (if bolt-on)",
+          "qty": 6,
+          "spec": "M10 x 1.5 flange bolt",
+          "grade": "10.9",
+          "torque": "44 ft-lb (60 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Generic for a fabricated bolt-on brace; do not reuse the factory shock nuts as brace fasteners unless the brace was designed for them (factory shock nuts are 43 N·m).",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit after rear shocks/coilovers so top mount clearance can be checked."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 25,
+      "tags": [
+        "shock-tower-brace"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.93,
+              0.765,
+              0.57
+            ],
+            [
+              2.95,
+              0.8,
+              0.3
+            ],
+            [
+              2.95,
+              0.81,
+              0
+            ],
+            [
+              2.95,
+              0.8,
+              -0.3
+            ],
+            [
+              2.93,
+              0.765,
+              -0.57
+            ]
+          ],
+          "radius": 0.02
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 1.15 m tube",
+        "features": "Fabricated tube between the rear shock tower tops",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

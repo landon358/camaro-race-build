@@ -1,0 +1,760 @@
+{
+  "id": "electrical.sensors",
+  "system": "electrical",
+  "name": "Sensors (engine & driveline monitoring)",
+  "description": "The electrical system's sensor map. OE engine-control sensors (crank, cam, knock, MAP/TMAP, IAT, ECT, fuel-rail pressure, throttle position, oil pressure) are physically owned by the engine system and are referenced here; this subsystem adds the race monitoring sensors: oil pressure/temperature (logged and alarmed), low-side fuel pressure, coolant pressure, crankcase pressure, EGT per cylinder, transmission and differential temperatures, charge-air temperature and fuel level.",
+  "components": [
+    {
+      "id": "electrical.sensors.engine-sensor-interface",
+      "name": "OE engine sensor interface (reference list)",
+      "qty": 1,
+      "description": "Wiring interface to the GM Gen V LT engine-control sensors. Each sensor is mounted on the engine (see engine system ids) and wired through the engine harness. Typical LT1/LT4 set: crankshaft position (rear of block, 58X), camshaft position (front cover, 4X), 2 knock sensors (valley/ block sides), MAP/TMAP (intake/supercharger inlet & outlet on LT4), MAF/IAT (intake tube \u2013 kit-supplied), ECT (head), electronic throttle body position (2 tracks), fuel-rail pressure (DI high side \u2013 3-pin late / 4-pin early sensor), low-side fuel pressure (kit-supplied), oil pressure (kit or engine), VVT cam phaser solenoid feedback via cam sensor.",
+      "location": "On the engine \u2013 see engine ids.",
+      "connectsTo": [
+        "engine.engine-sensors.crank-position-sensor",
+        "engine.engine-sensors.cam-position-sensor",
+        "engine.engine-sensors.knock-sensors",
+        "engine.engine-sensors.map-sensor",
+        "engine-support.cooling.coolant-sensors",
+        "engine.fuel-injection.di-fuel-rails",
+        "engine.intake-manifold.throttle-body",
+        "engine.intake.maf-sensor",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM Gen V LT sensor set",
+        "partNumber": "",
+        "notes": "Holley notes early vs late LT4 by the fuel-rail pressure sensor connector (4-pin early, 3-pin late) \u2013 the ECU/harness kit must match."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Crank": "58X reluctor, Hall sensor",
+        "Cam": "4X, Hall sensor",
+        "Knock": "2 piezo flat-response",
+        "Fuel rail pressure": "DI high-side, ~2000+ psi range",
+        "Throttle": "Dual-track TPS in ETC body"
+      },
+      "hardware": [
+        {
+          "item": "OE sensor connectors (crank, cam, knock, MAP, ECT, FRP, ETC)",
+          "qty": 10,
+          "spec": "OE sealed connectors with CPA locks \u2013 fastener torques owned by engine system",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Verify each sensor's connector type against the chosen ECU harness (early/late LT4 differences)."
+      ],
+      "inspection": [
+        "Check sensor plausibility in ECU data at key-on and idle."
+      ],
+      "buildPhase": 5,
+      "installOrder": 1,
+      "tags": [
+        "sensor",
+        "engine",
+        "reference"
+      ],
+      "sources": [
+        {
+          "title": "Holley Gen V LT DI early/late identification",
+          "url": "https://sdparts.com/holley-efi-550-1623-early-lt4-gdi-kit-h550-1623/"
+        }
+      ]
+    },
+    {
+      "id": "electrical.sensors.oil-pressure-sensor-race",
+      "name": "Oil pressure sensor (race, logged & alarmed)",
+      "qty": 1,
+      "description": "Dedicated 0\u201310 bar (0\u2013150 psi) sealed pressure transducer on the main oil gallery or dry-sump pressure manifold, wired to the dash/logger with an rpm-dependent low-pressure alarm (and optionally an engine-protection strategy in the ECU). The OE sensor can remain for the ECU.",
+      "location": "Oil filter housing / dry-sump remote filter outlet or block gallery port (engine-bay, x\u22480.0\u20130.3, y\u22480.35, z\u2248\u00b10.25).",
+      "connectsTo": [
+        "engine-support.lubrication.sensor-manifold",
+        "electrical.data-acquisition.io-expander",
+        "electrical.dash-and-controls.warning-lamps",
+        "engine-support.lubrication.tank-sensors-and-dipstick"
+      ],
+      "factory": {
+        "name": "GM oil pressure sensor (in kit or engine)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport PSS-10 / Texense / MoTeC sealed pressure sensor",
+          "brand": "Bosch Motorsport / Texense / MoTeC",
+          "partNumber": "",
+          "notes": "Use a remote-mount on a braided -3 hose to isolate from engine vibration."
+        }
+      ],
+      "specs": {
+        "Range": "0\u201310 bar",
+        "Output": "0.5\u20134.5 V"
+      },
+      "hardware": [
+        {
+          "item": "Sensor port adapter",
+          "qty": 1,
+          "spec": "1/8 NPT or M10x1 to -3 AN",
+          "grade": "steel/ aluminum",
+          "torque": "1/8 NPT: 2\u20133 turns past finger tight; M10x1 w/ washer ~15 N\u00b7m",
+          "threadlocker": "thread sealant (PTFE paste) on NPT only",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Remote-mount the sensor on a bracket with a short -3 braided hose to avoid vibration failures."
+      ],
+      "inspection": [
+        "Leaks; reading at hot idle vs baseline."
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "oil-pressure",
+        "sensor",
+        "alarm"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.1,
+          0.35,
+          -0.3
+        ],
+        "size": [
+          0.022,
+          0.06,
+          0.022
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport PSS-10 data sheet (PDF)",
+            "url": "https://www.bosch-motorsport.de/content/downloads/Raceparts/Resources/pdf/Data Sheet_69547659_Pressure_Sensor_Fluid_PSS-10.pdf"
+          }
+        ],
+        "dimensions": "M10 x 1 thread, ~\u00d820 x 60 mm incl. connector.",
+        "features": "Stainless hex and body, plastic connector.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.sensors.oil-temperature-sensor",
+      "name": "Oil temperature sensor",
+      "qty": 1,
+      "description": "NTC temperature sensor in the oil feed (after cooler) or dry-sump tank outlet; logged and alarmed (e.g. > 130 \u00b0C).",
+      "location": "Oil cooler outlet line / dry-sump tank.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-cooler",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "GM engine oil temperature sensor (where fitted)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch NTC M12x1.5 / 1/8 NPT temperature sensor",
+          "brand": "Bosch Motorsport",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor thread",
+          "qty": 1,
+          "spec": "M12 x 1.5 with copper washer or 1/8 NPT",
+          "grade": "",
+          "torque": "M12x1.5: ~18 N\u00b7m (13 ft-lb)",
+          "threadlocker": "none (washer) / sealant on NPT",
+          "safetyWire": false,
+          "reuse": "Reusable (new washer)",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leaks."
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "oil-temp",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.55,
+          0.4,
+          -0.35
+        ],
+        "size": [
+          0.015,
+          0.04,
+          0.015
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M12 x 1.5 / 1/8 NPT NTC, ~19 mm hex, ~45 mm long.",
+        "features": "Brass thread and hex, plastic connector body.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.fuel-pressure-sensor-low",
+      "name": "Low-side fuel pressure sensor",
+      "qty": 1,
+      "description": "Measures feed pressure to the cam-driven high-pressure DI pump (the Chevrolet Performance kit includes the low-side sensor the E92 uses for pump-module PWM control). Add a logged sensor for data if the kit sensor is ECU-only.",
+      "location": "Feed line near the HP pump on the engine (valley/rear of engine).",
+      "connectsTo": [
+        "engine.fuel-injection.lp-feed-connection",
+        "electrical.engine-management.ecu",
+        "electrical.fans-and-pumps-control.fuel-pump-control"
+      ],
+      "factory": {
+        "name": "GM fuel pressure sensor (in LT controller kit)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Range": "0\u201310 bar"
+      },
+      "hardware": [
+        {
+          "item": "Sensor fitting",
+          "qty": 1,
+          "spec": "Per sensor (OE quick-connect tee or 1/8 NPT)",
+          "grade": "",
+          "torque": "Per fitting type",
+          "threadlocker": "sealant on NPT",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Pressure at idle/WOT steady."
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "fuel-pressure",
+        "sensor"
+      ],
+      "sources": [
+        {
+          "title": "LT4 kit contents incl. fuel pressure sensor",
+          "url": "https://billysspeedshop.com/products/chevrolet-performance-lt4-engine-controller-kit-for-manual-or-4-speed-auto"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.3,
+          0.7,
+          0
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~\u00d820 x 40 mm.",
+        "features": "Stainless hex/body, plastic connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.coolant-pressure-sensor",
+      "name": "Coolant pressure sensor",
+      "qty": 1,
+      "description": "Detects head-gasket failure (pressure spikes) and cap/hose leaks (pressure loss) \u2013 often the first warning on a race engine.",
+      "location": "Coolant crossover / thermostat housing or a tee in the upper hose.",
+      "connectsTo": [
+        "engine-support.cooling.upper-hose",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Range": "0\u20135 bar"
+      },
+      "hardware": [
+        {
+          "item": "Hose tee adapter",
+          "qty": 1,
+          "spec": "Aluminum hose tee with 1/8 NPT port + hose clamps",
+          "grade": "",
+          "torque": "Clamp 3\u20134 N\u00b7m",
+          "threadlocker": "sealant on NPT",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leaks."
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "coolant",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.4,
+          0.7,
+          0
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~\u00d820 x 40 mm.",
+        "features": "Stainless hex/body, plastic connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.crankcase-pressure-sensor",
+      "name": "Crankcase pressure sensor",
+      "qty": 1,
+      "description": "Measures crankcase vacuum (dry-sump scavenge effectiveness) or blow-by; useful to diagnose ring seal and scavenge problems.",
+      "location": "Valve cover or dry-sump breather port.",
+      "connectsTo": [
+        "engine.valvetrain.valve-cover",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Range": "-1 to +1 bar"
+      },
+      "hardware": [
+        {
+          "item": "Port fitting",
+          "qty": 1,
+          "spec": "1/8 NPT to -3 AN",
+          "grade": "",
+          "torque": "2\u20133 turns past finger tight",
+          "threadlocker": "sealant",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Remote-mount above the port so oil drains back."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "crankcase",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.15,
+          0.82,
+          0.3
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~\u00d820 x 40 mm.",
+        "features": "Stainless hex/body, plastic connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.egt-probes",
+      "name": "Exhaust gas temperature probes (per cylinder)",
+      "qty": 8,
+      "description": "K-type thermocouples in each primary ~50\u201375 mm from the port, via a CAN thermocouple amplifier (e.g. 8-channel). Shows cylinder-to-cylinder fuel/ignition imbalance \u2013 especially useful on DI where per-cylinder trims are possible.",
+      "location": "Each header primary near the flange, both banks.",
+      "connectsTo": [
+        "engine-support.exhaust.headers",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC E816/ TCA thermocouple amplifier / ECUMaster EGT-to-CAN",
+          "brand": "MoTeC / ECUMaster",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Type": "K-type, 3\u20136 mm exposed tip",
+        "Thread": "1/8 NPT compression fitting"
+      },
+      "hardware": [
+        {
+          "item": "Weld bung + compression fitting",
+          "qty": 1,
+          "spec": "1/8 NPT stainless bung, compression nut",
+          "grade": "304",
+          "torque": "Compression nut snug + 1/4 turn",
+          "threadlocker": "anti-seize",
+          "safetyWire": false,
+          "reuse": "Replace ferrule if moved",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Equal insertion depth on all probes (~1/3 tube diameter)."
+      ],
+      "inspection": [
+        "Probe tip erosion; lead heat damage."
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "egt",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0,
+          0.42,
+          0.33
+        ],
+        "size": [
+          0.012,
+          0.06,
+          0.012
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            -0.12,
+            0.42,
+            0.33
+          ],
+          [
+            0,
+            0.42,
+            0.33
+          ],
+          [
+            0.12,
+            0.42,
+            0.33
+          ],
+          [
+            0.24,
+            0.42,
+            0.33
+          ],
+          [
+            -0.12,
+            0.42,
+            -0.33
+          ],
+          [
+            0,
+            0.42,
+            -0.33
+          ],
+          [
+            0.12,
+            0.42,
+            -0.33
+          ],
+          [
+            0.24,
+            0.42,
+            -0.33
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "K-type probe \u00d83\u20136 mm with 1/8 NPT compression fitting (7/16\" hex).",
+        "features": "Stainless probe, brass compression fitting, stainless transition, braided lead.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.driveline-temp-sensors",
+      "name": "Transmission & differential temperature sensors",
+      "qty": 2,
+      "description": "NTC temperature sensors in the transmission and diff (sump or cooler outlet) to manage cooler pumps/fans and alarm.",
+      "location": "Transmission case (x\u22480.9, y\u22480.30) and rear diff cover (x\u22482.85, y\u22480.33).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.differential.diff-cover",
+        "electrical.data-acquisition.io-expander",
+        "electrical.fans-and-pumps-control.cooler-pumps",
+        "drivetrain.transmission.temperature-sensor"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor thread",
+          "qty": 1,
+          "spec": "1/8 NPT or M12x1.5",
+          "grade": "",
+          "torque": "M12x1.5: ~18 N\u00b7m",
+          "threadlocker": "sealant on NPT",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leaks."
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "temperature",
+        "driveline"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.9,
+          0.28,
+          0.08
+        ],
+        "size": [
+          0.015,
+          0.03,
+          0.015
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            0.9,
+            0.28,
+            0.08
+          ],
+          [
+            2.9,
+            0.33,
+            0
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M12 x 1.5 / 1/8 NPT NTC.",
+        "features": "Brass thread and hex, plastic connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.charge-air-temp-sensor",
+      "name": "Charge-air temperature sensor (post intercooler, LT4)",
+      "qty": 1,
+      "description": "Supercharged LT4 has intercooler bricks in the supercharger housing; charge-air temperature after the cooler is critical for knock margin and intercooler-pump/heat-exchanger performance. Usually an OE TMAP on the supercharger outlet; add a logged sensor if the ECU doesn't share it.",
+      "location": "Supercharger lid/ plenum after intercooler.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-lid",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "GM TMAP (LT4)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor retaining screw",
+          "qty": 1,
+          "spec": "M6 OE screw",
+          "grade": "OE",
+          "torque": "~10 N\u00b7m (89 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 9,
+      "tags": [
+        "iat",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.1,
+          0.92,
+          0
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "GM TMAP ~30 x 30 x 20 mm.",
+        "features": "Plastic body with sensing nipple, connector shroud, mounting tab.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.sensors.fuel-level-sender",
+      "name": "Fuel level sender",
+      "qty": 1,
+      "description": "Resistive or capacitive level sender in the fuel cell (or OE tank sender in the pump module) read by the dash for fuel-remaining and low-fuel alarm; combine with ECU fuel-used calculation for endurance strategy.",
+      "location": "Fuel cell top plate (trunk) or OE tank module.",
+      "connectsTo": [
+        "engine-support.fuel-cell.level-sender",
+        "electrical.main-harness.rear-harness",
+        "electrical.dash-and-controls.dash-display",
+        "engine-support.fuel-cell.plate-fittings"
+      ],
+      "factory": {
+        "name": "GM fuel pump module level sensor (MU2369 module for ZL1, per Aeromotive)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fuel Safe / ATL capacitive sender",
+          "brand": "Fuel Safe / ATL",
+          "partNumber": "",
+          "notes": "Match to cell depth."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sender bolts to cell plate",
+          "qty": 5,
+          "spec": "#10-24 or M5 screws with sealing washers",
+          "grade": "stainless",
+          "torque": "25\u201330 in-lb (3 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Calibrate with known fuel volumes (5 L steps)."
+      ],
+      "inspection": [
+        "Leaks at plate."
+      ],
+      "buildPhase": 2,
+      "installOrder": 10,
+      "tags": [
+        "fuel-level",
+        "sensor"
+      ],
+      "sources": [
+        {
+          "title": "Aeromotive ZL1 PWM controller (Gen 6 module MU2369)",
+          "url": "https://aeromotiveinc.com/products/boostworx-pulse-width-modulation-fuel-module-controller-zl1-lsa-applications"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.3,
+          0.6,
+          0.15
+        ],
+        "size": [
+          0.05,
+          0.3,
+          0.05
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Capacitive probe ~300 mm long through the cell top plate, \u00d8~50 mm flange (estimated).",
+        "features": "Aluminium probe tube, 5-bolt flange, connector on top.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

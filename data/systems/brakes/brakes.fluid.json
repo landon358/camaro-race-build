@@ -1,0 +1,180 @@
+{
+  "id": "brakes.fluid",
+  "system": "brakes",
+  "name": "Brake Fluid, Bleeding & Bedding",
+  "description": "Fluid choice, fill, bleed sequence, bedding procedure and between-session service. Glycol DOT 4 racing fluid with a high dry boiling point is the standard for road racing; it absorbs moisture, so it is replaced often.",
+  "components": [
+    {
+      "id": "brakes.fluid.brake-fluid",
+      "name": "Brake fluid",
+      "qty": 1,
+      "description": "Transmits pressure; its boiling point is the limit of the whole system on track. Racing DOT 4 fluids have dry boiling points of 310–325 °C but wet points fall quickly with moisture, hence frequent bleeding.",
+      "location": "Entire hydraulic system: reservoirs, masters, ABS, lines, calipers.",
+      "connectsTo": [
+        "brakes.master-cylinders.remote-reservoirs",
+        "brakes.master-cylinders.factory-tandem-mc",
+        "brakes.front-calipers.caliper",
+        "brakes.rear-calipers.caliper"
+      ],
+      "factory": {
+        "name": "GM-approved brake fluid per owner's manual (DOT 3 typical for GM – verify; GM fluid also feeds the clutch master)",
+        "notes": "Not confirmed in available sources."
+      },
+      "raceOptions": [
+        {
+          "name": "Castrol SRF React Performance",
+          "brand": "Castrol",
+          "notes": "Very high wet boiling point – long interval between full flushes."
+        },
+        {
+          "name": "Motul RBF 660 Factory Line",
+          "brand": "Motul",
+          "notes": "Very high dry boiling point; bleed every event."
+        },
+        {
+          "name": "Motul RBF 600 Factory Line",
+          "brand": "Motul",
+          "notes": "Common, cost-effective."
+        },
+        {
+          "name": "Endless RF-650 / AP Racing PRF 660",
+          "brand": "Endless / AP",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Type": "DOT 4 glycol racing fluid (do not mix with DOT 5 silicone)",
+        "System capacity": "≈ 1.0 L (estimate); buy 2–3 L per event for bleeding"
+      },
+      "hardware": [],
+      "fluids": [
+        {
+          "name": "DOT 4 racing brake fluid",
+          "spec": "Castrol SRF / Motul RBF 660 / RBF 600",
+          "capacity": "≈ 1.0 L system (estimate)"
+        }
+      ],
+      "installNotes": [
+        "Use sealed, fresh bottles; never reuse bled fluid.",
+        "Clean up spills immediately – glycol fluid strips paint."
+      ],
+      "inspection": [
+        "Bleed calipers before every event (and between days if the pedal grows).",
+        "Full flush every 2–3 events or at season start."
+      ],
+      "buildPhase": 11,
+      "installOrder": 64,
+      "tags": [
+        "fluid",
+        "dot4"
+      ],
+      "sources": [
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        }
+      ]
+    },
+    {
+      "id": "brakes.fluid.bleed-procedure",
+      "name": "Bleeding procedure (system service item)",
+      "qty": 1,
+      "description": "Sequence: farthest from the master first – RR, LR, RF, LF; on each Brembo/AP caliper bleed the INNER bleeder first, then OUTER. Keep reservoirs full throughout. With the factory ABS, finish with the scan-tool automated ABS bleed. With dual masters, bleed each circuit from its own reservoir.",
+      "location": "All four calipers.",
+      "connectsTo": [
+        "brakes.fluid.brake-fluid",
+        "brakes.front-calipers.bleeder-screws",
+        "brakes.rear-calipers.bleeder-screws"
+      ],
+      "factory": {
+        "name": "GM manual / pressure bleed + scan tool ABS bleed",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Pressure bleeder (≈ 15–20 psi) or two-person pedal method",
+          "brand": "Motive / generic",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Order": "RR → LR → RF → LF, inner then outer bleeder"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Bench-bleed masters first.",
+        "Gravity-prime calipers, then pressure- or pedal-bleed.",
+        "After bleeding, hold firm pedal for several minutes engine running (factory booster) – pedal must not sink.",
+        "Torque bleeders (front 17–20 N·m, rear 11 N·m) and refit caps."
+      ],
+      "inspection": [
+        "Pedal height and firmness check before every session."
+      ],
+      "buildPhase": 11,
+      "installOrder": 65,
+      "tags": [
+        "procedure",
+        "bleeding"
+      ],
+      "sources": [
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ]
+    },
+    {
+      "id": "brakes.fluid.bedding-procedure",
+      "name": "Pad & rotor bedding procedure (system service item)",
+      "qty": 1,
+      "description": "Lays an even transfer film of pad material on the rotor; skipping it causes judder and inconsistent bite. Generic procedure (follow pad maker if different): several moderate on/off applications building heat up to ~65 mph, then 8–10 firm stops from 55–65 mph down to ~25 mph without stopping fully, then a cool-down lap/drive without using the brakes, and let the brakes return to ambient before racing.",
+      "location": "On track / test road.",
+      "connectsTo": [
+        "brakes.front-pads.pads",
+        "brakes.rear-pads.pads",
+        "brakes.front-rotors.rotor",
+        "brakes.rear-rotors.rotor"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Pre-bedded discs/pads (Essex offers a $100 disc burnishing service with kit purchase)",
+          "brand": "Essex",
+          "notes": "",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Never hold the car stationary on the brakes immediately after bedding (pad imprint on hot rotor)."
+      ],
+      "inspection": [
+        "Even grey transfer film across the rotor face indicates good bedding."
+      ],
+      "buildPhase": 11,
+      "installOrder": 66,
+      "tags": [
+        "procedure",
+        "bedding"
+      ],
+      "sources": [
+        {
+          "title": "LSX Mag – Chevrolet Performance ZL1 Brake Upgrades For Our Track Camaro (bleed sequence, bedding)",
+          "url": "https://www.lsxmag.com/tech-stories/chevrolet-performance-zl1-brake-upgrades-for-our-track-camaro/"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        }
+      ]
+    }
+  ]
+}

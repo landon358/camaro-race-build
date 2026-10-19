@@ -1,0 +1,944 @@
+{
+  "id": "engine.intake-manifold",
+  "system": "engine",
+  "name": "Intake Manifold / Supercharger",
+  "description": "LT4 Eaton R1740 supercharger-manifold, port gaskets, intercooler bricks, lid, bypass, throttle body, NA manifold alternative and on-engine PCV.",
+  "components": [
+    {
+      "id": "engine.intake-manifold.supercharger-assembly",
+      "name": "Supercharger / intake manifold assembly (LT4 Eaton R1740 TVS)",
+      "qty": 1,
+      "description": "The LT4 intake is a single assembly: Eaton 1.7 L R1740 TVS roots blower in a cast housing that is also the intake manifold, with two water-to-air intercooler bricks under the lid feeding 8 runner ports on the heads. Factory boost about 9.2-9.7 psi. Bolts directly to the cylinder head intake flanges with 10 TTY bolts.",
+      "location": "Sits in the V on top of the engine between the heads; lid top about y = 0.92 m, snout/pulley at the front.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.intake-manifold.port-gaskets",
+        "engine.intake-manifold.intercooler-bricks",
+        "engine.intake-manifold.throttle-body",
+        "engine.accessory-drive.supercharger-belt",
+        "engine.intake-manifold.bypass-actuator",
+        "engine.intake-manifold.pcv-system",
+        "engine-support.intercooler-loop.heat-exchanger",
+        "engine-support.induction.intake-tube"
+      ],
+      "factory": {
+        "name": "GM LT4 supercharger assembly (Eaton R1740 TVS, 1.7 L)",
+        "notes": "Rotors 7.88 in long x 3.94 in dia, 160° helix; 3.1:1 drive ratio, 20,150 rpm max; boost 9.2-9.7 psi (Summit). Some sources (Whipple) call it TVS1760."
+      },
+      "raceOptions": [
+        {
+          "name": "Magnuson TVS2650R Magnum LT4 (Camaro ZL1 / CTS-V)",
+          "brand": "Magnuson",
+          "notes": "Bolt-on; supercharger-to-head bolts 108 in-lb with Loctite 242 and seal washers.",
+          "url": "https://katechengines.com/i-30498454-magnuson-tvs2650r-magnum-camaro-zl1-cadillac-cts-v-lt4-supercharger-system.html"
+        },
+        {
+          "name": "Harrop TVS2650 LT4 inverted supercharger kit",
+          "brand": "Harrop",
+          "notes": "2.5x intercooler capacity, 103/112/120 mm TB adaptors, optional port-injection kit 99-AKIT15926.",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "name": "Whipple Gen 6 3.0 L twin-screw upgrade",
+          "brand": "Whipple",
+          "partNumber": "WK-1025-30",
+          "notes": "112 mm inlet; cast-in port-injection bosses (machining required); ZL1 needs Whipple hood insert or aftermarket hood plus subframe spacers.",
+          "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+        },
+        {
+          "name": "NA conversion: LT1 intake manifold or Holley Hi-Ram / Lo-Ram",
+          "brand": "GM / Holley",
+          "notes": "See engine.intake-manifold.na-intake-manifold.",
+          "url": "https://gm-efi.com/sema-2016-holleys-new-gen-v-hi-ram/"
+        }
+      ],
+      "specs": {
+        "Displacement": "1.7 L (R1740)",
+        "Drive ratio": "3.1:1",
+        "Max rotor speed": "20,150 rpm",
+        "Boost": "9.2-9.7 psi stock",
+        "SC belt": "8-rib (8PK)"
+      },
+      "hardware": [
+        {
+          "item": "Supercharger-to-cylinder-head bolt (GM, TTY)",
+          "qty": 10,
+          "spec": "M6 flange bolt, TTY (supplied in GM gasket kit 12679527)",
+          "grade": "",
+          "torque": "89 in-lb (10 N·m) first pass, 89 in-lb (10 N·m) final pass",
+          "torqueSequence": "Magnuson 10-bolt pattern (5 per head flange), center-out alternating sides: 1 = left/driver center, 2 = right center, 3 = left rear-center, 4 = right front-center, 5 = left front-center, 6 = right rear-center, 7 = left rearmost, 8 = right frontmost, 9 = left frontmost, 10 = right rearmost (read from Magnuson top-view diagram with pulley/front at left - verify against your manual).",
+          "threadlocker": "none (new bolts)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "GM kit lists these as TTY; GM service information may specify an additional angle - verify before final assembly. Checked 2026-10: Summit SR-05493 lists 'Supercharger to Block' as 89 in-lb first pass and 89 in-lb final pass, i.e. two passes in sequence. No GM angle step was found in public sources. Remains typical.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us",
+          "partNumber": "GM 12679527 (kit)"
+        },
+        {
+          "item": "Supercharger-to-cylinder-head bolt (Magnuson TVS2650)",
+          "qty": 10,
+          "spec": "M6 x 35 mm flange bolt with seal washer",
+          "grade": "",
+          "torque": "108 in-lb (12.2 N·m)",
+          "torqueSequence": "Magnuson 10-bolt pattern (5 per head flange), center-out alternating sides: 1 = left/driver center, 2 = right center, 3 = left rear-center, 4 = right front-center, 5 = left front-center, 6 = right rear-center, 7 = left rearmost, 8 = right frontmost, 9 = left frontmost, 10 = right rearmost (read from Magnuson top-view diagram with pulley/front at left - verify against your manual). Gradually work up to final; pulley must still spin freely.",
+          "threadlocker": "Loctite 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "item": "Supercharger pulley bolt (Magnuson)",
+          "qty": 4,
+          "spec": "M6 x 16 mm flange bolt",
+          "grade": "",
+          "torque": "108 in-lb (12.2 N·m)",
+          "torqueSequence": "Cross pattern 1-2-3-4 (top, bottom, left, right).",
+          "threadlocker": "Loctite 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Clean head flanges; install all 8 port gaskets (engine.intake-manifold.port-gaskets) and the PCV seal at the bottom of the housing (lube with Super Lube).",
+        "Lower the blower straight down with a helper; start all bolts by hand.",
+        "Torque in sequence gradually; confirm pulley spins freely afterwards.",
+        "Vacuum leak-down test the intercooler circuit before adding coolant (Magnuson)."
+      ],
+      "inspection": [
+        "Check SC oil level/condition per manufacturer (Eaton TVS units are sealed for life on OEM; aftermarket may differ).",
+        "Inspect coupler/isolator noise, belt alignment, bypass operation."
+      ],
+      "buildPhase": 5,
+      "installOrder": 71,
+      "tags": [
+        "supercharger",
+        "lt4",
+        "tvs",
+        "boost"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Wild Hammer: GM 12679527 17-24 Camaro ZL1 intake manifold (supercharger) gasket kit",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-intake-manifold-gasket-kit-general-motors"
+        },
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "title": "Whipple WK-1025-30 Gen 6 3.0L supercharger upgrade kit, Camaro ZL1 / CTS-V LT4",
+          "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+        },
+        {
+          "title": "Katech: Magnuson TVS2650R Magnum Camaro ZL1 / CTS-V LT4 supercharger system",
+          "url": "https://katechengines.com/i-30498454-magnuson-tvs2650r-magnum-camaro-zl1-cadillac-cts-v-lt4-supercharger-system.html"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.0475,
+          0.765,
+          0
+        ],
+        "size": [
+          0.695,
+          0.23,
+          0.48
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "High-revving supercharger key to LT4 power curve (EngineLabs, R1740 photos)",
+            "url": "https://www.enginelabs.com/engine-tech/high-revving-supercharger-key-lt4s-impressive-power-curve/"
+          },
+          {
+            "title": "Eaton TVS R1740 product page",
+            "url": "https://www.eaton.com/dk/da-dk/catalog/engine-solutions/tvs-r1740.html"
+          },
+          {
+            "title": "Whipple Gen 6 kit for Camaro ZL1 LT4 (shows OEM blower location)",
+            "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+          }
+        ],
+        "dimensions": "Eaton R1740 TVS: 1.7 L/rev, rotors 7.9 in long x 3.9 in dia; assembly approx. 510 x 480 mm footprint, ~150 mm tall above the heads, snout to x = -0.36",
+        "features": "Cast case/manifold in the valley with two charge-air-cooler cavities, 8 runners to the head ports, front snout with 8-rib pulley on the drive rotor, driver-side throttle-body inlet, coolant ports at the front",
+        "confidence": "published (rotor size, displacement); estimated (case envelope)"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.port-gaskets",
+      "name": "Intake runner (port) gaskets & supercharger gasket kit",
+      "qty": 8,
+      "description": "One rubber-in-carrier port gasket per runner between the supercharger housing and the heads, plus the inner charge-air (brick) gaskets, throttle-body gasket and grommet in GM kit 12679527.",
+      "location": "Head intake flanges, under the supercharger.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.cylinder-heads.cylinder-head"
+      ],
+      "factory": {
+        "name": "GM 12679527 ZL1 intake manifold gasket kit",
+        "partNumber": "GM 12679527",
+        "notes": "Kit: 10 TTY SC mounting bolts, 8 runner gaskets, TB gasket, SC gasket, 4 inner charge-air gaskets, SC grommet."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Never reuse port gaskets on a race engine; ensure all 8 are present before lowering the blower (Magnuson warning)."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 69,
+      "tags": [
+        "gaskets"
+      ],
+      "sources": [
+        {
+          "title": "Wild Hammer: GM 12679527 17-24 Camaro ZL1 intake manifold (supercharger) gasket kit",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-intake-manifold-gasket-kit-general-motors"
+        },
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.068,
+            0.003,
+            0.092
+          ],
+          "rot": [
+            135,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.135,
+              0.698,
+              0.1262
+            ],
+            [
+              -0.0232,
+              0.698,
+              0.1262
+            ],
+            [
+              0.0886,
+              0.698,
+              0.1262
+            ],
+            [
+              0.2004,
+              0.698,
+              0.1262
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.068,
+            0.003,
+            0.092
+          ],
+          "rot": [
+            -135,
+            0,
+            0
+          ],
+          "instances": [
+            [
+              -0.111,
+              0.698,
+              -0.1262
+            ],
+            [
+              0.0008,
+              0.698,
+              -0.1262
+            ],
+            [
+              0.1126,
+              0.698,
+              -0.1262
+            ],
+            [
+              0.2244,
+              0.698,
+              -0.1262
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 16-24 Camaro LT1 head-removal gasket kit (intake, head, valve cover)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-ss-lt1-oem-head-removal-gasket-kit-incl-intake-exhaust-throttle-body-valve-cover-general-motors/"
+          }
+        ],
+        "dimensions": "~68 x 92 mm per port",
+        "features": "Individual silicone port seals in a carrier at each runner flange",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.intercooler-bricks",
+      "name": "Intercooler bricks (charge-air coolers) & coolant manifolds",
+      "qty": 2,
+      "description": "Two water-to-air bar-and-plate cores sit inside the blower housing, one per bank, cooled by the separate low-temperature intercooler circuit (pump + front heat exchanger in engine-support). End-tank coolant manifolds with O-rings connect the bricks to the hoses.",
+      "location": "Inside the supercharger housing under the lid, one along each side; coolant manifolds at the front corners.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine-support.intercooler-loop.ic-pump",
+        "engine-support.intercooler-loop.heat-exchanger"
+      ],
+      "factory": {
+        "name": "GM LT4 charge-air coolers",
+        "notes": "LT4 cooler is 23% smaller than LS9 with 10% better heat rejection (Summit)."
+      },
+      "raceOptions": [
+        {
+          "name": "Harrop TVS2650 2.5x capacity cores with 19 mm (or -12 AN, 99-FIT16330) fittings",
+          "brand": "Harrop",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Charge-air cooler retaining bolt (Magnuson housing)",
+          "qty": 3,
+          "spec": "M5 x 35 mm flange bolt",
+          "grade": "",
+          "torque": "70 in-lb (7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Loctite 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "6 per blower (3 per brick); OEM LT4 housing value not found - use GM service info.",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "item": "Coolant manifold bolt (Magnuson housing)",
+          "qty": 3,
+          "spec": "M6 x 20 mm flange bolt",
+          "grade": "",
+          "torque": "108 in-lb (12.2 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Loctite 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "item": "Brick / manifold O-rings",
+          "qty": 4,
+          "spec": "OEM O-rings, lube with Super Lube",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Supercharger coolant manifold (GM, per Summit)",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: Summit SR-05493 gives 89 in-lb. The 2016-18 Camaro SM (via TightTorque) lists the 'charge air cooler fastener' at 9 N·m (80 lb in), close to Summit. Remains typical.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Intercooler coolant",
+          "spec": "GM Dex-Cool 50/50 (street) or distilled water + wetter where rules forbid glycol",
+          "capacity": "Intercooler circuit ~ see engine-support"
+        }
+      ],
+      "installNotes": [
+        "Re-lube O-rings, rock tubes into place to avoid cutting O-rings.",
+        "Vacuum leak-down test the circuit before filling."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 74,
+      "tags": [
+        "intercooler"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.04,
+          0.815,
+          0.15
+        ],
+        "size": [
+          0.4,
+          0.1,
+          0.12
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "High-revving supercharger key to LT4 power curve (EngineLabs, R1740 photos)",
+            "url": "https://www.enginelabs.com/engine-tech/high-revving-supercharger-key-lt4s-impressive-power-curve/"
+          },
+          {
+            "title": "Whipple Gen 6 kit for Camaro ZL1 LT4 (shows OEM blower location)",
+            "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+          }
+        ],
+        "dimensions": "Approx. 400 x 120 x 100 mm per brick",
+        "features": "Two air-to-water bricks with clamshell core and turbolator fins, end tanks and two coolant stubs at the front",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.supercharger-lid",
+      "name": "Supercharger lid & lid gasket",
+      "qty": 1,
+      "description": "Cast lid sealing the top of the intercooler cavities. Billet lids and lid spacers are sold for ZL1s; the lid gasket is an OEM service part.",
+      "location": "Top of the supercharger assembly.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.intake-manifold.intercooler-bricks"
+      ],
+      "factory": {
+        "name": "GM LT4 supercharger cover & cover gasket",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MPI billet supercharger lid (17-24 ZL1)",
+          "brand": "MPI",
+          "notes": "Reuses OEM gaskets.",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-billet-supercharger-lid-mpi"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Lid bolt (Magnuson housing)",
+          "qty": 23,
+          "spec": "19 x M6 x 20 mm perimeter + 4 x M6 x 30 mm center",
+          "grade": "",
+          "torque": "108 in-lb (12.2 N·m)",
+          "torqueSequence": "Spiral from center-front of long sides outward (Magnuson diagram 1-19 perimeter, 20-23 center).",
+          "threadlocker": "Loctite 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "OEM LT4 lid torque not found publicly - verify with GM service info.",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New lid gasket; torque in spiral pattern."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 75,
+      "tags": [
+        "supercharger"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "title": "Wild Hammer: 17-24 Camaro ZL1 LT4 OEM supercharger cover gasket",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-lt4-oem-supercharger-cover-gasket-general-motors/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.04,
+          0.8975,
+          0
+        ],
+        "size": [
+          0.5,
+          0.045,
+          0.47
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM ZL1 LT4 supercharger cover gasket",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-lt4-oem-supercharger-cover-gasket-general-motors/"
+          },
+          {
+            "title": "High-revving supercharger key to LT4 power curve (EngineLabs, R1740 photos)",
+            "url": "https://www.enginelabs.com/engine-tech/high-revving-supercharger-key-lt4s-impressive-power-curve/"
+          }
+        ],
+        "dimensions": "Approx. 500 x 470 mm, top at y = 0.92",
+        "features": "Black cast lid with two long raised sections over the bricks, centre spine, perimeter bolts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.bypass-actuator",
+      "name": "Supercharger bypass valve & actuator (boost control solenoid)",
+      "qty": 1,
+      "description": "Butterfly bypass in the blower inlet that recirculates air at light load/closed throttle. Must always be connected (Magnuson warning). Harrop supplies a relocation bracket for the factory bypass boost-control solenoid.",
+      "location": "Supercharger inlet area behind the throttle body.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.intake-manifold.throttle-body",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM LT4 bypass valve / boost control solenoid",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bypass solenoid/actuator bracket bolt",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m) (estimate)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Verify bypass opens with vacuum/commanded and closes under boost before first run."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 76,
+      "tags": [
+        "bypass",
+        "boost"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        },
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.228,
+          0.835,
+          0.07
+        ],
+        "size": [
+          0.04,
+          0.05,
+          0.05
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "High-revving supercharger key to LT4 power curve (EngineLabs, R1740 photos)",
+            "url": "https://www.enginelabs.com/engine-tech/high-revving-supercharger-key-lt4s-impressive-power-curve/"
+          }
+        ],
+        "dimensions": "~45 mm diaphragm can",
+        "features": "Black vacuum actuator with rod to the bypass valve shaft at the blower inlet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.throttle-body",
+      "name": "Electronic throttle body",
+      "qty": 1,
+      "description": "Drive-by-wire throttle body bolted to the supercharger inlet (LT4: 87 mm, 4-bolt). Race upgrades use 103-120 mm units with matching inlet adaptors; DBW calibration must be updated.",
+      "location": "Front of the supercharger, just ahead of the blower inlet, fed by the air intake duct.",
+      "connectsTo": [
+        "engine.intake-manifold.supercharger-assembly",
+        "engine-support.induction.throttle-body-interface",
+        "engine-support.induction.intake-tube",
+        "electrical.engine-management.engine-harness"
+      ],
+      "factory": {
+        "name": "GM 87 mm 4-bolt DBW throttle body (LT4/LT1)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Harrop billet TB adaptors: 103 mm (99-AADP16276), 112 mm (99-AADP16112), 120 mm (99-AADP16786)",
+          "brand": "Harrop",
+          "partNumber": "99-AADP16276 / 99-AADP16112 / 99-AADP16786",
+          "notes": "For Harrop TVS2650 blower; require aftermarket intake.",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "name": "Nick Williams / Soler 102-103 mm LT DBW throttle body",
+          "brand": "Nick Williams / Soler",
+          "notes": "Part numbers not verified here; must match blower inlet bolt pattern."
+        }
+      ],
+      "specs": {
+        "Bore": "87 mm stock",
+        "Type": "Electronic DBW"
+      },
+      "hardware": [
+        {
+          "item": "Throttle body bolt",
+          "qty": 4,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "88 in-lb (9.9 N·m)",
+          "torqueSequence": "Cross pattern.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New TB gasket (in GM kit 12679527); relearn/cal DBW after change."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 77,
+      "tags": [
+        "throttle-body",
+        "dbw"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.298,
+          0.8,
+          0.1
+        ],
+        "size": [
+          0.06,
+          0.13,
+          0.13
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12740727 87 mm DBW throttle body",
+            "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/gm-12740727-oem-throttle-body-for-2014-2021-lt1-l86-l87-lt4-12729495-12620263-12678223-12733469-tb/"
+          },
+          {
+            "title": "Katech ported 87 mm Gen V throttle body (photos)",
+            "url": "https://katechengines.com/i-30497837-katech-lt-lt2-lt4-l86-l87-cnc-ported-throttle-body.html"
+          }
+        ],
+        "dimensions": "87 mm bore, 4-bolt flange ~118 mm square, ~60 mm deep",
+        "features": "Machined aluminium bore and blade, black DBW motor housing on the outboard side with 6-pin connector",
+        "confidence": "published (bore), estimated (body)"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.na-intake-manifold",
+      "name": "NA intake manifold (LT1 / Holley Hi-Ram / Lo-Ram) - alternative to supercharger",
+      "qty": 1,
+      "description": "For a naturally aspirated build the blower is replaced by the LT1 composite manifold or a fabricated/modular manifold. Holley Gen V Hi-Ram/Lo-Ram versions offer port-injector bosses and still allow the OEM DI high-pressure pump.",
+      "location": "On the head intake flanges in the V (replaces the supercharger assembly).",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.intake-manifold.throttle-body",
+        "engine.fuel-injection.port-injection-kit"
+      ],
+      "factory": {
+        "name": "GM LT1 intake manifold (Camaro SS)",
+        "notes": "LT1 bolt pattern differs from LT4 SC flange - match heads."
+      },
+      "raceOptions": [
+        {
+          "name": "Holley Lo-Ram Gen V LT with port injection rails (-8 AN, 3/4-16 O-ring ports)",
+          "brand": "Holley",
+          "partNumber": "300-718",
+          "notes": "Sits ~3.18 in taller than LT1 manifold; accepts standard or short (Pico/LS7) injectors.",
+          "url": "https://briantooleyracing.com/holley-low-ram-intake-manifold-gen-v-lt-with-port-injectors-300-718.html"
+        },
+        {
+          "name": "Holley Hi-Ram Gen V (92/105 mm TB, with/without injector ports)",
+          "brand": "Holley",
+          "partNumber": "300-141 / 300-142 / 300-143",
+          "notes": "Check hood clearance.",
+          "url": "https://gm-efi.com/sema-2016-holleys-new-gen-v-hi-ram/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Intake manifold bolt (LT1)",
+          "qty": 10,
+          "spec": "M6 bolt with isolator",
+          "grade": "",
+          "torque": "44 in-lb (5 N·m) then 89 in-lb (10 N·m)",
+          "torqueSequence": "Two passes in the GM center-out sequence.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit LT1 table and Michigan Motorsports agree.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Alternative configuration - choose either this or the supercharger assembly."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 72,
+      "tags": [
+        "na",
+        "intake",
+        "alternative"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Brian Tooley Racing: Holley Lo-Ram intake manifold Gen V LT with port injectors 300-718",
+          "url": "https://briantooleyracing.com/holley-low-ram-intake-manifold-gen-v-lt-with-port-injectors-300-718.html"
+        },
+        {
+          "title": "GM-EFI: SEMA 2016 Holley Gen V Hi-Ram",
+          "url": "https://gm-efi.com/sema-2016-holleys-new-gen-v-hi-ram/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.03,
+          0.75,
+          0
+        ],
+        "size": [
+          0.54,
+          0.22,
+          0.42
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12629466 Gen V LT1 intake manifold",
+            "url": "https://www.chevypartsdeal.com/oem/gm~manifold-intake~12629466"
+          },
+          {
+            "title": "Holley Hi-Ram Gen V LT1 intake (race alternative)",
+            "url": "https://www.americanmuscle.com/holley-camaro-gen-v-lt1-hi-ram-intake-manifold-92mm-ls-throttle-body-mount-fuel-rails-300-141.html"
+          }
+        ],
+        "dimensions": "Approx. 540 x 420 x 220 mm",
+        "features": "Black composite LT1 manifold: central plenum, 87 mm front inlet, 8 curved runners down to the head ports, MAP sensor on top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.intake-manifold.pcv-system",
+      "name": "PCV / crankcase breather system (on-engine)",
+      "qty": 1,
+      "description": "Fresh air enters the valve cover(s) from the clean side of the air inlet; blow-by is drawn through the integral oil separator and PCV orifice into the intake (on the LT4, into the bottom of the supercharger via a rubber PCV seal). Road-race cars add a baffled catch can on the PCV side and a breather can on the fresh-air side; dry-sump cars vent through the tank and may run a vacuum pump.",
+      "location": "Valve-cover breather ports, oil separator, hoses to the supercharger/intake and to the inlet duct.",
+      "connectsTo": [
+        "engine.valve-covers.valve-cover",
+        "engine.intake-manifold.supercharger-assembly",
+        "engine-support.induction.intake-tube",
+        "engine-support.oiling.catch-can"
+      ],
+      "factory": {
+        "name": "GM Gen V PCV with integral oil separator and supercharger PCV seal (LT4)",
+        "notes": "LT1 uses a different PCV path into the composite manifold."
+      },
+      "raceOptions": [
+        {
+          "name": "Baffled catch can (PCV side) + breather can (fresh-air side)",
+          "brand": "RX / Moroso / Elite",
+          "notes": "Check series rules for crankcase venting to atmosphere."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "PCV/breather hose clamps / quick connects",
+          "qty": 4,
+          "spec": "OEM quick connect or -10 AN fittings (race)",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Lube the supercharger PCV seal before lowering the blower.",
+        "Route hoses away from exhaust heat and secure against vibration."
+      ],
+      "inspection": [
+        "Empty catch can every session and record volume - trend of blow-by."
+      ],
+      "buildPhase": 7,
+      "installOrder": 70,
+      "tags": [
+        "pcv",
+        "catch-can"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.2,
+          0.625,
+          0
+        ],
+        "size": [
+          0.06,
+          0.02,
+          0.05
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~60 x 50 mm",
+        "features": "Oil separator/PCV valve integrated in the valley cover with hose nipple",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

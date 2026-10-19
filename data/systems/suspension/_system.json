@@ -1,0 +1,1477 @@
+{
+ "id": "suspension",
+ "name": "Suspension",
+ "summary": "Gen 6 Camaro uses a double-pivot (dual lower ball joint) MacPherson strut front with aluminum lateral LCA and forward radius rod, and a five-link independent rear with stamped steel links, the coil spring and shock both on the rear lower control arm. ZL1 runs Magnetic Ride Control; ZL1 1LE runs Multimatic DSSV dampers with adjustable front ride height, rotatable camber top mounts and a 3-way rear bar. Race builds solid-mount the cradles, replace rubber bushings with spherical bearings, add camber/caster plates and adjustable links, and fit adjustable coilovers.",
+ "overview": "Front: each front corner has a MacPherson strut clamped to the knuckle (2 bolts, 150 N·m + 80-95 deg) and bolted to the tower (3 bolts, 22 N·m). The lower knuckle is located by two separate aluminum links with their own ball joints - a lateral lower control arm and a forward-running radius rod (tension/caster rod) - both pivoting on the front cradle with torque-to-yield bolts (100 N·m + 90-105 deg, GM P/N 11611268 LCA, 11610915 radius rod). Steering is a ZF rack-mounted electric rack on the front cradle. A direct-acting sway bar on the front of the cradle links to the strut bodies.\n\nRear: five links per side - lower control arm (spring link: carries the spring and the shock; M14 camber eccentric inside), upper control arm, upper and lower trailing arms, and a toe link (GM 'adjust link', M12 toe eccentric inside) - all pivot on a steel rear cradle that mounts to the body through four bushings with TTY bolts (100 N·m + 90-105 deg) and is braced front and rear. Almost every rear pivot fastener is torque + angle and single-use per GM (BMR publishes the GM fastener P/N list).\n\nRace approach: (1) solid or Delrin cradle mounts (BMR BK062/BK063) and seam-welded cradle; (2) spherical bearings in all link bushings or rod-end links (BMR, SPL Parts); (3) camber/caster plates (BMR WAK360/361) and adjustable radius rods/LCAs (SPL TR CAM6, SPL FLCA CAM6, BMR FLC363) for -3 deg camber and equal caster; (4) adjustable rear links/lockouts (SPL EL CAM6, BMR TR007) so eccentrics cannot slip; (5) adjustable coilovers or retain DSSV; (6) adjustable bars and end links; (7) bump-steer tie rod ends (SPL TRE CAM6) when lowered.\n\nTypical race alignment starting points: front camber -2.7 to -3.5 deg, caster 7.5-9 deg (equal L/R), front toe 0 to 1/16 in out; rear camber -1.5 to -2.2 deg, rear toe 1/16-1/8 in total in. Typical spring rates (estimate): front coilover 600-1000 lb/in; rear depends on layout (factory pocket spring has a low motion ratio). Rules: NASA/SCCA classes restrict suspension changes by class (e.g. ST/TT/GT classes use points/power-to-weight; SCCA T1/T2 and NASA AmEx/ST classes differ) - check class rules before buying parts.\n\nCommon failure points: OE rear eccentrics slipping (toe/camber change), worn radius rod bushings (braking instability), cracked strut tower seams, bent aluminum front links after curbing, and bushings torqued at full droop.",
+ "buildNotes": [
+  "Rebuild/upgrade bushings and press bearings into links and knuckles on the bench before installation.",
+  "Assemble front cradle with rack, sway bar, LCAs and radius rods; install cradle (with engine if doing a K-member drop-in) using new TTY bolts.",
+  "Assemble struts (spring compressor), install struts and knuckles; leave all rubber-bushed TTY pivots loose.",
+  "Assemble rear cradle with differential, five links, sway bar; raise and bolt in; install braces; then springs and shocks.",
+  "Install hubs/brakes (phases 4) and wheels; set car on pads at ride height with ballast.",
+  "Final-torque all TTY pivots at ride height with new bolts; paint-mark.",
+  "Corner weight, then align (front camber/caster/toe, rear camber/toe); lock eccentrics; set sway bar links for zero preload.",
+  "Shakedown: re-torque top mounts, check witness marks, zip-tie damper shafts for travel."
+ ],
+ "schematics": [
+  {
+   "id": "suspension.front-load-path",
+   "title": "Front suspension load path (double-pivot MacPherson strut)",
+   "type": "mechanical",
+   "description": "Force flow from the tire contact patch into the body for one front corner. Two separate lower links each with its own ball joint form the double-pivot lower; the strut carries vertical load to the tower. TTY = torque-to-yield fastener.",
+   "nodes": [
+    {
+     "id": "tire",
+     "label": "Tire / contact patch",
+     "componentId": "wheels.tires.front-tire"
+    },
+    {
+     "id": "hub",
+     "label": "Hub bearing",
+     "componentId": "wheels.front-hubs.hub-bearing"
+    },
+    {
+     "id": "knuckle",
+     "label": "Front knuckle",
+     "componentId": "suspension.front-knuckles.knuckle"
+    },
+    {
+     "id": "bj-lca",
+     "label": "LCA ball joint",
+     "componentId": "suspension.front-lower-links.ball-joints"
+    },
+    {
+     "id": "bj-rr",
+     "label": "Radius rod ball joint",
+     "componentId": "suspension.front-lower-links.ball-joints"
+    },
+    {
+     "id": "lca",
+     "label": "Lateral LCA",
+     "componentId": "suspension.front-lower-links.lower-control-arm"
+    },
+    {
+     "id": "lca-bush",
+     "label": "LCA inner bushing",
+     "componentId": "suspension.front-lower-links.lower-control-arm-bushing"
+    },
+    {
+     "id": "rr",
+     "label": "Radius rod (tension rod)",
+     "componentId": "suspension.front-lower-links.radius-rod"
+    },
+    {
+     "id": "rr-bush",
+     "label": "Radius rod bushing",
+     "componentId": "suspension.front-lower-links.radius-rod-bushing"
+    },
+    {
+     "id": "strut",
+     "label": "Strut / damper",
+     "componentId": "suspension.front-struts-springs.strut"
+    },
+    {
+     "id": "spring",
+     "label": "Coil spring",
+     "componentId": "suspension.front-struts-springs.coil-spring"
+    },
+    {
+     "id": "bump",
+     "label": "Jounce bumper",
+     "componentId": "suspension.bump-stops-and-limiters.front-jounce-bumper"
+    },
+    {
+     "id": "mount",
+     "label": "Top mount / camber plate",
+     "componentId": "suspension.front-struts-springs.strut-mount"
+    },
+    {
+     "id": "tower",
+     "label": "Strut tower",
+     "componentId": "chassis.unibody.front-strut-towers"
+    },
+    {
+     "id": "stb",
+     "label": "Strut tower brace",
+     "componentId": "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace"
+    },
+    {
+     "id": "tre",
+     "label": "Outer tie rod end",
+     "componentId": "steering.tie-rods.outer-tie-rod-end"
+    },
+    {
+     "id": "itr",
+     "label": "Inner tie rod",
+     "componentId": "steering.tie-rods.inner-tie-rod"
+    },
+    {
+     "id": "rack",
+     "label": "EPS rack",
+     "componentId": "steering.rack.eps-gear"
+    },
+    {
+     "id": "link",
+     "label": "Sway bar end link",
+     "componentId": "suspension.front-sway-bar.end-links"
+    },
+    {
+     "id": "bar",
+     "label": "Front sway bar",
+     "componentId": "suspension.front-sway-bar.bar"
+    },
+    {
+     "id": "barbush",
+     "label": "Bar insulators",
+     "componentId": "suspension.front-sway-bar.insulators-and-clamps"
+    },
+    {
+     "id": "cradle",
+     "label": "Front cradle",
+     "componentId": "suspension.front-cradle.cradle"
+    },
+    {
+     "id": "cmount",
+     "label": "Cradle mounts / TTY bolts",
+     "componentId": "suspension.front-cradle.cradle-mounts"
+    },
+    {
+     "id": "rail",
+     "label": "Front frame rails",
+     "componentId": "chassis.unibody.front-frame-rails"
+    },
+    {
+     "id": "body",
+     "label": "Unibody",
+     "componentId": "chassis.unibody.body-in-white"
+    }
+   ],
+   "edges": [
+    {
+     "from": "tire",
+     "to": "hub",
+     "label": "wheel studs/lug nuts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "hub",
+     "to": "knuckle",
+     "label": "hub bolts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "bj-lca",
+     "label": "taper + 21 mm nut",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "bj-rr",
+     "label": "taper + 21 mm nut",
+     "kind": "mechanical"
+    },
+    {
+     "from": "bj-lca",
+     "to": "lca",
+     "label": "lateral force",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lca",
+     "to": "lca-bush",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lca-bush",
+     "to": "cradle",
+     "label": "TTY 100 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "bj-rr",
+     "to": "rr",
+     "label": "braking/longitudinal force",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rr",
+     "to": "rr-bush",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rr-bush",
+     "to": "cradle",
+     "label": "TTY 100 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "strut",
+     "label": "2 bolts 150 N·m + 80-95 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "strut",
+     "to": "spring",
+     "label": "spring seat",
+     "kind": "mechanical"
+    },
+    {
+     "from": "strut",
+     "to": "bump",
+     "label": "rod",
+     "kind": "mechanical"
+    },
+    {
+     "from": "spring",
+     "to": "mount",
+     "label": "upper seat",
+     "kind": "mechanical"
+    },
+    {
+     "from": "bump",
+     "to": "mount",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "mount",
+     "to": "tower",
+     "label": "3 bolts 22 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "tower",
+     "to": "stb",
+     "label": "brace",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "tre",
+     "label": "steering arm",
+     "kind": "mechanical"
+    },
+    {
+     "from": "tre",
+     "to": "itr",
+     "label": "jam nut",
+     "kind": "mechanical"
+    },
+    {
+     "from": "itr",
+     "to": "rack",
+     "label": "inner ball joint",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rack",
+     "to": "cradle",
+     "label": "rack mount bolts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "strut",
+     "to": "link",
+     "label": "link nut 100 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "link",
+     "to": "bar",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "bar",
+     "to": "barbush",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "barbush",
+     "to": "cradle",
+     "label": "clamps 22 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cradle",
+     "to": "cmount",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cmount",
+     "to": "rail",
+     "label": "TTY bolts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rail",
+     "to": "body",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "tower",
+     "to": "body",
+     "label": "",
+     "kind": "mechanical"
+    }
+   ]
+  },
+  {
+   "id": "suspension.rear-load-path",
+   "title": "Rear suspension load path (5-link independent)",
+   "type": "mechanical",
+   "description": "Force flow for one rear corner: five links from knuckle to cradle, spring and shock both on the lower control arm, cradle to body through four bushings.",
+   "nodes": [
+    {
+     "id": "tire",
+     "label": "Tire / contact patch",
+     "componentId": "wheels.tires.rear-tire"
+    },
+    {
+     "id": "hub",
+     "label": "Rear hub bearing",
+     "componentId": "wheels.rear-hubs.hub-bearing"
+    },
+    {
+     "id": "axle",
+     "label": "Halfshaft",
+     "componentId": "drivetrain.halfshafts.rear-halfshaft"
+    },
+    {
+     "id": "knuckle",
+     "label": "Rear knuckle",
+     "componentId": "suspension.rear-knuckles.knuckle"
+    },
+    {
+     "id": "kb",
+     "label": "Knuckle bushings (3)",
+     "componentId": "suspension.rear-knuckles.knuckle-bushings"
+    },
+    {
+     "id": "lca",
+     "label": "Lower control arm (spring link)",
+     "componentId": "suspension.rear-links.lower-control-arm"
+    },
+    {
+     "id": "uca",
+     "label": "Upper control arm",
+     "componentId": "suspension.rear-links.upper-control-arm"
+    },
+    {
+     "id": "uta",
+     "label": "Upper trailing arm",
+     "componentId": "suspension.rear-links.upper-trailing-arm"
+    },
+    {
+     "id": "lta",
+     "label": "Lower trailing arm",
+     "componentId": "suspension.rear-links.lower-trailing-arm"
+    },
+    {
+     "id": "toe",
+     "label": "Toe link",
+     "componentId": "suspension.rear-links.toe-link"
+    },
+    {
+     "id": "cam",
+     "label": "Camber/toe eccentrics",
+     "componentId": "suspension.rear-links.camber-and-toe-eccentrics"
+    },
+    {
+     "id": "spring",
+     "label": "Rear coil spring",
+     "componentId": "suspension.rear-dampers-springs.coil-spring"
+    },
+    {
+     "id": "shock",
+     "label": "Rear shock",
+     "componentId": "suspension.rear-dampers-springs.shock"
+    },
+    {
+     "id": "bump",
+     "label": "Rear jounce bumper",
+     "componentId": "suspension.bump-stops-and-limiters.rear-jounce-bumper"
+    },
+    {
+     "id": "pad",
+     "label": "Rear shock pad",
+     "componentId": "chassis.unibody.rear-shock-towers"
+    },
+    {
+     "id": "slink",
+     "label": "Sway bar end link",
+     "componentId": "suspension.rear-sway-bar.end-links"
+    },
+    {
+     "id": "bar",
+     "label": "Rear sway bar",
+     "componentId": "suspension.rear-sway-bar.bar"
+    },
+    {
+     "id": "cradle",
+     "label": "Rear cradle",
+     "componentId": "suspension.rear-cradle.cradle"
+    },
+    {
+     "id": "diff",
+     "label": "Differential",
+     "componentId": "drivetrain.differential.diff-housing"
+    },
+    {
+     "id": "cbush",
+     "label": "Cradle bushings (4) + TTY bolts",
+     "componentId": "suspension.rear-cradle.cradle-bushings"
+    },
+    {
+     "id": "fbrace",
+     "label": "Front cradle braces",
+     "componentId": "suspension.rear-cradle.front-cradle-braces"
+    },
+    {
+     "id": "rbrace",
+     "label": "Rear cradle brace",
+     "componentId": "suspension.rear-cradle.rear-cradle-brace"
+    },
+    {
+     "id": "rail",
+     "label": "Rear rails",
+     "componentId": "chassis.unibody.rear-rails"
+    },
+    {
+     "id": "body",
+     "label": "Unibody",
+     "componentId": "chassis.unibody.body-in-white"
+    }
+   ],
+   "edges": [
+    {
+     "from": "tire",
+     "to": "hub",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "hub",
+     "to": "knuckle",
+     "label": "hub bolts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "axle",
+     "to": "hub",
+     "label": "drive torque",
+     "kind": "torque"
+    },
+    {
+     "from": "knuckle",
+     "to": "lca",
+     "label": "150 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "kb",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "kb",
+     "to": "uca",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "kb",
+     "to": "uta",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "kb",
+     "to": "lta",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "toe",
+     "label": "100 N·m + 105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lca",
+     "to": "cam",
+     "label": "M14 cam 115 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cam",
+     "to": "cradle",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "toe",
+     "to": "cam",
+     "label": "M12 cam 70 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "uca",
+     "to": "cradle",
+     "label": "70 N·m + 105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "uta",
+     "to": "cradle",
+     "label": "70 N·m + 105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lta",
+     "to": "cradle",
+     "label": "70 N·m + 105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lca",
+     "to": "spring",
+     "label": "spring pocket",
+     "kind": "mechanical"
+    },
+    {
+     "from": "spring",
+     "to": "rail",
+     "label": "body spring seat",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lca",
+     "to": "shock",
+     "label": "100 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "shock",
+     "to": "bump",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "shock",
+     "to": "pad",
+     "label": "3 nuts 43 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "knuckle",
+     "to": "slink",
+     "label": "58 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "slink",
+     "to": "bar",
+     "label": "43 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "bar",
+     "to": "cradle",
+     "label": "clamps 58 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "diff",
+     "to": "cradle",
+     "label": "diff bushings",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cradle",
+     "to": "cbush",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cbush",
+     "to": "rail",
+     "label": "100 N·m + 90-105 deg",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cradle",
+     "to": "fbrace",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cradle",
+     "to": "rbrace",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "fbrace",
+     "to": "body",
+     "label": "43 lb ft",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rbrace",
+     "to": "rail",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rail",
+     "to": "body",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "pad",
+     "to": "body",
+     "label": "",
+     "kind": "mechanical"
+    }
+   ]
+  },
+  {
+   "id": "suspension.adjustment-map",
+   "title": "Alignment & setup adjustment map",
+   "type": "block",
+   "description": "Which part adjusts which setup parameter (factory vs race).",
+   "nodes": [
+    {
+     "id": "fcam",
+     "label": "Front camber",
+     "componentId": "suspension.alignment-and-setup.front-alignment"
+    },
+    {
+     "id": "fcas",
+     "label": "Front caster",
+     "componentId": "suspension.alignment-and-setup.front-alignment"
+    },
+    {
+     "id": "ftoe",
+     "label": "Front toe",
+     "componentId": "suspension.alignment-and-setup.front-alignment"
+    },
+    {
+     "id": "rcam",
+     "label": "Rear camber",
+     "componentId": "suspension.alignment-and-setup.rear-alignment"
+    },
+    {
+     "id": "rtoe",
+     "label": "Rear toe",
+     "componentId": "suspension.alignment-and-setup.rear-alignment"
+    },
+    {
+     "id": "rh",
+     "label": "Ride height / corner weight",
+     "componentId": "suspension.alignment-and-setup.ride-height-and-corner-weights"
+    },
+    {
+     "id": "bs",
+     "label": "Bump steer",
+     "componentId": "steering.bump-steer.adjustable-tie-rod-ends"
+    },
+    {
+     "id": "rc",
+     "label": "Front roll center",
+     "componentId": "suspension.front-lower-links.lower-control-arm"
+    },
+    {
+     "id": "roll",
+     "label": "Roll stiffness balance",
+     "componentId": "suspension.rear-sway-bar.bar"
+    },
+    {
+     "id": "plate",
+     "label": "Camber/caster plates",
+     "componentId": "suspension.front-struts-springs.camber-caster-plate"
+    },
+    {
+     "id": "mount1le",
+     "label": "1LE top mount (rotate 180 deg)",
+     "componentId": "suspension.front-struts-springs.strut-mount"
+    },
+    {
+     "id": "flca",
+     "label": "Adjustable front LCA",
+     "componentId": "suspension.front-lower-links.lower-control-arm"
+    },
+    {
+     "id": "frr",
+     "label": "Adjustable radius rod",
+     "componentId": "suspension.front-lower-links.radius-rod"
+    },
+    {
+     "id": "tr",
+     "label": "Tie rods",
+     "componentId": "steering.tie-rods.inner-tie-rod"
+    },
+    {
+     "id": "lcacam",
+     "label": "LCA eccentric / adj. links",
+     "componentId": "suspension.rear-links.camber-and-toe-eccentrics"
+    },
+    {
+     "id": "toelink",
+     "label": "Toe link eccentric / rod-end toe link",
+     "componentId": "suspension.rear-links.toe-link"
+    },
+    {
+     "id": "perch",
+     "label": "Threaded perches",
+     "componentId": "suspension.front-struts-springs.threaded-spring-perch"
+    },
+    {
+     "id": "tre",
+     "label": "Bump-steer tie rod ends",
+     "componentId": "steering.bump-steer.adjustable-tie-rod-ends"
+    },
+    {
+     "id": "fbar",
+     "label": "Front bar",
+     "componentId": "suspension.front-sway-bar.bar"
+    },
+    {
+     "id": "rbar",
+     "label": "Rear bar (3-hole on 1LE)",
+     "componentId": "suspension.rear-sway-bar.bar"
+    }
+   ],
+   "edges": [
+    {
+     "from": "plate",
+     "to": "fcam",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "mount1le",
+     "to": "fcam",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "flca",
+     "to": "fcam",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "plate",
+     "to": "fcas",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "frr",
+     "to": "fcas",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "tr",
+     "to": "ftoe",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "lcacam",
+     "to": "rcam",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "toelink",
+     "to": "rtoe",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "perch",
+     "to": "rh",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "tre",
+     "to": "bs",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "flca",
+     "to": "rc",
+     "label": "spacers",
+     "kind": "mechanical"
+    },
+    {
+     "from": "fbar",
+     "to": "roll",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rbar",
+     "to": "roll",
+     "label": "",
+     "kind": "mechanical"
+    }
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "id": "suspension.route.front-lca-left",
+   "name": "Front lower control arm (lateral) (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-lower-links.lower-control-arm",
+   "radius": 0.022,
+   "points": [
+    [
+     0.04,
+     0.2,
+     0.36
+    ],
+    [
+     0.04,
+     0.185,
+     0.55
+    ],
+    [
+     0.03,
+     0.17,
+     0.71
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-lca-right",
+   "name": "Front lower control arm (lateral) (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-lower-links.lower-control-arm",
+   "radius": 0.022,
+   "points": [
+    [
+     0.04,
+     0.2,
+     -0.36
+    ],
+    [
+     0.04,
+     0.185,
+     -0.55
+    ],
+    [
+     0.03,
+     0.17,
+     -0.71
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-radius-rod-left",
+   "name": "Front radius rod (tension rod) (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-lower-links.radius-rod",
+   "radius": 0.02,
+   "points": [
+    [
+     -0.03,
+     0.18,
+     0.7
+    ],
+    [
+     -0.2,
+     0.2,
+     0.58
+    ],
+    [
+     -0.38,
+     0.22,
+     0.42
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-radius-rod-right",
+   "name": "Front radius rod (tension rod) (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-lower-links.radius-rod",
+   "radius": 0.02,
+   "points": [
+    [
+     -0.03,
+     0.18,
+     -0.7
+    ],
+    [
+     -0.2,
+     0.2,
+     -0.58
+    ],
+    [
+     -0.38,
+     0.22,
+     -0.42
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-strut-left",
+   "name": "Front strut axis (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-struts-springs.strut",
+   "radius": 0.025,
+   "points": [
+    [
+     0.01,
+     0.48,
+     0.67
+    ],
+    [
+     0.03,
+     0.66,
+     0.61
+    ],
+    [
+     0.05,
+     0.85,
+     0.55
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-strut-right",
+   "name": "Front strut axis (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-struts-springs.strut",
+   "radius": 0.025,
+   "points": [
+    [
+     0.01,
+     0.48,
+     -0.67
+    ],
+    [
+     0.03,
+     0.66,
+     -0.61
+    ],
+    [
+     0.05,
+     0.85,
+     -0.55
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-sway-link-left",
+   "name": "Front sway bar end link (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-sway-bar.end-links",
+   "radius": 0.008,
+   "points": [
+    [
+     -0.02,
+     0.28,
+     0.58
+    ],
+    [
+     0.0,
+     0.47,
+     0.64
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-sway-link-right",
+   "name": "Front sway bar end link (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.front-sway-bar.end-links",
+   "radius": 0.008,
+   "points": [
+    [
+     -0.02,
+     0.28,
+     -0.58
+    ],
+    [
+     0.0,
+     0.47,
+     -0.64
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-lca-left",
+   "name": "Rear lower control arm (spring link) (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.lower-control-arm",
+   "radius": 0.03,
+   "points": [
+    [
+     2.9,
+     0.24,
+     0.3
+    ],
+    [
+     2.88,
+     0.22,
+     0.5
+    ],
+    [
+     2.84,
+     0.18,
+     0.7
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-lca-right",
+   "name": "Rear lower control arm (spring link) (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.lower-control-arm",
+   "radius": 0.03,
+   "points": [
+    [
+     2.9,
+     0.24,
+     -0.3
+    ],
+    [
+     2.88,
+     0.22,
+     -0.5
+    ],
+    [
+     2.84,
+     0.18,
+     -0.7
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-uca-left",
+   "name": "Rear upper control arm (camber link) (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.upper-control-arm",
+   "radius": 0.018,
+   "points": [
+    [
+     2.9,
+     0.52,
+     0.3
+    ],
+    [
+     2.86,
+     0.55,
+     0.64
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-uca-right",
+   "name": "Rear upper control arm (camber link) (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.upper-control-arm",
+   "radius": 0.018,
+   "points": [
+    [
+     2.9,
+     0.52,
+     -0.3
+    ],
+    [
+     2.86,
+     0.55,
+     -0.64
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-upper-trailing-left",
+   "name": "Rear upper trailing arm (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.upper-trailing-arm",
+   "radius": 0.017,
+   "points": [
+    [
+     2.76,
+     0.55,
+     0.66
+    ],
+    [
+     2.62,
+     0.53,
+     0.6
+    ],
+    [
+     2.48,
+     0.5,
+     0.52
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-upper-trailing-right",
+   "name": "Rear upper trailing arm (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.upper-trailing-arm",
+   "radius": 0.017,
+   "points": [
+    [
+     2.76,
+     0.55,
+     -0.66
+    ],
+    [
+     2.62,
+     0.53,
+     -0.6
+    ],
+    [
+     2.48,
+     0.5,
+     -0.52
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-lower-trailing-left",
+   "name": "Rear lower trailing arm (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.lower-trailing-arm",
+   "radius": 0.018,
+   "points": [
+    [
+     2.74,
+     0.22,
+     0.68
+    ],
+    [
+     2.6,
+     0.24,
+     0.61
+    ],
+    [
+     2.45,
+     0.27,
+     0.52
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-lower-trailing-right",
+   "name": "Rear lower trailing arm (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.lower-trailing-arm",
+   "radius": 0.018,
+   "points": [
+    [
+     2.74,
+     0.22,
+     -0.68
+    ],
+    [
+     2.6,
+     0.24,
+     -0.61
+    ],
+    [
+     2.45,
+     0.27,
+     -0.52
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-toe-link-left",
+   "name": "Rear toe link (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.toe-link",
+   "radius": 0.015,
+   "points": [
+    [
+     3.0,
+     0.27,
+     0.32
+    ],
+    [
+     3.0,
+     0.26,
+     0.68
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-toe-link-right",
+   "name": "Rear toe link (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-links.toe-link",
+   "radius": 0.015,
+   "points": [
+    [
+     3.0,
+     0.27,
+     -0.32
+    ],
+    [
+     3.0,
+     0.26,
+     -0.68
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-shock-left",
+   "name": "Rear shock axis (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-dampers-springs.shock",
+   "radius": 0.024,
+   "points": [
+    [
+     2.84,
+     0.21,
+     0.62
+    ],
+    [
+     2.8,
+     0.45,
+     0.6
+    ],
+    [
+     2.75,
+     0.7,
+     0.58
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-shock-right",
+   "name": "Rear shock axis (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-dampers-springs.shock",
+   "radius": 0.024,
+   "points": [
+    [
+     2.84,
+     0.21,
+     -0.62
+    ],
+    [
+     2.8,
+     0.45,
+     -0.6
+    ],
+    [
+     2.75,
+     0.7,
+     -0.58
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-sway-link-left",
+   "name": "Rear sway bar end link (left)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-sway-bar.end-links",
+   "radius": 0.008,
+   "points": [
+    [
+     2.95,
+     0.42,
+     0.6
+    ],
+    [
+     2.93,
+     0.28,
+     0.66
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-sway-link-right",
+   "name": "Rear sway bar end link (right)",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-sway-bar.end-links",
+   "radius": 0.008,
+   "points": [
+    [
+     2.95,
+     0.42,
+     -0.6
+    ],
+    [
+     2.93,
+     0.28,
+     -0.66
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.front-sway-bar",
+   "name": "Front sway bar",
+   "kind": "mechanical",
+   "componentId": "suspension.front-sway-bar.bar",
+   "radius": 0.014,
+   "points": [
+    [
+     -0.02,
+     0.28,
+     0.58
+    ],
+    [
+     -0.2,
+     0.25,
+     0.52
+    ],
+    [
+     -0.3,
+     0.22,
+     0.4
+    ],
+    [
+     -0.3,
+     0.22,
+     0.0
+    ],
+    [
+     -0.3,
+     0.22,
+     -0.4
+    ],
+    [
+     -0.2,
+     0.25,
+     -0.52
+    ],
+    [
+     -0.02,
+     0.28,
+     -0.58
+    ]
+   ]
+  },
+  {
+   "id": "suspension.route.rear-sway-bar",
+   "name": "Rear sway bar",
+   "kind": "mechanical",
+   "componentId": "suspension.rear-sway-bar.bar",
+   "radius": 0.012,
+   "points": [
+    [
+     2.95,
+     0.42,
+     0.6
+    ],
+    [
+     3.08,
+     0.42,
+     0.5
+    ],
+    [
+     3.12,
+     0.42,
+     0.35
+    ],
+    [
+     3.12,
+     0.42,
+     0.0
+    ],
+    [
+     3.12,
+     0.42,
+     -0.35
+    ],
+    [
+     3.08,
+     0.42,
+     -0.5
+    ],
+    [
+     2.95,
+     0.42,
+     -0.6
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "GM SG3 Sport Suspension installation instructions 84408106",
+   "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+  },
+  {
+   "title": "GM bulletin 19-NA-038 (ZL1 1LE suspension features)",
+   "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+  },
+  {
+   "title": "2019 Camaro ZL1 product guide / specifications",
+   "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+  },
+  {
+   "title": "2016 Camaro launch technical details",
+   "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+  },
+  {
+   "title": "TightTorque Camaro 6 torque table",
+   "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+  },
+  {
+   "title": "BMR RSK369 6th gen rear kit (GM TAY fastener P/Ns)",
+   "url": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf"
+  },
+  {
+   "title": "BMR BK065 (GM rear TAY fastener table)",
+   "url": "https://www.bmrsuspension.com/siteart/install/BK065.pdf"
+  },
+  {
+   "title": "BMR BK070 / BK071 front bearing kits",
+   "url": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+  },
+  {
+   "title": "BMR BK061/062/063 rear cradle bushings",
+   "url": "https://www.bmrsuspension.com/siteart/install/BK061.pdf"
+  },
+  {
+   "title": "BMR FLC363 front arms",
+   "url": "https://www.bmrsuspension.com/siteart/install/FLC363.pdf"
+  },
+  {
+   "title": "BMR WAK360 caster/camber plates",
+   "url": "https://www.bmrsuspension.com/siteart/install/WAK360.pdf"
+  },
+  {
+   "title": "SPL Parts Gen 6 Camaro product list (durable.parts)",
+   "url": "https://durable.parts/?s=cam6&post_type=product"
+  },
+  {
+   "title": "GM Parts Giant 2019 Camaro control arm",
+   "url": "https://www.gmpartsgiant.com/oem-2019-chevrolet-camaro-control_arm.html"
+  },
+  {
+   "title": "GM Parts Giant 2017 Camaro cradle mounts",
+   "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-camaro-crossmember_bushing.html"
+  },
+  {
+   "title": "BMR 6th gen Camaro product line overview",
+   "url": "https://gm-efi.com/bmr-suspensions-6th-gen-camaro-product-line/"
+  }
+ ]
+}

@@ -1,0 +1,293 @@
+{
+ "id": "interior.strip-and-deadener-removal",
+ "system": "interior",
+ "name": "Interior Strip & Deadener Removal",
+ "description": "Taking the Gen 6 Camaro shell down to bare metal: all trim, seats, belts, carpet, headliner, SRS and asphalt sound deadener removed; open holes plugged.",
+ "components": [
+  {
+   "id": "interior.strip-and-deadener-removal.sound-deadener-removal",
+   "name": "Factory sound deadener / NVH material removal",
+   "qty": 1,
+   "description": "Asphalt melt-sheet and spray deadener on floor, tunnel, and rear wheelhouses removed (dry ice or heat gun + scraper) to save weight and to give clean metal for cage plates, seat mounts and welding (deadener is also a fire hazard near welds).",
+   "location": "Entire cabin floor pan, tunnel, footwells, rear seat area and trunk floor (x ≈ 0.7–3.6).",
+   "connectsTo": [
+    "chassis.unibody.floor-pan",
+    "safety.roll-cage.main-hoop-plates"
+   ],
+   "factory": {
+    "name": "GM asphalt-based melt sheets + foam NVH pads",
+    "partNumber": "",
+    "notes": "Weight removed varies; typically tens of pounds on modern coupes (not verified for Camaro)."
+   },
+   "raceOptions": [],
+   "specs": {
+    "Method": "Dry ice + mallet (cleanest) or heat gun + scraper; finish with solvent",
+    "Weight saved": "Not verified – weigh what you remove"
+   },
+   "hardware": [
+    {
+     "item": "No fasteners",
+     "qty": 0,
+     "spec": "Adhesive-bonded material",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "n/a",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Do this before any welding.",
+    "Wear respirator; ventilate.",
+    "Clean to bare metal only where plates/welds go; prime/seal exposed metal afterward."
+   ],
+   "inspection": [
+    "Look for hidden rust/corrosion once exposed."
+   ],
+   "buildPhase": 1,
+   "installOrder": 1,
+   "tags": [],
+   "sources": [
+    {
+     "title": "NASA Speed News – Project Spec E30: building a roll cage",
+     "url": "https://nasaspeed.news/tech/fabrication/project-spec-e30-part-iv-building-a-roll-cage/"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.7,
+     0.18,
+     0
+    ],
+    "size": [
+     1.8,
+     0.004,
+     1.4
+    ],
+    "color": "#3d3d3d"
+   }
+  },
+  {
+   "id": "interior.strip-and-deadener-removal.srs-removal",
+   "name": "SRS / airbag system removal",
+   "qty": 1,
+   "description": "Driver, passenger, knee, seat and roof-rail airbags, pretensioners and the sensing module are removed – airbags are incompatible with a race seat/harness/FHR and live inflators are dangerous during cage welding. Inflators must be handled and disposed of per hazardous-materials rules.",
+   "location": "Steering wheel, IP, seats, roof rails, B-pillar pretensioners.",
+   "connectsTo": [
+    "interior.dash.factory-cross-car-beam",
+    "steering.wheel.quick-release",
+    "electrical.main-harness.dash-harness"
+   ],
+   "factory": {
+    "name": "GM SRS (front, knee, side, curtain airbags; belt pretensioners)",
+    "partNumber": "",
+    "notes": "Disconnect battery and wait per GM SI before handling."
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Airbag module fasteners",
+     "qty": 1,
+     "spec": "GM OE (various)",
+     "grade": "GM OE",
+     "torque": "N/A (removed)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "n/a",
+     "confidence": "typical",
+     "source": "",
+     "notes": "Not reinstalled."
+    }
+   ],
+   "installNotes": [
+    "Disconnect battery and wait the GM-specified time before unplugging modules.",
+    "Remove curtain airbags BEFORE cutting/welding near roof rails.",
+    "ECU/BCM may need reprogramming to suppress SRS fault messages (electrical team)."
+   ],
+   "inspection": [
+    "Confirm no live inflators remain in shell."
+   ],
+   "buildPhase": 1,
+   "installOrder": 2,
+   "tags": [],
+   "sources": [
+    {
+     "title": "NASA Speed News – Project Spec E30: building a roll cage",
+     "url": "https://nasaspeed.news/tech/fabrication/project-spec-e30-part-iv-building-a-roll-cage/"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.25,
+     0.8,
+     0.37
+    ],
+    "size": [
+     0.05,
+     0.25,
+     0.25
+    ],
+    "color": "#7f8c8d"
+   }
+  },
+  {
+   "id": "interior.strip-and-deadener-removal.trim-and-seat-delete",
+   "name": "Seats, carpet, headliner, rear seat & trim deleted",
+   "qty": 1,
+   "description": "Factory front/rear seats, carpet, headliner, pillar trims, door trims, rear seat and trunk liners removed. Keep the parts list of what was removed (and weights) for class weight calculations.",
+   "location": "Whole cabin.",
+   "connectsTo": [
+    "safety.seat-and-mounts.seat-shell",
+    "interior.door-cards-panels.pillar-closeouts"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Push clips / trim fasteners",
+     "qty": 0,
+     "spec": "GM plastic trim clips",
+     "grade": "n/a",
+     "torque": "N/A (removed)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "n/a",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Bag and label factory fasteners you may reuse (seat studs, belt anchor bolts)."
+   ],
+   "inspection": [],
+   "buildPhase": 1,
+   "installOrder": 3,
+   "tags": [],
+   "sources": [
+    {
+     "title": "NASA Speed News – Project Spec E30: building a roll cage",
+     "url": "https://nasaspeed.news/tech/fabrication/project-spec-e30-part-iv-building-a-roll-cage/"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.7,
+     0.6,
+     0
+    ],
+    "size": [
+     0.02,
+     0.02,
+     0.02
+    ],
+    "color": "#555555"
+   }
+  },
+  {
+   "id": "interior.strip-and-deadener-removal.floor-hole-plugs",
+   "name": "Floor/body hole plugs",
+   "qty": 20,
+   "description": "Rubber or steel plugs (or welded patches) closing drain holes, unused harness pass-throughs, and seat-belt anchor holes after stripping – keeps water, exhaust fumes and fire out of the cockpit.",
+   "location": "Floor pan, firewall, rear wheelhouses, trunk floor.",
+   "connectsTo": [
+    "chassis.unibody.floor-pan",
+    "safety.fuel-and-firewall-isolation.firewall-blockoff-plates"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Types": "Rubber/EPDM press-in plugs; steel plug + seam sealer; weld-in patch"
+   },
+   "hardware": [
+    {
+     "item": "Press-in plug",
+     "qty": 1,
+     "spec": "EPDM plug sized to hole",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Weld-patch holes near the fuel cell and firewall rather than rubber plugs."
+   ],
+   "inspection": [
+    "Check plugs still present after undercar strikes."
+   ],
+   "buildPhase": 1,
+   "installOrder": 4,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     1.4,
+     0.18,
+     0.3
+    ],
+    "size": [
+     0.03,
+     0.01,
+     0.03
+    ],
+    "axis": "y",
+    "instances": [
+     [
+      1.4,
+      0.18,
+      0.3
+     ],
+     [
+      1.4,
+      0.18,
+      -0.3
+     ],
+     [
+      2.3,
+      0.18,
+      0.4
+     ],
+     [
+      2.3,
+      0.18,
+      -0.4
+     ],
+     [
+      3.3,
+      0.38,
+      0
+     ]
+    ],
+    "color": "#111111"
+   }
+  }
+ ]
+}

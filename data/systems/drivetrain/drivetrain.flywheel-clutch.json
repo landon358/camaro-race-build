@@ -1,0 +1,621 @@
+{
+  "id": "drivetrain.flywheel-clutch",
+  "system": "drivetrain",
+  "name": "Flywheel & Clutch",
+  "description": "Flywheel, clutch disc pack, pressure plate, pilot bearing and ring gear bolted to the LT crankshaft inside the bellhousing. Factory ZL1 manual uses a twin-disc clutch; race options range from twin-disc street/track kits to 7.25 in multi-disc race packs.",
+  "components": [
+    {
+      "id": "drivetrain.flywheel-clutch.pilot-bearing",
+      "name": "Crankshaft pilot bearing",
+      "qty": 1,
+      "description": "Needle/roller pilot bearing pressed into the rear of the LT crankshaft that supports the nose of the transmission input shaft. A worn or dry pilot bearing causes input-shaft wobble, clutch chatter and gear-clash; it is cheap insurance to replace every time the clutch is out.",
+      "location": "Pressed into the pilot bore at the rear flange of the crankshaft, inside the flywheel center, on crank centerline (y\u22480.40).",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "drivetrain.flywheel-clutch.flywheel",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM roller pilot bearing (Gen V LT crank)",
+        "notes": "Sealed roller type; confirm OD/ID against crank bore and input pilot (TR-6060 input pilot is the GM LS/LT size). Some race clutches/quill shafts (e.g. sequential boxes with removable quill) may not use a pilot bearing at all - follow gearbox maker."
+      },
+      "raceOptions": [
+        {
+          "name": "Clutch-kit supplied pilot bearing/bushing",
+          "brand": "Tilton / McLeod / Quarter Master",
+          "notes": "Use the pilot supplied/specified by the clutch or gearbox maker; McLeod notes its 6406807MD kit does NOT include a pilot bushing, so buy separately.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        }
+      ],
+      "specs": {
+        "Type": "Sealed needle/roller bearing",
+        "Fit": "Interference press-fit into crank"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Remove old bearing with a slide-hammer puller (or the bread/grease hydraulic trick); never gouge the crank bore.",
+        "Clean bore, check for spun-bearing scoring.",
+        "Press new bearing in with a correctly-sized driver on the OUTER race only, seal facing the transmission, flush or to the depth specified by GM/clutch maker.",
+        "Confirm input shaft pilot slides in freely (test with the clutch alignment tool)."
+      ],
+      "inspection": [
+        "Spin by finger - no roughness or grease weep",
+        "Check input-shaft pilot for bluing/wear when trans is out"
+      ],
+      "buildPhase": 5,
+      "installOrder": 16,
+      "tags": [
+        "pilot-bearing",
+        "wear-item"
+      ],
+      "sources": [
+        {
+          "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.39,
+          0.4,
+          0
+        ],
+        "size": [
+          0.016,
+          0.035,
+          0.035
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~35 mm OD x 16 mm needle bearing in the crank bore",
+        "features": "Drawn-cup needle roller pilot bearing pressed in the crank flange bore",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.flywheel-clutch.flywheel",
+      "name": "Flywheel",
+      "qty": 1,
+      "description": "Bolts to the LT crankshaft rear flange (8-bolt pattern) and provides the friction face for the clutch, the starter ring gear and the mounting face for the pressure plate. For road racing, a lighter steel/billet flywheel matched to a multi-disc clutch reduces rotating inertia (faster rev-matching) while keeping enough mass for clean launches out of the pits.",
+      "location": "Inside the bellhousing on the crankshaft rear flange, immediately behind the engine block rear face (x\u22480.40, y\u22480.40).",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "drivetrain.flywheel-clutch.clutch-disc-pack",
+        "drivetrain.flywheel-clutch.pressure-plate",
+        "electrical.charging-starting.starter-motor",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "GM flywheel matched to factory clutch (ZL1: twin-disc assembly; SS/1LE: single-disc)",
+        "notes": "Gen V LT crank uses an 8-bolt flywheel pattern and a 168-tooth ring gear is common to LT aftermarket kits. Some owners report the SS uses a dual-mass flywheel - verify by RPO/part before ordering a replacement. Factory clutch/flywheel are rated for 650 lb-ft engine torque (LT4) but are street-calibrated; heat-checked faces must be resurfaced or replaced."
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton ST-246 twin-disc clutch/flywheel kit",
+          "brand": "Tilton",
+          "notes": "246 mm (9.7 in) twin-disc, billet chromoly 8-bolt deep-pattern flywheel with integrated ring gear, 26-spline x 1-1/8 in discs for TR-6060, rated 1,250 lb-ft. Vendor listing shows conflicting 153/168 ring-gear tooth count - confirm against your starter.",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        },
+        {
+          "name": "McLeod RST HD / RXT twin-disc kit for 16-24 Camaro SS/ZL1",
+          "brand": "McLeod",
+          "partNumber": "6306807MD",
+          "notes": "8-bolt crank, 1-1/8 x 26 spline; RST HD 6306807MD has 9.688 in discs, billet aluminum flywheel, 168-tooth ring gear, 950 hp rating. 6406807 series kits (RST/RST HD/RXT/RXT HD) include a steel flywheel.",
+          "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+        },
+        {
+          "name": "7.25 in multi-disc button flywheel (Tilton / Quarter Master / AP style)",
+          "brand": "Quarter Master / Tilton",
+          "notes": "For a dedicated race car a 7.25 in (184 mm) twin or triple metallic/carbon clutch with a matching steel button flywheel gives the lowest inertia. Requires a small-diameter starter/ring gear package and a hydraulic release bearing set to the clutch maker's height. Confirm an LT 8-bolt flywheel is available for the chosen clutch."
+        }
+      ],
+      "specs": {
+        "Crank bolt pattern": "8-bolt (Gen V LT)",
+        "Input spline (TR-6060)": "26-spline x 1-1/8 in",
+        "Ring gear": "168-tooth typical (LT aftermarket kits) - verify",
+        "Balance": "Internal (LT)"
+      },
+      "hardware": [
+        {
+          "item": "Flywheel-to-crankshaft bolt (OEM)",
+          "qty": 8,
+          "spec": "M11 x 1.5 flange bolt (GM LT)",
+          "grade": "OEM",
+          "torque": "11 ft-lb (15 N\u00b7m), then 22 ft-lb (30 N\u00b7m), then +45\u00b0",
+          "torqueSequence": "Three passes in a criss-cross sequence: 15 N\u00b7m, then 30 N\u00b7m, then a final +45\u00b0 angle. Use NEW GM bolts (torque-to-angle, one-time use).",
+          "threadlocker": "GM threadlocker (GM 12345382 / 10953489) if bolts not pre-coated",
+          "safetyWire": false,
+          "reuse": "Replace each removal (recommended)",
+          "tool": "Flywheel holder + 12-pt/hex socket",
+          "notes": "Values are the GM 6.2L flywheel bolt sequence as posted from GM SI for the Gen 5 (LS3) car; Gen V LT uses the same 3-pass procedure - verify against GM SI for your engine. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists Flywheel Bolts: first pass 15 N\u00b7m (11 lb ft), second pass 30 N\u00b7m (22 lb ft), final pass 45 degrees, new fastener. The 2016-18 Camaro SM (via TightTorque, 15/30 N\u00b7m), Summit SR-05493 and Rated R agree. CORRECTED from 20/50/100 N\u00b7m, which was the Gen III/IV (LS) torque-only procedure.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        },
+        {
+          "item": "Flywheel-to-crankshaft bolt (race, ARP 234-2802)",
+          "qty": 8,
+          "spec": "ARP GM LT1 6.2L flywheel bolt, 12-pt, 0.900 in UHL",
+          "grade": "ARP chromoly (\u2248180-190 ksi)",
+          "partNumber": "ARP 234-2802",
+          "torque": "85 ft-lb (115 N\u00b7m) with Loctite 242 on threads and ARP Ultra-Torque under head",
+          "torqueSequence": "Hand tight, then alternating/criss-cross to 85 ft-lb in one or more passes",
+          "threadlocker": "Loctite 242 on threads + ARP Ultra-Torque under head (per ARP LS sheet)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect)",
+          "notes": "85 ft-lb is from the ARP 330-2802 (LS) instruction sheet; the LT kit sheet governs. No washers; flywheel bolt holes must be chamfered to clear the head radius. Checked 2026-10: the ARP instruction sheet for 234-2801 (Chevy Gen V 6.2L LT1 flywheel bolt, the 1.125 in UHL sister part) specifies 85 ft-lb with Loctite 242 on the threads and Ultra-Torque under the head, no washers, and a chamfered flywheel. The 234-2802 sheet itself was not retrievable. Remains typical; confirm on the sheet in the box.",
+          "confidence": "typical",
+          "source": "https://cdn.arp-bolts.com/instructions/234-2801.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clean crank flange and flywheel mating face with brake cleaner; no paint, oil or burrs.",
+        "Install new pilot bearing first.",
+        "Hang flywheel (note any locating dowel/offset hole), install bolts finger-tight with specified threadlocker.",
+        "Lock crank (flywheel holder in a bellhousing bolt hole), torque in star pattern in 3 passes.",
+        "Dial-indicate flywheel face runout (\u22640.005 in / 0.13 mm typical) before fitting clutch."
+      ],
+      "inspection": [
+        "Heat checks, blue spots or cracks on friction face",
+        "Ring gear teeth chipped",
+        "Bolt torque mark alignment",
+        "Face runout at each clutch change"
+      ],
+      "buildPhase": 5,
+      "installOrder": 17,
+      "tags": [
+        "flywheel",
+        "8-bolt",
+        "lt1",
+        "lt4"
+      ],
+      "sources": [
+        {
+          "title": "Modern Driveline - Tilton ST-246 twin-disc clutch/flywheel kit, Gen 6 Camaro / C7 Corvette (1250 lb-ft)",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        },
+        {
+          "title": "Shift SST - McLeod RST HD twin 6306807MD (9.688 in discs, 168T, 8-bolt)",
+          "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+        },
+        {
+          "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "title": "ARP 234-2802 GM LT1 6.2L flywheel bolt kit (12-pt, 0.900 in UHL, set of 8)",
+          "url": "https://berryperformancesales.com/products/arp-gm-lt1-6-2l-flywheel-bolt-kit-12-point-0-900-in-uhl-set-of-8-234-2802"
+        },
+        {
+          "title": "ARP 330-2802 GM LS flywheel bolt kit (install sheet: 85 ft-lb with ARP Ultra-Torque, Loctite 242)",
+          "url": "https://www.jegs.com/i/arp-070-330-2802-pro-series-flywheel-bolts-small-block-chevy-gen-iii-ls-series"
+        },
+        {
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0.4,
+          0.4,
+          0
+        ],
+        "size": [
+          0.028,
+          0.34,
+          0.34
+        ],
+        "axis": "x",
+        "color": "#8a8f96"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 24287452 flywheel assembly, 2016-24 Camaro V8 M6 (Wildhammer, photos)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-v8-cadillac-ct5-v-blackwing-flywheel-assembly-general-motors/"
+          },
+          {
+            "title": "GM 24287452 flywheel photo",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/3298/22266/24287452A__14143.1755183946.jpg?c=2&imbypass=on"
+          },
+          {
+            "title": "GM 12563485 flywheel bolt set (8) 2017-24 Camaro ZL1",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-22-26-cadillac-ct5-v-blackwing-flywheel-bolts-includes-8-general-motors/"
+          },
+          {
+            "title": "McLeod RST twin, LSA/LT4 1-1/8 x 26 spline, 168T 8-bolt flywheel",
+            "url": "https://fiperformance.com/products/mcleod-rst-twin-gm-lsa-lt4-1-1-8-x-26-spline-w-168t-8-bolt-aluminum-flywheel"
+          }
+        ],
+        "dimensions": "~340 mm body under a 168T ring gear (~356 mm OD), ~28 mm thick",
+        "features": "Cast-iron flywheel, 8-bolt LT4 crank pattern (GM 12563485 bolts), machined friction face, stepped outer rim for the cover bolts and dowels, balance drillings on the engine side",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.flywheel-clutch.flywheel-dowels",
+      "name": "Pressure-plate locating dowels (flywheel)",
+      "qty": 1,
+      "description": "Hardened dowel pins in the flywheel face that locate the clutch cover concentric to the crank. Missing or loose dowels allow the cover to shift and create an out-of-balance clutch.",
+      "location": "Pressed into the flywheel friction-ring outer flange (typically 3 dowels).",
+      "connectsTo": [
+        "drivetrain.flywheel-clutch.flywheel",
+        "drivetrain.flywheel-clutch.pressure-plate"
+      ],
+      "factory": {
+        "name": "Dowels integral to GM flywheel",
+        "notes": "Supplied with aftermarket flywheels; check flush height and tightness."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Typical qty": "3 per flywheel"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Verify each dowel is tight and at correct protrusion before fitting the cover",
+        "Never hammer the cover over the dowels - draw it down evenly with the bolts"
+      ],
+      "inspection": [
+        "Dowel looseness / elongated cover holes"
+      ],
+      "buildPhase": 5,
+      "installOrder": 18,
+      "tags": [
+        "dowel",
+        "small-parts"
+      ],
+      "sources": [
+        {
+          "title": "Modern Driveline - Tilton ST-246 twin-disc clutch/flywheel kit, Gen 6 Camaro / C7 Corvette (1250 lb-ft)",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.416,
+          0.548,
+          0
+        ],
+        "size": [
+          0.012,
+          0.008,
+          0.008
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.416,
+            0.548,
+            0
+          ],
+          [
+            0.416,
+            0.326,
+            0.128
+          ],
+          [
+            0.416,
+            0.326,
+            -0.128
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 24287452 flywheel assembly, 2016-24 Camaro V8 M6 (Wildhammer, photos)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-v8-cadillac-ct5-v-blackwing-flywheel-assembly-general-motors/"
+          }
+        ],
+        "dimensions": "~8 mm dowels on a ~296 mm circle",
+        "features": "Three pressure-plate locating dowels pressed in the flywheel outer step",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.flywheel-clutch.clutch-disc-pack",
+      "name": "Clutch friction disc(s) and floater plate",
+      "qty": 1,
+      "description": "The friction disc(s) splined to the transmission input shaft; twin- and triple-disc packs add an intermediate (floater) plate between discs. Disc material (organic, ceramic/metallic, carbon-carbon) sets torque capacity, engagement feel and temperature tolerance. Orientation of each disc ('flywheel side' stamp) and the floater is critical.",
+      "location": "Sandwiched between flywheel face and pressure plate, splined to the TR-6060 input shaft (x\u22480.42-0.45).",
+      "connectsTo": [
+        "drivetrain.flywheel-clutch.flywheel",
+        "drivetrain.flywheel-clutch.pressure-plate",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM twin-disc clutch (ZL1 manual); single disc (SS/1LE)",
+        "notes": "Gen 6 ZL1 manual pairs the six-speed with a twin-disc clutch. Factory organic facings glaze with repeated hot launches/pit exits - plan replacement with a race unit for a dedicated car."
+      },
+      "raceOptions": [
+        {
+          "name": "McLeod RXT twin-disc (ceramic) kit",
+          "brand": "McLeod",
+          "partNumber": "6406807M",
+          "notes": "6406807M: up to 1,100 hp clutch rating; RXT HD 6406807HD up to 1,300 hp. Street/strip oriented; heavier than a 7.25 in race pack.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "name": "McLeod RST HD twin-disc",
+          "brand": "McLeod",
+          "partNumber": "6406807MD",
+          "notes": "6406807MD / 6306807MD: hybrid organic/segmented ceramic, up to 950 hp, solid hub; better for dual-duty/track days.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "name": "Tilton ST-246 twin-disc (sprung or solid hub)",
+          "brand": "Tilton",
+          "notes": "246 mm twin-disc, 1,250 lb-ft rated, matched to Tilton billet flywheel. Sprung-hub version reduces gear rattle on H-pattern TR-6060.",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        },
+        {
+          "name": "7.25 in twin/triple metallic or carbon-carbon pack",
+          "brand": "Tilton / Quarter Master / AP Racing",
+          "notes": "Pure race: very low inertia; needs adjustable HRB and frequent wear-height checks. Carbon packs are smooth and durable but need heat to work properly."
+        }
+      ],
+      "specs": {
+        "Spline": "26 x 1-1/8 in (TR-6060 / Magnum)",
+        "Disc diameter": "9.688 in (McLeod RST HD); 246 mm (Tilton ST-246); 184 mm (7.25 in race packs)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Clean discs of oil/fingerprints; do not sand facings.",
+        "Stack discs and floater in exactly the order/orientation shown in the clutch sheet (marks 'FLYWHEEL SIDE').",
+        "Use a spline alignment tool through all discs into the pilot bearing; leave it in until all cover bolts are torqued.",
+        "Test-slide each disc on a spare input shaft/spline mandrel for free axial movement; lightly film splines with high-temp moly grease.",
+        "For multi-disc race packs, measure stack/wear height and set HRB clearance from it."
+      ],
+      "inspection": [
+        "Wear height vs. maker minimum (measure at each event for 7.25 in packs)",
+        "Spline wear/fretting",
+        "Slip under load (data: engine rpm vs wheel speed)",
+        "Facing glazing or cracks"
+      ],
+      "buildPhase": 5,
+      "installOrder": 19,
+      "tags": [
+        "clutch",
+        "twin-disc",
+        "multi-disc"
+      ],
+      "sources": [
+        {
+          "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "title": "Shift SST - McLeod RST HD twin 6306807MD (9.688 in discs, 168T, 8-bolt)",
+          "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+        },
+        {
+          "title": "Modern Driveline - Tilton ST-246 twin-disc clutch/flywheel kit, Gen 6 Camaro / C7 Corvette (1250 lb-ft)",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.433,
+          0.4,
+          0
+        ],
+        "size": [
+          0.036,
+          0.26,
+          0.26
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 24278525 clutch (pressure plate + disc) 2017-24 Camaro ZL1 (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-clutch-assembly-includes-pressure-plate-disc-general-motors"
+          },
+          {
+            "title": "GM 24278525 clutch photo",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/3299/22271/24278525A__49618.1755183630.png?c=2&imbypass=on"
+          },
+          {
+            "title": "McLeod RST twin-disc for Camaro/CTS-V/C7 (9.688 in discs, 168T flywheel)",
+            "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6406807md/p1122"
+          }
+        ],
+        "dimensions": "Twin 245 mm (9.69 in) friction discs + floater, pack ~36 mm thick; 1-1/8 in x 26 spline",
+        "features": "Two segmented friction discs (front disc sprung with 6 damper springs) and an iron floater plate with drive lugs; GM lists the 2017+ ZL1 service clutch as 24278525",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "drivetrain.flywheel-clutch.pressure-plate",
+      "name": "Pressure plate (clutch cover)",
+      "qty": 1,
+      "description": "Diaphragm-spring clutch cover bolted to the flywheel that clamps the disc pack. The release bearing pushes the diaphragm fingers to release. Clamp load and finger height determine pedal effort and the release-bearing setup height.",
+      "location": "Bolted to the flywheel, facing the transmission (x\u22480.45-0.48, y\u22480.40).",
+      "connectsTo": [
+        "drivetrain.flywheel-clutch.flywheel",
+        "drivetrain.flywheel-clutch.clutch-disc-pack",
+        "drivetrain.clutch-hydraulics.release-bearing"
+      ],
+      "factory": {
+        "name": "GM diaphragm cover (twin-disc on ZL1)",
+        "notes": "Street calibrated clamp load and long release travel for the factory concentric slave."
+      },
+      "raceOptions": [
+        {
+          "name": "Clutch-kit matched cover (McLeod/Tilton/Quarter Master)",
+          "brand": "various",
+          "notes": "Always use the cover supplied with the disc pack; covers are matched to disc thickness and floater geometry.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        }
+      ],
+      "specs": {
+        "Type": "Diaphragm spring, pull-free push type"
+      },
+      "hardware": [
+        {
+          "item": "Pressure plate (cover)-to-flywheel bolt",
+          "qty": 6,
+          "spec": "Bolt size per cover (OEM GM / kit-supplied)",
+          "grade": "8.8/10.9 or ARP",
+          "torque": "OEM GM cover (M10 x 1.5 bolts): 11 ft-lb (15 N\u00b7m), then 26 ft-lb (35 N\u00b7m), then 52 ft-lb (70 N\u00b7m). Aftermarket covers: maker value.",
+          "torqueSequence": "Tighten in sequence and in even increments over the three passes (15 / 35 / 70 N\u00b7m), with the alignment tool installed.",
+          "threadlocker": "Blue (Loctite 242/243) unless maker says dry",
+          "safetyWire": false,
+          "reuse": "Inspect; replace if stretched",
+          "tool": "Alignment tool installed during torque",
+          "notes": "Bolt count varies by cover (6-9). 70 N\u00b7m is the GM-style value cited by owners on 2016 Camaro clutch installs; the clutch maker's instruction sheet overrides. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum), clutch section: 'Clutch Pressure Plate Bolts' first pass 15 N\u00b7m, second 35 N\u00b7m, final 70 N\u00b7m (52 lb ft), tightened in sequence and in even increments. The McLeod C5-C7 replacement bolt is M10 x 1.5 x 25. Summit SR-05493 lists 22 ft-lb, which conflicts. The Camaro-specific SI table was not found. Never apply 70 N\u00b7m to an aftermarket cover that uses M8 or 5/16 bolts.",
+          "confidence": "typical",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        }
+      ],
+      "installNotes": [
+        "Fit cover over dowels with alignment tool through discs.",
+        "Run bolts down evenly in a star pattern a little at a time; torque to spec.",
+        "Remove alignment tool; measure finger height from bellhousing face for HRB setup.",
+        "Record clutch serial / wear height in build log."
+      ],
+      "inspection": [
+        "Finger height/uneven fingers",
+        "Heat discoloration",
+        "Bolt torque marks",
+        "Clutch slip / release issues"
+      ],
+      "buildPhase": 5,
+      "installOrder": 20,
+      "tags": [
+        "pressure-plate",
+        "clutch-cover"
+      ],
+      "sources": [
+        {
+          "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0.452,
+          0.4,
+          0
+        ],
+        "size": [
+          0.07,
+          0.3,
+          0.3
+        ],
+        "axis": "x",
+        "color": "#6b7078"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 24278525 clutch (pressure plate + disc) 2017-24 Camaro ZL1 (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-clutch-assembly-includes-pressure-plate-disc-general-motors"
+          },
+          {
+            "title": "GM 24278525 clutch photo",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/3299/22271/24278525A__49618.1755183630.png?c=2&imbypass=on"
+          },
+          {
+            "title": "McLeod RST twin-disc for Camaro/CTS-V/C7 (9.688 in discs, 168T flywheel)",
+            "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6406807md/p1122"
+          }
+        ],
+        "dimensions": "~300 mm cover OD over the bolt ears, ~70 mm deep",
+        "features": "Stamped steel cover with 6 bolt ears, windows showing the cast pressure ring, 18-finger diaphragm spring converging on the CSC",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.flywheel-clutch.starter-ring-gear",
+      "name": "Starter ring gear",
+      "qty": 1,
+      "description": "Toothed ring on the flywheel OD engaged by the starter pinion. Integral on most billet race flywheels; shrink-fit on some OEM/steel units. Tooth count must match the starter (LT kits are commonly 168-tooth).",
+      "location": "Outer diameter of the flywheel, starter pinion meshes on the passenger side lower quadrant.",
+      "connectsTo": [
+        "drivetrain.flywheel-clutch.flywheel",
+        "electrical.charging-starting.starter-motor"
+      ],
+      "factory": {
+        "name": "Integral/shrink-fit GM ring gear",
+        "notes": "Match tooth count to starter."
+      },
+      "raceOptions": [
+        {
+          "name": "Integral ring gear on billet flywheel",
+          "brand": "Tilton / McLeod",
+          "notes": "McLeod RST HD lists 168-tooth; Tilton listing shows 153/168 conflict - verify with starter.",
+          "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+        }
+      ],
+      "specs": {
+        "Teeth": "168 typical (verify)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Check starter pinion engagement depth/backlash with a feeler after engine install (\u22480.020 in / 0.5 mm typical)."
+      ],
+      "inspection": [
+        "Chipped or burred teeth",
+        "Starter grind on engagement"
+      ],
+      "buildPhase": 5,
+      "installOrder": 21,
+      "tags": [
+        "ring-gear",
+        "starter"
+      ],
+      "sources": [
+        {
+          "title": "Shift SST - McLeod RST HD twin 6306807MD (9.688 in discs, 168T, 8-bolt)",
+          "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+        },
+        {
+          "title": "Modern Driveline - Tilton ST-246 twin-disc clutch/flywheel kit, Gen 6 Camaro / C7 Corvette (1250 lb-ft)",
+          "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0.393,
+          0.4,
+          0
+        ],
+        "size": [
+          0.016,
+          0.356,
+          0.356
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "McLeod RST twin, LSA/LT4 1-1/8 x 26 spline, 168T 8-bolt flywheel",
+            "url": "https://fiperformance.com/products/mcleod-rst-twin-gm-lsa-lt4-1-1-8-x-26-spline-w-168t-8-bolt-aluminum-flywheel"
+          },
+          {
+            "title": "GM 24287452 flywheel assembly, 2016-24 Camaro V8 M6 (Wildhammer, photos)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-v8-cadillac-ct5-v-blackwing-flywheel-assembly-general-motors/"
+          }
+        ],
+        "dimensions": "168 teeth, ~356 mm (14.0 in) OD, ~16 mm face",
+        "features": "Shrink-fit steel ring gear on the flywheel front step",
+        "confidence": "published"
+      }
+    }
+  ]
+}

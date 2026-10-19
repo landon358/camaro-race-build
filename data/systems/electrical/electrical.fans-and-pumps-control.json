@@ -1,0 +1,693 @@
+{
+  "id": "electrical.fans-and-pumps-control",
+  "system": "electrical",
+  "name": "Fans & Pumps Control",
+  "description": "Electrical control and wiring for the high-current motor loads: radiator fan (OE ZL1 brushless PWM fan), fuel pumps (OE ZL1 PWM-controlled pump module or race lift/ surge pumps), LT4 intercooler coolant pump, transmission/diff cooler pumps and fans, cool-suit pump and wiper motor. These are the largest continuous loads and set the alternator and PDM sizing.",
+  "components": [
+    {
+      "id": "electrical.fans-and-pumps-control.radiator-fan",
+      "name": "Radiator cooling fan (electrical)",
+      "qty": 1,
+      "description": "Electric fan behind the radiator/heat-exchanger stack. The 2016\u20132020 supercharged 6.2 L Camaro uses a brushless fan with integral controller commanded by PWM (aftermarket users report GM 158927; 2021+ replacement 85516898 uses a different control scheme). A race car can drive it from a PDM PWM output or the ECU's fan output, or switch to a SPAL brushless/brushed fan with PDM soft-start.",
+      "location": "Behind the radiator, centered (x\u2248-0.58, y\u22480.45, z=0).",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "electrical.fans-and-pumps-control.fan-control",
+        "electrical.grounding.front-ground-stud",
+        "electrical.main-harness.front-harness"
+      ],
+      "factory": {
+        "name": "GM brushless PWM radiator fan (6.2 L supercharged Camaro 2016\u20132020)",
+        "partNumber": "158927 (forum-reported; 2021+ 85516898) \u2013 verify",
+        "notes": "Integral controller; needs heavy power/ground (8\u201310 AWG) and a PWM command."
+      },
+      "raceOptions": [
+        {
+          "name": "SPAL brushless 850 W class fan",
+          "brand": "SPAL",
+          "partNumber": "",
+          "notes": "PWM-controlled; ensure PDM channel/ fuse sized to peak current (~60+ A)."
+        }
+      ],
+      "specs": {
+        "Power": "~850 W class (~60\u201370 A at full speed)",
+        "Control": "PWM"
+      },
+      "hardware": [
+        {
+          "item": "Fan shroud mounting bolts",
+          "qty": 4,
+          "spec": "M6 OE bolts/ clips",
+          "grade": "OE",
+          "torque": "~6 N\u00b7m (53 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Power/ground ring terminals",
+          "qty": 2,
+          "spec": "8 AWG, M6/M8 holes",
+          "grade": "",
+          "torque": "Per stud",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if cut",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Feed power from a fused direct circuit or paired PDM outputs \u2013 the fan's peak current can exceed a single 20 A PDM channel; use the PDM for the PWM/enable signal and a high-current relay/fused feed if needed."
+      ],
+      "inspection": [
+        "Fan runs at commanded duty; blade damage from debris."
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "fan",
+        "pwm",
+        "cooling"
+      ],
+      "sources": [
+        {
+          "title": "Wrangler TJ forum \u2013 Camaro 850 W brushless fan 158927 notes",
+          "url": "https://wranglertjforum.com/goto/post?id=1557435"
+        },
+        {
+          "title": "HPA \u2013 PWM control for brushless fans",
+          "url": "https://www.hpacademy.com/es/foro/discusion-general-sobre-afinacion/show/pwm-control-for-brushless-fans-what-do-you-use"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.58,
+          0.47,
+          0.17
+        ],
+        "size": [
+          0.06,
+          0.33,
+          0.33
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            -0.58,
+            0.47,
+            0.17
+          ],
+          [
+            -0.58,
+            0.47,
+            -0.17
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Same fans as engine-support.cooling.fan-assembly (\u00d8~330 mm each).",
+        "features": "Electric fans behind the radiator; shown at the engine-support fan location.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.fan-control",
+      "name": "Fan control (PDM PWM / ECU / standalone controller)",
+      "qty": 1,
+      "description": "Generates the fan PWM command from coolant temperature (and A/C or vehicle speed). Options: ECU fan output (E92 kit), PDM PWM channel with CAN coolant temp, or a standalone controller like the Lingenfelter VSFM-002 (min/max temperature set points).",
+      "location": "PDM in cabin; standalone controller in engine bay.",
+      "connectsTo": [
+        "electrical.fans-and-pumps-control.radiator-fan",
+        "electrical.power-distribution.pdm",
+        "electrical.engine-management.ecu"
+      ],
+      "factory": {
+        "name": "ECM-commanded fan control",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lingenfelter VSFM-002 variable speed fan module",
+          "brand": "Lingenfelter",
+          "partNumber": "VSFM-002",
+          "notes": "Forum reports it drives the 850 W Camaro fan through full range.",
+          "url": "https://wranglertjforum.com/goto/post?id=1557435"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Standalone fan controller mounting screws (if used)",
+          "qty": 2,
+          "spec": "M5 + nyloc",
+          "grade": "",
+          "torque": "3 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Controller connector",
+          "qty": 1,
+          "spec": "Deutsch DT or supplied sealed plug",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Program post-run fan (cool-down after key-off) with a timer, and fan-on at low speed in the pits."
+      ],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "fan",
+        "control"
+      ],
+      "sources": [
+        {
+          "title": "HPA \u2013 PWM fan control",
+          "url": "https://www.hpacademy.com/es/foro/discusion-general-sobre-afinacion/show/pwm-control-for-brushless-fans-what-do-you-use"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.56,
+          0.72,
+          -0.3
+        ],
+        "size": [
+          0.08,
+          0.04,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Same module as engine-support.cooling.fan-controller (~100 x 80 x 40 mm).",
+        "features": "Sealed fan control module near the radiator support.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.fuel-pump-control",
+      "name": "Fuel pump control (PWM module / PDM channels)",
+      "qty": 1,
+      "description": "The ZL1 in-tank pump is PWM-controlled by a fuel pump power/flow control module commanded by the ECM (from the low-side fuel pressure sensor). The Chevrolet Performance controller kit includes a fuel pump power module. Race options: Katech Gen 6 dual-pump controller (10\u201322 V, 40 A min continuous) or PDM PWM channels driving lift/ surge pumps in a fuel-cell system.",
+      "location": "Trunk near the fuel tank/cell (OE module area is passenger side of trunk per Katech install steps) or PDM in cabin.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.engine-management.ecu",
+        "electrical.fans-and-pumps-control.fuel-pump-harness",
+        "electrical.sensors.fuel-pressure-sensor-low"
+      ],
+      "factory": {
+        "name": "GM fuel pump power control module (in LT controller kit)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Katech PNP harness/controller for Gen 6 dual fuel pump module",
+          "brand": "Katech",
+          "partNumber": "KAT-A7815 (controller) / KAT-A7826 (ZL1 controller kit)",
+          "notes": "10\u201322 V, 40 A min continuous.",
+          "url": "https://katechengines.com/i-30498290-pnp-harness-controller-for-katech-2016-gen-6-camaro-cts-v3-dual-fuel-pump-module.html"
+        },
+        {
+          "name": "Aeromotive BoostWorx PWM fuel module controller (ZL1/LSA)",
+          "brand": "Aeromotive",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://aeromotiveinc.com/products/boostworx-pulse-width-modulation-fuel-module-controller-zl1-lsa-applications"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Module mounting screws",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Program pump prime (2\u20133 s at key-on) and pump-off on engine-kill / no rpm (safety)."
+      ],
+      "inspection": [
+        "Fuel pressure stability under hard cornering and on low fuel."
+      ],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "fuel-pump",
+        "pwm"
+      ],
+      "sources": [
+        {
+          "title": "Katech ZL1 dual fuel pump wiring install",
+          "url": "https://katechengines.com/pdf/183919"
+        },
+        {
+          "title": "Jegs \u2013 ZL1 pump is PWM via controller",
+          "url": "https://jegs.com/p/Chevrolet-Performance/Chevrolet-Performance-Camaro-ZL1-High-Volume-Fuel-Pump/3898747/10002/-1"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.05,
+          0.425,
+          -0.44
+        ],
+        "size": [
+          0.1,
+          0.03,
+          0.08
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~100 x 80 x 30 mm (estimated).",
+        "features": "Finned aluminium module with two sealed connectors.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.fuel-pump-harness",
+      "name": "Fuel pump power & ground harness",
+      "qty": 1,
+      "description": "Heavy-gauge feed/ground to each fuel pump (typ. 12 AWG per pump, 10 AWG for long runs), with sealed connectors through the fuel cell/tank plate bulkhead and grounds to the rear ground stud \u2013 never to the cell plate.",
+      "location": "Trunk / fuel cell area.",
+      "connectsTo": [
+        "electrical.fans-and-pumps-control.fuel-pump-control",
+        "engine-support.fuel-cell.pickup-and-sump",
+        "electrical.grounding.rear-ground-stud",
+        "electrical.main-harness.rear-harness"
+      ],
+      "factory": {
+        "name": "GM fuel pump harness to module",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Gauge": "12 AWG per pump (\u2264 15 A)"
+      },
+      "hardware": [
+        {
+          "item": "Ring terminal to ground stud",
+          "qty": 1,
+          "spec": "12 AWG, M10",
+          "grade": "",
+          "torque": "Per stud (40 N\u00b7m M10)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep wiring outside the cell's vapor space; use fuel-resistant sleeve inside the cell can."
+      ],
+      "inspection": [
+        "Connector heat (high resistance shows as discoloration)."
+      ],
+      "buildPhase": 8,
+      "installOrder": 4,
+      "tags": [
+        "fuel-pump",
+        "wiring"
+      ],
+      "sources": [
+        {
+          "title": "Katech wiring install (trunk liner removal)",
+          "url": "https://katechengines.com/pdf/183919"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            3.05,
+            0.445,
+            -0.4
+          ],
+          [
+            3,
+            0.6,
+            -0.36
+          ],
+          [
+            3.05,
+            0.76,
+            -0.2
+          ],
+          [
+            3.2,
+            0.77,
+            0
+          ]
+        ],
+        "radius": 0.005
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "12 AWG pairs in a \u00d8~10 mm sleeve.",
+        "features": "Black sleeved branch to the fuel-cell top plate.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.intercooler-pump",
+      "name": "LT4 intercooler (charge-cooler) coolant pump",
+      "qty": 1,
+      "description": "Electric pump circulating low-temperature coolant from the front heat exchanger through the supercharger intercooler bricks. On a race car, run it continuously at full speed whenever the engine runs (PDM channel) and log its current \u2013 a failed pump means high charge temps and knock retard.",
+      "location": "Front of car near the heat exchanger, low (x\u2248-0.60, y\u22480.30, z\u2248+0.35).",
+      "connectsTo": [
+        "engine-support.intercooler-loop.ic-pump",
+        "electrical.power-distribution.pdm",
+        "engine-support.intercooler-loop.heat-exchanger",
+        "engine-support.intercooler-loop.ic-temp-sensor"
+      ],
+      "factory": {
+        "name": "GM LT4 intercooler pump (ZL1)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch PAL / Pierburg CWA-series high-flow pump",
+          "brand": "Bosch / Pierburg",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Current": "\u2248 5\u201310 A"
+      },
+      "hardware": [
+        {
+          "item": "Pump bracket bolts",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Pump current in data; air in loop."
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "intercooler",
+        "pump",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.66,
+          0.2,
+          -0.3
+        ],
+        "size": [
+          0.07,
+          0.07,
+          0.15
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch auxiliary water pump 0392022010 (dimensions)",
+            "url": "https://www.threepiece.us/bosch-auxiliary-water-pump-0392022010/"
+          }
+        ],
+        "dimensions": "Same pump as engine-support.intercooler-loop.ic-pump (~150 x 70 mm).",
+        "features": "Shown at the engine-support intercooler pump location.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.cooler-pumps",
+      "name": "Transmission/differential cooler pumps & fans",
+      "qty": 2,
+      "description": "Electric pumps (and small fans) for transmission and differential coolers, switched by PDM from temperature sensors with hysteresis.",
+      "location": "Trans cooler near tunnel / diff cooler in rear (x\u22483.1, y\u22480.35).",
+      "connectsTo": [
+        "drivetrain.transmission.trans-cooler",
+        "drivetrain.differential.diff-cooler",
+        "electrical.power-distribution.pdm",
+        "electrical.sensors.driveline-temp-sensors"
+      ],
+      "factory": {
+        "name": "None on manual cars (ZL1 1LE has diff/trans coolers \u2013 passive/air)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton / Setrab / Fluidyne diff cooler pump kit",
+          "brand": "Tilton / Setrab",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pump mounting bolts",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "cooler",
+        "pump"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.1,
+          0.35,
+          0.3
+        ],
+        "size": [
+          0.12,
+          0.06,
+          0.06
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~120 x 60 mm inline pump.",
+        "features": "Black motor can with inlet/outlet ports.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.cool-suit-pump",
+      "name": "Driver cooling (cool-suit) pump",
+      "qty": 1,
+      "description": "12 V pump circulating ice water through the driver's cooling shirt; PDM channel with keypad toggle and variable duty.",
+      "location": "Passenger floor in cooler box (x\u22481.8, y\u22480.25, z\u2248-0.40).",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "interior.driver-cooling.cooler-box"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cool Shirt / Fast Cool system",
+          "brand": "Cool Shirt",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Current": "\u2248 2\u20135 A"
+      },
+      "hardware": [
+        {
+          "item": "Cooler box hold-down strap/bracket bolts",
+          "qty": 2,
+          "spec": "M6 into floor rivnuts",
+          "grade": "",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Pump connector",
+          "qty": 1,
+          "spec": "Deutsch DT-2",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 7,
+      "tags": [
+        "cool-suit"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.21,
+            0.6,
+            -0.42
+          ],
+          "size": [
+            0.1,
+            0.065,
+            0.065
+          ],
+          "axis": "x",
+          "color": "#222"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Coolshirt 12 V circulation pump ~100 x 65 mm, mounted on the cooler lid (cooler drawn by interior.driver-cooling.coolshirt-cooler)",
+        "features": "White cooler body with blue lid, pump outlet/return fittings on top.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.fans-and-pumps-control.wiper-motor",
+      "name": "Windshield wiper motor control",
+      "qty": 1,
+      "description": "Most series require a working wiper. Retain the OE Gen 6 wiper motor (single-arm or OE) driven from a PDM H-bridge/ wiper output (ECUMaster PMU16 and Cartek PDP have dedicated wiper functions with park input), or fit a lightweight race wiper kit.",
+      "location": "Cowl, below windshield base (x\u22480.62, y\u22480.90, z\u2248+0.20).",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "body.cowl.cowl-panel"
+      ],
+      "factory": {
+        "name": "GM wiper motor & linkage (BCM-controlled)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Single-arm race wiper kit (e.g. WipeTech/ Bosch-based)",
+          "brand": "Various",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Wiper motor mounting bolts (OE)",
+          "qty": 3,
+          "spec": "M6 OE",
+          "grade": "OE",
+          "torque": "~8 N\u00b7m (71 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Wire park switch to PDM so the blade parks out of sight-line."
+      ],
+      "inspection": [
+        "Blade condition; function test."
+      ],
+      "buildPhase": 10,
+      "installOrder": 8,
+      "tags": [
+        "wiper"
+      ],
+      "sources": [
+        {
+          "title": "Cartek PDP wiper module",
+          "url": "https://www.cartekmotorsport.com/power-distribution-panel"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.62,
+          0.88,
+          0.2
+        ],
+        "size": [
+          0.12,
+          0.08,
+          0.08
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "GM wiper motor ~120 x 80 mm.",
+        "features": "Cast gearbox with motor can, under the cowl.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

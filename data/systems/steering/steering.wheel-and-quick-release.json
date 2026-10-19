@@ -1,0 +1,323 @@
+{
+  "id": "steering.wheel-and-quick-release",
+  "system": "steering",
+  "name": "Steering Wheel & Quick Release",
+  "description": "Race steering wheel, quick-release coupling and the hub adapter (boss) that fits the Gen 6 column spline, plus button/horn wiring through the quick release.",
+  "components": [
+    {
+      "id": "steering.wheel-and-quick-release.steering-wheel",
+      "name": "Steering wheel",
+      "qty": 1,
+      "description": "Factory ZL1 wheel is a sueded flat-bottom wheel with airbag, paddles (10-speed) and controls. Race cars use a 330-350 mm suede/leather race wheel on a quick release, often with a CAN or wired button module for radio, pit limiter, display page, etc.",
+      "location": "Wheel center approx (x 1.25, y 0.80, z +0.37).",
+      "connectsTo": [
+        "steering.wheel-and-quick-release.quick-release",
+        "steering.wheel-and-quick-release.button-wiring"
+      ],
+      "factory": {
+        "name": "GM ZL1 flat-bottom sueded steering wheel with driver airbag",
+        "notes": "Steering wheel bolt: 45 N·m (33 lb ft)."
+      },
+      "raceOptions": [
+        {
+          "name": "OMP / Sparco / MOMO 330-350 mm race wheel (6x70 mm PCD)",
+          "brand": "OMP / Sparco / MOMO",
+          "notes": "Smaller diameter increases effort with EPS; 350 mm is a common compromise for heavier cars."
+        },
+        {
+          "name": "Button-box race wheel (CAN keypad)",
+          "brand": "MoTeC / AiM / Grayhill / Cartek",
+          "notes": "Integrate with dash/PDM (electrical)."
+        }
+      ],
+      "specs": {
+        "Race wheel bolt pattern": "6 x 70 mm (standard)"
+      },
+      "hardware": [
+        {
+          "item": "Steering wheel bolt (OE wheel / hub adapter to column)",
+          "qty": 1,
+          "spec": "Center bolt",
+          "grade": "OE",
+          "torque": "33 ft-lb (45 N·m)",
+          "threadlocker": "Per GM (typically pre-coated)",
+          "safetyWire": false,
+          "reuse": "Replace recommended (pre-coated)",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Wheel-to-quick-release bolts",
+          "qty": 6,
+          "spec": "M5 x 0.8 countersunk or button head (6 x 70 mm PCD)",
+          "grade": "12.9 / stainless",
+          "torque": "5-6 ft-lb (7-8 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical manufacturer value; follow wheel/QR instructions.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Disable SRS (disconnect battery, wait per GM) before removing the OE airbag wheel.",
+        "Index the wheel straight with the rack centered."
+      ],
+      "inspection": [
+        "Check bolts and grip condition."
+      ],
+      "buildPhase": 9,
+      "installOrder": 20,
+      "tags": [
+        "steering-wheel"
+      ],
+      "sources": [
+        {
+          "title": "2019 Camaro ZL1 product guide (flat-bottom wheel)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            1.25,
+            0.8,
+            0.37
+          ],
+          "size": [
+            0.08,
+            0.35,
+            0.35
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            0,
+            27
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "350 mm dia, approx 50-70 mm dish, 6 x 70 mm PCD",
+        "features": "Three-spoke dished race wheel, suede rim, 12 o'clock marker; face perpendicular to the column, facing the driver",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.wheel-and-quick-release.quick-release",
+      "name": "Steering wheel quick release",
+      "qty": 1,
+      "description": "Splined coupling that lets the driver remove the wheel for entry/exit and allows safety crews quick access. Required or strongly recommended by most sanctioning bodies when a window net/cage makes entry tight. Choose a type with zero lash and positive locking.",
+      "location": "Between hub adapter and wheel, approx (x 1.21, y 0.78, z 0.37).",
+      "connectsTo": [
+        "steering.wheel-and-quick-release.steering-wheel",
+        "steering.wheel-and-quick-release.hub-adapter",
+        "steering.wheel-and-quick-release.button-wiring"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "NRG Quick Release Gen 2.0",
+          "brand": "NRG Innovations",
+          "partNumber": "SRK-200",
+          "notes": "Common, inexpensive; check for lash."
+        },
+        {
+          "name": "Works Bell Rapfix",
+          "brand": "Works Bell",
+          "notes": "Low-lash; electrical contacts available for horn."
+        },
+        {
+          "name": "OMP / Sparco / Momo race quick release (splined, with or without electrical contacts)",
+          "brand": "OMP / Sparco",
+          "notes": "Contact-type versions pass button circuits."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Quick-release to hub adapter bolts",
+          "qty": 6,
+          "spec": "M5 or M6 socket head (per kit)",
+          "grade": "12.9",
+          "torque": "5-7 ft-lb (7-10 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check for rotational lash after install; any play is felt as steering slop."
+      ],
+      "inspection": [
+        "Check locking collar and spline wear."
+      ],
+      "buildPhase": 9,
+      "installOrder": 21,
+      "tags": [
+        "quick-release"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.2099,
+            0.7796,
+            0.37
+          ],
+          "size": [
+            0.05,
+            0.065,
+            0.065
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            0,
+            27
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 65 mm dia x 50 mm",
+        "features": "Two-piece ball-lock quick release (hub half + wheel half, pull collar)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.wheel-and-quick-release.hub-adapter",
+      "name": "Hub adapter (boss kit) for Gen 6 column spline",
+      "qty": 1,
+      "description": "Adapter that fits the Gen 6 Camaro column spline and center bolt and presents a standard 6 x 70 mm (or QR) interface. Must be specific to the 2016+ Camaro spline. Some adapters include horn contact provisions and clockspring/SRS resistor notes.",
+      "location": "On column spline, approx (x 1.17, y 0.765, z 0.37).",
+      "connectsTo": [
+        "steering.column-and-shaft.column",
+        "steering.wheel-and-quick-release.quick-release"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Gen 6 Camaro short hub adapter",
+          "brand": "NRG / Works Bell / MOMO / OMP",
+          "notes": "Verify 2016+ Camaro application; part numbers not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hub adapter retaining (steering wheel) bolt",
+          "qty": 1,
+          "spec": "OE center bolt or kit bolt",
+          "grade": "OE",
+          "torque": "33 ft-lb (45 N·m)",
+          "threadlocker": "Blue (Loctite 243) if not pre-coated",
+          "safetyWire": false,
+          "reuse": "Replace recommended",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Set rack center and index hub so the wheel is straight."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 22,
+      "tags": [
+        "hub-adapter",
+        "boss"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.1698,
+            0.7591,
+            0.37
+          ],
+          "size": [
+            0.05,
+            0.075,
+            0.075
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            0,
+            27
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 75 mm dia x 50 mm",
+        "features": "Short splined boss kit for the Gen 6 column, 6 x 70 mm flange",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "steering.wheel-and-quick-release.button-wiring",
+      "name": "Horn / steering-wheel button wiring through quick release",
+      "qty": 1,
+      "description": "Wiring for horn (if required), radio PTT, pit limiter, flash, display page etc. Options: (1) quick release with electrical contacts plus short coil cord; (2) coiled cable with a connector that the driver unplugs before removing the wheel; (3) wireless or CAN button module with only power/CAN through a QR connector. The OE clockspring is often retained only as a pass-through.",
+      "location": "Column top to wheel.",
+      "connectsTo": [
+        "steering.wheel-and-quick-release.steering-wheel",
+        "steering.wheel-and-quick-release.quick-release",
+        "steering.column-and-shaft.steering-angle-sensor-and-clockspring",
+        "electrical.power-distribution.pdm",
+        "electrical.data-acquisition.dash-display"
+      ],
+      "factory": {
+        "name": "GM SIR clockspring + wheel control circuits",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Coiled cord with Deutsch/Autosport connector, or CAN keypad",
+          "brand": "Various",
+          "notes": "Keep connector strain-relieved; ensure it releases without damage if driver exits in a hurry."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Route so it cannot wrap around the column at full lock (approx 1.25-1.5 turns each way)."
+      ],
+      "inspection": [
+        "Check connector and cord for fatigue."
+      ],
+      "buildPhase": 8,
+      "installOrder": 23,
+      "tags": [
+        "wiring",
+        "horn",
+        "buttons"
+      ],
+      "sources": []
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "brakes.rear-pads",
+  "system": "brakes",
+  "name": "Rear Pads",
+  "description": "Rear pad compound is often one step less aggressive than the front to keep the rear stable on corner entry; matching compounds front/rear is the default starting point.",
+  "components": [
+    {
+      "id": "brakes.rear-pads.pads",
+      "name": "Rear brake pads (set per caliper)",
+      "qty": 2,
+      "description": "Two pads per rear caliper. Change rear compound (lower mu) as a bias tool if the car is loose on entry and the bias bar is out of range.",
+      "location": "Inside each rear caliper.",
+      "connectsTo": [
+        "brakes.rear-calipers.caliper",
+        "brakes.rear-calipers.pad-hardware",
+        "brakes.rear-rotors.rotor"
+      ],
+      "factory": {
+        "name": "GM/Brembo ZL1 rear pads",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "PFC / Carbotech / Hawk DTC / G-Loc / Ferodo rear for ZL1 Brembo",
+          "brand": "Various",
+          "notes": "Match temperature window to front."
+        },
+        {
+          "name": "Ferodo for AP CP9449/9450 rear kit",
+          "brand": "Ferodo",
+          "notes": "Per Essex."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "As front; bed together with fronts."
+      ],
+      "inspection": [
+        "Measure each event."
+      ],
+      "buildPhase": 4,
+      "installOrder": 51,
+      "tags": [
+        "pads"
+      ],
+      "sources": [
+        {
+          "title": "Essex Parts – Ferodo pads for AP Radi-CAL CP9668/CP9669 (FRP3014, D62 Camaro HD kit)",
+          "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "size": [
+          0.1072,
+          0.1739,
+          0.0198
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            2.9424,
+            0.4193,
+            0.7351
+          ],
+          [
+            2.9424,
+            0.4193,
+            0.7829
+          ]
+        ],
+        "color": "#3e2723"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "PMB Performance – Brembo rear seal kit Camaro ZL1 1LE Gen 6",
+            "url": "https://pmbperformance.com/products/brembo-rear-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+          }
+        ],
+        "dimensions": "~61 mm tall, ~125 mm long, 14 mm friction + 5 mm backing",
+        "features": "Kidney-shaped 4-pot pad with backing plate",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

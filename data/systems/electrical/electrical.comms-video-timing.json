@@ -1,0 +1,509 @@
+{
+  "id": "electrical.comms-video-timing",
+  "system": "electrical",
+  "name": "Comms, Video & Timing",
+  "description": "Driver-to-pit radio (radio, car harness, helmet kit, PTT, antenna), in-car video with data overlay, and the timing transponder.",
+  "components": [
+    {
+      "id": "electrical.comms-video-timing.radio",
+      "name": "Two-way radio & car harness",
+      "qty": 1,
+      "description": "UHF/VHF handheld or mobile radio in a dash/ floor mount, connected via a car harness (with amplifier for engine-noise) to the helmet kit and a steering-wheel PTT. Powered from the aux block or a PDM channel; NASA wording allows radio comms to stay live with the master OFF.",
+      "location": "Passenger floor or door bar mount (x\u22481.55, y\u22480.45, z\u2248-0.45).",
+      "connectsTo": [
+        "electrical.comms-video-timing.helmet-kit",
+        "electrical.comms-video-timing.ptt-button",
+        "electrical.comms-video-timing.antenna",
+        "electrical.power-distribution.aux-fuse-block"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Kenwood NX-series handheld + race car harness",
+          "brand": "Kenwood / Rugged Radios / PCI Race Radios",
+          "partNumber": "",
+          "notes": "Kenwood 2-pin compatible harnesses are the common standard.",
+          "url": "https://www.jpcycles.com/product/pci-race-radios-co-driver-package"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Radio mount screws",
+          "qty": 2,
+          "spec": "M5 into rivnut / cage clamp",
+          "grade": "",
+          "torque": "3\u20134 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route audio leads away from ignition and DI injector wiring to avoid noise."
+      ],
+      "inspection": [
+        "Radio check before every session."
+      ],
+      "buildPhase": 9,
+      "installOrder": 1,
+      "tags": [
+        "radio",
+        "comms"
+      ],
+      "sources": [
+        {
+          "title": "NASCAR-style radio kits (Vivid Racing)",
+          "url": "https://www.vividracing.com/-p-152471713.html"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.55,
+          0.45,
+          -0.45
+        ],
+        "size": [
+          0.035,
+          0.2,
+          0.056
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kenwood NX-P1300 \u2013 122.9 x 54.1 x 33.5 mm (HD Supply listing)",
+            "url": "https://hdsupplysolutions.com/p/kenwood-protalk-nx-p1300auk-p142445"
+          }
+        ],
+        "dimensions": "Handheld body ~123 x 54 x 34 mm; ~200 mm tall including the stub antenna.",
+        "features": "Black handheld with top channel knob and antenna, side PTT, front speaker grille, belt clip in a dash/floor cradle.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.comms-video-timing.helmet-kit",
+      "name": "Helmet kit (mic + speakers) & coil cord",
+      "qty": 1,
+      "description": "Helmet-mounted boom or lip mic and speakers/earbuds, with a quick-disconnect coil cord to the car harness that pulls apart if the driver exits in a hurry.",
+      "location": "Driver helmet; car-side connector near seat (x\u22481.70, y\u22480.70, z\u2248+0.20).",
+      "connectsTo": [
+        "electrical.comms-video-timing.radio",
+        "safety.driver.helmet"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "In-helmet PTT kit (CommGear PT-IH-01) / PCI helmet kit",
+          "brand": "CommGear / PCI",
+          "partNumber": "PT-IH-01",
+          "notes": "",
+          "url": "https://commgearsupply.com/products/competition-race-in-helmet-push-to-talk-kit-2-pin-kenwood-baofeng-btech-rugged-radios-diga-talk-tyt-anytone-relm-bk-radio"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Car-side breakaway connector bracket screws",
+          "qty": 2,
+          "spec": "M4 stainless + nyloc",
+          "grade": "",
+          "torque": "1.5 N\u00b7m (13 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Breakaway connector must separate without snagging the HANS tethers."
+      ],
+      "inspection": [
+        "Cord intact."
+      ],
+      "buildPhase": 9,
+      "installOrder": 2,
+      "tags": [
+        "helmet",
+        "comms"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.7,
+          0.7,
+          0.2
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Car-side helmet-kit jack ~30 mm (estimated).",
+        "features": "Sealed in-line connector pair with coiled cord to the helmet.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.comms-video-timing.ptt-button",
+      "name": "Push-to-talk button",
+      "qty": 1,
+      "description": "PTT on the steering wheel (through the QR connector or wireless system) or a Velcro-mounted button on the wheel rim.",
+      "location": "Steering wheel spoke.",
+      "connectsTo": [
+        "electrical.dash-and-controls.steering-wheel-controls",
+        "electrical.comms-video-timing.radio"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Cartek wireless steering-wheel channel as PTT",
+          "brand": "Cartek",
+          "partNumber": "CK-WS-09",
+          "notes": "",
+          "url": "https://www.cartekmotorsport.com/wireless-control-system/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "PTT button strap / mount",
+          "qty": 1,
+          "spec": "Velcro strap on rim, or M3 screws into button box",
+          "grade": "",
+          "torque": "0.8 N\u00b7m (screws)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "PTT lead",
+          "qty": 1,
+          "spec": "2-core shielded 24 AWG through QR connector or wireless channel",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 3,
+      "tags": [
+        "ptt"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.24,
+          0.86,
+          0.3
+        ],
+        "size": [
+          0.015,
+          0.018,
+          0.018
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~16 mm push button on the wheel spoke (estimated).",
+        "features": "Yellow cap in black bezel.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.comms-video-timing.antenna",
+      "name": "Radio antenna",
+      "qty": 1,
+      "description": "Roof-mounted NMO antenna (ground-plane on steel roof) with coax to the radio; keep \u2265 300 mm from the GPS antenna.",
+      "location": "Roof, rear center (x\u22482.30, y\u22481.37, z=0).",
+      "connectsTo": [
+        "electrical.comms-video-timing.radio",
+        "body.roof.roof-panel"
+      ],
+      "factory": {
+        "name": "OE shark-fin (radio/OnStar)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "NMO mount nut",
+          "qty": 1,
+          "spec": "NMO 3/4 in mount",
+          "grade": "",
+          "torque": "Hand tight + 1/4 turn",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "SWR check if range drops."
+      ],
+      "buildPhase": 10,
+      "installOrder": 4,
+      "tags": [
+        "antenna"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.35,
+          1.368,
+          0
+        ],
+        "size": [
+          0.15,
+          0.06,
+          0.07
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "OE shark fin ~150 x 70 x 60 mm (estimated).",
+        "features": "Body-colour fin on the rear roof centre line, rubber base gasket.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.comms-video-timing.in-car-camera",
+      "name": "In-car camera with data overlay",
+      "qty": 1,
+      "description": "Forward-facing camera recording video synchronized with logger data. The AiM SmartyCam 3 Sport takes CAN data from AiM loggers (must be externally powered, 9\u201315 V) and overlays speed/rpm/gear/lap; other systems sync GoPro footage with MoTeC/ AiM data in post.",
+      "location": "Cage main hoop or roof bar behind driver, looking forward over the driver's shoulder (x\u22482.05, y\u22481.22, z\u2248+0.05).",
+      "connectsTo": [
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.power-distribution.pdm",
+        "safety.roll-cage.main-hoop"
+      ],
+      "factory": {
+        "name": "GM Performance Data Recorder camera (windshield, in mirror area)",
+        "partNumber": "",
+        "notes": "Tied to infotainment."
+      },
+      "raceOptions": [
+        {
+          "name": "AiM SmartyCam 3 Sport",
+          "brand": "AiM",
+          "partNumber": "",
+          "notes": "1080p, 67\u00b0/84\u00b0 lens, IP65, 9\u201315 V, CAN to AiM devices.",
+          "url": "https://xtramotorsport.com/product/aim-smartycam-3-sport/"
+        },
+        {
+          "name": "GoPro + external power",
+          "brand": "GoPro",
+          "partNumber": "",
+          "notes": "Sync in post with logger data."
+        }
+      ],
+      "specs": {
+        "Power": "9\u201315 V"
+      },
+      "hardware": [
+        {
+          "item": "Cage clamp mount screws",
+          "qty": 2,
+          "spec": "M5/M6 through cage clamp",
+          "grade": "",
+          "torque": "5 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Tether",
+          "qty": 1,
+          "spec": "Steel safety lanyard to cage",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Many series require cameras to be bolted (no suction cups) and tethered."
+      ],
+      "inspection": [
+        "Card space; mount tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 5,
+      "tags": [
+        "camera",
+        "video"
+      ],
+      "sources": [
+        {
+          "title": "AiM SmartyCam 3 Sport",
+          "url": "https://xtramotorsport.com/product/aim-smartycam-3-sport/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.05,
+          1.22,
+          0.05
+        ],
+        "size": [
+          0.0465,
+          0.054,
+          0.0799
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "AiM SmartyCam 3 Sport \u2013 79.9 x 54 x 46.5 mm (Bimmerworld)",
+            "url": "https://www.bimmerworld.com/Gauges-Data-Acquisition/Video-Recording/AiM-SmartyCam-HD-Camera-System-84-Deg-Lens.html"
+          },
+          {
+            "title": "AiM SmartyCam 3 Sport (Oreca store)",
+            "url": "https://en.oreca-store.com/aim-smartycam-3-sport-en.html"
+          }
+        ],
+        "dimensions": "79.9 W x 54 H x 46.5 D mm, 200 g.",
+        "features": "Black compact housing, lens barrel on the forward face, status LED, bottom mount plate, rear power/CAN connector.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.comms-video-timing.transponder",
+      "name": "Timing transponder (MyLaps)",
+      "qty": 1,
+      "description": "Active timing transponder required by most sanctioning bodies. Direct-power units (MyLaps TR2 Direct Power / X2 RaceLink Club) are wired to switched 12 V on a 2.5 A fuse with chassis ground (TR2 guide: brown +12 V, blue ground; seal unused white/black). Mount vertical, \u2264 60 cm above ground, with clear view of the track surface (no metal or carbon below it); front wheel well area is the preferred car location in the TR2 guide. Subscription-based.",
+      "location": "Right-side front wheel well area or rocker/ floor near the front, typically passenger side (x\u22480.35, y\u22480.35, z\u2248-0.80) \u2013 confirm series requirement.",
+      "connectsTo": [
+        "electrical.power-distribution.aux-fuse-block",
+        "electrical.grounding.front-ground-stud"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MyLaps X2 RaceLink Club transponder kit",
+          "brand": "MyLaps",
+          "partNumber": "10C100 (kit)",
+          "notes": "7\u201318 V, includes M8 power cable for direct power use.",
+          "url": "https://discoveryparts.com/products/mylaps-x2-racelink-club-transponder-kit-pcc-legal"
+        },
+        {
+          "name": "MyLaps TR2 Car Transponder (direct power)",
+          "brand": "MyLaps",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://tcraustralia.com/wp-content/uploads/2025/01/TR2_Transponder_Direct_Power_QSG_ENGLISH.pdf"
+        }
+      ],
+      "specs": {
+        "Supply": "7\u201318 V, 2.5 A fuse",
+        "Max height": "60 cm above ground (car)"
+      },
+      "hardware": [
+        {
+          "item": "Holder clip screws / zip ties",
+          "qty": 2,
+          "spec": "M5 screws or heavy zip ties through holder",
+          "grade": "",
+          "torque": "2 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Use a switched supply so it doesn't drain the battery, unless series requires constant power."
+      ],
+      "inspection": [
+        "Status LED; subscription active."
+      ],
+      "buildPhase": 10,
+      "installOrder": 6,
+      "tags": [
+        "transponder",
+        "mylaps",
+        "timing"
+      ],
+      "sources": [
+        {
+          "title": "MyLaps TR2 Direct Power quick start guide",
+          "url": "https://tcraustralia.com/wp-content/uploads/2025/01/TR2_Transponder_Direct_Power_QSG_ENGLISH.pdf"
+        },
+        {
+          "title": "MyLaps X2 RaceLink Club kit",
+          "url": "https://discoveryparts.com/products/mylaps-x2-racelink-club-transponder-kit-pcc-legal"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.6,
+          0.3,
+          -0.84
+        ],
+        "size": [
+          0.073,
+          0.05,
+          0.022
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MyLaps TR2 car transponder \u2013 73 x 50 x 22 mm, 110 g (Harris Race Radios)",
+            "url": "https://harrisraceradios.com/product/mylaps-tr2-car-transponder/"
+          }
+        ],
+        "dimensions": "73 x 50 x 22 mm, mount \u2264 60 cm above ground with clear view of the track loop.",
+        "features": "Black sealed housing with mounting ears and label, cable gland for direct power.",
+        "confidence": "published"
+      }
+    }
+  ]
+}

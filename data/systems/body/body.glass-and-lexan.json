@@ -1,0 +1,331 @@
+{
+ "id": "body.glass-and-lexan",
+ "system": "body",
+ "name": "Glass & Polycarbonate",
+ "description": "Factory laminated windshield retained with retention clips; side and rear glass replaced with polycarbonate (Lexan / Margard MR10) where rules allow; driver window open with net.",
+ "components": [
+  {
+   "id": "body.glass-and-lexan.windshield",
+   "name": "Windshield (laminated glass) & retention clips",
+   "qty": 1,
+   "description": "Factory urethane-bonded laminated windshield stays (polycarbonate windshields need bracing and are rule-dependent). Add metal retention clips/straps at the header and base so the screen cannot fall in after a hit; replace cracked screens.",
+   "location": "x ≈ 0.65 (base) → 1.25 (top), y ≈ 0.97–1.30.",
+   "connectsTo": [
+    "safety.roll-cage.front-hoop",
+    "interior.dash.defrost-fan"
+   ],
+   "factory": {
+    "name": "GM laminated windshield, urethane bonded",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Polycarbonate windshield 3/16–1/4 in with center brace",
+     "brand": "Lexan / Margard",
+     "partNumber": "",
+     "notes": "Forum guidance: <3/16 in windshields bow at speed; MR10 cannot be cold-formed.",
+     "url": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+    }
+   ],
+   "specs": {
+    "Retention": "2–4 metal clips (typical)"
+   },
+   "hardware": [
+    {
+     "item": "Retention clip screws",
+     "qty": 4,
+     "spec": "#10 or M5 screw into rivnut on header/cowl",
+     "grade": "Stainless",
+     "torque": "3.7 ft-lb (5 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": ""
+    },
+    {
+     "item": "Windshield urethane",
+     "qty": 1,
+     "spec": "OEM-grade glass urethane",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Replace windshield before cage install if cracked (access is easier)."
+   ],
+   "inspection": [
+    "No severe cracks (SCCA)."
+   ],
+   "buildPhase": 10,
+   "installOrder": 15,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    },
+    {
+     "title": "GRM forum – Lexan windows thickness/bracing",
+     "url": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.95,
+     1.13,
+     0
+    ],
+    "size": [
+     0.7,
+     0.006,
+     1.4
+    ],
+    "rot": [
+     0,
+     0,
+     29
+    ],
+    "color": "#85c1e9"
+   }
+  },
+  {
+   "id": "body.glass-and-lexan.driver-window",
+   "name": "Driver window (glass removed – net opening)",
+   "qty": 1,
+   "description": "Driver door glass and regulator removed; opening closed by the SFI window net while on track.",
+   "location": "Driver door window opening.",
+   "connectsTo": [
+    "safety.window-net.net",
+    "body.panels.doors"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "None",
+     "qty": 0,
+     "spec": "Glass removed",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "n/a",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Remove glass/regulator during door gutting."
+   ],
+   "inspection": [],
+   "buildPhase": 1,
+   "installOrder": 3,
+   "tags": [],
+   "sources": [
+    {
+     "title": "PRP Seats – SFI certified custom window nets guide",
+     "url": "https://www.prpseats.com/custom-window-nets/"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.65,
+     0.98,
+     0.86
+    ],
+    "size": [
+     0.7,
+     0.3,
+     0.002
+    ],
+    "color": "#d6eaf8"
+   }
+  },
+  {
+   "id": "body.glass-and-lexan.passenger-window",
+   "name": "Passenger window (fixed polycarbonate)",
+   "qty": 1,
+   "description": "Fixed polycarbonate panel replacing the passenger door glass; can carry a NACA fresh-air duct.",
+   "location": "Passenger door window opening, z ≈ −0.86.",
+   "connectsTo": [
+    "body.panels.doors",
+    "interior.driver-cooling.fresh-air-duct"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Lexan Margard MR10 0.118 in (1/8) or 0.177 in (3/16)",
+     "brand": "SABIC",
+     "partNumber": "",
+     "notes": "Hard-coated; cannot be cold-formed.",
+     "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+    }
+   ],
+   "specs": {
+    "Thickness": "1/8 in sides typical (forum practice), check rules"
+   },
+   "hardware": [
+    {
+     "item": "Panel screws",
+     "qty": 8,
+     "spec": "#10-32 button head + nylon washer + nyloc, oversized holes",
+     "grade": "Stainless",
+     "torque": "2 ft-lb (3 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf",
+     "notes": "Oversize holes ~1/16 in for thermal expansion; never overtighten in polycarbonate."
+    }
+   ],
+   "installNotes": [
+    "Make a cardboard template; cut with fine-tooth blade, deburr edges."
+   ],
+   "inspection": [
+    "Check for crazing/cracks at screws."
+   ],
+   "buildPhase": 10,
+   "installOrder": 16,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SABIC Lexan Margard MR10 datasheet",
+     "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+    },
+    {
+     "title": "GRM forum – Lexan windows thickness/bracing",
+     "url": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.65,
+     0.98,
+     -0.86
+    ],
+    "size": [
+     0.7,
+     0.3,
+     0.005
+    ],
+    "color": "#aed6f1"
+   }
+  },
+  {
+   "id": "body.glass-and-lexan.rear-window",
+   "name": "Rear window (polycarbonate, braced)",
+   "qty": 1,
+   "description": "Polycarbonate backlight replacing the heavy glass; needs braces or straps so it does not suck out/bow at speed (forum guidance: most rules require rear window supports).",
+   "location": "x ≈ 2.60 → 3.10, y ≈ 1.30 → 1.02.",
+   "connectsTo": [
+    "safety.fuel-and-firewall-isolation.package-shelf-panel",
+    "body.trim-and-fasteners.rivnuts"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Lexan / Margard MR10 0.177–0.236 in",
+     "brand": "SABIC",
+     "partNumber": "",
+     "notes": "",
+     "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+    }
+   ],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Perimeter screws",
+     "qty": 16,
+     "spec": "#10-32 / M5 button head + nylon washer into rivnuts, oversized holes",
+     "grade": "Stainless",
+     "torque": "2 ft-lb (3 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+    },
+    {
+     "item": "Support straps",
+     "qty": 2,
+     "spec": "1 x 1/8 in aluminum strap across window",
+     "grade": "Aluminum",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+    }
+   ],
+   "installNotes": [
+    "Bed edges with urethane/butyl or foam tape for seal."
+   ],
+   "inspection": [
+    "Check straps and screws."
+   ],
+   "buildPhase": 10,
+   "installOrder": 17,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SABIC Lexan Margard MR10 datasheet",
+     "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+    },
+    {
+     "title": "GRM forum – Lexan windows thickness/bracing",
+     "url": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     2.85,
+     1.16,
+     0
+    ],
+    "size": [
+     0.58,
+     0.006,
+     1.15
+    ],
+    "rot": [
+     0,
+     0,
+     -29
+    ],
+    "color": "#aed6f1"
+   }
+  }
+ ]
+}

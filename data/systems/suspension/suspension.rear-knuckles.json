@@ -1,0 +1,240 @@
+{
+  "id": "suspension.rear-knuckles",
+  "system": "suspension",
+  "name": "Rear Knuckles (Rear Uprights / Spindles)",
+  "description": "Rear uprights carrying the hub bearing (wheels), caliper and electric parking brake (brakes), halfshaft (drivetrain) and wheel speed sensor, with pickup points for all five links and the rear sway bar end link.",
+  "components": [
+    {
+      "id": "suspension.rear-knuckles.knuckle",
+      "name": "Rear knuckle (upright)",
+      "qty": 2,
+      "description": "Cast rear upright. Five link pickups: LCA (bottom, lateral), upper control arm (top, lateral), upper and lower trailing arms (forward), toe link (rear). The upper control arm and both trailing arms use rubber bushings pressed into the knuckle; the LCA and toe link use through-bolts. The hub bolts on with 4 bolts (BMR: 45 ft-lb) and the axle nut is 36 mm. Removing the knuckle requires removing caliper, rotor (T25 screw), EPB cable/actuator connection, WSS, axle nut and all links.",
+      "location": "Inside each rear wheel, centered approx (x 2.81, y 0.37, z +/-0.69).",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-links.upper-control-arm",
+        "suspension.rear-links.upper-trailing-arm",
+        "suspension.rear-links.lower-trailing-arm",
+        "suspension.rear-links.toe-link",
+        "suspension.rear-sway-bar.end-links",
+        "suspension.rear-knuckles.knuckle-bushings",
+        "wheels.rear-hubs.hub-bearing",
+        "brakes.rear-calipers.caliper",
+        "drivetrain.halfshafts.rear-halfshaft",
+        "brakes.abs.rear-wheel-speed-sensor"
+      ],
+      "factory": {
+        "name": "GM rear knuckle (side-specific)",
+        "notes": "Part number/material not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "Factory knuckle with spherical bushings",
+          "brand": "SPL / BMR",
+          "notes": "See knuckle-bushings."
+        }
+      ],
+      "specs": {
+        "Link pickups": "5 + sway bar link",
+        "Axle nut": "36 mm (drivetrain/wheels spec)"
+      },
+      "hardware": [
+        {
+          "item": "Hub bearing-to-knuckle bolt",
+          "qty": 4,
+          "spec": "Flange bolt, 15 mm hex",
+          "grade": "OE",
+          "torque": "96 ft-lb (130 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect / replace per GM",
+          "notes": "Owned by wheels system; listed here for knuckle rebuilds. [2026-10 check] CORRECTED: was 45 ft-lb (61 N·m) per BMR BK065. The SKF 2023 Torque Specification Guide (457377) lists 2016–21 Camaro rear hub mount at 96 ft-lb (130 N·m) with footnote [45] (clean the threads, apply new threadlocker). TightTorque (GM 2016–18 SI) lists 'rear wheel bearing and hub bolt 130 N·m', and SKF lists the same 130 N·m for the Alpha-sibling 2016–19 CTS. BMR's 45 ft-lb looks like an under-torque. A 15 mm head does not by itself mean M10, so confirm the thread size against the GM part before torquing.",
+          "confidence": "typical",
+          "source": "https://cdn.skfmediahub.skf.com/api/public/094dddb2a353170f/pdf_preview_medium/094dddb2a353170f_pdf_preview_medium.pdf",
+          "torqueSequence": "Clean the old threadlocker off the threads and apply new threadlocker (SKF note). Torque in a cross pattern to 130 N·m. No angle step is listed."
+        },
+        {
+          "item": "Rear wheel speed sensor bolt",
+          "qty": 1,
+          "spec": "M6, 10 mm hex",
+          "grade": "OE",
+          "torque": "89 in-lb (10 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Same as front value (GM SG3); rear not separately verified.",
+          "confidence": "typical",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Press knuckle bushings/bearings (if upgrading) and install hub before hanging the knuckle.",
+        "Hang on LCA and upper control arm first, then trailing arms, then toe link; leave all TTY bolts loose until ride height.",
+        "Install halfshaft and axle nut (drivetrain spec), brakes, WSS."
+      ],
+      "inspection": [
+        "Crack-check pickup ears; check bushing condition."
+      ],
+      "buildPhase": 3,
+      "installOrder": 57,
+      "tags": [
+        "knuckle",
+        "upright",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK065/BK066/BK069 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK065.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.87,
+            0.385,
+            0.645
+          ],
+          "size": [
+            0.35,
+            0.43,
+            0.1
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          },
+          {
+            "title": "SPL RKB CAM6 rear knuckle spherical bushings (replace the 3 pressed knuckle bushings)",
+            "url": "https://turninconcepts.com/products/spl-parts-2016-chevrolet-camaro-gen-6-rear-knuckle-bushings"
+          }
+        ],
+        "dimensions": "approx 350 x 430 x 100 mm",
+        "features": "Cast knuckle: 4-bolt hub boss, upper T carrying the camber-link and upper-trailing bushings, lower trailing bushing eye, LCA clevis, rear toe arm with clevis, shock and end-link tabs, caliper ears",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-knuckles.knuckle-bushings",
+      "name": "Rear knuckle bushings (upper camber arm, upper and lower trailing arm)",
+      "qty": 6,
+      "description": "Three rubber bushings pressed into each rear knuckle for the upper control arm and both trailing arms. Their compliance allows toe/camber change under launch and cornering. Replace with spherical bearings for racing.",
+      "location": "In knuckle ears at the outer ends of UCA, upper trailing arm and lower trailing arm.",
+      "connectsTo": [
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-links.upper-control-arm",
+        "suspension.rear-links.upper-trailing-arm",
+        "suspension.rear-links.lower-trailing-arm"
+      ],
+      "factory": {
+        "name": "GM injected rubber/steel-sleeved bushings",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts RKB CAM6 rear knuckle bushings",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RKB CAM6",
+          "notes": "FK PTFE-lined monoballs in 6061 shells; complete car set; fits 2016+ Camaro and ATS/ATS-V.",
+          "url": "https://durable.parts/product/spl-rkb-cam6/"
+        },
+        {
+          "name": "BMR BK065 (upper trailing), BK066 (lower trailing), BK069 (upper control arm)",
+          "brand": "BMR Suspension",
+          "partNumber": "BK065 / BK066 / BK069",
+          "notes": "Drive bearing in from outside to inside; install spacers.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK069.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Knuckle off car; remove hub and dust shield; press out rubber bushing; drive in bearing from outside to inside (BMR), never backwards."
+      ],
+      "inspection": [
+        "Check bearing play every few events."
+      ],
+      "buildPhase": 3,
+      "installOrder": 58,
+      "tags": [
+        "bushing",
+        "spherical"
+      ],
+      "sources": [
+        {
+          "title": "SPL RKB CAM6",
+          "url": "https://durable.parts/product/spl-rkb-cam6/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.87,
+            0.575,
+            0.655
+          ],
+          "size": [
+            0.05,
+            0.05,
+            0.05
+          ],
+          "axis": "x",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.75,
+            0.565,
+            0.655
+          ],
+          "size": [
+            0.05,
+            0.05,
+            0.05
+          ],
+          "axis": "z",
+          "mirror": true,
+          "instances": [
+            [
+              2.75,
+              0.565,
+              0.655
+            ],
+            [
+              2.73,
+              0.215,
+              0.66
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "SPL RKB CAM6 rear knuckle spherical bushings (replace the 3 pressed knuckle bushings)",
+            "url": "https://turninconcepts.com/products/spl-parts-2016-chevrolet-camaro-gen-6-rear-knuckle-bushings"
+          }
+        ],
+        "dimensions": "approx 50 mm OD x 50 mm",
+        "features": "3 pressed rubber bushings in the knuckle: upper camber link (bolt fore-aft), upper and lower trailing links (bolt lateral)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1818 @@
+{
+  "id": "engine-support.exhaust",
+  "system": "engine-support",
+  "name": "Exhaust",
+  "description": "Long-tube stainless headers (1-7/8 or 2 in) → V-band collectors → catted or test connection pipes with wideband O2 bungs → 3 in X-pipe → flex joints → 3 in mid pipes → race mufflers behind the axle → rear tips (side-exit option). Includes hangers, valve deletes, coatings and heat shields.",
+  "components": [
+    {
+      "id": "engine-support.exhaust.factory-manifolds",
+      "name": "Factory ZL1 exhaust manifolds (reference, replaced)",
+      "qty": 2,
+      "description": "The ZL1 LT4 uses unique cast \"tri-Y\" exhaust manifolds (Hot Rod). Removed in favor of long-tube headers on the race car; kept here for the torque reference and gasket part.",
+      "location": "Exhaust ports on each cylinder head.",
+      "connectsTo": [
+        "engine.cylinder-heads.head-left",
+        "engine.cylinder-heads.head-right",
+        "engine-support.exhaust.header-gaskets"
+      ],
+      "factory": {
+        "name": "GM ZL1 LT4 tri-Y exhaust manifolds",
+        "notes": "GM recommends replacing OE manifold bolts each removal (OEM bolt kit listing)."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Exhaust manifold bolts",
+          "qty": 6,
+          "spec": "M8 x 1.25 GM manifold bolt (per side; count approx.)",
+          "grade": "GM OE",
+          "torque": "20 ft-lb (27 N·m)",
+          "torqueSequence": "First pass 11 ft-lb (15 N·m) all bolts center-out; final 20 ft-lb (27 N·m) new cylinder head / 17 ft-lb (23 N·m) used head",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (GM recommends new bolts)",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Removed during build; retain for street conversion."
+      ],
+      "inspection": [],
+      "buildPhase": 6,
+      "installOrder": 1,
+      "tags": [
+        "factory",
+        "reference"
+      ],
+      "sources": [
+        {
+          "title": "Hot Rod: ZL1 tri-Y manifolds",
+          "url": "https://www.magzter.com/articles/5690/210624/58af572c12303"
+        },
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "OEM manifold bolt kit",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-oem-exhaust-manifold-bolt-kit-includes-10-general-motors"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.exhaust.headers",
+      "name": "Long-tube headers (stainless, 1-7/8 or 2 in primaries)",
+      "qty": 2,
+      "description": "Equal-length long-tube headers that replace the manifolds and scavenge each bank into a 3 in collector. Primary size: 1-7/8 in for most LT4 builds, 2 in for big-power/high-rpm engines. Must clear the Alpha front subframe, steering shaft and dry-sump pump (check before ordering—some headers are designed around the factory wet-sump pan).",
+      "location": "From each cylinder head exhaust flange, down past the subframe, merging under the transmission bellhousing.",
+      "connectsTo": [
+        "engine.cylinder-heads.head-left",
+        "engine.cylinder-heads.head-right",
+        "engine-support.exhaust.header-gaskets",
+        "engine-support.exhaust.collector-joints",
+        "engine-support.exhaust.connection-pipes"
+      ],
+      "factory": {
+        "name": "N/A (factory tri-Y cast manifolds)"
+      },
+      "raceOptions": [
+        {
+          "name": "Kooks 1-7/8 x 3 in stainless long tubes w/ GREEN catted connection pipes (2016-24 SS / 2017-24 ZL1)",
+          "brand": "Kooks",
+          "partNumber": "2260H430",
+          "url": "https://billysspeedshop.com/products/2260h430"
+        },
+        {
+          "name": "American Racing Headers long system 1-7/8 x 3 in with cats (2016+ SS/ZL1/1LE)",
+          "brand": "ARH",
+          "partNumber": "CAV8-16178300LSWC",
+          "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats-cav8-16178300lswc"
+        },
+        {
+          "name": "Stainless Works 2 in primaries, 3 in high-flow cats, X-pipe (2016-18 SS; ZL1 fitment listed)",
+          "brand": "Stainless Works",
+          "partNumber": "SSWCA16HCAT",
+          "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+        },
+        {
+          "name": "Speed Engineering 2 in long tubes + 3 in X-pipe full kit (SS/ZL1)",
+          "brand": "Speed Engineering",
+          "partNumber": "25-1061",
+          "url": "https://berryperformancesales.com/products/speed-engineering-2016-camaro-ss-zl1-2-longtube-headers-x-pipe-full-kit-lt1-lt4-engines-25-1061"
+        }
+      ],
+      "specs": {
+        "Primaries": "1-7/8 in or 2 in",
+        "Collector": "3 in",
+        "Material": "304 stainless (ceramic coating recommended)"
+      },
+      "hardware": [
+        {
+          "item": "Header flange bolts",
+          "qty": 6,
+          "spec": "M8 x 1.25 x 25 mm (per side; supplied with GM gasket 12657093 or header kit)",
+          "grade": "10.9",
+          "torque": "20 ft-lb (27 N·m)",
+          "torqueSequence": "First pass 11 ft-lb (15 N·m) center-out; final 20 ft-lb (27 N·m) new head / 17 ft-lb (23 N·m) used head (GM manifold value applied to headers)",
+          "threadlocker": "Anti-seize (nickel) on threads",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "notes": "Header makers may specify a different value (one Gen V gasket/bolt seller lists 18 ft-lb). Re-check after first heat cycle; safety-wire or use locking bolts on race cars.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Install headers before the engine goes in only if the chassis/subframe allows—on the Alpha car they usually go in from below after engine install.",
+        "Check clearance to steering shaft, oil lines, fuel line, starter and dry-sump pump/hoses; maintain >= 1 in or add shields.",
+        "Wrap or ceramic-coat; sleeve nearby hoses and wiring."
+      ],
+      "inspection": [
+        "Check flange bolts for loosening every event",
+        "Look for cracks at primaries/collector welds and at the flange",
+        "Check for exhaust leaks (black soot tracks)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "headers",
+        "long-tube",
+        "kooks",
+        "arh"
+      ],
+      "sources": [
+        {
+          "title": "Kooks 2260H430",
+          "url": "https://billysspeedshop.com/products/2260h430"
+        },
+        {
+          "title": "ARH CAV8-16178300LSWC",
+          "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats-cav8-16178300lswc"
+        },
+        {
+          "title": "Stainless Works SSWCA16HCAT",
+          "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+        },
+        {
+          "title": "Speed Engineering 25-1061",
+          "url": "https://berryperformancesales.com/products/speed-engineering-2016-camaro-ss-zl1-2-longtube-headers-x-pipe-full-kit-lt1-lt4-engines-25-1061"
+        },
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.135,
+              0.55,
+              0.335
+            ],
+            [
+              -0.13,
+              0.5,
+              0.345
+            ],
+            [
+              -0.115,
+              0.4,
+              0.345
+            ],
+            [
+              -0.075,
+              0.3,
+              0.335
+            ],
+            [
+              0,
+              0.25,
+              0.315
+            ],
+            [
+              0.2,
+              0.225,
+              0.29
+            ],
+            [
+              0.4,
+              0.205,
+              0.258
+            ]
+          ],
+          "radius": 0.0238,
+          "mirror": true
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.023,
+              0.55,
+              0.335
+            ],
+            [
+              -0.018,
+              0.5,
+              0.345
+            ],
+            [
+              -0.003,
+              0.4,
+              0.345
+            ],
+            [
+              0.037,
+              0.3,
+              0.335
+            ],
+            [
+              0.1,
+              0.245,
+              0.31
+            ],
+            [
+              0.25,
+              0.225,
+              0.29
+            ],
+            [
+              0.4,
+              0.215,
+              0.282
+            ]
+          ],
+          "radius": 0.0238,
+          "mirror": true
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.089,
+              0.55,
+              0.335
+            ],
+            [
+              0.094,
+              0.5,
+              0.345
+            ],
+            [
+              0.109,
+              0.4,
+              0.345
+            ],
+            [
+              0.149,
+              0.3,
+              0.335
+            ],
+            [
+              0.2,
+              0.245,
+              0.305
+            ],
+            [
+              0.4,
+              0.235,
+              0.258
+            ]
+          ],
+          "radius": 0.0238,
+          "mirror": true
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.2,
+              0.55,
+              0.335
+            ],
+            [
+              0.205,
+              0.5,
+              0.345
+            ],
+            [
+              0.22,
+              0.4,
+              0.345
+            ],
+            [
+              0.26,
+              0.3,
+              0.335
+            ],
+            [
+              0.3,
+              0.245,
+              0.3
+            ],
+            [
+              0.4,
+              0.245,
+              0.282
+            ]
+          ],
+          "radius": 0.0238,
+          "mirror": true
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.4,
+              0.22,
+              0.27
+            ],
+            [
+              0.5,
+              0.21,
+              0.255
+            ],
+            [
+              0.6,
+              0.2,
+              0.24
+            ]
+          ],
+          "radius": 0.038,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260H430 1-7/8 x 3 in long-tube headers, Camaro SS/ZL1 2016-24",
+            "url": "https://www.americanmuscle.com/kooks-camaro-1-7-8-inch-long-tube-headers-green-catted-oem-connections-2260h430.html"
+          },
+          {
+            "title": "Billy's Speed Shop: Kooks 2260H430 (304 SS mandrel bent, 3 in collectors)",
+            "url": "https://billysspeedshop.com/products/2260h430"
+          },
+          {
+            "title": "ARH long system 2016+ Camaro SS/ZL1/1LE 1-7/8 x 3 in with cats",
+            "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats"
+          },
+          {
+            "title": "Stainless Works 2016-18 Camaro SS headers / valve delete plates",
+            "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-performance-connect"
+          }
+        ],
+        "dimensions": "Primaries 1-7/8 in (47.6 mm) OD, ~760-860 mm long; 3 in (76 mm) collector, ~200 mm merge; 3/8 in head flange",
+        "features": "4-into-1 long tubes per bank, 304 SS mandrel bends, one-piece port flange, merge collector with V-band/slip outlet near bellhousing",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.header-gaskets",
+      "name": "Header / exhaust manifold gaskets (Gen V)",
+      "qty": 2,
+      "description": "Multi-layer steel gaskets between the head exhaust flange and the header. GM 12657093 is a Gen V pair-with-bolts kit (LT1/LT4 and other LT engines).",
+      "location": "Each cylinder head exhaust flange.",
+      "connectsTo": [
+        "engine-support.exhaust.headers",
+        "engine.cylinder-heads.head-left",
+        "engine.cylinder-heads.head-right"
+      ],
+      "factory": {
+        "name": "GM Gen V exhaust manifold/header gasket pair with bolts",
+        "partNumber": "GM 12657093",
+        "notes": "Sold as pair with bolts (Michigan Motorsports listing)."
+      },
+      "raceOptions": [
+        {
+          "name": "Speed Engineering 2014+ GM LT1/LT2/LT4 exhaust manifold gaskets",
+          "brand": "Speed Engineering",
+          "url": "https://berryperformancesales.com/collections/in-stock/products/speed-engineering-2014-gm-lt1-lt2-lt4-exhaust-manifold-gaskets"
+        }
+      ],
+      "specs": {
+        "Type": "MLS"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Install dry; new gaskets every header removal."
+      ],
+      "inspection": [
+        "Leak check at cold start (ticking)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "gasket"
+      ],
+      "sources": [
+        {
+          "title": "GM 12657093 gasket kit",
+          "url": "https://www.michiganmotorsports.com/gaskets-seals-and-sensors/gm-12657093-gen-v-exhaust-manifold-header-gasket-pair-with-bolts-for-2014-lt-based-engines-lt1-lt4-l82-l83-l84-l86-l87-l8t"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.033,
+            0.55,
+            0.335
+          ],
+          "size": [
+            0.42,
+            0.05,
+            0.004
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Speed Engineering LT1/LT2/LT4 MLS exhaust gaskets",
+            "url": "https://berryperformancesales.com/collections/in-stock/products/speed-engineering-2014-gm-lt1-lt2-lt4-exhaust-manifold-gaskets"
+          }
+        ],
+        "dimensions": "~420 x 50 x 1.5 mm MLS",
+        "features": "Multi-layer steel 4-port gasket per bank",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.collector-joints",
+      "name": "Collector joints (V-band or slip/flange) and gaskets",
+      "qty": 2,
+      "description": "Joint between header collector and the connection pipe. V-band flanges are preferred on race cars for quick removal and leak-free sealing; many street headers use ball/slip joints or 3-bolt flanges with donut gaskets.",
+      "location": "At each collector outlet, under the bellhousing.",
+      "connectsTo": [
+        "engine-support.exhaust.headers",
+        "engine-support.exhaust.connection-pipes"
+      ],
+      "raceOptions": [
+        {
+          "name": "3 in stainless V-band flange set + clamp",
+          "brand": "Vibrant / Ticon / Burns"
+        }
+      ],
+      "specs": {
+        "Size": "3 in"
+      },
+      "hardware": [
+        {
+          "item": "3 in V-band clamp",
+          "qty": 1,
+          "spec": "3 in stainless V-band clamp with 1/4-28 or M6 T-bolt nut",
+          "grade": "SS",
+          "torque": "6–10 ft-lb (8–14 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Anti-seize on T-bolt threads",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Tap around circumference with a soft mallet and re-torque; use a new locknut if supplied. Follow clamp maker value.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld V-band flanges with the pipe fully seated and aligned; purge-weld stainless."
+      ],
+      "inspection": [
+        "Check clamp nut torque and for soot"
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "v-band"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            0.6,
+            0.2,
+            0.24
+          ],
+          "size": [
+            0.018,
+            0.1,
+            0.1
+          ],
+          "axis": "x",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260H430 1-7/8 x 3 in long-tube headers, Camaro SS/ZL1 2016-24",
+            "url": "https://www.americanmuscle.com/kooks-camaro-1-7-8-inch-long-tube-headers-green-catted-oem-connections-2260h430.html"
+          }
+        ],
+        "dimensions": "3 in V-band: ~100 mm OD clamp, 18 mm wide",
+        "features": "Stainless V-band clamp with T-bolt over male/female flanges",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.connection-pipes",
+      "name": "Connection pipes / catalysts (race cats or test pipes)",
+      "qty": 2,
+      "description": "Pipes from the collectors to the X-pipe. Choose high-flow catalysts if your sanctioning body/track or state requires them (NASA/SCCA generally allow cat deletes in many classes, but some tracks and street-registered cars require cats); otherwise straight test pipes.",
+      "location": "Under the transmission bellhousing, each side of the tunnel.",
+      "connectsTo": [
+        "engine-support.exhaust.collector-joints",
+        "engine-support.exhaust.x-pipe",
+        "engine-support.exhaust.o2-sensors"
+      ],
+      "factory": {
+        "name": "GM ZL1 close-coupled catalysts (removed with manifolds)"
+      },
+      "raceOptions": [
+        {
+          "name": "Kooks GREEN high-flow catted connection pipes 3 x 2.75 in (SS/ZL1 2016-24)",
+          "brand": "Kooks",
+          "partNumber": "22603300",
+          "notes": "EPA-spec; rated for forced induction up to 750 rwhp.",
+          "url": "https://onefastshop.com/products/kooks-green-high-flow-catted-connection-pipes-3in-x-2-75in-chevrolet-camaro-ss-zl1-2016-2024"
+        },
+        {
+          "name": "Kooks header-back kit with green cats",
+          "brand": "Kooks",
+          "partNumber": "2260F438",
+          "url": "https://jbspowercentre.com/products/flrq-2260f438"
+        },
+        {
+          "name": "Non-catted 3 in test pipes",
+          "brand": "Kooks / ARH / Stainless Works"
+        }
+      ],
+      "specs": {
+        "Diameter": "3 in"
+      },
+      "hardware": [
+        {
+          "item": "3 in V-band clamp",
+          "qty": 1,
+          "spec": "3 in stainless V-band clamp with 1/4-28 or M6 T-bolt nut",
+          "grade": "SS",
+          "torque": "6–10 ft-lb (8–14 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Anti-seize on T-bolt threads",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Tap around circumference with a soft mallet and re-torque; use a new locknut if supplied. Follow clamp maker value.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Cats must be supported (not hanging on the collector)."
+      ],
+      "inspection": [
+        "Rattle check for broken substrate"
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "catalyst",
+        "test-pipe"
+      ],
+      "sources": [
+        {
+          "title": "Kooks 22603300",
+          "url": "https://onefastshop.com/products/kooks-green-high-flow-catted-connection-pipes-3in-x-2-75in-chevrolet-camaro-ss-zl1-2016-2024"
+        },
+        {
+          "title": "Kooks 2260F438",
+          "url": "https://jbspowercentre.com/products/flrq-2260f438"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.6,
+              0.2,
+              0.24
+            ],
+            [
+              0.75,
+              0.185,
+              0.21
+            ],
+            [
+              0.95,
+              0.165,
+              0.17
+            ]
+          ],
+          "radius": 0.038,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks GREEN high-flow catted connection pipes 3 x 2.75 in (Camaro SS/ZL1)",
+            "url": "https://onefastshop.com/products/kooks-green-high-flow-catted-connection-pipes-3in-x-2-75in-for-2016-chevrolet-camaro-ss-zl1"
+          },
+          {
+            "title": "Kooks 2260H430 1-7/8 x 3 in long-tube headers, Camaro SS/ZL1 2016-24",
+            "url": "https://www.americanmuscle.com/kooks-camaro-1-7-8-inch-long-tube-headers-green-catted-oem-connections-2260h430.html"
+          }
+        ],
+        "dimensions": "3 in pipe with ~4 in x 5 in metallic high-flow cat body",
+        "features": "Stainless connection pipe, round cat body mid-pipe, O2 bung ahead of cat, slip/flange ends",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.o2-sensors",
+      "name": "Oxygen sensors & bungs (wideband for tuning/logging)",
+      "qty": 2,
+      "description": "One wideband per bank (Bosch LSU 4.9 type) in welded M18 x 1.5 bungs at ~10-2 o'clock, >= 12 in downstream of the collector merge. Factory narrowband rear sensors are deleted on a race tune (or simulated).",
+      "location": "Each connection pipe, ~0.25 m behind the collector.",
+      "connectsTo": [
+        "engine-support.exhaust.connection-pipes",
+        "electrical.sensors.wideband-o2",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "GM heated O2 sensors (pre- and post-cat)"
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch LSU 4.9 wideband + controller (or ECU-integrated)",
+          "brand": "Bosch / Motec / AEM"
+        }
+      ],
+      "specs": {
+        "Thread": "M18 x 1.5",
+        "Bung angle": ">= 10° above horizontal so condensate drains"
+      },
+      "hardware": [
+        {
+          "item": "O2 sensor",
+          "qty": 1,
+          "spec": "M18 x 1.5 with sealing gasket",
+          "grade": "OE",
+          "torque": "30–44 ft-lb (41–60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Anti-seize (sensor-safe, threads only; new sensors are pre-coated)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Bosch LSU guidance is ~40-60 N·m; GM HO2S typically ~42 N·m. Use the sensor maker value.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Bung plug (unused bungs)",
+          "qty": 1,
+          "spec": "M18 x 1.5 plug",
+          "grade": "SS",
+          "torque": "25–30 ft-lb (34–41 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Anti-seize",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld bungs before ceramic coating.",
+        "Route sensor leads away from headers with heat sleeve."
+      ],
+      "inspection": [
+        "Check AFR plausibility; replace sensors that read lazy"
+      ],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "sensor",
+        "wideband"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.66,
+            0.24,
+            0.235
+          ],
+          "size": [
+            0.022,
+            0.06,
+            0.022
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks GREEN high-flow catted connection pipes 3 x 2.75 in (Camaro SS/ZL1)",
+            "url": "https://onefastshop.com/products/kooks-green-high-flow-catted-connection-pipes-3in-x-2-75in-for-2016-chevrolet-camaro-ss-zl1"
+          }
+        ],
+        "dimensions": "M18 x 1.5, 22 mm hex, ~85 mm with boot",
+        "features": "Slotted steel shroud, 22 mm hex, black boot and lead (Bosch LSU 4.9 wideband)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.egt-probes",
+      "name": "EGT probes (optional, per cylinder or per bank)",
+      "qty": 8,
+      "description": "K-type thermocouples in each primary ~2-3 in from the flange for cylinder-balance tuning and detecting a dead/lean cylinder.",
+      "location": "Each header primary near the flange.",
+      "connectsTo": [
+        "engine-support.exhaust.headers",
+        "electrical.sensors.egt-module"
+      ],
+      "raceOptions": [
+        {
+          "name": "1/8 in exposed-tip K-type with 1/8 NPT compression fitting",
+          "brand": "Motec / AEM / Omega"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Compression fitting",
+          "qty": 1,
+          "spec": "1/8-27 NPT weld bung + compression nut",
+          "grade": "SS",
+          "torque": "Snug + 1/4 turn after ferrule bite",
+          "torqueSequence": "",
+          "threadlocker": "Anti-seize",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Same insertion depth on every cylinder."
+      ],
+      "inspection": [
+        "Check for broken probes"
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "sensor",
+        "egt",
+        "optional"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.13,
+            0.49,
+            0.375
+          ],
+          "size": [
+            0.006,
+            0.006,
+            0.03
+          ],
+          "axis": "z",
+          "instances": [
+            [
+              -0.13,
+              0.49,
+              0.375
+            ],
+            [
+              -0.018,
+              0.49,
+              0.375
+            ],
+            [
+              0.094,
+              0.49,
+              0.375
+            ],
+            [
+              0.205,
+              0.49,
+              0.375
+            ],
+            [
+              -0.106,
+              0.49,
+              -0.375
+            ],
+            [
+              0.006,
+              0.49,
+              -0.375
+            ],
+            [
+              0.118,
+              0.49,
+              -0.375
+            ],
+            [
+              0.229,
+              0.49,
+              -0.375
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260H430 1-7/8 x 3 in long-tube headers, Camaro SS/ZL1 2016-24",
+            "url": "https://www.americanmuscle.com/kooks-camaro-1-7-8-inch-long-tube-headers-green-catted-oem-connections-2260h430.html"
+          }
+        ],
+        "dimensions": "1/8 in probe, 1/8 NPT compression fitting",
+        "features": "Stainless probe through weld bung ~75 mm below port flange",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.x-pipe",
+      "name": "X-pipe (3 in)",
+      "qty": 1,
+      "description": "Crossover that balances the two banks, broadens torque and reduces sound. Sits in the transmission tunnel behind the bellhousing.",
+      "location": "Transmission tunnel, under the TR-6060 / 6L80 / 10L90 case.",
+      "connectsTo": [
+        "engine-support.exhaust.connection-pipes",
+        "engine-support.exhaust.mid-pipes",
+        "engine-support.exhaust.hangers",
+        "drivetrain.transmission.case"
+      ],
+      "raceOptions": [
+        {
+          "name": "ARH 3 in X-pipe (in long system)",
+          "brand": "ARH",
+          "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats-cav8-16178300lswc"
+        },
+        {
+          "name": "Kooks / Stainless Works 3 in X",
+          "brand": "Kooks / Stainless Works",
+          "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+        }
+      ],
+      "specs": {
+        "Diameter": "3 in"
+      },
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 2,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check clearance to transmission crossmember and driveshaft; shield the shifter base/clutch line."
+      ],
+      "inspection": [
+        "Check clamps and slip joints for leaks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "x-pipe"
+      ],
+      "sources": [
+        {
+          "title": "ARH long system",
+          "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats-cav8-16178300lswc"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.95,
+              0.165,
+              0.17
+            ],
+            [
+              1.1,
+              0.163,
+              0.13
+            ],
+            [
+              1.25,
+              0.16,
+              0.06
+            ],
+            [
+              1.35,
+              0.16,
+              0
+            ],
+            [
+              1.45,
+              0.16,
+              -0.06
+            ],
+            [
+              1.6,
+              0.16,
+              -0.11
+            ],
+            [
+              1.7,
+              0.16,
+              -0.12
+            ]
+          ],
+          "radius": 0.038
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.95,
+              0.165,
+              -0.17
+            ],
+            [
+              1.1,
+              0.163,
+              -0.13
+            ],
+            [
+              1.25,
+              0.16,
+              -0.06
+            ],
+            [
+              1.35,
+              0.16,
+              0
+            ],
+            [
+              1.45,
+              0.16,
+              0.06
+            ],
+            [
+              1.6,
+              0.16,
+              0.11
+            ],
+            [
+              1.7,
+              0.16,
+              0.12
+            ]
+          ],
+          "radius": 0.038
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          },
+          {
+            "title": "ARH long system 2016+ Camaro SS/ZL1/1LE 1-7/8 x 3 in with cats",
+            "url": "https://billysspeedshop.com/products/arh-long-system-16-camaro-ss-zl1-1le-1-7-8-x-3-with-cats"
+          }
+        ],
+        "dimensions": "3 in (76 mm) tubes, ~750 mm long X, merge under the transmission tail",
+        "features": "Mandrel-bent stainless X with welded merge window, slip-fit ends with band clamps",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.mid-pipes",
+      "name": "Mid pipes (X-pipe to mufflers, 3 in)",
+      "qty": 2,
+      "description": "Dual 3 in pipes from the X-pipe through the tunnel, under the rear subframe/halfshafts to the mufflers behind the axle.",
+      "location": "Tunnel to rear subframe to behind the rear axle.",
+      "connectsTo": [
+        "engine-support.exhaust.x-pipe",
+        "engine-support.exhaust.mufflers",
+        "engine-support.exhaust.hangers",
+        "engine-support.exhaust.flex-joints"
+      ],
+      "factory": {
+        "name": "GM ZL1 mid pipes (OE NPP exhaust)",
+        "notes": "Kooks 2260F438 connects to OE exhaust near the rear axle."
+      },
+      "raceOptions": [
+        {
+          "name": "3 in 304 stainless mandrel-bent pipe",
+          "brand": "Kooks / ARH / fabricated"
+        }
+      ],
+      "specs": {
+        "Diameter": "3 in"
+      },
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 2,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Maintain >= 25 mm to halfshafts, rear diff, brake/fuel lines; shield the fuel feed line where it runs nearby."
+      ],
+      "inspection": [
+        "Ground-strike damage, hanger condition"
+      ],
+      "buildPhase": 7,
+      "installOrder": 9,
+      "tags": [
+        "pipe"
+      ],
+      "sources": [
+        {
+          "title": "Kooks 2260F438",
+          "url": "https://jbspowercentre.com/products/flrq-2260f438"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.86,
+              0.16,
+              0.125
+            ],
+            [
+              2.2,
+              0.17,
+              0.16
+            ],
+            [
+              2.5,
+              0.2,
+              0.22
+            ],
+            [
+              2.75,
+              0.235,
+              0.32
+            ],
+            [
+              2.95,
+              0.235,
+              0.42
+            ],
+            [
+              3.05,
+              0.24,
+              0.44
+            ],
+            [
+              3.094,
+              0.27,
+              0.44
+            ]
+          ],
+          "radius": 0.038,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F438 header-back kit",
+            "url": "https://jbspowercentre.com/products/flrq-2260f438"
+          },
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "3 in OD stainless, ~1.3 m per side over the rear subframe",
+        "features": "Mandrel-bent 304 SS pipe with slip joints and hanger rods",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.flex-joints",
+      "name": "Exhaust flex joints / slip joints",
+      "qty": 2,
+      "description": "Short stainless braided flex sections (or spherical slip joints) behind the X-pipe that let the engine rock on its mounts without cracking pipes or headers.",
+      "location": "Just aft of the X-pipe in each mid pipe.",
+      "connectsTo": [
+        "engine-support.exhaust.mid-pipes",
+        "engine-support.exhaust.x-pipe"
+      ],
+      "raceOptions": [
+        {
+          "name": "3 x 4-6 in stainless interlock flex section",
+          "brand": "Vibrant / Walker"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 2,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install in neutral length—never stretched or compressed."
+      ],
+      "inspection": [
+        "Look for torn braid"
+      ],
+      "buildPhase": 7,
+      "installOrder": 10,
+      "tags": [
+        "flex"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.78,
+            0.16,
+            0.124
+          ],
+          "size": [
+            0.15,
+            0.086,
+            0.086
+          ],
+          "axis": "x",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "3 x 6 in interlock flex, ~86 mm OD braid",
+        "features": "Stainless braided bellows with inner interlock liner and plain pipe ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.mufflers",
+      "name": "Mufflers (race)",
+      "qty": 2,
+      "description": "Straight-through race mufflers to meet track sound limits (commonly 92-103 dB depending on track). Sound limits are the deciding factor more than power.",
+      "location": "Behind the rear axle, below the trunk floor, either side of the fuel cell.",
+      "connectsTo": [
+        "engine-support.exhaust.mid-pipes",
+        "engine-support.exhaust.tailpipes",
+        "engine-support.exhaust.hangers",
+        "engine-support.exhaust.heat-shields"
+      ],
+      "factory": {
+        "name": "GM ZL1 dual-mode (NPP) valved mufflers"
+      },
+      "raceOptions": [
+        {
+          "name": "Kooks Oval Race Mufflers (in 2260F436 kit)",
+          "brand": "Kooks",
+          "url": "https://jbspowercentre.com/products/flrq-2260f436"
+        },
+        {
+          "name": "Borla XR-1 / MagnaFlow race mufflers",
+          "brand": "Borla / MagnaFlow"
+        }
+      ],
+      "specs": {
+        "Inlet/outlet": "3 in"
+      },
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 2,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Shield the trunk floor/fuel cell above the mufflers."
+      ],
+      "inspection": [
+        "Check packing (sound level growth over a season)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 11,
+      "tags": [
+        "muffler",
+        "sound"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.37,
+            0.27,
+            0.44
+          ],
+          "size": [
+            0.552,
+            0.133,
+            0.213
+          ],
+          "axis": "x",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks MUF-019 3 in oval center/center muffler (21.75 in OAL, 18 in body, 5-1/4 x 8-3/8 in oval)",
+            "url": "https://liftkits4less.com/kooks-headers-3-oval-centercenter-muffler-muf-019"
+          },
+          {
+            "title": "Billy's Speed Shop: Kooks MUF-019",
+            "url": "https://billysspeedshop.com/products/muf-019-ci"
+          },
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "21.75 in (552 mm) OAL, 18 in body, 5-1/4 x 8-3/8 in (133 x 213 mm) oval, 3 in center in/out",
+        "features": "Stainless oval shell with rolled lock-seam end caps, centred 3 in stubs",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.tailpipes",
+      "name": "Tailpipes / tips (rear exit)",
+      "qty": 2,
+      "description": "Short tailpipes exiting through the rear valance. Tip position must clear the fuel cell vent outlet and diffuser.",
+      "location": "Rear valance, each side.",
+      "connectsTo": [
+        "engine-support.exhaust.mufflers",
+        "aero.rear-diffuser.diffuser"
+      ],
+      "factory": {
+        "name": "GM ZL1 quad tips"
+      },
+      "raceOptions": [
+        {
+          "name": "Kooks quad 4 in black slash-cut tips (2260F436 kit)",
+          "brand": "Kooks"
+        },
+        {
+          "name": "Turn-down tips",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 1,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep >= 300 mm from the fuel cell vent outlet."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 12,
+      "tags": [
+        "tips"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.646,
+              0.27,
+              0.44
+            ],
+            [
+              3.7,
+              0.28,
+              0.44
+            ],
+            [
+              3.79,
+              0.29,
+              0.44
+            ]
+          ],
+          "radius": 0.038,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "Quad 4 in (102 mm) slash-cut tips, 2 per side, ~200 mm long, 3 in inlet",
+        "features": "Black-coated double-wall slash-cut tips through rear diffuser cut-outs",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.side-exit-option",
+      "name": "Side-exit option (ahead of rear wheels)",
+      "qty": 2,
+      "description": "Alternative to the rear system: dump the X-pipe out the rockers ahead of the rear wheels. Lighter and keeps heat away from the fuel cell, but louder at trackside microphones and may not meet sound limits or class rules.",
+      "location": "From the X-pipe outboard under the floor to the rocker panels ahead of the rear wheels.",
+      "connectsTo": [
+        "engine-support.exhaust.x-pipe",
+        "body.rockers.rocker-panel"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fabricated 3 in side exits with turn-out tips",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "3 in lap-joint band clamp",
+          "qty": 1,
+          "spec": "3 in stainless band clamp (M10/3/8 in bolt)",
+          "grade": "SS",
+          "torque": "35–45 ft-lb (47–61 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical band-clamp torque; follow clamp maker. Re-torque after first heat cycle.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check class rules: exhaust must exit behind the driver in many rulebooks."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 13,
+      "tags": [
+        "option",
+        "side-exit"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.7,
+              0.16,
+              0.12
+            ],
+            [
+              1.85,
+              0.155,
+              0.35
+            ],
+            [
+              1.95,
+              0.13,
+              0.62
+            ],
+            [
+              2.05,
+              0.11,
+              0.84
+            ],
+            [
+              2.1,
+              0.105,
+              0.9
+            ]
+          ],
+          "radius": 0.038,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "3 in pipe, turn-out ahead of rear wheel",
+        "features": "Stainless pipe ending in a short angled turn-out tip below the rocker",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.hangers",
+      "name": "Exhaust hangers, isolators and brackets",
+      "qty": 6,
+      "description": "Welded hanger rods on the pipes into rubber (or polyurethane/ silicone race) isolators bolted to body brackets. Support the system at the X-pipe, mid pipes and mufflers so no weight hangs on the headers.",
+      "location": "Tunnel, rear subframe area, behind the axle.",
+      "connectsTo": [
+        "engine-support.exhaust.x-pipe",
+        "engine-support.exhaust.mid-pipes",
+        "engine-support.exhaust.mufflers",
+        "chassis.body-shell.floor-pan"
+      ],
+      "factory": {
+        "name": "GM exhaust insulators/hangers"
+      },
+      "raceOptions": [
+        {
+          "name": "Energy Suspension / silicone race isolators",
+          "brand": "Energy Suspension"
+        }
+      ],
+      "specs": {
+        "Rod": "3/8 in (10 mm) hanger rod"
+      },
+      "hardware": [
+        {
+          "item": "Hanger bracket bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 into body weld nut",
+          "grade": "8.8",
+          "torque": "15–18 ft-lb (20–24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Isolators should be at rest (not pre-loaded) with the engine at idle."
+      ],
+      "inspection": [
+        "Replace cracked/stretched isolators"
+      ],
+      "buildPhase": 7,
+      "installOrder": 14,
+      "tags": [
+        "hangers"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.95,
+            0.215,
+            0.17
+          ],
+          "size": [
+            0.03,
+            0.06,
+            0.03
+          ],
+          "instances": [
+            [
+              0.95,
+              0.215,
+              0.17
+            ],
+            [
+              0.95,
+              0.215,
+              -0.17
+            ],
+            [
+              2.3,
+              0.245,
+              0.18
+            ],
+            [
+              2.3,
+              0.245,
+              -0.18
+            ],
+            [
+              3.2,
+              0.365,
+              0.44
+            ],
+            [
+              3.2,
+              0.365,
+              -0.44
+            ],
+            [
+              3.55,
+              0.365,
+              0.44
+            ],
+            [
+              3.55,
+              0.365,
+              -0.44
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "3/8 in (10 mm) rods, 2-hole rubber isolators ~60 x 30 mm",
+        "features": "Black rubber/silicone isolator between welded rod on pipe and body rod",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.valve-delete",
+      "name": "Exhaust valve (NPP) delete / actuator plates",
+      "qty": 2,
+      "description": "ZL1 has electrically actuated exhaust valves in the mufflers. Race systems delete them; delete plates for the valve motors (Stainless Works kit) keep the motors plugged in so the BCM does not set codes.",
+      "location": "At the factory muffler valve motor locations.",
+      "connectsTo": [
+        "engine-support.exhaust.mufflers",
+        "electrical.body-harness.exhaust-valve-connectors"
+      ],
+      "factory": {
+        "name": "GM NPP dual-mode exhaust valve actuators"
+      },
+      "raceOptions": [
+        {
+          "name": "Valve delete plates (included in Stainless Works SSWCA16HCAT)",
+          "brand": "Stainless Works",
+          "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Actuator plate screws",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Or remove motors and handle in the ECU/BCM tune."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 15,
+      "tags": [
+        "delete"
+      ],
+      "sources": [
+        {
+          "title": "Stainless Works kit",
+          "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-afm-delete"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.6,
+            0.345,
+            0.44
+          ],
+          "size": [
+            0.06,
+            0.012,
+            0.06
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Stainless Works 2016-18 Camaro SS headers / valve delete plates",
+            "url": "https://azproperformance.com/products/stainless-works-2016-18-camaro-ss-headers-2in-primaries-3in-high-flow-cats-x-pipe-performance-connect"
+          }
+        ],
+        "dimensions": "~60 x 60 x 6 mm plate",
+        "features": "Stainless/aluminium cover plate with 2-3 bolts replacing NPP actuator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.exhaust.header-thermal",
+      "name": "Header ceramic coating / wrap and blankets",
+      "qty": 2,
+      "description": "Ceramic thermal-barrier coating (preferred over wrap on stainless—wrap traps moisture) and removable heat blankets over the collectors to cut under-hood temps and protect the starter, oil lines and steering components.",
+      "location": "Headers and collectors.",
+      "connectsTo": [
+        "engine-support.exhaust.headers"
+      ],
+      "raceOptions": [
+        {
+          "name": "Jet-Hot / Swain Tech ceramic coating",
+          "brand": "Jet-Hot / Swain Tech"
+        },
+        {
+          "name": "DEI / Thermo-Tec wrap + stainless ties",
+          "brand": "DEI / Thermo-Tec"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Stainless locking ties",
+          "qty": 10,
+          "spec": "8 in SS locking tie",
+          "grade": "SS",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Coat before final install; weld bungs/flanges first."
+      ],
+      "inspection": [
+        "Check for wrap degradation/oil soak (fire risk)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 16,
+      "tags": [
+        "heat"
+      ],
+      "sources": []
+    },
+    {
+      "id": "engine-support.exhaust.heat-shields",
+      "name": "Heat shields (tunnel, floor, starter, steering shaft, fuel cell floor)",
+      "qty": 5,
+      "description": "Reflective aluminum/stainless shields with air gap protecting the transmission tunnel (shifter, clutch line), driver floor, starter solenoid, steering U-joint/boot, and the trunk floor under the fuel cell above the mufflers.",
+      "location": "Above the exhaust along its length.",
+      "connectsTo": [
+        "engine-support.exhaust.mid-pipes",
+        "engine-support.exhaust.mufflers",
+        "engine-support.fuel-cell.container",
+        "steering.column.lower-shaft"
+      ],
+      "factory": {
+        "name": "GM underbody heat shields (retain where present)"
+      },
+      "raceOptions": [
+        {
+          "name": "DEI floor & tunnel shield / fabricated dimpled aluminum",
+          "brand": "DEI / fabricated"
+        }
+      ],
+      "specs": {
+        "Air gap": ">= 12 mm (1/2 in) between shield and floor"
+      },
+      "hardware": [
+        {
+          "item": "Shield fasteners",
+          "qty": 4,
+          "spec": "M6 into rivnuts with spacers / 3/16 in rivets",
+          "grade": "SS",
+          "torque": "40–60 in-lb (4.5–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Stand shields off the floor with spacers; a shield touching the floor conducts heat."
+      ],
+      "inspection": [
+        "Check for rattles/cracking"
+      ],
+      "buildPhase": 7,
+      "installOrder": 17,
+      "tags": [
+        "heat",
+        "safety"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.3,
+            0.218,
+            0
+          ],
+          "size": [
+            1,
+            0.004,
+            0.4
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.37,
+            0.372,
+            0.44
+          ],
+          "size": [
+            0.55,
+            0.004,
+            0.24
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Kooks 2260F436 exhaust kit (3 in X-pipe, oval race mufflers, quad 4 in black slash tips)",
+            "url": "https://jbspowercentre.com/products/flrq-2260f436"
+          }
+        ],
+        "dimensions": "Tunnel shield ~1000 x 400 mm; muffler shields ~550 x 240 mm",
+        "features": "Embossed/dimpled aluminised steel or aluminium with 12 mm stand-offs",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

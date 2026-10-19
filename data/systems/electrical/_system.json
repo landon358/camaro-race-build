@@ -1,0 +1,1867 @@
+{
+  "id": "electrical",
+  "name": "Electrical & Electronics",
+  "summary": "The Gen 6 Camaro factory electrical system is a GM network architecture (BCM, IPC, GMLAN CAN) with the AGM battery in the trunk, an E92 ECM running the direct-injected LT1/LT4, and underhood/rear fuse-relay blocks. The race build strips the body electronics and replaces them with a purpose-built system: trunk battery with FIA-style master cutoff (mechanical 4-post switch or Cartek solid-state isolator), a programmable PDM instead of fuses/relays, a Chevrolet Performance E92 controller kit or a GDI-capable standalone ECU, a CAN-networked dash/logger, keypad and chassis sensors, and a mil-spec Tefzel/DR-25 harness with Deutsch bulkhead connectors.",
+  "overview": "Architecture. Power flows battery (trunk, right side) \u2192 master cutoff \u2192 main 1/0 cable through the cabin along the passenger sill \u2192 firewall power junction \u2192 starter, and from the junction (fused) \u2192 PDM. The PDM switches and protects every load (ECU, ignition, fuel pumps, fan, intercooler pump, lights, comms) and reports currents over CAN. Grounds return through a dedicated battery-negative cable, two engine-to-chassis straps and a star ground for the electronics. The ECU, PDM, dash/logger, keypad, GPS/IMU, lambda controller, tire-temp sensors and (if used) the race ABS share one or two 1 Mbit/s CAN buses.\n\nFactory vs race. The Gen 6's body modules (BCM, IPC, SDM, radio) are VIN-linked on the GM network and are not needed to run the engine when a Chevrolet Performance LT1/LT4 controller kit is used (the kit supplies a programmed E92, engine harness with fuse box, DBW pedal, O2/MAF, oil and fuel-pressure sensors and the fuel pump power module). Note GM's warning that pre-2022 LT controllers must not be used on 2022+ LT crate engines, and that early (4-pin) and late (3-pin) LT4 fuel-rail pressure sensors need matching kits. The direct-injection LT limits standalone choices to GDI-capable systems (Holley Terminator X Max Gen V LT DI kits 550-1623/550-1624, MoTeC M1 GPR-DI on M122/M142/M182 class ECUs) unless the race engine is converted to port injection (then MoTeC M150, Holley Dominator, Haltech Nexus etc. apply). Keeping OE electric power steering and OE ABS/StabiliTrak requires keeping their network messages alive \u2013 decide this with the steering and brakes systems before designing the harness.\n\nRules. SCCA GCR wording (quoted secondhand) requires a master switch in either battery cable that cuts all electrical circuits except an on-board fire system, accessible from outside \u2013 on closed cars in front of the windshield on the cowl/fender (driver side) or below the center of the rear window \u2013 marked with the spark/blue-triangle decal. NASA CCR wording (quoted secondhand) allows radio, fire system and life-support devices to remain live. Whether a solid-state isolator is accepted varies by series and inspector \u2013 confirm before buying. Rain lights: many series require one; FIA standard 8874-2019 covers homologated rain lights (Lifeline 421-100-011, Cartek CK-LRS-15RM/16CM). Transponder: MyLaps direct-power, \u2264 60 cm above ground with clear view of the track, on a 2.5 A fused switched supply. Always read the current rulebook for your class.\n\nCommon failure points. Loose or under-sized main cables (hot restart failures), chafed harness at the firewall/seat/cage crossings, engine-ground straps loosening, connectors not latched, fan and fuel-pump channels tripping on inrush, alternator run-on after the master is switched off (needs field kill / dump resistor), CAN termination errors, and DI injector wiring noise corrupting crank/cam signals.",
+  "buildNotes": [
+    "Phase 1 (bare shell): decide battery, master switch, PDM/ECU and bulkhead locations; weld ground studs and battery box mounts; cut and doubler-plate firewall and rear bulkhead connector holes; install rivnuts for every harness P-clamp along the planned routes; then paint.",
+    "Write the electrical load list and channel map (current, PWM, logic) before buying a PDM \u2013 fans, fuel pumps, starter and ignition set the channel sizes and the alternator size.",
+    "Choose ECU strategy (Chevrolet Performance E92 controller kit vs GDI standalone) and whether OE EPS/ABS are retained before building the harness \u2013 it drives CAN design.",
+    "Build the cabin electronics panel (PDM, ECU, star ground, fuses) and the dash harness on the bench; build the engine harness on a board measured from the installed engine.",
+    "Run the main 1/0 battery cable inside the shell along the passenger sill before seats and interior go in; crimp lugs with a hydraulic crimper and adhesive heat shrink.",
+    "Install engine ground straps with the engine (phase 6); install starter, alternator, and their cables before headers if access is tight.",
+    "Power-up sequence: continuity test every circuit \u2192 check for shorts to ground \u2192 first power with ECU/ PDM disconnected \u2192 PDM config \u2192 ECU power and comms \u2192 sensor plausibility \u2192 crank with no fuel to verify sync \u2192 fuel pressure \u2192 first fire.",
+    "Verify CAN termination (~60 \u03a9), ground offsets (< 50 mV ECU-to-battery), master switch kill with engine running, and cranking voltage drop (< 0.5 V positive path) before shakedown.",
+    "Install rules items last but test them at the first tech: external kill, decals, rain light, brake lights, transponder."
+  ],
+  "schematics": [
+    {
+      "id": "electrical.power-distribution-wiring",
+      "title": "Power distribution: battery \u2192 master cutoff \u2192 PDM channels \u2192 loads",
+      "type": "wiring",
+      "description": "Main power path from the trunk battery through the master cutoff (mechanical switch or solid-state isolator with engine-kill signal), main cable to the firewall junction, starter branch (unfused) and fused PDM branch, PDM output channels to every load, and the auxiliary always-hot block for circuits rules allow to stay powered.",
+      "nodes": [
+        {
+          "id": "bat",
+          "label": "Battery (trunk, RH) \u2013 Odyssey PC925 / OE H6 AGM",
+          "componentId": "electrical.battery-and-cutoff.battery"
+        },
+        {
+          "id": "iso",
+          "label": "Solid-state isolator (Cartek XR/GT) or 4-post master switch",
+          "componentId": "electrical.battery-and-cutoff.solid-state-isolator"
+        },
+        {
+          "id": "msw",
+          "label": "Mechanical master switch (4-post) \u2013 alt/ign pole",
+          "componentId": "electrical.battery-and-cutoff.master-switch"
+        },
+        {
+          "id": "kill-int",
+          "label": "Internal kill button (driver)",
+          "componentId": "electrical.battery-and-cutoff.internal-kill-switch"
+        },
+        {
+          "id": "kill-ext",
+          "label": "External kill (cowl, spark/triangle decal)",
+          "componentId": "electrical.battery-and-cutoff.external-kill-switch"
+        },
+        {
+          "id": "dump",
+          "label": "Alternator dump resistor / field kill",
+          "componentId": "electrical.battery-and-cutoff.alternator-dump-resistor"
+        },
+        {
+          "id": "aux",
+          "label": "Aux fused block (radio, transponder, fire sys)",
+          "componentId": "electrical.power-distribution.aux-fuse-block"
+        },
+        {
+          "id": "cable",
+          "label": "Main 1/0 cable (inside cabin, RH sill)",
+          "componentId": "electrical.charging-starting.main-positive-cable"
+        },
+        {
+          "id": "jct",
+          "label": "Firewall power junction / jump stud",
+          "componentId": "electrical.charging-starting.front-power-junction"
+        },
+        {
+          "id": "starter",
+          "label": "Starter motor",
+          "componentId": "electrical.charging-starting.starter-motor"
+        },
+        {
+          "id": "alt",
+          "label": "Alternator (170 A)",
+          "componentId": "electrical.charging-starting.alternator"
+        },
+        {
+          "id": "mfuse",
+          "label": "Main fuse 150\u2013200 A",
+          "componentId": "electrical.battery-and-cutoff.main-fuse"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM (MoTeC PDM30 / AiM PDM32 / ECUMaster PMU16)",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "ecu",
+          "label": "ECU (E92 kit / Holley TX Max / MoTeC M1)",
+          "componentId": "electrical.engine-management.ecu"
+        },
+        {
+          "id": "gdi",
+          "label": "GDI driver box",
+          "componentId": "electrical.engine-management.gdi-controller"
+        },
+        {
+          "id": "coils",
+          "label": "Ignition coils (2 banks)",
+          "componentId": "electrical.engine-management.ignition-coil-subharness"
+        },
+        {
+          "id": "fpc",
+          "label": "Fuel pump controller (PWM)",
+          "componentId": "electrical.fans-and-pumps-control.fuel-pump-control"
+        },
+        {
+          "id": "pumps",
+          "label": "Fuel pumps (in tank/cell)",
+          "componentId": "electrical.fans-and-pumps-control.fuel-pump-harness"
+        },
+        {
+          "id": "fan",
+          "label": "Radiator fan (PWM brushless)",
+          "componentId": "electrical.fans-and-pumps-control.radiator-fan"
+        },
+        {
+          "id": "icp",
+          "label": "Intercooler pump (LT4)",
+          "componentId": "electrical.fans-and-pumps-control.intercooler-pump"
+        },
+        {
+          "id": "st-trig",
+          "label": "Starter trigger (S terminal)",
+          "componentId": "electrical.charging-starting.starter-trigger"
+        },
+        {
+          "id": "dash",
+          "label": "Dash/logger",
+          "componentId": "electrical.dash-and-controls.dash-display"
+        },
+        {
+          "id": "keypad",
+          "label": "CAN keypad",
+          "componentId": "electrical.dash-and-controls.keypad"
+        },
+        {
+          "id": "abs",
+          "label": "ABS module (OE or Bosch M5)",
+          "componentId": "brakes.abs.bosch-motorsport-abs"
+        },
+        {
+          "id": "rain",
+          "label": "Rain light",
+          "componentId": "electrical.lighting.rain-light"
+        },
+        {
+          "id": "brake-l",
+          "label": "Brake lights",
+          "componentId": "electrical.lighting.brake-lights"
+        },
+        {
+          "id": "head",
+          "label": "Headlights",
+          "componentId": "electrical.lighting.headlights"
+        },
+        {
+          "id": "wiper",
+          "label": "Wiper motor",
+          "componentId": "electrical.fans-and-pumps-control.wiper-motor"
+        },
+        {
+          "id": "cool",
+          "label": "Cool-suit pump",
+          "componentId": "electrical.fans-and-pumps-control.cool-suit-pump"
+        },
+        {
+          "id": "cam",
+          "label": "In-car camera",
+          "componentId": "electrical.comms-video-timing.in-car-camera"
+        },
+        {
+          "id": "radio",
+          "label": "Radio",
+          "componentId": "electrical.comms-video-timing.radio"
+        },
+        {
+          "id": "tx",
+          "label": "Transponder",
+          "componentId": "electrical.comms-video-timing.transponder"
+        },
+        {
+          "id": "sens",
+          "label": "Sensor 5 V/12 V supplies (expanders, GPS, IR)",
+          "componentId": "electrical.data-acquisition.io-expander"
+        }
+      ],
+      "edges": [
+        {
+          "from": "bat",
+          "to": "iso",
+          "label": "Battery negative isolation (isolator option)",
+          "kind": "ground"
+        },
+        {
+          "from": "bat",
+          "to": "msw",
+          "label": "1/0 positive (mechanical option)",
+          "kind": "power"
+        },
+        {
+          "from": "kill-int",
+          "to": "iso",
+          "label": "Kill input",
+          "kind": "signal"
+        },
+        {
+          "from": "kill-ext",
+          "to": "iso",
+          "label": "Kill input / pull cable",
+          "kind": "signal"
+        },
+        {
+          "from": "iso",
+          "to": "pdm",
+          "label": "Engine-kill signal",
+          "kind": "signal"
+        },
+        {
+          "from": "iso",
+          "to": "ecu",
+          "label": "Engine-kill signal",
+          "kind": "signal"
+        },
+        {
+          "from": "msw",
+          "to": "dump",
+          "label": "Aux pole switches resistor across alt output",
+          "kind": "power"
+        },
+        {
+          "from": "bat",
+          "to": "aux",
+          "label": "20 A fused, battery side of cutoff (if rules allow)",
+          "kind": "power"
+        },
+        {
+          "from": "msw",
+          "to": "cable",
+          "label": "Switched battery +",
+          "kind": "power"
+        },
+        {
+          "from": "cable",
+          "to": "jct",
+          "label": "1/0 AWG ~5 m",
+          "kind": "power"
+        },
+        {
+          "from": "jct",
+          "to": "starter",
+          "label": "1/0 AWG unfused",
+          "kind": "power"
+        },
+        {
+          "from": "alt",
+          "to": "jct",
+          "label": "4 AWG B+ (fused 175\u2013200 A)",
+          "kind": "power"
+        },
+        {
+          "from": "jct",
+          "to": "mfuse",
+          "label": "4 AWG",
+          "kind": "power"
+        },
+        {
+          "from": "mfuse",
+          "to": "pdm",
+          "label": "4 AWG to M6 stud",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "ecu",
+          "label": "8 A ch: ECU main",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "gdi",
+          "label": "20 A ch: GDI driver",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "coils",
+          "label": "20 A ch: ignition (per bank)",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "fpc",
+          "label": "2 x 20 A ch (paired): fuel pumps",
+          "kind": "power"
+        },
+        {
+          "from": "fpc",
+          "to": "pumps",
+          "label": "12 AWG PWM",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "fan",
+          "label": "Enable/PWM + fused high-current feed",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "icp",
+          "label": "8\u201320 A ch",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "st-trig",
+          "label": "20 A ch momentary, clutch inhibit",
+          "kind": "power"
+        },
+        {
+          "from": "st-trig",
+          "to": "starter",
+          "label": "12 AWG S terminal",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "alt",
+          "label": "L-terminal enable (if not ECU-driven)",
+          "kind": "signal"
+        },
+        {
+          "from": "pdm",
+          "to": "dash",
+          "label": "8 A ch",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "keypad",
+          "label": "8 A ch",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "abs",
+          "label": "20 A ch (pump) + 8 A (logic)",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "rain",
+          "label": "8 A ch, flash logic",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "brake-l",
+          "label": "8 A ch, brake-pressure logic",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "head",
+          "label": "2 x 8 A ch low/high",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "wiper",
+          "label": "8 A ch + park input",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "cool",
+          "label": "8 A ch PWM",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "cam",
+          "label": "8 A ch",
+          "kind": "power"
+        },
+        {
+          "from": "aux",
+          "to": "radio",
+          "label": "5 A",
+          "kind": "power"
+        },
+        {
+          "from": "aux",
+          "to": "tx",
+          "label": "2.5 A",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "sens",
+          "label": "8 A ch sensor 12 V",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "electrical.charging-starting-circuit",
+      "title": "Charging & starting circuit",
+      "type": "wiring",
+      "description": "Cranking current path (battery \u2192 master \u2192 main cable \u2192 junction \u2192 starter \u2192 engine block \u2192 ground straps \u2192 chassis \u2192 battery negative), and the charging path (alternator B+ \u2192 junction \u2192 main cable \u2192 battery) with ECU/PDM control of the alternator L-terminal and starter solenoid.",
+      "nodes": [
+        {
+          "id": "bat",
+          "label": "Battery (trunk)",
+          "componentId": "electrical.battery-and-cutoff.battery"
+        },
+        {
+          "id": "cut",
+          "label": "Master cutoff / isolator",
+          "componentId": "electrical.battery-and-cutoff.master-switch"
+        },
+        {
+          "id": "cable",
+          "label": "Main + cable 1/0",
+          "componentId": "electrical.charging-starting.main-positive-cable"
+        },
+        {
+          "id": "jct",
+          "label": "Firewall junction",
+          "componentId": "electrical.charging-starting.front-power-junction"
+        },
+        {
+          "id": "stcable",
+          "label": "Starter cable 1/0",
+          "componentId": "electrical.charging-starting.starter-cable"
+        },
+        {
+          "id": "sol",
+          "label": "Starter solenoid (B+ / S)",
+          "componentId": "electrical.charging-starting.starter-motor"
+        },
+        {
+          "id": "block",
+          "label": "Engine block",
+          "componentId": "engine.block.cylinder-block"
+        },
+        {
+          "id": "straps",
+          "label": "Engine-to-chassis straps x2",
+          "componentId": "electrical.grounding.engine-to-chassis-strap"
+        },
+        {
+          "id": "fgnd",
+          "label": "Front ground stud",
+          "componentId": "electrical.grounding.front-ground-stud"
+        },
+        {
+          "id": "body",
+          "label": "Unibody (return path)",
+          "componentId": "chassis.unibody.body-in-white"
+        },
+        {
+          "id": "rgnd",
+          "label": "Rear ground stud",
+          "componentId": "electrical.grounding.rear-ground-stud"
+        },
+        {
+          "id": "neg",
+          "label": "Battery negative cable",
+          "componentId": "electrical.grounding.battery-negative-cable"
+        },
+        {
+          "id": "alt",
+          "label": "Alternator",
+          "componentId": "electrical.charging-starting.alternator"
+        },
+        {
+          "id": "altc",
+          "label": "Alt B+ 4 AWG + fuse",
+          "componentId": "electrical.charging-starting.alternator-charge-cable"
+        },
+        {
+          "id": "lterm",
+          "label": "Alt L/F connector",
+          "componentId": "electrical.charging-starting.alternator-control-connector"
+        },
+        {
+          "id": "ecu",
+          "label": "ECU",
+          "componentId": "electrical.engine-management.ecu"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM start channel",
+          "componentId": "electrical.charging-starting.starter-trigger"
+        },
+        {
+          "id": "btn",
+          "label": "Start button / keypad",
+          "componentId": "electrical.dash-and-controls.ignition-start-buttons"
+        },
+        {
+          "id": "dump",
+          "label": "Dump resistor / field kill",
+          "componentId": "electrical.battery-and-cutoff.alternator-dump-resistor"
+        }
+      ],
+      "edges": [
+        {
+          "from": "bat",
+          "to": "cut",
+          "label": "+12 V",
+          "kind": "power"
+        },
+        {
+          "from": "cut",
+          "to": "cable",
+          "label": "switched +",
+          "kind": "power"
+        },
+        {
+          "from": "cable",
+          "to": "jct",
+          "label": "1/0 AWG",
+          "kind": "power"
+        },
+        {
+          "from": "jct",
+          "to": "stcable",
+          "label": "",
+          "kind": "power"
+        },
+        {
+          "from": "stcable",
+          "to": "sol",
+          "label": "B+ stud M8",
+          "kind": "power"
+        },
+        {
+          "from": "sol",
+          "to": "block",
+          "label": "motor case ground",
+          "kind": "ground"
+        },
+        {
+          "from": "block",
+          "to": "straps",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "straps",
+          "to": "fgnd",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "fgnd",
+          "to": "body",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "body",
+          "to": "rgnd",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "rgnd",
+          "to": "neg",
+          "label": "1/0 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "neg",
+          "to": "bat",
+          "label": "battery \u2212",
+          "kind": "ground"
+        },
+        {
+          "from": "btn",
+          "to": "pdm",
+          "label": "CAN / switch input",
+          "kind": "signal"
+        },
+        {
+          "from": "pdm",
+          "to": "sol",
+          "label": "S terminal 12 AWG (clutch inhibit)",
+          "kind": "power"
+        },
+        {
+          "from": "alt",
+          "to": "altc",
+          "label": "B+",
+          "kind": "power"
+        },
+        {
+          "from": "altc",
+          "to": "jct",
+          "label": "charge current",
+          "kind": "power"
+        },
+        {
+          "from": "ecu",
+          "to": "lterm",
+          "label": "L-terminal command",
+          "kind": "signal"
+        },
+        {
+          "from": "lterm",
+          "to": "ecu",
+          "label": "F-terminal field duty",
+          "kind": "signal"
+        },
+        {
+          "from": "lterm",
+          "to": "alt",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "cut",
+          "to": "dump",
+          "label": "aux pole: alt run-down on OFF",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "electrical.can-network",
+      "title": "CAN bus / network topology",
+      "type": "block",
+      "description": "Two CAN buses at 1 Mbit/s: Bus 1 (engine/power) ECU \u2013 PDM \u2013 dash \u2013 keypad \u2013 lambda; Bus 2 (chassis/data) dash \u2013 GPS/IMU \u2013 I/O expanders \u2013 IR tire sensors \u2013 brake temp \u2013 ABS (Bosch M5 CAN or OE ABS via gateway) \u2013 camera. 120 \u03a9 terminations at each physical end. Factory GMLAN (500 kbit/s) only if OE EPS/ABS retained.",
+      "nodes": [
+        {
+          "id": "t1a",
+          "label": "120 \u03a9 term (Bus 1, ECU end)",
+          "componentId": "electrical.main-harness.can-bus-backbone"
+        },
+        {
+          "id": "ecu",
+          "label": "ECU",
+          "componentId": "electrical.engine-management.ecu"
+        },
+        {
+          "id": "lam",
+          "label": "Dual wideband controller",
+          "componentId": "electrical.engine-management.wideband-lambda"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "kp",
+          "label": "CAN keypad",
+          "componentId": "electrical.dash-and-controls.keypad"
+        },
+        {
+          "id": "dash",
+          "label": "Dash/logger (CAN1 + CAN2)",
+          "componentId": "electrical.dash-and-controls.dash-display"
+        },
+        {
+          "id": "t1b",
+          "label": "120 \u03a9 term (Bus 1, dash end)",
+          "componentId": "electrical.main-harness.can-bus-backbone"
+        },
+        {
+          "id": "gps",
+          "label": "GPS / IMU",
+          "componentId": "electrical.data-acquisition.gps-imu"
+        },
+        {
+          "id": "exf",
+          "label": "Front I/O expander",
+          "componentId": "electrical.data-acquisition.io-expander"
+        },
+        {
+          "id": "exr",
+          "label": "Rear I/O expander",
+          "componentId": "electrical.data-acquisition.io-expander"
+        },
+        {
+          "id": "irt",
+          "label": "IR tire sensors x4",
+          "componentId": "electrical.data-acquisition.ir-tire-temp"
+        },
+        {
+          "id": "brt",
+          "label": "IR brake temp x4",
+          "componentId": "electrical.data-acquisition.brake-temp-sensors"
+        },
+        {
+          "id": "abs",
+          "label": "ABS (Bosch M5 / OE)",
+          "componentId": "brakes.abs.bosch-motorsport-abs"
+        },
+        {
+          "id": "cam",
+          "label": "Camera (SmartyCam)",
+          "componentId": "electrical.comms-video-timing.in-car-camera"
+        },
+        {
+          "id": "swc",
+          "label": "Steering wheel receiver",
+          "componentId": "electrical.dash-and-controls.steering-wheel-controls"
+        },
+        {
+          "id": "t2b",
+          "label": "120 \u03a9 term (Bus 2, rear end)",
+          "componentId": "electrical.main-harness.can-bus-backbone"
+        },
+        {
+          "id": "laptop",
+          "label": "Tuning/diag port",
+          "componentId": "electrical.engine-management.tuning-port"
+        },
+        {
+          "id": "eps",
+          "label": "OE EPS module (GMLAN, if retained)",
+          "componentId": "steering.power-steering.eps-module"
+        }
+      ],
+      "edges": [
+        {
+          "from": "t1a",
+          "to": "ecu",
+          "label": "Bus 1",
+          "kind": "can"
+        },
+        {
+          "from": "ecu",
+          "to": "lam",
+          "label": "Bus 1",
+          "kind": "can"
+        },
+        {
+          "from": "lam",
+          "to": "pdm",
+          "label": "Bus 1",
+          "kind": "can"
+        },
+        {
+          "from": "pdm",
+          "to": "kp",
+          "label": "Bus 1",
+          "kind": "can"
+        },
+        {
+          "from": "kp",
+          "to": "dash",
+          "label": "Bus 1",
+          "kind": "can"
+        },
+        {
+          "from": "dash",
+          "to": "t1b",
+          "label": "Bus 1 end",
+          "kind": "can"
+        },
+        {
+          "from": "dash",
+          "to": "gps",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "gps",
+          "to": "swc",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "swc",
+          "to": "exf",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "exf",
+          "to": "irt",
+          "label": "Bus 2 (front IR)",
+          "kind": "can"
+        },
+        {
+          "from": "irt",
+          "to": "brt",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "brt",
+          "to": "abs",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "abs",
+          "to": "cam",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "cam",
+          "to": "exr",
+          "label": "Bus 2",
+          "kind": "can"
+        },
+        {
+          "from": "exr",
+          "to": "t2b",
+          "label": "Bus 2 end",
+          "kind": "can"
+        },
+        {
+          "from": "laptop",
+          "to": "ecu",
+          "label": "Ethernet/USB/OBD",
+          "kind": "ethernet"
+        },
+        {
+          "from": "laptop",
+          "to": "dash",
+          "label": "config",
+          "kind": "ethernet"
+        },
+        {
+          "from": "ecu",
+          "to": "eps",
+          "label": "GMLAN 500k (OE retain only)",
+          "kind": "can"
+        }
+      ]
+    },
+    {
+      "id": "electrical.data-acquisition-block",
+      "title": "Sensor & data-acquisition block diagram",
+      "type": "block",
+      "description": "Every sensor channel and which device acquires it: ECU (engine control sensors), front/rear I/O expanders (chassis analogue), CAN smart sensors (IR, GPS/IMU), all logged by the dash/logger and overlaid on video.",
+      "nodes": [
+        {
+          "id": "eng",
+          "label": "Engine sensors: crank, cam, knock, MAP/TMAP, ECT, fuel-rail P, TPS",
+          "componentId": "electrical.sensors.engine-sensor-interface"
+        },
+        {
+          "id": "app",
+          "label": "Accelerator pedal (APP1/2)",
+          "componentId": "electrical.engine-management.accelerator-pedal"
+        },
+        {
+          "id": "lam",
+          "label": "Wideband lambda x2",
+          "componentId": "electrical.engine-management.wideband-lambda"
+        },
+        {
+          "id": "flex",
+          "label": "Flex-fuel sensor (opt.)",
+          "componentId": "electrical.engine-management.flex-fuel-sensor"
+        },
+        {
+          "id": "ecu",
+          "label": "ECU",
+          "componentId": "electrical.engine-management.ecu"
+        },
+        {
+          "id": "oilp",
+          "label": "Oil pressure (race)",
+          "componentId": "electrical.sensors.oil-pressure-sensor-race"
+        },
+        {
+          "id": "oilt",
+          "label": "Oil temp",
+          "componentId": "electrical.sensors.oil-temperature-sensor"
+        },
+        {
+          "id": "fuelp",
+          "label": "Low-side fuel pressure",
+          "componentId": "electrical.sensors.fuel-pressure-sensor-low"
+        },
+        {
+          "id": "coolp",
+          "label": "Coolant pressure",
+          "componentId": "electrical.sensors.coolant-pressure-sensor"
+        },
+        {
+          "id": "ccp",
+          "label": "Crankcase pressure",
+          "componentId": "electrical.sensors.crankcase-pressure-sensor"
+        },
+        {
+          "id": "egt",
+          "label": "EGT x8 (TC amp)",
+          "componentId": "electrical.sensors.egt-probes"
+        },
+        {
+          "id": "cat",
+          "label": "Charge-air temp (LT4)",
+          "componentId": "electrical.sensors.charge-air-temp-sensor"
+        },
+        {
+          "id": "drvt",
+          "label": "Trans & diff temp",
+          "componentId": "electrical.sensors.driveline-temp-sensors"
+        },
+        {
+          "id": "fuell",
+          "label": "Fuel level",
+          "componentId": "electrical.sensors.fuel-level-sender"
+        },
+        {
+          "id": "exf",
+          "label": "Front I/O expander",
+          "componentId": "electrical.data-acquisition.io-expander"
+        },
+        {
+          "id": "exr",
+          "label": "Rear I/O expander",
+          "componentId": "electrical.data-acquisition.io-expander"
+        },
+        {
+          "id": "dpf",
+          "label": "Damper pots FL/FR (75 mm)",
+          "componentId": "electrical.data-acquisition.damper-pots"
+        },
+        {
+          "id": "dpr",
+          "label": "Damper pots RL/RR (100 mm)",
+          "componentId": "electrical.data-acquisition.damper-pots"
+        },
+        {
+          "id": "bp",
+          "label": "Brake pressure F/R (PSS-140)",
+          "componentId": "electrical.data-acquisition.brake-pressure-sensors"
+        },
+        {
+          "id": "sas",
+          "label": "Steering angle",
+          "componentId": "electrical.data-acquisition.steering-angle-sensor"
+        },
+        {
+          "id": "wss",
+          "label": "Wheel speeds x4 (via ABS CAN)",
+          "componentId": "electrical.data-acquisition.wheel-speed-interface"
+        },
+        {
+          "id": "irt",
+          "label": "IR tire temps x4",
+          "componentId": "electrical.data-acquisition.ir-tire-temp"
+        },
+        {
+          "id": "brt",
+          "label": "IR brake temps x4",
+          "componentId": "electrical.data-acquisition.brake-temp-sensors"
+        },
+        {
+          "id": "gps",
+          "label": "GPS 25 Hz + IMU",
+          "componentId": "electrical.data-acquisition.gps-imu"
+        },
+        {
+          "id": "bcn",
+          "label": "Lap beacon receiver",
+          "componentId": "electrical.data-acquisition.lap-beacon-receiver"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM currents/voltages",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "log",
+          "label": "Dash / logger",
+          "componentId": "electrical.data-acquisition.logger"
+        },
+        {
+          "id": "cam",
+          "label": "Video + overlay",
+          "componentId": "electrical.comms-video-timing.in-car-camera"
+        }
+      ],
+      "edges": [
+        {
+          "from": "eng",
+          "to": "ecu",
+          "label": "analogue/digital",
+          "kind": "signal"
+        },
+        {
+          "from": "app",
+          "to": "ecu",
+          "label": "2 x 0\u20135 V",
+          "kind": "signal"
+        },
+        {
+          "from": "lam",
+          "to": "ecu",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "flex",
+          "to": "ecu",
+          "label": "frequency",
+          "kind": "signal"
+        },
+        {
+          "from": "fuelp",
+          "to": "ecu",
+          "label": "0.5\u20134.5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "cat",
+          "to": "ecu",
+          "label": "analogue",
+          "kind": "signal"
+        },
+        {
+          "from": "oilp",
+          "to": "exf",
+          "label": "0.5\u20134.5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "oilt",
+          "to": "exf",
+          "label": "NTC",
+          "kind": "signal"
+        },
+        {
+          "from": "coolp",
+          "to": "exf",
+          "label": "0.5\u20134.5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "ccp",
+          "to": "exf",
+          "label": "0.5\u20134.5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "egt",
+          "to": "exf",
+          "label": "TC amp / CAN",
+          "kind": "signal"
+        },
+        {
+          "from": "dpf",
+          "to": "exf",
+          "label": "0\u20135 V",
+          "kind": "signal"
+        },
+        {
+          "from": "bp",
+          "to": "exf",
+          "label": "0.5\u20134.5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "sas",
+          "to": "exf",
+          "label": "0\u20135 V",
+          "kind": "signal"
+        },
+        {
+          "from": "dpr",
+          "to": "exr",
+          "label": "0\u20135 V",
+          "kind": "signal"
+        },
+        {
+          "from": "drvt",
+          "to": "exr",
+          "label": "NTC",
+          "kind": "signal"
+        },
+        {
+          "from": "fuell",
+          "to": "exr",
+          "label": "resistive",
+          "kind": "signal"
+        },
+        {
+          "from": "ecu",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "exf",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "exr",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "wss",
+          "to": "log",
+          "label": "CAN (ABS)",
+          "kind": "can"
+        },
+        {
+          "from": "irt",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "brt",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "gps",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "bcn",
+          "to": "log",
+          "label": "digital",
+          "kind": "signal"
+        },
+        {
+          "from": "pdm",
+          "to": "log",
+          "label": "CAN",
+          "kind": "can"
+        },
+        {
+          "from": "log",
+          "to": "cam",
+          "label": "CAN overlay data",
+          "kind": "can"
+        }
+      ]
+    },
+    {
+      "id": "electrical.grounding-scheme",
+      "title": "Grounding scheme",
+      "type": "wiring",
+      "description": "High-current returns via the unibody (engine straps \u2192 front stud \u2192 body \u2192 rear stud \u2192 battery negative), plus a separate star ground in the cabin for electronics and sensor 0 V references returned only to their own device.",
+      "nodes": [
+        {
+          "id": "bneg",
+          "label": "Battery \u2212 (via isolator)",
+          "componentId": "electrical.grounding.battery-negative-cable"
+        },
+        {
+          "id": "rstud",
+          "label": "Rear ground stud M10",
+          "componentId": "electrical.grounding.rear-ground-stud"
+        },
+        {
+          "id": "body",
+          "label": "Unibody / cage",
+          "componentId": "chassis.unibody.body-in-white"
+        },
+        {
+          "id": "fstud",
+          "label": "Front ground stud",
+          "componentId": "electrical.grounding.front-ground-stud"
+        },
+        {
+          "id": "straps",
+          "label": "Engine straps x2 (1/0 braid)",
+          "componentId": "electrical.grounding.engine-to-chassis-strap"
+        },
+        {
+          "id": "eng",
+          "label": "Engine block/heads",
+          "componentId": "engine.block.cylinder-block"
+        },
+        {
+          "id": "trans",
+          "label": "Transmission strap",
+          "componentId": "electrical.grounding.transmission-ground"
+        },
+        {
+          "id": "bond",
+          "label": "Subframe bonding straps",
+          "componentId": "electrical.grounding.body-bonding-straps"
+        },
+        {
+          "id": "star",
+          "label": "Cabin star ground",
+          "componentId": "electrical.grounding.electronics-star-ground"
+        },
+        {
+          "id": "ecu",
+          "label": "ECU power grounds",
+          "componentId": "electrical.engine-management.ecu"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM ground",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "dash",
+          "label": "Dash/logger ground",
+          "componentId": "electrical.dash-and-controls.dash-display"
+        },
+        {
+          "id": "sensors",
+          "label": "Sensor 0 V refs (to ECU/expander only)",
+          "componentId": "electrical.sensors.engine-sensor-interface"
+        },
+        {
+          "id": "fan",
+          "label": "Radiator fan ground (8 AWG)",
+          "componentId": "electrical.fans-and-pumps-control.radiator-fan"
+        },
+        {
+          "id": "pumps",
+          "label": "Fuel pump grounds",
+          "componentId": "electrical.fans-and-pumps-control.fuel-pump-harness"
+        },
+        {
+          "id": "lights",
+          "label": "Rear lights grounds",
+          "componentId": "electrical.lighting.brake-lights"
+        }
+      ],
+      "edges": [
+        {
+          "from": "bneg",
+          "to": "rstud",
+          "label": "1/0 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "rstud",
+          "to": "body",
+          "label": "welded stud",
+          "kind": "ground"
+        },
+        {
+          "from": "body",
+          "to": "fstud",
+          "label": "structure",
+          "kind": "ground"
+        },
+        {
+          "from": "eng",
+          "to": "straps",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "straps",
+          "to": "fstud",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "trans",
+          "to": "body",
+          "label": "8\u20134 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "bond",
+          "to": "body",
+          "label": "8 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "star",
+          "to": "body",
+          "label": "4 AWG < 300 mm",
+          "kind": "ground"
+        },
+        {
+          "from": "ecu",
+          "to": "star",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "pdm",
+          "to": "star",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "dash",
+          "to": "star",
+          "label": "",
+          "kind": "ground"
+        },
+        {
+          "from": "sensors",
+          "to": "ecu",
+          "label": "sensor 0 V",
+          "kind": "signal"
+        },
+        {
+          "from": "fan",
+          "to": "fstud",
+          "label": "8 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "pumps",
+          "to": "rstud",
+          "label": "12 AWG",
+          "kind": "ground"
+        },
+        {
+          "from": "lights",
+          "to": "rstud",
+          "label": "18 AWG",
+          "kind": "ground"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "electrical.route.main-battery-cable",
+      "name": "Main battery cable (trunk \u2192 firewall \u2192 starter)",
+      "kind": "power",
+      "componentId": "electrical.charging-starting.main-positive-cable",
+      "radius": 0.008,
+      "points": [
+        [
+          3.3,
+          0.55,
+          -0.48
+        ],
+        [
+          3,
+          0.42,
+          -0.62
+        ],
+        [
+          2.5,
+          0.25,
+          -0.72
+        ],
+        [
+          1.9,
+          0.22,
+          -0.74
+        ],
+        [
+          1.3,
+          0.22,
+          -0.72
+        ],
+        [
+          0.95,
+          0.3,
+          -0.55
+        ],
+        [
+          0.72,
+          0.5,
+          -0.4
+        ],
+        [
+          0.62,
+          0.68,
+          -0.35
+        ],
+        [
+          0.55,
+          0.5,
+          -0.35
+        ],
+        [
+          0.4,
+          0.33,
+          -0.28
+        ],
+        [
+          0.32,
+          0.29,
+          -0.24
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.battery-negative",
+      "name": "Battery negative to rear ground stud",
+      "kind": "ground",
+      "componentId": "electrical.grounding.battery-negative-cable",
+      "radius": 0.008,
+      "points": [
+        [
+          3.32,
+          0.58,
+          -0.44
+        ],
+        [
+          3.4,
+          0.5,
+          -0.42
+        ],
+        [
+          3.45,
+          0.43,
+          -0.4
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.main-harness-trunk",
+      "name": "Main chassis harness trunk (front \u2192 rear)",
+      "kind": "signal",
+      "componentId": "electrical.main-harness.chassis-trunk",
+      "radius": 0.012,
+      "points": [
+        [
+          1,
+          0.4,
+          -0.3
+        ],
+        [
+          1.2,
+          0.22,
+          -0.2
+        ],
+        [
+          1.6,
+          0.2,
+          -0.18
+        ],
+        [
+          2.1,
+          0.2,
+          -0.18
+        ],
+        [
+          2.5,
+          0.3,
+          -0.25
+        ],
+        [
+          2.9,
+          0.5,
+          -0.35
+        ],
+        [
+          3.05,
+          0.55,
+          -0.4
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.engine-harness",
+      "name": "Engine harness",
+      "kind": "signal",
+      "componentId": "electrical.engine-management.engine-harness",
+      "radius": 0.012,
+      "points": [
+        [
+          0.66,
+          0.72,
+          -0.3
+        ],
+        [
+          0.45,
+          0.78,
+          -0.2
+        ],
+        [
+          0.2,
+          0.8,
+          -0.18
+        ],
+        [
+          -0.2,
+          0.78,
+          -0.15
+        ],
+        [
+          -0.3,
+          0.7,
+          0
+        ],
+        [
+          -0.2,
+          0.78,
+          0.15
+        ],
+        [
+          0.2,
+          0.8,
+          0.18
+        ],
+        [
+          0.4,
+          0.76,
+          0.15
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.dash-harness",
+      "name": "Dash harness",
+      "kind": "signal",
+      "componentId": "electrical.main-harness.dash-harness",
+      "radius": 0.012,
+      "points": [
+        [
+          0.68,
+          0.7,
+          -0.3
+        ],
+        [
+          0.95,
+          0.62,
+          -0.35
+        ],
+        [
+          1.05,
+          0.66,
+          -0.15
+        ],
+        [
+          1.08,
+          0.7,
+          0.1
+        ],
+        [
+          1.1,
+          0.75,
+          0.3
+        ],
+        [
+          1.12,
+          0.8,
+          0.37
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.rear-harness",
+      "name": "Rear harness to fuel pumps & lights",
+      "kind": "signal",
+      "componentId": "electrical.main-harness.rear-harness",
+      "radius": 0.01,
+      "points": [
+        [
+          3.05,
+          0.55,
+          -0.4
+        ],
+        [
+          3.3,
+          0.55,
+          -0.3
+        ],
+        [
+          3.5,
+          0.55,
+          0
+        ],
+        [
+          3.7,
+          0.7,
+          0
+        ],
+        [
+          3.75,
+          0.8,
+          0.4
+        ],
+        [
+          3.69,
+          0.88,
+          0.65
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.front-harness",
+      "name": "Front chassis harness (lights, fan, front sensors)",
+      "kind": "signal",
+      "componentId": "electrical.main-harness.front-harness",
+      "radius": 0.009,
+      "points": [
+        [
+          0.62,
+          0.72,
+          -0.3
+        ],
+        [
+          0.3,
+          0.75,
+          -0.55
+        ],
+        [
+          -0.2,
+          0.7,
+          -0.65
+        ],
+        [
+          -0.62,
+          0.55,
+          -0.55
+        ],
+        [
+          -0.66,
+          0.5,
+          0
+        ],
+        [
+          -0.62,
+          0.55,
+          0.55
+        ],
+        [
+          -0.2,
+          0.7,
+          0.65
+        ],
+        [
+          0.3,
+          0.75,
+          0.55
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.alternator-charge",
+      "name": "Alternator B+ charge cable",
+      "kind": "power",
+      "componentId": "electrical.charging-starting.alternator-charge-cable",
+      "radius": 0.006,
+      "points": [
+        [
+          -0.3,
+          0.62,
+          0.22
+        ],
+        [
+          -0.2,
+          0.55,
+          0.3
+        ],
+        [
+          0.2,
+          0.55,
+          0.38
+        ],
+        [
+          0.45,
+          0.65,
+          0.1
+        ],
+        [
+          0.55,
+          0.7,
+          -0.2
+        ],
+        [
+          0.62,
+          0.7,
+          -0.35
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.can-backbone",
+      "name": "CAN backbone (ECU \u2192 PDM \u2192 dash \u2192 GPS on roof)",
+      "kind": "can",
+      "componentId": "electrical.main-harness.can-bus-backbone",
+      "radius": 0.004,
+      "points": [
+        [
+          1,
+          0.46,
+          -0.28
+        ],
+        [
+          1.05,
+          0.55,
+          -0.4
+        ],
+        [
+          1.1,
+          0.7,
+          0
+        ],
+        [
+          1.15,
+          0.8,
+          0.37
+        ],
+        [
+          1.25,
+          1.1,
+          0.3
+        ],
+        [
+          1.4,
+          1.3,
+          0.1
+        ],
+        [
+          1.9,
+          1.35,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "electrical.route.external-kill-cable",
+      "name": "External kill switch lead (cowl to cutoff)",
+      "kind": "signal",
+      "componentId": "electrical.battery-and-cutoff.external-kill-switch",
+      "radius": 0.004,
+      "points": [
+        [
+          0.66,
+          0.98,
+          0.45
+        ],
+        [
+          0.7,
+          0.85,
+          0.4
+        ],
+        [
+          0.8,
+          0.7,
+          0.2
+        ],
+        [
+          1,
+          0.45,
+          -0.3
+        ],
+        [
+          1.3,
+          0.22,
+          -0.4
+        ],
+        [
+          2.2,
+          0.22,
+          -0.6
+        ],
+        [
+          3,
+          0.45,
+          -0.55
+        ],
+        [
+          3.32,
+          0.6,
+          -0.44
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "MoTeC PDM30",
+      "url": "https://www.motec.com.au/products/PDM30"
+    },
+    {
+      "title": "MoTeC M150",
+      "url": "https://www.motec.com.au/products/M150"
+    },
+    {
+      "title": "MoTeC GPR-DI M1 package",
+      "url": "https://www.motec.com.au/gprdi-m1"
+    },
+    {
+      "title": "MoTeC C187",
+      "url": "https://www.motec.com.au/products/C187"
+    },
+    {
+      "title": "AiM PDM32 tech sheet",
+      "url": "https://dwls.aim-sportline.com/technical-sheets/aim_pdm32_tech_sheet.pdf"
+    },
+    {
+      "title": "ECUMaster PMU16",
+      "url": "https://ecumasterusa.com/products/ecumaster-pmu16-power-management-unit"
+    },
+    {
+      "title": "Cartek Battery Isolator XR datasheet",
+      "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2023/02/Battery-Isolator-XR-EN-2023.pdf"
+    },
+    {
+      "title": "Cartek PDP datasheet",
+      "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2019/02/Power-Distribution-Panel-Datasheet.pdf"
+    },
+    {
+      "title": "Holley Terminator X Max Gen V LT DI 550-1624",
+      "url": "https://www.summitracing.com/parts/hly-550-1624/make/chevrolet"
+    },
+    {
+      "title": "Chevrolet Performance LT4 controller kit (listing)",
+      "url": "https://www.eagleautoparts.com.au/products/chevrolet-lt4-engine-controller-suits-8l90-10l90-transmissions-19433249"
+    },
+    {
+      "title": "Optima \u2013 2016 Camaro battery size",
+      "url": "https://www.optimabatteries.com/experience/blog/2016-camaro-battery-size"
+    },
+    {
+      "title": "Odyssey battery specifications",
+      "url": "https://www.odysseybattery.com/odyssey-battery-specifications/"
+    },
+    {
+      "title": "SCCA/NASA master switch rule discussion",
+      "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
+    },
+    {
+      "title": "FIA 8874-2019 rain lights standard",
+      "url": "https://api.fia.com/sites/default/files/8874-2019_race_car_rain_lights.pdf"
+    },
+    {
+      "title": "MyLaps TR2 Direct Power QSG",
+      "url": "https://tcraustralia.com/wp-content/uploads/2025/01/TR2_Transponder_Direct_Power_QSG_ENGLISH.pdf"
+    },
+    {
+      "title": "Bosch ABS M5 kit",
+      "url": "https://www.bosch-motorsport.com/products/brake/antilock-braking-systems-abs/abs-m5-kit/"
+    },
+    {
+      "title": "Bosch PSS-140 datasheet",
+      "url": "https://www.bosch-motorsport.com/content/downloads/raceparts/Resources/pdf/Data%20Sheet_351937803_Pressure_Sensor_Fluid_PSS-140.pdf"
+    },
+    {
+      "title": "Raychem DR-25",
+      "url": "https://xtramotorsport.com/motorsport-wiring/raychem-dr-25-heat-shrink/"
+    },
+    {
+      "title": "Deutsch Autosport connectors",
+      "url": "https://xtramotorsport.com/connectors/autosport-connectors/"
+    },
+    {
+      "title": "Katech ZL1 dual fuel pump wiring install",
+      "url": "https://katechengines.com/pdf/183919"
+    },
+    {
+      "title": "GM TechLink \u2013 Global A module security",
+      "url": "https://gm-techlink.com/?p=11221"
+    },
+    {
+      "title": "PowerNation \u2013 2016 Camaro Alpha architecture",
+      "url": "https://www.powernationtv.com/post/2016-camaro-is-all-new-from-the-bowtie-up"
+    }
+  ]
+}

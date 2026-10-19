@@ -1,0 +1,268 @@
+{
+  "id": "engine.flexplate-flywheel-interface",
+  "system": "engine",
+  "name": "Flywheel / Flexplate Interface",
+  "description": "Rear crank flange fasteners, pilot bearing and bellhousing alignment (clutch/flywheel in drivetrain).",
+  "components": [
+    {
+      "id": "engine.flexplate-flywheel-interface.crank-flange",
+      "name": "Crank rear flange & flywheel/flexplate bolts",
+      "qty": 1,
+      "description": "The 8-bolt rear crank flange where the flywheel (manual) or flexplate (auto) bolts on. The flywheel and clutch belong to drivetrain; this item covers the flange and its fasteners.",
+      "location": "Rear of the crankshaft at the bellhousing face (x about 0.38-0.40 m).",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "drivetrain.flywheel-clutch.flywheel",
+        "engine.flexplate-flywheel-interface.pilot-bearing",
+        "engine.block.rear-cover-and-seal"
+      ],
+      "factory": {
+        "name": "GM 8-bolt crank flange; GM ZL1 flywheel bolts (set of 8)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "ARP flywheel bolts for Gen V 8-bolt flange",
+          "brand": "ARP",
+          "notes": "Use ARP torque with Ultra-Torque; part number not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Flywheel to crank bolt (manual)",
+          "qty": 8,
+          "spec": "GM flywheel bolt (TTY)",
+          "grade": "",
+          "torque": "11 ft-lb (15 N·m), then 22 ft-lb (30 N·m), then +45°",
+          "torqueSequence": "Star pattern each pass.",
+          "threadlocker": "Per GM (bolts may have pre-applied threadlocker)",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "Michigan Motorsports lists 22 ft-lb + 45°.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Flexplate to crank bolt (automatic)",
+          "qty": 8,
+          "spec": "GM flexplate bolt (TTY)",
+          "grade": "",
+          "torque": "133 in-lb (15 N·m), then 22 ft-lb (30 N·m), then +45°",
+          "torqueSequence": "Star pattern each pass.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Clean flange and bolt holes; check flywheel dowel; star-pattern torque."
+      ],
+      "inspection": [],
+      "buildPhase": 6,
+      "installOrder": 87,
+      "tags": [
+        "flywheel",
+        "tty"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Wild Hammer: 17-24 Camaro ZL1 flywheel bolts (set of 8), GM",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-22-26-cadillac-ct5-v-blackwing-flywheel-bolts-includes-8-general-motors/"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0.383,
+          0.4,
+          0
+        ],
+        "size": [
+          0.014,
+          0.1,
+          0.1
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12732518 Gen V forged crankshaft (SD Parts photo)",
+            "url": "https://sdparts.com/i-24139206-genuine-gm-parts-12732518-gen-v-lt1-wet-sump-crankshaft-forged-steel-3-622-stroke.html"
+          },
+          {
+            "title": "Manley LT1/LT4 forged crankshaft spec sheet (2.559 main / 2.100 rod)",
+            "url": "https://www.manleyperformance.com/product/cranks-kits/crankshafts/man_194358/"
+          }
+        ],
+        "dimensions": "8-bolt flange ~100 mm dia, bolt circle ~76 mm, M11 bolts",
+        "features": "Machined flange with 8 bolt holes, one locating dowel and the pilot bore",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.flexplate-flywheel-interface.pilot-bearing",
+      "name": "Pilot bearing",
+      "qty": 1,
+      "description": "Bearing pressed into the crank flange bore that supports the transmission input shaft nose (manual trans).",
+      "location": "Center of the rear crank flange.",
+      "connectsTo": [
+        "engine.flexplate-flywheel-interface.crank-flange",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM pilot bearing",
+        "notes": "Verify size for your trans input shaft."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Press in square with a driver until flush/at specified depth; do not grease sealed bearings."
+      ],
+      "inspection": [
+        "Check for roughness at every clutch change."
+      ],
+      "buildPhase": 6,
+      "installOrder": 88,
+      "tags": [
+        "pilot-bearing"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0.384,
+          0.4,
+          0
+        ],
+        "size": [
+          0.012,
+          0.035,
+          0.035
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12732518 Gen V forged crankshaft (SD Parts photo)",
+            "url": "https://sdparts.com/i-24139206-genuine-gm-parts-12732518-gen-v-lt1-wet-sump-crankshaft-forged-steel-3-622-stroke.html"
+          }
+        ],
+        "dimensions": "~35 mm OD x 12 mm",
+        "features": "Sealed roller/ball pilot bearing pressed into the crank flange bore",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.flexplate-flywheel-interface.bellhousing-dowels",
+      "name": "Block-to-bellhousing dowels & bellhousing bolts",
+      "qty": 1,
+      "description": "Hollow dowels in the block rear face align the bellhousing to the crank centerline; misalignment wears the pilot bearing and input shaft.",
+      "location": "Rear face of block.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "GM bellhousing dowels",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Engine-to-transmission (bellhousing) bolt",
+          "qty": 8,
+          "spec": "M10/M12 bolt (count approximate)",
+          "grade": "",
+          "torque": "37 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Dial-indicate bellhousing runout if using an aftermarket bellhousing."
+      ],
+      "inspection": [],
+      "buildPhase": 6,
+      "installOrder": 89,
+      "tags": [
+        "dowels",
+        "bellhousing"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.39,
+          0.3,
+          0.2
+        ],
+        "size": [
+          0.02,
+          0.016,
+          0.016
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.39,
+            0.3,
+            0.2
+          ],
+          [
+            0.39,
+            0.3,
+            -0.2
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "~16 mm hollow dowels protruding ~10 mm",
+        "features": "Two hollow steel dowels in the lower bellhousing ears",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

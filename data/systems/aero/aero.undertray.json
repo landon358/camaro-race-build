@@ -1,0 +1,204 @@
+{
+ "id": "aero.undertray",
+ "system": "aero",
+ "name": "Undertray",
+ "description": "Flat panels under the nose and engine (and optionally the cabin floor) that keep the underbody flow fast and clean, extending the splitter rearward.",
+ "components": [
+  {
+   "id": "aero.undertray.front-undertray",
+   "name": "Front undertray / engine belly pan",
+   "qty": 1,
+   "description": "Aluminum (0.063–0.080 in) or ABS panel from the splitter trailing edge back under the engine to about the front crossmember, with louvers/oil-drain access. Also protects the oil pan/dry-sump lines.",
+   "location": "x ≈ −0.45 … 0.25, y ≈ 0.13, z ±0.60.",
+   "connectsTo": [
+    "aero.front-splitter.splitter-blade",
+    "aero.undertray.undertray-brackets",
+    "engine-support.oiling.oil-pan",
+    "body.trim-and-fasteners.dzus-fasteners"
+   ],
+   "factory": {
+    "name": "GM front underbody air deflector/close-out panels",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {
+    "Material": "0.063–0.080 in 5052 aluminum or 1/8 in ABS"
+   },
+   "hardware": [
+    {
+     "item": "Dzus fasteners",
+     "qty": 8,
+     "spec": "EHF5 quarter-turn",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "installNotes": [
+    "Add access hatch for oil filter/drain."
+   ],
+   "inspection": [
+    "Check for oil accumulation (leak indicator)."
+   ],
+   "buildPhase": 10,
+   "installOrder": 8,
+   "tags": [],
+   "sources": [
+    {
+     "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+     "url": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.1,
+     0.13,
+     0
+    ],
+    "size": [
+     0.7,
+     0.006,
+     1.2
+    ],
+    "color": "#7f8c8d"
+   }
+  },
+  {
+   "id": "aero.undertray.mid-floor-panels",
+   "name": "Mid-floor flat panels (optional, rule-dependent)",
+   "qty": 1,
+   "description": "Flat panels under the cabin/transmission tunnel to the diffuser leading edge. Only in classes allowing flat bottoms.",
+   "location": "x ≈ 0.25 … 2.40, y ≈ 0.13.",
+   "connectsTo": [
+    "aero.undertray.front-undertray",
+    "aero.rear-diffuser.diffuser-panel"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Dzus/rivnut fasteners",
+     "qty": 16,
+     "spec": "EHF5 or M6 rivnut",
+     "grade": "n/a",
+     "torque": "5.9 ft-lb (8 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Leave heat clearance around exhaust."
+   ],
+   "inspection": [],
+   "buildPhase": 10,
+   "installOrder": 9,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.3,
+     0.13,
+     0
+    ],
+    "size": [
+     2.1,
+     0.004,
+     1.3
+    ],
+    "color": "#95a5a6"
+   }
+  },
+  {
+   "id": "aero.undertray.undertray-brackets",
+   "name": "Undertray mounting brackets",
+   "qty": 6,
+   "description": "Brackets from subframe/crossmembers holding Dzus springs or rivnuts for the undertray.",
+   "location": "Front subframe and crossmember.",
+   "connectsTo": [
+    "aero.undertray.front-undertray",
+    "suspension.front-subframe.subframe"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Bracket bolts",
+     "qty": 1,
+     "spec": "M8 x 1.25 + nyloc",
+     "grade": "ISO 8.8",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": ""
+    }
+   ],
+   "installNotes": [],
+   "inspection": [],
+   "buildPhase": 10,
+   "installOrder": 10,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0.1,
+     0.18,
+     0.3
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.03
+    ],
+    "instances": [
+     [
+      0.1,
+      0.18,
+      0.3
+     ],
+     [
+      0.1,
+      0.18,
+      -0.3
+     ],
+     [
+      -0.3,
+      0.18,
+      0.4
+     ],
+     [
+      -0.3,
+      0.18,
+      -0.4
+     ]
+    ],
+    "color": "#7f8c8d"
+   }
+  }
+ ]
+}

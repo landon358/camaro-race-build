@@ -1,0 +1,1935 @@
+{
+  "id": "engine",
+  "name": "Engine (Gen V LT4 / LT1 racing engine)",
+  "summary": "A GM Gen V small-block 6.2 L (LT4 supercharged from the ZL1 as the baseline, LT1 noted) built for road racing. The long block uses an aluminum 4.065 x 3.622 in block, forged crank, reverse-cooled DI heads, VVT cam and an Eaton R1740 supercharger-manifold. Race builds keep the architecture but add ARP studs, forged/coated internals, AFM delete with a locked or limited phaser, upgraded valve springs, better oil control (baffled wet sump or dry sump) and fuel system upgrades (XDI or port injection).",
+  "overview": "Architecture. The Gen V LT is a 90° pushrod V8 with 4.400 in bore spacing, 9.240 in deck and the 1-8-7-2-6-5-4-3 firing order. Odd cylinders 1-3-5-7 are on the left (driver) bank from front to rear and the left bank sits forward of the right. Unlike the LS it has direct injection, with the injector in the chamber between the valves and a single high-pressure pump driven by a 4-lobe lobe at the back of the cam. It also has a vane-type VVT phaser with a center-bolt spool valve worked by a solenoid on the front cover, a variable-displacement crank-driven oil pump, and reverse-flow cooling.\n\nLT4 vs LT1. The ZL1 LT4 runs 10.0:1 compression with forged pistons, rotocast A356 heads (65.47 cc), titanium intake valves and a 1.7 L Eaton R1740 TVS blower at about 9.2-9.7 psi. It has a larger HP fuel pump and 141 lb/hr DI injectors, and the wet sump holds 10 qt. The LT1 (SS/1LE) runs 11.5:1 with cast pistons, 59 cc 319-T7 heads, steel valves and a composite NA manifold. The bottom end hardware and most torque specs are shared.\n\nRoad-race priorities. (1) Oil control under sustained lateral g: a baffled ZL1 pan is adequate for many club racers, but hard-tire or slick cars should move to a dry sump (Fluidworks 5-511/5-611 integral pan/pump kits, or Katech dry-sump pump plus an engine-support tank). (2) Heat: watch intercooler circuit capacity, oil temperature and plug heat range. (3) Valvetrain stability: AFM delete with LS7-style lifters, dual springs, trunnion upgrade, a locked or limited phaser and 3/8 in pushrods. (4) Fuel: the stock LT4 DI system runs out around stock power at high rpm, so for more power use XDI injectors with a pump upgrade, or add port injection. (5) Fasteners: GM uses torque-to-yield bolts almost everywhere (heads, mains, rods, balancer, cam bolt, flywheel), so budget new bolts or ARP studs.\n\nRules. NASA ST/TT and SCCA classes generally allow engine swaps and internal changes with power-to-weight or dyno-sheet limits. Check your class rules for crankcase venting (sealed catch can required), oil drain plug safety wire, SFI-rated balancer/flywheel requirements and fuel type (E85/race gas affects DI vs PI choice).\n\nCommon failure points. Watch for AFM lifter collapse, rocker trunnion bearings, and the variable-vane oil pump (do not reuse one after removal). Other weak spots are supercharger belt slip and tensioner wear, DI pump/follower wear (watch the commanded vs actual rail pressure gap), head-bolt threads not chased before reassembly, and oil starvation in long sweepers on a wet sump.",
+  "buildNotes": [
+    "Decide the target first (LT4 boosted vs LT1 NA, power level, wet vs dry sump, DI vs PI). It dictates pistons, cam, fuel lobe, pan and ECU.",
+    "Machine the block: hot-tank, remove all plugs, chase all threads (factory head-bolt thread compound!), align hone on ARP main studs if used, and bore/hone with a deck plate.",
+    "Assemble the short block on the stand: cam bearings, cam and retainer plate, main bearings, crank, main caps (inner, outer, side fastener order), then pistons and rods with measured clearances.",
+    "Install the rear cover/seal, then the timing set with the phaser (and limiter, if used). Degree the cam, then fit the oil pump with a new inlet O-ring, the pickup, the front cover/seal and the oil pan.",
+    "Fit the heads on new MLS gaskets with GM TTY bolts (59 ft-lb +90° +60°) or ARP studs (40/80/115 ft-lb). Then install the lifters/trays, pushrods and rockers (22 ft-lb with each lifter on the base circle).",
+    "Install the DI system: HPFP follower, then the pump (with the lobe on base circle), then new injector seals, rails and HP line (21 ft-lb). Next fit the valve covers, plugs (15 ft-lb), coils and sensors.",
+    "Install the water pump and the balancer: seat it with the old bolt or an installer, then fit a new TTY bolt (89 ft-lb, back off one turn, 59 ft-lb, then +125° or +200°). Add the supercharger with all 8 port gaskets, then the belts.",
+    "Pre-lube the oil system with a pressure primer, set the base timing and VVT strategy in the calibration, and pressure/vacuum test the intercooler and cooling circuits.",
+    "Break in on the dyno, then change the oil and filter and cut the filter open. Do a leak-down baseline and record it for comparison between events."
+  ],
+  "schematics": [
+    {
+      "id": "engine.block-diagram",
+      "title": "Engine assembly block diagram",
+      "type": "block",
+      "description": "How the major Gen V LT4 assemblies bolt together and transfer load/torque, from the block outward to the supercharger, accessory drive and the drivetrain interface.",
+      "nodes": [
+        {
+          "id": "block",
+          "label": "Cylinder block (319-T7)",
+          "componentId": "engine.block.cylinder-block"
+        },
+        {
+          "id": "mains",
+          "label": "6-bolt main caps",
+          "componentId": "engine.block.main-caps"
+        },
+        {
+          "id": "crank",
+          "label": "Forged crankshaft",
+          "componentId": "engine.rotating-assembly.crankshaft"
+        },
+        {
+          "id": "rods",
+          "label": "Connecting rods",
+          "componentId": "engine.rotating-assembly.connecting-rods"
+        },
+        {
+          "id": "pistons",
+          "label": "Pistons / rings / pins",
+          "componentId": "engine.rotating-assembly.pistons"
+        },
+        {
+          "id": "headL",
+          "label": "Left head (1-3-5-7)",
+          "componentId": "engine.cylinder-heads.cylinder-head"
+        },
+        {
+          "id": "headR",
+          "label": "Right head (2-4-6-8)",
+          "componentId": "engine.cylinder-heads.cylinder-head"
+        },
+        {
+          "id": "gaskets",
+          "label": "MLS head gaskets",
+          "componentId": "engine.cylinder-heads.head-gasket"
+        },
+        {
+          "id": "studs",
+          "label": "Head bolts / ARP studs",
+          "componentId": "engine.cylinder-heads.head-fasteners"
+        },
+        {
+          "id": "cam",
+          "label": "Camshaft",
+          "componentId": "engine.valvetrain.camshaft"
+        },
+        {
+          "id": "timing",
+          "label": "Timing chain + VVT phaser",
+          "componentId": "engine.valvetrain.timing-chain"
+        },
+        {
+          "id": "frontcover",
+          "label": "Front cover",
+          "componentId": "engine.front-cover-and-balancer.front-cover"
+        },
+        {
+          "id": "balancer",
+          "label": "Harmonic balancer",
+          "componentId": "engine.front-cover-and-balancer.harmonic-balancer"
+        },
+        {
+          "id": "pump",
+          "label": "Wet-sump oil pump",
+          "componentId": "engine.oil-pan-and-pickup.oil-pump"
+        },
+        {
+          "id": "pan",
+          "label": "Oil pan",
+          "componentId": "engine.oil-pan-and-pickup.wet-sump-oil-pan"
+        },
+        {
+          "id": "rearcover",
+          "label": "Rear cover + rear main seal",
+          "componentId": "engine.block.rear-cover-and-seal"
+        },
+        {
+          "id": "sc",
+          "label": "Supercharger / intake (R1740)",
+          "componentId": "engine.intake-manifold.supercharger-assembly"
+        },
+        {
+          "id": "tb",
+          "label": "Throttle body",
+          "componentId": "engine.intake-manifold.throttle-body"
+        },
+        {
+          "id": "hpfp",
+          "label": "DI high-pressure pump",
+          "componentId": "engine.fuel-injection.hp-fuel-pump"
+        },
+        {
+          "id": "rails",
+          "label": "DI rails + injectors",
+          "componentId": "engine.fuel-injection.di-fuel-rails"
+        },
+        {
+          "id": "vc",
+          "label": "Valve covers + coils",
+          "componentId": "engine.valve-covers.valve-cover"
+        },
+        {
+          "id": "acc",
+          "label": "Accessory drive (WP, alt)",
+          "componentId": "engine.accessory-drive.serpentine-belt"
+        },
+        {
+          "id": "scbelt",
+          "label": "SC 8-rib belt",
+          "componentId": "engine.accessory-drive.supercharger-belt"
+        },
+        {
+          "id": "mounts",
+          "label": "Engine mounts",
+          "componentId": "engine.engine-mounts.engine-mount"
+        },
+        {
+          "id": "cradle",
+          "label": "Front cradle (chassis)"
+        },
+        {
+          "id": "flange",
+          "label": "Crank flange / flywheel bolts",
+          "componentId": "engine.flexplate-flywheel-interface.crank-flange"
+        },
+        {
+          "id": "clutch",
+          "label": "Flywheel & clutch (drivetrain)"
+        },
+        {
+          "id": "exh",
+          "label": "Headers (engine-support)"
+        }
+      ],
+      "edges": [
+        {
+          "from": "mains",
+          "to": "block",
+          "label": "clamp crank in block",
+          "kind": "mechanical"
+        },
+        {
+          "from": "crank",
+          "to": "rods",
+          "label": "rod journals",
+          "kind": "mechanical"
+        },
+        {
+          "from": "rods",
+          "to": "pistons",
+          "label": "wrist pins",
+          "kind": "mechanical"
+        },
+        {
+          "from": "gaskets",
+          "to": "block",
+          "label": "deck seal",
+          "kind": "mechanical"
+        },
+        {
+          "from": "headL",
+          "to": "gaskets",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "headR",
+          "to": "gaskets",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "studs",
+          "to": "headL",
+          "label": "clamp load",
+          "kind": "mechanical"
+        },
+        {
+          "from": "studs",
+          "to": "headR",
+          "label": "clamp load",
+          "kind": "mechanical"
+        },
+        {
+          "from": "crank",
+          "to": "timing",
+          "label": "crank sprocket",
+          "kind": "torque"
+        },
+        {
+          "from": "timing",
+          "to": "cam",
+          "label": "phaser",
+          "kind": "torque"
+        },
+        {
+          "from": "cam",
+          "to": "hpfp",
+          "label": "4-lobe pump lobe",
+          "kind": "mechanical"
+        },
+        {
+          "from": "crank",
+          "to": "pump",
+          "label": "crank-driven",
+          "kind": "torque"
+        },
+        {
+          "from": "pump",
+          "to": "pan",
+          "label": "pickup",
+          "kind": "oil"
+        },
+        {
+          "from": "frontcover",
+          "to": "block",
+          "label": "bolted",
+          "kind": "mechanical"
+        },
+        {
+          "from": "crank",
+          "to": "balancer",
+          "label": "snout press-fit",
+          "kind": "torque"
+        },
+        {
+          "from": "balancer",
+          "to": "acc",
+          "label": "6-rib",
+          "kind": "torque"
+        },
+        {
+          "from": "balancer",
+          "to": "scbelt",
+          "label": "8-rib",
+          "kind": "torque"
+        },
+        {
+          "from": "scbelt",
+          "to": "sc",
+          "label": "drive pulley",
+          "kind": "torque"
+        },
+        {
+          "from": "tb",
+          "to": "sc",
+          "label": "inlet air",
+          "kind": "air"
+        },
+        {
+          "from": "sc",
+          "to": "headL",
+          "label": "boost to ports",
+          "kind": "boost"
+        },
+        {
+          "from": "sc",
+          "to": "headR",
+          "label": "boost to ports",
+          "kind": "boost"
+        },
+        {
+          "from": "hpfp",
+          "to": "rails",
+          "label": "HP fuel",
+          "kind": "fuel"
+        },
+        {
+          "from": "vc",
+          "to": "headL",
+          "label": "bolted",
+          "kind": "mechanical"
+        },
+        {
+          "from": "vc",
+          "to": "headR",
+          "label": "bolted",
+          "kind": "mechanical"
+        },
+        {
+          "from": "headL",
+          "to": "exh",
+          "label": "exhaust ports",
+          "kind": "exhaust"
+        },
+        {
+          "from": "headR",
+          "to": "exh",
+          "label": "exhaust ports",
+          "kind": "exhaust"
+        },
+        {
+          "from": "block",
+          "to": "mounts",
+          "label": "brackets",
+          "kind": "mechanical"
+        },
+        {
+          "from": "mounts",
+          "to": "cradle",
+          "label": "isolators",
+          "kind": "mechanical"
+        },
+        {
+          "from": "rearcover",
+          "to": "block",
+          "label": "bolted",
+          "kind": "mechanical"
+        },
+        {
+          "from": "crank",
+          "to": "flange",
+          "label": "rear flange",
+          "kind": "torque"
+        },
+        {
+          "from": "flange",
+          "to": "clutch",
+          "label": "8 TTY bolts",
+          "kind": "torque"
+        }
+      ]
+    },
+    {
+      "id": "engine.timing-valvetrain",
+      "title": "Timing drive & valvetrain (with VVT and DI pump drive)",
+      "type": "mechanical",
+      "description": "Crank-to-valve motion path, VVT control loop and the cam-driven DI pump. Torque values in labels are the key fasteners in each joint.",
+      "nodes": [
+        {
+          "id": "crank",
+          "label": "Crankshaft",
+          "componentId": "engine.rotating-assembly.crankshaft"
+        },
+        {
+          "id": "reluctor",
+          "label": "58X reluctor",
+          "componentId": "engine.rotating-assembly.reluctor-wheel"
+        },
+        {
+          "id": "ckp",
+          "label": "Crank sensor",
+          "componentId": "engine.engine-sensors.crank-position-sensor"
+        },
+        {
+          "id": "crankspr",
+          "label": "Crank sprocket",
+          "componentId": "engine.rotating-assembly.crank-sprocket"
+        },
+        {
+          "id": "chain",
+          "label": "Timing chain",
+          "componentId": "engine.valvetrain.timing-chain"
+        },
+        {
+          "id": "tens",
+          "label": "Tensioner (18 ft-lb)",
+          "componentId": "engine.valvetrain.chain-tensioner"
+        },
+        {
+          "id": "guide",
+          "label": "Chain guide",
+          "componentId": "engine.valvetrain.chain-guide"
+        },
+        {
+          "id": "phaser",
+          "label": "VVT phaser / cam sprocket",
+          "componentId": "engine.valvetrain.cam-phaser"
+        },
+        {
+          "id": "limiter",
+          "label": "Phaser limiter (race)",
+          "componentId": "engine.valvetrain.phaser-limiter"
+        },
+        {
+          "id": "cbolt",
+          "label": "Center valve bolt (48 ft-lb + 90°)",
+          "componentId": "engine.valvetrain.phaser-center-bolt"
+        },
+        {
+          "id": "sol",
+          "label": "VVT solenoid (front cover)",
+          "componentId": "engine.valvetrain.vvt-solenoid"
+        },
+        {
+          "id": "cmp",
+          "label": "Cam sensor (4X)",
+          "componentId": "engine.engine-sensors.cam-position-sensor"
+        },
+        {
+          "id": "ecm",
+          "label": "ECM"
+        },
+        {
+          "id": "cam",
+          "label": "Camshaft",
+          "componentId": "engine.valvetrain.camshaft"
+        },
+        {
+          "id": "plate",
+          "label": "Retainer plate (11 ft-lb)",
+          "componentId": "engine.valvetrain.cam-retainer-plate"
+        },
+        {
+          "id": "lifters",
+          "label": "Roller lifters (16)",
+          "componentId": "engine.valvetrain.lifters"
+        },
+        {
+          "id": "trays",
+          "label": "Lifter trays",
+          "componentId": "engine.valvetrain.lifter-trays"
+        },
+        {
+          "id": "vlom",
+          "label": "AFM oil manifold / delete",
+          "componentId": "engine.valvetrain.afm-oil-manifold"
+        },
+        {
+          "id": "pushrods",
+          "label": "Pushrods 7.850 in",
+          "componentId": "engine.valvetrain.pushrods"
+        },
+        {
+          "id": "rockers",
+          "label": "1.8 rockers (22 ft-lb)",
+          "componentId": "engine.valvetrain.rocker-arms"
+        },
+        {
+          "id": "springs",
+          "label": "Springs / retainers / locks",
+          "componentId": "engine.cylinder-heads.valve-springs"
+        },
+        {
+          "id": "ivalve",
+          "label": "Intake valves",
+          "componentId": "engine.cylinder-heads.intake-valves"
+        },
+        {
+          "id": "evalve",
+          "label": "Exhaust valves",
+          "componentId": "engine.cylinder-heads.exhaust-valves"
+        },
+        {
+          "id": "follower",
+          "label": "HPFP roller follower",
+          "componentId": "engine.fuel-injection.hpfp-follower"
+        },
+        {
+          "id": "hpfp",
+          "label": "HP fuel pump",
+          "componentId": "engine.fuel-injection.hp-fuel-pump"
+        }
+      ],
+      "edges": [
+        {
+          "from": "crank",
+          "to": "reluctor",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "reluctor",
+          "to": "ckp",
+          "label": "58X signal",
+          "kind": "signal"
+        },
+        {
+          "from": "crank",
+          "to": "crankspr",
+          "label": "key",
+          "kind": "torque"
+        },
+        {
+          "from": "crankspr",
+          "to": "chain",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "tens",
+          "to": "chain",
+          "label": "slack-side load",
+          "kind": "mechanical"
+        },
+        {
+          "from": "guide",
+          "to": "chain",
+          "label": "tight side",
+          "kind": "mechanical"
+        },
+        {
+          "from": "chain",
+          "to": "phaser",
+          "label": "1:2 ratio",
+          "kind": "torque"
+        },
+        {
+          "from": "limiter",
+          "to": "phaser",
+          "label": "locks/limits travel",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cbolt",
+          "to": "phaser",
+          "label": "clamps + meters oil",
+          "kind": "oil"
+        },
+        {
+          "from": "sol",
+          "to": "cbolt",
+          "label": "plunger",
+          "kind": "mechanical"
+        },
+        {
+          "from": "ecm",
+          "to": "sol",
+          "label": "PWM",
+          "kind": "signal"
+        },
+        {
+          "from": "phaser",
+          "to": "cmp",
+          "label": "4X target",
+          "kind": "signal"
+        },
+        {
+          "from": "ckp",
+          "to": "ecm",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "cmp",
+          "to": "ecm",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "phaser",
+          "to": "cam",
+          "label": "cam nose",
+          "kind": "torque"
+        },
+        {
+          "from": "plate",
+          "to": "cam",
+          "label": "end play",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cam",
+          "to": "lifters",
+          "label": "16 lobes",
+          "kind": "mechanical"
+        },
+        {
+          "from": "trays",
+          "to": "lifters",
+          "label": "anti-rotation",
+          "kind": "mechanical"
+        },
+        {
+          "from": "vlom",
+          "to": "lifters",
+          "label": "AFM oil (deleted on race)",
+          "kind": "oil"
+        },
+        {
+          "from": "lifters",
+          "to": "pushrods",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pushrods",
+          "to": "rockers",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "rockers",
+          "to": "springs",
+          "label": "1.8:1",
+          "kind": "mechanical"
+        },
+        {
+          "from": "springs",
+          "to": "ivalve",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "springs",
+          "to": "evalve",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cam",
+          "to": "follower",
+          "label": "4-lobe pump lobe",
+          "kind": "mechanical"
+        },
+        {
+          "from": "follower",
+          "to": "hpfp",
+          "label": "plunger",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "engine.crankcase-ventilation",
+      "title": "Crankcase ventilation (PCV) - LT4 factory vs road-race",
+      "type": "flow",
+      "description": "Fresh air enters the crankcase through the valve-cover fresh-air port from the clean side of the inlet; blow-by is drawn through the oil separator/PCV orifice into the supercharger (LT4) under vacuum. Under boost the fresh-air side can reverse. Race setup adds catch/breather cans; a dry-sump car vents through the oil tank.",
+      "nodes": [
+        {
+          "id": "airbox",
+          "label": "Air filter / inlet duct (clean side)"
+        },
+        {
+          "id": "tb",
+          "label": "Throttle body",
+          "componentId": "engine.intake-manifold.throttle-body"
+        },
+        {
+          "id": "sc",
+          "label": "Supercharger inlet (PCV seal)",
+          "componentId": "engine.intake-manifold.supercharger-assembly"
+        },
+        {
+          "id": "cyl",
+          "label": "Combustion chambers",
+          "componentId": "engine.cylinder-heads.cylinder-head"
+        },
+        {
+          "id": "rings",
+          "label": "Piston rings (blow-by)",
+          "componentId": "engine.rotating-assembly.piston-rings"
+        },
+        {
+          "id": "crankcase",
+          "label": "Crankcase / valley",
+          "componentId": "engine.block.cylinder-block"
+        },
+        {
+          "id": "vcL",
+          "label": "Left valve cover (fresh air)",
+          "componentId": "engine.valve-covers.valve-cover"
+        },
+        {
+          "id": "vcR",
+          "label": "Right valve cover (PCV / separator)",
+          "componentId": "engine.valve-covers.valve-cover"
+        },
+        {
+          "id": "sep",
+          "label": "Integral oil separator + PCV orifice",
+          "componentId": "engine.intake-manifold.pcv-system"
+        },
+        {
+          "id": "catch",
+          "label": "Race catch can (PCV side)"
+        },
+        {
+          "id": "breather",
+          "label": "Race breather can (fresh-air side)"
+        },
+        {
+          "id": "pan",
+          "label": "Oil pan (drain-back)",
+          "componentId": "engine.oil-pan-and-pickup.wet-sump-oil-pan"
+        },
+        {
+          "id": "drytank",
+          "label": "Dry-sump tank vent (engine-support)"
+        }
+      ],
+      "edges": [
+        {
+          "from": "airbox",
+          "to": "tb",
+          "label": "intake air",
+          "kind": "air"
+        },
+        {
+          "from": "tb",
+          "to": "sc",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "sc",
+          "to": "cyl",
+          "label": "boost",
+          "kind": "boost"
+        },
+        {
+          "from": "cyl",
+          "to": "rings",
+          "label": "combustion leakage",
+          "kind": "air"
+        },
+        {
+          "from": "rings",
+          "to": "crankcase",
+          "label": "blow-by",
+          "kind": "vacuum"
+        },
+        {
+          "from": "airbox",
+          "to": "vcL",
+          "label": "fresh-air hose",
+          "kind": "air"
+        },
+        {
+          "from": "vcL",
+          "to": "crankcase",
+          "label": "fresh air",
+          "kind": "air"
+        },
+        {
+          "from": "crankcase",
+          "to": "vcR",
+          "label": "blow-by + oil mist",
+          "kind": "vacuum"
+        },
+        {
+          "from": "vcR",
+          "to": "sep",
+          "label": "",
+          "kind": "vacuum"
+        },
+        {
+          "from": "sep",
+          "to": "sc",
+          "label": "PCV flow (vacuum)",
+          "kind": "vacuum"
+        },
+        {
+          "from": "sep",
+          "to": "pan",
+          "label": "separated oil drain",
+          "kind": "oil"
+        },
+        {
+          "from": "vcR",
+          "to": "catch",
+          "label": "race: PCV via catch can",
+          "kind": "vacuum"
+        },
+        {
+          "from": "catch",
+          "to": "sc",
+          "label": "race: cleaned vapor",
+          "kind": "vacuum"
+        },
+        {
+          "from": "vcL",
+          "to": "breather",
+          "label": "race: boost reversal path",
+          "kind": "air"
+        },
+        {
+          "from": "crankcase",
+          "to": "drytank",
+          "label": "race dry sump: scavenged air/oil",
+          "kind": "oil"
+        }
+      ]
+    },
+    {
+      "id": "engine.di-fuel-circuit",
+      "title": "Direct-injection high-pressure fuel circuit (and optional PI)",
+      "type": "hydraulic",
+      "description": "Low-pressure supply from the tank module feeds the cam-driven HP pump, which delivers up to ~2,900+ psi to both DI rails. ECM closes the loop with the rail pressure sensor and the pump flow-control valve. Optional port-injection rails take low-pressure fuel directly.",
+      "nodes": [
+        {
+          "id": "tank",
+          "label": "Fuel cell / tank module (engine-support)"
+        },
+        {
+          "id": "lp",
+          "label": "Low-pressure lift pump(s) (engine-support)"
+        },
+        {
+          "id": "lpline",
+          "label": "LP feed line"
+        },
+        {
+          "id": "qc",
+          "label": "3/8 in quick-connect at pump",
+          "componentId": "engine.fuel-injection.lp-feed-connection"
+        },
+        {
+          "id": "damper",
+          "label": "HPFP inlet pulsation damper",
+          "componentId": "engine.fuel-injection.hp-fuel-pump"
+        },
+        {
+          "id": "fcv",
+          "label": "HPFP flow-control solenoid",
+          "componentId": "engine.fuel-injection.hp-fuel-pump"
+        },
+        {
+          "id": "plunger",
+          "label": "HPFP plunger (cam lobe)",
+          "componentId": "engine.fuel-injection.hpfp-follower"
+        },
+        {
+          "id": "hpline",
+          "label": "HP feed line (21 ft-lb nuts)",
+          "componentId": "engine.fuel-injection.hp-feed-line"
+        },
+        {
+          "id": "railL",
+          "label": "Left DI rail",
+          "componentId": "engine.fuel-injection.di-fuel-rails"
+        },
+        {
+          "id": "railR",
+          "label": "Right DI rail",
+          "componentId": "engine.fuel-injection.di-fuel-rails"
+        },
+        {
+          "id": "frp",
+          "label": "Rail pressure sensor (24 ft-lb)",
+          "componentId": "engine.engine-sensors.fuel-rail-pressure-sensor"
+        },
+        {
+          "id": "injL",
+          "label": "Injectors 1-3-5-7",
+          "componentId": "engine.fuel-injection.di-injectors"
+        },
+        {
+          "id": "injR",
+          "label": "Injectors 2-4-6-8",
+          "componentId": "engine.fuel-injection.di-injectors"
+        },
+        {
+          "id": "ecm",
+          "label": "ECM / injector drivers"
+        },
+        {
+          "id": "pirail",
+          "label": "Port-injection rails (optional)",
+          "componentId": "engine.fuel-injection.port-injection-kit"
+        },
+        {
+          "id": "pireg",
+          "label": "PI pressure regulator / return (engine-support)"
+        }
+      ],
+      "edges": [
+        {
+          "from": "tank",
+          "to": "lp",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "lp",
+          "to": "lpline",
+          "label": "~60-90 psi typical LP (varies by system)",
+          "kind": "fuel"
+        },
+        {
+          "from": "lpline",
+          "to": "qc",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "qc",
+          "to": "damper",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "damper",
+          "to": "fcv",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "fcv",
+          "to": "plunger",
+          "label": "metered fill",
+          "kind": "fuel"
+        },
+        {
+          "from": "plunger",
+          "to": "hpline",
+          "label": "up to ~2,900+ psi",
+          "kind": "fuel"
+        },
+        {
+          "from": "hpline",
+          "to": "railL",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "hpline",
+          "to": "railR",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "railL",
+          "to": "injL",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "railR",
+          "to": "injR",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "railL",
+          "to": "frp",
+          "label": "",
+          "kind": "fuel"
+        },
+        {
+          "from": "frp",
+          "to": "ecm",
+          "label": "pressure signal",
+          "kind": "signal"
+        },
+        {
+          "from": "ecm",
+          "to": "fcv",
+          "label": "pump command",
+          "kind": "signal"
+        },
+        {
+          "from": "ecm",
+          "to": "injL",
+          "label": "peak-hold drive",
+          "kind": "power"
+        },
+        {
+          "from": "ecm",
+          "to": "injR",
+          "label": "peak-hold drive",
+          "kind": "power"
+        },
+        {
+          "from": "lpline",
+          "to": "pirail",
+          "label": "optional PI branch",
+          "kind": "fuel"
+        },
+        {
+          "from": "pirail",
+          "to": "pireg",
+          "label": "return",
+          "kind": "fuel"
+        },
+        {
+          "from": "pireg",
+          "to": "tank",
+          "label": "return line",
+          "kind": "fuel"
+        }
+      ]
+    },
+    {
+      "id": "engine.lubrication",
+      "title": "On-engine lubrication path (wet sump)",
+      "type": "flow",
+      "description": "Oil path inside the engine for the factory wet sump. With a dry sump the pan/pump are replaced (engine-support owns the external pump, tank and lines) but the galleries downstream of the filter are the same.",
+      "nodes": [
+        {
+          "id": "pan",
+          "label": "Oil pan sump",
+          "componentId": "engine.oil-pan-and-pickup.wet-sump-oil-pan"
+        },
+        {
+          "id": "pickup",
+          "label": "Pickup + screen",
+          "componentId": "engine.oil-pan-and-pickup.oil-pickup"
+        },
+        {
+          "id": "pump",
+          "label": "Variable-displacement pump",
+          "componentId": "engine.oil-pan-and-pickup.oil-pump"
+        },
+        {
+          "id": "filter",
+          "label": "Oil filter / cooler adapter",
+          "componentId": "engine.oil-pan-and-pickup.oil-filter-adapter"
+        },
+        {
+          "id": "cooler",
+          "label": "Oil cooler (engine-support)"
+        },
+        {
+          "id": "gallery",
+          "label": "Main oil gallery",
+          "componentId": "engine.block.cylinder-block"
+        },
+        {
+          "id": "ops",
+          "label": "Oil pressure sensor",
+          "componentId": "engine.engine-sensors.oil-pressure-sensor"
+        },
+        {
+          "id": "mains",
+          "label": "Main bearings",
+          "componentId": "engine.block.main-bearings"
+        },
+        {
+          "id": "rodb",
+          "label": "Rod bearings (via crank)",
+          "componentId": "engine.rotating-assembly.rod-bearings"
+        },
+        {
+          "id": "camb",
+          "label": "Cam bearings",
+          "componentId": "engine.block.cam-bearings"
+        },
+        {
+          "id": "squirt",
+          "label": "Piston oil squirters",
+          "componentId": "engine.block.piston-oil-squirters"
+        },
+        {
+          "id": "liftgal",
+          "label": "Lifter galleries",
+          "componentId": "engine.valvetrain.lifters"
+        },
+        {
+          "id": "pushrods",
+          "label": "Hollow pushrods",
+          "componentId": "engine.valvetrain.pushrods"
+        },
+        {
+          "id": "rockers",
+          "label": "Rocker trunnions / valve tips",
+          "componentId": "engine.valvetrain.rocker-arms"
+        },
+        {
+          "id": "vvt",
+          "label": "VVT phaser oil feed",
+          "componentId": "engine.valvetrain.cam-phaser"
+        },
+        {
+          "id": "tens",
+          "label": "Chain tensioner / oiler",
+          "componentId": "engine.valvetrain.chain-tensioner"
+        },
+        {
+          "id": "drain",
+          "label": "Head drain-back + valley",
+          "componentId": "engine.cylinder-heads.cylinder-head"
+        },
+        {
+          "id": "ecm",
+          "label": "ECM pump control"
+        }
+      ],
+      "edges": [
+        {
+          "from": "pan",
+          "to": "pickup",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "pickup",
+          "to": "pump",
+          "label": "inlet O-ring",
+          "kind": "oil"
+        },
+        {
+          "from": "pump",
+          "to": "filter",
+          "label": "pressure",
+          "kind": "oil"
+        },
+        {
+          "from": "filter",
+          "to": "cooler",
+          "label": "optional loop",
+          "kind": "oil"
+        },
+        {
+          "from": "cooler",
+          "to": "gallery",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "filter",
+          "to": "gallery",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "ops",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "ops",
+          "to": "ecm",
+          "label": "pressure",
+          "kind": "signal"
+        },
+        {
+          "from": "ecm",
+          "to": "pump",
+          "label": "displacement command",
+          "kind": "signal"
+        },
+        {
+          "from": "gallery",
+          "to": "mains",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "mains",
+          "to": "rodb",
+          "label": "cross-drilled crank",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "camb",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "squirt",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "liftgal",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "liftgal",
+          "to": "pushrods",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "pushrods",
+          "to": "rockers",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "camb",
+          "to": "vvt",
+          "label": "front cam journal",
+          "kind": "oil"
+        },
+        {
+          "from": "gallery",
+          "to": "tens",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "rockers",
+          "to": "drain",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "drain",
+          "to": "pan",
+          "label": "gravity return",
+          "kind": "oil"
+        },
+        {
+          "from": "rodb",
+          "to": "pan",
+          "label": "fling-off",
+          "kind": "oil"
+        },
+        {
+          "from": "squirt",
+          "to": "pan",
+          "label": "",
+          "kind": "oil"
+        }
+      ]
+    },
+    {
+      "id": "engine.accessory-belts",
+      "title": "Accessory and supercharger belt drives",
+      "type": "mechanical",
+      "description": "Two belt planes off the balancer: the inner 6-rib accessory belt and the outer 8-rib supercharger belt. Pulley positions are approximate - verify against your bracket set.",
+      "nodes": [
+        {
+          "id": "bal",
+          "label": "Balancer (6-rib + 8-rib)",
+          "componentId": "engine.front-cover-and-balancer.harmonic-balancer"
+        },
+        {
+          "id": "wp",
+          "label": "Water pump",
+          "componentId": "engine.accessory-drive.water-pump"
+        },
+        {
+          "id": "alt",
+          "label": "Alternator",
+          "componentId": "engine.accessory-drive.alternator-mount"
+        },
+        {
+          "id": "ac",
+          "label": "A/C compressor (or delete idler)",
+          "componentId": "engine.accessory-drive.ac-compressor-delete"
+        },
+        {
+          "id": "tens",
+          "label": "Accessory tensioner",
+          "componentId": "engine.accessory-drive.belt-tensioner"
+        },
+        {
+          "id": "idl",
+          "label": "Idlers",
+          "componentId": "engine.accessory-drive.idler-pulleys"
+        },
+        {
+          "id": "belt6",
+          "label": "6-rib belt",
+          "componentId": "engine.accessory-drive.serpentine-belt"
+        },
+        {
+          "id": "belt8",
+          "label": "8-rib SC belt",
+          "componentId": "engine.accessory-drive.supercharger-belt"
+        },
+        {
+          "id": "sctens",
+          "label": "SC belt tensioner",
+          "componentId": "engine.accessory-drive.supercharger-belt"
+        },
+        {
+          "id": "scp",
+          "label": "Supercharger pulley",
+          "componentId": "engine.intake-manifold.supercharger-assembly"
+        }
+      ],
+      "edges": [
+        {
+          "from": "bal",
+          "to": "belt6",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "belt6",
+          "to": "wp",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "belt6",
+          "to": "alt",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "belt6",
+          "to": "ac",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "tens",
+          "to": "belt6",
+          "label": "tension",
+          "kind": "mechanical"
+        },
+        {
+          "from": "idl",
+          "to": "belt6",
+          "label": "wrap",
+          "kind": "mechanical"
+        },
+        {
+          "from": "bal",
+          "to": "belt8",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "belt8",
+          "to": "scp",
+          "label": "3.1:1 overall drive ratio (stock)",
+          "kind": "torque"
+        },
+        {
+          "from": "sctens",
+          "to": "belt8",
+          "label": "tension",
+          "kind": "mechanical"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "engine.route.accessory-belt",
+      "name": "6-rib accessory belt path",
+      "kind": "mechanical",
+      "componentId": "engine.accessory-drive.serpentine-belt",
+      "radius": 0.007,
+      "points": [
+        [
+          -0.335,
+          0.31,
+          0
+        ],
+        [
+          -0.335,
+          0.38,
+          0.1
+        ],
+        [
+          -0.335,
+          0.58,
+          0.28
+        ],
+        [
+          -0.335,
+          0.66,
+          0.2
+        ],
+        [
+          -0.335,
+          0.48,
+          0.11
+        ],
+        [
+          -0.335,
+          0.68,
+          -0.1
+        ],
+        [
+          -0.335,
+          0.55,
+          -0.2
+        ],
+        [
+          -0.335,
+          0.38,
+          -0.29
+        ],
+        [
+          -0.335,
+          0.3,
+          -0.18
+        ],
+        [
+          -0.335,
+          0.31,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.supercharger-belt",
+      "name": "8-rib supercharger belt path",
+      "kind": "mechanical",
+      "componentId": "engine.accessory-drive.supercharger-belt",
+      "radius": 0.008,
+      "points": [
+        [
+          -0.37,
+          0.31,
+          0
+        ],
+        [
+          -0.37,
+          0.4,
+          -0.095
+        ],
+        [
+          -0.37,
+          0.78,
+          -0.075
+        ],
+        [
+          -0.37,
+          0.82,
+          -0.03
+        ],
+        [
+          -0.37,
+          0.78,
+          0.01
+        ],
+        [
+          -0.37,
+          0.62,
+          0.07
+        ],
+        [
+          -0.37,
+          0.42,
+          0.095
+        ],
+        [
+          -0.37,
+          0.31,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.pcv-hose",
+      "name": "PCV hose: right valve cover separator to catch can to supercharger inlet",
+      "kind": "vacuum",
+      "componentId": "engine.intake-manifold.pcv-system",
+      "radius": 0.009,
+      "points": [
+        [
+          0.2,
+          0.72,
+          -0.27
+        ],
+        [
+          0.25,
+          0.8,
+          -0.26
+        ],
+        [
+          0.32,
+          0.86,
+          -0.2
+        ],
+        [
+          0.4,
+          0.84,
+          -0.25
+        ],
+        [
+          0.42,
+          0.8,
+          -0.35
+        ],
+        [
+          0.38,
+          0.86,
+          -0.3
+        ],
+        [
+          0.2,
+          0.92,
+          -0.18
+        ],
+        [
+          -0.1,
+          0.9,
+          -0.1
+        ],
+        [
+          -0.2,
+          0.82,
+          -0.02
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.fresh-air-hose",
+      "name": "Fresh-air breather hose: inlet duct to left valve cover",
+      "kind": "air",
+      "componentId": "engine.intake-manifold.pcv-system",
+      "radius": 0.009,
+      "points": [
+        [
+          -0.4,
+          0.82,
+          0.2
+        ],
+        [
+          -0.32,
+          0.84,
+          0.25
+        ],
+        [
+          -0.2,
+          0.8,
+          0.29
+        ],
+        [
+          -0.08,
+          0.75,
+          0.29
+        ],
+        [
+          -0.05,
+          0.72,
+          0.27
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.lp-fuel-feed",
+      "name": "Low-pressure fuel feed to HP pump",
+      "kind": "fuel",
+      "componentId": "engine.fuel-injection.lp-feed-connection",
+      "radius": 0.006,
+      "points": [
+        [
+          0.62,
+          0.42,
+          0.4
+        ],
+        [
+          0.55,
+          0.47,
+          0.33
+        ],
+        [
+          0.48,
+          0.52,
+          0.28
+        ],
+        [
+          0.42,
+          0.58,
+          0.2
+        ],
+        [
+          0.38,
+          0.62,
+          0.12
+        ],
+        [
+          0.34,
+          0.66,
+          0.05
+        ],
+        [
+          0.32,
+          0.67,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.hp-feed-left",
+      "name": "HP fuel line to left rail",
+      "kind": "fuel",
+      "componentId": "engine.fuel-injection.hp-feed-line",
+      "radius": 0.004,
+      "points": [
+        [
+          0.3,
+          0.71,
+          0
+        ],
+        [
+          0.29,
+          0.715,
+          0.04
+        ],
+        [
+          0.27,
+          0.71,
+          0.08
+        ],
+        [
+          0.25,
+          0.7,
+          0.12
+        ],
+        [
+          0.24,
+          0.7,
+          0.135
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.hp-feed-right",
+      "name": "HP fuel line to right rail",
+      "kind": "fuel",
+      "componentId": "engine.fuel-injection.hp-feed-line",
+      "radius": 0.004,
+      "points": [
+        [
+          0.3,
+          0.71,
+          0
+        ],
+        [
+          0.295,
+          0.715,
+          -0.04
+        ],
+        [
+          0.285,
+          0.71,
+          -0.08
+        ],
+        [
+          0.27,
+          0.7,
+          -0.12
+        ],
+        [
+          0.26,
+          0.7,
+          -0.135
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.di-rail-left",
+      "name": "Left DI fuel rail",
+      "kind": "fuel",
+      "componentId": "engine.fuel-injection.di-fuel-rails",
+      "radius": 0.01,
+      "points": [
+        [
+          -0.16,
+          0.7,
+          0.135
+        ],
+        [
+          -0.05,
+          0.7,
+          0.135
+        ],
+        [
+          0.05,
+          0.7,
+          0.135
+        ],
+        [
+          0.15,
+          0.7,
+          0.135
+        ],
+        [
+          0.24,
+          0.7,
+          0.135
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.di-rail-right",
+      "name": "Right DI fuel rail",
+      "kind": "fuel",
+      "componentId": "engine.fuel-injection.di-fuel-rails",
+      "radius": 0.01,
+      "points": [
+        [
+          -0.14,
+          0.7,
+          -0.135
+        ],
+        [
+          -0.03,
+          0.7,
+          -0.135
+        ],
+        [
+          0.07,
+          0.7,
+          -0.135
+        ],
+        [
+          0.17,
+          0.7,
+          -0.135
+        ],
+        [
+          0.26,
+          0.7,
+          -0.135
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.intercooler-supply",
+      "name": "Intercooler coolant hoses to supercharger brick manifolds (front)",
+      "kind": "coolant",
+      "componentId": "engine.intake-manifold.intercooler-bricks",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.62,
+          0.45,
+          0.3
+        ],
+        [
+          -0.5,
+          0.52,
+          0.32
+        ],
+        [
+          -0.38,
+          0.65,
+          0.3
+        ],
+        [
+          -0.26,
+          0.78,
+          0.22
+        ],
+        [
+          -0.21,
+          0.82,
+          0.18
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.intercooler-return",
+      "name": "Intercooler coolant return from right brick manifold",
+      "kind": "coolant",
+      "componentId": "engine.intake-manifold.intercooler-bricks",
+      "radius": 0.011,
+      "points": [
+        [
+          -0.21,
+          0.82,
+          -0.18
+        ],
+        [
+          -0.26,
+          0.78,
+          -0.22
+        ],
+        [
+          -0.38,
+          0.65,
+          -0.3
+        ],
+        [
+          -0.5,
+          0.52,
+          -0.32
+        ],
+        [
+          -0.62,
+          0.45,
+          -0.3
+        ]
+      ]
+    },
+    {
+      "id": "engine.route.dipstick-tube",
+      "name": "Oil dipstick tube",
+      "kind": "oil",
+      "componentId": "engine.oil-pan-and-pickup.dipstick-and-fill",
+      "radius": 0.006,
+      "points": [
+        [
+          -0.2,
+          0.3,
+          -0.16
+        ],
+        [
+          -0.2,
+          0.45,
+          -0.19
+        ],
+        [
+          -0.2,
+          0.6,
+          -0.21
+        ],
+        [
+          -0.22,
+          0.75,
+          -0.22
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+      "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+    },
+    {
+      "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+      "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+    },
+    {
+      "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+      "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+    },
+    {
+      "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+      "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+    },
+    {
+      "title": "Summit Racing Help Center: Chevy LT1 Engine Specs (2014-present)",
+      "url": "https://help.summitracing.com/knowledgebase/article/HE-04911/en-us"
+    },
+    {
+      "title": "ARP installation instructions 234-4343 head stud kit, SB Chevy 6.2L (LT1)",
+      "url": "https://cdn.arp-bolts.com/instructions/234-4343.pdf"
+    },
+    {
+      "title": "ARP installation instructions 234-4347 head stud kit, SB Chevy 6.2L (LT1/4), CA625+",
+      "url": "https://cdn.arp-bolts.com/instructions/234-4347.pdf"
+    },
+    {
+      "title": "ARP installation instructions 234-5802 main stud kit, Chevy Gen V 6.2L",
+      "url": "https://cdn.arp-bolts.com/instructions/234-5802.pdf"
+    },
+    {
+      "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+      "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+    },
+    {
+      "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+      "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+    },
+    {
+      "title": "Whipple WK-1025-30 Gen 6 3.0L supercharger upgrade kit, Camaro ZL1 / CTS-V LT4",
+      "url": "https://whipplesuperchargers.com/i-2311-camaro-zl1-lt4-gen-6-supercharger-upgrade-kit-2017-2024.html"
+    },
+    {
+      "title": "Katech: XDI High Flow LT4/LT5 injectors (+30%)",
+      "url": "https://katechengines.com/i-30497707-xdi-high-flow-lt4-lt5-injectors-30.html"
+    },
+    {
+      "title": "Michigan Motorsports: GM 12711668 LT4 high-pressure fuel pump",
+      "url": "https://www.michiganmotorsports.com/intake-throttle-body-fuel-injectors/fuel-injectors/gm-12711668-lt4-high-pressure-fuel-pump-hpfp-for-2014-direct-injected-gm-v8-engines-lt1-lt4-lt5-l86-l83-l87-l84-l82/"
+    },
+    {
+      "title": "Michigan Motorsports: Genuine GM 12686434 oil pump, 2014-2021 LT1/LT4 wet sump",
+      "url": "https://michiganmotorsports.com/oil-pumps-oils-and-fluids/genuine-gm-12686434-oil-pump-for-2014-2021-lt1-lt4-wet-sump-camaro-corvette-cts-v"
+    },
+    {
+      "title": "Katech KAT-A7502 Gen V LT1/LT4/LT5 wet sump oil pump",
+      "url": "https://katechengines.com/i-30497857-katech-gen-v-lt1-lt4-lt5-wet-sump-oil-pump.html"
+    },
+    {
+      "title": "Motion Raceworks: Fluidworks Gen V LT 5-stage billet dry sump pan/pump kit 5-511",
+      "url": "https://motionraceworks.com/products/fluidworks-lt-kit-5-stage-racing-dry-sump-pan-and-pump-5-511"
+    },
+    {
+      "title": "Michigan Motorsports: BTR Gen V 0-degree VVT phaser limiter / lockout block (BTR-VVT-GENV-LO)",
+      "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/gen-5-camshafts-lt1-lt4-lv3-l83-l86/btr-gen-v-0-degree-phaser-limiter-lockout-block-lt1-lt4-l83-l86-l8b-5-3-6-2/"
+    },
+    {
+      "title": "Michigan Motorsports: BTR Gen V 220 camshaft kit, 6.2L LT1/L86 (SK007 springs, 7.850 in pushrods, 4-deg limiter)",
+      "url": "https://www.michiganmotorsports.com/camshafts-brian-tooley-btr/brian-tooley-gen-v-220-camshaft-for-2014-6-2l-lt1-l86-btr-cam-kit/"
+    },
+    {
+      "title": "Michigan Motorsports: Gen V LT4 AFM/DOD lifter delete kit",
+      "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/dod-afm-delete-kits/gen-v-lt4-2014-6-2-afm-dod-lifter-delete-kit"
+    },
+    {
+      "title": "ICT Billet: Gen V LT DOD delete kit 551-DD-LT01",
+      "url": "https://ictbillet.com/products/gen-v-lt-dod-delete-kit"
+    },
+    {
+      "title": "90 Racing: Cloyes 9-3678X5 tensioner-elimination timing set, GM LT",
+      "url": "https://90racing.com/products/cloyes-timing-chain-set-9-3678x5"
+    },
+    {
+      "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+      "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+    },
+    {
+      "title": "Michigan Motorsports: GM 11547372 Gen V wet-sump harmonic balancer bolt (TTY)",
+      "url": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/gm-11547372-harmonic-balancer-crankshaft-bolt-for-2014-l83-l86-lt1-l84-l87-l8t-l8b-5-3l-6-2l-6-6l-gen-v-lt/"
+    },
+    {
+      "title": "Michigan Motorsports: GM 11548432 Gen V LT connecting rod bolts (set of 16)",
+      "url": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/stock-bolts-and-fastners/gm-11548432-gen-v-lt-connecting-rod-bolts-set-of-16-for-2014-lt1-lt4-l83-l86-l84-l87-l82-l8t-l8b/"
+    },
+    {
+      "title": "GMPartsGiant: GM 84122579 engine mount (2017-2024 Camaro 6.2L supercharged)",
+      "url": "https://www.gmpartsgiant.com/parts/gm-mount-eng-84122579.html"
+    },
+    {
+      "title": "Wild Hammer: BMR MM362 16-24 Camaro LT1/SS/ZL1 motor mount kit, solid bushings",
+      "url": "https://wildhammermotorsports.com/16-24-camaro-lt1-ss-zl1-motor-mount-kit-with-integrated-stands-solid-bushings-bmr/"
+    },
+    {
+      "title": "Wild Hammer: GM 12679527 17-24 Camaro ZL1 intake manifold (supercharger) gasket kit",
+      "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-intake-manifold-gasket-kit-general-motors"
+    },
+    {
+      "title": "Chevrolet Performance: LT4 crate engine",
+      "url": "https://www.chevrolet.com/performance-parts/crate-engines/lt-engines/lt4-engine"
+    }
+  ]
+}

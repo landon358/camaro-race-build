@@ -1,0 +1,297 @@
+{
+ "id": "body.trim-and-fasteners",
+ "system": "body",
+ "name": "Trim & Fasteners",
+ "description": "Quick-release Dzus fasteners, rivnuts, fascia quick-release brackets, fender liners and clips used across body and aero.",
+ "components": [
+  {
+   "id": "body.trim-and-fasteners.dzus-fasteners",
+   "name": "Dzus quarter-turn fasteners (EHF5/EHF6) & springs",
+   "qty": 40,
+   "description": "Quarter-turn studs with riveted receptacle springs for panels that come off often (fascias, undertray, access panels). EHF5 (37 mm head, 27 mm rivet spacing) uses S5 spring; EHF6 (44 mm, 34 mm spacing) uses S6. Choose stud by grip length = total panel stack thickness.",
+   "location": "Fascias, undertray, splitter, access panels.",
+   "connectsTo": [
+    "body.panels.front-fascia",
+    "body.panels.rear-fascia",
+    "aero.undertray.front-undertray",
+    "aero.front-splitter.splitter-blade"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Dzus/Southco D4 or Hartwell-Dzus Raceline studs",
+     "brand": "Southco / Hartwell",
+     "partNumber": "",
+     "notes": "Self-ejecting option eases large panels.",
+     "url": "https://blog.demon-tweeks.com/?p=6261"
+    },
+    {
+     "name": "DME Racing weld-in Dzus tab kit",
+     "brand": "DME Racing",
+     "partNumber": "",
+     "notes": "For aluminum structures.",
+     "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
+    }
+   ],
+   "specs": {
+    "EHF5": "37 mm head, 27 mm rivet spacing, S5 spring",
+    "EHF6": "44 mm head, 34 mm rivet spacing, S6 spring"
+   },
+   "hardware": [
+    {
+     "item": "Spring receptacle rivets",
+     "qty": 2,
+     "spec": "1/8 in blind rivets per spring",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "verified",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "installNotes": [
+    "Measure grip (e.g. two 2.5 mm panels = 5 mm grip).",
+    "Rivet springs to inner panel/bracket; stud retained in outer panel."
+   ],
+   "inspection": [
+    "Replace springs that lose tension."
+   ],
+   "buildPhase": 10,
+   "installOrder": 22,
+   "tags": [],
+   "sources": [
+    {
+     "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+     "url": "https://blog.demon-tweeks.com/?p=6261"
+    },
+    {
+     "title": "DME Racing – Dzus tab kit",
+     "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
+    }
+   ],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     -0.95,
+     0.3,
+     0.5
+    ],
+    "size": [
+     0.015,
+     0.005,
+     0.015
+    ],
+    "axis": "x",
+    "instances": [
+     [
+      -0.95,
+      0.3,
+      0.5
+     ],
+     [
+      -0.95,
+      0.3,
+      -0.5
+     ],
+     [
+      -0.95,
+      0.3,
+      0
+     ],
+     [
+      3.82,
+      0.4,
+      0.5
+     ],
+     [
+      3.82,
+      0.4,
+      -0.5
+     ]
+    ],
+    "color": "#bdc3c7"
+   }
+  },
+  {
+   "id": "body.trim-and-fasteners.rivnuts",
+   "name": "Rivnuts (threaded inserts)",
+   "qty": 60,
+   "description": "Steel rivnuts (M6 / 1/4-20 typical, M5 for Lexan) giving reusable threads in sheet metal for panels, Lexan, undertray and interior.",
+   "location": "Throughout body/interior.",
+   "connectsTo": [
+    "body.glass-and-lexan.rear-window",
+    "interior.dash.race-dash-panel",
+    "aero.undertray.front-undertray"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Mating screws",
+     "qty": 1,
+     "spec": "M6 x 1.0 button head",
+     "grade": "ISO 8.8",
+     "torque": "5.9 ft-lb (8 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Low torque to avoid spinning the insert."
+    }
+   ],
+   "installNotes": [
+    "Use correct grip-range rivnut; set with proper tool."
+   ],
+   "inspection": [
+    "Replace spun rivnuts."
+   ],
+   "buildPhase": 10,
+   "installOrder": 23,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "cylinder",
+    "pos": [
+     2.7,
+     1.25,
+     0.4
+    ],
+    "size": [
+     0.01,
+     0.01,
+     0.01
+    ],
+    "axis": "y",
+    "color": "#bdc3c7"
+   }
+  },
+  {
+   "id": "body.trim-and-fasteners.fascia-quick-release",
+   "name": "Fascia quick-release brackets (clevis pins/R-clips)",
+   "qty": 6,
+   "description": "Brackets with clevis pins & R-clips or Dzus so fascias detach in minutes for repairs and radiator access.",
+   "location": "Fascia-to-fender and fascia-to-beam joints.",
+   "connectsTo": [
+    "body.panels.front-fascia",
+    "body.panels.rear-fascia"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Clevis pin + R-clip",
+     "qty": 1,
+     "spec": "1/4 in clevis pin, R-clip",
+     "grade": "Steel",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [],
+   "inspection": [
+    "R-clips present."
+   ],
+   "buildPhase": 10,
+   "installOrder": 24,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.75,
+     0.55,
+     0.85
+    ],
+    "size": [
+     0.04,
+     0.04,
+     0.02
+    ],
+    "mirror": true,
+    "color": "#7f8c8d"
+   }
+  },
+  {
+   "id": "body.trim-and-fasteners.fender-liners",
+   "name": "Wheelhouse liners (trimmed/retained)",
+   "qty": 4,
+   "description": "Factory plastic liners trimmed for tire clearance or removed; front liners help direct air to fender vents and keep debris off wiring.",
+   "location": "Inside wheel wells.",
+   "connectsTo": [
+    "body.panels.front-fenders",
+    "aero.ducts-and-vents.fender-louvers"
+   ],
+   "factory": {
+    "name": "Not fitted on production car",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Push clips / screws",
+     "qty": 8,
+     "spec": "GM push clips / M6 screws",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Check full-lock/full-bump clearance."
+   ],
+   "inspection": [
+    "Look for tire rub."
+   ],
+   "buildPhase": 10,
+   "installOrder": 25,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     0,
+     0.6,
+     0.8
+    ],
+    "size": [
+     0.7,
+     0.3,
+     0.004
+    ],
+    "mirror": true,
+    "color": "#1b1b1b"
+   }
+  }
+ ]
+}

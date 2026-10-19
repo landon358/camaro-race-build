@@ -1,0 +1,186 @@
+{
+  "id": "aero.dive-planes-canards",
+  "system": "aero",
+  "name": "Dive Planes & Canards",
+  "description": "Front fascia corner dive planes (factory on ZL1 1LE) and aftermarket canards that add front downforce and create vortices along the car side.",
+  "components": [
+    {
+      "id": "aero.dive-planes-canards.factory-dive-planes",
+      "name": "Factory ZL1 1LE dive planes",
+      "qty": 2,
+      "description": "Fascia-mounted dive planes that come with the ZL1 1LE aero package together with the larger splitter and carbon rear wing.",
+      "location": "Front fascia outer corners, x ≈ −0.92, y ≈ 0.38, z ±0.82.",
+      "connectsTo": [
+        "body.panels.front-fascia",
+        "aero.front-splitter.splitter-blade"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE front dive planes",
+        "partNumber": "",
+        "notes": "Part of 1LE Extreme Track Performance Package."
+      },
+      "raceOptions": [
+        {
+          "name": "Carbon canards (dual-element) for Gen 6 Camaro",
+          "brand": "APR / EOS / various",
+          "partNumber": "",
+          "notes": "Check class aero rules.",
+          "url": "https://ffperformance.co/product/2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter-2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Dive-plane screws",
+          "qty": 3,
+          "spec": "M5/M6 screws + washers into fascia (backing plate behind fascia)",
+          "grade": "Stainless",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Add an aluminum backing plate inside the fascia so loads do not crack it."
+      ],
+      "inspection": [
+        "Check screws, fascia cracks."
+      ],
+      "buildPhase": 10,
+      "installOrder": 6,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Carscoops – 2018 Camaro ZL1 1LE aero package",
+          "url": "https://www.carscoops.com/2017/02/new-2018-chevrolet-camaro-zl1-1le-puts/"
+        },
+        {
+          "title": "Motor Authority – Camaro ZL1 1LE",
+          "url": "https://www.motorauthority.com/news/1109057_the-chevrolet-camaro-zl1-1le-just-arrived-to-destroy-everything"
+        },
+        {
+          "title": "evo – Camaro ZL1 gets hardcore 1LE package",
+          "url": "https://evo.co.uk/news/18903/chevrolet-camaro-zl1-gets-a-hardcore-1le-package"
+        },
+        {
+          "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+          "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.743,
+            0.4,
+            0.72
+          ],
+          "size": [
+            0.2,
+            0.006,
+            0.11
+          ],
+          "rot": [
+            0,
+            -51,
+            10
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM ZL1 1LE OEM dive plane package (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/17-22-camaro-zl1-1le-oem-dive-plane-package-general-motors/"
+          },
+          {
+            "title": "Anderson Composites Type-LE carbon canards for ZL1 1LE",
+            "url": "https://ffperformance.co/product/anderson-composites-2017-2021-chevrolet-camaro-zl1-1le-carbon-fiber-front-bumper-canards-dive-planes"
+          },
+          {
+            "title": "GM Authority: 2018 Camaro ZL1 1LE aero (dive planes, splitter, carbon wing)",
+            "url": "https://gmauthority.com/blog/2017/02/hot-or-not-2018-chevrolet-camaro-zl1-1le/"
+          }
+        ],
+        "dimensions": "~200 x 110 mm blades (estimated)",
+        "features": "Black composite dive planes on the lower fascia corners ahead of the front wheels",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.dive-planes-canards.upper-canards",
+      "name": "Upper canards (optional second element)",
+      "qty": 2,
+      "description": "Additional canard above the dive plane for more front downforce/balance with a big rear wing.",
+      "location": "x ≈ −0.88, y ≈ 0.50, z ±0.84.",
+      "connectsTo": [
+        "body.panels.front-fascia"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Canard screws",
+          "qty": 3,
+          "spec": "M5 screws + nyloc + backing plate",
+          "grade": "Stainless",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 7,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.74,
+            0.5,
+            0.735
+          ],
+          "size": [
+            0.16,
+            0.006,
+            0.09
+          ],
+          "rot": [
+            0,
+            -55,
+            10
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Anderson Composites Type-LE carbon canards for ZL1 1LE",
+            "url": "https://ffperformance.co/product/anderson-composites-2017-2021-chevrolet-camaro-zl1-1le-carbon-fiber-front-bumper-canards-dive-planes"
+          }
+        ],
+        "dimensions": "~160 x 90 mm",
+        "features": "Second (upper) carbon canard on the fascia corner",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

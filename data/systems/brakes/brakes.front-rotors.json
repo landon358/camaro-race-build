@@ -1,0 +1,422 @@
+{
+  "id": "brakes.front-rotors",
+  "system": "brakes",
+  "name": "Front Rotors",
+  "description": "ZL1 / ZL1 1LE front: 390 x 36 mm two-piece rotors (cast-iron friction ring bolted to a separate hat). GM notes the 1LE two-piece fronts cannot be machined. Race: fully floating two-piece discs (AP J-hook, DBA 5000 rings, Girodisc) on aluminum bells with drive bobbins.",
+  "components": [
+    {
+      "id": "brakes.front-rotors.rotor",
+      "name": "Front brake rotor (friction ring)",
+      "qty": 2,
+      "description": "The vented cast-iron disc the pads clamp. On a race car it is a wear item – replace before cracks run from edge to vane or below minimum thickness. Vented, directional vanes: install on the correct side.",
+      "location": "Sandwiched between hub flange and wheel at each front corner (via the hat), centered on the axle, plane z≈±0.70.",
+      "connectsTo": [
+        "brakes.front-rotors.hat",
+        "wheels.front-hubs-bearings.hub-bearing",
+        "brakes.front-calipers.caliper",
+        "brakes.front-pads.pads",
+        "brakes.cooling.backing-plates"
+      ],
+      "factory": {
+        "name": "GM/Brembo 390 x 36 mm two-piece vented front rotor (ZL1, ZL1 1LE)",
+        "notes": "Two-piece, cannot be turned (TSB). SS: smaller one-piece/two-piece per package; base cars 12.6 in (320 mm) one-piece with FNC coating."
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing CP7177 372 x 34 mm 72-vane J-hook disc",
+          "brand": "AP Racing",
+          "partNumber": "CP7177-350CG / CP7177-351GC",
+          "notes": "Supplied in Essex Gen 6 kits (L/R handed).",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "name": "DBA 5000 Series replacement rings for OEM hats",
+          "brand": "DBA",
+          "notes": "Use Wildhammer WH38 ring hardware (10.9 serrated bolts) to mount to factory hats.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+        },
+        {
+          "name": "Girodisc 2-piece front rotor for ZL1 (390 mm)",
+          "brand": "Girodisc",
+          "notes": "Direct OEM-size replacement ring + hat."
+        },
+        {
+          "name": "Wilwood 15.00 in GT / SRP or WCCB carbon-ceramic",
+          "brand": "Wilwood",
+          "notes": "Part of SX6R kit 140-15441-R.",
+          "url": "https://www.wilwood.com/PDF/Flyers/fl470.pdf"
+        }
+      ],
+      "specs": {
+        "Size (ZL1)": "390 mm x 36 mm vented",
+        "Construction": "Two-piece (iron ring + hat)",
+        "Static imbalance limit": "GM: > 21 g (3/4 oz) may contribute to vibration"
+      },
+      "hardware": [
+        {
+          "item": "Front brake rotor retention screw (Torx, hat to hub)",
+          "qty": 1,
+          "spec": "Countersunk Torx screw (M6 typical)",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (anti-seize optional)",
+          "safetyWire": false,
+          "reuse": "Reusable (often discarded on race cars – wheel clamps the rotor)",
+          "tool": "T30/T40 Torx (verify)",
+          "notes": "GM \"Front brake rotor bolt\" 9 N·m; Gen 5 ZL1 kit used 10 N·m.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Clean hub flange and hat mating face to bare metal (rust here = runout/vibration).",
+        "Install directional rotors with vanes sweeping rearward at the top (curved vanes pump air outward in forward rotation); check L/R part marking.",
+        "Check lateral runout at the rotor edge with lug nuts torqued: aim < 0.05 mm.",
+        "Bed new rotors/pads before racing (see brakes.fluid.bedding-procedure)."
+      ],
+      "inspection": [
+        "Measure thickness at 4 points every event; replace at the manufacturer minimum (stamped on hat/ring) or ~2 mm worn for race discs.",
+        "Look for heat-check cracks: small surface crazing OK; any crack reaching the OD edge or into a vane – replace immediately.",
+        "Check for uneven pad deposits (vibration) and blueing."
+      ],
+      "buildPhase": 4,
+      "installOrder": 36,
+      "tags": [
+        "rotor",
+        "two-piece",
+        "390mm"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "NHTSA-filed GM bulletin MC-10126120-9999 (ZL1 1LE: 390x36 front 6-pot, 365x28 rear 4-pot, two-piece front rotors not machinable)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "title": "Wildhammer WH38 DBA rotor-ring hardware, 16–24 Camaro SS/ZL1 (replaces TTY hat bolts, 10.9 serrated)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+        },
+        {
+          "title": "Wilwood flyer FL470 – Camaro SX6R front kits (14/15 in GT, SRP, WCCB carbon-ceramic)",
+          "url": "https://www.wilwood.com/PDF/Flyers/fl470.pdf"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0,
+          0.3715,
+          0.733
+        ],
+        "size": [
+          0.39,
+          0.39,
+          0.036
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#8d8d8d"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84271643 front rotor – product image",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/846/3302/84271643__73838.1704140603.jpg?c=2&imbypass=on"
+          },
+          {
+            "title": "GM 84271643 ZL1 / ZL1 1LE two-piece front rotor kit – photo (black hat, 10 floating bolts)",
+            "url": "https://wildhammermotorsports.com/camaro-zl1-zl1-1le-front-oem-brake-rotor-kit-general-motors/"
+          },
+          {
+            "title": "DBA 53916.1XD replacement ring for ZL1 front – 390 mm OD, 36 mm, 10 mounting bolts",
+            "url": "https://stillen.com/products/2021-2022-chevrolet-camaro-more-dba-5000-series-xs-cross-drilled-slotted-brake-rotor-ring-front-dba53916-1xd"
+          },
+          {
+            "title": "Girodisc A1-211 Gen 6 ZL1 front 2-pc rotor – 10 drive pins, pad annulus 66 mm",
+            "url": "https://discoveryparts.com/products/a1-211-girodisc-2pc-front-brake-rotors-zl1-gen-6"
+          },
+          {
+            "title": "GM bulletin MC-10126120-9999 (NHTSA) – ZL1 1LE: red Brembo 6-pot 390 x 36 front, 4-pot 365 x 28 rear, 1LE logo",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          }
+        ],
+        "dimensions": "390 mm OD x 36 mm, ring ID ~224 mm, centre plane 54 mm inboard of the wheel mount face",
+        "features": "Plain (no slots/holes) vented cast-iron ring with straight non-directional vanes and 10 drive lugs on the ID; dark grey coating",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.front-rotors.hat",
+      "name": "Front rotor hat (bell)",
+      "qty": 2,
+      "description": "Center section that bolts the friction ring to the hub and carries the wheel. Aluminum hats on race discs float on drive bobbins so the ring can expand radially without coning; factory ZL1 hats are bolted rigidly with torque-to-yield bolts.",
+      "location": "Between hub flange and wheel, inboard face against hub.",
+      "connectsTo": [
+        "brakes.front-rotors.rotor",
+        "brakes.front-rotors.ring-hardware",
+        "wheels.front-hubs-bearings.hub-bearing",
+        "wheels.wheels.front-wheel"
+      ],
+      "factory": {
+        "name": "GM ZL1 two-piece rotor hat",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing 6061 hard-anodized floating hat (Essex kit)",
+          "brand": "AP Racing / Essex",
+          "notes": "Includes disc attachment hardware.",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        }
+      ],
+      "specs": {
+        "Bolt pattern": "5 x 120 mm",
+        "Center pilot": "≈ 66.9 mm hub"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Never stack a spacer between hub and hat unless the stud length allows full nut engagement."
+      ],
+      "inspection": [
+        "Check hat for cracking around lug holes and for fretting at the hub face."
+      ],
+      "buildPhase": 4,
+      "installOrder": 35,
+      "tags": [
+        "hat"
+      ],
+      "sources": [
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0,
+          0.3715,
+          0.762
+        ],
+        "size": [
+          0.236,
+          0.236,
+          0.050000000000000044
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#202020"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84271643 front rotor – product image",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/846/3302/84271643__73838.1704140603.jpg?c=2&imbypass=on"
+          },
+          {
+            "title": "GM 84271643 ZL1 / ZL1 1LE two-piece front rotor kit – photo (black hat, 10 floating bolts)",
+            "url": "https://wildhammermotorsports.com/camaro-zl1-zl1-1le-front-oem-brake-rotor-kit-general-motors/"
+          },
+          {
+            "title": "Girodisc A1-211 Gen 6 ZL1 front 2-pc rotor – 10 drive pins, pad annulus 66 mm",
+            "url": "https://discoveryparts.com/products/a1-211-girodisc-2pc-front-brake-rotors-zl1-gen-6"
+          }
+        ],
+        "dimensions": "~212 mm bolt flange (10 lobes), ~50 mm from ring to mount face, 5 x 120 holes + 1 locating screw",
+        "features": "Black anodised aluminium hat, scalloped 10-lobe flange",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.front-rotors.ring-hardware",
+      "name": "Rotor ring-to-hat hardware (bolts / floating bobbins)",
+      "qty": 2,
+      "description": "Bolts, washers, spring clips or drive bobbins that join ring to hat. Factory ZL1 uses torque-to-yield bolts (replace each time); race floating discs use bobbins with retaining clips/nyloc nuts that must have measurable float.",
+      "location": "Around the inner diameter of each friction ring.",
+      "connectsTo": [
+        "brakes.front-rotors.rotor",
+        "brakes.front-rotors.hat"
+      ],
+      "factory": {
+        "name": "GM torque-to-yield hat bolts",
+        "notes": "One-time use per vendor/service info."
+      },
+      "raceOptions": [
+        {
+          "name": "Wildhammer WH38 rotor-ring hardware (DBA 5000 rings), 16–24 SS/ZL1",
+          "brand": "Wildhammer",
+          "partNumber": "WH38",
+          "notes": "20 serrated 10.9 zinc-plated bolts for both fronts (10 per rotor); reusable; blue Loctite required.",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+        },
+        {
+          "name": "AP Racing bobbin/drive kit",
+          "brand": "AP Racing",
+          "notes": "Supplied with AP discs."
+        }
+      ],
+      "specs": {
+        "Count (factory/DBA)": "10 bolts per rotor"
+      },
+      "hardware": [
+        {
+          "item": "Ring-to-hat bolt",
+          "qty": 10,
+          "spec": "Serrated-flange bolt (M8 typical – verify)",
+          "grade": "10.9",
+          "torque": "Per rotor maker; reference: Gen 5 Z/28 ring-to-hat ≈ 7 ft-lb (100 in-lb, 11 N·m) – verify for ZL1/DBA",
+          "torqueSequence": "Star pattern, two passes",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Factory TTY: replace; WH38: reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+        }
+      ],
+      "installNotes": [
+        "Thread all bolts by hand, then torque in a star pattern.",
+        "Floating discs: confirm 0.1–0.3 mm axial float at each bobbin after assembly (or per maker)."
+      ],
+      "inspection": [
+        "Check bobbins/bolts for looseness or fretting every event."
+      ],
+      "buildPhase": 4,
+      "installOrder": 34,
+      "tags": [
+        "hardware",
+        "tty"
+      ],
+      "sources": [
+        {
+          "title": "Wildhammer WH38 DBA rotor-ring hardware, 16–24 Camaro SS/ZL1 (replaces TTY hat bolts, 10.9 serrated)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-front-dba-rotor-ring-hardware-wildhammer/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0,
+          0.3715,
+          0.739
+        ],
+        "size": [
+          0.232,
+          0.232,
+          0.026
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#d0d0d0"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84271643 front rotor – product image",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/846/3302/84271643__73838.1704140603.jpg?c=2&imbypass=on"
+          },
+          {
+            "title": "Girodisc A1-211 Gen 6 ZL1 front 2-pc rotor – 10 drive pins, pad annulus 66 mm",
+            "url": "https://discoveryparts.com/products/a1-211-girodisc-2pc-front-brake-rotors-zl1-gen-6"
+          }
+        ],
+        "dimensions": "10 bolts on ~212 mm circle",
+        "features": "Bolt + floating bobbin + stainless spring clip at each of the 10 lugs",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.front-rotors.dust-shield",
+      "name": "Front brake dust shield (splash shield)",
+      "qty": 2,
+      "description": "Stamped steel shield behind the rotor. On a race car it is removed (traps heat) or replaced with a brake-duct backing plate that blows air into the rotor eye.",
+      "location": "Bolted to the front knuckle behind the rotor.",
+      "connectsTo": [
+        "suspension.front-knuckle.knuckle",
+        "brakes.cooling.backing-plates"
+      ],
+      "factory": {
+        "name": "GM front brake shield",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete / replace with duct backing plate",
+          "brand": "n/a",
+          "notes": "Essex/GM kit installs may require removing or trimming the stock backing plate."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brake shield bolt",
+          "qty": 3,
+          "spec": "M6 bolt",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Fit before hub bearing if it is clamped by the hub (check on car)."
+      ],
+      "inspection": [],
+      "buildPhase": 4,
+      "installOrder": 33,
+      "tags": [
+        "shield",
+        "delete"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0,
+          0.3715,
+          0.703
+        ],
+        "size": [
+          0.4,
+          0.4,
+          0.002
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#6d6d6d"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~400 mm stamped shield behind the rotor, cut out around the caliper",
+        "features": "Stamped steel, turned outer lip, 3 bolt holes to the knuckle",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

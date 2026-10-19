@@ -1,0 +1,685 @@
+{
+  "id": "safety.seat-and-mounts",
+  "system": "safety",
+  "name": "Seat & Seat Mounts",
+  "description": "Fixed-back FIA/SFI racing seat on seat-specific side brackets, bolted to a welded floor mount / reinforcement plates, with optional rear seat-back brace to the harness bar.",
+  "components": [
+    {
+      "id": "safety.seat-and-mounts.seat-shell",
+      "name": "Driver racing seat (fixed-back, halo/head-surround)",
+      "qty": 1,
+      "description": "Fixed-back composite or aluminum containment seat that locates the driver relative to the harness, FHR device and cage. Choose a seat with 6-point (dual-sub) harness slots and integrated head surround; the seat label must be within its validity date.",
+      "location": "Driver side, H-point x ≈ 1.75, y ≈ 0.33, z ≈ +0.37, as low as possible on the floor.",
+      "connectsTo": [
+        "safety.seat-and-mounts.side-brackets",
+        "safety.harness.harness-assembly",
+        "safety.head-and-neck.head-surround-padding",
+        "safety.seat-and-mounts.seat-back-brace"
+      ],
+      "factory": {
+        "name": "ZL1 / 1LE Recaro performance bucket (power/manual), on factory 4-bolt rails",
+        "partNumber": "",
+        "notes": "Factory seats are not race seats: no sub-belt slots, recliner mechanism; delete for road racing."
+      },
+      "raceOptions": [
+        {
+          "name": "FIA 8862-2009 seat (e.g. Racetech, Sparco, OMP 8862 models)",
+          "brand": "Racetech / Sparco / OMP",
+          "partNumber": "",
+          "notes": "FIA 8862-2009 = 10-year validity from label; best side-impact protection. Camaro GT4.R used a Racetech seat + Schroth harness.",
+          "url": "https://racer.com/2017/02/08/chevy-unveils-camaro-gt4-r-racer"
+        },
+        {
+          "name": "FIA 8855-2021 seat",
+          "brand": "Sparco / OMP / Recaro / Sabelt",
+          "partNumber": "",
+          "notes": "10-year validity (8855-1999 seats: 5 years + possible 2-year extension).",
+          "url": "https://www.motorsportuk.org/wp-content/uploads/2019/08/rulechanges-lifing.pdf"
+        },
+        {
+          "name": "SFI 39.2 aluminum/composite containment seat",
+          "brand": "Kirkey / Ultrashield / ButlerBuilt",
+          "partNumber": "",
+          "notes": "US oval/road-race style aluminum seats; require proper back brace and mounting per maker.",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "specs": {
+        "Certification": "FIA 8862-2009 / FIA 8855-2021 / FIA 8855-1999 / SFI 39.2",
+        "Validity": "Read \"not valid after\" date on label (8862 & 8855-2021: 10 yr; 8855-1999: 5 yr)",
+        "Harness slots": "6-point (dual sub) or 7-point",
+        "Typical weight": "9–20 lb shell"
+      },
+      "hardware": [
+        {
+          "item": "Seat-to-side-bracket bolts",
+          "qty": 4,
+          "spec": "M8 x 1.25 x 20–25 mm hex/button head + flat washer + nyloc/spring washer (Sparco kit: M8 bolts + locking nuts)",
+          "grade": "ISO 8.8 min (10.9/12.9 in many FIA kits)",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) if no locking nut",
+          "safetyWire": false,
+          "reuse": "Inspect; replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "M8 torque per Schroth bolt chart (25 N·m); follow seat maker instructions if different. Use seat-maker spacers to avoid crushing composite. Checked 2026-10: Sparco publishes no torque for the 50002 side-mount kit (M8 x 1.25 bolts plus locking nuts), and FIA 8855 leaves fasteners to the seat maker. 25 N·m is the standard class 8.8 M8 value (Atlas Copco). If the bolts thread into bonded inserts in a composite shell, do not exceed the maker's value. Motorsport UK guidance requires at least 4 points with bolts of at least 8 mm (https://www.motorsportuk.org/wp-content/uploads/2020/09/Seat-Installation-Guidance-v4.pdf). Remains typical."
+        }
+      ],
+      "installNotes": [
+        "Mock-up seat with driver in full gear (helmet + FHR) BEFORE final cage harness-bar height is set.",
+        "Seat as low and rearward as allows steering/pedal reach; check helmet clearance to roof bars (≥ 2 in typical).",
+        "Confirm the seat label date covers the full racing season."
+      ],
+      "inspection": [
+        "Check label date annually.",
+        "Inspect shell for cracks at bracket holes; re-torque seat bolts each event."
+      ],
+      "buildPhase": 9,
+      "installOrder": 30,
+      "tags": [],
+      "sources": [
+        {
+          "title": "FIA 8862-2009 Advanced racing seat standard",
+          "url": "https://www.fia.com/sites/default/files/8862-2009_advanced_racing_seat.pdf"
+        },
+        {
+          "title": "Motorsport UK – rule changes, seat/harness lifing",
+          "url": "https://www.motorsportuk.org/wp-content/uploads/2019/08/rulechanges-lifing.pdf"
+        },
+        {
+          "title": "RACER – Chevy unveils Camaro GT4.R racer",
+          "url": "https://racer.com/2017/02/08/chevy-unveils-camaro-gt4-r-racer"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.765,
+          0.6825,
+          0.37
+        ],
+        "size": [
+          0.67,
+          0.915,
+          0.62
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4119HRW head-restraint seat (dimensions)",
+            "url": "https://www.bimmerworld.com/Safety-Race-Interior/Seats_2/Racetech-RT4119HRW-Head-Restraint-Seat.html"
+          },
+          {
+            "title": "Racetech RT4129HR FIA 8862 seat (side mount 295 mm)",
+            "url": "https://competitionmotorsport.com/products/racetech-rt4129hr-racing-seat"
+          },
+          {
+            "title": "FIA list of 8862 approved seats",
+            "url": "https://www.fia.com/sites/default/files/l40_approved_advanced_seats_58.pdf"
+          },
+          {
+            "title": "Sparco EVO QRT (side mounts M8, 290 mm spacing)",
+            "url": "https://competitionmotorsport.com/products/sparco-evo-qrt-s-std-l-xl-racing-seat"
+          }
+        ],
+        "dimensions": "Racetech RT4119/4129-class: 620 mm outer shoulder width, 920 mm max height, 470 mm base length, 450 mm front width; seated 12° recline",
+        "features": "Fixed-back FIA shell with integral head surround wings, shoulder wings, high hip sides, 5 harness slots, 4 side-mount inserts (~295 mm centres)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.seat-and-mounts.side-brackets",
+      "name": "Seat side-mount brackets (seat-specific, FIA approved)",
+      "qty": 2,
+      "description": "Steel or aluminum L-brackets bolted to the sides of the seat shell, then to the floor mount/sliders. For FIA seats the brackets must be the seat manufacturer's homologated brackets.",
+      "location": "Left and right of the seat shell, z ≈ 0.37 ± 0.26, bottom at y ≈ 0.21.",
+      "connectsTo": [
+        "safety.seat-and-mounts.seat-shell",
+        "safety.seat-and-mounts.floor-mount"
+      ],
+      "factory": {
+        "name": "n/a (factory rails)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Sparco side-mount brackets + hardware kit",
+          "brand": "Sparco",
+          "partNumber": "",
+          "notes": "Kit: 4 × M8x1.25x25, 8 × M8x1.25x20, 8 locking nuts, 8 washers.",
+          "url": "https://www.ogracing.com/products/sparco-seat-hardware-kit-side-mount-black"
+        },
+        {
+          "name": "Racetech / OMP seat-specific brackets",
+          "brand": "Racetech",
+          "partNumber": "",
+          "notes": "Required for FIA 8862 seat homologation.",
+          "url": "https://elite-performance.com/products/racetech-race-seat-mounting-set"
+        }
+      ],
+      "specs": {
+        "Material": "Steel 3–5 mm or aluminum per maker",
+        "Slot pattern": "Multi-hole for seat height/recline adjustment"
+      },
+      "hardware": [
+        {
+          "item": "Bracket-to-floor-mount bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 or 3/8-16 bolt + nyloc + large washers",
+          "grade": "ISO 8.8 / SAE Grade 8",
+          "torque": "M8 x 1.25 class 8.8: 18 ft-lb (25 N·m); 3/8-16 Grade 8: 35-44 ft-lb (47-60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "M8 per Schroth chart; for 3/8-16 Grade 8 use 35–44 ft-lb typical. Never mount the seat with fewer than 4 bolts per seat. Checked 2026-10: the M8 value comes from the Atlas Copco class 8.8 table; the 3/8-16 Grade 8 range comes from standard SAE dry charts, 40-52 ft-lb (https://www.quadratec.com/jeep_knowledgebase/article-105.htm), reduced for nyloc and washers. CORRECTED: the old single 18.4 ft-lb would under-clamp a 3/8-16 bolt."
+        }
+      ],
+      "installNotes": [
+        "Set seat height with brackets first, then drill/weld the floor mount."
+      ],
+      "inspection": [
+        "Check bracket bolt torque every event."
+      ],
+      "buildPhase": 9,
+      "installOrder": 31,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Sparco seat hardware kit side mount (M8x1.25)",
+          "url": "https://www.ogracing.com/products/sparco-seat-hardware-kit-side-mount-black"
+        },
+        {
+          "title": "Racetech race seat mounting set (FIA App. J)",
+          "url": "https://elite-performance.com/products/racetech-race-seat-mounting-set"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.73,
+          0.28,
+          0.37
+        ],
+        "size": [
+          0.36,
+          0.12,
+          0.006
+        ],
+        "instances": [
+          [
+            1.73,
+            0.28,
+            0.165
+          ],
+          [
+            1.73,
+            0.28,
+            0.575
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4129HR FIA 8862 seat (side mount 295 mm)",
+            "url": "https://competitionmotorsport.com/products/racetech-rt4129hr-racing-seat"
+          },
+          {
+            "title": "Sparco EVO QRT (side mounts M8, 290 mm spacing)",
+            "url": "https://competitionmotorsport.com/products/sparco-evo-qrt-s-std-l-xl-racing-seat"
+          }
+        ],
+        "dimensions": "~360 x 120 mm, 4 mm steel/alu, seat holes 290-295 mm apart",
+        "features": "Side-mount brackets with slotted seat holes, lightening holes and bottom flange to the base rails",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.seat-and-mounts.floor-mount",
+      "name": "Seat floor mount (welded tube frame or seat base)",
+      "qty": 1,
+      "description": "Structure tying the seat brackets to the chassis. Race builds weld a tube/box frame or FIA weld-on seat mounts to the floor and rocker; bolt-in Camaro-specific bases (Sparco 600SB284L, Brey-Krause, Planted SB284) use the factory seat studs and are good for lightly modified cars.",
+      "location": "Driver floor pan between rocker and tunnel, x ≈ 1.55–2.00, y ≈ 0.19–0.22, z ≈ 0.10–0.64.",
+      "connectsTo": [
+        "safety.seat-and-mounts.side-brackets",
+        "safety.seat-and-mounts.floor-reinforcement-plates",
+        "chassis.unibody.floor-pan",
+        "chassis.unibody.rocker"
+      ],
+      "factory": {
+        "name": "Factory seat rail studs/holes (4 per seat)",
+        "partNumber": "",
+        "notes": "Reusable mounting points for bolt-in bases."
+      },
+      "raceOptions": [
+        {
+          "name": "Sparco seat base for 2016+ Camaro (left)",
+          "brand": "Sparco",
+          "partNumber": "600SB284L",
+          "notes": "Bolt-in base using factory points.",
+          "url": "https://onefastshop.com/products/sparco-seat-base-left-chevrolet-camaro-2016"
+        },
+        {
+          "name": "Brey-Krause 6th gen Camaro driver seat mount",
+          "brand": "Brey-Krause",
+          "partNumber": "",
+          "notes": "Bolt-in, low-mount.",
+          "url": "https://www.gspeed.com/products/brey-krausse-6th-gen-camaro-driver-seat-mount"
+        },
+        {
+          "name": "Planted Technology Camaro seat bracket (SB284PA passenger; SB284DR driver per AmericanMuscle listing – verify)",
+          "brand": "Planted",
+          "partNumber": "SB284PA",
+          "notes": "Driver PN inferred from listing URL; confirm.",
+          "url": "https://americanmuscle.com/camaro-seat-bracket-passenger-side-sb284pa.html"
+        },
+        {
+          "name": "Lifeline FIA compliant seat mounts for welding",
+          "brand": "Lifeline",
+          "partNumber": "462-000-001",
+          "notes": "4 × CR4 steel plates 45 x 90 x 3 mm; FIA App. J 253/A16.2.",
+          "url": "https://cn.merlinmotorsport.co.uk/p/lifeline-fia-compliant-seat-mounts-for-welding-462-000-001"
+        },
+        {
+          "name": "Racetech seat mounting set (FIA App. J)",
+          "brand": "Racetech",
+          "partNumber": "",
+          "notes": "4 × steel end plates 88 x 46 x 3 mm.",
+          "url": "https://elite-performance.com/products/racetech-race-seat-mounting-set"
+        }
+      ],
+      "specs": {
+        "FIA weld-on plates": "≥ 40 cm², 3 mm (e.g. 45 x 90 x 3 mm)",
+        "Tube frame": "1.25 x .083–.095 DOM or 1 x 2 x .083 rectangular typical",
+        "Bolt-in base hardware": "Reuse factory seat bolts/nuts"
+      },
+      "hardware": [
+        {
+          "item": "Bolt-in base to factory seat studs/holes",
+          "qty": 4,
+          "spec": "Factory GM seat fasteners (M10 class)",
+          "grade": "GM OE",
+          "torque": "36.9 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Estimate for M10 seat fasteners – confirm in GM service information for 2016–2024 Camaro. Checked 2026-10: the Gen 6 GM seat-to-floor value was not found in public sources. 50 N·m equals class 8.8 M10 (Atlas Copco 49 N·m). Still an estimate; use the GM SI or base-maker value."
+        },
+        {
+          "item": "Welded floor-mount frame welds",
+          "qty": 1,
+          "spec": "Continuous welds to floor & rocker via reinforcement plates",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "typical",
+          "source": "https://cn.merlinmotorsport.co.uk/p/lifeline-fia-compliant-seat-mounts-for-welding-462-000-001"
+        }
+      ],
+      "installNotes": [
+        "Lowest seat position improves helmet clearance and CG.",
+        "Weld frame to floor via reinforcement plates – never to bare thin floor sheet alone.",
+        "Keep at least 25 mm under-seat clearance to fuel/brake lines below floor."
+      ],
+      "inspection": [
+        "Check welds/floor cracking around mount."
+      ],
+      "buildPhase": 1,
+      "installOrder": 20,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Sparco seat base 600SB284L for 2016+ Camaro",
+          "url": "https://onefastshop.com/products/sparco-seat-base-left-chevrolet-camaro-2016"
+        },
+        {
+          "title": "Brey-Krause 6th gen Camaro driver seat mount",
+          "url": "https://www.gspeed.com/products/brey-krausse-6th-gen-camaro-driver-seat-mount"
+        },
+        {
+          "title": "Planted seat bracket 2016-2024 Camaro (SB284PA)",
+          "url": "https://americanmuscle.com/camaro-seat-bracket-passenger-side-sb284pa.html"
+        },
+        {
+          "title": "Camaro seat bracket driver side (SB284DR listing)",
+          "url": "https://www.americanmuscle.com/camaro-seat-bracket-driver-side-sb284dr.html"
+        },
+        {
+          "title": "Lifeline FIA compliant seat mounts 462-000-001",
+          "url": "https://cn.merlinmotorsport.co.uk/p/lifeline-fia-compliant-seat-mounts-for-welding-462-000-001"
+        },
+        {
+          "title": "Racetech race seat mounting set (FIA App. J)",
+          "url": "https://elite-performance.com/products/racetech-race-seat-mounting-set"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.73,
+          0.205,
+          0.37
+        ],
+        "size": [
+          0.46,
+          0.03,
+          0.44
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4129HR FIA 8862 seat (side mount 295 mm)",
+            "url": "https://competitionmotorsport.com/products/racetech-rt4129hr-racing-seat"
+          }
+        ],
+        "dimensions": "~460 x 440 mm base, 1 x 2 in rails",
+        "features": "Two longitudinal rails under the side brackets, two cross tubes, four floor feet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.seat-and-mounts.floor-reinforcement-plates",
+      "name": "Seat-mount floor reinforcement plates",
+      "qty": 4,
+      "description": "Steel plates welded/bolted to the floor under each seat-mount point to spread crash load (FIA seat anchorage: ≥ 40 cm², ≥ 3 mm). Bolted versions sandwich the floor with a matching backing plate.",
+      "location": "Driver floor at each seat-mount corner (x ≈ 1.58/1.98, z ≈ 0.13/0.61).",
+      "connectsTo": [
+        "safety.seat-and-mounts.floor-mount",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Size": "≥ 40 cm² x 3 mm (e.g. 45 x 90 x 3 mm or 88 x 46 x 3 mm)",
+        "Material": "CR4 / mild steel"
+      },
+      "hardware": [
+        {
+          "item": "Bolt-through alternative",
+          "qty": 1,
+          "spec": "3/8-16 or M10 x 1.5 bolt + nyloc through backing plate",
+          "grade": "SAE Grade 8 / ISO 10.9",
+          "torque": "36.9 ft-lb (50 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "M10 torque from Schroth chart (50 N·m); seal plate to floor with seam sealer. Checked 2026-10: 50 N·m matches class 8.8 M10 (49 N·m, Atlas Copco). For 3/8-16 Grade 8, standard dry charts give 40-52 ft-lb (https://www.quadratec.com/jeep_knowledgebase/article-105.htm), so up to 44 ft-lb is acceptable. Remains typical."
+        }
+      ],
+      "installNotes": [
+        "Seal plates to floor (seam sealer) to stop water intrusion."
+      ],
+      "inspection": [
+        "Look for cracks/rust at plates."
+      ],
+      "buildPhase": 1,
+      "installOrder": 21,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lifeline FIA compliant seat mounts 462-000-001",
+          "url": "https://cn.merlinmotorsport.co.uk/p/lifeline-fia-compliant-seat-mounts-for-welding-462-000-001"
+        },
+        {
+          "title": "Racetech race seat mounting set (FIA App. J)",
+          "url": "https://elite-performance.com/products/racetech-race-seat-mounting-set"
+        },
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.52,
+          0.19,
+          0.165
+        ],
+        "size": [
+          0.09,
+          0.004,
+          0.06
+        ],
+        "instances": [
+          [
+            1.52,
+            0.19,
+            0.165
+          ],
+          [
+            1.52,
+            0.19,
+            0.575
+          ],
+          [
+            1.94,
+            0.19,
+            0.165
+          ],
+          [
+            1.94,
+            0.19,
+            0.575
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "~90 x 60 x 3 mm backing plates",
+        "features": "Under-floor backing plates for the seat-base feet",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.seat-and-mounts.seat-back-brace",
+      "name": "Seat-back brace (to harness bar / cage)",
+      "qty": 1,
+      "description": "Rear support from the seat back to the harness bar/cross tube, preventing the seat back from deflecting rearward in a rear impact. Required by many aluminum-seat makers and common with SFI 39.2 seats; FIA seats use the homologated mounting only – do not add braces that change load paths unless the maker permits.",
+      "location": "Behind seat back, x ≈ 2.07–2.15, y ≈ 0.80–0.84, z ≈ 0.37.",
+      "connectsTo": [
+        "safety.seat-and-mounts.seat-shell",
+        "safety.roll-cage.harness-bar"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Kirkey / Ultrashield rear seat brace kit",
+          "brand": "Kirkey / Ultrashield",
+          "partNumber": "",
+          "notes": "Tab welded to harness bar with rod-end or bolted link.",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "specs": {
+        "Construction": "1 in x .095 tube or flat bar with weld-on cage tab"
+      },
+      "hardware": [
+        {
+          "item": "Brace-to-seat bolt",
+          "qty": 2,
+          "spec": "3/8-16 UNC Grade 8 bolt + large fender washer + nyloc",
+          "grade": "SAE Grade 8",
+          "torque": "30 ft-lb (41 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Snug with large washers to avoid crushing seat shell – follow seat maker instructions."
+        },
+        {
+          "item": "Brace-to-cage tab bolt",
+          "qty": 1,
+          "spec": "3/8-16 Grade 8 through welded tab (double shear)",
+          "grade": "SAE Grade 8",
+          "torque": "35 ft-lb (47 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld cage tab before paint."
+      ],
+      "inspection": [
+        "Check brace bolts."
+      ],
+      "buildPhase": 9,
+      "installOrder": 32,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.015,
+            0.79,
+            0.37
+          ],
+          [
+            2.131,
+            0.835,
+            0.37
+          ]
+        ],
+        "radius": 0.0125
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4119HRW head-restraint seat (dimensions)",
+            "url": "https://www.bimmerworld.com/Safety-Race-Interior/Seats_2/Racetech-RT4119HRW-Head-Restraint-Seat.html"
+          }
+        ],
+        "dimensions": "1 in tube, ~110 mm, seat-back plate to harness bar",
+        "features": "Pad plate on the shell back, clamp on the 1.75 in harness bar",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.seat-and-mounts.seat-insert",
+      "name": "Seat insert / foam pad & seat cushion",
+      "qty": 1,
+      "description": "Poured-foam insert or seat-maker cushions that fit the driver snugly so the harness and seat containment work as designed. A tight fit reduces lateral movement and fatigue.",
+      "location": "Inside driver seat shell.",
+      "connectsTo": [
+        "safety.seat-and-mounts.seat-shell"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom pour-foam insert kit",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "Pour with driver in full gear on a plastic bag liner.",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "specs": {
+        "Material": "Two-part expanding foam or seat-maker pads (FIA seats: only maker-approved pads)"
+      },
+      "hardware": [
+        {
+          "item": "Hook-and-loop / adhesive",
+          "qty": 1,
+          "spec": "Velcro strips",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Pour insert after seat is mounted and harness slots are confirmed.",
+        "Cut harness slots through the insert to line up with seat slots."
+      ],
+      "inspection": [
+        "Check for compression/tears."
+      ],
+      "buildPhase": 9,
+      "installOrder": 33,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.69,
+          0.288,
+          0.37
+        ],
+        "size": [
+          0.34,
+          0.03,
+          0.32
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Racetech RT4119HRW head-restraint seat (dimensions)",
+            "url": "https://www.bimmerworld.com/Safety-Race-Interior/Seats_2/Racetech-RT4119HRW-Head-Restraint-Seat.html"
+          }
+        ],
+        "dimensions": "~340 x 320 x 30 mm cushion",
+        "features": "Black cloth-covered foam cushion on the seat base",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1316 @@
+{
+  "id": "drivetrain.coolers",
+  "system": "drivetrain",
+  "name": "Trans & Diff Coolers",
+  "description": "Gearbox and differential oil cooling: coolers, electric pumps, thermostats, filters, AN lines and fittings, pump control and ducting. ZL1 1LE has standard trans and rear diff coolers; race builds use dedicated ducted circuits.",
+  "components": [
+    {
+      "id": "drivetrain.coolers.trans-cooler",
+      "name": "Transmission oil cooler",
+      "qty": 1,
+      "description": "Oil-to-air heat exchanger for gearbox oil. GM fits a standard transmission cooler on the ZL1 1LE; a race car with sustained full-throttle running should have one regardless of gearbox. Sequential boxes (e.g. Holinger RD6) have an internal pump with external cooler provision; an H-pattern TR-6060 needs an external electric pump.",
+      "location": "Race placement: ducted into the right lower front fascia opening beside the radiator stack (x\u2248-0.60, y\u22480.30, z\u2248-0.55). Alternative: under-floor with NACA duct.",
+      "connectsTo": [
+        "drivetrain.coolers.trans-thermostat",
+        "drivetrain.coolers.trans-cooler-lines",
+        "drivetrain.coolers.cooler-ducting",
+        "engine.cooling.radiator"
+      ],
+      "factory": {
+        "name": "GM transmission cooler (ZL1 1LE standard)",
+        "notes": "Part of the ZL1 1LE '11 heat exchangers' cooling package (with engine oil and rear diff coolers)."
+      },
+      "raceOptions": [
+        {
+          "name": "Setrab ProLine STD oil cooler (10-19 row) with -8 AN ports",
+          "brand": "Setrab",
+          "notes": "Size from heat load; mount on rubber isolators with a sealed duct."
+        },
+        {
+          "name": "Mocal / Earl's stacked-plate cooler",
+          "brand": "Mocal / Earl's",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Ports": "-8 AN (typ.)",
+        "Target oil temp": "\u224880-110\u00b0C (175-230\u00b0F) working; GM MH3 warns at 163\u00b0C (325\u00b0F)"
+      },
+      "hardware": [
+        {
+          "item": "Cooler isolator mount bolt",
+          "qty": 4,
+          "spec": "M6 + rubber isolator",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-8 AN hose end / fitting",
+          "qty": 2,
+          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount with sealed duct so all air goes through the core.",
+        "Ports at top or side to aid bleeding; protect core with mesh."
+      ],
+      "inspection": [
+        "Core damage/debris",
+        "Leaks",
+        "Oil temp trend in data"
+      ],
+      "buildPhase": 7,
+      "installOrder": 56,
+      "tags": [
+        "cooler",
+        "transmission"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.6,
+            0.3,
+            -0.55
+          ],
+          "size": [
+            0.05,
+            0.18,
+            0.24
+          ],
+          "color": "#3b3f44"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Al Oppenheiser ZL1 tech tour: integrated diff cooler, trans tunnel ducting",
+            "url": "https://www.lsxmag.com/?p=7711"
+          },
+          {
+            "title": "GM bulletin: 2016-17 Camaro 6.2L rear differential cooler line routing (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10130548-9999.pdf"
+          }
+        ],
+        "dimensions": "~240 x 180 x 50 mm core",
+        "features": "Air-to-oil tube-and-fin cooler with end tanks, AN ports, mounting tabs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.trans-cooler-pump",
+      "name": "Transmission cooler pump (H-pattern box)",
+      "qty": 1,
+      "description": "12 V positive-displacement pump that draws gear oil from the TR-6060 sump and pushes it through filter, thermostat and cooler. Not needed with a sequential gearbox that has an internal pump (Holinger RD6).",
+      "location": "Mounted low beside the transmission on the tunnel/crossmember, below oil level for self-priming (x\u22480.95, y\u22480.24, z\u2248-0.20).",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler-fittings",
+        "drivetrain.coolers.inline-filters",
+        "drivetrain.coolers.trans-thermostat",
+        "drivetrain.coolers.pump-control",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "Not used on factory TR-6060 (see GM SI for ZL1 1LE cooler circuit)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Motorsport 12 V gear-oil pump",
+          "brand": "various",
+          "notes": "Choose a pump rated for hot 75W-90 and continuous duty; mount on rubber isolators."
+        }
+      ],
+      "specs": {
+        "Electrical": "12 V, fused PDM channel"
+      },
+      "hardware": [
+        {
+          "item": "Pump bracket bolt",
+          "qty": 2,
+          "spec": "M6/M8 with isolators",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-8 AN hose end / fitting",
+          "qty": 2,
+          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Pump must be lower than the pickup; keep suction line short and large.",
+        "Prime before first run."
+      ],
+      "inspection": [
+        "Pump current draw in PDM data",
+        "Noise / cavitation"
+      ],
+      "buildPhase": 7,
+      "installOrder": 57,
+      "tags": [
+        "pump",
+        "transmission"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.95,
+            0.24,
+            -0.2
+          ],
+          "size": [
+            0.12,
+            0.06,
+            0.06
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~120 x 60 mm",
+        "features": "12 V gear pump (race add-on)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.trans-thermostat",
+      "name": "Transmission oil thermostat / bypass",
+      "qty": 1,
+      "description": "In-line thermostatic valve that bypasses the cooler until oil reaches working temperature, so the gearbox warms quickly and is not over-cooled in cold sessions.",
+      "location": "In the cooler feed line near the cooler (x\u2248-0.40, y\u22480.30, z\u2248-0.45).",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler",
+        "drivetrain.coolers.trans-cooler-lines",
+        "drivetrain.coolers.trans-cooler-pump"
+      ],
+      "factory": {
+        "name": "Not fitted (race add-on)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "In-line oil thermostat (\u224880-90\u00b0C opening)",
+          "brand": "Mocal / Setrab",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "-8 AN hose end / fitting",
+          "qty": 4,
+          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Thermostat bracket bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Observe flow arrows (IN from pump, OUT to cooler, BYPASS/return)."
+      ],
+      "inspection": [
+        "Warm-up rate in data"
+      ],
+      "buildPhase": 7,
+      "installOrder": 58,
+      "tags": [
+        "thermostat"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.4,
+            0.3,
+            -0.45
+          ],
+          "size": [
+            0.08,
+            0.05,
+            0.06
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~80 x 50 x 60 mm block",
+        "features": "Billet thermostat/bypass block, 4 AN ports, element cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.trans-cooler-lines",
+      "name": "Transmission cooler lines",
+      "qty": 1,
+      "description": "Feed and return hoses between gearbox, pump, filter, thermostat and cooler. -8 AN PTFE or rubber-core braided hose, fire-sleeved near the exhaust, clamped every 300 mm.",
+      "location": "Passenger side of tunnel from trans forward to front cooler (see routes drivetrain.route.trans-cooler-feed / -return).",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler-fittings",
+        "drivetrain.coolers.trans-cooler-pump",
+        "drivetrain.coolers.trans-thermostat",
+        "drivetrain.coolers.trans-cooler"
+      ],
+      "factory": {
+        "name": "GM cooler lines (ZL1 1LE)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-8 AN braided hose",
+          "brand": "XRP / Earl's / Goodridge",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Size": "-8 AN"
+      },
+      "hardware": [
+        {
+          "item": "-8 AN hose end / fitting",
+          "qty": 6,
+          "spec": "-8 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224820-25 ft-lb (27-34 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Adel/P-clamp",
+          "qty": 10,
+          "spec": "Cushioned clamp + M6 screw/rivnut",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep \u226575 mm from exhaust or use heat sleeve.",
+        "Leave flex where the drivetrain moves relative to the body."
+      ],
+      "inspection": [
+        "Chafe, leaks, heat damage"
+      ],
+      "buildPhase": 7,
+      "installOrder": 59,
+      "tags": [
+        "lines",
+        "an-8"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.9,
+              0.28,
+              -0.14
+            ],
+            [
+              0.6,
+              0.24,
+              -0.25
+            ],
+            [
+              0.2,
+              0.22,
+              -0.4
+            ],
+            [
+              -0.2,
+              0.24,
+              -0.5
+            ],
+            [
+              -0.55,
+              0.28,
+              -0.55
+            ]
+          ],
+          "radius": 0.008
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM bulletin: 2016-17 Camaro 6.2L rear differential cooler line routing (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10130548-9999.pdf"
+          }
+        ],
+        "dimensions": "-8/-10 lines",
+        "features": "Cooler lines along the tunnel to the front cooler",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.trans-cooler-fittings",
+      "name": "Transmission cooler pickup / return fittings",
+      "qty": 1,
+      "description": "Adapter fittings that turn gearbox ports into AN connections: pickup from the low drain-plug port, return to a high port (fill port or dedicated spray-bar boss). Sequential boxes provide dedicated cooler ports.",
+      "location": "TR-6060 drain port (pickup, x\u22480.80, y\u22480.25) and fill/side port (return, x\u22480.86, y\u22480.38, z\u2248-0.14).",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "drivetrain.transmission.fill-drain-plugs",
+        "drivetrain.coolers.trans-cooler-pump",
+        "drivetrain.coolers.trans-cooler-lines"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Plug-to-AN adapters with crush washers",
+          "brand": "Earl's / XRP",
+          "notes": "Match case thread exactly; a level-check plug must remain available."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Port adapter (case thread to -8 AN)",
+          "qty": 2,
+          "spec": "Case thread with crush washer / O-ring",
+          "grade": "",
+          "torque": "\u224825 ft-lb (34 N\u00b7m) - aluminum case, do not exceed plug torque",
+          "torqueSequence": "",
+          "threadlocker": "Thread sealant if tapered",
+          "safetyWire": false,
+          "reuse": "Replace crush washer",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Crush washer",
+          "qty": 2,
+          "spec": "Copper/aluminum",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit a pickup screen at the drain port.",
+        "Re-establish a level-check method (sight tube or level plug) after converting fill port."
+      ],
+      "inspection": [
+        "Leaks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 60,
+      "tags": [
+        "fittings"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.8,
+            0.24,
+            0
+          ],
+          "size": [
+            0.03,
+            0.03,
+            0.03
+          ],
+          "axis": "y"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.86,
+            0.38,
+            -0.16
+          ],
+          "size": [
+            0.03,
+            0.03,
+            0.03
+          ],
+          "axis": "z"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "-8/-10 AN",
+        "features": "Anodised AN adapters in the case/pickup ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.diff-cooler",
+      "name": "Differential oil cooler",
+      "qty": 1,
+      "description": "Oil-to-air cooler for the rear axle. GM fits a standard rear differential cooler on the ZL1 1LE (lines run along the tunnel near the driveshaft - QA1 instructions have you unclip them). For a race car, mount a ducted cooler at the rear to keep lines short.",
+      "location": "Race placement: rear, behind the bumper beam on the right with a fascia/diffuser duct (x\u22483.55, y\u22480.35, z\u2248-0.45).",
+      "connectsTo": [
+        "drivetrain.coolers.diff-thermostat",
+        "drivetrain.coolers.diff-cooler-lines",
+        "drivetrain.coolers.cooler-ducting"
+      ],
+      "factory": {
+        "name": "GM rear differential cooler (ZL1 1LE standard)",
+        "notes": "Factory cooler line routing passes along the driveshaft tunnel."
+      },
+      "raceOptions": [
+        {
+          "name": "Setrab ProLine STD cooler with -10 AN ports",
+          "brand": "Setrab",
+          "notes": ""
+        },
+        {
+          "name": "Mocal / Earl's cooler",
+          "brand": "Mocal / Earl's",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Ports": "-10 AN suction side typical",
+        "Target": "\u224890-120\u00b0C (195-250\u00b0F) working - per LSD maker"
+      },
+      "hardware": [
+        {
+          "item": "Cooler isolator mount bolt",
+          "qty": 4,
+          "spec": "M6 + rubber isolator",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-10 AN hose end / fitting",
+          "qty": 2,
+          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Duct from a high-pressure area; exhaust air into low-pressure (diffuser) area."
+      ],
+      "inspection": [
+        "Core damage",
+        "Leaks",
+        "Diff temp trend"
+      ],
+      "buildPhase": 7,
+      "installOrder": 61,
+      "tags": [
+        "cooler",
+        "differential"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.55,
+            0.52,
+            -0.6
+          ],
+          "size": [
+            0.05,
+            0.16,
+            0.22
+          ],
+          "color": "#3b3f44"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Al Oppenheiser ZL1 tech tour: integrated diff cooler, trans tunnel ducting",
+            "url": "https://www.lsxmag.com/?p=7711"
+          },
+          {
+            "title": "GM bulletin: 2016-17 Camaro 6.2L rear differential cooler line routing (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10130548-9999.pdf"
+          }
+        ],
+        "dimensions": "~220 x 160 x 50 mm core",
+        "features": "Air-to-oil cooler for the rear drive module, end tanks and ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.diff-cooler-pump",
+      "name": "Differential cooler pump",
+      "qty": 1,
+      "description": "12 V positive-displacement pump that pulls axle oil from a low pickup on the diff and pushes it through filter, thermostat and cooler back to a high return port. Usually switched by diff temperature.",
+      "location": "On the rear cradle/floor beside the diff below oil level (x\u22482.95, y\u22480.28, z\u2248-0.25).",
+      "connectsTo": [
+        "drivetrain.coolers.diff-cooler-fittings",
+        "drivetrain.coolers.inline-filters",
+        "drivetrain.coolers.diff-thermostat",
+        "drivetrain.coolers.pump-control",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE diff cooler circuit (see GM SI)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Motorsport 12 V gear-oil pump",
+          "brand": "various",
+          "notes": "Rated for hot 75W-90/75W-140, continuous duty."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Pump bracket bolt",
+          "qty": 2,
+          "spec": "M6/M8 with isolators",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "-10 AN hose end / fitting",
+          "qty": 2,
+          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount on the sprung body or cradle with flexible lines to the diff."
+      ],
+      "inspection": [
+        "Current draw",
+        "Noise"
+      ],
+      "buildPhase": 7,
+      "installOrder": 62,
+      "tags": [
+        "pump",
+        "differential"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.95,
+            0.28,
+            -0.25
+          ],
+          "size": [
+            0.12,
+            0.06,
+            0.06
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Al Oppenheiser ZL1 tech tour: integrated diff cooler, trans tunnel ducting",
+            "url": "https://www.lsxmag.com/?p=7711"
+          }
+        ],
+        "dimensions": "~120 x 60 mm",
+        "features": "12 V gear pump: motor can + pump head with 2 ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.diff-thermostat",
+      "name": "Differential oil thermostat / bypass",
+      "qty": 1,
+      "description": "In-line thermostatic bypass so the diff reaches working temperature (clutch-type LSDs are temperature sensitive) before the cooler is in circuit.",
+      "location": "In feed line near diff cooler (x\u22483.35, y\u22480.32, z\u2248-0.40).",
+      "connectsTo": [
+        "drivetrain.coolers.diff-cooler",
+        "drivetrain.coolers.diff-cooler-lines",
+        "drivetrain.coolers.diff-cooler-pump"
+      ],
+      "factory": {
+        "name": "Not fitted (race add-on)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "In-line oil thermostat",
+          "brand": "Mocal / Setrab",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "-10 AN hose end / fitting",
+          "qty": 4,
+          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Observe flow direction marks."
+      ],
+      "inspection": [
+        "Warm-up behavior in data"
+      ],
+      "buildPhase": 7,
+      "installOrder": 63,
+      "tags": [
+        "thermostat"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.35,
+            0.46,
+            -0.52
+          ],
+          "size": [
+            0.08,
+            0.05,
+            0.06
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~80 x 50 x 60 mm block",
+        "features": "Billet thermostat/bypass block, 4 AN ports, element cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.diff-cooler-lines",
+      "name": "Differential cooler lines",
+      "qty": 1,
+      "description": "-10 AN suction (pickup to pump) and -8/-10 AN pressure/return hoses between diff, pump, thermostat and cooler. Use flexible hose between the cradle-mounted diff and the body.",
+      "location": "From diff (x\u22482.9) rearward along right side of trunk floor to rear cooler (see routes).",
+      "connectsTo": [
+        "drivetrain.coolers.diff-cooler-fittings",
+        "drivetrain.coolers.diff-cooler-pump",
+        "drivetrain.coolers.diff-thermostat",
+        "drivetrain.coolers.diff-cooler"
+      ],
+      "factory": {
+        "name": "GM diff cooler lines (ZL1 1LE) along tunnel",
+        "notes": "Secured near driveshaft/heat shield (QA1)."
+      },
+      "raceOptions": [
+        {
+          "name": "-10 AN braided hose",
+          "brand": "XRP / Earl's / Goodridge",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Size": "-10 AN suction / -8 or -10 return"
+      },
+      "hardware": [
+        {
+          "item": "-10 AN hose end / fitting",
+          "qty": 6,
+          "spec": "-10 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224830-35 ft-lb (41-47 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Adel/P-clamp",
+          "qty": 8,
+          "spec": "Cushioned clamp + M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep away from exhaust and brake lines; allow for cradle movement."
+      ],
+      "inspection": [
+        "Chafe, leaks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 64,
+      "tags": [
+        "lines",
+        "an-10"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.92,
+              0.26,
+              -0.1
+            ],
+            [
+              2.95,
+              0.28,
+              -0.25
+            ],
+            [
+              3.15,
+              0.36,
+              -0.42
+            ],
+            [
+              3.35,
+              0.46,
+              -0.52
+            ],
+            [
+              3.52,
+              0.52,
+              -0.6
+            ]
+          ],
+          "radius": 0.009
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM bulletin: 2016-17 Camaro 6.2L rear differential cooler line routing (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10130548-9999.pdf"
+          }
+        ],
+        "dimensions": "-8/-10 lines",
+        "features": "Cooler lines from the diff ports to the rear cooler",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.diff-cooler-fittings",
+      "name": "Differential cooler pickup / return fittings",
+      "qty": 1,
+      "description": "Pickup bung low on the diff (or drain-plug adapter) and return high on the cover so returning oil is not immediately re-picked-up. Some builders weld/tap AN bosses into an aftermarket cover.",
+      "location": "Diff cover/housing (pickup x\u22482.90, y\u22480.25; return x\u22482.96, y\u22480.44).",
+      "connectsTo": [
+        "drivetrain.rear-differential.cover-and-gasket",
+        "drivetrain.rear-differential.fill-drain-plugs",
+        "drivetrain.coolers.diff-cooler-pump",
+        "drivetrain.coolers.diff-cooler-lines"
+      ],
+      "factory": {
+        "name": "GM diff cooler ports (ZL1 1LE)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Weld-in / ORB AN bungs",
+          "brand": "Earl's / XRP",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "ORB port adapter (-10)",
+          "qty": 2,
+          "spec": "-10 ORB with O-ring",
+          "grade": "",
+          "torque": "\u224825 ft-lb (34 N\u00b7m) aluminum",
+          "torqueSequence": "",
+          "threadlocker": "none (lube O-ring)",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Pickup screen",
+          "qty": 1,
+          "spec": "Mesh screen",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Clean",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep return outlet away from ring-gear sling and pickup."
+      ],
+      "inspection": [
+        "Leaks",
+        "Screen debris"
+      ],
+      "buildPhase": 7,
+      "installOrder": 65,
+      "tags": [
+        "fittings"
+      ],
+      "sources": [
+        {
+          "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+          "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.9,
+            0.25,
+            -0.1
+          ],
+          "size": [
+            0.03,
+            0.03,
+            0.03
+          ],
+          "axis": "z"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.97,
+            0.44,
+            -0.06
+          ],
+          "size": [
+            0.03,
+            0.03,
+            0.03
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM bulletin: 2016-17 Camaro 6.2L rear differential cooler line routing (NHTSA)",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10130548-9999.pdf"
+          }
+        ],
+        "dimensions": "-8/-10 AN",
+        "features": "AN adapters in the diff cooler ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.inline-filters",
+      "name": "In-line oil filters (trans & diff circuits)",
+      "qty": 2,
+      "description": "Stainless mesh or spin-on filters ahead of each cooler (after the pump) to catch wear metal before it is recirculated and to protect the cooler core. Inspecting the element is a cheap health check.",
+      "location": "Trans circuit near pump (x\u22480.80, y\u22480.22, z\u2248-0.30); diff circuit near pump (x\u22483.05, y\u22480.30, z\u2248-0.32).",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler-pump",
+        "drivetrain.coolers.diff-cooler-pump",
+        "drivetrain.coolers.trans-thermostat",
+        "drivetrain.coolers.diff-thermostat"
+      ],
+      "factory": {
+        "name": "Not fitted",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Stainless in-line filter (60-100 micron)",
+          "brand": "Earl's / XRP / Setrab",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "-8/-10 AN hose end / fitting",
+          "qty": 2,
+          "spec": "-8/-10 AN 37\u00b0 flare (aluminum)",
+          "grade": "",
+          "torque": "\u224820-35 ft-lb (27-47 N\u00b7m) by size",
+          "torqueSequence": "",
+          "threadlocker": "none (oil flare lightly; no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "Common AN practice: hand tight then 1/8-1/4 turn; do not exceed fitting maker's chart.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount accessibly for inspection."
+      ],
+      "inspection": [
+        "Element debris every event"
+      ],
+      "buildPhase": 7,
+      "installOrder": 66,
+      "tags": [
+        "filter"
+      ],
+      "sources": [
+        {
+          "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+          "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.8,
+            0.22,
+            -0.3
+          ],
+          "size": [
+            0.1,
+            0.04,
+            0.04
+          ],
+          "axis": "x",
+          "instances": [
+            [
+              0.8,
+              0.22,
+              -0.3
+            ],
+            [
+              3.05,
+              0.3,
+              -0.32
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~100 x 40 mm",
+        "features": "Billet in-line filter, hex end caps, AN ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.coolers.pump-control",
+      "name": "Cooler pump control (temp switch / PDM logic)",
+      "qty": 1,
+      "description": "Switches the trans and diff cooler pumps on above a set oil temperature (with hysteresis) - either a simple threshold switch + relay or a PDM output driven by sensor values over CAN. Include a manual override for testing.",
+      "location": "PDM output channels / relay panel (electrical system).",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler-pump",
+        "drivetrain.coolers.diff-cooler-pump",
+        "drivetrain.transmission.temperature-sensor",
+        "drivetrain.rear-differential.temperature-sensor",
+        "electrical.power-distribution.pdm",
+        "electrical.power-distribution.relay-panel"
+      ],
+      "factory": {
+        "name": "GM controls (ZL1 1LE)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "PDM channel logic",
+          "brand": "MoTeC / AiM / ECUMaster",
+          "notes": "e.g. ON >80\u00b0C, OFF <70\u00b0C, always ON in race mode."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Fuse each pump per manufacturer current rating."
+      ],
+      "inspection": [
+        "Pump state vs temp in data"
+      ],
+      "buildPhase": 8,
+      "installOrder": 78,
+      "tags": [
+        "control",
+        "pdm"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ]
+    },
+    {
+      "id": "drivetrain.coolers.cooler-ducting",
+      "name": "Cooler ducts & shrouds",
+      "qty": 2,
+      "description": "Sealed inlet ducts and shrouds that force air through the trans (front) and diff (rear) cooler cores. Without sealing, coolers in race cars are often largely ineffective.",
+      "location": "Front: right lower fascia opening to trans cooler. Rear: fascia/diffuser opening to diff cooler.",
+      "connectsTo": [
+        "drivetrain.coolers.trans-cooler",
+        "drivetrain.coolers.diff-cooler",
+        "aero.front-splitter.splitter",
+        "aero.rear-diffuser.diffuser",
+        "body.front-fascia.fascia",
+        "body.rear-fascia.fascia"
+      ],
+      "factory": {
+        "name": "GM fascia ducting",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum or composite duct + foam seal",
+          "brand": "custom",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Duct rivet / screw",
+          "qty": 8,
+          "spec": "3/16 in rivet or M5 screw",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace rivets",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal all gaps around the core with foam/edge trim."
+      ],
+      "inspection": [
+        "Duct damage after off-track excursions"
+      ],
+      "buildPhase": 10,
+      "installOrder": 87,
+      "tags": [
+        "duct",
+        "aero"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.7,
+            0.3,
+            -0.53
+          ],
+          "size": [
+            0.18,
+            0.16,
+            0.22
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.66,
+            0.52,
+            -0.6
+          ],
+          "size": [
+            0.15,
+            0.14,
+            0.2
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Al Oppenheiser ZL1 tech tour: integrated diff cooler, trans tunnel ducting",
+            "url": "https://www.lsxmag.com/?p=7711"
+          }
+        ],
+        "dimensions": "Inlet ~220 x 160 mm",
+        "features": "Moulded plastic duct tapering to the cooler face",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,590 @@
+{
+  "id": "suspension.front-lower-links",
+  "system": "suspension",
+  "name": "Front Lower Links (Lateral LCA + Radius/Tension Rod)",
+  "description": "The Gen 6 front is a double-pivot MacPherson strut: instead of one lower A-arm, two separate aluminum links each carry their own ball joint at the knuckle. The lateral 'lower control arm' reacts mainly side loads; the forward-running 'radius rod' (GM: front lower control link; aftermarket: tension rod / caster rod) reacts braking/longitudinal loads and sets caster. Both inner pivots bolt to the front cradle with torque-to-yield bolts.",
+  "components": [
+    {
+      "id": "suspension.front-lower-links.lower-control-arm",
+      "name": "Front lower control arm (lateral link) with ball joint",
+      "qty": 2,
+      "description": "Forged aluminum lateral link from the cradle out to the bottom of the knuckle. Its inner end has a rubber bushing (horizontal through-bolt into the cradle) and its outer end an integral tapered-stud ball joint that bolts into the knuckle with a 21 mm nut. Its length sets static camber in the double-pivot design; adjustable race arms add camber and roll-center correction.",
+      "location": "Inner pivot approx (x 0.04, y 0.20, z +/-0.36) on the cradle to ball joint approx (x 0.03, y 0.17, z +/-0.71).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "suspension.front-knuckles.knuckle",
+        "suspension.front-lower-links.lower-control-arm-bushing",
+        "suspension.front-lower-links.ball-joints"
+      ],
+      "factory": {
+        "name": "GM aluminum front lower control arm (ball joint integral)",
+        "notes": "Same arm across V6 to ZL1 per owner reports; no verified GM part number found."
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts FLCA CAM6 adjustable front lower control arms",
+          "brand": "SPL Parts",
+          "partNumber": "SPL FLCA CAM6",
+          "notes": "Billet 6061-T6 arm with chromoly double adjuster; camber/track width adjustable (up to approx 4.3 deg depending on ride height); roll-center correction spacers; FK spherical bearings. Knuckle bolt hole must be slightly clearanced.",
+          "url": "https://durable.parts/product/spl-flca-cam6/"
+        },
+        {
+          "name": "BMR BK071 front LCA spherical bearing kit",
+          "brand": "BMR Suspension",
+          "partNumber": "BK071",
+          "notes": "Presses a 3/4 in spherical bearing in a CNC cup into the factory arm in place of the rubber bushing.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        }
+      ],
+      "specs": {
+        "Material": "Aluminum (GM: aluminum front suspension links)",
+        "Inner pivot": "Through-bolt into cradle, 18 mm hex"
+      },
+      "hardware": [
+        {
+          "item": "Front lower control link bolt - control arm (inner pivot to cradle)",
+          "qty": 1,
+          "spec": "M12 class flange bolt (18 mm hex) + nut; GM P/N 11611268",
+          "grade": "OE TTY",
+          "partNumber": "GM 11611268",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "First pass 100 N·m (74 lb ft), final pass +90-105 deg; torque with suspension at normal ride height",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY per GM)",
+          "tool": "18 mm socket + 18 mm wrench",
+          "notes": "Torquing a rubber-bushed pivot at full droop preloads the bushing - set the car at ride height (or jack the knuckle to ride height) before final torque.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        },
+        {
+          "item": "Lower control arm ball stud nut (to knuckle)",
+          "qty": 1,
+          "spec": "Ball stud nut, 21 mm hex",
+          "grade": "OE",
+          "torque": "30 ft-lb (40 N·m) first pass + 120–135°",
+          "torqueSequence": "First pass 40 N·m (30 lb ft), then final pass +120–135° (angle gauge). GM tightens the link's inner bolt (100 N·m + 90–105°) before this nut. Hold the stud with a hex key if it spins.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nut (prevailing-torque)",
+          "tool": "21 mm deep socket; hold stud with hex key if it spins",
+          "notes": "Value NOT verified against GM SI - confirm before use. Separate the taper with a brass hammer / ball joint separator, never by hammering the stud threads. [2026-10 check] CORRECTED: was 'secondary source 80 ft-lb (108 N·m) + 90°' (chevy-specs). GM calls this lateral link the 'front lower control rear link' (French text: 'bras transversal inférieur arrière'), and its knuckle nut the 'Steering Knuckle Nut': 40 N·m + 120–135°. Same value in GM Chevrolet Performance SC1 kit sheets 84242387 (2016) and 84401189 (2017), and in the 1LE kit sheet 84233246 (GM doc ID 4508965, 2024 SI print). TightTorque also lists 'steering knuckle nut, first pass 40 N·m'.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84242387.pdf"
+        }
+      ],
+      "installNotes": [
+        "Install inner bolt from the factory direction; leave loose until ride height.",
+        "Seat ball stud taper clean and dry in the knuckle, install new nut and torque.",
+        "Final-torque inner TTY bolt at ride height with new bolt."
+      ],
+      "inspection": [
+        "Check ball joint for play and boot tears.",
+        "Inspect aluminum arm for curb/impact damage (bent arms change camber).",
+        "Check witness marks on inner bolt."
+      ],
+      "buildPhase": 3,
+      "installOrder": 20,
+      "tags": [
+        "lca",
+        "lateral-link",
+        "double-pivot"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK071 front LCA bearing instructions (GM bolt P/N and torque)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        },
+        {
+          "title": "SPL FLCA CAM6 product page",
+          "url": "https://durable.parts/product/spl-flca-cam6/"
+        },
+        {
+          "title": "2016 Camaro launch technical details (aluminum front links)",
+          "url": "https://www.autoextremist.com/on-the-table1/2015/5/11/may-13-2015.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.025,
+              0.17,
+              0.655
+            ],
+            [
+              0.045,
+              0.19,
+              0.33
+            ]
+          ],
+          "radius": 0.018,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "BMR FLC368 replacement for the front \"rear\" lower control arm (lateral link), 2016-24 Camaro",
+            "url": "https://www.bmrsuspension.com/product/3133"
+          },
+          {
+            "title": "BMR FLC368 product photo",
+            "url": "https://bmrsuspension.com/siteart/products/FLC368_small.jpg"
+          },
+          {
+            "title": "SPL FLCA CAM6 photo",
+            "url": "https://cdn11.bigcommerce.com/s-xn4bghc5/images/stencil/600x600/products/363/3877/SPL-FLCA-CAM6-L1-0-Front-Lower-Control-Arm-HiRes-080423__84802.1739621490.jpg?c=2"
+          }
+        ],
+        "dimensions": "approx 330 mm ball-joint to bushing centre",
+        "features": "Forged aluminium I-beam lateral link (GM \"front lower control arm, rear\"): integral ball joint, stud up into the knuckle; rubber-bushed eye at the cradle, bolt fore-aft",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-lower-links.lower-control-arm-bushing",
+      "name": "Front LCA inner bushing",
+      "qty": 2,
+      "description": "Rubber bushing pressed into the inner end of the lateral LCA. Compliance here lets camber and toe move under cornering load. Race options replace it with a spherical bearing.",
+      "location": "Inner end of LCA at cradle, approx (x 0.04, y 0.20, z +/-0.36).",
+      "connectsTo": [
+        "suspension.front-lower-links.lower-control-arm",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM rubber bushing (pressed in arm)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR BK071 spherical bearing kit (3/4 in)",
+          "brand": "BMR Suspension",
+          "partNumber": "BK071",
+          "notes": "Press out factory bushing, press in bearing cup, install snap ring and bearing spacers.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bearing cup retaining snap ring (BMR kit)",
+          "qty": 1,
+          "spec": "Internal snap ring",
+          "grade": "Supplied",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        }
+      ],
+      "installNotes": [
+        "Use a press; support the arm near the bore so the aluminum arm is not bent."
+      ],
+      "inspection": [
+        "Check spherical bearings for play every few events."
+      ],
+      "buildPhase": 3,
+      "installOrder": 21,
+      "tags": [
+        "bushing",
+        "spherical"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK071 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK071.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.045,
+            0.19,
+            0.33
+          ],
+          "size": [
+            0.058,
+            0.058,
+            0.058
+          ],
+          "axis": "x",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "BMR FLC368 replacement for the front \"rear\" lower control arm (lateral link), 2016-24 Camaro",
+            "url": "https://www.bmrsuspension.com/product/3133"
+          }
+        ],
+        "dimensions": "approx 58 mm OD x 58 mm",
+        "features": "Pressed rubber bushing in the lateral-link eye, steel inner sleeve, bolt fore-aft through the cradle clevis",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-lower-links.radius-rod",
+      "name": "Front radius rod (tension/caster rod, front lower control link) with ball joint",
+      "qty": 2,
+      "description": "Aluminum link running forward from its ball joint at the bottom of the knuckle to a large bushing at the front of the cradle. It carries braking (tension) and acceleration loads and sets caster; bushing compliance lets caster and toe change under braking. On ZL1 cars with the extra front coolers, the cooler may need to be unbolted to remove the inner bolt.",
+      "location": "Ball joint approx (x -0.03, y 0.18, z +/-0.70) forward to inner pivot approx (x -0.38, y 0.22, z +/-0.42) at the cradle front.",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "suspension.front-knuckles.knuckle",
+        "suspension.front-lower-links.radius-rod-bushing",
+        "suspension.front-lower-links.ball-joints"
+      ],
+      "factory": {
+        "name": "GM aluminum front radius rod (front lower control link)",
+        "notes": "BMR and SPL list the same rod for 2016-2024 Camaro and 2015-2019 CTS-V."
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts TR CAM6 adjustable front tension rods",
+          "brand": "SPL Parts",
+          "partNumber": "SPL TR CAM6",
+          "notes": "Billet 2024 aluminum, FK PTFE rod ends; wide caster adjustment (equalize L/R); anti-dive tuning with spacers; knuckle hole needs slight clearancing for 5/8 in SHCS.",
+          "url": "https://durable.parts/product/spl-tr-cam6/"
+        },
+        {
+          "name": "BMR FLC363 double-adjustable front arms (replace radius rods)",
+          "brand": "BMR Suspension",
+          "partNumber": "FLC363",
+          "notes": "1 in DOM tube with Teflon-lined rod ends; chrome rod end to chassis, black rod end to spindle. Chassis bolt 74 ft-lb + 90-105 deg (factory bolt), spindle stud 94 ft-lb.",
+          "url": "https://www.bmrsuspension.com/siteart/install/FLC363.pdf"
+        },
+        {
+          "name": "BMR BK070 radius rod spherical bearing kit (1 in)",
+          "brand": "BMR Suspension",
+          "partNumber": "BK070",
+          "notes": "Keeps factory rod; bearing in billet cup.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        },
+        {
+          "name": "SPL CRB CAM6 adjustable caster rod monoball bushings",
+          "brand": "SPL Parts",
+          "partNumber": "SPL CRB CAM6",
+          "notes": "1 in FK bearings with offset spacers for caster adjustment (listing states +/-2 deg in description, +/-4 deg in features - confirm).",
+          "url": "https://durable.parts/product/spl-crb-cam6/"
+        }
+      ],
+      "specs": {
+        "Material": "Aluminum",
+        "Function": "Longitudinal location / caster"
+      },
+      "hardware": [
+        {
+          "item": "Front lower control link bolt - radius rod (inner pivot to cradle)",
+          "qty": 1,
+          "spec": "M12 class flange bolt (18 mm hex) + nut; GM P/N 11610915",
+          "grade": "OE TTY",
+          "partNumber": "GM 11610915",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "First pass 100 N·m (74 lb ft), final pass +90-105 deg, at ride height",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY per GM)",
+          "tool": "18 mm socket + 18 mm wrench",
+          "notes": "Access requires removing lower splash shields; on cars with the extra cooler, unbolt the cooler to withdraw the bolt. BMR installs this bolt from the back side with their bearing kit.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        },
+        {
+          "item": "Radius rod ball stud nut (to knuckle)",
+          "qty": 1,
+          "spec": "Ball stud nut, 21 mm hex",
+          "grade": "OE",
+          "torque": "Factory link: 30 ft-lb (40 N·m) first pass + 120–135° (GM steering knuckle nut). BMR FLC363 arm: 94 ft-lb (127 N·m) per BMR.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nut (prevailing-torque)",
+          "tool": "21 mm deep socket",
+          "notes": "Factory value not verified in available sources. [2026-10 check] GM kit sheets give 40 N·m + 120–135° for the 'Steering Knuckle Nut' only in the rear-link (lateral arm) procedure. TightTorque (GM 2016–18 SI) lists one 'steering knuckle nut' spec (40 N·m first pass), and an ATS (Alpha) owner-quoted SI gives 40 N·m + 120°, so the same nut spec very likely applies to the front link (radius rod). Not seen in a GM front-link procedure, so confirm in GM SI. Was 'See GM SI'.",
+          "confidence": "typical",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84242387.pdf",
+          "torqueSequence": "Factory link: 40 N·m (30 lb ft), then +120–135°. BMR FLC363: single torque 94 ft-lb on the BMR-supplied stud and nut."
+        }
+      ],
+      "installNotes": [
+        "Remove front splash shields (7 mm, 10 mm and T15 fasteners plus push clips) for access.",
+        "Final torque inner TTY bolt at ride height.",
+        "Re-check caster after any rod/bushing change."
+      ],
+      "inspection": [
+        "Check bushing/bearing for play and the ball joint boot.",
+        "Check rod for bending after curb strikes (caster/toe change)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 22,
+      "tags": [
+        "radius-rod",
+        "tension-rod",
+        "caster"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK070 radius rod bearing instructions (GM bolt P/N, torque)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        },
+        {
+          "title": "BMR FLC363 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/FLC363.pdf"
+        },
+        {
+          "title": "SPL TR CAM6 product page",
+          "url": "https://durable.parts/product/spl-tr-cam6/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.045,
+              0.175,
+              0.645
+            ],
+            [
+              -0.225,
+              0.19,
+              0.545
+            ],
+            [
+              -0.37,
+              0.2,
+              0.38
+            ]
+          ],
+          "radius": 0.018,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "BMR FLC363 front radius-rod (tension rod) replacement for 2016-24 Camaro (factory arms are aluminium)",
+            "url": "https://bmrsuspension.com/product/3132"
+          },
+          {
+            "title": "BMR FLC363 product photo",
+            "url": "https://bmrsuspension.com/siteart/products/FLC363_small.jpg"
+          },
+          {
+            "title": "SPL TR CAM6 front tension rod photo",
+            "url": "https://cdn11.bigcommerce.com/s-xn4bghc5/images/stencil/600x600/products/369/3900/SPL-TR-CAM6-L1-1-Tension-Rod-HiRes-080423__09234.1740744660.jpg?c=2"
+          },
+          {
+            "title": "SPL TR CAM6 install sheet (tension-rod chassis bolt behind the front splash shields / cooling package, knuckle taper)",
+            "url": "https://www.phastekperformance.com/content/inst/SPL%20TR%20CAM6.pdf"
+          }
+        ],
+        "dimensions": "approx 420 mm along the curve",
+        "features": "Curved forged aluminium tension rod (GM \"front lower control link\", BMR \"radius rod\"): ball joint at the knuckle, large pressed hydraulic bushing pocket at the front of the cradle (sets caster)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-lower-links.radius-rod-bushing",
+      "name": "Front radius rod bushing (cradle end)",
+      "qty": 2,
+      "description": "Large rubber bushing at the front (cradle) end of the radius rod. Its compliance is tuned for ride comfort and lets the wheel move rearward under braking - which changes caster and toe. Replacing it with a spherical bearing (BMR BK070, SPL CRB CAM6) is one of the most effective front-end upgrades for consistent braking feel.",
+      "location": "Front of cradle, approx (x -0.38, y 0.22, z +/-0.42).",
+      "connectsTo": [
+        "suspension.front-lower-links.radius-rod",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM rubber radius rod bushing",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR BK070 (1 in spherical in 6061 cup)",
+          "brand": "BMR Suspension",
+          "partNumber": "BK070",
+          "notes": "",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        },
+        {
+          "name": "SPL CRB CAM6 (caster-adjustable monoball)",
+          "brand": "SPL Parts",
+          "partNumber": "SPL CRB CAM6",
+          "notes": "",
+          "url": "https://durable.parts/product/spl-crb-cam6/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bearing cup snap ring (BMR BK070)",
+          "qty": 1,
+          "spec": "Large internal snap ring",
+          "grade": "Supplied",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        }
+      ],
+      "installNotes": [
+        "Press out factory bushing with a press; install bearing cup, snap ring and spacers."
+      ],
+      "inspection": [
+        "Check for bearing play and liner wear."
+      ],
+      "buildPhase": 3,
+      "installOrder": 23,
+      "tags": [
+        "bushing",
+        "spherical",
+        "caster"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK070 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK070.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.37,
+            0.2,
+            0.38
+          ],
+          "size": [
+            0.088,
+            0.065,
+            0.088
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "SPL TR CAM6 install sheet (tension-rod chassis bolt behind the front splash shields / cooling package, knuckle taper)",
+            "url": "https://www.phastekperformance.com/content/inst/SPL%20TR%20CAM6.pdf"
+          }
+        ],
+        "dimensions": "approx 88 mm OD x 65 mm",
+        "features": "Fluid-filled (hydraulic) bushing pressed into the tension-rod eye, vertical bolt into the forward cradle arm (item 12 on the GM diagram)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-lower-links.ball-joints",
+      "name": "Front lower ball joints (two per side)",
+      "qty": 4,
+      "description": "Each front lower link has its own ball joint at the knuckle, which creates the 'virtual' lower pivot of the double-pivot strut (steering axis passes through the instantaneous intersection of the two links, reducing scrub radius). On factory links the ball joints are integral to the link; race links use spherical rod ends or high-misalignment bearings.",
+      "location": "Bottom of each knuckle, approx (x -0.03 and 0.03, y 0.17-0.18, z +/-0.70).",
+      "connectsTo": [
+        "suspension.front-lower-links.lower-control-arm",
+        "suspension.front-lower-links.radius-rod",
+        "suspension.front-knuckles.knuckle"
+      ],
+      "factory": {
+        "name": "Integral ball joints in GM aluminum links",
+        "notes": "Not serviced separately (replace link)."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Clean tapers (no grease/anti-seize) before installing studs."
+      ],
+      "inspection": [
+        "Check for radial/axial play with the wheel unloaded; check boots."
+      ],
+      "buildPhase": 3,
+      "installOrder": 24,
+      "tags": [
+        "ball-joint"
+      ],
+      "sources": [
+        {
+          "title": "2019 Camaro ZL1 product guide (dual lower ball joints)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "sphere",
+          "pos": [
+            0.025,
+            0.17,
+            0.655
+          ],
+          "size": [
+            0.045,
+            0.045,
+            0.045
+          ],
+          "instances": [
+            [
+              0.025,
+              0.17,
+              0.655
+            ],
+            [
+              -0.045,
+              0.175,
+              0.645
+            ],
+            [
+              0.025,
+              0.17,
+              -0.655
+            ],
+            [
+              -0.045,
+              0.175,
+              -0.645
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 45 mm housing, tapered stud",
+        "features": "Two ball joints per side (double pivot), integral in the aluminium links, studs up into the knuckle bosses with castle/flange nuts",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "id": "suspension.rear-sway-bar",
+  "system": "suspension",
+  "name": "Rear Sway Bar",
+  "description": "Rear stabilizer bar clamped to the rear cradle with end links down to the rear knuckles. ZL1 1LE has a three-position adjustable bar. Race options: adjustable bars and spherical end links.",
+  "components": [
+    {
+      "id": "suspension.rear-sway-bar.bar",
+      "name": "Rear stabilizer bar",
+      "qty": 1,
+      "description": "Torsion bar mounted on the rear cradle; its ends connect through end links to the knuckles (direct-acting). On the ZL1 1LE, three attachment holes per side: rearward holes approx +15% stiffness, forward holes approx -10% vs the middle (GM). A primary balance-tuning tool at the track.",
+      "location": "On rear cradle behind the differential, approx x 3.08-3.12, y 0.42, arms forward to approx x 2.95, z +/-0.60.",
+      "connectsTo": [
+        "suspension.rear-sway-bar.insulators-and-clamps",
+        "suspension.rear-sway-bar.end-links",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM rear stabilizer shaft; ZL1 1LE three-way adjustable (RPO FEA)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR SB054 adjustable rear sway bar",
+          "brand": "BMR Suspension",
+          "partNumber": "SB054",
+          "notes": "4 x 10 mm-head bolts in supplied bushings and links at 35 ft-lb (BMR hardware).",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB054.pdf"
+        }
+      ],
+      "specs": {
+        "1LE adjustment": "Rear holes +15%, front holes -10% (approx)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Set both sides to the same hole.",
+        "Disconnect links when corner weighting."
+      ],
+      "inspection": [
+        "Check bar ends for cracks."
+      ],
+      "buildPhase": 3,
+      "installOrder": 70,
+      "tags": [
+        "sway-bar",
+        "anti-roll-bar",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        },
+        {
+          "title": "BMR SB054 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB054.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.02,
+              0.43,
+              0.59
+            ],
+            [
+              3.07,
+              0.385,
+              0.47
+            ],
+            [
+              3.095,
+              0.355,
+              0.36
+            ],
+            [
+              3.095,
+              0.355,
+              -0.36
+            ],
+            [
+              3.07,
+              0.385,
+              -0.47
+            ],
+            [
+              3.02,
+              0.43,
+              -0.59
+            ]
+          ],
+          "radius": 0.0125
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 25 mm bar (estimate)",
+        "features": "Bar behind the cradle rear cross member; 1LE arms have 3 holes (3-way adjustable)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-sway-bar.insulators-and-clamps",
+      "name": "Rear sway bar insulators and clamps",
+      "qty": 2,
+      "description": "Rubber insulators in clamps bolted to the rear cradle. GM lists the clamp bolts as torque-to-yield.",
+      "location": "Rear cradle, approx (x 3.12, y 0.42, z +/-0.30).",
+      "connectsTo": [
+        "suspension.rear-sway-bar.bar",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM stabilizer insulators and clamps",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Poly/Delrin bushings",
+          "brand": "BMR / Energy Suspension",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Stabilizer shaft insulator clamp bolt",
+          "qty": 2,
+          "spec": "Flange bolt; GM P/N 11588723 (per BMR list)",
+          "grade": "OE TTY",
+          "partNumber": "GM 11588723",
+          "torque": "43 ft-lb (58 N·m)",
+          "torqueSequence": "Install the bar with the car at curb height on jack stands, then tighten the 4 clamp bolts to 58 N·m. GM gives no angle step.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (listed as TAY by BMR)",
+          "notes": "Per clamp. BMR SB054 instructions mention 10 mm-head stock bolts and 35 ft-lb for their bushings. [2026-10 check] Confirmed in GM SC1 kit sheets 84242387/84401189 and the 1LE kit sheet 84233246 (58 N·m, 43 lb ft, 4 bolts, no angle). Same value as before.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84242387.pdf"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 71,
+      "tags": [
+        "sway-bar-bushing"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "BMR BK065 (GM TAY list)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK065.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.095,
+            0.355,
+            0.33
+          ],
+          "size": [
+            0.05,
+            0.055,
+            0.045
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 50 x 55 x 45 mm",
+        "features": "Rubber insulator with formed clamp (items 14/15)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-sway-bar.end-links",
+      "name": "Rear sway bar end links",
+      "qty": 2,
+      "description": "Links from the bar ends down to a bushing/bolt on the rear knuckle. The top is a ball stud (15 mm nut, 5-6 mm hex hold); the bottom is a through-bolt in a bushing.",
+      "location": "Bar end approx (x 2.95, y 0.42, z +/-0.60) down to knuckle approx (x 2.93, y 0.28, z +/-0.66).",
+      "connectsTo": [
+        "suspension.rear-sway-bar.bar",
+        "suspension.rear-knuckles.knuckle"
+      ],
+      "factory": {
+        "name": "GM rear stabilizer links",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR ELK015 adjustable end links",
+          "brand": "BMR Suspension",
+          "partNumber": "ELK015",
+          "notes": "Rear lower: supplied 10 x 60 mm bolt + washer, blue Loctite, 33 ft-lb; offset bushing narrow side away from knuckle; grease lower bushings.",
+          "url": "https://www.bmrsuspension.com/siteart/install/ELK015.pdf"
+        },
+        {
+          "name": "SPL Parts RE CAM6 rear swaybar endlinks",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RE CAM6",
+          "notes": "",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear stabilizer link nut (to bar)",
+          "qty": 1,
+          "spec": "Ball-stud nut, 15 mm, hold with 5 mm hex",
+          "grade": "OE",
+          "torque": "32 ft-lb (43 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nut recommended",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2019/Chevrolet/camaro/2019-chevrolet-camaro-track-prep-guide.pdf",
+          "torqueSequence": "Tighten at curb height. Hold the ball stud with a hex key so it cannot rotate.",
+          "notes": "[2026-10 check] Confirmed in the GM 2019 Camaro Track Preparation Guide (ZL1 1LE adjustable rear bar: 43 N·m, 32 lb ft) and in the GM SC1/1LE kit sheets (84242387, 84233246). Same value as before."
+        },
+        {
+          "item": "Rear stabilizer link bolt (to knuckle)",
+          "qty": 1,
+          "spec": "M10 bolt, 15 mm",
+          "grade": "OE",
+          "torque": "43 ft-lb (58 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Set link length for zero bar preload at ride height with driver weight."
+      ],
+      "inspection": [
+        "Check jam nuts and rod-end play."
+      ],
+      "buildPhase": 3,
+      "installOrder": 72,
+      "tags": [
+        "end-link",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "BMR ELK015 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/ELK015.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.02,
+              0.43,
+              0.59
+            ],
+            [
+              3.02,
+              0.31,
+              0.615
+            ]
+          ],
+          "radius": 0.008,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 120 mm",
+        "features": "Short ball-stud link from the bar arm down to the knuckle (item 16)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

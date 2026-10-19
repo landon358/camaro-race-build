@@ -1,0 +1,1921 @@
+{
+  "id": "engine-support.cooling",
+  "system": "engine-support",
+  "name": "Engine Cooling (high-temperature circuit)",
+  "description": "Engine coolant circuit: radiator, fans/shroud, thermostat, hoses, pressurized surge/degas tank, vent lines and heater delete. The LT4 supercharger low-temperature loop is in engine-support.intercooler-loop.",
+  "components": [
+    {
+      "id": "engine-support.cooling.radiator",
+      "name": "Radiator (engine high-temperature circuit)",
+      "qty": 1,
+      "description": "Cross-flow aluminum radiator that rejects engine heat. The ZL1 is part of an 11-heat-exchanger cooling package; for sustained road racing a thicker dual/triple-pass race radiator with a fully sealed duct is the usual upgrade.",
+      "location": "Nose of the car behind the grille, rear-most core in the front heat-exchanger stack (behind the intercooler HX/condenser position).",
+      "connectsTo": [
+        "engine-support.cooling.upper-hose",
+        "engine-support.cooling.lower-hose",
+        "engine-support.cooling.degas-line",
+        "engine-support.cooling.fan-assembly",
+        "engine-support.cooling.radiator-isolators",
+        "engine-support.coolers-auxiliary.cooler-stack-frame"
+      ],
+      "factory": {
+        "name": "GM ZL1 aluminum/plastic-tank radiator",
+        "notes": "Delete A/C condenser on a race car to clear airflow (body/electrical teams coordinate)."
+      },
+      "raceOptions": [
+        {
+          "name": "PWR custom double-pass all-aluminum race radiator",
+          "brand": "PWR"
+        },
+        {
+          "name": "C&R Racing custom radiator (Trans Am / IMSA style)",
+          "brand": "C&R Racing"
+        },
+        {
+          "name": "Ron Davis custom aluminum radiator",
+          "brand": "Ron Davis Racing Products"
+        }
+      ],
+      "specs": {
+        "Core": "Aluminum tube-fin, ~26-30 in x 16-18 in (race)",
+        "Inlet/outlet": "1.5 in / 1.75 in hose necks or -20 AN",
+        "Pressure": "Matched to 20 psi system (typ.)"
+      },
+      "hardware": [
+        {
+          "item": "Upper radiator bracket bolts",
+          "qty": 2,
+          "spec": "M6 x 1.0 flange bolt into support",
+          "grade": "8.8",
+          "torque": "80–100 in-lb (9–11.3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Radiator floats on rubber isolators—do not clamp hard.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "fluids": [
+        {
+          "name": "Engine coolant",
+          "spec": "See engine-coolant component",
+          "capacity": "Part of ~11 qt system"
+        }
+      ],
+      "installNotes": [
+        "Mount radiator on rubber isolators top and bottom; it must not touch the stack frame directly.",
+        "Seal every gap between the fascia opening and the core with foam/aluminum ducting so 100% of the inlet air goes through the core.",
+        "Fill and bleed after hoses and surge tank are installed (phase 11)."
+      ],
+      "inspection": [
+        "Check for leaks at tanks and necks",
+        "Straighten fins, clear rubber marbles/debris",
+        "Check isolators for cracking"
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "radiator",
+        "heat-exchanger"
+      ],
+      "sources": [
+        {
+          "title": "AIRAID: ZL1 11 heat exchangers",
+          "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.645,
+            0.48,
+            0
+          ],
+          "size": [
+            0.06,
+            0.533,
+            0.724
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cold Case LMC112A 2016-20 Camaro V8/ZL1 aluminum radiator (overall 28.5 x 21 x 3 in; core 22.6 x 20.4 in)",
+            "url": "https://completewebsol.com/product/2016-20-camaro-aluminum-radiator-cold-case-radiators"
+          },
+          {
+            "title": "AIRAID: 2017 Camaro ZL1 specs (11 heat exchangers, cooling package)",
+            "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-and-more"
+          }
+        ],
+        "dimensions": "Overall 724 W x 533 H x ~60 mm deep incl. tanks (28.5 x 21 in); core 574 x 518 mm; 1.33-1.5 in hose necks",
+        "features": "Cross-flow aluminium tube/fin core, vertical side tanks L/R (plastic OE, welded aluminium race), inlet neck top of driver tank, outlet bottom of passenger tank, top/bottom locating pins in rubber isolators",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.cooling.radiator-isolators",
+      "name": "Radiator rubber isolators / mounting pins",
+      "qty": 4,
+      "description": "Rubber grommets/cushions the radiator pins sit in, top and bottom. Prevent vibration cracking of tank seams.",
+      "location": "Upper and lower radiator support, both sides.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.coolers-auxiliary.cooler-stack-frame"
+      ],
+      "factory": {
+        "name": "GM radiator upper/lower insulators"
+      },
+      "raceOptions": [
+        {
+          "name": "Race radiator rubber grommet pins",
+          "brand": "PWR / C&R"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Replace if hardened or cracked at every rebuild."
+      ],
+      "inspection": [
+        "Check for cracking, radiator movement"
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "mount"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.645,
+            0.762,
+            0.3
+          ],
+          "size": [
+            0.03,
+            0.025,
+            0.03
+          ],
+          "axis": "y",
+          "instances": [
+            [
+              -0.645,
+              0.762,
+              0.3
+            ],
+            [
+              -0.645,
+              0.762,
+              -0.3
+            ],
+            [
+              -0.645,
+              0.198,
+              0.3
+            ],
+            [
+              -0.645,
+              0.198,
+              -0.3
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cold Case LMC112A 2016-20 Camaro V8/ZL1 aluminum radiator (overall 28.5 x 21 x 3 in; core 22.6 x 20.4 in)",
+            "url": "https://completewebsol.com/product/2016-20-camaro-aluminum-radiator-cold-case-radiators"
+          }
+        ],
+        "dimensions": "~30 mm OD x 25 mm rubber grommets on 10-12 mm radiator pins",
+        "features": "Black rubber stepped grommet; one each top/bottom corner",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.fan-assembly",
+      "name": "Electric cooling fan(s)",
+      "qty": 2,
+      "description": "Electric pusher/puller fans for low-speed and pit-lane cooling. At racing speed the ram air does the work; fans should be PWM-controlled by the ECU/PDM and the shroud should have flap valves or open area so it does not block high-speed airflow.",
+      "location": "Behind the radiator, mounted to the shroud.",
+      "connectsTo": [
+        "engine-support.cooling.fan-shroud",
+        "engine-support.cooling.fan-controller",
+        "electrical.pdm.fan-output"
+      ],
+      "factory": {
+        "name": "GM ZL1 brushless electric cooling fan (in shroud)",
+        "notes": "Fan quantity/size differs by trim; verify on your car."
+      },
+      "raceOptions": [
+        {
+          "name": "SPAL brushless 12-14 in pull fans",
+          "brand": "SPAL"
+        },
+        {
+          "name": "PWR/C&R integrated shroud + fan",
+          "brand": "PWR / C&R"
+        }
+      ],
+      "specs": {
+        "Draw": "20-40 A each (brushless, PWM) typical"
+      },
+      "hardware": [
+        {
+          "item": "Fan-to-shroud screws",
+          "qty": 4,
+          "spec": "M6 x 1.0",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fuse/feeder per PDM channel rating; use a dedicated relay or PDM channel per fan."
+      ],
+      "inspection": [
+        "Run fan test at each event, check blades for debris strike"
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "fan",
+        "electrical-load"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.572,
+            0.48,
+            0
+          ],
+          "size": [
+            0.085,
+            0.483,
+            0.483
+          ],
+          "axis": "x"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Dorman 621-984 Camaro 2017-20 single brushless fan + shroud (x-ref GM 84100128) — photo",
+            "url": "https://d3ce29hfm30fmx.cloudfront.net/fit-in/800x800/filters:quality(85)/live/media/RB/RB_621984_FRO.JPG"
+          },
+          {
+            "title": "Dorman 621-984 fan assembly — rear view",
+            "url": "https://d3ce29hfm30fmx.cloudfront.net/fit-in/144x144/filters:quality(85)/live/media/RB/RB_621984_BAC.JPG"
+          },
+          {
+            "title": "Dorman 621-984 engine cooling fan assembly (Camaro 2017-20, brushless, plastic shroud)",
+            "url": "https://www.partcatalog.com/products/dorman-621-984-engine-cooling-fan-assembly"
+          },
+          {
+            "title": "Forum: 2016+ Camaro SS fan is a 19 in 850 W brushless unit",
+            "url": "https://www.forabodiesonly.com/mopar/threads/figured-id-share-my-garbage.496729/post-1974442554"
+          }
+        ],
+        "dimensions": "Single 19 in (483 mm) 7-blade fan, brushless 850 W motor ~140 mm dia, ~85 mm deep",
+        "features": "Black swept blades with outer tip ring, brushless motor can behind hub with 3-terminal connector, held by stator struts moulded into shroud",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.cooling.fan-shroud",
+      "name": "Fan shroud",
+      "qty": 1,
+      "description": "Sheet aluminum or composite shroud that ducts fan suction across the whole core; race shrouds include rubber flap doors that open at speed.",
+      "location": "Back face of the radiator.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.cooling.fan-assembly"
+      ],
+      "factory": {
+        "name": "GM ZL1 fan shroud"
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum shroud with flapper doors",
+          "brand": "PWR / C&R / fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Shroud-to-radiator bolts",
+          "qty": 4,
+          "spec": "M6 or 1/4-20",
+          "grade": "8.8",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep >= 25 mm between fan blades and engine/water pump pulley."
+      ],
+      "inspection": [
+        "Check for cracks at mounting tabs"
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "shroud"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.605,
+            0.48,
+            0
+          ],
+          "size": [
+            0.04,
+            0.5,
+            0.62
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Dorman 621-984 Camaro 2017-20 single brushless fan + shroud (x-ref GM 84100128) — photo",
+            "url": "https://d3ce29hfm30fmx.cloudfront.net/fit-in/800x800/filters:quality(85)/live/media/RB/RB_621984_FRO.JPG"
+          },
+          {
+            "title": "Dorman 621-984 engine cooling fan assembly (Camaro 2017-20, brushless, plastic shroud)",
+            "url": "https://www.partcatalog.com/products/dorman-621-984-engine-cooling-fan-assembly"
+          }
+        ],
+        "dimensions": "~620 W x 500 H x 40 mm plate + venturi ring (covers the core)",
+        "features": "Black plastic full shroud, round venturi opening for single fan, rubber flapper doors, clips to radiator tank tops",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.fan-controller",
+      "name": "Fan control (ECU/PDM output + optional standalone controller)",
+      "qty": 1,
+      "description": "Commands fan speed from coolant temperature. On a race car this is usually a PWM PDM channel (e.g., MoTeC PDM / ECUMaster PMU) commanded by the ECU, with a manual override switch on the dash.",
+      "location": "Logic in PDM; optional controller module on the radiator support.",
+      "connectsTo": [
+        "engine-support.cooling.fan-assembly",
+        "electrical.pdm.pdm",
+        "engine.ecu.ecm"
+      ],
+      "factory": {
+        "name": "GM ECM-commanded fan control module"
+      },
+      "raceOptions": [
+        {
+          "name": "PDM PWM output",
+          "brand": "MoTeC / ECUMaster / AiM"
+        }
+      ],
+      "specs": {
+        "Typical strategy": "On ~95 °C, full ~102 °C, off above ~60 mph (programmable)"
+      },
+      "hardware": [
+        {
+          "item": "Module mounting screws",
+          "qty": 2,
+          "spec": "M5/M6",
+          "grade": "8.8",
+          "torque": "40–60 in-lb (4.5–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Electrical team owns wiring; this entry documents the cooling logic."
+      ],
+      "inspection": [
+        "Verify fan-on temperature in data each event"
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "control",
+        "electrical"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.572,
+            0.7,
+            -0.27
+          ],
+          "size": [
+            0.03,
+            0.08,
+            0.1
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Dorman 621-984 engine cooling fan assembly (Camaro 2017-20, brushless, plastic shroud)",
+            "url": "https://www.partcatalog.com/products/dorman-621-984-engine-cooling-fan-assembly"
+          }
+        ],
+        "dimensions": "~100 x 80 x 30 mm module",
+        "features": "Black finned module with connector, on the shroud back (or PDM output)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.upper-hose",
+      "name": "Upper radiator hose (engine outlet to radiator inlet)",
+      "qty": 1,
+      "description": "Hot coolant from the engine water outlet to the radiator inlet tank. Race builds use 4-ply silicone or aluminum hard pipe with short silicone couplers (or -20 AN).",
+      "location": "Front top of engine to upper radiator tank.",
+      "connectsTo": [
+        "engine-support.cooling.water-outlet",
+        "engine-support.cooling.radiator"
+      ],
+      "factory": {
+        "name": "GM ZL1 molded rubber upper hose with quick-connect"
+      },
+      "raceOptions": [
+        {
+          "name": "Silicone hose kit (4-ply)",
+          "brand": "Samco / Mishimoto"
+        },
+        {
+          "name": "1.5 in aluminum hard pipe + silicone joiners",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "ID": "~1.5 in (verify)"
+      },
+      "hardware": [
+        {
+          "item": "T-bolt / constant-torque hose clamp (1.5 in)",
+          "qty": 2,
+          "spec": "Stainless T-bolt clamp sized for 1.5 in hose OD",
+          "grade": "300-series SS",
+          "torque": "45–60 in-lb (5.1–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug until silicone just bulges; re-torque after first heat cycle. OEM spring clamps are also acceptable on rubber hose.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Avoid sharp bends; support long hard-pipe runs with cushioned clamps."
+      ],
+      "inspection": [
+        "Squeeze test for softness; check clamps after heat cycle"
+      ],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "hose",
+        "coolant"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.37,
+              0.65,
+              0.06
+            ],
+            [
+              -0.45,
+              0.67,
+              0.13
+            ],
+            [
+              -0.54,
+              0.67,
+              0.24
+            ],
+            [
+              -0.6,
+              0.66,
+              0.31
+            ],
+            [
+              -0.615,
+              0.66,
+              0.325
+            ]
+          ],
+          "radius": 0.021
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cold Case LMC112A 2016-20 Camaro V8/ZL1 aluminum radiator (overall 28.5 x 21 x 3 in; core 22.6 x 20.4 in)",
+            "url": "https://completewebsol.com/product/2016-20-camaro-aluminum-radiator-cold-case-radiators"
+          },
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "~1.5 in ID / 42 mm OD molded hose",
+        "features": "Black molded EPDM hose, GM quick-connect at engine outlet, spring clamp at radiator neck",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.lower-hose",
+      "name": "Lower radiator hose (radiator outlet to water pump inlet/thermostat)",
+      "qty": 1,
+      "description": "Cooled coolant from the radiator outlet tank to the thermostat housing on the water pump inlet. Must resist collapse under pump suction—use a hose with an internal spring or hard pipe.",
+      "location": "Lower right of radiator to front lower of engine.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.cooling.thermostat-housing",
+        "engine-support.cooling.makeup-line"
+      ],
+      "factory": {
+        "name": "GM ZL1 lower hose with quick-connect"
+      },
+      "raceOptions": [
+        {
+          "name": "Silicone hose with anti-collapse spring",
+          "brand": "Samco / Mishimoto"
+        }
+      ],
+      "specs": {
+        "ID": "~1.75 in (verify)"
+      },
+      "hardware": [
+        {
+          "item": "T-bolt / constant-torque hose clamp (1.75 in)",
+          "qty": 2,
+          "spec": "Stainless T-bolt clamp sized for 1.75 in hose OD",
+          "grade": "300-series SS",
+          "torque": "45–60 in-lb (5.1–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug until silicone just bulges; re-torque after first heat cycle. OEM spring clamps are also acceptable on rubber hose.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep away from dry-sump belt and headers; heat sleeve if within 75 mm of exhaust."
+      ],
+      "inspection": [
+        "Check for collapse at high rpm (look for overheating at speed)"
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "hose",
+        "coolant"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.6,
+              0.28,
+              -0.33
+            ],
+            [
+              -0.52,
+              0.28,
+              -0.3
+            ],
+            [
+              -0.45,
+              0.33,
+              -0.22
+            ],
+            [
+              -0.41,
+              0.4,
+              -0.13
+            ],
+            [
+              -0.4,
+              0.42,
+              -0.1
+            ]
+          ],
+          "radius": 0.023
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cold Case LMC112A 2016-20 Camaro V8/ZL1 aluminum radiator (overall 28.5 x 21 x 3 in; core 22.6 x 20.4 in)",
+            "url": "https://completewebsol.com/product/2016-20-camaro-aluminum-radiator-cold-case-radiators"
+          },
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "~1.75 in ID / 46 mm OD molded hose",
+        "features": "Black molded hose, quick-connect at thermostat housing",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.water-pump-interface",
+      "name": "Water pump gasket / seals (pump owned by engine team)",
+      "qty": 1,
+      "description": "The Gen V LT mechanical water pump bolts to the front of the block and is driven by the accessory belt (engine system). This entry covers the coolant-side interface: pump-to-block gasket/O-rings and the hose connections the cooling team plumbs to.",
+      "location": "Front of engine, centered.",
+      "connectsTo": [
+        "engine.front-accessory.water-pump",
+        "engine-support.cooling.thermostat-housing",
+        "engine-support.cooling.water-outlet"
+      ],
+      "factory": {
+        "name": "GM Gen V LT water pump with housing (Camaro/CTS-V pattern)",
+        "notes": "Camaro/CTS-V pump differs from Corvette and truck pumps (spacer kits exist to adapt)."
+      },
+      "raceOptions": [
+        {
+          "name": "Electric water pump conversion (e.g., Davies Craig/Meziere) with pump delete",
+          "brand": "Meziere / Davies Craig",
+          "notes": "Only if engine builder approves; GM pump is generally adequate at race rpm."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Water pump to block bolts",
+          "qty": 6,
+          "spec": "M8 x 1.25 flange bolt (count approx.)",
+          "grade": "GM OE",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Michigan Motorsports lists water pump-to-block 18 ft-lb; Summit lists \"water pump bolts\" 89 in-lb (likely housing/cover screws). Confirm with GM SI for your pump.",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Water pump impeller/housing cover screws",
+          "qty": 6,
+          "spec": "M6 screws",
+          "grade": "GM OE",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Summit/MM list 88-89 in-lb.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Use new gaskets/O-rings, clean sealing faces, no RTV unless specified."
+      ],
+      "inspection": [
+        "Check weep hole for coolant"
+      ],
+      "buildPhase": 5,
+      "installOrder": 8,
+      "tags": [
+        "water-pump",
+        "gasket"
+      ],
+      "sources": [
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports LT torque",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "torus",
+          "pos": [
+            -0.37,
+            0.52,
+            0
+          ],
+          "size": [
+            0.01,
+            0.13,
+            0.13
+          ],
+          "axis": "x",
+          "color": "#444"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "~130 mm gasket/O-ring ring at pump housing",
+        "features": "Rubber O-ring seals between pump and front cover",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.thermostat",
+      "name": "Engine thermostat",
+      "qty": 1,
+      "description": "Controls flow through the radiator. Vendors state the stock Gen V LT1/LT4 unit is rated 212 °F (100 °C); race engines commonly use a 160-180 °F unit to keep the engine cooler and give more knock margin with the supercharger.",
+      "location": "In the thermostat housing on the water pump inlet (lower hose side).",
+      "connectsTo": [
+        "engine-support.cooling.thermostat-housing",
+        "engine-support.cooling.lower-hose"
+      ],
+      "factory": {
+        "name": "GM Gen V LT thermostat (vendor-stated 212 °F / 100 °C)",
+        "notes": "Verify with GM SI."
+      },
+      "raceOptions": [
+        {
+          "name": "Lingenfelter Gen V DI V8/V6 160 °F thermostat with housing",
+          "brand": "Lingenfelter",
+          "partNumber": "L310200014",
+          "notes": "Direct fit, listed for Camaro ZL1 2017-18.",
+          "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+        },
+        {
+          "name": "Mishimoto 160 °F racing thermostat (LT1/LT4 2016+)",
+          "brand": "Mishimoto",
+          "url": "https://onefastshop.com/products/mishimoto-160f-racing-thermostat-camaro-corvette-6-2l-lt1-2016"
+        },
+        {
+          "name": "Restrictor plate (no thermostat)",
+          "brand": "Fabricated",
+          "notes": "Not recommended—use a low-temp stat for controlled warm-up."
+        }
+      ],
+      "specs": {
+        "Opening": "160-180 °F race; 212 °F stock (vendor-stated)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Install with seal/O-ring supplied; ECU tune must reflect lower operating temp (fan, fueling, DTC thresholds)."
+      ],
+      "inspection": [
+        "Data-log coolant temp warm-up curve each event"
+      ],
+      "buildPhase": 7,
+      "installOrder": 9,
+      "tags": [
+        "thermostat"
+      ],
+      "sources": [
+        {
+          "title": "Lingenfelter 160 °F Gen V thermostat",
+          "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+        },
+        {
+          "title": "Mishimoto 160 °F LT thermostat",
+          "url": "https://onefastshop.com/products/mishimoto-160f-racing-thermostat-camaro-corvette-6-2l-lt1-2016"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.395,
+            0.42,
+            -0.1
+          ],
+          "size": [
+            0.03,
+            0.065,
+            0.065
+          ],
+          "axis": "x",
+          "color": "#aa8"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lingenfelter Gen V 160 F thermostat & housing",
+            "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+          },
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "~65 mm flange, 30 mm deep",
+        "features": "Brass/steel flange with wax pellet and spring, jiggle valve",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.thermostat-housing",
+      "name": "Thermostat housing / water inlet",
+      "qty": 1,
+      "description": "Inlet neck on the water pump that holds the thermostat and receives the lower hose (and the surge-tank make-up line).",
+      "location": "Lower front of engine on the water pump.",
+      "connectsTo": [
+        "engine-support.cooling.thermostat",
+        "engine-support.cooling.lower-hose",
+        "engine-support.cooling.makeup-line",
+        "engine-support.cooling.water-pump-interface"
+      ],
+      "factory": {
+        "name": "GM Gen V LT water inlet/thermostat housing"
+      },
+      "raceOptions": [
+        {
+          "name": "Lingenfelter 160 °F thermostat with housing",
+          "brand": "Lingenfelter",
+          "partNumber": "L310200014",
+          "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Water inlet / thermostat housing bolts",
+          "qty": 3,
+          "spec": "M6 x 1.0 flange bolt",
+          "grade": "GM OE",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Summit lists water outlet bolts 89 in-lb; housing value assumed same—verify (MM lists 11 lb-ft for thermostat housing in an LS-era section).",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Torque evenly in two passes to avoid cracking the housing flange."
+      ],
+      "inspection": [
+        "Leak check after heat cycles"
+      ],
+      "buildPhase": 7,
+      "installOrder": 10,
+      "tags": [
+        "housing"
+      ],
+      "sources": [
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.4,
+            0.42,
+            -0.1
+          ],
+          "size": [
+            0.06,
+            0.08,
+            0.08
+          ],
+          "color": "#777"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lingenfelter Gen V 160 F thermostat & housing",
+            "url": "https://lingenfelter.com/gm-gen-v-v8-v6-160-degree-thermostat-housing-2014-2018"
+          }
+        ],
+        "dimensions": "~80 x 80 x 60 mm cast housing with ~45 mm hose neck",
+        "features": "Cast aluminium inlet housing, 2 bolts, hose bead neck",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.water-outlet",
+      "name": "Engine water outlet (upper hose neck)",
+      "qty": 1,
+      "description": "Outlet neck on the front of the engine coolant circuit to which the upper radiator hose attaches. Good location for a coolant temperature/pressure sensor boss.",
+      "location": "Front top of the water pump housing.",
+      "connectsTo": [
+        "engine-support.cooling.upper-hose",
+        "engine-support.cooling.coolant-sensors",
+        "engine-support.cooling.water-pump-interface"
+      ],
+      "factory": {
+        "name": "GM Gen V LT water outlet"
+      },
+      "raceOptions": [
+        {
+          "name": "Billet water outlet with -AN/sensor ports",
+          "brand": "ICT Billet / fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Water outlet bolts",
+          "qty": 2,
+          "spec": "M6 x 1.0 flange bolt",
+          "grade": "GM OE",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "New O-ring/gasket each removal."
+      ],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 11,
+      "tags": [
+        "outlet"
+      ],
+      "sources": [
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.36,
+            0.64,
+            0.06
+          ],
+          "size": [
+            0.06,
+            0.05,
+            0.05
+          ],
+          "axis": "x",
+          "color": "#777"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "~38 mm neck, 60 mm long",
+        "features": "Cast neck with hose bead and sensor boss",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.surge-tank",
+      "name": "Coolant surge / expansion (swirl) tank",
+      "qty": 1,
+      "description": "Pressurized degas tank that is the highest point of the system. Receives air-laden coolant from the radiator vent and engine steam line, separates the air, and feeds solid coolant back to the pump inlet via the make-up line. Race builds use a fabricated aluminum swirl-pot style tank.",
+      "location": "Passenger side of the engine bay, forward of the right strut tower and above the engine (must be the highest point of the coolant circuit).",
+      "connectsTo": [
+        "engine-support.cooling.pressure-cap",
+        "engine-support.cooling.degas-line",
+        "engine-support.cooling.steam-vent-line",
+        "engine-support.cooling.makeup-line"
+      ],
+      "factory": {
+        "name": "GM Gen 6 Camaro coolant surge tank (plastic)",
+        "notes": "Factory cap rated ~20 psi (aftermarket listing for 2016-2020 Camaro)."
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated aluminum expansion tank, 1.5-2 qt with -10 AN inlets and 3/4 in outlet",
+          "brand": "Moroso / Mishimoto / fabricated"
+        }
+      ],
+      "specs": {
+        "Capacity": "1.5-2.5 qt",
+        "Ports": "2 x -6/-8 AN vent inlets, 1 x -12/3/4 in outlet"
+      },
+      "hardware": [
+        {
+          "item": "Tank mounting bolts",
+          "qty": 3,
+          "spec": "M6 into rivnuts with rubber isolators",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Vent inlet hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        },
+        {
+          "item": "Outlet fitting",
+          "qty": 1,
+          "spec": "-12 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "35–40 ft-lb (47–54 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Mount above the radiator cap/highest engine point.",
+        "Fill to the cold line only—leave expansion space."
+      ],
+      "inspection": [
+        "Check cold level before each session",
+        "Check cap seal"
+      ],
+      "buildPhase": 7,
+      "installOrder": 12,
+      "tags": [
+        "surge-tank",
+        "expansion"
+      ],
+      "sources": [
+        {
+          "title": "20 psi cap listing",
+          "url": "https://www.americanmuscle.com/camaro-engine-coolant-reservoir-cap-t62.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.18,
+            0.72,
+            -0.42
+          ],
+          "size": [
+            0.22,
+            0.14,
+            0.12
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 22948113 coolant surge tank (Camaro/CTS/ATS 2013-24)",
+            "url": "https://www.fridayparts.com/coolant-reservoir-radiator-surge-tank-22948113-for-chevrolet-camaro-cadillac-cts-ats-2013-2024"
+          },
+          {
+            "title": "Mishimoto MMRT-CAM-16 aluminum expansion tank, 2016+ Camaro (two-chamber)",
+            "url": "https://www.warrantykillerperformance.com/products/mishimoto-2016-chevrolet-camaro-aluminum-coolant-overflow-expansion-tank-black"
+          }
+        ],
+        "dimensions": "~220 x 140 x 120 mm",
+        "features": "Translucent two-chamber plastic tank (GM 22948113) / welded aluminium race tank; pressure cap neck on top, 2 small vent nipples, 3/4 in outlet bottom, mounting tabs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.pressure-cap",
+      "name": "Pressure cap",
+      "qty": 1,
+      "description": "Sets system pressure (raises boiling point). Factory Camaro surge-tank caps are listed at ~20 psi.",
+      "location": "Top of the surge tank.",
+      "connectsTo": [
+        "engine-support.cooling.surge-tank"
+      ],
+      "factory": {
+        "name": "GM surge tank cap (~20 psi per aftermarket listing)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Race cap matched to tank neck (20-22 psi)",
+          "brand": "Stant / Moroso"
+        }
+      ],
+      "specs": {
+        "Rating": "~20 psi (138 kPa)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Never open hot. Tether the cap for scrutineering if required."
+      ],
+      "inspection": [
+        "Pressure-test cap annually"
+      ],
+      "buildPhase": 7,
+      "installOrder": 13,
+      "tags": [
+        "cap"
+      ],
+      "sources": [
+        {
+          "title": "Camaro reservoir cap 20 psi",
+          "url": "https://www.americanmuscle.com/camaro-engine-coolant-reservoir-cap-t62.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.22,
+            0.805,
+            -0.42
+          ],
+          "size": [
+            0.06,
+            0.03,
+            0.06
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "AmericanMuscle: Camaro coolant reservoir cap",
+            "url": "https://www.americanmuscle.com/camaro-engine-coolant-reservoir-cap-t62.html"
+          }
+        ],
+        "dimensions": "~60 mm dia x 30 mm",
+        "features": "Ribbed black cap with warning label, 20 psi",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.degas-line",
+      "name": "Radiator degas/vent line (-6 AN)",
+      "qty": 1,
+      "description": "Small line from the radiator upper tank vent to the surge tank so trapped air is continually purged.",
+      "location": "Top of radiator to surge tank.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.cooling.surge-tank"
+      ],
+      "raceOptions": [
+        {
+          "name": "-6 AN push-lock or braided hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-6 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Line should rise continuously to the tank (no dips)."
+      ],
+      "inspection": [
+        "Check for kinks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 14,
+      "tags": [
+        "vent",
+        "AN-6"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.645,
+              0.775,
+              0.3
+            ],
+            [
+              -0.6,
+              0.8,
+              0.15
+            ],
+            [
+              -0.52,
+              0.8,
+              -0.05
+            ],
+            [
+              -0.4,
+              0.8,
+              -0.25
+            ],
+            [
+              -0.25,
+              0.8,
+              -0.38
+            ],
+            [
+              -0.15,
+              0.795,
+              -0.41
+            ]
+          ],
+          "radius": 0.007
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-6 AN (0.547 in OD)",
+        "features": "Braided -6 hose with AN ends from radiator top to surge tank",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.cooling.steam-vent-line",
+      "name": "Engine steam/air bleed line (-6 AN)",
+      "qty": 1,
+      "description": "Bleed from the high point of the engine coolant passages (rear of heads / coolant manifold) to the surge tank, preventing steam pockets in the heads.",
+      "location": "Rear top of engine (coolant manifold) to surge tank.",
+      "connectsTo": [
+        "engine.cooling-passages.coolant-manifold",
+        "engine-support.cooling.surge-tank"
+      ],
+      "factory": {
+        "name": "GM Gen V engine coolant manifold vent / bleed",
+        "notes": "Engine coolant manifold bolts 18 ft-lb (Summit)."
+      },
+      "raceOptions": [
+        {
+          "name": "-6 AN line with restrictor (~0.060-0.080 in)",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "Size": "-4 to -6 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        },
+        {
+          "item": "Engine coolant manifold bolts (reference)",
+          "qty": 4,
+          "spec": "M6/M8",
+          "grade": "GM OE",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Rise continuously to the tank."
+      ],
+      "inspection": [
+        "Leak check at manifold"
+      ],
+      "buildPhase": 7,
+      "installOrder": 15,
+      "tags": [
+        "vent",
+        "AN-6"
+      ],
+      "sources": [
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.33,
+              0.66,
+              -0.05
+            ],
+            [
+              0.37,
+              0.71,
+              -0.15
+            ],
+            [
+              0.3,
+              0.74,
+              -0.3
+            ],
+            [
+              0.1,
+              0.8,
+              -0.37
+            ],
+            [
+              -0.08,
+              0.81,
+              -0.41
+            ],
+            [
+              -0.12,
+              0.795,
+              -0.42
+            ]
+          ],
+          "radius": 0.007
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "-6 AN (0.547 in OD)",
+        "features": "Braided -6 bleed line with restrictor to surge tank",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.cooling.makeup-line",
+      "name": "Surge tank make-up/fill line (3/4 in or -12 AN)",
+      "qty": 1,
+      "description": "Solid (de-aerated) coolant from the bottom of the surge tank to the pump inlet side (thermostat housing / lower hose tee), keeping the pump inlet flooded and pressurized.",
+      "location": "Surge tank bottom to lower hose/thermostat housing.",
+      "connectsTo": [
+        "engine-support.cooling.surge-tank",
+        "engine-support.cooling.lower-hose",
+        "engine-support.cooling.thermostat-housing"
+      ],
+      "raceOptions": [
+        {
+          "name": "3/4 in silicone or -12 AN with weld-on bung in lower hose pipe",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "Size": "3/4 in / -12 AN"
+      },
+      "hardware": [
+        {
+          "item": "T-bolt / constant-torque hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Stainless T-bolt clamp sized for 3/4 in hose OD",
+          "grade": "300-series SS",
+          "torque": "45–60 in-lb (5.1–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug until silicone just bulges; re-torque after first heat cycle. OEM spring clamps are also acceptable on rubber hose.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Tee into the suction side of the pump, never into the radiator inlet."
+      ],
+      "inspection": [
+        "Check for kinks"
+      ],
+      "buildPhase": 7,
+      "installOrder": 16,
+      "tags": [
+        "hose"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.2,
+              0.65,
+              -0.42
+            ],
+            [
+              -0.26,
+              0.55,
+              -0.38
+            ],
+            [
+              -0.34,
+              0.45,
+              -0.26
+            ],
+            [
+              -0.4,
+              0.43,
+              -0.15
+            ]
+          ],
+          "radius": 0.0118
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD) / 3/4 in",
+        "features": "Make-up line from tank bottom into the lower hose / pump inlet",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.cooling.heater-bypass",
+      "name": "Heater core delete / bypass loop",
+      "qty": 1,
+      "description": "The heater core is deleted on a race car (or retained for windshield defog where rules require). The two heater ports are joined with a short loop so the engine still has its designed bypass flow during warm-up, or capped if the engine builder approves.",
+      "location": "Rear of engine near the firewall.",
+      "connectsTo": [
+        "engine.cooling-passages.heater-outlet",
+        "engine.cooling-passages.heater-return",
+        "interior.hvac.heater-core"
+      ],
+      "factory": {
+        "name": "GM heater hoses to HVAC module (removed)"
+      },
+      "raceOptions": [
+        {
+          "name": "5/8-3/4 in hose loop or AN loop",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "T-bolt / constant-torque hose clamp (5/8 in)",
+          "qty": 2,
+          "spec": "Stainless T-bolt clamp sized for 5/8 in hose OD",
+          "grade": "300-series SS",
+          "torque": "45–60 in-lb (5.1–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Snug until silicone just bulges; re-torque after first heat cycle. OEM spring clamps are also acceptable on rubber hose.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Some rules require defrost—check class rules before deleting HVAC.",
+        "Cap the firewall holes with riveted aluminum blanks (fire-wall integrity)."
+      ],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 17,
+      "tags": [
+        "delete",
+        "heater"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.28,
+              0.665,
+              -0.14
+            ],
+            [
+              -0.25,
+              0.69,
+              -0.17
+            ],
+            [
+              -0.22,
+              0.68,
+              -0.12
+            ],
+            [
+              -0.25,
+              0.665,
+              -0.08
+            ]
+          ],
+          "radius": 0.009
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "5/8-3/4 in hose loop",
+        "features": "Short rubber loop joining heater supply/return ports",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.coolant-sensors",
+      "name": "Coolant temperature & pressure sensors (data/ECU)",
+      "qty": 2,
+      "description": "ECU coolant temp sensor (factory) plus race data coolant temperature and pressure sensors. Coolant pressure logging is the earliest warning of a head gasket failure.",
+      "location": "Water outlet / engine coolant passages.",
+      "connectsTo": [
+        "engine-support.cooling.water-outlet",
+        "electrical.sensors.coolant-temp-sensor",
+        "electrical.sensors.coolant-pressure-sensor"
+      ],
+      "factory": {
+        "name": "GM ECT sensor"
+      },
+      "raceOptions": [
+        {
+          "name": "0-50 psi sealed sensor + NTC temp sensor (1/8 NPT)",
+          "brand": "Bosch / Motec / AiM"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "1/8 NPT sensors",
+          "qty": 2,
+          "spec": "1/8-27 NPT",
+          "grade": "Brass",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste sealant",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Place pressure sensor where it is not in an air pocket."
+      ],
+      "inspection": [
+        "Compare logged pressure to cap rating"
+      ],
+      "buildPhase": 8,
+      "installOrder": 18,
+      "tags": [
+        "sensor"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.34,
+            0.67,
+            0.08
+          ],
+          "size": [
+            0.02,
+            0.04,
+            0.02
+          ],
+          "axis": "y",
+          "color": "#c80"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          }
+        ],
+        "dimensions": "1/8 NPT sensor ~20 x 40 mm",
+        "features": "Brass hex body with plastic connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.radiator-ducting",
+      "name": "Radiator / heat-exchanger inlet ducting and seals",
+      "qty": 1,
+      "description": "Sealed ducting from the grille/splitter opening to the face of the stack, with foam seals around the cores so no air bypasses. Exit air ideally vented through the hood (aero team) to reduce front lift and underhood pressure.",
+      "location": "Between front fascia openings and the heat-exchanger stack.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "engine-support.intercooler-loop.heat-exchanger",
+        "aero.front-fascia.grille",
+        "aero.hood.extractor-vent"
+      ],
+      "raceOptions": [
+        {
+          "name": "0.040 in aluminum duct with closed-cell foam seals",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivets / rivnuts",
+          "qty": 20,
+          "spec": "1/8 in or 5/32 in aluminum pop rivets / M5 rivnuts",
+          "grade": "Aluminum",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Build duct after final radiator and splitter positions are fixed."
+      ],
+      "inspection": [
+        "Check foam seals are intact and debris screen clear"
+      ],
+      "buildPhase": 10,
+      "installOrder": 19,
+      "tags": [
+        "ducting",
+        "aero"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.77,
+            0.765,
+            0
+          ],
+          "size": [
+            0.14,
+            0.006,
+            0.7
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.77,
+            0.2,
+            0
+          ],
+          "size": [
+            0.14,
+            0.006,
+            0.7
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.77,
+            0.48,
+            0.35
+          ],
+          "size": [
+            0.14,
+            0.57,
+            0.006
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "CSF/GMS 8066 Camaro ZL1 Stage I oil cooler + impact frame package",
+            "url": "https://csfrace.com/products/gms8066-gms-camaro-zl1-stage-i-oil-cooler-impact-frame-package"
+          }
+        ],
+        "dimensions": "0.040 in (1 mm) aluminium panels, ~140 mm deep, sealing fascia opening to the core",
+        "features": "Riveted aluminium duct box with foam seals",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.radiator-drain",
+      "name": "Radiator drain petcock / -AN drain",
+      "qty": 1,
+      "description": "Drain at the lowest point of the radiator for coolant changes and cold-weather storage.",
+      "location": "Bottom tank of the radiator.",
+      "connectsTo": [
+        "engine-support.cooling.radiator"
+      ],
+      "raceOptions": [
+        {
+          "name": "-6 ORB drain plug",
+          "brand": "Earl's"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Drain plug",
+          "qty": 1,
+          "spec": "-6 ORB plug or OE petcock",
+          "grade": "Aluminum/plastic",
+          "torque": "10–14 ft-lb (14–19 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Safety-wire drain plug on race cars."
+      ],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 20,
+      "tags": [
+        "drain"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.645,
+            0.2,
+            -0.33
+          ],
+          "size": [
+            0.02,
+            0.03,
+            0.02
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cold Case LMC112A 2016-20 Camaro V8/ZL1 aluminum radiator (overall 28.5 x 21 x 3 in; core 22.6 x 20.4 in)",
+            "url": "https://completewebsol.com/product/2016-20-camaro-aluminum-radiator-cold-case-radiators"
+          }
+        ],
+        "dimensions": "-6 ORB / petcock ~20 mm",
+        "features": "Plastic wing petcock or -6 ORB plug, bottom of passenger tank",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.cooling.engine-coolant",
+      "name": "Engine coolant (fill)",
+      "qty": 1,
+      "description": "Factory fill is DEX-COOL 50/50. Most road-race sanctioning bodies/tracks prohibit glycol antifreeze on track (slippery spill); use distilled water with a surfactant/corrosion inhibitor (e.g., Red Line WaterWetter) unless rules allow otherwise.",
+      "location": "Radiator, engine, surge tank.",
+      "connectsTo": [
+        "engine-support.cooling.surge-tank"
+      ],
+      "factory": {
+        "name": "ACDelco DEX-COOL 50/50",
+        "notes": "LT4 engine cooling capacity ~11 qt (10.4 L) per forum/AMSOIL compilations—verify with owner manual."
+      },
+      "raceOptions": [
+        {
+          "name": "Distilled water + Red Line WaterWetter",
+          "brand": "Red Line"
+        }
+      ],
+      "specs": {
+        "Capacity (factory engine circuit)": "~11 qt / 10.4 L (secondary sources)"
+      },
+      "hardware": [],
+      "fluids": [
+        {
+          "name": "Engine coolant",
+          "spec": "DEX-COOL 50/50 (street) or distilled water + surfactant (track, per rules)",
+          "capacity": "~11 qt factory; race radiator may differ"
+        }
+      ],
+      "installNotes": [
+        "Vacuum-fill (Airlift-style) to eliminate air, then run with cap off/surge tank open until thermostat opens."
+      ],
+      "inspection": [
+        "Check level cold every session; replace water/WaterWetter each season"
+      ],
+      "buildPhase": 11,
+      "installOrder": 21,
+      "tags": [
+        "fluid"
+      ],
+      "sources": [
+        {
+          "title": "ZL1 fluid list (camaro6)",
+          "url": "https://www.camaro6.com/forums/showthread.php?t=486691"
+        }
+      ]
+    }
+  ]
+}

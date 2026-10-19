@@ -1,0 +1,516 @@
+{
+  "id": "brakes.parking-brake",
+  "system": "brakes",
+  "name": "Parking Brake",
+  "description": "Gen 6 Camaro uses an electronic parking brake (EPB). Cars with single-piston rear calipers (RPO J71) have a motor on each caliper; cars with the fixed Brembo rears such as ZL1 (RPO J77) use an electric cable-puller module pulling cables to drum-in-hat shoes inside the rear rotors. Race: keep (some rules/transport needs), convert to a hydraulic handbrake, or delete.",
+  "components": [
+    {
+      "id": "brakes.parking-brake.epb-actuator-module",
+      "name": "EPB cable-puller actuator / control module (J77)",
+      "qty": 1,
+      "description": "Electric motor-gear unit with integral control that tensions the park-brake cables when the console switch is pulled or the car is shut off. A scan tool is required to put it into service (released) mode – GM explicitly says do not force it with jumpers, battery disconnects or mechanical methods.",
+      "location": "Underbody ahead of the rear subframe (approximate – verify on donor), x≈2.35, y≈0.24, z≈0.",
+      "connectsTo": [
+        "brakes.parking-brake.intermediate-cable",
+        "brakes.parking-brake.rear-cables",
+        "brakes.parking-brake.epb-switch",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM electronic parking brake control module with cable puller (RPO J77)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete module and cables (park brake not required by many road-race rule sets – check class rules)",
+          "brand": "n/a",
+          "notes": "Release the system in service mode BEFORE unplugging so shoes are backed off."
+        },
+        {
+          "name": "Hydraulic handbrake",
+          "brand": "Wilwood / Tilton",
+          "notes": "See brakes.parking-brake.hydraulic-handbrake."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Electronic parking brake control module bolt",
+          "qty": 3,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "62 in-lb (7 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Electronic parking brake control module bracket bolt",
+          "qty": 3,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "If retained: install bracket and module, connect cables, then perform park-brake cable tension/learn with scan tool.",
+        "If deleting: place in service mode with a scan tool first, then remove."
+      ],
+      "inspection": [
+        "Check function before transport."
+      ],
+      "buildPhase": 4,
+      "installOrder": 55,
+      "tags": [
+        "epb",
+        "factory",
+        "j77"
+      ],
+      "sources": [
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.35,
+          0.24,
+          0
+        ],
+        "size": [
+          0.18,
+          0.08,
+          0.1
+        ],
+        "color": "#2b2b2b"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Position/size kept from research data",
+        "features": "Plain primitive / generic generator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.intermediate-cable",
+      "name": "Parking brake intermediate cable / equalizer",
+      "qty": 1,
+      "description": "Connects the actuator output to the two rear cables and equalizes tension.",
+      "location": "Underbody near the actuator.",
+      "connectsTo": [
+        "brakes.parking-brake.epb-actuator-module",
+        "brakes.parking-brake.rear-cables"
+      ],
+      "factory": {
+        "name": "GM park brake intermediate cable",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete",
+          "brand": "n/a",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Parking brake intermediate cable bolt",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Parking brake intermediate cable nut",
+          "qty": 1,
+          "spec": "M6 nut",
+          "grade": "GM",
+          "torque": "53 in-lb (6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 4,
+      "installOrder": 56,
+      "tags": [
+        "epb"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.35,
+            0.22,
+            0
+          ],
+          [
+            2.45,
+            0.24,
+            0.05
+          ],
+          [
+            2.55,
+            0.28,
+            0.12
+          ]
+        ],
+        "radius": 0.003,
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Position/size kept from research data",
+        "features": "Plain primitive / generic generator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.rear-cables",
+      "name": "Rear parking brake cables",
+      "qty": 2,
+      "description": "Sheathed cables from the equalizer to the drum-in-hat shoe actuating levers at each rear backing plate.",
+      "location": "Under the rear floor/subframe to each rear knuckle backing plate.",
+      "connectsTo": [
+        "brakes.parking-brake.intermediate-cable",
+        "brakes.parking-brake.shoes",
+        "brakes.rear-rotors.dust-shield-backing-plate"
+      ],
+      "factory": {
+        "name": "GM rear park brake cables (L/R)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete",
+          "brand": "n/a",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Parking brake cable bolt (cable bracket to body/knuckle)",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Route clear of exhaust and halfshafts; check cable is not tight at full droop."
+      ],
+      "inspection": [
+        "Check sheath for heat damage near exhaust."
+      ],
+      "buildPhase": 4,
+      "installOrder": 57,
+      "tags": [
+        "epb",
+        "cable"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.55,
+            0.28,
+            0.12
+          ],
+          [
+            2.62,
+            0.32,
+            0.35
+          ],
+          [
+            2.7,
+            0.34,
+            0.55
+          ],
+          [
+            2.75,
+            0.33,
+            0.7
+          ],
+          [
+            2.76,
+            0.33,
+            0.725
+          ]
+        ],
+        "radius": 0.003,
+        "mirror": true,
+        "color": "#222222"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~0.7 m per side",
+        "features": "Black sheathed cables to the backing plates",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.shoes",
+      "name": "Drum-in-hat parking brake shoes & hardware",
+      "qty": 2,
+      "description": "Small brake shoe set with return springs, hold-downs and adjuster inside each rear rotor hat. GM/B&FE note there is no manual workaround – retract/adjust with a scan tool. Replace all springs and clips with shoes.",
+      "location": "Inside each rear rotor hat, mounted to the backing plate.",
+      "connectsTo": [
+        "brakes.rear-rotors.rotor",
+        "brakes.rear-rotors.dust-shield-backing-plate",
+        "brakes.parking-brake.rear-cables"
+      ],
+      "factory": {
+        "name": "GM rear park brake shoe kit (J77)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete (remove shoes; retain or replace backing plate)",
+          "brand": "n/a",
+          "notes": "Prevents shoes contacting a hot drum and dragging."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Shoe hold-down springs, return springs, adjuster",
+          "qty": 1,
+          "spec": "Hardware kit",
+          "grade": "Spring steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace with shoes",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "installNotes": [
+        "Install before the rear rotor; adjust so the rotor turns freely with slight drag, then let the EPB perform its learn."
+      ],
+      "inspection": [
+        "Check drum surface and shoe lining when rotors are off."
+      ],
+      "buildPhase": 4,
+      "installOrder": 47,
+      "tags": [
+        "drum-in-hat"
+      ],
+      "sources": [
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          2.811,
+          0.3715,
+          0.779
+        ],
+        "size": [
+          0.17,
+          0.17,
+          0.032
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#5d4037"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 85589610 rear rotor pair – product image (one-piece, coated, drum-in-hat)",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/848/3313/23369743__56787.1704140604.jpg?c=2"
+          }
+        ],
+        "dimensions": "Shoes for ~171 mm drum inside the rear hat",
+        "features": "Two shoes with linings, star adjuster at the bottom, anchor at the top, return springs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.epb-switch",
+      "name": "Parking brake switch (console)",
+      "qty": 1,
+      "description": "Console pull/push switch commanding the EPB module.",
+      "location": "Center console.",
+      "connectsTo": [
+        "brakes.parking-brake.epb-actuator-module",
+        "interior.console.console"
+      ],
+      "factory": {
+        "name": "GM EPB switch",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete with module",
+          "brand": "n/a",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 58,
+      "tags": [
+        "epb"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.45,
+          0.5,
+          0
+        ],
+        "size": [
+          0.04,
+          0.02,
+          0.03
+        ],
+        "color": "#111111"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Position/size kept from research data",
+        "features": "Plain primitive / generic generator",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.hydraulic-handbrake",
+      "name": "Hydraulic handbrake (race option)",
+      "qty": 1,
+      "description": "Lever-operated master cylinder plumbed inline in the rear circuit (or to separate rear caliper pistons) – used where a functional park/hand brake is needed without the EPB electronics. Must not trap pressure (no residual pressure) and must be compatible with ABS (generally installed downstream with a bypass or omitted on ABS cars).",
+      "location": "Tunnel beside the driver seat, x≈1.6, z≈+0.12.",
+      "connectsTo": [
+        "brakes.lines.rear-hard-lines",
+        "brakes.master-cylinders.rear-mc"
+      ],
+      "factory": {
+        "name": "n/a",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Wilwood hydraulic handbrake with integral master",
+          "brand": "Wilwood",
+          "notes": ""
+        },
+        {
+          "name": "Tilton hydraulic handbrake lever",
+          "brand": "Tilton Racing",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Plumbing": "-3 AN"
+      },
+      "hardware": [
+        {
+          "item": "Lever base mounting bolts",
+          "qty": 4,
+          "spec": "5/16 or M8",
+          "grade": "Grade 8 / 10.9",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "nyloc",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount to a reinforced tunnel plate; bleed separately."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 59,
+      "tags": [
+        "race",
+        "optional"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.62,
+          0.45,
+          0.12
+        ],
+        "size": [
+          0.25,
+          0.3,
+          0.05
+        ],
+        "color": "#444444"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Lever ~300 mm, base ~150 mm",
+        "features": "Vertical lever with grip, integral master cylinder at the base",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,599 @@
+{
+  "id": "electrical.grounding",
+  "system": "electrical",
+  "name": "Grounding",
+  "description": "Grounding scheme: battery negative to chassis (through the isolator), engine block to chassis straps, transmission ground, front and rear chassis ground studs, and a dedicated electronics star ground for the ECU, PDM, logger and sensors. A road-race unibody with seam-welded, painted panels and a welded cage needs deliberate ground paths \u2013 paint and seam sealer are insulators.",
+  "components": [
+    {
+      "id": "electrical.grounding.battery-negative-cable",
+      "name": "Battery negative cable to chassis",
+      "qty": 1,
+      "description": "Heavy cable from the battery negative (via the solid-state isolator, if used) to a dedicated ground stud welded/bolted to the trunk floor or rear frame rail. Same gauge as the main positive.",
+      "location": "Trunk, right side next to battery.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "electrical.battery-and-cutoff.solid-state-isolator",
+        "electrical.grounding.rear-ground-stud"
+      ],
+      "factory": {
+        "name": "GM battery negative cable to trunk ground point",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "1/0 AWG copper with tinned lugs",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Short run (< 0.5 m)."
+        }
+      ],
+      "specs": {
+        "Gauge": "1/0 AWG (match positive)"
+      },
+      "hardware": [
+        {
+          "item": "Lug to ground stud nut",
+          "qty": 1,
+          "spec": "M8 x 1.25 or M10 x 1.5 nut + serrated/star washer",
+          "grade": "8",
+          "torque": "M8: 16 ft-lb (22 N\u00b7m); M10: 30 ft-lb (40 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Bare-metal contact; coat with dielectric/anti-corrosion compound after torque.",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Grind paint to bare metal under the lug; protect with corrosion inhibitor after assembly."
+      ],
+      "inspection": [
+        "Voltage drop battery-negative to engine block while cranking (< 0.2 V)."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "ground"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.26,
+              0.565,
+              -0.614
+            ],
+            [
+              3.22,
+              0.53,
+              -0.64
+            ],
+            [
+              3.17,
+              0.45,
+              -0.64
+            ]
+          ],
+          "radius": 0.008
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.19,
+              0.45,
+              -0.6
+            ],
+            [
+              3.21,
+              0.43,
+              -0.53
+            ],
+            [
+              3.3,
+              0.42,
+              -0.44
+            ],
+            [
+              3.45,
+              0.42,
+              -0.4
+            ]
+          ],
+          "radius": 0.008
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "1/0 AWG: battery \u2013 \u2192 isolator \u2192 trunk ground stud.",
+        "features": "Black jacket, tinned ring lugs with black boots.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.rear-ground-stud",
+      "name": "Rear chassis ground stud",
+      "qty": 1,
+      "description": "Welded M8/M10 stud (or bolt through the floor with nut plate) forming the rear ground point for the battery negative, fuel pump grounds, rear lights and rear electronics.",
+      "location": "Trunk floor / right rear frame rail near battery box.",
+      "connectsTo": [
+        "electrical.grounding.battery-negative-cable",
+        "electrical.fans-and-pumps-control.fuel-pump-harness",
+        "electrical.lighting.brake-lights",
+        "electrical.lighting.rain-light"
+      ],
+      "factory": {
+        "name": "GM trunk ground stud (G4xx series)",
+        "partNumber": "",
+        "notes": "Ground designations not verified for Gen 6."
+      },
+      "raceOptions": [
+        {
+          "name": "Weld-on stainless/zinc stud M10 with copper bus bar",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Weld before paint (phase 1) and mask thread."
+        }
+      ],
+      "specs": {
+        "Stud": "M10 x 1.5"
+      },
+      "hardware": [
+        {
+          "item": "Ground stud nut",
+          "qty": 1,
+          "spec": "M10 x 1.5 flange nut",
+          "grade": "8",
+          "torque": "30 ft-lb (40 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld before paint; mask the stud and surrounding 25 mm."
+      ],
+      "inspection": [
+        "Corrosion check; tightness."
+      ],
+      "buildPhase": 1,
+      "installOrder": 2,
+      "tags": [
+        "ground"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.45,
+          0.415,
+          -0.4
+        ],
+        "size": [
+          0.012,
+          0.03,
+          0.012
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M10 x 1.5 weld stud.",
+        "features": "Stud, copper lug stack, nut.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.engine-to-chassis-strap",
+      "name": "Engine-to-chassis ground straps",
+      "qty": 2,
+      "description": "Two braided or 1/0 cable straps from the engine block/cylinder heads to the chassis rail and to the firewall. The starter return current flows through these back to the battery negative via the body, so they are as important as the positive cable. Use two to be redundant against one coming loose.",
+      "location": "Block (rear of passenger head or block ground boss) to passenger frame rail; second from driver head to firewall/strut tower.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "chassis.unibody.front-frame-rails",
+        "electrical.grounding.front-ground-stud"
+      ],
+      "factory": {
+        "name": "GM engine ground strap(s)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Tinned copper braided strap 1/0 equivalent, 300\u2013400 mm",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Braid tolerates engine movement on solid/poly mounts."
+        }
+      ],
+      "specs": {
+        "Gauge": "1/0 AWG equivalent",
+        "Length": "\u2248 300\u2013400 mm, with slack for engine roll"
+      },
+      "hardware": [
+        {
+          "item": "Strap-to-block bolt",
+          "qty": 1,
+          "spec": "M10 x 1.5 x 25 bolt + serrated washer",
+          "grade": "10.9",
+          "torque": "37 ft-lb (50 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM M10 block accessory bolt torque.",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Strap-to-chassis bolt/stud nut",
+          "qty": 1,
+          "spec": "M8 x 1.25 nut + serrated washer",
+          "grade": "8",
+          "torque": "16 ft-lb (22 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install with engine (phase 6), recheck in phase 8.",
+        "Bare-metal both ends."
+      ],
+      "inspection": [
+        "Frayed braid; loose bolts; corrosion."
+      ],
+      "buildPhase": 6,
+      "installOrder": 3,
+      "tags": [
+        "ground",
+        "engine"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.3,
+            0.45,
+            -0.25
+          ],
+          [
+            0.35,
+            0.45,
+            -0.38
+          ],
+          [
+            0.4,
+            0.46,
+            -0.45
+          ]
+        ],
+        "radius": 0.007,
+        "color": "#b87333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Tinned copper braid ~20 mm wide, 300\u2013400 mm long.",
+        "features": "Flat braided strap with tinned ring lugs.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.transmission-ground",
+      "name": "Transmission / driveline ground strap",
+      "qty": 1,
+      "description": "Small strap from the transmission case to the tunnel so current does not return through shift cables, speedometer sensors or the driveshaft u-joints (and to give sensors on the trans a clean reference).",
+      "location": "Transmission tailhousing to tunnel.",
+      "connectsTo": [
+        "drivetrain.transmission.transmission",
+        "chassis.floor-and-tunnel.tunnel"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Gauge": "8\u20134 AWG braid"
+      },
+      "hardware": [
+        {
+          "item": "Strap bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25",
+          "grade": "8.8",
+          "torque": "16 ft-lb (22 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Strap intact."
+      ],
+      "buildPhase": 6,
+      "installOrder": 4,
+      "tags": [
+        "ground"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            1.1,
+            0.38,
+            0.05
+          ],
+          [
+            1.12,
+            0.45,
+            0.1
+          ]
+        ],
+        "radius": 0.005,
+        "color": "#b87333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "8\u20134 AWG equivalent braid.",
+        "features": "Flat braided strap with ring lugs.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.front-ground-stud",
+      "name": "Front chassis ground stud (engine bay)",
+      "qty": 1,
+      "description": "Engine-bay ground point for the engine straps, radiator fan ground, front lights and front harness grounds.",
+      "location": "Passenger frame rail/firewall junction.",
+      "connectsTo": [
+        "electrical.grounding.engine-to-chassis-strap",
+        "electrical.fans-and-pumps-control.radiator-fan",
+        "electrical.lighting.headlights"
+      ],
+      "factory": {
+        "name": "GM underhood ground studs",
+        "partNumber": "",
+        "notes": "Gen 6 also provides an underhood negative jump point."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Stud": "M8/M10"
+      },
+      "hardware": [
+        {
+          "item": "Ground nut",
+          "qty": 1,
+          "spec": "M8 x 1.25 flange nut",
+          "grade": "8",
+          "torque": "16 ft-lb (22 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Weld/install before paint."
+      ],
+      "inspection": [
+        "Tightness; corrosion."
+      ],
+      "buildPhase": 1,
+      "installOrder": 5,
+      "tags": [
+        "ground"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.45,
+          0.46,
+          -0.45
+        ],
+        "size": [
+          0.01,
+          0.03,
+          0.01
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "M8/M10 stud.",
+        "features": "Stud, copper lug stack, nut.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.electronics-star-ground",
+      "name": "Electronics star ground (cabin)",
+      "qty": 1,
+      "description": "Single bus bar / stud in the cabin where the ECU power grounds, PDM ground, logger/dash ground and sensor-ground references terminate, tied to the chassis with one short heavy cable. Prevents ground loops and offsets in analogue sensor readings. ECU sensor grounds (0 V references) go back to the ECU only, never to chassis.",
+      "location": "Passenger footwell bulkhead near the ECU/PDM (x\u22480.95, y\u22480.40, z\u2248-0.35).",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "electrical.power-distribution.pdm",
+        "electrical.data-acquisition.logger",
+        "electrical.dash-and-controls.dash-display"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Blue Sea Systems ground bus bar",
+          "brand": "Blue Sea Systems",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Feed to chassis": "4 AWG, < 300 mm"
+      },
+      "hardware": [
+        {
+          "item": "Bus bar mounting screws",
+          "qty": 2,
+          "spec": "M6 screw into rivnut",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m (71 in-lb)",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Bus bar terminal screws",
+          "qty": 8,
+          "spec": "#10 / M5 screw",
+          "grade": "",
+          "torque": "20 in-lb (2.3 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Verify < 0.05 V difference between ECU ground pins and battery negative with fans/pumps running."
+      ],
+      "inspection": [
+        "Tightness; measure ground offset in data (log battery voltage at ECU vs PDM)."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "ground",
+        "ecu"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.0045,
+          0.35,
+          -0.47
+        ],
+        "size": [
+          0.025,
+          0.03,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Ground bus bar ~100 x 30 x 25 mm (estimated).",
+        "features": "Black insulated base, copper bar, 5 studs with nuts, on the electronics panel.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.grounding.body-bonding-straps",
+      "name": "Bonding straps (subframes, hood, deck lid, cage)",
+      "qty": 4,
+      "description": "Short braid straps bonding the front and rear subframes (rubber/poly isolated), and optionally hood/deck lid, to the body. Keeps wheel-speed and damper-pot shield references clean and avoids current through suspension bushings/bearings.",
+      "location": "Front cradle to frame rail (L/R); rear cradle to rear rail (L/R).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle",
+        "suspension.rear-subframe.cradle"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Gauge": "8 AWG braid"
+      },
+      "hardware": [
+        {
+          "item": "Strap bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25",
+          "grade": "8.8",
+          "torque": "16 ft-lb (22 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Straps intact."
+      ],
+      "buildPhase": 3,
+      "installOrder": 7,
+      "tags": [
+        "ground",
+        "bonding"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.1,
+          0.3,
+          0.42
+        ],
+        "size": [
+          0.05,
+          0.01,
+          0.02
+        ],
+        "instances": [
+          [
+            0.1,
+            0.3,
+            0.42
+          ],
+          [
+            0.1,
+            0.3,
+            -0.42
+          ],
+          [
+            2.7,
+            0.32,
+            0.45
+          ],
+          [
+            2.7,
+            0.32,
+            -0.45
+          ]
+        ],
+        "color": "#b87333"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "8 AWG braid ~50 mm.",
+        "features": "Short tinned braid with lugs and bolts.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

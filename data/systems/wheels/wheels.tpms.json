@@ -1,0 +1,167 @@
+{
+  "id": "wheels.tpms",
+  "system": "wheels",
+  "name": "TPMS",
+  "description": "Factory direct TPMS: a battery-powered pressure sensor on each valve stem transmits to the body control module/receiver. With the factory body electronics removed it serves no purpose; race cars either delete it or fit a motorsport TPMS that reports to the dash/logger.",
+  "components": [
+    {
+      "id": "wheels.tpms.tpms-sensors",
+      "name": "TPMS sensors",
+      "qty": 4,
+      "description": "Clamp-in sensor/valve assembly inside each wheel. Factory sensors must be relearned to the car (scan tool or pressure-change learn) after rotation.",
+      "location": "Inside each wheel at the valve hole.",
+      "connectsTo": [
+        "wheels.wheels.valve-stems",
+        "electrical.data-logger.logger"
+      ],
+      "factory": {
+        "name": "GM TPMS sensor (direct, clamp-in)",
+        "notes": "Frequency/part number not confirmed in available sources (NA GM is typically 315 MHz – verify on your donor)."
+      },
+      "raceOptions": [
+        {
+          "name": "Delete (fit plain metal clamp-in valve stems)",
+          "brand": "n/a",
+          "notes": "Saves ~30–40 g per wheel; disable TPMS warning in the dash/ECU strategy."
+        },
+        {
+          "name": "Motorsport TPMS (e.g. Bosch Motorsport, AiM, McLaren Applied/LDS)",
+          "brand": "Various",
+          "notes": "Reports pressure and temperature live to the dash/logger."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "TPMS sensor valve nut",
+          "qty": 1,
+          "spec": "Clamp-in nut",
+          "grade": "Al",
+          "torque": "≈ 7 N·m (62 in-lb) typical GM clamp-in – verify",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace grommet/seal each tire change",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount tire bead away from the sensor to avoid breaking it."
+      ],
+      "inspection": [
+        "Check sensor battery/function if retained."
+      ],
+      "buildPhase": 4,
+      "installOrder": 14,
+      "tags": [
+        "tpms"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "size": [
+          0.045,
+          0.018,
+          0.028
+        ],
+        "rot": [
+          0,
+          0,
+          36
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            -0.1346,
+            0.5568,
+            0.854
+          ],
+          [
+            2.6764,
+            0.5568,
+            0.864
+          ]
+        ],
+        "color": "#455a64"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~45 x 28 x 18 mm, sits on the drop well inside the tyre at the valve stem",
+        "features": "315/433 MHz GM sensor body clamped to the valve stem",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.tpms.tpms-receiver",
+      "name": "TPMS receiver / BCM function",
+      "qty": 1,
+      "description": "Factory receiver function lives in the body control module/RF receiver; a motorsport TPMS uses its own receiver feeding CAN to the dash.",
+      "location": "Factory: in body electronics. Race: receiver antenna centrally in cabin.",
+      "connectsTo": [
+        "wheels.tpms.tpms-sensors",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM BCM/RF receiver",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Motorsport TPMS receiver (CAN)",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Receiver mounting screws",
+          "qty": 2,
+          "spec": "M5",
+          "grade": "8.8",
+          "torque": "44 in-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Program sensor IDs into the receiver/dash."
+      ],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 17,
+      "tags": [
+        "tpms",
+        "electronics"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.9,
+          0.3,
+          0
+        ],
+        "size": [
+          0.08,
+          0.03,
+          0.06
+        ],
+        "color": "#455a64"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Function inside the BCM / RF receiver – box is indicative only",
+        "features": "Black module with connector",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

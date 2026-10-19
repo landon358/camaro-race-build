@@ -1,0 +1,361 @@
+{
+  "id": "safety.window-net",
+  "system": "safety",
+  "name": "Window Net",
+  "description": "SFI 27.1 driver window net mounted inside the cage between the roof rail and door bars, with a spring-loaded top rod and quick-release latch the belted driver can operate.",
+  "components": [
+    {
+      "id": "safety.window-net.net",
+      "name": "Driver window net (SFI 27.1)",
+      "qty": 1,
+      "description": "Ribbon or mesh net filling the driver door window opening to keep arms and head inside in a roll-over. SFI 27.1 nets carry a manufacture date tag; common rule (e.g. NASCAR) is 2 years from manufacture.",
+      "location": "Inside the driver window opening, x ≈ 1.30–2.05, y ≈ 0.68–1.20, z ≈ 0.74.",
+      "connectsTo": [
+        "safety.window-net.upper-mount-rod",
+        "safety.window-net.lower-mount",
+        "safety.window-net.latch"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "SFI 27.1 ribbon or mesh net (e.g. 18 x 24 in)",
+          "brand": "PRP / Simpson / Joes / RJS",
+          "partNumber": "",
+          "notes": "Choose border/loop style to match rod type.",
+          "url": "https://www.prpseats.com/custom-window-nets/"
+        }
+      ],
+      "specs": {
+        "Certification": "SFI 27.1",
+        "Service life": "2 years from manufacture (common rule)",
+        "Typical size": "18 x 24 in or 20 x 24 in"
+      },
+      "hardware": [
+        {
+          "item": "Net loops",
+          "qty": 1,
+          "spec": "Sewn loops over rods",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://www.prpseats.com/custom-window-nets/"
+        }
+      ],
+      "installNotes": [
+        "Net must be mounted on the inside of the cage; driver must release it unassisted."
+      ],
+      "inspection": [
+        "Check SFI tag date, UV damage, loose stitching."
+      ],
+      "buildPhase": 9,
+      "installOrder": 41,
+      "tags": [],
+      "sources": [
+        {
+          "title": "PRP Seats – SFI certified custom window nets guide",
+          "url": "https://www.prpseats.com/custom-window-nets/"
+        },
+        {
+          "title": "Pegasus Auto Racing – window net mounting kit instructions",
+          "url": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.665,
+            0.957,
+            0.692
+          ],
+          "size": [
+            0.61,
+            0.46,
+            0.01
+          ],
+          "rot": [
+            -22.7,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Allstar square ribbon SFI 27.1 window net 18 x 24 in",
+            "url": "https://discoveryparts.com/products/allstar-square-ribbon-sfi-27-1-window-net"
+          },
+          {
+            "title": "SFI 27.1 window net 24 x 18 in with rod sleeves (RacerDirect)",
+            "url": "https://www.racerdirect.com/rdn70710v.html"
+          }
+        ],
+        "dimensions": "18 x 24 in (457 x 610 mm) SFI 27.1 ribbon net, 1 in webbing",
+        "features": "Black ribbon grid, bound edges, rod sleeves top and bottom, SFI tag; hangs from the roof rail down to the top door bar",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.window-net.upper-mount-rod",
+      "name": "Upper (latch-side) net rod",
+      "qty": 1,
+      "description": "3/8 in steel rod through the net top border/loops; one end pins into a welded sleeve/tab on the roof rail or main hoop, the other end is held by the latch.",
+      "location": "Along driver roof rail, x ≈ 1.35–2.10, y ≈ 1.20, z ≈ 0.62.",
+      "connectsTo": [
+        "safety.roll-cage.roof-rails",
+        "safety.window-net.latch",
+        "safety.window-net.net"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Rod": "3/8 in round steel rod (upper support, border/loop nets)"
+      },
+      "hardware": [
+        {
+          "item": "Rod sleeve / receiver tab",
+          "qty": 1,
+          "spec": "1/2 in OD x .065 tube sleeve or drilled tab welded to cage",
+          "grade": "Steel",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "typical",
+          "source": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "installNotes": [
+        "Weld receiver before cage paint."
+      ],
+      "inspection": [
+        "Rod straight, receiver welds intact."
+      ],
+      "buildPhase": 1,
+      "installOrder": 24,
+      "tags": [],
+      "sources": [
+        {
+          "title": "PRP Seats – SFI certified custom window nets guide",
+          "url": "https://www.prpseats.com/custom-window-nets/"
+        },
+        {
+          "title": "Pegasus Auto Racing – window net mounting kit instructions",
+          "url": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.33,
+              1.18,
+              0.597
+            ],
+            [
+              2,
+              1.18,
+              0.597
+            ]
+          ],
+          "radius": 0.005
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SFI 27.1 window net 24 x 18 in with rod sleeves (RacerDirect)",
+            "url": "https://www.racerdirect.com/rdn70710v.html"
+          }
+        ],
+        "dimensions": "3/8 in spring rod, ~670 mm",
+        "features": "Rod through the top sleeve with tabs welded to the roof rail",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.window-net.lower-mount",
+      "name": "Lower net mount (rod/strap on door bar)",
+      "qty": 1,
+      "description": "Lower edge of the net is captured by a rod in welded tabs on the upper door bar (or bolted strap), so the net is hinged at the bottom and drops down when released.",
+      "location": "Upper driver door bar, x ≈ 1.35–2.05, y ≈ 0.68.",
+      "connectsTo": [
+        "safety.roll-cage.driver-door-bars",
+        "safety.window-net.net"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Lower mounting tab bolts",
+          "qty": 3,
+          "spec": "1/4-20 UNC button-head bolt + nyloc through welded tab",
+          "grade": "SAE Grade 8",
+          "torque": "9 ft-lb (12 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://www.quadratec.com/jeep_knowledgebase/article-105.htm",
+          "notes": "Typical 1/4-20 G8 snug value; all net fasteners must be tight and remain tight (NASCAR rule language). Checked 2026-10: 9 ft-lb sits between standard dry 1/4-20 Grade 5 (about 8 ft-lb) and Grade 8 (about 12-14 ft-lb). The window-net makers publish no torque. Upgraded to typical."
+        }
+      ],
+      "installNotes": [
+        "Weld 3 tabs on the door bar before paint."
+      ],
+      "inspection": [
+        "Check fasteners tight."
+      ],
+      "buildPhase": 1,
+      "installOrder": 25,
+      "tags": [],
+      "sources": [
+        {
+          "title": "PRP Seats – SFI certified custom window nets guide",
+          "url": "https://www.prpseats.com/custom-window-nets/"
+        },
+        {
+          "title": "Pegasus Auto Racing – window net mounting kit instructions",
+          "url": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.33,
+              0.73,
+              0.785
+            ],
+            [
+              2,
+              0.73,
+              0.785
+            ]
+          ],
+          "radius": 0.005
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SFI 27.1 window net 24 x 18 in with rod sleeves (RacerDirect)",
+            "url": "https://www.racerdirect.com/rdn70710v.html"
+          }
+        ],
+        "dimensions": "3/8 in rod, ~670 mm, tabs on the top door bar",
+        "features": "Lower rod through the bottom sleeve",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.window-net.latch",
+      "name": "Window net quick-release latch",
+      "qty": 1,
+      "description": "Lever-type or seat-belt-style latch at the front top corner that holds the upper rod. Driver pulls the lever/ring to drop the net. Must be operable by the belted driver and by safety crews from outside.",
+      "location": "Front top of window opening on roof rail/A-pillar bar, x ≈ 1.38, y ≈ 1.18, z ≈ 0.62.",
+      "connectsTo": [
+        "safety.window-net.upper-mount-rod",
+        "safety.roll-cage.front-hoop"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lever-action window net latch (spring rod kit)",
+          "brand": "Joes Racing / Allstar / Pegasus",
+          "partNumber": "",
+          "notes": "SFI-approved when used with top and bottom rods (supplier note).",
+          "url": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Latch mounting bolts",
+          "qty": 2,
+          "spec": "1/4-20 UNC bolt + nyloc through welded tab",
+          "grade": "SAE Grade 8",
+          "torque": "9 ft-lb (12 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://www.quadratec.com/jeep_knowledgebase/article-105.htm",
+          "notes": "Checked 2026-10: 9 ft-lb sits between standard dry 1/4-20 Grade 5 and Grade 8 values. Upgraded to typical."
+        }
+      ],
+      "installNotes": [
+        "Mark release with contrasting color/decal."
+      ],
+      "inspection": [
+        "Function-test release each event."
+      ],
+      "buildPhase": 9,
+      "installOrder": 42,
+      "tags": [],
+      "sources": [
+        {
+          "title": "PRP Seats – SFI certified custom window nets guide",
+          "url": "https://www.prpseats.com/custom-window-nets/"
+        },
+        {
+          "title": "Pegasus Auto Racing – window net mounting kit instructions",
+          "url": "https://www.pegasusautoracing.com/2019/025.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.31,
+            1.19,
+            0.6
+          ],
+          "size": [
+            0.05,
+            0.04,
+            0.03
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SFI 27.1 window net 24 x 18 in with rod sleeves (RacerDirect)",
+            "url": "https://www.racerdirect.com/rdn70710v.html"
+          }
+        ],
+        "dimensions": "~50 x 40 x 30 mm lever latch",
+        "features": "Lever-action latch at the front of the upper rod (yellow lever)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

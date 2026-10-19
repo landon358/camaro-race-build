@@ -1,0 +1,2868 @@
+{
+  "id": "safety.roll-cage",
+  "system": "safety",
+  "name": "Roll Cage",
+  "description": "Weld-in 6-point+ road-race roll cage (main hoop, front hoop, halo/roof rails, roof X, diagonals, harness bar, backstays, door bars, dash bar, optional strut-tower down-bars) with mounting plates, gussets and SFI 45.1 padding. Tube size per NASA CCR/SCCA GCR weight tables (1.75 x .120 DOM for a ~3,500 lb Camaro).",
+  "components": [
+    {
+      "id": "safety.roll-cage.main-hoop",
+      "name": "Main hoop (B-pillar hoop)",
+      "qty": 1,
+      "description": "Single-piece, near-vertical hoop immediately behind the front seats that carries roll-over loads to the floor. It is the backbone of the cage: the harness bar, main-hoop diagonal, backstays, roof rails and door bars all terminate on it. Must be one continuous bent tube (no joints) with the near-vertical legs as close as possible to the B-pillar inner panels and only one bend in each leg.",
+      "location": "Spans the cabin at the B-pillar, x ≈ 2.15–2.18; feet welded to plates on the floor/rocker junction (z ≈ ±0.66), top tucked under the roof skin at y ≈ 1.27.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop-plates",
+        "safety.roll-cage.main-hoop-diagonal",
+        "safety.roll-cage.harness-bar",
+        "safety.roll-cage.backstays",
+        "safety.roll-cage.roof-rails",
+        "safety.roll-cage.driver-door-bars",
+        "safety.roll-cage.passenger-door-bars",
+        "chassis.unibody.b-pillar",
+        "chassis.unibody.rocker"
+      ],
+      "factory": {
+        "name": "None – production Camaro has no roll structure (CMS Performance offers a Gen 6 bolt-in roll bar as a street/HPDE step)",
+        "partNumber": "",
+        "notes": "CMS Gen 6 bar: 1.75 x .095 Docol R8, one-piece main hoop/kicker, ~51 lb – a roll BAR, not a road-race cage."
+      },
+      "raceOptions": [
+        {
+          "name": "Custom weld-in cage, 1.75 x .120 DOM (NASA 3,001–4,000 lb bracket)",
+          "brand": "Local chassis shop / S&W Race Cars / Autopower (custom)",
+          "partNumber": "",
+          "notes": "Gen 6 race weight w/o driver & fuel ≈ 3,400–3,700 lb → 1.75 x .120 per NASA CCR table quoted in the sources; SCCA 2,700 lb+ allows 1.50 x .120 / 1.75 x .095 / 2.00 x .080.",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "name": "Chromoly 4130 1.75 x .095 or .120 (normalized)",
+          "brand": "Any",
+          "partNumber": "",
+          "notes": "Lighter; requires TIG and qualified welder; SCCA forbids mixing alloy and mild tube in one cage.",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "name": "FIA build-to-spec main hoop 45 x 2.5 mm or 50 x 2.0 mm (350 N/mm² min)",
+          "brand": "FIA App. J 253-8",
+          "partNumber": "",
+          "notes": "For FIA-style events; note post-2017 homologated cars must use homologated/certified cages.",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 3.4 m developed length",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Inclination": "within ±10° of vertical (FIA)",
+        "Helmet clearance": "SCCA: ≥ 2 in above helmet (cars w/o roof); NASA: pad within reach of helmet",
+        "Bends in each leg": "max 1 (FIA 253-8.3.2.1)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        },
+        {
+          "item": "Wall-thickness inspection hole",
+          "qty": 1,
+          "spec": "3/16–1/4 in drilled hole in non-critical straight section",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-tubing",
+          "notes": "SCCA requires an inspection hole in front and main hoops and one supplemental brace (or non-invasive ultrasonic measurement logged in the logbook)."
+        }
+      ],
+      "installNotes": [
+        "Strip cabin to bare metal (interior.strip-and-deadener-removal) and seam-weld if planned before fitting tubes.",
+        "Fit seat, steering column and pedal box mock-up first so the hoop clears the driver helmet with the seat in final position.",
+        "Tack mounting plates, then notch-fit the hoop through the roof line as high and close to the B-pillar as possible.",
+        "Check driver helmet clearance with driver seated + helmet + FHR before final welding.",
+        "Final-weld in alternating short beads to minimize distortion; weld plates 360°.",
+        "Drill inspection hole per SCCA, mark with paint pen, record wall thickness in logbook."
+      ],
+      "inspection": [
+        "Check all welds for cracks (dye-penetrant after any impact).",
+        "Inspect foot plates and surrounding floor for cracking/tearing.",
+        "Verify padding still secured where helmet can contact."
+      ],
+      "buildPhase": 1,
+      "installOrder": 1,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.15,
+              0.21,
+              0.67
+            ],
+            [
+              2.16,
+              0.98,
+              0.69
+            ],
+            [
+              2.18,
+              1.27,
+              0.585
+            ],
+            [
+              2.18,
+              1.285,
+              0
+            ],
+            [
+              2.18,
+              1.27,
+              -0.585
+            ],
+            [
+              2.16,
+              0.98,
+              -0.69
+            ],
+            [
+              2.15,
+              0.21,
+              -0.67
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 x .120 in DOM (44.5 x 3.05 mm); hoop ~1.38 m wide at the base, top bar at y 1.285 (≈ 3 in under the roof skin), legs at the B-pillar x 2.15",
+        "features": "Gen 6 Camaro weld-in cage modelled from the reference ZL1 1LE cabin (inside the roof/pillar skins); 1.75 in OD tube with ~6 in CLR bends, TIG-welded, mounting plates on floor/rocker; one-piece hoop following the B-pillar inner panel, 4 bends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.front-hoop",
+      "name": "Front hoop (A-pillar bars + windshield header)",
+      "qty": 1,
+      "description": "Hoop that follows the A-pillars and windshield header as closely as possible, tying the front of the roof structure to the floor at the front of the door openings. The legs drop down the kick-panel area to plates on the floor/rocker; per FIA the pillar may have no additional bends below where it stops following the windshield pillar.",
+      "location": "Feet at x ≈ 0.82 (front of door opening, z ≈ ±0.66), rising up the A-pillar from x ≈ 0.81 (y 0.88) to the header at x ≈ 1.33 just under the roof.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop-plates",
+        "safety.roll-cage.roof-rails",
+        "safety.roll-cage.roof-x",
+        "safety.roll-cage.dash-bar",
+        "safety.roll-cage.driver-door-bars",
+        "safety.roll-cage.passenger-door-bars",
+        "safety.roll-cage.front-down-bars",
+        "chassis.unibody.a-pillar"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom weld-in 1.75 x .120 DOM",
+          "brand": "Chassis shop",
+          "partNumber": "",
+          "notes": "Same tube as main hoop on NASA cars (all required members).",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        }
+      ],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 4.0 m developed length (often built as 2 A-pillar bars + header)",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Construction": "One continuous hoop or two A-pillar bars welded to a header (NASA/SCCA allow); FIA: front rollbar follows windscreen pillar"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        },
+        {
+          "item": "Wall-thickness inspection hole",
+          "qty": 1,
+          "spec": "3/16–1/4 in drilled hole in non-critical straight section",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-tubing",
+          "notes": "SCCA requires an inspection hole in front and main hoops and one supplemental brace (or non-invasive ultrasonic measurement logged in the logbook)."
+        }
+      ],
+      "installNotes": [
+        "Remove headliner, A-pillar trims, and pull the dash forward or out for access (interior.dash).",
+        "Bend to follow the A-pillar/windshield header; keep tube within ~1 in of the pillar to preserve visibility and head room.",
+        "Check that driver eye line and windshield wiper/defrost (if retained) are not blocked.",
+        "Tie in to roof rails (halo) at the header corners; gusset both corners."
+      ],
+      "inspection": [
+        "Check A-pillar bar welds and header corner gussets.",
+        "Look for windshield cracks originating near the header (body flex indicator)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 2,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.82,
+              0.21,
+              0.67
+            ],
+            [
+              0.82,
+              0.9,
+              0.68
+            ],
+            [
+              1.31,
+              1.268,
+              0.52
+            ],
+            [
+              1.335,
+              1.278,
+              0
+            ],
+            [
+              1.31,
+              1.268,
+              -0.52
+            ],
+            [
+              0.82,
+              0.9,
+              -0.68
+            ],
+            [
+              0.82,
+              0.21,
+              -0.67
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 x .120 in DOM; legs on the hinge pillars at x 0.82, A-pillar bars follow the windshield frame to a header bar at x 1.33",
+        "features": "Front hoop: vertical leg in the door hinge pillar, bend at the dash, A-pillar bar hugging the windshield frame, header across the windshield top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.roof-rails",
+      "name": "Roof side rails / halo bars (L & R)",
+      "qty": 2,
+      "description": "Longitudinal bars along each side of the roof connecting the top corners of the front hoop to the main hoop. Together with both hoops they form the \"halo\" that prevents roof crush and gives the window net its upper mount.",
+      "location": "Under the roof skin along the door-opening top edges, x ≈ 1.32 → 2.18, y ≈ 1.27–1.29, z ≈ ±0.47–0.50.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.main-hoop",
+        "safety.window-net.upper-mount-rod",
+        "safety.roll-cage.padding"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 0.9 m each",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Bend slight arc to follow roofline; keep as high as possible for helmet clearance.",
+        "Weld window-net upper rod tabs to the driver-side rail before final paint."
+      ],
+      "inspection": [
+        "Check welds at both hoop junctions."
+      ],
+      "buildPhase": 1,
+      "installOrder": 3,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.305,
+              1.263,
+              0.464
+            ],
+            [
+              1.75,
+              1.278,
+              0.5
+            ],
+            [
+              2.18,
+              1.271,
+              0.5
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.305,
+              1.263,
+              -0.464
+            ],
+            [
+              1.75,
+              1.278,
+              -0.5
+            ],
+            [
+              2.18,
+              1.271,
+              -0.5
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube, ~0.86 m long each, under the roof side rails (y ≈ 1.27-1.28)",
+        "features": "Halo/roof side bars joining front-hoop and main-hoop corners",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.roof-x",
+      "name": "Roof reinforcement X-brace",
+      "qty": 1,
+      "description": "Two diagonal tubes in the roof plane forming an X between the front-hoop header and the main hoop (FIA Drawing 253-12 style). Greatly improves roof-crush resistance in a roll-over and stiffens the upper cage.",
+      "location": "Roof plane, x ≈ 1.33 → 2.18, y ≈ 1.27–1.29, crossing at the car centerline.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.gussets"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Single roof diagonal (driver-side high)",
+          "brand": "",
+          "partNumber": "",
+          "notes": "Minimum common NASA/SCCA practice; X is preferred.",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.0 m per diagonal",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Center junction": "One continuous tube + two notched halves, gusseted (FIA 253-8.3.2.1.5 for 253-12 config)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Fit after hoops and roof rails are fully welded.",
+        "Center junction requires gussets per FIA."
+      ],
+      "inspection": [
+        "Check center junction weld/gussets."
+      ],
+      "buildPhase": 1,
+      "installOrder": 4,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.312,
+              1.268,
+              0.435
+            ],
+            [
+              1.75,
+              1.29,
+              0
+            ],
+            [
+              2.18,
+              1.273,
+              -0.46
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.312,
+              1.268,
+              -0.435
+            ],
+            [
+              1.75,
+              1.29,
+              0
+            ],
+            [
+              2.18,
+              1.273,
+              0.46
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube, ~0.97 m per bar, crossing at the roof centre",
+        "features": "Roof X welded to the header and main-hoop top bar, gusset at the centre node",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.main-hoop-diagonal",
+      "name": "Main hoop diagonal brace",
+      "qty": 1,
+      "description": "Diagonal tube across the main hoop plane from a top corner to the opposite foot, preventing the main hoop from parallelogramming sideways. Required by NASA/SCCA/FIA in some form (diagonal or X).",
+      "location": "In the main hoop plane behind the seats, top-left corner (x 2.17, y 1.22, z +0.60) to bottom-right foot (x 2.15, y 0.24, z −0.64).",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.harness-bar",
+        "safety.roll-cage.gussets"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.6 m",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Run the diagonal so it does not pass behind the driver helmet; top end on the passenger-side for LHD is also acceptable – keep it away from the driver head.",
+        "Gusset the harness-bar crossing."
+      ],
+      "inspection": [
+        "Check welds at hoop and harness-bar intersections."
+      ],
+      "buildPhase": 1,
+      "installOrder": 5,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.176,
+              1.216,
+              0.596
+            ],
+            [
+              2.151,
+              0.26,
+              -0.671
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube, ~1.6 m, from the driver-side top corner to the passenger foot",
+        "features": "Straight diagonal in the main-hoop plane, passes behind the driver headrest",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.harness-bar",
+      "name": "Harness (shoulder-belt) bar",
+      "qty": 1,
+      "description": "Horizontal tube across the main hoop at shoulder-belt height. The shoulder belts wrap around it (3-bar slide) so the belts leave the shoulders at 0° to about −20° to horizontal per harness maker guidance. Doubles as the main-hoop horizontal brace.",
+      "location": "Across the main hoop, x ≈ 2.155, y ≈ 0.84, full width z ±0.70.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.harness.shoulder-belt-wrap",
+        "safety.seat-and-mounts.seat-back-brace",
+        "safety.roll-cage.main-hoop-diagonal"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.4 m",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "FIA minimum": "38 x 2.5 mm or 40 x 2.0 mm (Lefrog/FIA 253)",
+        "Height": "Set so shoulder belts leave shoulders 0° to −20° (FIA allows 10°–45° down from backrest rim; 10° recommended)",
+        "Distance from seat back": "Schroth: ≤ 200 mm (8 in) ideal for FHR"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Install the seat FIRST and measure driver shoulder height in the seat with helmet and FHR.",
+        "Position bar so belt angle is between 0° and −20° from horizontal at the shoulder; never route belts upward.",
+        "Keep at least 90 mm between seatback and harness pivot point (FIA 253-61-c per Lefrog).",
+        "Do not drill the bar for eyebolts unless the cage builder certifies it."
+      ],
+      "inspection": [
+        "Look for webbing abrasion marks / sharp weld spatter where belts wrap."
+      ],
+      "buildPhase": 1,
+      "installOrder": 6,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        },
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        },
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.158,
+              0.84,
+              0.686
+            ],
+            [
+              2.158,
+              0.84,
+              -0.686
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          },
+          {
+            "title": "Schroth Profi 2x2 6-point FHR harness",
+            "url": "https://www.merlinmotorsport.co.uk/p/schroth-profi-2x2-6-point-saloon-harness-94550"
+          }
+        ],
+        "dimensions": "1.75 in tube across the main hoop at y 0.84 (shoulder height, belts 0-20° down to the shoulders)",
+        "features": "Straight bar welded between main-hoop legs; shoulder belts wrap it",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.backstays",
+      "name": "Backstays / rear stays (L & R)",
+      "qty": 2,
+      "description": "Tubes running rearward and down from the top corners of the main hoop to plates on the rear shock-tower / rear rail area. They brace the main hoop against rearward collapse and, on a Camaro, tie the cage into the stiff rear suspension towers.",
+      "location": "From main hoop top corners (x 2.18, y 1.23, z ±0.58) back through the removed rear-seat area to plates at x ≈ 2.86, y ≈ 0.66, z ±0.55 (just behind rear shock tops).",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.backstay-plates",
+        "safety.roll-cage.rear-cross-brace",
+        "suspension.rear-shocks.upper-mount",
+        "safety.fuel-and-firewall-isolation.rear-bulkhead-panel"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 0.95 m each",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Angle": "FIA: at least 30° from vertical, straight, as close as possible to the side panels"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Cut access holes in the rear package shelf; seal them later with the rear bulkhead panel.",
+        "Keep straight (no bends) and as high on the hoop as possible (within 6 in of the top per SCCA main-hoop brace rule)."
+      ],
+      "inspection": [
+        "Inspect plates on rear towers for cracking (high-load area with suspension inputs)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 7,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.177,
+              1.232,
+              0.582
+            ],
+            [
+              2.86,
+              0.66,
+              0.55
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.177,
+              1.232,
+              -0.582
+            ],
+            [
+              2.86,
+              0.66,
+              -0.55
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube, ~0.89 m, main-hoop top corners to the rear shock-tower/rail plates",
+        "features": "Straight rear stays through the rear-seat bulkhead, ≥30° from vertical",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.rear-cross-brace",
+      "name": "Rear cross brace & rear diagonal (backstay plane)",
+      "qty": 1,
+      "description": "Lateral tube between the backstays plus a diagonal from the left backstay to the right backstay foot. Triangulates the rear of the cage and links the rear shock towers, adding torsional stiffness.",
+      "location": "Across the trunk/rear-seat bulkhead area at x ≈ 2.66–2.86, y ≈ 0.66–0.80.",
+      "connectsTo": [
+        "safety.roll-cage.backstays",
+        "safety.roll-cage.backstay-plates"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.15 m cross + 1.25 m diagonal",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Rule status": "Optional member – may be any size per SCCA; most builders use the main tube size"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Fit after backstays; ensure fuel cell and filler neck clearance in the trunk."
+      ],
+      "inspection": [
+        "Check welds."
+      ],
+      "buildPhase": 1,
+      "installOrder": 8,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.66,
+              0.827,
+              0.559
+            ],
+            [
+              2.66,
+              0.827,
+              -0.559
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.66,
+              0.827,
+              0.559
+            ],
+            [
+              2.86,
+              0.66,
+              -0.55
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube; cross bar at x 2.66 between the backstays + diagonal to the opposite foot",
+        "features": "Rear X/diagonal in the backstay plane",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.dash-bar",
+      "name": "Dash bar (front hoop transverse member)",
+      "qty": 1,
+      "description": "Lateral tube connecting the two front-hoop legs behind the dashboard. Stiffens the front hoop and is the common mounting point for the race dash panel, display bracket and steering column support. FIA: lower edge no higher than the dashboard top and never below the steering column.",
+      "location": "Behind the dash at x ≈ 0.83–0.85, y ≈ 0.74–0.76, between the front-hoop legs (z ±0.67), above the steering column.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "interior.dash.race-dash-panel",
+        "interior.dash.display-mount",
+        "steering.column.column-support",
+        "interior.dash.factory-cross-car-beam"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.4 m",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "If retaining the factory IP and cross-car beam, the bar must be routed in front of / above the beam – mock up the dash first.",
+        "Weld tabs for dash panel and display mounts before paint."
+      ],
+      "inspection": [
+        "Check steering column clearance and tab welds."
+      ],
+      "buildPhase": 1,
+      "installOrder": 9,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.82,
+              0.74,
+              0.678
+            ],
+            [
+              0.86,
+              0.76,
+              0.3
+            ],
+            [
+              0.86,
+              0.76,
+              -0.3
+            ],
+            [
+              0.82,
+              0.74,
+              -0.678
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube between the front-hoop legs at y 0.74-0.76, bowed forward to x 0.86 to clear the knees/column",
+        "features": "Dash bar behind the IP, carries the column support and dash panel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.driver-door-bars",
+      "name": "Driver-side NASCAR-style door bars (3 bars)",
+      "qty": 1,
+      "description": "Three horizontal bars bowed outward into the gutted driver door shell (upper, middle, lower) running from the main hoop to the front hoop. They provide side-impact intrusion protection; bowing them out gives the driver elbow room and pushes the energy-absorbing structure toward the door skin.",
+      "location": "Driver door opening, x 0.82 → 2.15, y ≈ 0.33 / 0.49 / 0.65, bowed out to z ≈ 0.80–0.81.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.door-bar-uprights",
+        "body.panels.doors",
+        "interior.door-cards-panels.door-card-left",
+        "safety.window-net.lower-mount"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Crash-box / energy absorber outboard of door bars (GT4-style)",
+          "brand": "e.g. foam/honeycomb door crash box",
+          "partNumber": "",
+          "notes": "Camaro GT4.R used a crash box outside the door bars.",
+          "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+        }
+      ],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.45 m each",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Rule note": "SCCA: side tubes across both door openings strongly recommended; NASCAR or X style permitted. FIA: removable doorbars allowed only with FIA-approved joints."
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Remove door intrusion beam, glass, regulator and inner door structure (body.panels door) to make room.",
+        "Door must still open/close; trim inner door frame as needed and re-strengthen hinge/latch areas.",
+        "Install vertical uprights between bars (safety.roll-cage.door-bar-uprights)."
+      ],
+      "inspection": [
+        "Check welds and look for door skin contact rub marks."
+      ],
+      "buildPhase": 1,
+      "installOrder": 10,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        },
+        {
+          "title": "Jalopnik – Camaro GT4.R race car",
+          "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.156,
+              0.66,
+              0.682
+            ],
+            [
+              1.95,
+              0.66,
+              0.8
+            ],
+            [
+              1.05,
+              0.62,
+              0.8
+            ],
+            [
+              0.82,
+              0.62,
+              0.676
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.154,
+              0.5,
+              0.678
+            ],
+            [
+              1.95,
+              0.5,
+              0.8
+            ],
+            [
+              1.05,
+              0.47,
+              0.8
+            ],
+            [
+              0.82,
+              0.47,
+              0.674
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.152,
+              0.34,
+              0.673
+            ],
+            [
+              1.95,
+              0.34,
+              0.8
+            ],
+            [
+              1.05,
+              0.32,
+              0.8
+            ],
+            [
+              0.82,
+              0.32,
+              0.672
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "3 x 1.75 in bars at y ≈ 0.33 / 0.48 / 0.64, bowed outboard to z 0.80 inside the gutted door",
+        "features": "NASCAR-style bars, two bends each, welded to the main- and front-hoop legs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.door-bar-uprights",
+      "name": "Driver door-bar vertical uprights",
+      "qty": 2,
+      "description": "Short vertical tubes tying the three driver door bars together so they share an impact load as a truss rather than bending individually.",
+      "location": "Driver door, x ≈ 1.30 and 1.70, between y 0.33 and 0.66 at z ≈ 0.805.",
+      "connectsTo": [
+        "safety.roll-cage.driver-door-bars"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.50 x 0.095 DOM typical (optional member)",
+        "Approx. length": "≈ 0.33 m each",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Fit after door bars; fish-mouth notch both ends."
+      ],
+      "inspection": [
+        "Check welds."
+      ],
+      "buildPhase": 1,
+      "installOrder": 11,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.7,
+              0.334,
+              0.8
+            ],
+            [
+              1.7,
+              0.649,
+              0.8
+            ]
+          ],
+          "radius": 0.019
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.3,
+              0.326,
+              0.8
+            ],
+            [
+              1.3,
+              0.631,
+              0.8
+            ]
+          ],
+          "radius": 0.019
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.5 in tube verticals at x 1.30 and 1.70 between the outer door bars",
+        "features": "Short verticals tying the NASCAR bars together",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.passenger-door-bars",
+      "name": "Passenger-side X door bars",
+      "qty": 1,
+      "description": "Two tubes forming an X across the passenger door opening (FIA 253-9/10 style), giving side protection with a single crossing gusseted at the center.",
+      "location": "Passenger door opening, x 0.82 → 2.15, crossing at x ≈ 1.50, y ≈ 0.48, bowed to z ≈ −0.79.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.front-hoop",
+        "body.panels.doors",
+        "safety.roll-cage.gussets"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 1.5 m per tube",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        }
+      ],
+      "installNotes": [
+        "Gutted passenger door needed for bow-out; gusset the X crossing (min. 2 gussets per FIA 253-8.3.2.1.5)."
+      ],
+      "inspection": [
+        "Check X junction."
+      ],
+      "buildPhase": 1,
+      "installOrder": 12,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.151,
+              0.3,
+              -0.672
+            ],
+            [
+              1.9,
+              0.38,
+              -0.79
+            ],
+            [
+              1.1,
+              0.58,
+              -0.79
+            ],
+            [
+              0.82,
+              0.64,
+              -0.676
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.156,
+              0.66,
+              -0.682
+            ],
+            [
+              1.9,
+              0.58,
+              -0.79
+            ],
+            [
+              1.1,
+              0.38,
+              -0.79
+            ],
+            [
+              0.82,
+              0.31,
+              -0.671
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "2 x 1.75 in bars forming an X in the passenger door, crossing at x 1.50, y 0.48",
+        "features": "X door bars bowed outboard to z -0.79",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.front-down-bars",
+      "name": "Front down-bars to strut towers (through firewall)",
+      "qty": 2,
+      "description": "Bars from the front hoop at dash height forward through the upper firewall/cowl to plates on the front strut towers. Common on NASA ST/GTS, Trans Am TA2 and SCCA prepared cars where allowed; they dramatically increase front torsional stiffness and tie the suspension pickup to the cage. Check class rules – not legal in all classes.",
+      "location": "From front hoop (x 0.81, y 0.88, z ±0.66) through the cowl/upper firewall (x ≈ 0.66) to front strut-tower tops (x ≈ 0.08, y 0.86, z ±0.55).",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.strut-tower-plates",
+        "suspension.front-struts.upper-mount",
+        "safety.fuel-and-firewall-isolation.firewall-blockoff-plates"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Tube": "1.750 in OD x 0.120 in wall DOM (SAE 1020/1026) or 4130 seamless",
+        "Approx. length": "≈ 0.75 m each",
+        "Min. bend radius (CL)": "≥ 3 × OD = 5.25 in (FIA 253-8.3.3)",
+        "Ovality after bending": "minor/major ≥ 0.9",
+        "Wall tolerance": "−0.010 in max (SCCA/NASA)",
+        "Firewall pass-through": "Seal with welded collar or fire-rated grommet/sealant"
+      },
+      "hardware": [
+        {
+          "item": "TIG/MIG weld joint – full 360° fillet, full penetration",
+          "qty": 2,
+          "spec": "ER70S-2/ER70S-6 (mild/DOM) or ER80S-D2 / ER70S-2 per 4130 practice",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf",
+          "notes": "FIA 253-8.3.4: all welds full penetration around the whole tube perimeter, preferably gas-shielded arc. Do not mix mild and alloy tube (SCCA)."
+        },
+        {
+          "item": "Firewall pass-through collar / seal",
+          "qty": 1,
+          "spec": "16–18 ga steel collar welded around tube or fire-rated silicone + aluminum cover",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://timetrials.scca.com/pages/full-safety-rules",
+          "notes": "Keeps cockpit sealed from engine bay fire per SCCA bulkhead language."
+        }
+      ],
+      "installNotes": [
+        "Verify class legality first.",
+        "Check clearance to brake master cylinder, wiper motor/cowl, and supercharger intercooler lines (ZL1).",
+        "Weld plates to strut-tower tops without covering strut top-mount bolts."
+      ],
+      "inspection": [
+        "Inspect strut-tower plate welds after big curb strikes."
+      ],
+      "buildPhase": 1,
+      "installOrder": 13,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "GRM forum: SCCA vs NASA roll cage rules (quotes NASA CCR weight table)",
+          "url": "https://grassrootsmotorsports.com/forum/grm/scca-vs-nasa-roll-cage-rules/164604/page1"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Tubing",
+          "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.829,
+              0.875,
+              0.677
+            ],
+            [
+              0.08,
+              0.87,
+              0.55
+            ]
+          ],
+          "radius": 0.0222
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.829,
+              0.875,
+              -0.677
+            ],
+            [
+              0.08,
+              0.87,
+              -0.55
+            ]
+          ],
+          "radius": 0.0222
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "1.75 in tube, ~0.75 m, A-pillar bend through the cowl/firewall to the strut-tower tops",
+        "features": "Straight bars through the firewall (sealed) under the hood line",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.main-hoop-plates",
+      "name": "Main hoop mounting plates (floor/rocker)",
+      "qty": 2,
+      "description": "Steel plates welded to the floor/rocker junction under each main-hoop leg. They spread roll-over load into the unibody and give the tube a 360° weld land. Often bent to wrap up the rocker inner wall (multi-plane plates are allowed).",
+      "location": "Under main hoop feet, x ≈ 2.15, y ≈ 0.19, z ±0.66 (on floor where it meets the inner rocker/B-pillar base).",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "chassis.unibody.rocker",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.125 in (3.2 mm) mild steel plate typical",
+        "NASA size": "9–100 in² each, each side 2–12 in, ≥ 0.080 in if welded (CCR 15.6.14 as quoted)",
+        "SCCA L3": "welded 0.080–0.25 in; bolted ≥ tube wall + backing plate, ≤ 15 in any side",
+        "FIA": "≥ 3 mm thick, ≥ 120 cm² contact area"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-chassis weld (360° perimeter)",
+          "qty": 1,
+          "spec": "MIG/TIG stitch then continuous perimeter weld to floor/rocker",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-attachment-points",
+          "notes": "NASA: one mounting point per plate, 360° tube-to-plate weld. SCCA L3: welded plates 0.080–0.25 in thick."
+        },
+        {
+          "item": "Bolt-in alternative: plate bolts",
+          "qty": 3,
+          "spec": "3/8-16 UNC hex bolt + nyloc + hardened washers, through backing plate of equal size/thickness",
+          "grade": "SAE Grade 8 (min Grade 5 / 8.8, ≥ 5/16 in)",
+          "torque": "44 ft-lb (60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (nyloc)",
+          "safetyWire": false,
+          "reuse": "Inspect; replace nylocs",
+          "confidence": "typical",
+          "source": "https://www.quadratec.com/jeep_knowledgebase/article-105.htm",
+          "notes": "SCCA L3 bolted plates need backing plate of equal size & thickness, ≥ 3 bolts typical; FIA requires ≥ 3 × M8 8.8 per foot on a 3 mm/120 cm² reinforcement plate (M8 8.8 ≈ 25 N·m). Torque is standard dry Grade 8 chart value. Checked 2026-10: no cage-maker or FIA/SFI torque is published. 44 ft-lb sits within standard dry SAE Grade 8 3/8-16 values (40-52 ft-lb, Quadratec / Melling-AERA charts). Remains typical."
+        }
+      ],
+      "installNotes": [
+        "Grind e-coat/sealer to bare metal; plates should sit flat with full contact.",
+        "Weld plates to chassis before final tube weld so the tube can be welded 360° to the plate.",
+        "Avoid placing plates over seam-sealed joints without first welding the seam."
+      ],
+      "inspection": [
+        "Check for floor cracking around plate edges."
+      ],
+      "buildPhase": 1,
+      "installOrder": 14,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Roll Cage Attachment Points",
+          "url": "https://timetrials.scca.com/pages/roll-cage-attachment-points"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.15,
+          0.208,
+          0.67
+        ],
+        "size": [
+          0.152,
+          0.004,
+          0.152
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "6 x 6 x 1/8 in (152 x 152 x 3.2 mm) steel plate",
+        "features": "Square plate with radiused corners welded to floor/rocker; hoop leg welded on top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.front-hoop-plates",
+      "name": "Front hoop mounting plates (floor/kick panel)",
+      "qty": 2,
+      "description": "Plates welded at the base of each front-hoop leg where the floor meets the rocker and kick panel at the front of the door opening.",
+      "location": "x ≈ 0.82, y ≈ 0.20, z ±0.66.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "chassis.unibody.rocker",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.125 in mild steel, bent multi-plane to wrap kick panel/rocker",
+        "Rules": "Same as main hoop plates"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-chassis weld (360° perimeter)",
+          "qty": 1,
+          "spec": "MIG/TIG stitch then continuous perimeter weld to floor/rocker",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-attachment-points",
+          "notes": "NASA: one mounting point per plate, 360° tube-to-plate weld. SCCA L3: welded plates 0.080–0.25 in thick."
+        },
+        {
+          "item": "Bolt-in alternative: plate bolts",
+          "qty": 3,
+          "spec": "3/8-16 UNC hex bolt + nyloc + hardened washers, through backing plate of equal size/thickness",
+          "grade": "SAE Grade 8 (min Grade 5 / 8.8, ≥ 5/16 in)",
+          "torque": "44 ft-lb (60 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none (nyloc)",
+          "safetyWire": false,
+          "reuse": "Inspect; replace nylocs",
+          "confidence": "typical",
+          "source": "https://www.quadratec.com/jeep_knowledgebase/article-105.htm",
+          "notes": "SCCA L3 bolted plates need backing plate of equal size & thickness, ≥ 3 bolts typical; FIA requires ≥ 3 × M8 8.8 per foot on a 3 mm/120 cm² reinforcement plate (M8 8.8 ≈ 25 N·m). Torque is standard dry Grade 8 chart value. Checked 2026-10: no cage-maker or FIA/SFI torque is published. 44 ft-lb sits within standard dry SAE Grade 8 3/8-16 values (40-52 ft-lb). Remains typical."
+        }
+      ],
+      "installNotes": [
+        "Work around factory wiring pass-throughs in kick panel area (relocate harness first)."
+      ],
+      "inspection": [
+        "Check welds/floor cracks."
+      ],
+      "buildPhase": 1,
+      "installOrder": 15,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Roll Cage Attachment Points",
+          "url": "https://timetrials.scca.com/pages/roll-cage-attachment-points"
+        },
+        {
+          "title": "HybridZ: NASA roll cage requirements (CCR excerpt)",
+          "url": "https://forums.hybridz.org/topic/54868-nasa-rollcage-requirements"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.82,
+          0.208,
+          0.67
+        ],
+        "size": [
+          0.152,
+          0.004,
+          0.152
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "6 x 6 x 1/8 in steel plate",
+        "features": "Plate at the floor/hinge-pillar junction",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.backstay-plates",
+      "name": "Backstay mounting plates (rear tower/rail)",
+      "qty": 2,
+      "description": "Plates welded to the rear shock-tower / rear rail area receiving the backstays. FIA alternatively allows each backstay to be bolted with ≥ 2 × M8 on a ≥ 60 cm² foot or one bolt in double shear with a welded bush.",
+      "location": "x ≈ 2.86, y ≈ 0.65, z ±0.55.",
+      "connectsTo": [
+        "safety.roll-cage.backstays",
+        "chassis.unibody.rear-shock-tower"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.125 in mild steel",
+        "FIA bolted alternative": "≥ 2 × M8 bolts, foot ≥ 60 cm² (253-57) or single bolt in double shear (253-58)"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-chassis weld (360° perimeter)",
+          "qty": 1,
+          "spec": "MIG/TIG stitch then continuous perimeter weld to floor/rocker",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-attachment-points",
+          "notes": "NASA: one mounting point per plate, 360° tube-to-plate weld. SCCA L3: welded plates 0.080–0.25 in thick."
+        },
+        {
+          "item": "Bolt-in alternative (FIA): backstay foot bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 hex bolt + nyloc + washers",
+          "grade": "ISO 8.8 min",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "Torque from Schroth M8 table (25 N·m); FIA requires ≥ 2 M8 per backstay foot. Checked 2026-10: 25 N·m is the standard class 8.8 M8 value (Atlas Copco table). FIA Appendix J sets the bolt size and grade, not a torque. Remains typical."
+        }
+      ],
+      "installNotes": [
+        "Keep plate clear of rear shock upper mount nuts for service."
+      ],
+      "inspection": [
+        "Check welds – rear towers see suspension loads."
+      ],
+      "buildPhase": 1,
+      "installOrder": 16,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        },
+        {
+          "title": "SCCA Time Trials – Roll Cage Attachment Points",
+          "url": "https://timetrials.scca.com/pages/roll-cage-attachment-points"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.86,
+          0.656,
+          0.55
+        ],
+        "size": [
+          0.12,
+          0.004,
+          0.1
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "~4.7 x 4 x 1/8 in plate on the rear rail / shock-tower",
+        "features": "Backstay landing plate",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.strut-tower-plates",
+      "name": "Front strut-tower plates (down-bar mounts)",
+      "qty": 2,
+      "description": "Plates welded to the front strut-tower tops to receive the front down-bars. Shaped around the strut top-mount bolt pattern so the struts can still be serviced.",
+      "location": "x ≈ 0.08, y ≈ 0.86, z ±0.55 (front strut towers).",
+      "connectsTo": [
+        "safety.roll-cage.front-down-bars",
+        "chassis.unibody.front-strut-tower",
+        "suspension.front-struts.upper-mount"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.125 in mild steel",
+        "Shape": "Ring/horseshoe around top-mount studs"
+      },
+      "hardware": [
+        {
+          "item": "Plate-to-chassis weld (360° perimeter)",
+          "qty": 1,
+          "spec": "MIG/TIG stitch then continuous perimeter weld to floor/rocker",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://timetrials.scca.com/pages/roll-cage-attachment-points",
+          "notes": "NASA: one mounting point per plate, 360° tube-to-plate weld. SCCA L3: welded plates 0.080–0.25 in thick."
+        }
+      ],
+      "installNotes": [
+        "Protect strut top-mount threads from spatter; do not weld near strut bearing with strut installed."
+      ],
+      "inspection": [
+        "Check tower sheet metal for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 17,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Roll Cage Attachment Points",
+          "url": "https://timetrials.scca.com/pages/roll-cage-attachment-points"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.08,
+          0.866,
+          0.55
+        ],
+        "size": [
+          0.13,
+          0.004,
+          0.13
+        ],
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "~5 x 5 x 1/8 in plate on each front strut-tower top",
+        "features": "Down-bar landing plate around the strut mount",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.gussets",
+      "name": "Cage gussets (junction reinforcements)",
+      "qty": 14,
+      "description": "Bent-sheet U gussets or flat triangular plates welded at highly loaded junctions: roof-X center, header corners, main hoop/diagonal, harness bar/diagonal, door-bar X, door-bar/front hoop. FIA 8.2.14: U-gusset ≥ 1.0 mm thick, legs ending 2–4 × tube OD from the junction apex.",
+      "location": "At cage junctions (see model instances).",
+      "connectsTo": [
+        "safety.roll-cage.roof-x",
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.main-hoop-diagonal",
+        "safety.roll-cage.passenger-door-bars"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "FIA U-gusset": "≥ 1.0 mm thick; ends 2–4 × OD (3.5–7 in for 1.75 in tube) from apex; cut-out radius ≤ 1.5 × OD",
+        "Common practice": "0.083–0.120 in plate, ≥ tube wall thickness (WCMA guidance)"
+      },
+      "hardware": [
+        {
+          "item": "Gusset weld",
+          "qty": 2,
+          "spec": "Stitch both legs, full weld at tube tangency",
+          "grade": "n/a",
+          "torque": "N/A (welded)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "n/a",
+          "confidence": "verified",
+          "source": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "installNotes": [
+        "Laser/plasma-cut gusset blanks, bend to fit, weld after primary joints."
+      ],
+      "inspection": [
+        "Check for cracks at gusset toes."
+      ],
+      "buildPhase": 1,
+      "installOrder": 18,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            2.158,
+            0.84,
+            0.601
+          ],
+          [
+            2.158,
+            0.84,
+            0.686
+          ],
+          [
+            2.157,
+            0.755,
+            0.684
+          ],
+          [
+            2.158,
+            0.84,
+            -0.601
+          ],
+          [
+            2.158,
+            0.84,
+            -0.686
+          ],
+          [
+            2.157,
+            0.755,
+            -0.684
+          ],
+          [
+            2.242,
+            1.177,
+            0.579
+          ],
+          [
+            2.177,
+            1.232,
+            0.582
+          ],
+          [
+            2.177,
+            1.24,
+            0.497
+          ],
+          [
+            2.242,
+            1.177,
+            -0.579
+          ],
+          [
+            2.177,
+            1.232,
+            -0.582
+          ],
+          [
+            2.177,
+            1.24,
+            -0.497
+          ],
+          [
+            1.69,
+            1.287,
+            0.06
+          ],
+          [
+            1.75,
+            1.29,
+            0
+          ],
+          [
+            1.69,
+            1.287,
+            -0.06
+          ],
+          [
+            1.39,
+            1.266,
+            0.471
+          ],
+          [
+            1.305,
+            1.263,
+            0.464
+          ],
+          [
+            1.31,
+            1.266,
+            0.379
+          ],
+          [
+            1.39,
+            1.266,
+            -0.471
+          ],
+          [
+            1.305,
+            1.263,
+            -0.464
+          ],
+          [
+            1.31,
+            1.266,
+            -0.379
+          ],
+          [
+            2.166,
+            0.84,
+            0.183
+          ],
+          [
+            2.166,
+            0.84,
+            0.098
+          ],
+          [
+            2.167,
+            0.891,
+            0.166
+          ],
+          [
+            2.082,
+            0.66,
+            0.724
+          ],
+          [
+            2.156,
+            0.66,
+            0.682
+          ],
+          [
+            2.157,
+            0.745,
+            0.684
+          ],
+          [
+            0.895,
+            0.62,
+            0.716
+          ],
+          [
+            0.82,
+            0.62,
+            0.676
+          ],
+          [
+            0.82,
+            0.705,
+            0.677
+          ],
+          [
+            0.829,
+            0.744,
+            0.594
+          ],
+          [
+            0.82,
+            0.74,
+            0.678
+          ],
+          [
+            0.82,
+            0.655,
+            0.677
+          ],
+          [
+            0.829,
+            0.744,
+            -0.594
+          ],
+          [
+            0.82,
+            0.74,
+            -0.678
+          ],
+          [
+            0.82,
+            0.655,
+            -0.677
+          ],
+          [
+            0.745,
+            0.874,
+            0.663
+          ],
+          [
+            0.829,
+            0.875,
+            0.677
+          ],
+          [
+            0.893,
+            0.927,
+            0.656
+          ],
+          [
+            0.745,
+            0.874,
+            -0.663
+          ],
+          [
+            0.829,
+            0.875,
+            -0.677
+          ],
+          [
+            0.893,
+            0.927,
+            -0.656
+          ]
+        ],
+        "radius": 0.004
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Chevrolet Camaro GT4.R (Gen 6 factory race car, FIA cage, door-bar crash box)",
+            "url": "https://www.jalopnik.com/the-new-camaro-gt4-r-is-bad-ass-in-race-car-form-1794954497/"
+          },
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          },
+          {
+            "title": "CMS Performance Gen 6 Camaro roll bar (1.75 x .095 Docol R8, main hoop/kickers)",
+            "url": "https://pmbperformance.com/products/cms-performance-roll-bar-for-chevy-camaro-gen-6"
+          },
+          {
+            "title": "SCCA roll cage tubing sizes by weight",
+            "url": "https://timetrials.scca.com/pages/roll-cage-tubing"
+          }
+        ],
+        "dimensions": "14 triangular 1/8 in plate gussets, ~85 mm legs",
+        "features": "Plate gussets at hoop corners, harness bar, door bars, dash bar, down-bars and roof X centre",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "safety.roll-cage.padding",
+      "name": "Roll cage padding (SFI 45.1 high-density)",
+      "qty": 1,
+      "description": "Fire-retardant high-density padding on every cage tube the driver helmet, knees or elbows can contact (main hoop top/left side, roof rail left, A-pillar bar left, door bars, harness bar near head). NASA CCR 15.6.4 requires high-density padding at contact points; SFI 45.1 or FIA 8857-2001 type A material is the standard.",
+      "location": "Driver-side upper cage (helmet zone), driver door bars (elbow/knee), dash bar near knees.",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.roof-rails",
+        "safety.roll-cage.front-hoop",
+        "safety.roll-cage.driver-door-bars",
+        "safety.roll-cage.dash-bar"
+      ],
+      "factory": {
+        "name": "n/a",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Moroso 80944 SFI 45.1 roll bar padding (fits 1-5/8–2 in, 3 ft, 7/8 in thick)",
+          "brand": "Moroso",
+          "partNumber": "80944",
+          "notes": "",
+          "url": "https://lordco.com/Product/SFI-45-1-Roll-bar-Padding-Fits-1-5-8-2-Bar-diameter-3-lengths-7-8-thick-MOR80944"
+        },
+        {
+          "name": "BSCI / Longacre SFI 45.1 high-density padding",
+          "brand": "HMS / various",
+          "partNumber": "",
+          "notes": "Low-profile versions save headroom.",
+          "url": "https://www.hmsmotorsport.com/item/sfi-45-1-high-density-roll-bar-padding-68000-series"
+        }
+      ],
+      "specs": {
+        "Standard": "SFI 45.1 or FIA 8857-2001 type A",
+        "Thickness": "≥ 1 in at driver-contact areas (SCCA L3); 7/8 in typical SFI pad",
+        "Fixing": "Must not move on the tube (FIA) – zip ties + tape or adhesive"
+      },
+      "hardware": [
+        {
+          "item": "Zip ties / cable ties",
+          "qty": 12,
+          "spec": "UV-resistant nylon 8 in",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "confidence": "typical",
+          "source": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+        },
+        {
+          "item": "Padding tape/adhesive",
+          "qty": 1,
+          "spec": "Black vinyl or pad-specific adhesive",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "typical",
+          "source": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+        }
+      ],
+      "installNotes": [
+        "Install after paint/powder coat is fully cured.",
+        "Seam faces away from driver; zip-tie at ends and every ~8 in, trim tails flush.",
+        "Do not use pipe insulation/pool-noodle foam – it is not SFI 45.1."
+      ],
+      "inspection": [
+        "Replace torn/compressed padding; check pads have not slid along tubes."
+      ],
+      "buildPhase": 9,
+      "installOrder": 29,
+      "tags": [
+        "roll-cage",
+        "weld-in",
+        "dom"
+      ],
+      "sources": [
+        {
+          "title": "NASA Speed News – Installing roll cage padding (CCR 15.6.4)",
+          "url": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+        },
+        {
+          "title": "Moroso 80944 SFI 45.1 roll bar padding",
+          "url": "https://lordco.com/Product/SFI-45-1-Roll-bar-Padding-Fits-1-5-8-2-Bar-diameter-3-lengths-7-8-thick-MOR80944"
+        },
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        },
+        {
+          "title": "FIA Appendix J Art. 253-8 (2020) Safety Cages",
+          "url": "https://FIA.com/sites/default/files/253_2020_chap_8_wmsc_2020.10.09.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.305,
+              1.263,
+              0.464
+            ],
+            [
+              1.743,
+              1.278,
+              0.499
+            ],
+            [
+              1.75,
+              1.278,
+              0.5
+            ],
+            [
+              1.757,
+              1.278,
+              0.5
+            ],
+            [
+              2.18,
+              1.271,
+              0.5
+            ]
+          ],
+          "radius": 0.0445
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.173,
+              1.174,
+              0.62
+            ],
+            [
+              2.175,
+              1.19,
+              0.613
+            ],
+            [
+              2.176,
+              1.206,
+              0.604
+            ],
+            [
+              2.177,
+              1.22,
+              0.593
+            ],
+            [
+              2.177,
+              1.233,
+              0.58
+            ],
+            [
+              2.178,
+              1.244,
+              0.566
+            ],
+            [
+              2.179,
+              1.254,
+              0.551
+            ],
+            [
+              2.179,
+              1.262,
+              0.535
+            ],
+            [
+              2.18,
+              1.267,
+              0.518
+            ],
+            [
+              2.18,
+              1.271,
+              0.5
+            ],
+            [
+              2.18,
+              1.273,
+              0.483
+            ]
+          ],
+          "radius": 0.0445
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.225,
+              1.204,
+              0.548
+            ],
+            [
+              1.239,
+              1.215,
+              0.542
+            ],
+            [
+              1.253,
+              1.225,
+              0.534
+            ],
+            [
+              1.266,
+              1.235,
+              0.523
+            ]
+          ],
+          "radius": 0.0445
+        },
+        {
+          "shape": "tube",
+          "path": [],
+          "radius": 0.0445
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.859,
+              0.76,
+              0.309
+            ],
+            [
+              0.86,
+              0.76,
+              0.3
+            ],
+            [
+              0.86,
+              0.76,
+              0.291
+            ]
+          ],
+          "radius": 0.0445
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Moroso 80944 SFI 45.1 roll-bar padding (36 in, 7/8 in thick)",
+            "url": "https://lordco.com/Product/SFI-45-1-Roll-bar-Padding-Fits-1-5-8-2-Bar-diameter-3-lengths-7-8-thick-MOR80944"
+          }
+        ],
+        "dimensions": "SFI 45.1 pad, 7/8 in wall → ~3.5 in OD on 1.75 in tube, 36 in lengths",
+        "features": "Black high-density pads with tape wraps on every bar the helmet can reach: roof rail, main-hoop corner, A-pillar, top door bar, dash bar",
+        "confidence": "published"
+      }
+    }
+  ]
+}

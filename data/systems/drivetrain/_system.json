@@ -1,0 +1,1533 @@
+{
+  "id": "drivetrain",
+  "name": "Drivetrain",
+  "summary": "Front-mid LT V8 drives through a flywheel and clutch into a TREMEC TR-6060 six-speed (ZL1 1LE RPO MH3, 650 lb-ft rated), a two-piece propeller shaft and a cradle-mounted 226 mm differential with GM eLSD (3.73:1) feeding independent rear halfshafts. Race builds typically fit a twin/multi-disc clutch with an adjustable HRB in an SFI bellhousing, a stronger H-pattern or sequential gearbox, a one-piece carbon driveshaft with safety loops, a mechanical race LSD with solid diff mounts, upgraded halfshafts, and ducted trans/diff oil coolers.",
+  "overview": "Layout. On the Gen 6 (Alpha platform) Camaro the engine sits behind the front axle with the bellhousing face at about x=0.38 m. The TREMEC 6060 (TR-6060) is a fully synchronized aluminum-case six-speed with triple-cone 1st/2nd and double-cone 3rd-6th/reverse synchronizers, tapered-roller main and countershaft bearings, solenoid 2-3 skip-shift and reverse inhibit, and a remote shifter linked by an external shift rod. GM rates it at 650 lb-ft (881 N\u00b7m). The ZL1 1LE close-ratio MH3 box runs 2.29/1.61/1.21/1.00/0.82/0.68 (R 3.11) with a 3.73 final drive; 2016+ SS uses 2.66/1.78/1.30/1.00/0.74/0.50. The factory propeller shaft is two-piece with rubber flex couplers at both ends and a center support bearing. The 226 mm differential bolts into the rear cradle on two front bushings and one rear bushing (rear bolt is torque-angle-yield, 162 ft-lb + 60\u00b0), with plug-in halfshafts retained by circlips.\n\nKey road-race decisions. (1) Clutch: factory twin-disc copes with 650 lb-ft on the street but a race car benefits from a lower-inertia twin/multi-disc pack and an adjustable hydraulic release bearing (Tilton 60-6241 / 60-6111 list TR6060 applications) with a remote bleeder. (2) Containment: fit an SFI 6.x steel bellhousing (or SFI blanket where permitted) and dial-indicate runout. (3) Gearbox: TR-6060 is durable when cooled and shifted cleanly; for endurance or a high-output custom engine consider a TREMEC Magnum XL (700 lb-ft) or a sequential dog box (Holinger RD6-S 880 N\u00b7m endurance rating, Xtrac as on the Camaro GT4.R) with paddle shift. (4) Driveshaft: replace the two-piece shaft and flex discs with a one-piece carbon or aluminum shaft (DSS GMCA19-C, QA1 JJ-22208) and add safety loops. (5) Differential: the eLSD is excellent but depends on GM network control; with a standalone race ECU most builders convert to a mechanical plate LSD and solid-mount the diff (BMR BK058/BK059/BK060). (6) Cooling: GM fits trans and diff coolers to the ZL1 1LE and warns of high axle temps on the first track day; race cars need ducted coolers with thermostats and temp logging.\n\nRules. Most sanctioning bodies (NASA, SCCA, Trans Am, etc.) have drivetrain safety requirements that vary by class: SFI-rated bellhousing or flywheel shield, driveshaft safety loop(s), catch cans for gearbox/axle breathers, lockwired drain plugs and sealed tunnel/shifter openings. Always check your class rulebook and tech inspector.\n\nFluids and intervals (GM). Manual transmission fluid change every 15 h of track use. Rear axle fluid needs 1,500 mi (2,400 km) break-in before track use; drain and refill after the first event then every 24 h of racing. ZL1 coupe with eLSD: 1.5 L axle fluid + 160 mL eLSD actuation fluid; LT1 non-eLSD axle 1.1 L. Clutch shares DOT 4 with the brakes.\n\nCommon failure points. Torn flex couplers and center bearing isolators, CV boot tears from exhaust heat, diff bushing deflection/wheel hop, overheated diff/gearbox oil, HRB seal failure from over-stroking, clutch contamination from input/rear-main seals, and loose AN fittings inside the bellhousing.",
+  "buildNotes": [
+    "Phase 3: with the rear cradle on the car (suspension team), install diff mount bushings/lockouts, raise the differential into the cradle and torque front bolts then the rear TAY bolt (new bolt).",
+    "Phase 4: install halfshafts (seal protector, circlip pull-test) and torque axle nuts to GM SI with wheels loaded.",
+    "Phase 5: engine on stand - pilot bearing, dial-indicate bellhousing runout (offset dowels if needed), flywheel (3-pass torque), clutch pack with alignment tool, measure finger height.",
+    "Phase 6: set HRB height and plumb its internal hose/bleeder; mate gearbox (pre-filled) to engine; install crossmember/mount; fit driveshaft and safety loops; connect shift rod/shifter; set driveline angles.",
+    "Phase 6: route -3 AN clutch line to the bulkhead; bleed via remote bleeder; set pedal over-travel stop.",
+    "Phase 7: plumb trans and diff cooler circuits (pump below oil level, filter, thermostat, ducted cooler), vents to catch cans.",
+    "Phase 8: wire sensors (trans temp, diff temp, gear position, clutch position, VSS, reverse lockout), pump control in PDM, eLSD (if retained) or delete strategy, sequential GCU if fitted.",
+    "Phase 11: fill gearbox and axle (plus cooler volume), bleed coolers, check for leaks, break in axle per GM before hard track use, re-torque driveline fasteners after shakedown and paint-mark them."
+  ],
+  "schematics": [
+    {
+      "id": "drivetrain.power-flow",
+      "title": "Power flow: crankshaft to rear wheels",
+      "type": "mechanical",
+      "description": "Torque path from the LT crankshaft through flywheel, clutch, gearbox, driveshaft, differential and halfshafts to the rear hubs, plus the reaction paths through the transmission mount/crossmember and the differential mounts into the rear cradle and body.",
+      "nodes": [
+        {
+          "id": "crank",
+          "label": "Crankshaft (LT1/LT4 or race engine)",
+          "componentId": "engine.rotating-assembly.crankshaft"
+        },
+        {
+          "id": "flywheel",
+          "label": "Flywheel + ring gear (8-bolt)",
+          "componentId": "drivetrain.flywheel-clutch.flywheel"
+        },
+        {
+          "id": "discs",
+          "label": "Clutch disc pack / floater",
+          "componentId": "drivetrain.flywheel-clutch.clutch-disc-pack"
+        },
+        {
+          "id": "pp",
+          "label": "Pressure plate (diaphragm)",
+          "componentId": "drivetrain.flywheel-clutch.pressure-plate"
+        },
+        {
+          "id": "hrb",
+          "label": "Hydraulic release bearing",
+          "componentId": "drivetrain.clutch-hydraulics.release-bearing"
+        },
+        {
+          "id": "pilot",
+          "label": "Pilot bearing",
+          "componentId": "drivetrain.flywheel-clutch.pilot-bearing"
+        },
+        {
+          "id": "input",
+          "label": "Input shaft (26 x 1-1/8 in)",
+          "componentId": "drivetrain.transmission.transmission"
+        },
+        {
+          "id": "gears",
+          "label": "Gearset 1-6 + R (TR-6060 MH3 / sequential)",
+          "componentId": "drivetrain.transmission.transmission"
+        },
+        {
+          "id": "outflange",
+          "label": "Output flange",
+          "componentId": "drivetrain.transmission.output-flange"
+        },
+        {
+          "id": "cvfront",
+          "label": "Front flex coupler (OEM) / CV + adapter (race)",
+          "componentId": "drivetrain.driveshaft.cv-flange-adapter"
+        },
+        {
+          "id": "shaft",
+          "label": "Driveshaft (2-piece OEM / 1-piece CF race)",
+          "componentId": "drivetrain.driveshaft.one-piece-driveshaft"
+        },
+        {
+          "id": "ctr",
+          "label": "Center support bearing (OEM only)",
+          "componentId": "drivetrain.driveshaft.center-support-bearing"
+        },
+        {
+          "id": "rcoup",
+          "label": "Rear coupler / flange",
+          "componentId": "drivetrain.driveshaft.rear-flex-coupler"
+        },
+        {
+          "id": "pinion",
+          "label": "Pinion flange",
+          "componentId": "drivetrain.rear-differential.pinion-flange"
+        },
+        {
+          "id": "rp",
+          "label": "Ring & pinion 3.73:1",
+          "componentId": "drivetrain.rear-differential.ring-and-pinion"
+        },
+        {
+          "id": "lsd",
+          "label": "eLSD clutch pack / race LSD",
+          "componentId": "drivetrain.rear-differential.differential-assembly"
+        },
+        {
+          "id": "icvL",
+          "label": "Inner CV - left",
+          "componentId": "drivetrain.halfshafts.inner-cv-joint"
+        },
+        {
+          "id": "icvR",
+          "label": "Inner CV - right",
+          "componentId": "drivetrain.halfshafts.inner-cv-joint"
+        },
+        {
+          "id": "hsL",
+          "label": "Halfshaft - left",
+          "componentId": "drivetrain.halfshafts.halfshaft"
+        },
+        {
+          "id": "hsR",
+          "label": "Halfshaft - right",
+          "componentId": "drivetrain.halfshafts.halfshaft"
+        },
+        {
+          "id": "ocvL",
+          "label": "Outer CV - left",
+          "componentId": "drivetrain.halfshafts.outer-cv-joint"
+        },
+        {
+          "id": "ocvR",
+          "label": "Outer CV - right",
+          "componentId": "drivetrain.halfshafts.outer-cv-joint"
+        },
+        {
+          "id": "hubL",
+          "label": "Rear hub/bearing - left",
+          "componentId": "suspension.rear-knuckle.hub-bearing"
+        },
+        {
+          "id": "hubR",
+          "label": "Rear hub/bearing - right",
+          "componentId": "suspension.rear-knuckle.hub-bearing"
+        },
+        {
+          "id": "wheelL",
+          "label": "Rear wheel/tire - left",
+          "componentId": "wheels.wheels.rear-wheel"
+        },
+        {
+          "id": "wheelR",
+          "label": "Rear wheel/tire - right",
+          "componentId": "wheels.wheels.rear-wheel"
+        },
+        {
+          "id": "tmount",
+          "label": "Transmission mount",
+          "componentId": "drivetrain.trans-mount-crossmember.transmission-mount"
+        },
+        {
+          "id": "xmbr",
+          "label": "Crossmember",
+          "componentId": "drivetrain.trans-mount-crossmember.crossmember"
+        },
+        {
+          "id": "dmounts",
+          "label": "Diff mounts (2 front + 1 rear)",
+          "componentId": "drivetrain.rear-differential.front-mount-bushings"
+        },
+        {
+          "id": "cradle",
+          "label": "Rear cradle",
+          "componentId": "suspension.rear-cradle.cradle"
+        },
+        {
+          "id": "body",
+          "label": "Unibody",
+          "componentId": "chassis.unibody.shell"
+        }
+      ],
+      "edges": [
+        {
+          "from": "crank",
+          "to": "flywheel",
+          "label": "8 bolts, 20/50/100 N\u00b7m (OEM)",
+          "kind": "torque"
+        },
+        {
+          "from": "flywheel",
+          "to": "discs",
+          "label": "friction",
+          "kind": "torque"
+        },
+        {
+          "from": "pp",
+          "to": "discs",
+          "label": "clamp load",
+          "kind": "mechanical"
+        },
+        {
+          "from": "flywheel",
+          "to": "pp",
+          "label": "cover bolts",
+          "kind": "torque"
+        },
+        {
+          "from": "hrb",
+          "to": "pp",
+          "label": "release (pushes fingers)",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pilot",
+          "to": "input",
+          "label": "supports input nose",
+          "kind": "mechanical"
+        },
+        {
+          "from": "discs",
+          "to": "input",
+          "label": "26-spline",
+          "kind": "torque"
+        },
+        {
+          "from": "input",
+          "to": "gears",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "gears",
+          "to": "outflange",
+          "label": "mainshaft",
+          "kind": "torque"
+        },
+        {
+          "from": "outflange",
+          "to": "cvfront",
+          "label": "3 x M12, 85 ft-lb (QA1 adapter)",
+          "kind": "torque"
+        },
+        {
+          "from": "cvfront",
+          "to": "shaft",
+          "label": "6 x M10, 47 ft-lb (QA1 CV)",
+          "kind": "torque"
+        },
+        {
+          "from": "shaft",
+          "to": "ctr",
+          "label": "OEM 2-piece only",
+          "kind": "mechanical"
+        },
+        {
+          "from": "shaft",
+          "to": "rcoup",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "rcoup",
+          "to": "pinion",
+          "label": "3 x M12, 85 ft-lb",
+          "kind": "torque"
+        },
+        {
+          "from": "pinion",
+          "to": "rp",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "rp",
+          "to": "lsd",
+          "label": "carrier",
+          "kind": "torque"
+        },
+        {
+          "from": "lsd",
+          "to": "icvL",
+          "label": "side gear spline + circlip",
+          "kind": "torque"
+        },
+        {
+          "from": "lsd",
+          "to": "icvR",
+          "label": "side gear spline + circlip",
+          "kind": "torque"
+        },
+        {
+          "from": "icvL",
+          "to": "hsL",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "icvR",
+          "to": "hsR",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "hsL",
+          "to": "ocvL",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "hsR",
+          "to": "ocvR",
+          "label": "",
+          "kind": "torque"
+        },
+        {
+          "from": "ocvL",
+          "to": "hubL",
+          "label": "axle nut",
+          "kind": "torque"
+        },
+        {
+          "from": "ocvR",
+          "to": "hubR",
+          "label": "axle nut",
+          "kind": "torque"
+        },
+        {
+          "from": "hubL",
+          "to": "wheelL",
+          "label": "wheel nuts 140 ft-lb",
+          "kind": "torque"
+        },
+        {
+          "from": "hubR",
+          "to": "wheelR",
+          "label": "wheel nuts 140 ft-lb",
+          "kind": "torque"
+        },
+        {
+          "from": "gears",
+          "to": "tmount",
+          "label": "reaction torque",
+          "kind": "mechanical"
+        },
+        {
+          "from": "tmount",
+          "to": "xmbr",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "xmbr",
+          "to": "body",
+          "label": "",
+          "kind": "mechanical"
+        },
+        {
+          "from": "lsd",
+          "to": "dmounts",
+          "label": "pinion reaction",
+          "kind": "mechanical"
+        },
+        {
+          "from": "dmounts",
+          "to": "cradle",
+          "label": "front 45 ft-lb; rear 162 ft-lb + 60\u00b0 TAY",
+          "kind": "mechanical"
+        },
+        {
+          "from": "cradle",
+          "to": "body",
+          "label": "cradle mounts",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "drivetrain.clutch-hydraulic",
+      "title": "Clutch hydraulic circuit",
+      "type": "hydraulic",
+      "description": "Pedal to master cylinder to release bearing. Factory: shared brake/clutch reservoir, OEM pipe and concentric slave. Race: dedicated reservoir, -3 AN braided line, bellhousing bulkhead, adjustable HRB with remote bleeder and pedal over-travel stop. Pedal sensor feeds ECU for rev-match/launch/flat-shift.",
+      "nodes": [
+        {
+          "id": "pedal",
+          "label": "Clutch pedal",
+          "componentId": "drivetrain.clutch-hydraulics.clutch-pedal"
+        },
+        {
+          "id": "stop",
+          "label": "Over-travel stop",
+          "componentId": "drivetrain.clutch-hydraulics.pedal-stop"
+        },
+        {
+          "id": "sensor",
+          "label": "Clutch pedal position sensor",
+          "componentId": "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor"
+        },
+        {
+          "id": "ecu",
+          "label": "ECM / race ECU",
+          "componentId": "engine.ecu.ecm"
+        },
+        {
+          "id": "res",
+          "label": "Reservoir (shared OEM / dedicated race)",
+          "componentId": "drivetrain.clutch-hydraulics.reservoir"
+        },
+        {
+          "id": "feed",
+          "label": "Feed hose",
+          "componentId": "drivetrain.clutch-hydraulics.reservoir-hose"
+        },
+        {
+          "id": "mc",
+          "label": "Clutch master cylinder",
+          "componentId": "drivetrain.clutch-hydraulics.master-cylinder"
+        },
+        {
+          "id": "line",
+          "label": "-3 AN pressure line",
+          "componentId": "drivetrain.clutch-hydraulics.pressure-line"
+        },
+        {
+          "id": "bulk",
+          "label": "Bellhousing bulkhead",
+          "componentId": "drivetrain.clutch-hydraulics.bulkhead-fitting"
+        },
+        {
+          "id": "ihose",
+          "label": "Internal HRB hose",
+          "componentId": "drivetrain.clutch-hydraulics.release-bearing"
+        },
+        {
+          "id": "hrb",
+          "label": "Hydraulic release bearing / CSC",
+          "componentId": "drivetrain.clutch-hydraulics.release-bearing"
+        },
+        {
+          "id": "shim",
+          "label": "HRB shims (air gap)",
+          "componentId": "drivetrain.clutch-hydraulics.release-bearing-shims"
+        },
+        {
+          "id": "bleed",
+          "label": "Remote bleeder",
+          "componentId": "drivetrain.clutch-hydraulics.remote-bleeder"
+        },
+        {
+          "id": "pp",
+          "label": "Pressure plate fingers",
+          "componentId": "drivetrain.flywheel-clutch.pressure-plate"
+        },
+        {
+          "id": "discs",
+          "label": "Disc pack released",
+          "componentId": "drivetrain.flywheel-clutch.clutch-disc-pack"
+        }
+      ],
+      "edges": [
+        {
+          "from": "pedal",
+          "to": "mc",
+          "label": "pushrod",
+          "kind": "mechanical"
+        },
+        {
+          "from": "stop",
+          "to": "pedal",
+          "label": "limits travel",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pedal",
+          "to": "sensor",
+          "label": "position",
+          "kind": "mechanical"
+        },
+        {
+          "from": "sensor",
+          "to": "ecu",
+          "label": "clutch position (ARM / launch / flat-shift)",
+          "kind": "signal"
+        },
+        {
+          "from": "res",
+          "to": "feed",
+          "label": "gravity feed",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "feed",
+          "to": "mc",
+          "label": "",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "mc",
+          "to": "line",
+          "label": "pressure",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "line",
+          "to": "bulk",
+          "label": "",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "bulk",
+          "to": "ihose",
+          "label": "",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "ihose",
+          "to": "hrb",
+          "label": "",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "hrb",
+          "to": "bleed",
+          "label": "bleed line (highest point)",
+          "kind": "clutch-fluid"
+        },
+        {
+          "from": "shim",
+          "to": "hrb",
+          "label": "sets height",
+          "kind": "mechanical"
+        },
+        {
+          "from": "hrb",
+          "to": "pp",
+          "label": "bearing pushes fingers",
+          "kind": "mechanical"
+        },
+        {
+          "from": "pp",
+          "to": "discs",
+          "label": "clamp released",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "drivetrain.trans-cooling",
+      "title": "Transmission oil cooling circuit",
+      "type": "flow",
+      "description": "H-pattern TR-6060: electric pump draws from the low drain-port pickup through a screen, pushes through an in-line filter and thermostat (bypass when cold) to a ducted front cooler, and returns to a high case port. A sequential gearbox (Holinger RD6) replaces the external pump with its internal pump, filter and spray bar but uses the same cooler/thermostat loop.",
+      "nodes": [
+        {
+          "id": "sump",
+          "label": "Gearbox sump",
+          "componentId": "drivetrain.transmission.transmission"
+        },
+        {
+          "id": "pick",
+          "label": "Pickup fitting + screen (drain port)",
+          "componentId": "drivetrain.coolers.trans-cooler-fittings"
+        },
+        {
+          "id": "pump",
+          "label": "Electric gear-oil pump",
+          "componentId": "drivetrain.coolers.trans-cooler-pump"
+        },
+        {
+          "id": "ipump",
+          "label": "Internal pump (sequential only)",
+          "componentId": "drivetrain.transmission.gearbox-oil-filter"
+        },
+        {
+          "id": "filt",
+          "label": "In-line filter",
+          "componentId": "drivetrain.coolers.inline-filters"
+        },
+        {
+          "id": "tstat",
+          "label": "Thermostat / bypass",
+          "componentId": "drivetrain.coolers.trans-thermostat"
+        },
+        {
+          "id": "cool",
+          "label": "Trans cooler (front, ducted)",
+          "componentId": "drivetrain.coolers.trans-cooler"
+        },
+        {
+          "id": "duct",
+          "label": "Cooler duct",
+          "componentId": "drivetrain.coolers.cooler-ducting"
+        },
+        {
+          "id": "ret",
+          "label": "Return fitting (high port / spray bar)",
+          "componentId": "drivetrain.coolers.trans-cooler-fittings"
+        },
+        {
+          "id": "temp",
+          "label": "Trans temp sensor",
+          "componentId": "drivetrain.transmission.temperature-sensor"
+        },
+        {
+          "id": "ctl",
+          "label": "Pump control (PDM logic)",
+          "componentId": "drivetrain.coolers.pump-control"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "dash",
+          "label": "Dash / logger",
+          "componentId": "electrical.dash-logger.dash"
+        },
+        {
+          "id": "vent",
+          "label": "Trans vent / catch",
+          "componentId": "drivetrain.transmission.vent-tube"
+        }
+      ],
+      "edges": [
+        {
+          "from": "sump",
+          "to": "pick",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "pick",
+          "to": "pump",
+          "label": "-8/-10 AN suction",
+          "kind": "oil"
+        },
+        {
+          "from": "sump",
+          "to": "ipump",
+          "label": "sequential alternative",
+          "kind": "oil"
+        },
+        {
+          "from": "ipump",
+          "to": "filt",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "pump",
+          "to": "filt",
+          "label": "-8 AN",
+          "kind": "oil"
+        },
+        {
+          "from": "filt",
+          "to": "tstat",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "tstat",
+          "to": "cool",
+          "label": "hot: to cooler",
+          "kind": "oil"
+        },
+        {
+          "from": "tstat",
+          "to": "ret",
+          "label": "cold: bypass",
+          "kind": "oil"
+        },
+        {
+          "from": "cool",
+          "to": "ret",
+          "label": "-8 AN return",
+          "kind": "oil"
+        },
+        {
+          "from": "ret",
+          "to": "sump",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "duct",
+          "to": "cool",
+          "label": "ram air",
+          "kind": "air"
+        },
+        {
+          "from": "temp",
+          "to": "ctl",
+          "label": "oil temp",
+          "kind": "signal"
+        },
+        {
+          "from": "ctl",
+          "to": "pdm",
+          "label": "CAN / switch",
+          "kind": "can"
+        },
+        {
+          "from": "pdm",
+          "to": "pump",
+          "label": "12 V switched",
+          "kind": "power"
+        },
+        {
+          "from": "temp",
+          "to": "dash",
+          "label": "logging/alarm 163\u00b0C",
+          "kind": "signal"
+        },
+        {
+          "from": "sump",
+          "to": "vent",
+          "label": "breather",
+          "kind": "air"
+        }
+      ]
+    },
+    {
+      "id": "drivetrain.diff-cooling",
+      "title": "Differential oil cooling circuit",
+      "type": "flow",
+      "description": "Electric pump pulls axle oil from a low pickup on the 226 mm diff, through a filter and thermostat to a ducted rear cooler and back to a high return port on the cover. Pump is switched on diff temperature via the PDM.",
+      "nodes": [
+        {
+          "id": "diff",
+          "label": "Differential sump",
+          "componentId": "drivetrain.rear-differential.differential-assembly"
+        },
+        {
+          "id": "pick",
+          "label": "Pickup fitting + screen",
+          "componentId": "drivetrain.coolers.diff-cooler-fittings"
+        },
+        {
+          "id": "pump",
+          "label": "Diff cooler pump",
+          "componentId": "drivetrain.coolers.diff-cooler-pump"
+        },
+        {
+          "id": "filt",
+          "label": "In-line filter",
+          "componentId": "drivetrain.coolers.inline-filters"
+        },
+        {
+          "id": "tstat",
+          "label": "Thermostat / bypass",
+          "componentId": "drivetrain.coolers.diff-thermostat"
+        },
+        {
+          "id": "cool",
+          "label": "Diff cooler (rear, ducted)",
+          "componentId": "drivetrain.coolers.diff-cooler"
+        },
+        {
+          "id": "duct",
+          "label": "Rear cooler duct",
+          "componentId": "drivetrain.coolers.cooler-ducting"
+        },
+        {
+          "id": "ret",
+          "label": "Return fitting (cover, high)",
+          "componentId": "drivetrain.coolers.diff-cooler-fittings"
+        },
+        {
+          "id": "temp",
+          "label": "Diff temp sensor",
+          "componentId": "drivetrain.rear-differential.temperature-sensor"
+        },
+        {
+          "id": "ctl",
+          "label": "Pump control",
+          "componentId": "drivetrain.coolers.pump-control"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM",
+          "componentId": "electrical.power-distribution.pdm"
+        },
+        {
+          "id": "vent",
+          "label": "Diff vent / catch",
+          "componentId": "drivetrain.rear-differential.vent"
+        }
+      ],
+      "edges": [
+        {
+          "from": "diff",
+          "to": "pick",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "pick",
+          "to": "pump",
+          "label": "-10 AN suction",
+          "kind": "oil"
+        },
+        {
+          "from": "pump",
+          "to": "filt",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "filt",
+          "to": "tstat",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "tstat",
+          "to": "cool",
+          "label": "hot",
+          "kind": "oil"
+        },
+        {
+          "from": "tstat",
+          "to": "ret",
+          "label": "cold bypass",
+          "kind": "oil"
+        },
+        {
+          "from": "cool",
+          "to": "ret",
+          "label": "-8/-10 AN return",
+          "kind": "oil"
+        },
+        {
+          "from": "ret",
+          "to": "diff",
+          "label": "",
+          "kind": "oil"
+        },
+        {
+          "from": "duct",
+          "to": "cool",
+          "label": "ram air",
+          "kind": "air"
+        },
+        {
+          "from": "temp",
+          "to": "ctl",
+          "label": "oil temp",
+          "kind": "signal"
+        },
+        {
+          "from": "ctl",
+          "to": "pdm",
+          "label": "",
+          "kind": "can"
+        },
+        {
+          "from": "pdm",
+          "to": "pump",
+          "label": "12 V switched",
+          "kind": "power"
+        },
+        {
+          "from": "diff",
+          "to": "vent",
+          "label": "breather",
+          "kind": "air"
+        }
+      ]
+    },
+    {
+      "id": "drivetrain.sequential-shift",
+      "title": "Sequential paddle-shift control (race option)",
+      "type": "block",
+      "description": "Paddles request shifts from the gear control unit (GCU), which fires the pneumatic valve block/actuator on the gearbox selector, reads barrel position, and asks the ECU for ignition cut (upshift) or throttle blip (downshift). Air comes from an on-board compressor/tank. Camaro GT4.R used this concept with an Xtrac sequential.",
+      "nodes": [
+        {
+          "id": "pup",
+          "label": "Upshift paddle",
+          "componentId": "drivetrain.shifter.paddle-shifters"
+        },
+        {
+          "id": "pdn",
+          "label": "Downshift paddle",
+          "componentId": "drivetrain.shifter.paddle-shifters"
+        },
+        {
+          "id": "gcu",
+          "label": "Gear control unit",
+          "componentId": "drivetrain.shifter.shift-controller"
+        },
+        {
+          "id": "ecu",
+          "label": "Engine ECU",
+          "componentId": "engine.ecu.ecm"
+        },
+        {
+          "id": "dash",
+          "label": "Dash / logger",
+          "componentId": "electrical.dash-logger.dash"
+        },
+        {
+          "id": "valve",
+          "label": "Solenoid valve block",
+          "componentId": "drivetrain.shifter.pneumatic-actuator"
+        },
+        {
+          "id": "act",
+          "label": "Pneumatic actuator",
+          "componentId": "drivetrain.shifter.pneumatic-actuator"
+        },
+        {
+          "id": "barrel",
+          "label": "Gearbox selector barrel",
+          "componentId": "drivetrain.transmission.transmission"
+        },
+        {
+          "id": "gps",
+          "label": "Gear position sensor",
+          "componentId": "drivetrain.transmission.gear-position-sensor"
+        },
+        {
+          "id": "comp",
+          "label": "Compressor",
+          "componentId": "drivetrain.shifter.air-supply"
+        },
+        {
+          "id": "tank",
+          "label": "Air tank + regulator",
+          "componentId": "drivetrain.shifter.air-supply"
+        },
+        {
+          "id": "clutch",
+          "label": "Clutch switch (launch only)",
+          "componentId": "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor"
+        },
+        {
+          "id": "pdm",
+          "label": "PDM",
+          "componentId": "electrical.power-distribution.pdm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "pup",
+          "to": "gcu",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "pdn",
+          "to": "gcu",
+          "label": "",
+          "kind": "signal"
+        },
+        {
+          "from": "gcu",
+          "to": "ecu",
+          "label": "cut/blip request",
+          "kind": "can"
+        },
+        {
+          "from": "ecu",
+          "to": "gcu",
+          "label": "rpm, throttle",
+          "kind": "can"
+        },
+        {
+          "from": "gcu",
+          "to": "dash",
+          "label": "gear, errors",
+          "kind": "can"
+        },
+        {
+          "from": "gcu",
+          "to": "valve",
+          "label": "solenoid drive",
+          "kind": "power"
+        },
+        {
+          "from": "valve",
+          "to": "act",
+          "label": "air",
+          "kind": "air"
+        },
+        {
+          "from": "act",
+          "to": "barrel",
+          "label": "shift rod",
+          "kind": "mechanical"
+        },
+        {
+          "from": "gps",
+          "to": "gcu",
+          "label": "0-5 V",
+          "kind": "signal"
+        },
+        {
+          "from": "comp",
+          "to": "tank",
+          "label": "",
+          "kind": "air"
+        },
+        {
+          "from": "tank",
+          "to": "valve",
+          "label": "regulated air",
+          "kind": "air"
+        },
+        {
+          "from": "clutch",
+          "to": "ecu",
+          "label": "launch",
+          "kind": "signal"
+        },
+        {
+          "from": "pdm",
+          "to": "gcu",
+          "label": "12 V",
+          "kind": "power"
+        },
+        {
+          "from": "pdm",
+          "to": "comp",
+          "label": "12 V",
+          "kind": "power"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "drivetrain.route.clutch-line",
+      "name": "Clutch pressure line (master to bellhousing)",
+      "kind": "clutch-fluid",
+      "componentId": "drivetrain.clutch-hydraulics.pressure-line",
+      "radius": 0.004,
+      "points": [
+        [
+          0.64,
+          0.62,
+          0.42
+        ],
+        [
+          0.62,
+          0.5,
+          0.38
+        ],
+        [
+          0.6,
+          0.38,
+          0.3
+        ],
+        [
+          0.56,
+          0.3,
+          0.22
+        ],
+        [
+          0.5,
+          0.29,
+          0.17
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.driveshaft",
+      "name": "Driveshaft (trans output to pinion)",
+      "kind": "torque",
+      "componentId": "drivetrain.driveshaft.one-piece-driveshaft",
+      "radius": 0.042,
+      "points": [
+        [
+          1.27,
+          0.36,
+          0.0
+        ],
+        [
+          1.6,
+          0.352,
+          0.0
+        ],
+        [
+          1.95,
+          0.345,
+          0.0
+        ],
+        [
+          2.3,
+          0.352,
+          0.0
+        ],
+        [
+          2.61,
+          0.36,
+          0.0
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.halfshaft-left",
+      "name": "Left rear halfshaft",
+      "kind": "torque",
+      "componentId": "drivetrain.halfshafts.halfshaft",
+      "radius": 0.016,
+      "points": [
+        [
+          2.8,
+          0.36,
+          0.17
+        ],
+        [
+          2.803,
+          0.362,
+          0.35
+        ],
+        [
+          2.807,
+          0.366,
+          0.55
+        ],
+        [
+          2.811,
+          0.37,
+          0.72
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.halfshaft-right",
+      "name": "Right rear halfshaft",
+      "kind": "torque",
+      "componentId": "drivetrain.halfshafts.halfshaft",
+      "radius": 0.016,
+      "points": [
+        [
+          2.8,
+          0.36,
+          -0.17
+        ],
+        [
+          2.803,
+          0.362,
+          -0.35
+        ],
+        [
+          2.807,
+          0.366,
+          -0.55
+        ],
+        [
+          2.811,
+          0.37,
+          -0.72
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.trans-cooler-feed",
+      "name": "Trans cooler feed (pickup to pump to cooler)",
+      "kind": "oil",
+      "componentId": "drivetrain.coolers.trans-cooler-lines",
+      "radius": 0.008,
+      "points": [
+        [
+          0.8,
+          0.24,
+          0.0
+        ],
+        [
+          0.9,
+          0.23,
+          -0.12
+        ],
+        [
+          0.95,
+          0.24,
+          -0.2
+        ],
+        [
+          0.8,
+          0.22,
+          -0.3
+        ],
+        [
+          0.4,
+          0.22,
+          -0.4
+        ],
+        [
+          0.0,
+          0.23,
+          -0.45
+        ],
+        [
+          -0.4,
+          0.3,
+          -0.45
+        ],
+        [
+          -0.58,
+          0.32,
+          -0.5
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.trans-cooler-return",
+      "name": "Trans cooler return (cooler to case)",
+      "kind": "oil",
+      "componentId": "drivetrain.coolers.trans-cooler-lines",
+      "radius": 0.008,
+      "points": [
+        [
+          -0.58,
+          0.26,
+          -0.6
+        ],
+        [
+          -0.3,
+          0.22,
+          -0.52
+        ],
+        [
+          0.2,
+          0.21,
+          -0.42
+        ],
+        [
+          0.6,
+          0.24,
+          -0.28
+        ],
+        [
+          0.8,
+          0.32,
+          -0.2
+        ],
+        [
+          0.86,
+          0.38,
+          -0.17
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.diff-cooler-feed",
+      "name": "Diff cooler feed (pickup to pump to cooler)",
+      "kind": "oil",
+      "componentId": "drivetrain.coolers.diff-cooler-lines",
+      "radius": 0.009,
+      "points": [
+        [
+          2.9,
+          0.25,
+          -0.1
+        ],
+        [
+          2.95,
+          0.28,
+          -0.25
+        ],
+        [
+          3.15,
+          0.36,
+          -0.42
+        ],
+        [
+          3.35,
+          0.46,
+          -0.52
+        ],
+        [
+          3.53,
+          0.52,
+          -0.6
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.diff-cooler-return",
+      "name": "Diff cooler return (cooler to cover)",
+      "kind": "oil",
+      "componentId": "drivetrain.coolers.diff-cooler-lines",
+      "radius": 0.008,
+      "points": [
+        [
+          3.53,
+          0.48,
+          -0.66
+        ],
+        [
+          3.3,
+          0.5,
+          -0.45
+        ],
+        [
+          3.1,
+          0.47,
+          -0.15
+        ],
+        [
+          2.97,
+          0.44,
+          -0.06
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.shift-rod",
+      "name": "Shift rod (trans to shifter)",
+      "kind": "mechanical",
+      "componentId": "drivetrain.shifter.shift-rod",
+      "radius": 0.007,
+      "points": [
+        [
+          1.0,
+          0.5,
+          0.02
+        ],
+        [
+          1.14,
+          0.48,
+          0.03
+        ],
+        [
+          1.28,
+          0.46,
+          0.04
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.shift-air-line",
+      "name": "Paddle-shift air line (tank to actuator)",
+      "kind": "air",
+      "componentId": "drivetrain.shifter.air-supply",
+      "radius": 0.004,
+      "points": [
+        [
+          1.9,
+          0.25,
+          -0.35
+        ],
+        [
+          1.6,
+          0.3,
+          -0.15
+        ],
+        [
+          1.3,
+          0.4,
+          -0.1
+        ],
+        [
+          1.05,
+          0.52,
+          -0.08
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.trans-vent",
+      "name": "Transmission vent hose",
+      "kind": "air",
+      "componentId": "drivetrain.transmission.vent-tube",
+      "radius": 0.004,
+      "points": [
+        [
+          0.95,
+          0.52,
+          0.0
+        ],
+        [
+          0.95,
+          0.58,
+          0.04
+        ],
+        [
+          1.05,
+          0.6,
+          0.08
+        ]
+      ]
+    },
+    {
+      "id": "drivetrain.route.diff-vent",
+      "name": "Differential vent hose",
+      "kind": "air",
+      "componentId": "drivetrain.rear-differential.vent",
+      "radius": 0.004,
+      "points": [
+        [
+          2.8,
+          0.5,
+          0.0
+        ],
+        [
+          2.82,
+          0.6,
+          0.05
+        ],
+        [
+          2.95,
+          0.66,
+          0.1
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+      "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+    },
+    {
+      "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+      "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+    },
+    {
+      "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+      "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+    },
+    {
+      "title": "GM Service Bulletin 19-NA-038: 2019 Camaro ZL1-1LE with 10-speed (eLSD/PTM calibration notes)",
+      "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+    },
+    {
+      "title": "QA1 REV Series carbon driveshaft install instructions 9919-230 ('10-'18 Camaro SS, JJ-22207/JJ-22208)",
+      "url": "https://sdda.semadata.org/Standard/QA1/9919-230_REV_5-11-18-DS%20CAMARO%20SS.pdf"
+    },
+    {
+      "title": "BMR BK060 differential lockout bushing kit installation instructions (6th-gen Camaro)",
+      "url": "https://www.bmrsuspension.com/siteart/install/BK060.pdf"
+    },
+    {
+      "title": "BMR BK060 product page (related BK058 polyurethane, BK059 aluminum diff bushing kits)",
+      "url": "https://bmrsuspension.com/product/1650"
+    },
+    {
+      "title": "BMR BK063 rear cradle lockout instructions (cradle bolt GM 11547921, TAY note)",
+      "url": "https://www.bmrsuspension.com/siteart/install/BK063.pdf"
+    },
+    {
+      "title": "Holinger RD6-S sequential gearbox manual (2011) - specs, torque settings, lubrication",
+      "url": "https://www.tomei-p.co.jp/dealing_brands/holinger/pdf/GEARBOX%20MANUAL%20RD6-S%202011.pdf"
+    },
+    {
+      "title": "Shift SST - TREMEC Magnum XL (GM) features, dimensions, fluid capacity",
+      "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
+    },
+    {
+      "title": "Shift SST - TREMEC Magnum XL GM close-ratio TUET18132",
+      "url": "https://www.shiftsst.com/tremec-magnum-xl-gm-6-speed-close-0.63-6th-tuet18132/p614"
+    },
+    {
+      "title": "American Powertrain TREMEC Magnum XL kit for 2010-2015 Camaro V8 (reference for Alpha/Zeta-chassis swaps)",
+      "url": "https://americanpowertrain.com/shop/transmission-kits/tremec-gm-magnum-xl-6-speed-kit-for-2010-2015-camaro-v8-c"
+    },
+    {
+      "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+      "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+    },
+    {
+      "title": "Shift SST - McLeod RST HD twin 6306807MD (9.688 in discs, 168T, 8-bolt)",
+      "url": "https://www.shiftsst.com/mcleod-rst-hd-twin-clutch-cts-v-c7-camaro-6306807md/p1104"
+    },
+    {
+      "title": "Modern Driveline - Tilton ST-246 twin-disc clutch/flywheel kit, Gen 6 Camaro / C7 Corvette (1250 lb-ft)",
+      "url": "https://www.moderndriveline.com/shop/twin-disk-clutchflywheel-assy-gen-6-camaroc7-vette/"
+    },
+    {
+      "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+      "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+    },
+    {
+      "title": "Tilton 6100-series flat-face hydraulic release bearings (TR6060 application 60-6111)",
+      "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6100-Series-Hydraulic-Release-Bearings-Flat-face"
+    },
+    {
+      "title": "ARP 234-2802 GM LT1 6.2L flywheel bolt kit (12-pt, 0.900 in UHL, set of 8)",
+      "url": "https://berryperformancesales.com/products/arp-gm-lt1-6-2l-flywheel-bolt-kit-12-point-0-900-in-uhl-set-of-8-234-2802"
+    },
+    {
+      "title": "ARP 330-2802 GM LS flywheel bolt kit (install sheet: 85 ft-lb with ARP Ultra-Torque, Loctite 242)",
+      "url": "https://www.jegs.com/i/arp-070-330-2802-pro-series-flywheel-bolts-small-block-chevy-gen-iii-ls-series"
+    },
+    {
+      "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
+    },
+    {
+      "title": "Camaro5 forum - 5th-gen driveshaft coupler torque values as posted (67/72/85 ft-lb, TTY note)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=8935857"
+    },
+    {
+      "title": "Camaro5 forum - TR-6060 fluid GM 88861800 discussion",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=11472341"
+    },
+    {
+      "title": "Wikipedia - Tremec TR-6060 (ratio table incl. 2016+ Camaro SS)",
+      "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+    },
+    {
+      "title": "RACER - Tech insight: PWC Camaro GT4.R (Xtrac 6-speed sequential, Xtrac LSD)",
+      "url": "https://racer.com/2017/03/30/tech-insight-pwc-camaro-gt4-r"
+    },
+    {
+      "title": "Performance Racing Industry - Chevrolet unveils Camaro GT4.R",
+      "url": "https://performanceracing.com/magazine/industry-news/02-09-2017/chevrolet-unveils-new-race-ready-camaro-gt4r"
+    },
+    {
+      "title": "DSS carbon fiber 1-piece driveshaft 2016-17 Camaro SS 6-speed manual, GMCA19-C (3.25 in)",
+      "url": "https://onefastshop.com/products/dss-carbon-fiber-driveshaft-chevrolet-camaro-ss-6-speed-manual-2016-2017"
+    },
+    {
+      "title": "GM 87840089 propeller shaft center support bearing (2016-2024 Camaro)",
+      "url": "https://www.gmpartsgiant.com/parts/gm-bearing-asm-prop-shf-ctr-supt-87840089.html"
+    },
+    {
+      "title": "GM 87839794 propeller shaft assembly (2016-2024 Camaro LT1/SS listing)",
+      "url": "https://www.chevypartsdeal.com/oem/gm~shaft-asm-prop~87839794"
+    },
+    {
+      "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+      "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+    },
+    {
+      "title": "Camaro5 forum - rear axle nut torque discussion (5th-gen, unverified)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=11410639"
+    },
+    {
+      "title": "MuscleCarsAndTrucks - GM eLSD drag calibration for Gen 6 Camaro ZL1",
+      "url": "https://www.musclecarsandtrucks.com/gm-releases-new-elsd-drag-racing-calibration-for-gen-6-camaro-zl1/"
+    }
+  ]
+}

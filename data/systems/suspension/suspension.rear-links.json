@@ -1,0 +1,836 @@
+{
+  "id": "suspension.rear-links",
+  "system": "suspension",
+  "name": "Rear Five-Link Suspension Links",
+  "description": "The Gen 6 rear is a 5-link independent: per side a lower control arm (spring link, also carries the shock), an upper control arm (upper lateral/camber link), an upper trailing arm, a lower trailing arm (traction link) and a toe link (GM 'adjust link'). GM uses stamped steel links with lightening holes. Camber is adjusted with an eccentric cam bolt at the LCA inner pivot and toe with an eccentric at the toe-link inner pivot. Nearly every rear link fastener is torque-to-yield (torque + angle) per GM.",
+  "components": [
+    {
+      "id": "suspension.rear-links.lower-control-arm",
+      "name": "Rear lower control arm (spring link)",
+      "qty": 2,
+      "description": "Stamped steel lateral link from the cradle to the bottom of the knuckle. It holds the coil spring in a pocket and the lower shock mount, so it carries most of the vertical load. The inner pivot uses an M14 eccentric cam bolt for camber adjustment. An aero cover with push-pin fasteners covers the arm. Race options: tubular arms (coilover-only versions exist) and spherical inner bearings.",
+      "location": "Inner pivot approx (x 2.90, y 0.24, z +/-0.30) to knuckle approx (x 2.84, y 0.18, z +/-0.70); spring pocket approx (x 2.88, y 0.23, z +/-0.50).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-dampers-springs.coil-spring",
+        "suspension.rear-dampers-springs.shock",
+        "suspension.rear-links.camber-and-toe-eccentrics"
+      ],
+      "factory": {
+        "name": "GM arm assembly, rear suspension lower control",
+        "partNumber": "GM 84382227 / 84382226 (L/R pair, replaces 23282357 / 23282356)",
+        "notes": "Approx 6.4-6.5 lb, 19.9 in long (GM catalog). Same part across LS/LT/SS/ZL1 per catalog fitment."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR LCA361 coilover lower control arm (non-adjustable)",
+          "brand": "BMR Suspension",
+          "partNumber": "LCA361",
+          "notes": "For rear coilover conversion only; reuse factory lower shock bolt, camber bolt and spindle bolt. Torques: chassis 85 ft-lb + 90-105 deg, spindle 111 ft-lb + 90-105 deg, lower shock 74 ft-lb + 90-105 deg.",
+          "url": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        },
+        {
+          "name": "BMR LCA362 adjustable coilover lower control arm",
+          "brand": "BMR Suspension",
+          "partNumber": "LCA362R / LCA362H",
+          "notes": "2 in square tube, on-car adjustable.",
+          "url": "https://www.springrates.com/products/bmr-suspension-lower-control-arms-for-2016-2024-chevrolet-camaro-6th-gen-2"
+        },
+        {
+          "name": "BMR BK067 inner LCA spherical bearing kit (3/4 in)",
+          "brand": "BMR Suspension",
+          "partNumber": "BK067",
+          "notes": "Drill out factory bushing, drive bearing housing in from the rear of car.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK067.pdf"
+        }
+      ],
+      "specs": {
+        "Material": "Stamped steel",
+        "Camber adjust": "Eccentric cam bolt at inner pivot (approx 1 deg range typical of OE eccentrics)"
+      },
+      "hardware": [
+        {
+          "item": "Rear lower control arm inner bolt (M14 cam bolt) + cam washer + nut",
+          "qty": 1,
+          "spec": "M14 eccentric cam bolt, cam washer, nut (18/21 mm)",
+          "grade": "OE TTY",
+          "partNumber": "Per BMR-published GM list: bolt 11609598, washer 11611695, nut 11516382 (verify - SG3 kit 84408106 supplies new cam bolt/washer/nut)",
+          "torque": "85 ft-lb (115 N·m) first pass",
+          "torqueSequence": "Set camber at alignment with car at ride height, then 115 N·m + 90-105 deg (GM SG3). Some GM SI years list +75-90 deg - verify for your model year.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY) - GM: discard bolt, nut and cam washer",
+          "tool": "21 mm wrench x2 / 18 mm",
+          "notes": "Do not final-torque until alignment.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Rear lower control arm outer bolt + nut (to knuckle)",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm / 15 mm wrench per BMR",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11611841, nut 11611709 (per BMR list)",
+          "torque": "111 ft-lb (150 N·m) first pass",
+          "torqueSequence": "150 N·m + 90-105 deg, at ride height",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "notes": "First-pass value from GM SI listing (TightTorque); angle from BMR LCA361. [2026-10 check] BMR LCA361 gives 111 ft-lb + 90–105° (LCA to spindle), and TightTorque (GM 2016–18 SI) gives 150 N·m first pass, so the two agree. Not found in a GM primary document; stays typical.",
+          "confidence": "typical",
+          "source": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        },
+        {
+          "item": "Lower control arm cover push-pin retainers",
+          "qty": 4,
+          "spec": "Plastic push pins",
+          "grade": "N/A",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if damaged",
+          "notes": "Cover often deleted on race cars.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Mark cam bolt position before removal to retain alignment (BMR).",
+        "Support LCA with a jack while removing; lower slowly - spring is under load.",
+        "Install loosely, install spring and shock, raise to ride height, then align and final-torque the inner cam bolt."
+      ],
+      "inspection": [
+        "Check spring pocket for cracks, cam bolt witness marks, and arm for bends."
+      ],
+      "buildPhase": 3,
+      "installOrder": 50,
+      "tags": [
+        "lca",
+        "spring-link",
+        "camber"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "GM Parts Giant - 2019 Camaro rear lower control arm",
+          "url": "https://www.gmpartsgiant.com/oem-2019-chevrolet-camaro-control_arm.html"
+        },
+        {
+          "title": "BMR BK067 (GM TAY fastener list)",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK067.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.93,
+              0.235,
+              0.3
+            ],
+            [
+              2.915,
+              0.225,
+              0.52
+            ],
+            [
+              2.87,
+              0.195,
+              0.66
+            ]
+          ],
+          "radius": 0.03,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "BMR LCA361 rear lower control arm (factory arm is stamped steel with spring pocket)",
+            "url": "https://bmrsuspension.com/product/3021"
+          },
+          {
+            "title": "BMR LCA361 product photo",
+            "url": "https://bmrsuspension.com/siteart/products/LCA361_small.jpg"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 370 mm pivot to pivot, 170 mm wide at the pocket",
+        "features": "Stamped steel spring link (item 13): wide tray with spring pocket, eccentric cam at the inner pivot, bushed outer eye at the knuckle",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.upper-control-arm",
+      "name": "Rear upper control arm (upper lateral / camber link)",
+      "qty": 2,
+      "description": "Stamped steel lateral link at the top of the knuckle. Together with the LCA it sets camber and camber gain. Fixed length from the factory; adjustable race arms allow equal camber side-to-side and more negative camber without relying on the slipping OE eccentric.",
+      "location": "Inner approx (x 2.90, y 0.52, z +/-0.30) to knuckle top approx (x 2.86, y 0.55, z +/-0.64).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-knuckles.knuckle-bushings"
+      ],
+      "factory": {
+        "name": "GM link assembly, rear suspension upper lateral",
+        "partNumber": "GM 84826391 (replaces 22974128)",
+        "notes": "Fits LS-ZL1 per GM catalog."
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts RUA CAM6 / RUAEL CAM6 adjustable rear upper arms",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RUA CAM6",
+          "notes": "RUAEL version includes eccentric lockouts.",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        },
+        {
+          "name": "BMR adjustable rear upper control arms (rod ends) + BK069 bearing",
+          "brand": "BMR Suspension",
+          "partNumber": "BK069 (bearing kit)",
+          "notes": "BMR RSK369: set length hole-to-hole to stock, jam nut 45 ft-lb, bolts 70 ft-lb if reusing hardware.",
+          "url": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf"
+        }
+      ],
+      "specs": {
+        "Material": "Stamped steel with lightening holes"
+      },
+      "hardware": [
+        {
+          "item": "Upper control arm inner bolt + nut",
+          "qty": 1,
+          "spec": "Flange bolt + prevailing-torque nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610909, nut 11516078 (per BMR list)",
+          "torque": "52 ft-lb (70 N·m) first pass",
+          "torqueSequence": "70 N·m + 105 deg (BMR quotes GM 52 ft-lb + 105 deg)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "typical",
+          "source": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf",
+          "notes": "[2026-10 check] BMR RSK369 quotes GM inner bolt 11610909 with nut 11516078 at 52 ft-lb + 105°. TightTorque gives 70 N·m first pass. Not found in a GM primary document; stays typical."
+        },
+        {
+          "item": "Upper control arm outer bolt + nut (to knuckle)",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610908, nut 11516078",
+          "torque": "52 ft-lb (70 N·m) first pass",
+          "torqueSequence": "70 N·m (52 lb ft) + 105°; use a new TTY bolt (GM 11610908) and nut (11516078)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "typical",
+          "source": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf",
+          "notes": "[2026-10 check] BMR RSK369 quotes GM outer bolt 11610908 at 52 ft-lb + 105°, which matches TightTorque's 70 N·m first pass. Stays typical (secondary sources only)."
+        }
+      ],
+      "installNotes": [
+        "Final torque at ride height (rubber-bushed)."
+      ],
+      "inspection": [
+        "Check for bending (track contact) and bushing play."
+      ],
+      "buildPhase": 3,
+      "installOrder": 51,
+      "tags": [
+        "uca",
+        "camber-link"
+      ],
+      "sources": [
+        {
+          "title": "GM Parts Giant - lateral arm",
+          "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-camaro-lateral_arm.html"
+        },
+        {
+          "title": "BMR RSK369 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.87,
+              0.575,
+              0.655
+            ],
+            [
+              2.89,
+              0.52,
+              0.32
+            ]
+          ],
+          "radius": 0.018,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "SPL RUA CAM6 rear upper arm photo",
+            "url": "https://cdn11.bigcommerce.com/s-xn4bghc5/images/stencil/600x600/products/367/3891/SPL-RUA-CAM6-L1-1-Rear-Upper-Arm-HiRes-080423__91549.1740805152.jpg?c=2"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "approx 340 mm",
+        "features": "Stamped steel channel camber link with lightening holes; clevis on the knuckle bushing, bushed eye in the tall cradle tower",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.upper-trailing-arm",
+      "name": "Rear upper trailing arm (upper traction link)",
+      "qty": 2,
+      "description": "Link running forward from the top of the knuckle to the front of the cradle; with the lower trailing arm it controls fore-aft wheel location, anti-squat/anti-lift and axle wind-up. Rubber-bushed at both ends; the knuckle-end bushing is pressed into the knuckle.",
+      "location": "Knuckle top approx (x 2.76, y 0.55, z +/-0.66) forward to cradle approx (x 2.48, y 0.50, z +/-0.52).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-knuckles.knuckle-bushings"
+      ],
+      "factory": {
+        "name": "GM rear upper trailing arm",
+        "notes": "Part number not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR UTCA058 / UTCA059 / UTCA060 upper trailing arms",
+          "brand": "BMR Suspension",
+          "partNumber": "UTCA058 / UTCA059 / UTCA060",
+          "notes": "Non-adjustable poly, single-adjustable rod end, on-car adjustable. BMR torques 81 ft-lb when using their hardware; jam nut 40 ft-lb.",
+          "url": "https://www.bmrsuspension.com/siteart/install/UTCA058.pdf"
+        },
+        {
+          "name": "SPL Parts RUT CAM6 rear upper traction arms",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RUT CAM6",
+          "notes": "",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        },
+        {
+          "name": "BMR BK065 knuckle-end spherical bearing",
+          "brand": "BMR Suspension",
+          "partNumber": "BK065",
+          "notes": "Requires knuckle removal and a press.",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK065.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Upper trailing arm inner bolt + nut",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610908, nut 11516078",
+          "torque": "52 ft-lb (70 N·m) first pass",
+          "torqueSequence": "70 N·m + 105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/UTCA058.pdf"
+        },
+        {
+          "item": "Upper trailing arm outer bolt + nut (to knuckle)",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610908, nut 11516078",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "100 N·m + 105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/RSK369.pdf"
+        }
+      ],
+      "installNotes": [
+        "If needed remove one end of the upper control arm to fit the arm (BMR).",
+        "Final torque at ride height."
+      ],
+      "inspection": [
+        "Check bushings for tearing (wheel hop indicator)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 52,
+      "tags": [
+        "trailing-arm",
+        "traction-link"
+      ],
+      "sources": [
+        {
+          "title": "BMR UTCA058 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/UTCA058.pdf"
+        },
+        {
+          "title": "TightTorque Camaro 6",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.75,
+              0.565,
+              0.655
+            ],
+            [
+              2.5,
+              0.5,
+              0.5
+            ]
+          ],
+          "radius": 0.017,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "approx 300 mm",
+        "features": "Stamped steel trailing link with lightening holes, forward-inboard to the cradle front tower",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.lower-trailing-arm",
+      "name": "Rear lower trailing arm (lower traction link)",
+      "qty": 2,
+      "description": "Lower fore-aft link from the bottom-front of the knuckle forward to the cradle. Primary tractive-force link; its bushings are the main source of rear wheel hop and toe change under power on the stock car.",
+      "location": "Knuckle approx (x 2.74, y 0.22, z +/-0.68) forward to cradle approx (x 2.45, y 0.27, z +/-0.52).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-knuckles.knuckle-bushings"
+      ],
+      "factory": {
+        "name": "GM rear lower trailing arm",
+        "notes": "Part number not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR TCA059 / TCA060 / TCA061 lower trailing arms",
+          "brand": "BMR Suspension",
+          "partNumber": "TCA059 / TCA060 / TCA061",
+          "notes": "Poly non-adjustable, single-adjustable rod end, on-car adjustable rod end. BMR hardware 81 ft-lb; jam nuts 40 ft-lb (35 ft-lb in RSK369).",
+          "url": "https://www.bmrsuspension.com/siteart/install/TCA061.pdf"
+        },
+        {
+          "name": "SPL Parts RTR CAM6 rear traction links",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RTR CAM6",
+          "notes": "",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        },
+        {
+          "name": "BMR BK066 knuckle-end spherical bearing",
+          "brand": "BMR Suspension",
+          "partNumber": "BK066",
+          "notes": "",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK066.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Lower trailing arm inner bolt + nut",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610908, nut 11516078",
+          "torque": "52 ft-lb (70 N·m) first pass",
+          "torqueSequence": "70 N·m + 105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/TCA059.pdf"
+        },
+        {
+          "item": "Lower trailing arm outer bolt + nut (to knuckle)",
+          "qty": 1,
+          "spec": "Flange bolt + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11610908, nut 11516078",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "100 N·m + 105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/TCA059.pdf"
+        }
+      ],
+      "installNotes": [
+        "Grease fitting orientation per BMR (down on lower poly arms).",
+        "Final torque at ride height."
+      ],
+      "inspection": [
+        "Check bushings/rod ends; check jam nuts."
+      ],
+      "buildPhase": 3,
+      "installOrder": 53,
+      "tags": [
+        "trailing-arm",
+        "traction-link"
+      ],
+      "sources": [
+        {
+          "title": "BMR TCA059 / TCA061 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/TCA059.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.73,
+              0.215,
+              0.66
+            ],
+            [
+              2.45,
+              0.255,
+              0.47
+            ]
+          ],
+          "radius": 0.018,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "Alpha platform engineering (Cadillac ATS): extruded-aluminium front subframe, EPS on its transverse face, cast strut towers, steel rear subframe with hydroformed rails, stamped rear links",
+            "url": "https://www.gardnerweb.com/articles/the-2013-cadillac-ats-development-time-well-spent"
+          }
+        ],
+        "dimensions": "approx 345 mm",
+        "features": "Stamped steel lower trailing link (item 12) from the knuckle forward to the bracket under the cradle rail",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.toe-link",
+      "name": "Rear toe link (GM 'adjust link')",
+      "qty": 2,
+      "description": "Lateral link that controls rear toe. The inner end on the cradle uses an M12 eccentric cam bolt for toe adjustment; the outer end bolts to the knuckle. Its height relative to the other links determines rear bump steer. Rod-end race toe links with lockout washers eliminate eccentric slip and allow precise toe/bump-steer setting.",
+      "location": "Inner approx (x 3.00, y 0.27, z +/-0.32) to knuckle approx (x 3.00, y 0.26, z +/-0.68) (behind axle line - verify).",
+      "connectsTo": [
+        "suspension.rear-cradle.cradle",
+        "suspension.rear-knuckles.knuckle",
+        "suspension.rear-links.camber-and-toe-eccentrics"
+      ],
+      "factory": {
+        "name": "GM link assembly, rear suspension adjust",
+        "partNumber": "GM 85550692 (replaces 23117751)",
+        "notes": "Stamped steel."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR TR007 double-adjustable toe rods (rod ends)",
+          "brand": "BMR Suspension",
+          "partNumber": "TR007",
+          "notes": "Square lockout washers on both sides of inner mount; inner bolt 80 ft-lb (BMR hardware), outer factory bolt 74 ft-lb + 105 deg; jam nuts 1-1/8 and 1-1/4 in.",
+          "url": "https://www.bmrsuspension.com/siteart/install/TR007.pdf"
+        },
+        {
+          "name": "SPL Parts RTA CAM6 / RTAEL CAM6 rear toe links",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RTA CAM6",
+          "notes": "RTAEL includes eccentric lockout.",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Toe link inner cam bolt (M12) + cam washer + nut",
+          "qty": 1,
+          "spec": "M12 eccentric cam bolt + cam washer + nut, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11611276, washer 11611277, nut 11516078 (per BMR list)",
+          "torque": "52 ft-lb (70 N·m) first pass",
+          "torqueSequence": "Set toe at alignment, then 70 N·m + 90-105 deg (GM SG3)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "18 mm wrenches",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Toe link outer bolt + washer (to knuckle)",
+          "qty": 1,
+          "spec": "Flange bolt + washer, 18 mm",
+          "grade": "OE TTY",
+          "partNumber": "GM bolt 11609598, washer 11611265",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "100 N·m + 105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/TR007.pdf"
+        }
+      ],
+      "installNotes": [
+        "Set rod-end toe links to stock hole-to-hole length before install.",
+        "Final torque inner cam bolt during alignment at ride height."
+      ],
+      "inspection": [
+        "Check toe setting/jam nuts and rod-end play."
+      ],
+      "buildPhase": 3,
+      "installOrder": 54,
+      "tags": [
+        "toe-link",
+        "adjust-link"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "BMR TR007 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/TR007.pdf"
+        },
+        {
+          "title": "GM Parts Giant - adjust link 85550692",
+          "url": "https://www.gmpartsgiant.com/oem-2017-chevrolet-camaro-lateral_arm.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3,
+              0.26,
+              0.655
+            ],
+            [
+              3.04,
+              0.235,
+              0.33
+            ]
+          ],
+          "radius": 0.012,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "SPL RTA CAM6 rear toe arm photo",
+            "url": "https://cdn11.bigcommerce.com/s-xn4bghc5/images/stencil/600x600/products/365/3884/SPL-RTA-CAM6-L1-0-Rear-Toe-Arm-HiRes-080423__28772.1740817251.jpg?c=2"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 330 mm",
+        "features": "GM \"adjust link\": steel rod with threaded adjuster sleeve and jam nuts, bushed eyes, eccentric toe cam at the cradle",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.camber-and-toe-eccentrics",
+      "name": "Rear camber and toe eccentric cam bolts / lockouts",
+      "qty": 4,
+      "description": "Eccentric cam bolt + cam washer sets at the LCA inner pivot (camber) and toe-link inner pivot (toe). The OE eccentrics give roughly 1 deg of range and tend to slip under high cornering loads, so race cars lock them out with slotted plates/washers or replace them with adjustable links.",
+      "location": "Cradle: LCA inner pivots approx (x 2.90, y 0.24, z +/-0.30); toe link inner pivots approx (x 3.00, y 0.27, z +/-0.32).",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-links.toe-link",
+        "suspension.rear-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM cam bolts and cam washers (single use)",
+        "notes": "GM SG3 kit 84408106 supplies new M14 LCA cam bolt/washer/nut and M12 toe cam bolt/washer/nut."
+      },
+      "raceOptions": [
+        {
+          "name": "SPL Parts EL CAM6 eccentric lockout kit (also ELC = camber only, ELT = toe only)",
+          "brand": "SPL Parts",
+          "partNumber": "SPL EL CAM6",
+          "notes": "6061-T6 lockout plates, 10.9 bolts and lock nuts; camber washers offer max/mid/min positions.",
+          "url": "https://durable.parts/product/spl-el-cam6/"
+        },
+        {
+          "name": "SPL Parts Gen 6 rear upper arms + eccentric lockout (from 2016 Camaro)",
+          "brand": "SPL Parts",
+          "partNumber": "SPL RUAEL CAM6",
+          "notes": "",
+          "url": "https://store.sp-power.com/products/spl-parts-2016-chevrolet-camaro-gen-6-rear-upper-control-arms-w-eccentric-lockouts"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Lockouts are set after the alignment is finalized; with fixed lockouts, fine adjustment is done with adjustable links."
+      ],
+      "inspection": [
+        "Paint-mark eccentrics and check for slip each session."
+      ],
+      "buildPhase": 11,
+      "installOrder": 55,
+      "tags": [
+        "eccentric",
+        "cam-bolt",
+        "alignment"
+      ],
+      "sources": [
+        {
+          "title": "SPL EL CAM6",
+          "url": "https://durable.parts/product/spl-el-cam6/"
+        },
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            2.894,
+            0.235,
+            0.3
+          ],
+          "size": [
+            0.012,
+            0.05,
+            0.05
+          ],
+          "axis": "x",
+          "instances": [
+            [
+              2.894,
+              0.235,
+              0.3
+            ],
+            [
+              2.894,
+              0.235,
+              -0.3
+            ],
+            [
+              3.004,
+              0.235,
+              0.33
+            ],
+            [
+              3.004,
+              0.235,
+              -0.33
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "approx 50 mm cam washer",
+        "features": "Eccentric cam bolt + cam washer with index marks on the LCA (camber) and toe-link inner pivots",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-links.link-inner-bushings",
+      "name": "Rear link inner (cradle-end) bushings",
+      "qty": 10,
+      "description": "Rubber bushings in the cradle ends of the five links per side. Replaced by spherical bearings or poly when using aftermarket links or bearing kits (e.g. BMR BK067 for the LCA inner).",
+      "location": "Cradle-end of each rear link.",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-links.upper-control-arm",
+        "suspension.rear-links.upper-trailing-arm",
+        "suspension.rear-links.lower-trailing-arm",
+        "suspension.rear-links.toe-link"
+      ],
+      "factory": {
+        "name": "GM rubber link bushings",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR BK067 (LCA inner), rod-end links",
+          "brand": "BMR Suspension",
+          "partNumber": "BK067",
+          "notes": "",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK067.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Rubber bushings must be torqued at ride height to avoid preload."
+      ],
+      "inspection": [
+        "Check for cracking/extrusion."
+      ],
+      "buildPhase": 3,
+      "installOrder": 56,
+      "tags": [
+        "bushing"
+      ],
+      "sources": [
+        {
+          "title": "BMR BK067 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/BK067.pdf"
+        }
+      ]
+    }
+  ]
+}

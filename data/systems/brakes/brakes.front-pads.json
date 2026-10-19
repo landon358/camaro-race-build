@@ -1,0 +1,161 @@
+{
+  "id": "brakes.front-pads",
+  "system": "brakes",
+  "name": "Front Pads",
+  "description": "Friction material. The single biggest tuning item for a race car: pick a race compound with a temperature window that matches the car (a 3,700+ lb Camaro on slicks needs a high-temp endurance pad). Factory ZL1 Brembo pads are ~15.8 mm thick; AP CP9668 pads are 25 mm.",
+  "components": [
+    {
+      "id": "brakes.front-pads.pads",
+      "name": "Front brake pads (set per axle)",
+      "qty": 2,
+      "description": "One pad set per caliper (2 pads each). Race pads need more heat to work, generate more dust, and must be bedded. Run different compounds front/rear to tune bias if needed.",
+      "location": "Inside each front caliper, either side of the rotor.",
+      "connectsTo": [
+        "brakes.front-calipers.caliper",
+        "brakes.front-calipers.pad-retaining-pins",
+        "brakes.front-rotors.rotor"
+      ],
+      "factory": {
+        "name": "GM/Brembo ZL1 front pads (ZL1 1LE shape)",
+        "notes": "OEM thickness ≈ 15.8 mm (forum-measured). Banned for sale in CA/WA early on (copper content) per Wikipedia."
+      },
+      "raceOptions": [
+        {
+          "name": "Ferodo DS2500 / DS1.11 / DS3.12 / DSUNO / DS3000 (FRP3014 shape, AP CP9668/9669)",
+          "brand": "Ferodo",
+          "partNumber": "FRP3014H-N (DS2500), FRP3014W-N (DS1.11), FRP3014GB-N (DS3.12), FRP3014ZB-N (DSUNO), FRP3014R-N (DS3000)",
+          "notes": "Shape for most CP9668 kits.",
+          "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+        },
+        {
+          "name": "Ferodo D62 heavy-duty pads (Essex Camaro HD kit 13.01.10140)",
+          "brand": "Ferodo / Essex",
+          "partNumber": "11.00.00003 (DS3.12), 11.00.00004 (DS2500)",
+          "notes": "62 mm tall pad for HD kit.",
+          "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+        },
+        {
+          "name": "PFC (Performance Friction) 08 / 11 / 13 compound for ZL1 Brembo",
+          "brand": "PFC",
+          "notes": "Popular in Trans Am/endurance; ZL1 shape available."
+        },
+        {
+          "name": "Carbotech XP12/XP16, Hawk DTC-60/70, G-Loc R12/R16 for ZL1 Brembo",
+          "brand": "Carbotech / Hawk / G-Loc",
+          "notes": "Choose by mu curve and temperature range."
+        }
+      ],
+      "specs": {
+        "OEM thickness": "≈ 15.8 mm",
+        "AP CP9668 pad thickness": "25 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Push pistons back with fluid level watched (siphon reservoir first).",
+        "Lube backing-plate ears, fit pins/clips, pump pedal before moving the car.",
+        "Bed per pad maker."
+      ],
+      "inspection": [
+        "Measure every session: replace at ~3–4 mm friction remaining (or 50% for endurance stints).",
+        "Look for taper (leading/trailing) > 1 mm – indicates caliper flex or piston size mismatch.",
+        "Check for cracks, glazing, delamination from backing plate."
+      ],
+      "buildPhase": 4,
+      "installOrder": 41,
+      "tags": [
+        "pads",
+        "ferodo",
+        "pfc"
+      ],
+      "sources": [
+        {
+          "title": "Essex Parts – Ferodo pads for AP Radi-CAL CP9668/CP9669 (FRP3014, D62 Camaro HD kit)",
+          "url": "https://www.essexparts.com/brake-pads/ferodo-brake-pads/ap-by-essex-brake-kit-replacement-pads/radi-cal-cp9668-and-cp9669"
+        },
+        {
+          "title": "Essex Parts – Eradicating failure-prone stock brake components on a Gen.6 Camaro (CP9668 HD D62 kit)",
+          "url": "https://www.essexparts.com/eradicating-failureprone-stock-brake-components-on-a-gen6-camaro"
+        },
+        {
+          "title": "Wikipedia – Chevrolet Camaro (sixth generation)",
+          "url": "https://en.wikipedia.org/wiki/Chevrolet_Camaro_(sixth_generation)"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "size": [
+          0.1327,
+          0.2254,
+          0.0226
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            0.1316,
+            0.419,
+            0.7037
+          ],
+          [
+            0.1316,
+            0.419,
+            0.7623
+          ]
+        ],
+        "color": "#3e2723"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Girodisc A1-211 Gen 6 ZL1 front 2-pc rotor – 10 drive pins, pad annulus 66 mm",
+            "url": "https://discoveryparts.com/products/a1-211-girodisc-2pc-front-brake-rotors-zl1-gen-6"
+          },
+          {
+            "title": "PMB Performance – Brembo front seal kit Camaro ZL1 1LE Gen 6 (2x30 / 2x34 / 2x38 mm pistons)",
+            "url": "https://pmbperformance.com/products/brembo-front-brake-caliper-seal-kit-chevrolet-camaro-zl1-1le-gen-6-2018-2024"
+          }
+        ],
+        "dimensions": "~68 mm tall (r 126-194 mm), ~180 mm long, 15.8 mm friction + 6 mm backing plate",
+        "features": "Kidney-shaped pad, steel backing plate with pin ears, stainless noise shim",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.front-pads.pad-shims",
+      "name": "Front pad thermal shims / heat barriers",
+      "qty": 4,
+      "description": "Titanium or ceramic-backed shims between pad backing plate and pistons reduce heat soak into the caliper and fluid – cheap insurance against fluid boil on a heavy car.",
+      "location": "Between each pad backing plate and the pistons.",
+      "connectsTo": [
+        "brakes.front-pads.pads",
+        "brakes.front-calipers.caliper"
+      ],
+      "factory": {
+        "name": "OEM pads include noise shims",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Titanium pad shims (pad-shape specific)",
+          "brand": "Various (e.g. Brakeheat, Essex)",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Material": "Titanium 0.5–1 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Fit with each new pad set if pad thickness tolerance allows."
+      ],
+      "inspection": [
+        "Check for distortion."
+      ],
+      "buildPhase": 4,
+      "installOrder": 45,
+      "tags": [
+        "heat"
+      ],
+      "sources": []
+    }
+  ]
+}

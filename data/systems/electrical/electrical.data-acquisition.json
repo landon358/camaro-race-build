@@ -1,0 +1,1045 @@
+{
+  "id": "electrical.data-acquisition",
+  "system": "electrical",
+  "name": "Data Acquisition",
+  "description": "Logger (usually the dash), GPS/IMU, I/O expander, suspension damper potentiometers, IR tire-temperature arrays, IR brake-rotor temperature, brake pressure, steering angle, wheel speeds and lap beacon receiver. The chassis sensors here are what turn the car into a setup tool.",
+  "components": [
+    {
+      "id": "electrical.data-acquisition.logger",
+      "name": "Data logger",
+      "qty": 1,
+      "description": "Records all ECU, PDM and chassis channels at configurable rates (e.g. 200 Hz damper pots, 100 Hz brake pressure/steering, 20 Hz temps). Typically the dash display-logger (MoTeC C187 with logging, AiM PDM32/ MXS); a separate logger is used only for very high channel counts.",
+      "location": "Combined with dash display, or on the passenger electronics panel.",
+      "connectsTo": [
+        "electrical.dash-and-controls.dash-display",
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.data-acquisition.gps-imu",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "GM Performance Data Recorder (PDR) \u2013 video + OBD data",
+        "partNumber": "",
+        "notes": "Available on Gen 6 SS/ZL1; tied to infotainment."
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC C187 with logging (250 MB)",
+          "brand": "MoTeC",
+          "partNumber": "18072",
+          "notes": "",
+          "url": "https://www.motec.com.au/products/C187"
+        },
+        {
+          "name": "AiM PDM32 (logger + PDM)",
+          "brand": "AiM",
+          "partNumber": "XC1PDM3201",
+          "notes": "",
+          "url": "https://dwls.aim-sportline.com/technical-sheets/aim_pdm32_tech_sheet.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Logger mounting (if separate from dash)",
+          "qty": 4,
+          "spec": "M4 screws through rubber isolators",
+          "grade": "",
+          "torque": "1.5 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Define channel list, rates and math channels before the shakedown."
+      ],
+      "inspection": [
+        "Data download, memory free, logging triggered."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "logger",
+        "data"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC C187",
+          "url": "https://www.motec.com.au/products/C187"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.13,
+          0.86,
+          0.37
+        ],
+        "size": [
+          0.05,
+          0.1225,
+          0.1962
+        ],
+        "rot": [
+          0,
+          0,
+          15
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC C127 product page (motec.com.au)",
+            "url": "https://motec.com.au/products/C127 - OBSOLETE"
+          },
+          {
+            "title": "MoTeC C187 product page \u2013 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
+            "url": "https://www.motec.com.au/products/C187"
+          },
+          {
+            "title": "HP Academy: MoTeC C127 / C187 release (LED layout)",
+            "url": "https://www.hpacademy.com/blog/motec-have-just-released-their-new-c127-and-c187"
+          }
+        ],
+        "dimensions": "Logging is built into the C187 display (196.2 x 122.5 x 24.9 mm) \u2013 no separate box.",
+        "features": "Same housing as the dash display; rear Autosport connector and USB port.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.gps-imu",
+      "name": "GPS receiver with IMU (accelerometers/gyro)",
+      "qty": 1,
+      "description": "Multi-constellation 25 Hz GPS for speed, position, track map and lap timing, with 3-axis accelerometer + gyro for lateral/longitudinal g and yaw rate. Antenna needs clear sky view (roof).",
+      "location": "Roof, centerline, under/through the roof skin (x\u22481.90, y\u22481.37, z=0) \u2013 IMU module ideally near the car's CG on the floor tunnel if separate.",
+      "connectsTo": [
+        "electrical.data-acquisition.logger",
+        "electrical.main-harness.can-bus-backbone",
+        "brakes.abs.yaw-rate-sensor"
+      ],
+      "factory": {
+        "name": "GM OnStar/infotainment GPS (not usable)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "AiM GPS09c Pro Open",
+          "brand": "AiM",
+          "partNumber": "",
+          "notes": "25 Hz, GPS/GLONASS/Galileo/BeiDou, 6-axis IMU over CAN, 5\u201315 V, IP65, 7-pin Binder 712; AiM CAN cables V02551850 (2 m) / V02551860 (4 m).",
+          "url": "https://aim-sportline.com/download/doc/eng/gps09c_pro_open/GPS09c_Pro_Open_quick_guide_eng.pdf"
+        },
+        {
+          "name": "MoTeC GPS (10/20 Hz) + MoTeC/Bosch IMU",
+          "brand": "MoTeC",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Rate": "25 Hz",
+        "IMU": "3-axis accel + 3-axis gyro"
+      },
+      "hardware": [
+        {
+          "item": "Module mounting (Velcro/ bolts)",
+          "qty": 2,
+          "spec": "M4 screws or 3M Dual Lock",
+          "grade": "",
+          "torque": "1.5 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount IMU square to the car axes and record its offset from CG.",
+        "Keep away from radio antenna (\u2265 300 mm)."
+      ],
+      "inspection": [
+        "Satellite count and HDOP in data."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "gps",
+        "imu"
+      ],
+      "sources": [
+        {
+          "title": "AiM GPS09c Pro Open quick guide",
+          "url": "https://aim-sportline.com/download/doc/eng/gps09c_pro_open/GPS09c_Pro_Open_quick_guide_eng.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.9,
+          1.366,
+          0
+        ],
+        "size": [
+          0.0532,
+          0.0197,
+          0.0538
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "AiM GPS09c product page",
+            "url": "https://aim-sportline.com/en/products/gps09c/index.htm"
+          },
+          {
+            "title": "AiM GPS09c Pro Open quick guide (PDF)",
+            "url": "https://aim-sportline.com/download/doc/eng/gps09c_pro_open/GPS09c_Pro_Open_quick_guide_eng.pdf"
+          }
+        ],
+        "dimensions": "53.2 x 53.8 x 19.7 mm (Roof version 37.2 mm tall), 60.5 g.",
+        "features": "Black square puck on the roof centre line, cable out one edge.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.io-expander",
+      "name": "I/O expander (front and rear sensor hubs)",
+      "qty": 2,
+      "description": "CAN I/O expanders near each axle so analogue sensors (damper pots, brake pressure, temps) have short leads; each sends data over CAN to the logger. Reduces wire count through the car.",
+      "location": "Front: passenger footwell / engine-bay side of firewall; rear: trunk near rear bulkhead.",
+      "connectsTo": [
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.data-acquisition.damper-pots",
+        "electrical.data-acquisition.brake-pressure-sensors"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC E888 / E816 expander",
+          "brand": "MoTeC",
+          "partNumber": "",
+          "notes": "Listed by MoTeC for C127 I/O expansion.",
+          "url": "https://www.motec.com.au/c127"
+        },
+        {
+          "name": "AiM channel expansion",
+          "brand": "AiM",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mounting screws",
+          "qty": 4,
+          "spec": "M4/M5",
+          "grade": "stainless",
+          "torque": "2\u20133 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "expander",
+        "can"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC C127 (expanders E888/E816)",
+          "url": "https://www.motec.com.au/c127"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.9,
+          0.4,
+          -0.55
+        ],
+        "size": [
+          0.105,
+          0.04,
+          0.099
+        ],
+        "instances": [
+          [
+            0.9,
+            0.4,
+            -0.55
+          ],
+          [
+            3.05,
+            0.5,
+            0.6
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC E888 expander \u2013 99 x 105 x 40 mm",
+            "url": "https://www.motec.com.au/ac-ex-e888"
+          }
+        ],
+        "dimensions": "99 x 105 x 40 mm, 310 g; E888: two-part 60-pin connector, E816: 66-pin Autosport.",
+        "features": "Black anodised case with label, connector on one edge.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.damper-pots",
+      "name": "Damper (suspension) linear potentiometers",
+      "qty": 4,
+      "description": "Linear potentiometers mounted parallel to each damper (or across the coilover) to measure shock velocity/position, ride height and roll/pitch. Choose stroke \u2265 damper stroke at the mounting ratio (75 mm front, 100 mm rear typical on a strut/multi-link Camaro). Rod ends allow misalignment.",
+      "location": "Front: alongside each front strut, lower end on the strut/knuckle, upper on the strut tower (x\u22480.05, y\u22480.55\u20130.80, z\u2248\u00b10.55). Rear: alongside each rear shock (x\u22482.75, y\u22480.45\u20130.70, z\u2248\u00b10.58).",
+      "connectsTo": [
+        "suspension.front-struts.strut",
+        "suspension.rear-shocks.shock",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "None (ZL1 1LE uses Multimatic DSSV dampers without position sensors)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC Linear Potentiometer 75 mm",
+          "brand": "MoTeC",
+          "partNumber": "57154",
+          "notes": "IP66, flying lead.",
+          "url": "https://www.motec.com.au/products/Linear%20Potentiometer%2075mm"
+        },
+        {
+          "name": "MoTeC Linear Potentiometer 100 mm",
+          "brand": "MoTeC",
+          "partNumber": "57156",
+          "notes": "",
+          "url": "https://www.motec.com.au/products/Linear%20Potentiometer%20100mm"
+        },
+        {
+          "name": "AiM linear potentiometer 75/100 mm",
+          "brand": "AiM",
+          "partNumber": "X05SNLP075 / X05SNLP100",
+          "notes": "Binder 719 4-pin connector.",
+          "url": "https://www.aimsports.com/download/doc/eng/sensors/Datasheet_CarBikeLinearPotentiometer95_102_eng.pdf"
+        }
+      ],
+      "specs": {
+        "Stroke": "75 mm front / 100 mm rear (check at full bump/droop)",
+        "Output": "0\u20135 V ratiometric"
+      },
+      "hardware": [
+        {
+          "item": "Rod-end mounting bolts",
+          "qty": 2,
+          "spec": "M5 or M6 bolt through 5\u20136 mm spherical rod end with spacers",
+          "grade": "10.9",
+          "torque": "M5: 6 N\u00b7m; M6: 10 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Mounting brackets",
+          "qty": 2,
+          "spec": "Fabricated 3 mm aluminum/steel tabs clamped to strut body and tower",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Cycle suspension bump-to-droop (springs removed) and full steering lock to confirm the pot never bottoms or binds.",
+        "Calibrate zero at static ride height with driver weight."
+      ],
+      "inspection": [
+        "Shaft straight, rod ends free, lead not stretched."
+      ],
+      "buildPhase": 8,
+      "installOrder": 4,
+      "tags": [
+        "damper-pot",
+        "suspension",
+        "sensor"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC linear pot 75 mm",
+          "url": "https://www.motec.com.au/products/Linear%20Potentiometer%2075mm"
+        },
+        {
+          "title": "AiM linear potentiometer datasheet",
+          "url": "https://www.aimsports.com/download/doc/eng/sensors/Datasheet_CarBikeLinearPotentiometer95_102_eng.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.05,
+            0.66,
+            0.5
+          ],
+          "size": [
+            0.02,
+            0.26,
+            0.02
+          ],
+          "axis": "y",
+          "mirror": true,
+          "color": "#3050ff"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.75,
+            0.56,
+            0.52
+          ],
+          "size": [
+            0.02,
+            0.3,
+            0.02
+          ],
+          "axis": "y",
+          "mirror": true,
+          "color": "#3050ff"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC Linear Potentiometer 75 mm (57154)",
+            "url": "https://www.motec.com.au/products/Linear%20Potentiometer%2075mm"
+          },
+          {
+            "title": "MoTeC Linear Potentiometer 100 mm",
+            "url": "https://www.motec.com.au/products/Linear%20Potentiometer%20100mm"
+          }
+        ],
+        "dimensions": "75 mm pot: 223 mm closed / 298 mm extended, 50 mm exposed shaft, 5 mm rod-end bores, 79 g; body \u00d8~19 mm estimated.",
+        "features": "Anodised body with chrome shaft, rod-end eye at each end, flying lead exiting near the top.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.ir-tire-temp",
+      "name": "IR tire temperature sensors",
+      "qty": 4,
+      "description": "Multi-zone (4/8/16 point) infrared sensors aimed at each tire tread to log inner/middle/outer temperature on track \u2013 camber and pressure tuning without pyrometer stops. CAN output.",
+      "location": "Inner fender/wheel-well liner or a bracket off the knuckle/upright, ~150\u2013250 mm from the tread, looking at the tread across its width. Front (x\u22480.0, y\u22480.55, z\u2248\u00b10.55), rear (x\u22482.81, y\u22480.55, z\u2248\u00b10.58).",
+      "connectsTo": [
+        "electrical.main-harness.can-bus-backbone",
+        "wheels.tires.tire"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Izze Racing / FAMA 16-channel IR tire sensor",
+          "brand": "Izze Racing",
+          "partNumber": "",
+          "notes": "16/8/4 points, up to 100 Hz, -20\u2013300 \u00b0C, CAN 2.0A, 60\u00b0 or 120\u00b0 FOV.",
+          "url": "https://forum.autosportlabs.com/viewtopic.php?p=26462"
+        },
+        {
+          "name": "ALS Tire Wired 16-ch",
+          "brand": "ALS",
+          "partNumber": "",
+          "notes": "48.5 x 25.5 x 12 mm, IP66, CAN default ID 0x300, 500 kbit/s.",
+          "url": "https://www.turbozentrum.de/mediafiles/pdf/Anleitungen/ALS_Tire_Wired.pdf"
+        }
+      ],
+      "specs": {
+        "Zones": "16",
+        "Bus": "CAN"
+      },
+      "hardware": [
+        {
+          "item": "Sensor bracket screws",
+          "qty": 2,
+          "spec": "M3/M4",
+          "grade": "stainless",
+          "torque": "1 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Choose FOV so the full tread width is covered at the mounting distance; recheck after camber changes."
+      ],
+      "inspection": [
+        "Lens clean of rubber pickup."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "tire-temp",
+        "ir",
+        "sensor"
+      ],
+      "sources": [
+        {
+          "title": "Izze sensor forum notes",
+          "url": "https://forum.autosportlabs.com/viewtopic.php?p=26462"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.05,
+          0.83,
+          0.776
+        ],
+        "size": [
+          0.048,
+          0.013,
+          0.026
+        ],
+        "instances": [
+          [
+            0.05,
+            0.83,
+            0.776
+          ],
+          [
+            0.05,
+            0.83,
+            -0.776
+          ],
+          [
+            2.86,
+            0.84,
+            0.776
+          ],
+          [
+            2.86,
+            0.84,
+            -0.776
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Alsense Tire Wired 16-ch IR sensor \u2013 48 x 25 x 12 mm (Turbozentrum)",
+            "url": "https://www.turbozentrum.de/Alsense-Tire-Wired-tire-temperature-sensor"
+          },
+          {
+            "title": "Izze-FAMA IR tyre temperature sensor (3D model listing)",
+            "url": "https://sketchfab.com/3d-models/irts-120fov-pcb-assembly-853974bdda824962a4da915ff0dcdf9c"
+          }
+        ],
+        "dimensions": "~48 x 25 x 12 mm (16-channel class sensor), mounted in the wheel-arch liner ~150\u2013250 mm above the tread.",
+        "features": "Small anodised body, IR window facing the tread, cable gland at one end.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.brake-temp-sensors",
+      "name": "IR brake rotor temperature sensors",
+      "qty": 4,
+      "description": "IR sensors aimed at the rotor face (range to ~1000 \u00b0C) to log rotor temperatures for cooling/duct and pad-compound decisions.",
+      "location": "Bracket off the caliper mount/knuckle, aimed at the rotor face inboard of the caliper.",
+      "connectsTo": [
+        "brakes.front-rotors.rotor",
+        "brakes.rear-rotors.rotor",
+        "electrical.main-harness.can-bus-backbone"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Izze Racing IR brake sensor (16-zone, up to ~950 \u00b0C)",
+          "brand": "Izze Racing",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://forum.autosportlabs.com/viewtopic.php?p=26462"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bracket screws",
+          "qty": 2,
+          "spec": "M4",
+          "grade": "stainless",
+          "torque": "2 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Use high-temperature leads/sleeve near the rotor."
+      ],
+      "inspection": [
+        "Lens clean; lead heat damage."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "brake-temp",
+        "sensor"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.12,
+            0.45,
+            0.62
+          ],
+          "size": [
+            0.03,
+            0.02,
+            0.015
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.69,
+            0.45,
+            0.64
+          ],
+          "size": [
+            0.03,
+            0.02,
+            0.015
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~30 x 20 x 15 mm IR sensor on a bracket ~40 mm from the inboard rotor face (estimated).",
+        "features": "Small body with IR window aimed at the rotor face, cable gland.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.brake-pressure-sensors",
+      "name": "Brake pressure sensors (front & rear circuits)",
+      "qty": 2,
+      "description": "Pressure transducers in the front and rear brake circuits for brake-application analysis, brake bias, brake-light trigger (via PDM) and race ABS inputs. Bosch PSS-140: 0\u2013140 bar, M10x1, 5 V.",
+      "location": "Tee in each master-cylinder outlet line near the pedal box / ABS unit (x\u22480.75, y\u22480.60, z\u2248+0.40).",
+      "connectsTo": [
+        "brakes.lines.front-hard-lines",
+        "brakes.lines.rear-hard-lines",
+        "electrical.data-acquisition.io-expander",
+        "electrical.lighting.brake-lights",
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.master-cylinders.brake-pressure-sensors"
+      ],
+      "factory": {
+        "name": "Pressure sensor inside OE ABS/ESC hydraulic unit (not externally logged)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch Motorsport Pressure Sensor Fluid PSS-140",
+          "brand": "Bosch Motorsport",
+          "partNumber": "0261.545.053",
+          "notes": "0\u2013140 bar, M10x1 male; Bosch recommends adapter F02U.002.711-01 rather than direct mount.",
+          "url": "https://www.bosch-motorsport.com/content/downloads/raceparts/Resources/pdf/Data%20Sheet_351937803_Pressure_Sensor_Fluid_PSS-140.pdf"
+        }
+      ],
+      "specs": {
+        "Range": "0\u2013140 bar (2000 psi)",
+        "Thread": "M10 x 1",
+        "Output": "0.5\u20134.5 V"
+      },
+      "hardware": [
+        {
+          "item": "Sensor to tee/adapter",
+          "qty": 1,
+          "spec": "M10 x 1 male, sealing washer",
+          "grade": "",
+          "torque": "Per Bosch datasheet (typ. ~20 N\u00b7m for M10x1 brass-seat sensors \u2013 verify)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (new sealing washer)",
+          "confidence": "estimate",
+          "source": "https://www.bosch-motorsport.com/content/downloads/raceparts/Resources/pdf/Data%20Sheet_351937803_Pressure_Sensor_Fluid_PSS-140.pdf"
+        },
+        {
+          "item": "Brake line tee",
+          "qty": 1,
+          "spec": "-3 AN or 3/16 in inverted-flare tee with M10x1 port",
+          "grade": "steel/stainless",
+          "torque": "3/16 IF: 13 ft-lb (18 N\u00b7m) typical",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install with brake plumbing (phase 2/4) and bleed thoroughly \u2013 sensor body can trap air if mounted upward."
+      ],
+      "inspection": [
+        "Leaks at tee; zero offset with pedal released."
+      ],
+      "buildPhase": 4,
+      "installOrder": 7,
+      "tags": [
+        "brake-pressure",
+        "sensor",
+        "bosch"
+      ],
+      "sources": [
+        {
+          "title": "Bosch PSS-140 datasheet",
+          "url": "https://www.bosch-motorsport.com/content/downloads/raceparts/Resources/pdf/Data%20Sheet_351937803_Pressure_Sensor_Fluid_PSS-140.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.75,
+          0.6,
+          0.4
+        ],
+        "size": [
+          0.06,
+          0.022,
+          0.022
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.75,
+            0.6,
+            0.4
+          ],
+          [
+            0.75,
+            0.6,
+            0.44
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport PSS-140 data sheet (PDF)",
+            "url": "https://www.bosch-motorsport.com/content/downloads/raceparts/Resources/pdf/Data Sheet_351937803_Pressure_Sensor_Fluid_PSS-140.pdf"
+          }
+        ],
+        "dimensions": "M10 x 1 sealed-cone thread, stainless body ~\u00d820 x 60 mm incl. connector (body size estimated).",
+        "features": "Stainless hex and body, plastic connector with latch.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.steering-angle-sensor",
+      "name": "Steering angle sensor",
+      "qty": 1,
+      "description": "Measures steering wheel angle for understeer/oversteer analysis and driver inputs. OE Gen 6 has a steering-angle sensor in the column (for StabiliTrak/EPS) available on GMLAN only with OE modules; race cars add a rotary or string-pot sensor on the column or rack.",
+      "location": "Steering column below dash, or on the rack pinion (x\u22481.05, y\u22480.65, z\u2248+0.37 column).",
+      "connectsTo": [
+        "steering.column.steering-column",
+        "electrical.data-acquisition.io-expander"
+      ],
+      "factory": {
+        "name": "GM column steering angle sensor (part of EPS/ESC)",
+        "partNumber": "",
+        "notes": "Requires OE network."
+      },
+      "raceOptions": [
+        {
+          "name": "Rotary non-contact steering sensor with belt/gear drive",
+          "brand": "MoTeC / AiM / Bosch",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Range": "\u00b1540\u00b0 typical"
+      },
+      "hardware": [
+        {
+          "item": "Bracket screws",
+          "qty": 2,
+          "spec": "M5",
+          "grade": "8.8",
+          "torque": "5 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Zero with wheels straight after alignment."
+      ],
+      "inspection": [
+        "Zero drift."
+      ],
+      "buildPhase": 8,
+      "installOrder": 8,
+      "tags": [
+        "steering",
+        "sensor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.05,
+          0.703,
+          0.37
+        ],
+        "size": [
+          0.03,
+          0.08,
+          0.08
+        ],
+        "axis": "x",
+        "rot": [
+          0,
+          0,
+          27
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Ring ~\u00d880 mm around the column (estimated).",
+        "features": "Black ring housing clamped on the column, connector lug underneath.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.wheel-speed-interface",
+      "name": "Wheel speed signals (4 wheels)",
+      "qty": 4,
+      "description": "Four wheel speeds for slip, traction control and speed reference. OE Gen 6 wheel speed sensors (active/Hall type) feed the ABS module; signals can be shared to the ECU/logger via the ABS CAN or by splicing a buffer. Bosch ABS M5 uses DF11 active sensors and outputs wheel speeds on CAN.",
+      "location": "At each hub/knuckle.",
+      "connectsTo": [
+        "brakes.abs.bosch-motorsport-abs",
+        "brakes.abs.wheel-speed-sensors-front",
+        "electrical.main-harness.can-bus-backbone",
+        "electrical.engine-management.ecu",
+        "brakes.abs.wheel-speed-sensors-rear",
+        "brakes.abs.factory-bpmv-ebcm"
+      ],
+      "factory": {
+        "name": "GM active wheel speed sensors (in hub/knuckle)",
+        "partNumber": "",
+        "notes": "Owned by brakes system."
+      },
+      "raceOptions": [
+        {
+          "name": "Bosch DF11 wheel speed sensors (ABS M5 kit)",
+          "brand": "Bosch Motorsport",
+          "partNumber": "",
+          "notes": "CAN output at 500 kbit/s or 1 Mbit/s.",
+          "url": "https://www.bosch-motorsport.com/products/brake/antilock-braking-systems-abs/abs-m5-kit/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Wheel speed sensor retaining bolt (OE, owned by brakes/suspension)",
+          "qty": 1,
+          "spec": "M6 x 1.0 OE bolt",
+          "grade": "",
+          "torque": "~9 N\u00b7m (80 in-lb) typical GM WSS bolt \u2013 verify in GM SI",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Sensor lead clips/ P-clamps along knuckle and arm",
+          "qty": 3,
+          "spec": "OE clips or Adel clamps",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Prefer reading wheel speeds over CAN rather than splicing ABS sensor wires."
+      ],
+      "inspection": [
+        "Compare four speeds in a straight line (tire diameter match)."
+      ],
+      "buildPhase": 8,
+      "installOrder": 9,
+      "tags": [
+        "wheel-speed",
+        "abs"
+      ],
+      "sources": [
+        {
+          "title": "Bosch ABS M5 data sheet",
+          "url": "https://www.bosch-motorsport.de/content/downloads/Raceparts/Resources/pdf/Data%20Sheet_70612107_ABS_M5_Kit.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0,
+          0.37,
+          0.68
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.02
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            0,
+            0.37,
+            0.68
+          ],
+          [
+            0,
+            0.37,
+            -0.68
+          ],
+          [
+            2.811,
+            0.37,
+            0.68
+          ],
+          [
+            2.811,
+            0.37,
+            -0.68
+          ]
+        ],
+        "color": "#3050ff"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Active wheel-speed sensor ~\u00d815\u201320 mm body, ~40 mm long (estimated).",
+        "features": "Plastic body, mounting flange with one bolt, sealed connector.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.data-acquisition.lap-beacon-receiver",
+      "name": "IR lap beacon receiver",
+      "qty": 1,
+      "description": "Receives the trackside IR beacon to split laps when GPS lap timing is not used/allowed; also used for pit-lane markers.",
+      "location": "Passenger side of windshield base or side window, aimed at the pit wall side.",
+      "connectsTo": [
+        "electrical.data-acquisition.logger"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC BR2 / AiM LapTimer receiver",
+          "brand": "MoTeC / AiM",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mount",
+          "qty": 1,
+          "spec": "3M VHB or M4 screws",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 10,
+      "tags": [
+        "beacon",
+        "lap"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.95,
+          1,
+          -0.6
+        ],
+        "size": [
+          0.075,
+          0.025,
+          0.0365
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC BR2 beacon receiver \u2013 75 x 36.5 x 25 mm",
+            "url": "https://www.motec.com.au/ac-lt-br2/"
+          },
+          {
+            "title": "MoTeC BR2 user manual (PDF)",
+            "url": "https://www.motec.com.au/hessian/uploads/BR_2_User_Manual_67610c4a03.pdf"
+          }
+        ],
+        "dimensions": "75 x 36.5 x 25 mm, 5-pin Autosport connector.",
+        "features": "Black body with IR window facing the pit-wall side, Autosport connector at one end.",
+        "confidence": "published"
+      }
+    }
+  ]
+}

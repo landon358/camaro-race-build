@@ -1,0 +1,445 @@
+{
+  "id": "electrical.lighting",
+  "system": "electrical",
+  "name": "Lighting",
+  "description": "Rain light (FIA 8874-2019 homologated LED preferred), brake lights (pressure-switched via PDM), headlights and position/marker lamps for endurance/night events, and their PDM channels and brackets.",
+  "components": [
+    {
+      "id": "electrical.lighting.rain-light",
+      "name": "Rain light (rear, high-intensity)",
+      "qty": 1,
+      "description": "Rear-facing red high-intensity LED light, switched on by the driver when directed (wet track/ low visibility) and often flashing. FIA standard 8874-2019 defines homologated race-car rain lights (FIA technical list). Many series require it; mount on the centerline, rear-facing, visible.",
+      "location": "Rear window base / rear deck or rear diffuser centerline (x\u22483.75, y\u22480.95 on the decklid, z=0), per series rules.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.dash-and-controls.keypad",
+        "electrical.main-harness.rear-harness",
+        "electrical.grounding.rear-ground-stud"
+      ],
+      "factory": {
+        "name": "None (OE CHMSL is not a rain light)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline FIA 8874-2019 LED rain light",
+          "brand": "Lifeline",
+          "partNumber": "421-100-011",
+          "notes": "FIA homologation RL.001.21; 8.4 W, 700 mA @ 12 V, 4 Hz flash. FIA list shows manufacture window ending 02.2026 \u2013 check current list status.",
+          "url": "https://discoveryparts.com/products/lifeline-fia-8874-2019-led-rain-light-lifeline-421-100-011"
+        },
+        {
+          "name": "Cartek FIA 8874-2019 rectangular / round rain light",
+          "brand": "Cartek",
+          "partNumber": "CK-LRS-15RM (rect.) / CK-LRS-16CM (round)",
+          "notes": "11.3\u201315.6 V, ~700 mA (round).",
+          "url": "https://compare.parts/product/35040543773-cartek-fia-8874-2019-approved-rectangular-rain-light"
+        }
+      ],
+      "specs": {
+        "Draw": "\u2248 0.7 A",
+        "Flash": "4 Hz (homologated units)",
+        "Standard": "FIA 8874-2019"
+      },
+      "hardware": [
+        {
+          "item": "Mounting screws",
+          "qty": 2,
+          "spec": "M5 stainless + nyloc / rivnut",
+          "grade": "A2",
+          "torque": "3 N\u00b7m (27 in-lb)",
+          "threadlocker": "none (nyloc)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Connector",
+          "qty": 1,
+          "spec": "Deutsch DTM-2 or DT-2",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Wire from a PDM channel with keypad toggle; optional logic to also flash on brake/pit-limiter.",
+        "Check series rules for exact location/height."
+      ],
+      "inspection": [
+        "Function test at tech."
+      ],
+      "buildPhase": 10,
+      "installOrder": 1,
+      "tags": [
+        "rain-light",
+        "fia",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "FIA standard 8874-2019 race car rain lights",
+          "url": "https://api.fia.com/sites/default/files/8874-2019_race_car_rain_lights.pdf"
+        },
+        {
+          "title": "FIA list of homologated rain lights (L76)",
+          "url": "https://www.fia.com/sites/default/files/l76_race_car_rain_lights_8874-2019_9.pdf"
+        },
+        {
+          "title": "FIA rain light standard guidelines",
+          "url": "https://www.fia.com/sites/default/files/fia_standard_guidelines_rain_lights_web.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.83,
+          0.74,
+          0
+        ],
+        "size": [
+          0.014,
+          0.0565,
+          0.091
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Cartek FIA 8874-2019 rectangular rain light \u2013 91 x 56.5 x 14 mm (Tegiwa)",
+            "url": "https://www.tegiwa.com/products/cartek-fia-8874-2019-rain-light-with-static-or-flashing-mode"
+          },
+          {
+            "title": "FIA homologation form RL.009.22 (Cartek CK-LRS-15R)",
+            "url": "https://www.fia.com/sites/default/files/rl.009.22_presentation_form_v01.pdf"
+          }
+        ],
+        "dimensions": "91 x 56.5 x 14 mm, 2 x M6 studs on the back.",
+        "features": "Black housing, red lens with 2 rows of LEDs, rear centre on the fascia.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.lighting.brake-lights",
+      "name": "Brake lights",
+      "qty": 2,
+      "description": "Rear brake lights must work in nearly all series. Factory Gen 6 LED tail lamps can be retained (driven directly by a PDM output instead of the BCM) or replaced by lightweight LED race units. Trigger from brake-pressure sensor threshold (e.g. > 5 bar) via PDM logic, or a hydraulic pressure switch.",
+      "location": "Factory tail-lamp positions (x\u22483.78, y\u22480.88, z\u2248\u00b10.65) plus optional CHMSL.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.data-acquisition.brake-pressure-sensors",
+        "electrical.lighting.brake-pressure-switch",
+        "body.rear.tail-lamp-housing"
+      ],
+      "factory": {
+        "name": "GM Gen 6 LED tail lamp assemblies (BCM-driven)",
+        "partNumber": "",
+        "notes": "OE LED lamps may have internal drivers expecting BCM signals \u2013 bench test with 12 V."
+      },
+      "raceOptions": [
+        {
+          "name": "LED race tail/brake light pods",
+          "brand": "Lifeline / Cartek / Racing Lights",
+          "partNumber": "",
+          "notes": "Fit into blanked tail-lamp openings."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tail lamp nuts (OE)",
+          "qty": 4,
+          "spec": "M6 OE nuts",
+          "grade": "OE",
+          "torque": "~6 N\u00b7m (53 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Function with light pedal pressure."
+      ],
+      "buildPhase": 10,
+      "installOrder": 2,
+      "tags": [
+        "brake-light"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.68,
+            0.82,
+            0.5
+          ],
+          "size": [
+            0.14,
+            0.08,
+            0.34
+          ],
+          "rot": [
+            0,
+            -25,
+            0
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Gen 6 tail lamp ~340 x 80 mm face, wraps the rear corner (estimated).",
+        "features": "Dark housing with two rectangular red LED elements per side and a centre chrome divider.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.lighting.brake-pressure-switch",
+      "name": "Hydraulic brake-light pressure switch (backup / non-PDM)",
+      "qty": 1,
+      "description": "Normally-open pressure switch in the rear brake circuit tee that closes at low pressure (~65 psi). Used when the factory pedal switch is removed with a race pedal box, or as a hardwired backup to the PDM logic.",
+      "location": "Tee in rear brake line near the master cylinders.",
+      "connectsTo": [
+        "brakes.lines.rear-hard-lines",
+        "electrical.lighting.brake-lights",
+        "brakes.pedal-box.brake-light-switch"
+      ],
+      "factory": {
+        "name": "GM brake pedal position sensor (BCM)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Wilwood / Tilton hydraulic brake-light switch",
+          "brand": "Wilwood / Tilton",
+          "partNumber": "",
+          "notes": "1/8-27 NPT."
+        }
+      ],
+      "specs": {
+        "Thread": "1/8-27 NPT"
+      },
+      "hardware": [
+        {
+          "item": "Switch into tee",
+          "qty": 1,
+          "spec": "1/8-27 NPT",
+          "grade": "",
+          "torque": "2\u20133 turns past finger tight",
+          "threadlocker": "PTFE paste rated for brake fluid",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leaks."
+      ],
+      "buildPhase": 4,
+      "installOrder": 3,
+      "tags": [
+        "brake-light",
+        "switch"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.78,
+            0.6,
+            0.44
+          ],
+          "size": [
+            0.02,
+            0.04,
+            0.02
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "1/8-27 NPT hydraulic switch ~40 mm long.",
+        "features": "Brass thread and hex, plastic body, two spade terminals.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.lighting.headlights",
+      "name": "Headlights & driving lights (endurance/night)",
+      "qty": 2,
+      "description": "Factory Gen 6 HID/LED headlamps can be retained and driven from PDM channels (low/high beam + flash-to-pass from the wheel); sprint cars often replace them with lightweight blanks/vinyl. Endurance cars add LED driving lights and ID lights.",
+      "location": "Factory headlamp openings (x\u2248-0.80, y\u22480.72, z\u2248\u00b10.65).",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.main-harness.front-harness",
+        "electrical.dash-and-controls.steering-wheel-controls",
+        "body.front.front-fascia"
+      ],
+      "factory": {
+        "name": "GM Gen 6 HID / LED headlamp assemblies",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lexan headlight blanks / LED endurance lamp pods",
+          "brand": "Various",
+          "partNumber": "",
+          "notes": "Saves ~4\u20136 kg for sprint use."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Headlamp mounting bolts (OE)",
+          "qty": 4,
+          "spec": "M6 OE bolts",
+          "grade": "OE",
+          "torque": "~6 N\u00b7m (53 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Aim for night running; tape lenses for gravel/ debris if allowed."
+      ],
+      "inspection": [
+        "Function; aim."
+      ],
+      "buildPhase": 10,
+      "installOrder": 4,
+      "tags": [
+        "headlight"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.71,
+            0.6,
+            0.47
+          ],
+          "size": [
+            0.14,
+            0.06,
+            0.18
+          ],
+          "rot": [
+            0,
+            -30,
+            0
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "Gen 6 headlamp module ~180 x 60 mm face, ~140 mm deep, kept inside the fascia envelope (estimated).",
+        "features": "Black housing, projector lens, LED signature strip, clear outer lens; swept back along the hood edge.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.lighting.position-marker-lights",
+      "name": "Position / marker / ID lights",
+      "qty": 4,
+      "description": "Front/rear position lamps and (for endurance) class/position ID lights on the door or windshield. Retain OE LED DRL/marker if required by series; otherwise PDM-driven LEDs.",
+      "location": "Front fascia corners and rear quarters; ID lights on door or windshield banner area.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM LED DRL/marker lamps",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Screws",
+          "qty": 2,
+          "spec": "M4/M5",
+          "grade": "stainless",
+          "torque": "2 N\u00b7m",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 5,
+      "tags": [
+        "marker",
+        "endurance"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.62,
+            0.58,
+            0.76
+          ],
+          "size": [
+            0.05,
+            0.02,
+            0.012
+          ],
+          "instances": [
+            [
+              -0.62,
+              0.58,
+              0.76
+            ],
+            [
+              -0.62,
+              0.58,
+              -0.76
+            ],
+            [
+              3.45,
+              0.72,
+              0.81
+            ],
+            [
+              3.45,
+              0.72,
+              -0.81
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "~50 x 20 mm side marker lenses (estimated).",
+        "features": "Amber front / red rear lens.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

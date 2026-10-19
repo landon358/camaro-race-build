@@ -1,0 +1,308 @@
+{
+  "id": "wheels.studs-and-lug-nuts",
+  "system": "wheels",
+  "name": "Wheel Studs & Lug Nuts",
+  "description": "5 x 120 mm bolt pattern, M14 x 1.5 studs pressed into the hub flanges, 60° conical-seat lug nuts torqued to 190 N·m (140 ft-lb). Race builds fit longer studs for thick race wheels/spacers and open-ended race nuts.",
+  "components": [
+    {
+      "id": "wheels.studs-and-lug-nuts.wheel-studs",
+      "name": "Wheel studs",
+      "qty": 20,
+      "description": "Knurled M14x1.5 studs pressed into each hub flange (5 per hub). Replace any stud that was cross-threaded, over-torqued by an impact gun, or stretched.",
+      "location": "Hub flanges, 120 mm PCD.",
+      "connectsTo": [
+        "wheels.front-hubs-bearings.hub-bearing",
+        "wheels.rear-hubs-bearings.hub-bearing",
+        "wheels.studs-and-lug-nuts.lug-nuts",
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel"
+      ],
+      "factory": {
+        "name": "GM M14x1.5 knurled wheel stud",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Extended M14x1.5 press-in race studs (+20–30 mm)",
+          "brand": "ARP / Wildhammer / generic",
+          "notes": "Needed with spacers or thick race-wheel pads; size the knurl to the OEM hub. Many race series require thread engagement ≥ stud diameter (≥ 14 mm, ideally full nut)."
+        },
+        {
+          "name": "Screw-in stud conversion (hub drilled & tapped) for quick changes",
+          "brand": "Various",
+          "notes": "Rare on Gen 6; requires machining."
+        }
+      ],
+      "specs": {
+        "Thread": "M14 x 1.5",
+        "PCD": "5 x 120 mm",
+        "Quantity": "5 per hub"
+      },
+      "hardware": [
+        {
+          "item": "Stud installation",
+          "qty": 1,
+          "spec": "Pressed from rear of flange",
+          "grade": "Class 10.9 equivalent",
+          "torque": "Press-fit – pull in with a stud installer, not by over-torquing a lug nut",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if damaged",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Press studs with hub on a bench (or use a stud puller tool on the car); confirm head fully seated against flange.",
+        "Never lubricate studs unless the wheel maker specifies it (torque spec is for clean, dry threads)."
+      ],
+      "inspection": [
+        "Check threads each wheel change; replace any stud with damaged/stretched threads (nut binds mid-thread)."
+      ],
+      "buildPhase": 4,
+      "installOrder": 4,
+      "tags": [
+        "studs",
+        "m14x1.5",
+        "5x120"
+      ],
+      "sources": [
+        {
+          "title": "wheel-sizes.com – Chevrolet Camaro lug nut size, torque & thread (M14x1.5, 190 N·m)",
+          "url": "https://wheel-sizes.com/lugnuts/chevrolet/camaro/"
+        },
+        {
+          "title": "Expressway tire/wheel guide – Camaro center bore 66.9 mm, 5x120, M14x1.5",
+          "url": "https://www.expressway.ph/tires/vehicles/chevrolet/camaro"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.019,
+          0.019,
+          0.066
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0,
+            0.4315,
+            0.799
+          ],
+          [
+            -0.0571,
+            0.39,
+            0.799
+          ],
+          [
+            -0.0353,
+            0.323,
+            0.799
+          ],
+          [
+            0.0353,
+            0.323,
+            0.799
+          ],
+          [
+            0.0571,
+            0.39,
+            0.799
+          ],
+          [
+            2.811,
+            0.4315,
+            0.828
+          ],
+          [
+            2.7539,
+            0.39,
+            0.828
+          ],
+          [
+            2.7757,
+            0.323,
+            0.828
+          ],
+          [
+            2.8463,
+            0.323,
+            0.828
+          ],
+          [
+            2.8681,
+            0.39,
+            0.828
+          ]
+        ],
+        "color": "#bdbdbd"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "M14 x 1.5, ~66 mm overall incl. knurl head, 5 x 120 PCD (60 mm radius), stud #1 at 12 o'clock",
+        "features": "Knurled head behind the hub flange, chamfered tip",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "wheels.studs-and-lug-nuts.lug-nuts",
+      "name": "Lug nuts",
+      "qty": 20,
+      "description": "M14x1.5 lug nuts with 60° conical seat. Race nuts are open-ended (stud passes through for visible engagement), steel, often with captive washers matched to the wheel seat.",
+      "location": "On each stud at the wheel face.",
+      "connectsTo": [
+        "wheels.studs-and-lug-nuts.wheel-studs",
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel"
+      ],
+      "factory": {
+        "name": "GM M14x1.5 lug nut, 60° conical seat (22 mm hex typical)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "ARP M14x1.5 open-end lug nuts",
+          "brand": "ARP",
+          "notes": "Match seat type to wheel (60° conical vs ball vs flat with washer)."
+        },
+        {
+          "name": "Wheel-maker specific nuts (Forgeline / BBS / Apex)",
+          "brand": "Forgeline / BBS / Apex",
+          "notes": "Apex supplies 60° conical nuts for Camaro fitments."
+        }
+      ],
+      "specs": {
+        "Thread": "M14 x 1.5",
+        "Seat": "60° conical (verify per wheel)",
+        "Torque": "190 N·m (140 ft-lb)"
+      },
+      "hardware": [
+        {
+          "item": "Lug nut (wheel nut)",
+          "qty": 1,
+          "spec": "M14x1.5 60° conical",
+          "grade": "Steel",
+          "torque": "140 ft-lb (190 N·m)",
+          "torqueSequence": "Snug all in a star pattern with the wheel off the ground, lower car, then torque in star pattern in two passes (≈ 50%, then 100%)",
+          "threadlocker": "none (clean dry threads)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect seat)",
+          "tool": "22 mm thin-wall socket (verify)",
+          "notes": "GM 2016–18 table \"Wheel nuts 190 N·m\"; matches wheel-size and Velgen (140 ft-lb, 6th gen).",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Re-torque after the first session on new wheels / after each wheel change (seats bed in).",
+        "Use a calibrated click wrench for final torque, never an impact gun."
+      ],
+      "inspection": [
+        "Torque check at every tire change and before each session; mark nuts with a paint stripe."
+      ],
+      "buildPhase": 4,
+      "installOrder": 12,
+      "tags": [
+        "lug-nuts",
+        "torque"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "wheel-sizes.com – Chevrolet Camaro lug nut size, torque & thread (M14x1.5, 190 N·m)",
+          "url": "https://wheel-sizes.com/lugnuts/chevrolet/camaro/"
+        },
+        {
+          "title": "Velgen – Chevrolet Camaro wheel torque specs (6th gen 140 ft-lb)",
+          "url": "https://www.velgenwheels.com/blogs/blog/chevrolet-camaro-wheel-torque-specs"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.0254,
+          0.0254,
+          0.035
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0,
+            0.4315,
+            0.8195
+          ],
+          [
+            -0.0571,
+            0.39,
+            0.8195
+          ],
+          [
+            -0.0353,
+            0.323,
+            0.8195
+          ],
+          [
+            0.0353,
+            0.323,
+            0.8195
+          ],
+          [
+            0.0571,
+            0.39,
+            0.8195
+          ],
+          [
+            2.811,
+            0.4315,
+            0.8495
+          ],
+          [
+            2.7539,
+            0.39,
+            0.8495
+          ],
+          [
+            2.7757,
+            0.323,
+            0.8495
+          ],
+          [
+            2.8463,
+            0.323,
+            0.8495
+          ],
+          [
+            2.8681,
+            0.39,
+            0.8495
+          ]
+        ],
+        "color": "#424242"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "M14 x 1.5, 22 mm hex, 60 deg conical seat, ~35 mm long",
+        "features": "Capped chrome conical-seat nut seated in the wheel lug bores",
+        "confidence": "published"
+      }
+    }
+  ]
+}

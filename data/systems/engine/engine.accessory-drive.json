@@ -1,0 +1,863 @@
+{
+  "id": "engine.accessory-drive",
+  "system": "engine",
+  "name": "Accessory Drive",
+  "description": "Water pump, 6-rib accessory belt, tensioner, idlers, alternator mount, A/C (or delete) and the 8-rib supercharger belt drive.",
+  "components": [
+    {
+      "id": "engine.accessory-drive.water-pump",
+      "name": "Mechanical water pump & gaskets",
+      "qty": 1,
+      "description": "Belt-driven engine coolant pump on the front of the block feeding both heads (reverse-flow cooling). Water pump gaskets are part of the GM-style cam install kit. Some race builds replace it with an electric pump (engine-support) to free power and control temps at idle in the pits.",
+      "location": "Front of engine on the front cover/block, driven by the 6-rib accessory belt (approximate position).",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.accessory-drive.serpentine-belt",
+        "engine-support.cooling.upper-hose",
+        "engine-support.cooling.lower-hose"
+      ],
+      "factory": {
+        "name": "GM Gen V LT4 water pump",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Electric water pump conversion",
+          "brand": "Meziere / Davies Craig",
+          "notes": "Requires block-off/adapter for Gen V; part numbers not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Water pump to block bolt",
+          "qty": 6,
+          "spec": "M8 bolt (count approximate)",
+          "grade": "",
+          "torque": "18 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Michigan Motorsports: water pump to block 18 ft-lb; Summit lists water pump bolts 89 in-lb - likely the smaller housing/cover bolts. Confirm which is which with GM service information. Checked 2026-10: Michigan Motorsports lists water pump to block at 18 ft-lb. The GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists only water pump impeller bolts and water inlet housing bolts (10 N·m), and the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'water pump fastener' at 10 N·m in two passes. Value unchanged, but confirm the thread size on your pump: if every pump fastener is M6, use 89 in-lb (10 N·m).",
+          "confidence": "typical",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "item": "Water pump impeller housing / cover bolt",
+          "qty": 6,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists 'Water Pump Impeller Bolts 10 N·m (88 lb in)'. Rated R and Summit also give 89 in-lb.",
+          "confidence": "verified",
+          "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
+        },
+        {
+          "item": "Water outlet bolt",
+          "qty": 2,
+          "spec": "M6 bolt",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Engine coolant manifold bolt",
+          "qty": 4,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New gaskets; torque evenly; spin pump by hand after install."
+      ],
+      "inspection": [
+        "Check weep hole for coolant and bearing play each event."
+      ],
+      "buildPhase": 5,
+      "installOrder": 66,
+      "tags": [
+        "water-pump",
+        "cooling"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V cam install kit for wet sump LT engines",
+          "url": "https://www.michiganmotorsports.com/gaskets-install-kits/gen-v-cam-install-kit-for-wet-sump-2014-2020-gen-5-lt-engines-5-3-6-2-l83-l86-lt1-lt4-camshaft-gaskets/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.2805,
+          0.625,
+          -0.1
+        ],
+        "size": [
+          0.085,
+          0.16,
+          0.16
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM/ACDelco 19431949 Camaro LT1/LT4 water pump",
+            "url": "https://www.michiganmotorsports.com/cooling-system/gm-19431949-2016-2024-camaro-2016-19-cts-v-6-2l-lt1-lt4-water-pump-ac-delco-251-819-waterpump/"
+          },
+          {
+            "title": "GM 12720527 water pump with manifold (2020-24 Camaro 6.2)",
+            "url": "https://www.chevypartsdeal.com/oem/gm~pump-asm-wat-w-manif~12720527"
+          }
+        ],
+        "dimensions": "Pulley ~144 mm, housing ~140 mm, ~85 mm deep",
+        "features": "Cast pump housing with integral thermostat outlet and inlet pipe, 6-rib pulley in the accessory belt plane",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.serpentine-belt",
+      "name": "Accessory (serpentine) belt - 6-rib",
+      "qty": 1,
+      "description": "Main 6-rib belt from the crank balancer driving the water pump, alternator and A/C (if retained), kept tight by the automatic tensioner. Race cars often delete the A/C and shorten the belt.",
+      "location": "Front of the engine (approximate routing - verify on your bracket set).",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.harmonic-balancer",
+        "engine.accessory-drive.water-pump",
+        "engine.accessory-drive.alternator-mount",
+        "engine.accessory-drive.belt-tensioner",
+        "engine.accessory-drive.idler-pulleys"
+      ],
+      "factory": {
+        "name": "GM 6-rib accessory belt",
+        "notes": "Length depends on A/C and pulley sizes."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Measure new length with a string after any pulley/A-C change.",
+        "Check alignment of all pulleys with a straightedge."
+      ],
+      "inspection": [
+        "Check for glazing, chunking, rib cracks; replace every season."
+      ],
+      "buildPhase": 5,
+      "installOrder": 83,
+      "tags": [
+        "belt"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.311,
+            0.5963,
+            0.3331
+          ],
+          [
+            -0.311,
+            0.6204,
+            0.1056
+          ],
+          [
+            -0.311,
+            0.6991,
+            -0.0918
+          ],
+          [
+            -0.311,
+            0.6919,
+            -0.1329
+          ],
+          [
+            -0.311,
+            0.6638,
+            -0.1636
+          ],
+          [
+            -0.311,
+            0.6236,
+            -0.1745
+          ],
+          [
+            -0.311,
+            0.5838,
+            -0.1621
+          ],
+          [
+            -0.311,
+            0.5146,
+            -0.0848
+          ],
+          [
+            -0.311,
+            0.4988,
+            -0.0738
+          ],
+          [
+            -0.311,
+            0.4796,
+            -0.0721
+          ],
+          [
+            -0.311,
+            0.4408,
+            -0.0885
+          ],
+          [
+            -0.311,
+            0.3868,
+            -0.0966
+          ],
+          [
+            -0.311,
+            0.3369,
+            -0.0743
+          ],
+          [
+            -0.311,
+            0.3068,
+            -0.0286
+          ],
+          [
+            -0.311,
+            0.2987,
+            0.2691
+          ],
+          [
+            -0.311,
+            0.3081,
+            0.3026
+          ],
+          [
+            -0.311,
+            0.3342,
+            0.3256
+          ],
+          [
+            -0.311,
+            0.3686,
+            0.3307
+          ],
+          [
+            -0.311,
+            0.4499,
+            0.3203
+          ],
+          [
+            -0.311,
+            0.5963,
+            0.3331
+          ]
+        ],
+        "radius": 0.007,
+        "pulleys": [
+          [
+            0.565,
+            0.33,
+            0.029,
+            1
+          ],
+          [
+            0.655,
+            0.12,
+            0.035,
+            -1
+          ],
+          [
+            0.625,
+            -0.1,
+            0.072,
+            1
+          ],
+          [
+            0.486,
+            -0.109,
+            0.035,
+            -1
+          ],
+          [
+            0.4,
+            0,
+            0.095,
+            1
+          ],
+          [
+            0.36,
+            0.27,
+            0.0588,
+            1
+          ],
+          [
+            0.4456,
+            0.3576,
+            0.035,
+            -1
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT LS/LT crank pulley & balancer depth guide",
+            "url": "https://www.ictbillet.com/pages/swap-guide/ls-crank-pulley-harmonic-balancer-swap-guide"
+          }
+        ],
+        "dimensions": "6-rib (21 mm wide), plane ~100 mm in front of the block",
+        "features": "Wraps balancer, A/C, water pump and alternator; backside on the tensioner and 2 idlers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.belt-tensioner",
+      "name": "Accessory belt tensioner",
+      "qty": 1,
+      "description": "Spring-loaded automatic tensioner with pulley. Weak tensioners cause belt flutter at high rpm; check arm movement while running.",
+      "location": "Front of engine on the accessory bracket (approximate).",
+      "connectsTo": [
+        "engine.accessory-drive.serpentine-belt",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM Gen V belt tensioner",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tensioner mounting bolt",
+          "qty": 1,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "M10 x 1.5 x 105 tensioner bolt (GM 11588754): 43 ft-lb (58 N·m); M8 x 1.25 x 45 tensioner bolt (GM 11610074): 16 ft-lb (22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Typical M10 accessory fastener value; verify with GM service information. Checked 2026-10: Chevrolet Performance LT4 wet-sump FEAD instructions 19371521/19371522 sheet 5 step 3 and LT1 FEAD 19417547 step 3 both give the M10 bolt at 58 N·m and the M8 bolt at 22 N·m. CORRECTED from a 37 ft-lb (50 N·m) estimate.",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/01-images/lt4-wet-sump-accessory-drive-non-ac-19371521.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Index the tensioner locating pin; check arm range marks with belt installed."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 81,
+      "tags": [
+        "tensioner"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          -0.311,
+          0.655,
+          0.12
+        ],
+        "size": [
+          0.025,
+          0.07,
+          0.07
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT LS/LT crank pulley & balancer depth guide",
+            "url": "https://www.ictbillet.com/pages/swap-guide/ls-crank-pulley-harmonic-balancer-swap-guide"
+          }
+        ],
+        "dimensions": "~70 mm pulley",
+        "features": "Smooth pulley on a spring arm with a round spring can and pivot bolt",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.idler-pulleys",
+      "name": "Idler pulleys",
+      "qty": 2,
+      "description": "Smooth/grooved idlers that set belt wrap. Replace bearings each season on a race car.",
+      "location": "Front of engine on accessory brackets (approximate).",
+      "connectsTo": [
+        "engine.accessory-drive.serpentine-belt",
+        "engine.accessory-drive.supercharger-belt"
+      ],
+      "factory": {
+        "name": "GM idler pulleys",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Idler pulley bolt",
+          "qty": 1,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "43 ft-lb (58 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: Chevrolet Performance LT4 FEAD instructions 19371522 sheet 8 step 8 give the upper and lower idler pulleys (12665845 / 12642705) at 58 N·m (43 lb-ft). CORRECTED from a 37 ft-lb estimate.",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/01-images/lt4-wet-sump-accessory-drive-non-ac-19371521.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 82,
+      "tags": [
+        "idler"
+      ],
+      "sources": [
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          -0.311,
+          0.4456,
+          0.3576
+        ],
+        "size": [
+          0.025,
+          0.07,
+          0.07
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            -0.311,
+            0.4456,
+            0.3576
+          ],
+          [
+            -0.311,
+            0.486,
+            -0.109
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12678515 LT4 supercharger belt idler (ZL1 diagram #10)",
+            "url": "https://www.ebay.com/itm/205379089125"
+          }
+        ],
+        "dimensions": "~70 mm smooth idlers",
+        "features": "Flanged smooth pulleys with dust cap and centre bolt",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.alternator-mount",
+      "name": "Alternator & mounting bracket",
+      "qty": 1,
+      "description": "Alternator on the engine accessory bracket, driven by the 6-rib belt. The alternator unit itself is an electrical item; this component covers the mount, bolts and pulley alignment.",
+      "location": "Front of engine, upper corner of accessory drive (approximate).",
+      "connectsTo": [
+        "engine.accessory-drive.serpentine-belt",
+        "electrical.charging-starting.alternator",
+        "engine.block.cylinder-block"
+      ],
+      "factory": {
+        "name": "GM alternator and bracket",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lightweight race alternator",
+          "brand": "Powermaster / Denso race",
+          "notes": "Match pulley offset and charging output to ECU/PDM loads."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Alternator mounting bolt",
+          "qty": 2,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "43 ft-lb (58 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: Chevrolet Performance LT4 FEAD 19371522 sheet 5 step 2 and LT1 FEAD 19417547 step 2 give the generator to bracket bolts (11588754, M10x1.5x105) at 58 N·m (43 lb-ft). The 2016-18 Camaro SM (via TightTorque) agrees for the LT1. CORRECTED from a 37 ft-lb estimate. The generator bracket to block M8 bolts are separate: 22 N·m per the LT1 sheet, 25 N·m per the A/C kit sheet. The LT4 sheet says 50 N·m for that bracket step, which matches the C7 SI 'generator bracket bolts 50 N·m'; check the bolt size.",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/01-images/lt4-wet-sump-accessory-drive-non-ac-19371521.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 79,
+      "tags": [
+        "alternator"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.2405,
+          0.565,
+          0.33
+        ],
+        "size": [
+          0.165,
+          0.145,
+          0.145
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Approx. 145 mm dia x 165 mm incl. pulley",
+        "features": "Cast aluminium case with vent slots, 4 mounting ears, 6-rib pulley, B+ stud and connector on the rear",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.ac-compressor-delete",
+      "name": "A/C compressor (or delete bracket/idler)",
+      "qty": 1,
+      "description": "Factory A/C compressor on the lower accessory bracket; road-race builds typically delete it and install a delete idler/short belt.",
+      "location": "Lower front of the engine (approximate).",
+      "connectsTo": [
+        "engine.accessory-drive.serpentine-belt"
+      ],
+      "factory": {
+        "name": "GM A/C compressor",
+        "notes": "ATI 918856 damper includes the A/C pulley groove."
+      },
+      "raceOptions": [
+        {
+          "name": "A/C delete idler pulley + shorter 6-rib belt",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Compressor/delete bracket bolt",
+          "qty": 3,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "GM compressor bracket 84313365: M10 x 1.5 x 45 bolt (11588741) 43 ft-lb (58 N·m); M8 x 1.25 x 45 bolts (11610074) 18 ft-lb (25 N·m); compressor-to-bracket M8 nut 16 ft-lb (22 N·m). Aftermarket delete bracket: use its maker's value.",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: Chevrolet Performance LT1/LT4 wet-sump A/C add-on kit 19369182, fastener table and step 1. CORRECTED from a 37 ft-lb estimate for the M10 bolt.",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/02-pdf/lt4-wet-sump-ac-add-on-kit-19369182.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 80,
+      "tags": [
+        "ac-delete"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.243,
+          0.36,
+          0.27
+        ],
+        "size": [
+          0.16,
+          0.12,
+          0.12
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Approx. 120 mm dia x 160 mm",
+        "features": "Compressor with clutch pulley, manifold block on top, mounting ears; drawn on the driver-side lower position because the passenger-lower bracket position is taken by the dry-sump pump on this race build (a delete uses a smooth idler on a bracket here)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.accessory-drive.supercharger-belt",
+      "name": "Supercharger drive belt (8-rib) with tensioner & idlers",
+      "qty": 1,
+      "description": "Separate 8-rib belt from the front groove of the balancer to the blower pulley, with its own tensioner and idlers. Pulley size sets boost; Harrop lists 8PK2170 for an 85 mm pulley and 8PK2145 for 70-80 mm pulleys on Camaro/CTS-V. Belt slip under sustained high rpm is a common LT4 road-race issue.",
+      "location": "Front of engine, outermost belt plane, from crank up to the supercharger snout.",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.harmonic-balancer",
+        "engine.intake-manifold.supercharger-assembly",
+        "engine.accessory-drive.idler-pulleys"
+      ],
+      "factory": {
+        "name": "GM LT4 8-rib supercharger belt + tensioner",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Harrop 8PK pulleys 70-85 mm (99-PLY11582..11585-GT) with 8PK2145/8PK2170 belts",
+          "brand": "Harrop",
+          "notes": "For Harrop TVS2650 on Camaro.",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "name": "Aftermarket 10-rib supercharger drive",
+          "brand": "various",
+          "notes": "Harrop offers 10PK pulleys 65-90 mm (99-PLY16390..16395-GT) for 10-rib drives.",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "SC belt tensioner / idler bolts",
+          "qty": 3,
+          "spec": "M10 bolt",
+          "grade": "",
+          "torque": "SC belt tensioner (12663624) bolts, 3x M8 (11610074): 18 ft-lb (25 N·m); SC idler pulley (12678515): 43 ft-lb (58 N·m); SC tensioner bracket (12667164): 11588730 bolts 18 ft-lb (25 N·m), 11588753 bolts 43 ft-lb (58 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Checked 2026-10: Chevrolet Performance LT4 FEAD 19371522 sheets 6-7, steps 5-7. CORRECTED from a 37 ft-lb blanket estimate: the tensioner bolts are M8 at 25 N·m, not M10.",
+          "confidence": "verified",
+          "source": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/performance/resources/installation-guides/crate-engines/01-images/lt4-wet-sump-accessory-drive-non-ac-19371521.pdf"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Align SC pulley with crank groove; verify tensioner arm in range.",
+        "Recalibrate if pulley size changes (boost/MAF/airflow model)."
+      ],
+      "inspection": [
+        "Check for belt glazing/slip marks and tensioner bearing play every event."
+      ],
+      "buildPhase": 5,
+      "installOrder": 84,
+      "tags": [
+        "supercharger",
+        "belt",
+        "8-rib"
+      ],
+      "sources": [
+        {
+          "title": "Harrop TVS2650 LT4 inverted supercharger kit tech guide (Corvette/Camaro/CTS-V)",
+          "url": "https://www.harrop.com.au/downloads/Harrop LT4 Camaro SC tech guide.pdf"
+        },
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.343,
+            0.4466,
+            0.0941
+          ],
+          [
+            -0.343,
+            0.5935,
+            0.0231
+          ],
+          [
+            -0.343,
+            0.7909,
+            -0.0133
+          ],
+          [
+            -0.343,
+            0.8057,
+            -0.0272
+          ],
+          [
+            -0.343,
+            0.8104,
+            -0.0469
+          ],
+          [
+            -0.343,
+            0.8036,
+            -0.0661
+          ],
+          [
+            -0.343,
+            0.7874,
+            -0.0783
+          ],
+          [
+            -0.343,
+            0.4069,
+            -0.1048
+          ],
+          [
+            -0.343,
+            0.3498,
+            -0.0922
+          ],
+          [
+            -0.343,
+            0.3083,
+            -0.0511
+          ],
+          [
+            -0.343,
+            0.2952,
+            0.0059
+          ],
+          [
+            -0.343,
+            0.3145,
+            0.061
+          ],
+          [
+            -0.343,
+            0.3604,
+            0.0973
+          ],
+          [
+            -0.343,
+            0.4185,
+            0.1033
+          ],
+          [
+            -0.343,
+            0.4466,
+            0.0941
+          ]
+        ],
+        "radius": 0.008,
+        "pulleys": [
+          [
+            0.4,
+            0,
+            0.1025,
+            1
+          ],
+          [
+            0.6,
+            0.06,
+            0.035,
+            -1
+          ],
+          [
+            0.775,
+            -0.045,
+            0.033,
+            1
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Whipple LT4 8-rib supercharger pulleys",
+            "url": "https://whipplesuperchargers.com/i-2594-2016-2019-cadillac-cts-v-2017-2024-camaro-zl1-lt4-whipple-8-rib-supercharger-pulleys.html"
+          },
+          {
+            "title": "GM 12678515 LT4 supercharger belt idler (ZL1 diagram #10)",
+            "url": "https://www.ebay.com/itm/205379089125"
+          },
+          {
+            "title": "Cordes LT4 supercharger pulley kit",
+            "url": "https://briantooleyracing.com/cordes-performance-supercharger-pulley-lt4-2-31-lt4231kit.html"
+          }
+        ],
+        "dimensions": "8-rib (28 mm wide); crank groove ~205 mm, blower pulley ~66 mm (3.1:1)",
+        "features": "Separate front belt from the balancer to the blower snout with its own spring tensioner",
+        "confidence": "estimated (drive ratio published)"
+      }
+    }
+  ]
+}

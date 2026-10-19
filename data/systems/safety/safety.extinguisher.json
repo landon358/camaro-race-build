@@ -1,0 +1,185 @@
+{
+  "id": "safety.extinguisher",
+  "system": "safety",
+  "name": "Hand-Held Extinguisher",
+  "description": "Driver-reachable hand-held extinguisher on a metal quick-release mount (often required in addition to, or instead of, a plumbed system depending on series).",
+  "components": [
+    {
+      "id": "safety.extinguisher.handheld",
+      "name": "Hand-held extinguisher (≥ 2 lb / 1 kg)",
+      "qty": 1,
+      "description": "Hand-held unit within reach of the belted driver. SCCA minimum: 2 lb Halon 1301/1211 or 2 lb dry chemical with positive charge gauge and 10 BC / 1A10BC rating; most racers use Novec/FK or AFFF units sized 2.5 lb / 1–2 kg.",
+      "location": "On the cage near the driver's right knee / transmission tunnel, x ≈ 1.30, y ≈ 0.32, z ≈ +0.05.",
+      "connectsTo": [
+        "safety.extinguisher.quick-release-mount"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Lifeline Zero 2000 / Zero FK hand-held 1.0–2.0 kg",
+          "brand": "Lifeline",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://www.pegasusautoracing.com/productdetails.asp?RecID=7024"
+        }
+      ],
+      "specs": {
+        "Minimum": "2 lb (SCCA)",
+        "Gauge": "Positive charge indicator required for dry chem"
+      },
+      "hardware": [
+        {
+          "item": "Bracket clamp band",
+          "qty": 1,
+          "spec": "Supplied metal band",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "installNotes": [
+        "Orient gauge visible to tech; pin installed."
+      ],
+      "inspection": [
+        "Check gauge in green, weigh annually, service per label."
+      ],
+      "buildPhase": 9,
+      "installOrder": 52,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.66,
+          0.545,
+          -0.05
+        ],
+        "size": [
+          0.375,
+          0.108,
+          0.108
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 360 2 kg hand-held (375 x 108 mm)",
+            "url": "https://en.oreca-store.com/zero-360-manual-fire-extinguisher-2-kg-aluminium-lifeline-207-101-002.html"
+          },
+          {
+            "title": "Lifeline Zero 360 2 kg hand-held (Merlin)",
+            "url": "https://www.merlinmotorsport.co.uk/p/lifeline-zero-360-fire-extinguisher-2kg-hand-held-bottle-207-101-002"
+          }
+        ],
+        "dimensions": "Lifeline Zero 360 2.0 kg: 375 mm long, 108 mm dia, 3.1 kg",
+        "features": "Red aluminium bottle, squeeze-lever head with gauge and pin; on the tunnel within the belted driver’s reach",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.extinguisher.quick-release-mount",
+      "name": "Metal quick-release extinguisher mount",
+      "qty": 1,
+      "description": "Billet aluminum or steel quick-release bracket (clamp-on to a cage tube or bolted to floor/tunnel). Plastic brackets are not acceptable – SCCA requires metal quick-release brackets.",
+      "location": "Floor/tunnel or cage tube near driver.",
+      "connectsTo": [
+        "safety.extinguisher.handheld",
+        "safety.roll-cage.dash-bar",
+        "chassis.unibody.transmission-tunnel"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "Metal (aluminum/steel)",
+        "Release": "Single-motion quick release"
+      },
+      "hardware": [
+        {
+          "item": "Floor mount bolts",
+          "qty": 4,
+          "spec": "1/4-20 UNC or M6 bolt + nyloc + backing washers / rivnuts",
+          "grade": "SAE Grade 8 / ISO 8.8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://picontent.atlascopco.com/cont/external/dir/02/21060433419_A3770011_html5_external/en-US/22030439563.html",
+          "notes": "Checked 2026-10: 10 N·m matches class 8.8 M6 (Atlas Copco). For 1/4-20 Grade 5-8, standard charts give about 8-14 ft-lb. Into rivnuts, stay at or below the rivnut maker's maximum. Upgraded to typical."
+        },
+        {
+          "item": "Cage clamp bolts (if tube mount)",
+          "qty": 2,
+          "spec": "M6 / 1/4-20 clamp screws, 1.75 in clamps",
+          "grade": "Supplied",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount must hold the bottle in a crash – through-bolt with backing plates."
+      ],
+      "inspection": [
+        "Check mount tight and release functional."
+      ],
+      "buildPhase": 9,
+      "installOrder": 53,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.66,
+          0.5375,
+          -0.05
+        ],
+        "size": [
+          0.22,
+          0.127,
+          0.116
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lifeline Zero 360 2 kg hand-held (375 x 108 mm)",
+            "url": "https://en.oreca-store.com/zero-360-manual-fire-extinguisher-2-kg-aluminium-lifeline-207-101-002.html"
+          }
+        ],
+        "dimensions": "~220 x 116 mm base, two metal quick-release straps",
+        "features": "Metal quick-release bracket (SCCA/NASA: no plastic mounts)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

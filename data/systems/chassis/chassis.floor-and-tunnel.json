@@ -1,0 +1,324 @@
+{
+  "id": "chassis.floor-and-tunnel",
+  "system": "chassis",
+  "name": "Floor & Transmission/Driveshaft Tunnel",
+  "description": "The central tunnel housing the transmission tail, driveshaft and exhaust, its bolt-on underbody brace, driveshaft safety loop, body plugs and tunnel heat protection.",
+  "components": [
+    {
+      "id": "chassis.floor-and-tunnel.tunnel",
+      "name": "Transmission / driveshaft tunnel",
+      "qty": 1,
+      "description": "Raised center section of the floor that houses the TR-6060 (or 10L90) transmission tail, the driveshaft and the dual exhaust. It is a key torsional member. Race builds may need local clearancing for larger exhaust, a dry-sump-related engine setback, or a sequential/transaxle swap; any cut must be boxed back in to restore stiffness.",
+      "location": "Car centerline, x approx 0.7-2.6, y approx 0.18-0.45.",
+      "connectsTo": [
+        "drivetrain.transmission.transmission-mount",
+        "drivetrain.driveshaft.driveshaft",
+        "engine-support.exhaust.mid-pipes",
+        "chassis.floor-and-tunnel.tunnel-brace"
+      ],
+      "factory": {
+        "name": "GM stamped steel tunnel",
+        "notes": "Shifter opening and transmission crossmember mounting points are in the tunnel."
+      },
+      "raceOptions": [
+        {
+          "name": "Clearanced and re-boxed tunnel (fabricated)",
+          "brand": "Fabricator built",
+          "notes": "Use 16-18 ga steel to box in any relief; seam weld all new panels."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Mock up transmission, driveshaft, exhaust and shifter before any tunnel modification.",
+        "Maintain at least 25 mm (1 in) between exhaust and the tunnel/fuel or brake lines, or add heat shielding."
+      ],
+      "inspection": [
+        "Check tunnel around transmission mount for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 26,
+      "tags": [
+        "tunnel"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.65,
+          0.32,
+          0
+        ],
+        "size": [
+          1.9,
+          0.26,
+          0.32
+        ],
+        "color": "#7d868f"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 1900 x 320 x 260 mm",
+        "features": "Pressed inverted-U tunnel with sloped walls, flanges and beads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.floor-and-tunnel.tunnel-brace",
+      "name": "Driveshaft tunnel brace (underbody brace)",
+      "qty": 1,
+      "description": "Bolt-on brace spanning the open bottom of the tunnel beneath the driveshaft, bolted to the floor pan with 5 bolts. Closes the tunnel section for torsional stiffness and serves as the mounting for an aftermarket driveshaft safety loop.",
+      "location": "Under the tunnel behind the transmission, approx x 1.4-1.7, y approx 0.17, z 0.",
+      "connectsTo": [
+        "chassis.floor-and-tunnel.tunnel",
+        "chassis.floor-and-tunnel.driveshaft-safety-loop",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "GM factory tunnel brace",
+        "notes": "Retained with 5 bolts (13 mm hex) into the floor."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR DTB005 (steel) / DTB006 (aluminum) driveshaft tunnel brace",
+          "brand": "BMR Suspension",
+          "partNumber": "DTB005 / DTB006",
+          "notes": "Bolts to factory holes using factory hardware; two aluminum spacer washers go under the front two bolts.",
+          "url": "https://www.bmrsuspension.com/siteart/install/DTB005.pdf"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tunnel brace to floor bolt",
+          "qty": 5,
+          "spec": "M8 flange bolt, 13 mm hex (factory)",
+          "grade": "OE",
+          "torque": "16 ft-lb (22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm socket",
+          "notes": "Value from BMR instructions using factory hardware.",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/DTB005.pdf"
+        }
+      ],
+      "installNotes": [
+        "Install after exhaust and driveshaft are in (phase 6) but plan the holes during floor prep."
+      ],
+      "inspection": [
+        "Check bolts and look for exhaust heat damage."
+      ],
+      "buildPhase": 6,
+      "installOrder": 27,
+      "tags": [
+        "tunnel-brace",
+        "bmr"
+      ],
+      "sources": [
+        {
+          "title": "BMR DTB005 installation instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/DTB005.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.55,
+          0.18,
+          0
+        ],
+        "size": [
+          0.35,
+          0.02,
+          0.3
+        ],
+        "color": "#c01818"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 350 x 300 mm",
+        "features": "Bolt-in bridge across the tunnel opening",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.floor-and-tunnel.driveshaft-safety-loop",
+      "name": "Driveshaft safety loop",
+      "qty": 1,
+      "description": "Steel hoop around the front section of the driveshaft that catches the shaft if a U-joint/CV or coupler fails. Required by many sanctioning bodies for cars with high-power front-engine RWD layouts (check NASA/SCCA class rules). Gen 6 aftermarket loops attach to the factory tunnel brace.",
+      "location": "Around driveshaft near front, x approx 1.4, y approx 0.35, z 0.",
+      "connectsTo": [
+        "chassis.floor-and-tunnel.tunnel-brace",
+        "drivetrain.driveshaft.driveshaft"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR DSL019 driveshaft safety loop",
+          "brand": "BMR Suspension",
+          "partNumber": "DSL019",
+          "notes": "Attaches to the factory driveshaft tunnel brace.",
+          "url": "https://gm-efi.com/bmr-suspensions-6th-gen-camaro-product-line/"
+        }
+      ],
+      "specs": {
+        "Clearance": "Maintain >= 12 mm (1/2 in) around shaft at full drivetrain movement"
+      },
+      "hardware": [
+        {
+          "item": "Loop-to-brace bolts",
+          "qty": 4,
+          "spec": "As supplied (typically 3/8-16 or M10)",
+          "grade": "Grade 8 / 10.9",
+          "torque": "35-40 ft-lb (47-54 N·m)",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Follow kit instructions if they differ.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check clearance with drivetrain rocked on its mounts."
+      ],
+      "inspection": [
+        "Look for witness marks indicating shaft contact."
+      ],
+      "buildPhase": 6,
+      "installOrder": 28,
+      "tags": [
+        "driveshaft-loop",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "BMR 6th gen Camaro product line overview",
+          "url": "https://gm-efi.com/bmr-suspensions-6th-gen-camaro-product-line/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          1.4,
+          0.35,
+          0
+        ],
+        "size": [
+          0.03,
+          0.16,
+          0.16
+        ],
+        "axis": "x",
+        "color": "#c01818"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 160 mm hoop",
+        "features": "Steel strap hoop around the driveshaft bolted to the tunnel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.floor-and-tunnel.body-plugs-and-grommets",
+      "name": "Body plugs, drain plugs and pass-through grommets",
+      "qty": 30,
+      "description": "Rubber/plastic plugs closing factory drain and access holes in floor, rockers and trunk, plus grommets for every line or harness pass-through. Missing plugs let fumes and water into the cockpit; class rules generally require the cockpit to be sealed from the engine, fuel and track surface.",
+      "location": "Floor pan, rockers, trunk floor, dash panel.",
+      "connectsTo": [
+        "chassis.unibody.floor-pan",
+        "chassis.unibody.dash-panel-and-cowl",
+        "chassis.unibody.trunk-floor"
+      ],
+      "factory": {
+        "name": "GM body hole plugs (various sizes)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum pop-rivet / weld-in plugs for unused holes",
+          "brand": "Various",
+          "notes": "Weld-in steel discs are stronger and do not fall out."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Plug all unused holes after paint; leave drain holes in rockers open or plugged per your corrosion strategy."
+      ],
+      "inspection": [
+        "Check for missing plugs (exhaust fumes in cockpit)."
+      ],
+      "buildPhase": 1,
+      "installOrder": 29,
+      "tags": [
+        "plugs",
+        "grommets"
+      ],
+      "sources": []
+    },
+    {
+      "id": "chassis.floor-and-tunnel.tunnel-heat-shielding",
+      "name": "Tunnel and floor heat shielding",
+      "qty": 1,
+      "description": "Reflective/insulating barrier on the tunnel and floor above the exhaust and transmission. Factory stamped aluminum shields are often discarded in a race build; replace with lightweight reflective heat barrier to protect the driver, seat, lines and harnesses.",
+      "location": "Tunnel underside and floor near exhaust, x approx 0.8-2.6.",
+      "connectsTo": [
+        "chassis.floor-and-tunnel.tunnel",
+        "engine-support.exhaust.mid-pipes"
+      ],
+      "factory": {
+        "name": "GM stamped aluminum underbody heat shields",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Self-adhesive reflective heat barrier",
+          "brand": "DEI / Heatshield Products / Thermo-Tec",
+          "notes": "Apply to clean, painted surface; add mechanical fasteners near the exhaust."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Apply after paint and after line/harness routing is final."
+      ],
+      "inspection": [
+        "Check for peeling near exhaust."
+      ],
+      "buildPhase": 7,
+      "installOrder": 30,
+      "tags": [
+        "heat-shield"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.65,
+            0.405,
+            0
+          ],
+          "size": [
+            1.8,
+            0.08,
+            0.28
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "approx 1800 x 280 mm",
+        "features": "Embossed aluminium shield under the tunnel roof",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

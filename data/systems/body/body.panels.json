@@ -1,0 +1,554 @@
+{
+ "id": "body.panels",
+ "system": "body",
+ "name": "Body Panels",
+ "description": "Bolt-on exterior panels (hood, fenders, doors, decklid, fascias) – factory ZL1 parts or lightweight carbon/fiberglass replacements – plus the welded quarters/roof that are part of the shell.",
+ "components": [
+  {
+   "id": "body.panels.hood",
+   "name": "Hood",
+   "qty": 1,
+   "description": "Factory ZL1 hood (aluminum skin with vented carbon-fiber extractor insert on ZL1/1LE) or a lightweight carbon replacement. Carbon hoods need hood pins and usually a heat shield; drop the factory gas struts for a prop rod.",
+   "location": "Over engine bay, x ≈ −0.76 … 0.58, y ≈ 0.82–1.00.",
+   "connectsTo": [
+    "body.hood-and-fasteners.hood-pins",
+    "body.hood-and-fasteners.hood-hinges",
+    "aero.ducts-and-vents.hood-extractor"
+   ],
+   "factory": {
+    "name": "GM Camaro ZL1 hood with carbon-fiber vent insert (exposed weave insert RPO CFW available on 1LE)",
+    "partNumber": "",
+    "notes": "RPO CFW per GM Authority 2023 option list."
+   },
+   "raceOptions": [
+    {
+     "name": "Anderson Composites Type-OE carbon hood (1LT/2LT/RS shape; ~23.2 lb)",
+     "brand": "Anderson Composites",
+     "partNumber": "AC-HD16CHCAM-OE",
+     "notes": "Check ZL1 fascia/cowl fit.",
+     "url": "https://www.evasivemotorsports.com/store/product/anderson-composites-type-oe-hood-chevrolet-camaro-2016-2018/"
+    },
+    {
+     "name": "Anderson Composites Type-CP double-sided (COPO-style cowl, ~18.9 lb)",
+     "brand": "Anderson Composites",
+     "partNumber": "AC-HD16CHCAM-CP-DS",
+     "notes": "Requires hood pins + heat shield.",
+     "url": "https://ffperformance.co/product/anderson-composite-2016-2021-chevrolet-camaro-type-cp-double-sided-carbon-fiber-hood"
+    },
+    {
+     "name": "Anderson Composites Type-AZ double-sided (L88-style)",
+     "brand": "Anderson Composites",
+     "partNumber": "AC-HD16CHCAM-AZ-DS",
+     "notes": "2016–2024 listed.",
+     "url": "https://andersoncomposites.com/products/type-az-double-sided-carbon-fiber-hood-for-2016-2024-chevrolet-camaro.html"
+    }
+   ],
+   "specs": {
+    "Carbon hood weight": "≈18.9–23.2 lb (vendor listings)"
+   },
+   "hardware": [
+    {
+     "item": "Hood-to-hinge bolts",
+     "qty": 4,
+     "spec": "M8 x 1.25 flange bolt (GM OE)",
+     "grade": "GM OE 8.8/10.9",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Mark hinge positions before removal.",
+    "Align gaps, then set hood pins.",
+    "Carbon hoods: add heat shielding over headers/supercharger."
+   ],
+   "inspection": [
+    "Check pins latched before every session; inspect hinge bolts."
+   ],
+   "buildPhase": 10,
+   "installOrder": 5,
+   "tags": [],
+   "sources": [
+    {
+     "title": "Anderson Composites Type-OE hood (AC-HD16CHCAM-OE) – Evasive",
+     "url": "https://www.evasivemotorsports.com/store/product/anderson-composites-type-oe-hood-chevrolet-camaro-2016-2018/"
+    },
+    {
+     "title": "Anderson Composites Type-CP double sided hood – FFP",
+     "url": "https://ffperformance.co/product/anderson-composite-2016-2021-chevrolet-camaro-type-cp-double-sided-carbon-fiber-hood"
+    },
+    {
+     "title": "Anderson Composites Type-AZ double sided carbon hood 2016-2024 Camaro",
+     "url": "https://andersoncomposites.com/products/type-az-double-sided-carbon-fiber-hood-for-2016-2024-chevrolet-camaro.html"
+    },
+    {
+     "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+     "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.09,
+     0.92,
+     0
+    ],
+    "size": [
+     1.36,
+     0.03,
+     1.5
+    ],
+    "rot": [
+     0,
+     0,
+     7.6
+    ],
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.front-fenders",
+   "name": "Front fenders (L & R)",
+   "qty": 2,
+   "description": "Bolt-on front fenders. Race builds may trim or flare them for wider tires, or replace with composite/vented race fenders; fender vents are covered in aero.ducts-and-vents.",
+   "location": "Over front wheels, x ≈ −0.80 … 0.60, z ≈ ±0.80–0.95.",
+   "connectsTo": [
+    "body.panels.front-fascia",
+    "aero.ducts-and-vents.fender-louvers",
+    "body.trim-and-fasteners.fender-liners"
+   ],
+   "factory": {
+    "name": "GM Gen 6 Camaro front fender",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Fender-to-body bolts",
+     "qty": 8,
+     "spec": "M6 x 1.0 flange bolt (GM OE)",
+     "grade": "GM OE",
+     "torque": "6.6 ft-lb (9 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Roll/trim inner lip if running wider tires."
+   ],
+   "inspection": [
+    "Check bolts and tire clearance at full lock/bump."
+   ],
+   "buildPhase": 10,
+   "installOrder": 6,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.25,
+     0.8,
+     0.88
+    ],
+    "size": [
+     1.2,
+     0.4,
+     0.12
+    ],
+    "mirror": true,
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.doors",
+   "name": "Doors (L & R) – gutted for door bars",
+   "qty": 2,
+   "description": "Factory door shells with glass, regulator, speakers, wiring and the side-intrusion beam removed so the cage door bars can bow into the door cavity. Composite doors are an option in some classes. Doors must still open and latch.",
+   "location": "Door openings, x ≈ 0.85–2.15, z ≈ ±0.92.",
+   "connectsTo": [
+    "safety.roll-cage.driver-door-bars",
+    "safety.roll-cage.passenger-door-bars",
+    "interior.door-cards-panels.door-card-left",
+    "body.mirrors.side-mirrors"
+   ],
+   "factory": {
+    "name": "GM Gen 6 Camaro door assembly",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [
+    {
+     "name": "Carbon/fiberglass door skins or shells",
+     "brand": "various",
+     "partNumber": "",
+     "notes": "Rules dependent.",
+     "url": ""
+    }
+   ],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Door hinge-to-body bolts",
+     "qty": 4,
+     "spec": "M10 x 1.5 (GM OE)",
+     "grade": "GM OE",
+     "torque": "25.8 ft-lb (35 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    },
+    {
+     "item": "Door striker bolts",
+     "qty": 2,
+     "spec": "M8 x 1.25 (GM OE)",
+     "grade": "GM OE",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Mark hinge positions; keep latch/striker functional."
+   ],
+   "inspection": [
+    "Check doors latch securely."
+   ],
+   "buildPhase": 1,
+   "installOrder": 1,
+   "tags": [],
+   "sources": [
+    {
+     "title": "SCCA Time Trials – Full Safety Rules",
+     "url": "https://timetrials.scca.com/pages/full-safety-rules"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     1.5,
+     0.75,
+     0.92
+    ],
+    "size": [
+     1.25,
+     0.65,
+     0.08
+    ],
+    "mirror": true,
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.decklid",
+   "name": "Decklid (trunk lid)",
+   "qty": 1,
+   "description": "Factory decklid carries the factory 1LE wing; a chassis-mounted race wing passes its uprights through the lid. Carbon decklids save weight but need reinforcement if the wing mounts to them.",
+   "location": "x ≈ 3.0–3.75, y ≈ 0.98–1.02.",
+   "connectsTo": [
+    "aero.rear-wing.uprights",
+    "aero.rear-wing.mount-plates",
+    "body.trim-and-fasteners.dzus-fasteners"
+   ],
+   "factory": {
+    "name": "GM Camaro decklid (1LE: with T42 carbon wing provisions)",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Decklid hinge bolts",
+     "qty": 4,
+     "spec": "M8 x 1.25 flange bolt",
+     "grade": "GM OE",
+     "torque": "18.4 ft-lb (25 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    },
+    {
+     "item": "Decklid pins/Dzus (if latch deleted)",
+     "qty": 2,
+     "spec": "Aerocatch or Dzus EHF5",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "installNotes": [
+    "If torsion/gas struts removed, secure lid with pins."
+   ],
+   "inspection": [
+    "Check latch/pins."
+   ],
+   "buildPhase": 10,
+   "installOrder": 7,
+   "tags": [],
+   "sources": [],
+   "model": {
+    "shape": "box",
+    "pos": [
+     3.35,
+     1,
+     0
+    ],
+    "size": [
+     0.65,
+     0.04,
+     1.4
+    ],
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.front-fascia",
+   "name": "Front fascia / bumper cover",
+   "qty": 1,
+   "description": "ZL1 front fascia (1LE: unique openings, dive-plane provisions, lower DRL deleted). Race cars mount it with Dzus/quick-release so it can come off fast for radiator/splitter work and accident repair.",
+   "location": "Front of car, x ≈ −0.98 … −0.70.",
+   "connectsTo": [
+    "aero.front-splitter.splitter-blade",
+    "aero.dive-planes-canards.factory-dive-planes",
+    "body.trim-and-fasteners.dzus-fasteners",
+    "safety.tow-hooks.front-tow-strap"
+   ],
+   "factory": {
+    "name": "GM ZL1 / ZL1 1LE front fascia",
+    "partNumber": "",
+    "notes": "1LE: splitter with lower DRL deleted (GM Authority)."
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Quick-release fasteners",
+     "qty": 10,
+     "spec": "Dzus EHF5 / push-pin quick release",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    },
+    {
+     "item": "Fascia-to-bracket bolts",
+     "qty": 6,
+     "spec": "M6 x 1.0 / GM push clips",
+     "grade": "GM OE",
+     "torque": "6.6 ft-lb (9 N·m)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "estimate",
+     "source": "",
+     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+    }
+   ],
+   "installNotes": [
+    "Reinforce fascia mounting where splitter loads are shared."
+   ],
+   "inspection": [
+    "Check for cracks at fasteners after off-track excursions."
+   ],
+   "buildPhase": 10,
+   "installOrder": 8,
+   "tags": [],
+   "sources": [
+    {
+     "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+     "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+    },
+    {
+     "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+     "url": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     -0.88,
+     0.5,
+     0
+    ],
+    "size": [
+     0.2,
+     0.5,
+     1.85
+    ],
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.rear-fascia",
+   "name": "Rear fascia / bumper cover",
+   "qty": 1,
+   "description": "Factory rear fascia, trimmed for diffuser and exhaust exit; mount with quick-release fasteners.",
+   "location": "x ≈ 3.60–3.84, y ≈ 0.30–0.80.",
+   "connectsTo": [
+    "aero.rear-diffuser.diffuser-panel",
+    "safety.tow-hooks.rear-tow-strap",
+    "body.trim-and-fasteners.dzus-fasteners"
+   ],
+   "factory": {
+    "name": "GM Camaro ZL1 rear fascia",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Quick-release fasteners",
+     "qty": 8,
+     "spec": "Dzus EHF5",
+     "grade": "n/a",
+     "torque": "N/A",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "Reusable",
+     "confidence": "typical",
+     "source": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "installNotes": [
+    "Heat-shield near exhaust exits."
+   ],
+   "inspection": [
+    "Check for heat damage."
+   ],
+   "buildPhase": 10,
+   "installOrder": 9,
+   "tags": [],
+   "sources": [
+    {
+     "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+     "url": "https://blog.demon-tweeks.com/?p=6261"
+    }
+   ],
+   "model": {
+    "shape": "box",
+    "pos": [
+     3.75,
+     0.55,
+     0
+    ],
+    "size": [
+     0.18,
+     0.45,
+     1.85
+    ],
+    "color": "#5d6d7e"
+   }
+  },
+  {
+   "id": "body.panels.quarters-and-roof",
+   "name": "Rear quarter panels & roof (welded shell)",
+   "qty": 1,
+   "description": "Quarter panels and roof are spot-welded parts of the unibody, not bolt-ons. They may be rolled/flared for tire clearance; roof must stay intact for cage clearance and roll-over protection.",
+   "location": "Roof x ≈ 1.2–2.6, y ≈ 1.36; quarters x ≈ 2.2–3.8.",
+   "connectsTo": [
+    "chassis.unibody.floor-pan",
+    "safety.roll-cage.roof-rails"
+   ],
+   "factory": {
+    "name": "GM unibody (welded)",
+    "partNumber": "",
+    "notes": ""
+   },
+   "raceOptions": [],
+   "specs": {},
+   "hardware": [
+    {
+     "item": "Spot welds / structural adhesive",
+     "qty": 0,
+     "spec": "Factory",
+     "grade": "n/a",
+     "torque": "N/A (welded)",
+     "torqueSequence": "",
+     "threadlocker": "none",
+     "safetyWire": false,
+     "reuse": "n/a",
+     "confidence": "typical",
+     "source": ""
+    }
+   ],
+   "installNotes": [
+    "Fender-roll quarters before paint if needed."
+   ],
+   "inspection": [
+    "Check for cracking at quarter/roof seams."
+   ],
+   "buildPhase": 1,
+   "installOrder": 2,
+   "tags": [],
+   "sources": [],
+   "model": [
+    {
+     "shape": "box",
+     "pos": [
+      1.9,
+      1.36,
+      0
+     ],
+     "size": [
+      1.4,
+      0.02,
+      1.25
+     ],
+     "color": "#5d6d7e"
+    },
+    {
+     "shape": "box",
+     "pos": [
+      3,
+      0.8,
+      0.92
+     ],
+     "size": [
+      1.3,
+      0.5,
+      0.06
+     ],
+     "mirror": true,
+     "color": "#5d6d7e"
+    }
+   ]
+  }
+ ]
+}

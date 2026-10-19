@@ -1,0 +1,161 @@
+{
+  "id": "aero.side-skirts",
+  "system": "aero",
+  "name": "Side Skirts",
+  "description": "Rocker side skirts and flat extensions that limit air spilling under the car from the sides.",
+  "components": [
+    {
+      "id": "aero.side-skirts.side-skirts",
+      "name": "Side skirts / rocker panels",
+      "qty": 2,
+      "description": "ZL1 rocker panels are molded into the rocker cover; carbon replacements or overlays are available. Extending a flat lip outboard/downward helps seal the underbody.",
+      "location": "Between wheels along rockers, x ≈ 0.45–2.45, y ≈ 0.14–0.25, z ±0.95.",
+      "connectsTo": [
+        "aero.side-skirts.skirt-extensions",
+        "body.panels.quarters-and-roof"
+      ],
+      "factory": {
+        "name": "GM ZL1 rocker panel moldings",
+        "partNumber": "",
+        "notes": "Molded into rocker (EOS listing)."
+      },
+      "raceOptions": [
+        {
+          "name": "EOS 2016–2024 Camaro ZL1 factory-style carbon side skirts",
+          "brand": "EOS",
+          "partNumber": "",
+          "notes": "Uses factory mounting points.",
+          "url": "https://ffperformance.co/product/eos-2016-2024-6th-gen-camaro-zl1-carbon-fiber-side-skirts/"
+        },
+        {
+          "name": "EOS carbon side-skirt overlays (17–24 ZL1)",
+          "brand": "EOS",
+          "partNumber": "",
+          "notes": "Lay over factory skirts.",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-carbon-fiber-side-skirt-overlays-includes-2-eos/"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Skirt fasteners",
+          "qty": 6,
+          "spec": "GM push clips / M6 screws into factory points",
+          "grade": "n/a",
+          "torque": "4.4 ft-lb (6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check after curb strikes."
+      ],
+      "buildPhase": 10,
+      "installOrder": 18,
+      "tags": [],
+      "sources": [
+        {
+          "title": "EOS 2016-2024 Camaro ZL1 carbon side skirts",
+          "url": "https://ffperformance.co/product/eos-2016-2024-6th-gen-camaro-zl1-carbon-fiber-side-skirts/"
+        },
+        {
+          "title": "EOS 17-24 Camaro ZL1 carbon side skirt overlays",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-carbon-fiber-side-skirt-overlays-includes-2-eos/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.425,
+            0.2,
+            0.885
+          ],
+          "size": [
+            1.85,
+            0.12,
+            0.06
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ZL1-style side skirts / rocker panels for 2016+ Camaro",
+            "url": "https://americanmuscle.com/camaro-zl1-style-side-skirts-rocker-panels-vz102180.html"
+          },
+          {
+            "title": "EOS ZL1-style carbon side skirts for 2016+ Camaro",
+            "url": "https://ffperformance.co/product/eos-2019-2021-chevrolet-camaro-zl1-style-carbon-fiber-side-skirts-rocker-panels/"
+          }
+        ],
+        "dimensions": "~1.85 m long, ~120 mm tall, along the rocker between the wheel openings",
+        "features": "ZL1-style rocker molding: curved outer face, flat bottom lip",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.side-skirts.skirt-extensions",
+      "name": "Side-skirt flat extensions (blades)",
+      "qty": 2,
+      "description": "Flat aluminum/ACP blades under the rocker extending outward 2–3 in to limit side leakage into the underbody.",
+      "location": "Under rocker, x ≈ 0.45–2.45, y ≈ 0.13, z ±0.98.",
+      "connectsTo": [
+        "aero.side-skirts.side-skirts",
+        "chassis.unibody.rocker"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Blade bolts",
+          "qty": 6,
+          "spec": "M6 into rivnuts in rocker pinch weld brackets",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep jack-point access."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 19,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.425,
+            0.137,
+            0.915
+          ],
+          "size": [
+            1.85,
+            0.006,
+            0.07
+          ],
+          "mirror": true
+        }
+      ]
+    }
+  ]
+}

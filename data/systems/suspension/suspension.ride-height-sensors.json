@@ -1,0 +1,180 @@
+{
+  "id": "suspension.ride-height-sensors",
+  "system": "suspension",
+  "name": "Ride Height / Position Sensors (Magnetic Ride Control)",
+  "description": "Cars with Magnetic Ride Control (ZL1, optional SS) use corner position sensors and a suspension control module to command the magnetorheological dampers. A race car with passive dampers deletes them; the same mounting points can be reused for data-acquisition linear potentiometers.",
+  "components": [
+    {
+      "id": "suspension.ride-height-sensors.position-sensors",
+      "name": "Suspension position (ride height) sensors",
+      "qty": 4,
+      "description": "Rotary position sensors with a link arm to a suspension member at each corner, read by the MRC controller to calculate wheel velocity. Delete when running passive dampers (retain if keeping factory MRC). For data logging, replace with linear shock potentiometers on each damper.",
+      "location": "One per corner: front near lower links/cradle, rear near the LCA/cradle.",
+      "connectsTo": [
+        "suspension.ride-height-sensors.damper-control-module",
+        "suspension.front-struts-springs.strut",
+        "suspension.rear-dampers-springs.shock",
+        "electrical.data-acquisition.logger"
+      ],
+      "factory": {
+        "name": "GM MRC suspension position sensors (with MRC RPO)",
+        "notes": "Exact count/locations not verified for Gen 6 in available sources; confirm on your car."
+      },
+      "raceOptions": [
+        {
+          "name": "Linear shock potentiometers (75-150 mm stroke)",
+          "brand": "AiM / MoTeC / Bosch / Penny+Giles",
+          "notes": "Mount parallel to damper with rod ends; protect from debris."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor mounting bolt",
+          "qty": 2,
+          "spec": "M6, 10 mm hex",
+          "grade": "OE",
+          "torque": "89 in-lb (10 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical GM M6 chassis value; verify.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "If deleting, remove sensors and links and cap/plug harness connectors; with a standalone ECU/PDM the factory MRC DTCs are irrelevant."
+      ],
+      "inspection": [
+        "If retained, check link arms after curb strikes."
+      ],
+      "buildPhase": 8,
+      "installOrder": 90,
+      "tags": [
+        "mrc",
+        "ride-height-sensor",
+        "delete"
+      ],
+      "sources": [
+        {
+          "title": "2019 Camaro ZL1 product guide (MRC)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.1,
+            0.215,
+            0.4
+          ],
+          "size": [
+            0.04,
+            0.04,
+            0.03
+          ],
+          "instances": [
+            [
+              0.1,
+              0.215,
+              0.4
+            ],
+            [
+              0.1,
+              0.215,
+              -0.4
+            ],
+            [
+              2.99,
+              0.27,
+              0.4
+            ],
+            [
+              2.99,
+              0.27,
+              -0.4
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 40 x 40 x 30 mm",
+        "features": "Rotary height sensor with lever arm and link to the lower link",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.ride-height-sensors.sensor-links",
+      "name": "Position sensor link arms",
+      "qty": 4,
+      "description": "Short ball-jointed links between each position sensor arm and the suspension member. Removed with the sensors in a delete.",
+      "location": "At each sensor.",
+      "connectsTo": [
+        "suspension.ride-height-sensors.position-sensors"
+      ],
+      "factory": {
+        "name": "GM sensor link",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 91,
+      "tags": [
+        "mrc"
+      ],
+      "sources": []
+    },
+    {
+      "id": "suspension.ride-height-sensors.damper-control-module",
+      "name": "MRC damper control module and damper harness",
+      "qty": 1,
+      "description": "Controller that drives current to the four magnetorheological dampers using position-sensor, vehicle speed, steering and accel data over GM LAN. Deleted with passive race dampers; if MRC is retained in a race car, the module must still receive the GM CAN messages it expects.",
+      "location": "Vehicle body (location varies; verify).",
+      "connectsTo": [
+        "suspension.ride-height-sensors.position-sensors",
+        "suspension.front-struts-springs.strut",
+        "suspension.rear-dampers-springs.shock",
+        "electrical.can-bus.gmlan"
+      ],
+      "factory": {
+        "name": "GM MRC controller (with MRC RPO)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete (passive race dampers)",
+          "brand": "N/A",
+          "notes": "Remove damper leads; insulate harness ends."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 92,
+      "tags": [
+        "mrc",
+        "module",
+        "delete"
+      ],
+      "sources": []
+    }
+  ]
+}

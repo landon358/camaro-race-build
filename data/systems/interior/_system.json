@@ -1,0 +1,219 @@
+{
+ "id": "interior",
+ "name": "Interior",
+ "summary": "Everything inside the cockpit that is not primary safety structure: stripping the shell, dash and switch panels, pedal-area floor, driver cooling, mirrors, door cards and ballast. The goal is a light, clean, serviceable cockpit with nothing loose and every control reachable while belted.",
+ "overview": "A bare-chassis build starts by stripping the Gen 6 shell of all trim, seats, SRS components and asphalt deadener so the cage and seat mounts can be welded to clean metal. The factory IP cross-car beam can be retained to locate the steering column and EPS, with a lightweight race dash panel on top; or the column is hung from the cage dash bar.\n\nThe cockpit is laid out around the seated driver: display above the wheel, switch panel and kill/fire controls in the center stack within reach of the belted driver, heel plate and dead pedal in the footwell, cool-suit cooler and fire bottle low on the passenger floor. Door cards close the gutted doors around the door bars.\n\nBallast must be through-bolted with backing plates (never strapped) and placed low and inboard to help cross-weight.",
+ "buildNotes": [
+  "Strip and de-deadener before cage work.",
+  "Decide factory beam vs. cage column support before the dash bar is placed.",
+  "Weld all interior mounting tabs to the cage before paint.",
+  "Install dash, panels, cooling and mirrors after electrical harness routing.",
+  "Add ballast last during corner weighting."
+ ],
+ "schematics": [
+  {
+   "id": "interior.cockpit-layout",
+   "title": "Cockpit layout & driver interfaces",
+   "type": "block",
+   "description": "What the driver touches and where each item mounts.",
+   "nodes": [
+    {
+     "id": "driver",
+     "label": "Driver (belted)",
+     "componentId": "safety.seat-and-mounts.seat-shell"
+    },
+    {
+     "id": "disp",
+     "label": "Display",
+     "componentId": "interior.dash.display-mount"
+    },
+    {
+     "id": "sw",
+     "label": "Switch panel",
+     "componentId": "interior.dash.switch-panel"
+    },
+    {
+     "id": "dash",
+     "label": "Race dash panel",
+     "componentId": "interior.dash.race-dash-panel"
+    },
+    {
+     "id": "beam",
+     "label": "Cross-car beam / dash bar",
+     "componentId": "interior.dash.factory-cross-car-beam"
+    },
+    {
+     "id": "heel",
+     "label": "Heel plate",
+     "componentId": "interior.pedal-area-floor.heel-plate"
+    },
+    {
+     "id": "dead",
+     "label": "Dead pedal",
+     "componentId": "interior.pedal-area-floor.dead-pedal"
+    },
+    {
+     "id": "cool",
+     "label": "Cool-suit cooler",
+     "componentId": "interior.driver-cooling.coolshirt-cooler"
+    },
+    {
+     "id": "mirror",
+     "label": "Wink mirror",
+     "componentId": "interior.mirrors.wink-mirror"
+    },
+    {
+     "id": "ballast",
+     "label": "Ballast",
+     "componentId": "interior.ballast.ballast-plates"
+    }
+   ],
+   "edges": [
+    {
+     "from": "driver",
+     "to": "disp",
+     "label": "sight line",
+     "kind": "signal"
+    },
+    {
+     "from": "driver",
+     "to": "sw",
+     "label": "reach",
+     "kind": "mechanical"
+    },
+    {
+     "from": "disp",
+     "to": "dash",
+     "label": "mounted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "sw",
+     "to": "dash",
+     "label": "mounted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "dash",
+     "to": "beam",
+     "label": "rivnuts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "driver",
+     "to": "heel",
+     "label": "feet",
+     "kind": "mechanical"
+    },
+    {
+     "from": "driver",
+     "to": "dead",
+     "label": "left foot",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cool",
+     "to": "driver",
+     "label": "chilled water + helmet air",
+     "kind": "water"
+    },
+    {
+     "from": "driver",
+     "to": "mirror",
+     "label": "rear view",
+     "kind": "signal"
+    }
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "id": "interior.route.coolshirt-water",
+   "name": "Cool-suit water hoses",
+   "kind": "water",
+   "componentId": "interior.driver-cooling.water-hoses",
+   "radius": 0.008,
+   "points": [
+    [
+     1.2,
+     0.3,
+     -0.27
+    ],
+    [
+     1.45,
+     0.27,
+     -0.1
+    ],
+    [
+     1.65,
+     0.3,
+     0.12
+    ],
+    [
+     1.72,
+     0.4,
+     0.2
+    ]
+   ]
+  },
+  {
+   "id": "interior.route.helmet-air",
+   "name": "Helmet air hose",
+   "kind": "air",
+   "componentId": "interior.driver-cooling.helmet-air-hose",
+   "radius": 0.016,
+   "points": [
+    [
+     1.25,
+     0.58,
+     -0.42
+    ],
+    [
+     1.6,
+     0.8,
+     -0.2
+    ],
+    [
+     2,
+     1.05,
+     0.1
+    ],
+    [
+     1.95,
+     1.12,
+     0.3
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Coolshirt Pro Air & Water cooling system",
+   "url": "https://perryautolaval.com/collections/coolshirt/products/coolshirt-pro-air-and-water-cooling-system"
+  },
+  {
+   "title": "Coolshirt Pro Air/Water 19 qt 3002-0002",
+   "url": "https://90racing.com/products/coolshirt-pro-air-water-19-qt-3002-0002"
+  },
+  {
+   "title": "Coolshirt Club cooling system",
+   "url": "https://perryautolaval.com/products/coolshirt-club-cooling-system"
+  },
+  {
+   "title": "NASA Speed News – Installing roll cage padding (CCR 15.6.4)",
+   "url": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+  },
+  {
+   "title": "SCCA Time Trials – Full Safety Rules",
+   "url": "https://timetrials.scca.com/pages/full-safety-rules"
+  },
+  {
+   "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+   "url": "https://blog.demon-tweeks.com/?p=6261"
+  },
+  {
+   "title": "NASA Speed News – Project Spec E30: building a roll cage",
+   "url": "https://nasaspeed.news/tech/fabrication/project-spec-e30-part-iv-building-a-roll-cage/"
+  }
+ ]
+}

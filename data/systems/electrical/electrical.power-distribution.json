@@ -1,0 +1,599 @@
+{
+  "id": "electrical.power-distribution",
+  "system": "electrical",
+  "name": "Power Distribution (PDM, fuses, breakers)",
+  "description": "Solid-state Power Distribution Module replacing the factory underhood (X50A) and rear (X51) fuse/relay blocks, plus its power feed, connectors, mounting, a small always-hot fused block for life-support/timing circuits allowed to bypass the master switch where rules permit, and resettable circuit breakers.",
+  "components": [
+    {
+      "id": "electrical.power-distribution.pdm",
+      "name": "Power Distribution Module (PDM)",
+      "qty": 1,
+      "description": "Programmable solid-state switching module that replaces fuses and relays. Each output has current limiting, retry logic, and logs current/voltage over CAN to the dash/logger. Typical channel plan on this car: ECU main, ignition coils, injectors/DI driver, fuel pumps (2 x PWM), radiator fan (PWM), intercooler pump, starter, dash/logger, keypad, ABS, alternator L-terminal, rain light, brake lights, headlights, wipers, radio, camera, cool-suit, transponder (if not always-hot), data sensors 12 V.",
+      "location": "Passenger side under/behind the dash on a vibration-isolated aluminum panel (x\u22481.05, y\u22480.55, z\u2248-0.40), close to the ECU and the firewall bulkhead.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm-power-feed",
+        "electrical.grounding.electronics-star-ground",
+        "electrical.engine-management.ecu",
+        "electrical.dash-and-controls.dash-display",
+        "electrical.dash-and-controls.keypad",
+        "electrical.fans-and-pumps-control.radiator-fan",
+        "electrical.fans-and-pumps-control.fuel-pump-control",
+        "electrical.lighting.rain-light",
+        "electrical.lighting.brake-lights",
+        "electrical.lighting.headlights",
+        "electrical.comms-video-timing.radio",
+        "electrical.comms-video-timing.in-car-camera",
+        "electrical.charging-starting.starter-trigger"
+      ],
+      "factory": {
+        "name": "GM underhood fuse block (X50A) + rear fuse block (X51) + BCM-switched relays",
+        "partNumber": "",
+        "notes": "Factory blocks are tied to the BCM/body harness; with a standalone ECU and stripped body harness they are removed."
+      },
+      "raceOptions": [
+        {
+          "name": "MoTeC PDM30",
+          "brand": "MoTeC",
+          "partNumber": "14103 (MoTeC page; one retailer lists 14104)",
+          "notes": "8 x 20 A + 22 x 8 A outputs (115 A / 60 A transient), 16 switch inputs, 1 CAN, M6 battery stud, 34 + 26 pin connectors, 270\u2013300 g. Config via PDM Manager + UTC #61059.",
+          "url": "https://www.motec.com.au/products/PDM30"
+        },
+        {
+          "name": "AiM PDM32",
+          "brand": "AiM",
+          "partNumber": "XC1PDM3201",
+          "notes": "28 high-side outputs (4 x 20 A, 12 x 15 A, 12 x 10 A) + 4 x 35 A half-bridge, 120 A total, 14 inputs, 3 CAN + LIN; built-in logger/dash controller with 6 or 10 in display.",
+          "url": "https://dwls.aim-sportline.com/technical-sheets/aim_pdm32_tech_sheet.pdf"
+        },
+        {
+          "name": "ECUMaster PMU16",
+          "brand": "ECUMaster",
+          "partNumber": "PMU-16 / PMU-16DL",
+          "notes": "10 x 25 A + 6 x 15 A, 150 A total, 16 analog inputs, 2 CAN, wiper H-bridge, IMU; DL version logs 256 MB. Strong value option.",
+          "url": "https://ecumasterusa.com/products/ecumaster-pmu16-power-management-unit"
+        },
+        {
+          "name": "Cartek Power Distribution Panel PDP-16",
+          "brand": "Cartek",
+          "partNumber": "CK-PDP-16",
+          "notes": "16 outputs with built-in push-button panel (no laptop needed), 5/10/15 A selectable, 160 A total, 16 ECU inputs, wiper module, AMPSEAL connectors. No CAN keypad needed.",
+          "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2019/02/Power-Distribution-Panel-Datasheet.pdf"
+        }
+      ],
+      "specs": {
+        "Supply": "8\u201330 V",
+        "Battery input": "M6 stud (PDM30)",
+        "Comms": "CAN 1 Mbit/s to dash/ECU",
+        "Total continuous (PDM30)": "~120 A practical"
+      },
+      "hardware": [
+        {
+          "item": "Battery input stud nut (M6)",
+          "qty": 1,
+          "spec": "M6 x 1.0 nut + spring washer on ring lug",
+          "grade": "",
+          "torque": "4\u20135 N\u00b7m (35\u201344 in-lb)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "MoTeC specifies an M6 stud; torque value not found \u2013 do not over-torque the PCB-mounted stud. Support the cable with a P-clamp so its weight is not on the stud.",
+          "confidence": "estimate",
+          "source": "https://www.motec.com.au/products/PDM30"
+        },
+        {
+          "item": "PDM mounting screws",
+          "qty": 4,
+          "spec": "M5 screws through rubber isolators into rivnuts",
+          "grade": "stainless",
+          "torque": "3 N\u00b7m (27 in-lb)",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Anti-vibration mounts",
+          "qty": 4,
+          "spec": "M5 rubber bobbin isolators (~30 Shore A\u201350 Shore A)",
+          "grade": "",
+          "torque": "Hand tight",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Inspect",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "Output connectors",
+          "qty": 2,
+          "spec": "MoTeC PDM30: 34-pin + 26-pin Superseal-type waterproof plugs",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://www.motec.com.au/products/PDM30"
+        }
+      ],
+      "installNotes": [
+        "Write the load list with continuous/inrush currents first; assign 20 A channels to fans, pumps, starter and ignition; pair outputs where current exceeds a channel rating.",
+        "Mount the PDM within ~1 m of the battery-feed junction with the main cable fused.",
+        "Program soft-start/PWM for fan and fuel pumps; program retries (e.g. 3) except for the starter.",
+        "Program logic: engine-kill input from isolator \u2192 all engine outputs off; rain light ON with headlights or keypad; brake lights from brake-pressure channel via CAN.",
+        "Log every output current; set warning thresholds on the dash."
+      ],
+      "inspection": [
+        "Review PDM fault/trip log after each session.",
+        "Connector locks/seals; mounting isolators."
+      ],
+      "buildPhase": 8,
+      "installOrder": 1,
+      "tags": [
+        "pdm",
+        "motec",
+        "aim",
+        "ecumaster",
+        "cartek",
+        "power"
+      ],
+      "sources": [
+        {
+          "title": "MoTeC PDM30",
+          "url": "https://www.motec.com.au/products/PDM30"
+        },
+        {
+          "title": "AiM PDM32 tech sheet",
+          "url": "https://dwls.aim-sportline.com/technical-sheets/aim_pdm32_tech_sheet.pdf"
+        },
+        {
+          "title": "ECUMaster PMU16",
+          "url": "https://ecumasterusa.com/products/ecumaster-pmu16-power-management-unit"
+        },
+        {
+          "title": "Cartek PDP datasheet",
+          "url": "https://www.cartekmotorsport.com/wp/wp-content/uploads/2019/02/Power-Distribution-Panel-Datasheet.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.0115,
+          0.57,
+          -0.31
+        ],
+        "size": [
+          0.039,
+          0.128,
+          0.1075
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MoTeC PDM30 product page \u2013 107.5 x 127.5 x 38.7 mm",
+            "url": "https://www.motec.com.au/pdm30/"
+          },
+          {
+            "title": "MoTeC PDM directory (size comparison)",
+            "url": "https://www.motec.com.au/pdm-current/pdm-directory/"
+          },
+          {
+            "title": "MoTeC PDM30 (T1 Race Development)",
+            "url": "https://www.t1racedevelopment.com/product/motec-pdm30/"
+          }
+        ],
+        "dimensions": "107.5 x 127.5 x 38.7 mm, 270 g; 34-pin + 26-pin waterproof connectors and an M6 battery stud.",
+        "features": "Black anodised case with label, two sealed connectors on the inboard edge, red-booted M6 power stud on top, 4 mounting ears; on the passenger electronics panel above the ECU.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.power-distribution.pdm-power-feed",
+      "name": "PDM main power feed cable",
+      "qty": 1,
+      "description": "Fused cable from the front power junction (or directly from the master switch load side) to the PDM battery stud.",
+      "location": "Passenger firewall junction \u2192 through firewall bulkhead \u2192 PDM.",
+      "connectsTo": [
+        "electrical.charging-starting.front-power-junction",
+        "electrical.battery-and-cutoff.main-fuse",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Gauge": "4 AWG copper (\u2264 150 A)",
+        "Length": "\u2248 0.8 m"
+      },
+      "hardware": [
+        {
+          "item": "Ring lugs",
+          "qty": 2,
+          "spec": "Tinned copper 4 AWG, M6 and M8/3/8 holes, adhesive heat shrink",
+          "grade": "",
+          "torque": "N/A",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace if cut",
+          "confidence": "typical",
+          "source": ""
+        },
+        {
+          "item": "P-clamp",
+          "qty": 2,
+          "spec": "EPDM-lined, 10 mm ID",
+          "grade": "",
+          "torque": "6 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fuse at the source end (junction)."
+      ],
+      "inspection": [
+        "Lug heat discoloration."
+      ],
+      "buildPhase": 8,
+      "installOrder": 2,
+      "tags": [
+        "cable",
+        "pdm"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.62,
+            0.7,
+            -0.35
+          ],
+          [
+            0.75,
+            0.68,
+            -0.38
+          ],
+          [
+            0.93,
+            0.66,
+            -0.38
+          ],
+          [
+            1,
+            0.655,
+            -0.375
+          ],
+          [
+            1.03,
+            0.65,
+            -0.335
+          ]
+        ],
+        "radius": 0.005
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "4 AWG, \u22480.8 m, M6 lug at the PDM.",
+        "features": "Red cable with tinned lugs and red boots.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.power-distribution.aux-fuse-block",
+      "name": "Auxiliary fused block (always-hot / life-support circuits)",
+      "qty": 1,
+      "description": "Small sealed fuse block for circuits that rules allow to remain powered with the master switch OFF (NASA CCR wording allows radio, onboard fire system and life-support/medical devices), plus key-off memory feeds (logger RTC, transponder if direct-powered). Fed from the battery side of the isolator through its own fuse. Fire-suppression systems normally have their own battery.",
+      "location": "Trunk near battery or passenger footwell.",
+      "connectsTo": [
+        "electrical.battery-and-cutoff.battery",
+        "electrical.comms-video-timing.radio",
+        "electrical.comms-video-timing.transponder",
+        "safety.fire-suppression.bottle"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Blue Sea Systems ST Blade 4\u20136 circuit sealed fuse block",
+          "brand": "Blue Sea Systems",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Feed fuse": "20 A",
+        "Circuits": "radio 5 A, transponder 2.5 A (per MyLaps TR2 guide), fire-system 5 A, logger memory 2 A"
+      },
+      "hardware": [
+        {
+          "item": "Block mounting screws",
+          "qty": 2,
+          "spec": "M5",
+          "grade": "stainless",
+          "torque": "3 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Confirm with your series rulebook what may bypass the master switch; SCCA wording is stricter (all circuits except fire system)."
+      ],
+      "inspection": [
+        "Fuses seated; covers on."
+      ],
+      "buildPhase": 8,
+      "installOrder": 3,
+      "tags": [
+        "fuse",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "NASA CCR master switch wording (quoted)",
+          "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
+        },
+        {
+          "title": "MyLaps TR2 Direct Power QSG",
+          "url": "https://tcraustralia.com/wp-content/uploads/2025/01/TR2_Transponder_Direct_Power_QSG_ENGLISH.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.04,
+          0.4195,
+          -0.6
+        ],
+        "size": [
+          0.084,
+          0.039,
+          0.124
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Blue Sea 5025 ST Blade 6-circuit \u2013 4.894 x 3.315 x 1.518 in (Lakeside Marine)",
+            "url": "https://lakesidemarineandservice.com/products/blue-sea-5025-6-gang-fuse-block-st-ato-atc-negative-bus-and-cover"
+          },
+          {
+            "title": "Blue Sea ST Blade fuse blocks",
+            "url": "https://www.bluesea.com/products/category/ST%20Blade"
+          }
+        ],
+        "dimensions": "124 x 84 x 39 mm, #8-32 terminals.",
+        "features": "Black base, 6 ATO blade fuses, clear snap cover, feed studs at the ends.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.power-distribution.circuit-breakers",
+      "name": "Resettable circuit breakers (non-PDM builds / backups)",
+      "qty": 4,
+      "description": "Panel-mount thermal breakers used either instead of a PDM (budget build with relays) or as a backup path for critical loads (e.g. ECU and fuel pump bypass to get home on a PDM fault).",
+      "location": "Switch panel / passenger dash area.",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.power-distribution.relay-panel"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Littelfuse/ Cooper Bussmann / E-T-A push-reset panel breakers 5\u201330 A",
+          "brand": "E-T-A / Littelfuse",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Panel nut",
+          "qty": 1,
+          "spec": "3/8-32 thread panel nut",
+          "grade": "",
+          "torque": "15 in-lb (1.7 N\u00b7m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Trip test periodically."
+      ],
+      "buildPhase": 8,
+      "installOrder": 4,
+      "tags": [
+        "breaker"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.12,
+          0.66,
+          -0.2
+        ],
+        "size": [
+          0.03,
+          0.04,
+          0.12
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "4 push-reset breakers on a ~120 x 40 mm strip (estimated).",
+        "features": "Black breaker bodies, chrome nuts, white reset buttons.",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "electrical.power-distribution.relay-panel",
+      "name": "Sealed relay/fuse panel (budget alternative to PDM)",
+      "qty": 1,
+      "description": "If a PDM is not used: a sealed motorsport fuse/relay box (or the Chevrolet Performance controller-kit fuse box) with relays for fuel pump, fan(s), ignition, start and lights. Heavier and less diagnosable than a PDM but simpler.",
+      "location": "Passenger footwell panel.",
+      "connectsTo": [
+        "electrical.engine-management.ecu",
+        "electrical.fans-and-pumps-control.radiator-fan"
+      ],
+      "factory": {
+        "name": "Fuse/relay box included with Chevrolet Performance LT4 controller kit",
+        "partNumber": "",
+        "notes": "Retailer listings for 19433248 list a fuse box in the kit."
+      },
+      "raceOptions": [
+        {
+          "name": "Bussmann RTMR sealed relay/fuse module",
+          "brand": "Eaton Bussmann",
+          "partNumber": "",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Panel bolts",
+          "qty": 4,
+          "spec": "M6",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Relay function; corrosion."
+      ],
+      "buildPhase": 8,
+      "installOrder": 5,
+      "tags": [
+        "relay",
+        "fuse"
+      ],
+      "sources": [
+        {
+          "title": "LT4 controller kit contents (retailer)",
+          "url": "https://billysspeedshop.com/products/chevrolet-performance-lt4-engine-controller-kit-for-manual-or-4-speed-auto"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.022,
+          0.57,
+          -0.49
+        ],
+        "size": [
+          0.0603,
+          0.075,
+          0.1128
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bussmann RTMR datasheet (Swe-Check PDF)",
+            "url": "https://www.swe-check.com.au/catalog/9004.pdf"
+          }
+        ],
+        "dimensions": "~112.8 x 75 x 60.3 mm with the deep relay cover.",
+        "features": "Black base, grey/black snap cover with side latches, sealed connector underneath.",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "electrical.power-distribution.pdm-mounting-panel",
+      "name": "Electronics mounting panel (PDM/ECU tray)",
+      "qty": 1,
+      "description": "Removable aluminum panel (passenger footwell / lower dash) carrying the PDM, ECU, star ground, aux fuse block and CAN junctions. Built as a bench-wired assembly that bolts in.",
+      "location": "Passenger footwell front bulkhead / under dash (x\u22481.0, y\u22480.48, z\u2248-0.40).",
+      "connectsTo": [
+        "electrical.power-distribution.pdm",
+        "electrical.engine-management.ecu",
+        "electrical.grounding.electronics-star-ground",
+        "interior.dash.dash-panel"
+      ],
+      "factory": {
+        "name": "",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "3 mm 5052 aluminum with rivnuts"
+      },
+      "hardware": [
+        {
+          "item": "Panel-to-chassis bolts",
+          "qty": 4,
+          "spec": "M6 into rivnuts with rubber isolators",
+          "grade": "8.8",
+          "torque": "8 N\u00b7m (71 in-lb)",
+          "threadlocker": "Blue",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep clear of the passenger-side cage door bars and the footwell air path."
+      ],
+      "inspection": [
+        "Bolt tightness; cracked isolators."
+      ],
+      "buildPhase": 8,
+      "installOrder": 6,
+      "tags": [
+        "mounting"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.99,
+          0.5,
+          -0.4
+        ],
+        "size": [
+          0.004,
+          0.34,
+          0.38
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "3 mm 5052 aluminium panel ~380 x 340 mm in the passenger footwell (estimated).",
+        "features": "Flat aluminium plate carrying the PDM, ECU, GDI driver, relay box and ground bus.",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "id": "drivetrain.halfshafts",
+  "system": "drivetrain",
+  "name": "Halfshafts",
+  "description": "Left/right IRS halfshafts with plunging inner and fixed outer CV joints, boots, clamps, inner circlips and axle nuts connecting the cradle-mounted differential to the rear hubs.",
+  "components": [
+    {
+      "id": "drivetrain.halfshafts.halfshaft",
+      "name": "Rear halfshaft assembly (L/R)",
+      "qty": 2,
+      "description": "Independent-rear-suspension drive shafts from the differential side gears to the rear hubs, each with a plunging inner CV and fixed outer CV. Left and right are different lengths/part numbers. On a race car with slicks and a race LSD, factory shafts are a known weak link under hard launches and curb strikes - upgraded shafts are common for high-power builds.",
+      "location": "From diff outputs (x\u22482.80, y\u22480.36, z\u2248\u00b10.17) to rear hub/knuckle (x\u22482.811, y\u22480.37, z\u2248\u00b10.72). Left (+z) shown; mirrored.",
+      "connectsTo": [
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.rear-differential.axle-seals",
+        "suspension.rear-knuckle.hub-bearing",
+        "suspension.rear-knuckle.knuckle",
+        "drivetrain.halfshafts.inner-cv-joint",
+        "drivetrain.halfshafts.outer-cv-joint",
+        "drivetrain.halfshafts.axle-nut"
+      ],
+      "factory": {
+        "name": "GM rear wheel drive shafts (L & R)",
+        "notes": "GM 84855967 is listed as the rear passenger-side half-shaft for Camaro (verify Gen 6 trim/VIN fitment). Sides are not interchangeable."
+      },
+      "raceOptions": [
+        {
+          "name": "Upgraded IRS halfshafts for 2016+ Camaro",
+          "brand": "The Driveshaft Shop (DSS)",
+          "notes": "DSS offers upgraded Camaro axle levels (rated by hp); confirm Gen 6 / eLSD spline application."
+        },
+        {
+          "name": "Outlaw-style chromoly axles",
+          "brand": "GForce Performance Products",
+          "notes": "Confirm Gen 6 availability."
+        },
+        {
+          "name": "Custom race halfshafts with race CVs",
+          "brand": "Raxles / Xtrac / DSS",
+          "notes": "Pair with race LSD output splines when converting the diff."
+        }
+      ],
+      "specs": {
+        "Inner joint": "Plunging (tripod) type",
+        "Outer joint": "Fixed ball (Rzeppa) type",
+        "Retention at diff": "Circlip on inner stub spline"
+      },
+      "fluids": [
+        {
+          "name": "CV joint grease",
+          "spec": "Grease supplied with boot kit / joint (molybdenum CV grease); do not mix types",
+          "capacity": "Per boot kit sachet (typically 80-120 g per joint)"
+        }
+      ],
+      "hardware": [],
+      "installNotes": [
+        "Install a seal protector on the diff side seal; slide inner stub in straight and tap with a soft mallet until the circlip snaps home - pull test by hand.",
+        "Feed outer stub through hub bearing; install new axle nut and washer, finger tight.",
+        "With wheels on ground (or brakes applied), torque axle nut to GM SI value.",
+        "Check CV angles at ride height - lowered race cars run larger angles; ensure boots are not stretched at full droop."
+      ],
+      "inspection": [
+        "Boot tears/grease fling every event",
+        "Clunk on/off throttle (worn CV)",
+        "Shaft twist marks (paint stripe)",
+        "Circlip engagement after any diff work"
+      ],
+      "buildPhase": 4,
+      "installOrder": 9,
+      "tags": [
+        "halfshaft",
+        "axle",
+        "irs"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        },
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.805,
+              0.372,
+              0.21
+            ],
+            [
+              2.811,
+              0.37,
+              0.66
+            ]
+          ],
+          "radius": 0.0145,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84855967 rear half-shaft, 2016-24 Camaro (parts.chevrolet.com)",
+            "url": "https://parts.chevrolet.com/product/gm-genuine-parts-rear-passenger-side-axle-half-shaft-84855967"
+          },
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          }
+        ],
+        "dimensions": "~29 mm solid bar, inner CV z 0.23 to outer CV z 0.69 (hub nut z 0.77)",
+        "features": "Black solid bar with splined ends and boot grooves",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.inner-cv-joint",
+      "name": "Inner CV joint (plunging)",
+      "qty": 2,
+      "description": "Plunging joint at the diff end that accommodates halfshaft length change through suspension travel.",
+      "location": "Inboard end of each halfshaft next to the diff (z\u2248\u00b10.22).",
+      "connectsTo": [
+        "drivetrain.halfshafts.halfshaft",
+        "drivetrain.rear-differential.differential-assembly",
+        "drivetrain.halfshafts.cv-boots"
+      ],
+      "factory": {
+        "name": "GM tripod/plunge joint (serviced with shaft)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Race CV (high-angle, high-plunge)",
+          "brand": "Raxles / DSS",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "fluids": [
+        {
+          "name": "CV joint grease",
+          "spec": "Grease supplied with boot kit / joint (molybdenum CV grease); do not mix types",
+          "capacity": "Per boot kit sachet (typically 80-120 g per joint)"
+        }
+      ],
+      "hardware": [],
+      "installNotes": [
+        "Do not let joint hang/over-extend when handling shaft - can separate inner joint."
+      ],
+      "inspection": [
+        "Play / clunk",
+        "Boot condition"
+      ],
+      "buildPhase": 4,
+      "installOrder": 10,
+      "tags": [
+        "cv",
+        "tripod"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.805,
+          0.372,
+          0.23
+        ],
+        "size": [
+          0.105,
+          0.105,
+          0.11
+        ],
+        "axis": "z",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84855967 rear half-shaft, 2016-24 Camaro (parts.chevrolet.com)",
+            "url": "https://parts.chevrolet.com/product/gm-genuine-parts-rear-passenger-side-axle-half-shaft-84855967"
+          },
+          {
+            "title": "Chevrolet Performance ZL1 rear-end upgrade: diff held by 3 bolts, HD asymmetric half-shafts",
+            "url": "https://www.chevyhardcore.com/?p=631735"
+          }
+        ],
+        "dimensions": "~105 mm OD, ~110 mm incl. stub",
+        "features": "Plunging tripod: 3-lobed tulip housing, splined stub with circlip into the side gear",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.outer-cv-joint",
+      "name": "Outer CV joint (fixed)",
+      "qty": 2,
+      "description": "Fixed ball-type joint at the hub end; its splined stub passes through the hub bearing and is retained by the axle nut.",
+      "location": "Outboard end of each halfshaft at the hub (z\u2248\u00b10.66).",
+      "connectsTo": [
+        "drivetrain.halfshafts.halfshaft",
+        "suspension.rear-knuckle.hub-bearing",
+        "drivetrain.halfshafts.axle-nut",
+        "drivetrain.halfshafts.cv-boots"
+      ],
+      "factory": {
+        "name": "GM fixed CV (serviced with shaft)",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "fluids": [
+        {
+          "name": "CV joint grease",
+          "spec": "Grease supplied with boot kit / joint (molybdenum CV grease); do not mix types",
+          "capacity": "Per boot kit sachet (typically 80-120 g per joint)"
+        }
+      ],
+      "hardware": [],
+      "installNotes": [
+        "Clean and lightly oil hub splines (no grease on taper/face unless GM specifies)."
+      ],
+      "inspection": [
+        "Clicking under load",
+        "Boot condition"
+      ],
+      "buildPhase": 4,
+      "installOrder": 11,
+      "tags": [
+        "cv",
+        "rzeppa"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.811,
+          0.37,
+          0.69
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.15
+        ],
+        "axis": "z",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84855967 rear half-shaft, 2016-24 Camaro (parts.chevrolet.com)",
+            "url": "https://parts.chevrolet.com/product/gm-genuine-parts-rear-passenger-side-axle-half-shaft-84855967"
+          }
+        ],
+        "dimensions": "~100 mm bell, stub to the hub nut",
+        "features": "Rzeppa bell with splined stub through the hub bearing and threaded end",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.cv-boots",
+      "name": "CV boots (inner & outer)",
+      "qty": 4,
+      "description": "Thermoplastic/rubber boots that keep grease in and grit out of each CV. The #1 halfshaft failure cause on track is a torn boot near the exhaust/diff cooler heat; heat-shield the inner boots if the exhaust runs close.",
+      "location": "Over each inner and outer CV joint, both sides.",
+      "connectsTo": [
+        "drivetrain.halfshafts.inner-cv-joint",
+        "drivetrain.halfshafts.outer-cv-joint",
+        "drivetrain.halfshafts.boot-clamps"
+      ],
+      "factory": {
+        "name": "GM CV boot kits",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "High-temperature boots + heat shields",
+          "brand": "various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "fluids": [
+        {
+          "name": "CV joint grease",
+          "spec": "Grease supplied with boot kit / joint (molybdenum CV grease); do not mix types",
+          "capacity": "Per boot kit sachet (typically 80-120 g per joint)"
+        }
+      ],
+      "hardware": [],
+      "installNotes": [
+        "Burp air from boot before final clamp so it is not ballooned/collapsed."
+      ],
+      "inspection": [
+        "Splits, grease fling on wheel/brake area every event"
+      ],
+      "buildPhase": 4,
+      "installOrder": 12,
+      "tags": [
+        "boot",
+        "wear-item"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.806,
+          0.372,
+          0.33
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.09
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            2.806,
+            0.372,
+            0.33
+          ],
+          [
+            2.81,
+            0.37,
+            0.575
+          ]
+        ],
+        "color": "#111111"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 84855967 rear half-shaft, 2016-24 Camaro (parts.chevrolet.com)",
+            "url": "https://parts.chevrolet.com/product/gm-genuine-parts-rear-passenger-side-axle-half-shaft-84855967"
+          }
+        ],
+        "dimensions": "Big end ~95 mm, small end ~40 mm, ~90 mm long",
+        "features": "Convoluted boots: inner big end inboard, outer big end outboard",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.boot-clamps",
+      "name": "CV boot clamps",
+      "qty": 8,
+      "description": "Ear-type (Oetiker) or band clamps sealing each boot to the joint housing and shaft.",
+      "location": "Both ends of each CV boot.",
+      "connectsTo": [
+        "drivetrain.halfshafts.cv-boots"
+      ],
+      "factory": {
+        "name": "GM ear/band clamps",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Stainless ear clamps",
+          "brand": "Oetiker",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Boot clamp",
+          "qty": 2,
+          "spec": "Ear or band clamp sized to boot",
+          "grade": "",
+          "torque": "N/A - crimp with ear-clamp pliers / band tool",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "Ear-clamp pincers / band clamp tool",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fully close the ear; trim band tails so they cannot cut the boot."
+      ],
+      "inspection": [
+        "Clamp seated, no grease weep"
+      ],
+      "buildPhase": 4,
+      "installOrder": 13,
+      "tags": [
+        "clamp",
+        "small-parts"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          2.806,
+          0.372,
+          0.29
+        ],
+        "size": [
+          0.104,
+          0.104,
+          0.008
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            2.806,
+            0.372,
+            0.29
+          ],
+          [
+            2.807,
+            0.371,
+            0.37
+          ],
+          [
+            2.809,
+            0.371,
+            0.535
+          ],
+          [
+            2.81,
+            0.37,
+            0.615
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~98 mm and ~42 mm bands",
+        "features": "Stainless ear-type clamps at each boot end",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.axle-nut",
+      "name": "Axle (hub) nut & washer",
+      "qty": 2,
+      "description": "Retains the outer CV stub in the hub bearing and preloads the joint/bearing interface. Single-use on GM applications; under-torque leads to fretted splines and clicking.",
+      "location": "Center of each rear hub, outboard (z\u2248\u00b10.74).",
+      "connectsTo": [
+        "drivetrain.halfshafts.outer-cv-joint",
+        "suspension.rear-knuckle.hub-bearing"
+      ],
+      "factory": {
+        "name": "GM rear wheel drive shaft nut",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear axle (wheel drive shaft) nut",
+          "qty": 1,
+          "spec": "OEM prevailing-torque nut + washer (large, \u2248M24-M27)",
+          "grade": "OEM",
+          "torque": "199 ft-lb (270 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (prevailing torque)",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "Large axle-nut socket, torque wrench \u2265300 N\u00b7m",
+          "notes": "Gen 6 GM SI may specify a torque+angle procedure - look it up before final torque. Torque with wheel on ground or brakes locked, never with an impact gun. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Rear wheel drive shaft nut 270 N\u00b7m (199 lb ft)', a Gen 6 value. The same table lists the rear wheel drive shaft to drive flange bolts (halfshaft to diff) at 50 N\u00b7m first pass; their final step is in SI.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Torque after wheel bearing and knuckle are fully installed; recheck after shakedown."
+      ],
+      "inspection": [
+        "Paint-mark alignment each event"
+      ],
+      "buildPhase": 4,
+      "installOrder": 14,
+      "tags": [
+        "axle-nut",
+        "torque-critical"
+      ],
+      "sources": [
+        {
+          "title": "Camaro5 forum - rear axle nut torque discussion (5th-gen, 199 ft-lb cited, unverified)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11410639"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.811,
+          0.37,
+          0.772
+        ],
+        "size": [
+          0.042,
+          0.042,
+          0.022
+        ],
+        "axis": "z",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~36 mm hex",
+        "features": "Hub nut on the outer CV stub at the hub face",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.halfshafts.retaining-circlip",
+      "name": "Inner stub retaining circlip",
+      "qty": 2,
+      "description": "Spring circlip on the inner stub spline that snaps into a groove in the diff side gear, retaining the halfshaft axially.",
+      "location": "Inner stub spline inside the diff (z\u2248\u00b10.14).",
+      "connectsTo": [
+        "drivetrain.halfshafts.inner-cv-joint",
+        "drivetrain.rear-differential.differential-assembly"
+      ],
+      "factory": {
+        "name": "GM circlip (often included with shaft)",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Circlip",
+          "qty": 1,
+          "spec": "Spring steel circlip",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Compress evenly when inserting; confirm engagement by pull test."
+      ],
+      "inspection": [
+        "Shaft walking out (seal leak sign)"
+      ],
+      "buildPhase": 4,
+      "installOrder": 15,
+      "tags": [
+        "circlip",
+        "small-parts"
+      ],
+      "sources": [
+        {
+          "title": "GM 84855967 rear passenger-side axle half-shaft (Gen 6 Camaro listing)",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-rear-passenger-side-axle-half-shaft-84855967"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          2.805,
+          0.372,
+          0.181
+        ],
+        "size": [
+          0.034,
+          0.034,
+          0.003
+        ],
+        "axis": "z",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~34 mm",
+        "features": "Circlip on the inner stub",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

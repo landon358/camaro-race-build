@@ -1,0 +1,221 @@
+{
+  "id": "brakes.rear-rotors",
+  "system": "brakes",
+  "name": "Rear Rotors",
+  "description": "ZL1 / ZL1 1LE rear: 365 x 28 mm vented one-piece rotor whose hat doubles as the parking-brake drum (drum-in-hat). Race: two-piece floating disc with a drum-in-hat compatible bell (Essex/AP 365x30) or a park-brake delete.",
+  "components": [
+    {
+      "id": "brakes.rear-rotors.rotor",
+      "name": "Rear brake rotor (with drum-in-hat)",
+      "qty": 2,
+      "description": "Vented one-piece rotor; the inside of the hat is the friction drum for the parking-brake shoes. Rotor will not come off if the park brake is applied or shoes are worn into a lip – back the shoes off (service mode/cable slack) first.",
+      "location": "Rear hub, plane z≈±0.71.",
+      "connectsTo": [
+        "wheels.rear-hubs-bearings.hub-bearing",
+        "brakes.rear-calipers.caliper",
+        "brakes.parking-brake.shoes",
+        "brakes.rear-pads.pads"
+      ],
+      "factory": {
+        "name": "GM/Brembo 365 x 28 mm one-piece rear rotor (ZL1/ZL1 1LE)",
+        "notes": "One-piece per TSB. Base cars 12.4 in (315 mm)."
+      },
+      "raceOptions": [
+        {
+          "name": "AP Racing 365 x 30 mm 72-vane disc (Essex rear kit)",
+          "brand": "AP Racing / Essex",
+          "notes": "Retains OEM park brake.",
+          "url": "https://www.essexparts.com/news-blog/black-friday-2024-curated-deals-chevrolet-camaro-gen6"
+        },
+        {
+          "name": "Girodisc 2-piece rear (ZL1)",
+          "brand": "Girodisc",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Size": "365 x 28 mm vented"
+      },
+      "hardware": [
+        {
+          "item": "Rear brake rotor retention screw",
+          "qty": 1,
+          "spec": "Countersunk Torx",
+          "grade": "GM",
+          "torque": "89 in-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Clean hub face; install shoes first; check runout < 0.05 mm."
+      ],
+      "inspection": [
+        "Thickness and cracks as front; check drum surface for scoring."
+      ],
+      "buildPhase": 4,
+      "installOrder": 48,
+      "tags": [
+        "rotor",
+        "drum-in-hat"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "NHTSA-filed GM bulletin MC-10126120-9999 (ZL1 1LE: 390x36 front 6-pot, 365x28 rear 4-pot, two-piece front rotors not machinable)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        },
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "Brake & Front End – Brake Job: 2015-Current Chevrolet Camaro (RPO J55/J6G/JL9, J71/J77 park brake)",
+          "url": "https://www.brakeandfrontend.com/brake-job-2015-current-chevrolet-camaro/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "disc",
+          "pos": [
+            2.811,
+            0.3715,
+            0.759
+          ],
+          "size": [
+            0.365,
+            0.365,
+            0.028
+          ],
+          "axis": "z",
+          "mirror": true,
+          "color": "#8d8d8d"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.811,
+            0.3715,
+            0.788
+          ],
+          "size": [
+            0.212,
+            0.212,
+            0.05799999999999994
+          ],
+          "axis": "z",
+          "mirror": true,
+          "color": "#7b7b7b"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 85589610 rear rotor pair – product image (one-piece, coated, drum-in-hat)",
+            "url": "https://cdn11.bigcommerce.com/s-f3iohin8fq/images/stencil/1500x1500/products/848/3313/23369743__56787.1704140604.jpg?c=2"
+          },
+          {
+            "title": "GM 85589610 (was 23369743) ZL1 / ZL1 1LE rear rotor kit",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-zl1-1le-rear-oem-brake-rotor-kit-general-motors/"
+          },
+          {
+            "title": "GM bulletin MC-10126120-9999 (NHTSA) – ZL1 1LE: red Brembo 6-pot 390 x 36 front, 4-pot 365 x 28 rear, 1LE logo",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "365 mm OD x 28 mm, one-piece; hat ~194 mm OD, ~58 mm from ring centre to mount face; ~171 mm park-brake drum inside the hat",
+        "features": "One-piece coated grey casting, stepped hat face, 5 x 120 + locating screw hole, straight vanes, plain faces",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "brakes.rear-rotors.dust-shield-backing-plate",
+      "name": "Rear brake shield / parking-brake backing plate",
+      "qty": 2,
+      "description": "Rear shield that also carries the drum-in-hat park-brake shoes, anchor and cable entry. Cannot simply be deleted if the factory park brake is kept.",
+      "location": "Rear knuckle, behind the rotor.",
+      "connectsTo": [
+        "suspension.rear-knuckle.knuckle",
+        "brakes.parking-brake.shoes",
+        "brakes.parking-brake.rear-cables"
+      ],
+      "factory": {
+        "name": "GM rear brake shield/park brake backing plate",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Park-brake delete with fabricated duct plate",
+          "brand": "Fabricated",
+          "notes": "Only if rules allow no park brake."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Brake shield bolt",
+          "qty": 3,
+          "spec": "M6",
+          "grade": "GM",
+          "torque": "80 in-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Install with/before hub bearing per GM SI."
+      ],
+      "inspection": [],
+      "buildPhase": 4,
+      "installOrder": 46,
+      "tags": [
+        "shield"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.811,
+          0.3715,
+          0.733
+        ],
+        "size": [
+          0.37,
+          0.37,
+          0.002
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#6d6d6d"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~370 mm shield / park-brake backing plate",
+        "features": "Black stamped plate with caliper cut-out, carries the drum-in-hat shoes",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

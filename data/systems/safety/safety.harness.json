@@ -1,0 +1,746 @@
+{
+  "id": "safety.harness",
+  "system": "safety",
+  "name": "Harness",
+  "description": "6-point racing harness (SFI 16.1/16.5 or FIA 8853-2016) with shoulder belts wrapped on the cage harness bar, lap and dual anti-sub belts on floor eyebolts with FIA-size reinforcement plates.",
+  "components": [
+    {
+      "id": "safety.harness.harness-assembly",
+      "name": "6-point racing harness (camlock)",
+      "qty": 1,
+      "description": "Camlock 6-point harness: two 2 in or 3 in shoulder belts (2 in only with FHR), two 3 in lap belts, two anti-submarine belts. Webbing degrades with UV/age: SFI belts expire 2 years from manufacture; FIA 8853 belts carry an expiry year on the label (5 years from Jan 1 after manufacture).",
+      "location": "Driver seat: shoulder belts from harness bar (x 2.155, y 0.84) over shoulders; lap belts to floor beside seat (x ≈ 1.93); subs to floor ahead of seat (x ≈ 1.52).",
+      "connectsTo": [
+        "safety.harness.shoulder-belt-wrap",
+        "safety.harness.lap-belt-anchors",
+        "safety.harness.sub-belt-anchors",
+        "safety.seat-and-mounts.seat-shell",
+        "safety.head-and-neck.fhr-device"
+      ],
+      "factory": {
+        "name": "Factory 3-point retractor belt with pretensioner/airbag system",
+        "partNumber": "",
+        "notes": "Removed with SRS (interior.strip-and-deadener-removal). Factory B-pillar/floor belt anchors may be reused only per harness maker guidance."
+      },
+      "raceOptions": [
+        {
+          "name": "Schroth Profi-series 6-point (FIA 8853 / SFI 16.1)",
+          "brand": "Schroth",
+          "partNumber": "",
+          "notes": "Camaro GT4.R used Schroth.",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        },
+        {
+          "name": "Simpson / Stand 21 / Sabelt / OMP / Sparco / G-Force 6-point SFI 16.1 or FIA 8853-2016",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "Choose HANS/FHR-specific 2 in shoulders if wearing FHR.",
+          "url": "https://jegs.com/tech-articles/race-harness-requirements-expiration-regulations-in-2024"
+        }
+      ],
+      "specs": {
+        "Certification": "SFI 16.1 / 16.5 or FIA 8853-2016 (also 8853/98)",
+        "Expiry": "SFI: 2 years from manufacture date; FIA: year on label (≈5 years)",
+        "Shoulder belt angle": "0° to −20° from horizontal at shoulder (harness makers); FIA 2024 drawing 10°–45° down at backrest rim, 10° recommended",
+        "Lap belt angle": "20°–70° (FIA 253-61-b 2024) – commonly 45°–65° SFI practice",
+        "Shoulder belt spread (plan view)": "Symmetric, 10°–25° (straps may cross if needed)",
+        "Anchor load": "1470 daN per anchorage, 720 daN crotch (FIA)",
+        "Webbing tail": "≥ 100 mm past 3-bar slide"
+      },
+      "hardware": [
+        {
+          "item": "Snap-hook / bolt-in end fittings",
+          "qty": 4,
+          "spec": "Harness-supplied snap hooks onto 7/16-20 eyebolts (lap & subs)",
+          "grade": "Supplied",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/Competition_Instructions.pdf",
+          "notes": "Use only harness-maker supplied bolts/eyebolts (Schroth)."
+        }
+      ],
+      "installNotes": [
+        "Record harness manufacture/expiry dates in the logbook.",
+        "Lap belt adjusters must not sit inside the seat openings (Schroth).",
+        "Do not twist webbing; keep belts away from sharp seat-slot edges (add grommets).",
+        "Never anchor belts to the seat or seat mounts (FIA)."
+      ],
+      "inspection": [
+        "Check expiry date before each season.",
+        "Inspect webbing for cuts, UV fading, abrasion, chemical contamination.",
+        "Confirm camlock releases with one hand under load."
+      ],
+      "buildPhase": 9,
+      "installOrder": 34,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        },
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        },
+        {
+          "title": "JEGS – Race harness requirements & expiration",
+          "url": "https://jegs.com/tech-articles/race-harness-requirements-expiration-regulations-in-2024"
+        },
+        {
+          "title": "HMS Motorsport – SFI and FIA seat belt standards & expiration dates",
+          "url": "https://www.hmsmotorsport.com/post/sfi-and-fia-seat-belt-standards-and-expiration-dates"
+        },
+        {
+          "title": "Schroth SHR Flex manual (shoulder belt mounting distance)",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_15-3_ea_shr-flex_2018-05.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.13,
+              0.85,
+              0.47
+            ],
+            [
+              2.045,
+              0.875,
+              0.455
+            ],
+            [
+              1.95,
+              0.905,
+              0.44
+            ],
+            [
+              1.86,
+              0.8,
+              0.42
+            ],
+            [
+              1.76,
+              0.58,
+              0.395
+            ],
+            [
+              1.672,
+              0.43,
+              0.38
+            ]
+          ],
+          "radius": 0.0065
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.13,
+              0.85,
+              0.27
+            ],
+            [
+              2.045,
+              0.875,
+              0.285
+            ],
+            [
+              1.95,
+              0.905,
+              0.3
+            ],
+            [
+              1.86,
+              0.8,
+              0.32
+            ],
+            [
+              1.76,
+              0.58,
+              0.345
+            ],
+            [
+              1.672,
+              0.43,
+              0.36
+            ]
+          ],
+          "radius": 0.0065
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.93,
+              0.215,
+              0.6
+            ],
+            [
+              1.88,
+              0.31,
+              0.565
+            ],
+            [
+              1.76,
+              0.4,
+              0.47
+            ],
+            [
+              1.672,
+              0.415,
+              0.39
+            ]
+          ],
+          "radius": 0.01
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.93,
+              0.215,
+              0.14
+            ],
+            [
+              1.88,
+              0.31,
+              0.175
+            ],
+            [
+              1.76,
+              0.4,
+              0.27
+            ],
+            [
+              1.672,
+              0.415,
+              0.35
+            ]
+          ],
+          "radius": 0.01
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.52,
+              0.215,
+              0.345
+            ],
+            [
+              1.555,
+              0.3,
+              0.355
+            ],
+            [
+              1.62,
+              0.385,
+              0.363
+            ],
+            [
+              1.655,
+              0.405,
+              0.366
+            ]
+          ],
+          "radius": 0.0065
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              1.52,
+              0.215,
+              0.395
+            ],
+            [
+              1.555,
+              0.3,
+              0.385
+            ],
+            [
+              1.62,
+              0.385,
+              0.377
+            ],
+            [
+              1.655,
+              0.405,
+              0.374
+            ]
+          ],
+          "radius": 0.0065
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            1.667,
+            0.415,
+            0.37
+          ],
+          "size": [
+            0.025,
+            0.09,
+            0.09
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            0,
+            -30
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Schroth Profi 2x2 6-point FHR harness",
+            "url": "https://www.merlinmotorsport.co.uk/p/schroth-profi-2x2-6-point-saloon-harness-94550"
+          },
+          {
+            "title": "Schroth Profi 2x2 harness (2 in shoulders / 2 in lap)",
+            "url": "https://www.gprdirect.com/schroth-profi-2x2-harness/"
+          }
+        ],
+        "dimensions": "2 in FHR shoulder belts, 3 in lap, 2 in sub straps; ~90 mm rotary camlock",
+        "features": "6-point camlock: shoulders wrap the harness bar through the seat shoulder slots, lap through hip slots to floor/tunnel eyes, twin subs to the floor",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "safety.harness.shoulder-belt-wrap",
+      "name": "Shoulder-belt wrap mount on harness bar (3-bar slide)",
+      "qty": 2,
+      "description": "Shoulder belts loop around the cage harness bar and lock through the harness 3-bar slide (or 2-bar slide wrap with ≥ 600 mm webbing per Schroth). No hardware into the cage; belt angle and spread set by bar height and position.",
+      "location": "Harness bar, x ≈ 2.155, y ≈ 0.84, z ≈ 0.29 and 0.45 (about 160 mm apart).",
+      "connectsTo": [
+        "safety.roll-cage.harness-bar",
+        "safety.harness.harness-assembly",
+        "safety.harness.belt-guides"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Strap protrusion": "≥ 100 mm past slot 2; roll excess and zip-tie",
+        "Distance seatback → bar": "≤ 200 mm (8 in) ideal for FHR; cross belts if > 450 mm (Schroth)"
+      },
+      "hardware": [
+        {
+          "item": "Webbing tail cable tie",
+          "qty": 2,
+          "spec": "Nylon zip tie",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/Competition_Instructions.pdf",
+          "notes": "Schroth: roll in strap end and fix with a cable tie."
+        }
+      ],
+      "installNotes": [
+        "Wrap per maker diagram; 3-bar slide as close as possible to the bar.",
+        "Never wrap LAP belts around cage tubes (Schroth)."
+      ],
+      "inspection": [
+        "Check wrap not slipping; check tails ≥ 100 mm."
+      ],
+      "buildPhase": 9,
+      "installOrder": 35,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        },
+        {
+          "title": "Schroth SHR Flex manual (shoulder belt mounting distance)",
+          "url": "https://www.hmsmotorsport.com/doc-share/ea_15-3_ea_shr-flex_2018-05.pdf"
+        },
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.155,
+          0.84,
+          0.27
+        ],
+        "size": [
+          0.06,
+          0.06,
+          0.06
+        ],
+        "instances": [
+          [
+            2.155,
+            0.84,
+            0.27
+          ],
+          [
+            2.155,
+            0.84,
+            0.47
+          ]
+        ]
+      }
+    },
+    {
+      "id": "safety.harness.belt-guides",
+      "name": "Shoulder-belt spacing collars / guides",
+      "qty": 2,
+      "description": "Split shaft collars or weld-on guide tabs on the harness bar that keep the shoulder belts at the correct spacing so they cannot slide outward off the FHR yoke/shoulders.",
+      "location": "Harness bar, outboard of each shoulder-belt wrap.",
+      "connectsTo": [
+        "safety.roll-cage.harness-bar",
+        "safety.harness.shoulder-belt-wrap"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "1.75 in split shaft collars (steel)",
+          "brand": "generic",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Size": "1.75 in bore split collar"
+      },
+      "hardware": [
+        {
+          "item": "Collar clamp screw",
+          "qty": 1,
+          "spec": "1/4-28 socket head cap screw (supplied)",
+          "grade": "Alloy SHCS",
+          "torque": "13 ft-lb (18 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Typical maker value for 1/4-28 collar screws – verify collar maker spec."
+        }
+      ],
+      "installNotes": [
+        "Set spacing so belts sit just inside the FHR yoke/at the neck."
+      ],
+      "inspection": [
+        "Check collars have not rotated/slipped."
+      ],
+      "buildPhase": 9,
+      "installOrder": 36,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.155,
+          0.84,
+          0.23
+        ],
+        "size": [
+          0.03,
+          0.06,
+          0.06
+        ],
+        "axis": "z",
+        "instances": [
+          [
+            2.155,
+            0.84,
+            0.23
+          ],
+          [
+            2.155,
+            0.84,
+            0.51
+          ]
+        ]
+      }
+    },
+    {
+      "id": "safety.harness.lap-belt-anchors",
+      "name": "Lap-belt eyebolts & reinforcement plates",
+      "qty": 2,
+      "description": "Floor anchors for the lap belts beside the seat. Each is a 7/16-20 eyebolt threaded into a nut/threaded plate on a ≥ 40 cm², ≥ 3 mm steel reinforcement plate sealed to the underside of the floor. Position so the lap belt angle is 20°–70° (ideally ~45°–65°) and the belts pull directly in line with the seat slots.",
+      "location": "Floor beside seat, x ≈ 1.93, y ≈ 0.215, z ≈ 0.60 (outboard) and 0.14 (inboard/tunnel).",
+      "connectsTo": [
+        "safety.harness.harness-assembly",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Plate": "≥ 40 cm² x ≥ 3 mm (FIA); Schroth/Simpson supply threaded plates",
+        "Hole size": "12–13 mm through floor (Schroth: drill 12 mm-class hole – confirm in manual)"
+      },
+      "hardware": [
+        {
+          "item": "Harness eyebolt",
+          "qty": 1,
+          "spec": "7/16-20 UNF eyebolt with washer (harness-maker supplied)",
+          "grade": "SAE Grade 8 / harness-supplied",
+          "torque": "29.5 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243) or as supplied",
+          "safetyWire": false,
+          "reuse": "Inspect; replace if bent",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/Competition_Instructions.pdf",
+          "notes": "Schroth bolt chart: 7/16-20 UNF = 40 N·m (30 ft-lb)."
+        },
+        {
+          "item": "Reinforcement / backing plate",
+          "qty": 1,
+          "spec": "Threaded or nut-welded steel plate ≥ 40 cm², 3 mm",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/Competition_Instructions.pdf",
+          "notes": "Seal to floor underside with seam sealer (also prevents water intrusion)."
+        }
+      ],
+      "installNotes": [
+        "Check under-car for fuel/brake lines before drilling.",
+        "Align anchor so lap belt runs straight to the seat slot, no edge loading."
+      ],
+      "inspection": [
+        "Check eyebolt torque and plate condition each event."
+      ],
+      "buildPhase": 1,
+      "installOrder": 22,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        },
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.93,
+          0.205,
+          0.6
+        ],
+        "size": [
+          0.03,
+          0.04,
+          0.03
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            1.93,
+            0.205,
+            0.6
+          ],
+          [
+            1.93,
+            0.205,
+            0.14
+          ]
+        ],
+        "color": "#bdc3c7"
+      }
+    },
+    {
+      "id": "safety.harness.sub-belt-anchors",
+      "name": "Anti-submarine (sub) belt anchors",
+      "qty": 2,
+      "description": "Floor anchors for dual anti-sub belts (6-point). Anchor roughly 2 in rearward of the seat sub-slot (SFI guidance) with the two anchors 4–6 in apart, so the belts pass through the seat, never over the front edge.",
+      "location": "Floor in front of seat base, x ≈ 1.52, y ≈ 0.215, z ≈ 0.33 / 0.41.",
+      "connectsTo": [
+        "safety.harness.harness-assembly",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Anchor spacing": "4–6 in apart",
+        "Angle": "FIA 253-61-a: 20° forward to 90° rearward (6-pt ≈ under/just behind slot); 7th point 20–25° forward"
+      },
+      "hardware": [
+        {
+          "item": "Sub-belt eyebolt",
+          "qty": 1,
+          "spec": "7/16-20 UNF eyebolt (harness supplied)",
+          "grade": "SAE Grade 8",
+          "torque": "29.5 ft-lb (40 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://cdn.vividracing.com/file/Competition_Instructions.pdf",
+          "notes": "Schroth chart 7/16-20 UNF 40 N·m."
+        },
+        {
+          "item": "Reinforcement plate",
+          "qty": 1,
+          "spec": "≥ 40 cm² x 3 mm steel, sealed underneath",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://sites.google.com/site/lefrogracing/tech/harness-installation",
+          "notes": "FIA crotch anchorage 720 daN; protect exposed underbody nut from road strikes."
+        }
+      ],
+      "installNotes": [
+        "Route subs through the seat pan slots; never over the seat front edge (Schroth warning)."
+      ],
+      "inspection": [
+        "Check eyebolts and underbody plate/nut damage."
+      ],
+      "buildPhase": 1,
+      "installOrder": 23,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Lefrog Racing – Harness installation (FIA 253-61 angles)",
+          "url": "https://sites.google.com/site/lefrogracing/tech/harness-installation"
+        },
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.52,
+          0.205,
+          0.33
+        ],
+        "size": [
+          0.03,
+          0.04,
+          0.03
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            1.52,
+            0.205,
+            0.33
+          ],
+          [
+            1.52,
+            0.205,
+            0.41
+          ]
+        ],
+        "color": "#bdc3c7"
+      }
+    },
+    {
+      "id": "safety.harness.slot-grommets",
+      "name": "Seat belt-slot edge protectors",
+      "qty": 6,
+      "description": "Rubber/plastic edge trim or seat-maker grommets on any seat slot edges the belts touch, preventing webbing abrasion.",
+      "location": "Seat shell harness slots.",
+      "connectsTo": [
+        "safety.seat-and-mounts.seat-shell",
+        "safety.harness.harness-assembly"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "Rubber U-channel edge trim"
+      },
+      "hardware": [
+        {
+          "item": "Edge trim",
+          "qty": 1,
+          "spec": "Push-on U-channel",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace when worn",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit before final harness install."
+      ],
+      "inspection": [
+        "Check for wear."
+      ],
+      "buildPhase": 9,
+      "installOrder": 37,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Schroth Racing competition harness manual (bolts & torques, wrap instructions)",
+          "url": "https://cdn.vividracing.com/file/Competition_Instructions.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.028,
+          0.86,
+          0.37
+        ],
+        "size": [
+          0.01,
+          0.025,
+          0.2
+        ]
+      }
+    }
+  ]
+}

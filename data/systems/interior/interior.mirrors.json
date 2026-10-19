@@ -1,0 +1,160 @@
+{
+  "id": "interior.mirrors",
+  "system": "interior",
+  "name": "Interior Mirror",
+  "description": "Wide panoramic (\"wink\") rear-view mirror clamped to the cage header.",
+  "components": [
+    {
+      "id": "interior.mirrors.wink-mirror",
+      "name": "Panoramic multi-panel rear-view mirror",
+      "qty": 1,
+      "description": "Five-panel wide-angle mirror (Wink-type) clamped to the front-hoop header bar giving a near 180° rear view; replaces the factory electro-chromic/camera mirror. At least one rear-view device is required by most rule books.",
+      "location": "Windshield header bar center, x ≈ 1.38, y ≈ 1.20, z ≈ 0.",
+      "connectsTo": [
+        "safety.roll-cage.front-hoop",
+        "interior.mirrors.cage-clamp"
+      ],
+      "factory": {
+        "name": "GM inside mirror (rear-camera mirror on later cars)",
+        "partNumber": "",
+        "notes": "Removed with headliner."
+      },
+      "raceOptions": [
+        {
+          "name": "Wink-type 5-panel mirror (12–17 in)",
+          "brand": "Wink / Longacre",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mirror bracket screw",
+          "qty": 2,
+          "spec": "Supplied",
+          "grade": "Supplied",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Adjust with driver seated, helmet on."
+      ],
+      "inspection": [
+        "Check panels not cracked/loose."
+      ],
+      "buildPhase": 9,
+      "installOrder": 20,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.365,
+          1.19,
+          0
+        ],
+        "size": [
+          0.03,
+          0.065,
+          0.4
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "5-panel wink mirror (Speedway Motors)",
+            "url": "https://www.speedwaymotors.com/garage-sale-5-panel-racing-wide-angle-rear-view-mirror-35-inch-wide,74028.html"
+          },
+          {
+            "title": "Longacre 14 in wide-angle mirror kit, 1-3/4 in bar clamps",
+            "url": "https://www.speedwaymotors.com/Longacre-52-22537-14-Inch-Wide-Angle-Mirror-Kit,282510.html"
+          }
+        ],
+        "dimensions": "~400 mm (16 in) 5-panel, ~65 mm tall",
+        "features": "Five flat panels on an arc, clamped to the windshield header bar",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "interior.mirrors.cage-clamp",
+      "name": "Mirror cage clamp (1.75 in)",
+      "qty": 1,
+      "description": "Billet clamp that fits the 1.75 in header tube and holds the mirror stem.",
+      "location": "Front hoop header, x ≈ 1.33, y ≈ 1.25.",
+      "connectsTo": [
+        "interior.mirrors.wink-mirror",
+        "safety.roll-cage.front-hoop"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Clamp screws",
+          "qty": 2,
+          "spec": "M6 / 1/4-20 socket head",
+          "grade": "Alloy",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install padding around clamp if in helmet reach."
+      ],
+      "inspection": [
+        "Check clamp tight."
+      ],
+      "buildPhase": 9,
+      "installOrder": 21,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          1.335,
+          1.278,
+          0
+        ],
+        "size": [
+          0.06,
+          0.06,
+          0.035
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Longacre 14 in wide-angle mirror kit, 1-3/4 in bar clamps",
+            "url": "https://www.speedwaymotors.com/Longacre-52-22537-14-Inch-Wide-Angle-Mirror-Kit,282510.html"
+          }
+        ],
+        "dimensions": "Clamp for 1-3/4 in bar",
+        "features": "Two-piece black clamp with through-bolt",
+        "confidence": "published"
+      }
+    }
+  ]
+}

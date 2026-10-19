@@ -1,0 +1,259 @@
+{
+  "id": "interior.pedal-area-floor",
+  "system": "interior",
+  "name": "Pedal Area & Driver Floor",
+  "description": "Driver foot box: heel plate, dead pedal, knee padding and close-out panels around the pedal box.",
+  "components": [
+    {
+      "id": "interior.pedal-area-floor.heel-plate",
+      "name": "Driver heel plate (aluminum tread plate)",
+      "qty": 1,
+      "description": "Aluminum tread/diamond plate on the driver footwell floor giving consistent heel pivot for heel-toe and protecting the floor; often grip-taped.",
+      "location": "Driver footwell floor, x ≈ 0.85–1.15, y ≈ 0.22, z ≈ +0.20 … +0.55.",
+      "connectsTo": [
+        "chassis.unibody.floor-pan",
+        "brakes.pedal-box.pedal-assembly"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "0.090–0.125 in aluminum tread plate"
+      },
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 4,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Or rivet; keep flush so heels do not catch."
+        }
+      ],
+      "installNotes": [
+        "Fit after pedal box is final."
+      ],
+      "inspection": [
+        "Check fasteners flush."
+      ],
+      "buildPhase": 9,
+      "installOrder": 12,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.96,
+          0.25,
+          0.37
+        ],
+        "size": [
+          0.3,
+          0.004,
+          0.32
+        ],
+        "rot": [
+          0,
+          0,
+          -15
+        ]
+      }
+    },
+    {
+      "id": "interior.pedal-area-floor.dead-pedal",
+      "name": "Dead pedal / left-foot brace",
+      "qty": 1,
+      "description": "Fixed foot rest left of the clutch that braces the driver in right-hand corners and keeps the left foot off the clutch.",
+      "location": "Left footwell, x ≈ 0.88, y ≈ 0.32, z ≈ +0.55.",
+      "connectsTo": [
+        "chassis.unibody.floor-pan",
+        "interior.pedal-area-floor.heel-plate"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mount bolts",
+          "qty": 2,
+          "spec": "M6 x 1.0 into rivnuts / welded nuts",
+          "grade": "ISO 8.8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Angle to match driver foot with seat final."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 13,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.88,
+          0.32,
+          0.56
+        ],
+        "size": [
+          0.1,
+          0.14,
+          0.11
+        ]
+      }
+    },
+    {
+      "id": "interior.pedal-area-floor.knee-padding",
+      "name": "Knee padding (column/dash bar)",
+      "qty": 1,
+      "description": "SFI 45.1 padding where knees can contact the steering column, dash bar or tunnel brackets.",
+      "location": "Under dash around column, x ≈ 0.95–1.15, y ≈ 0.55–0.70.",
+      "connectsTo": [
+        "safety.roll-cage.dash-bar",
+        "steering.column.column-support"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Zip ties",
+          "qty": 6,
+          "spec": "Nylon",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "confidence": "typical",
+          "source": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+        }
+      ],
+      "installNotes": [
+        "Check knee clearance with driver in gear."
+      ],
+      "inspection": [
+        "Replace damaged padding."
+      ],
+      "buildPhase": 9,
+      "installOrder": 14,
+      "tags": [],
+      "sources": [
+        {
+          "title": "NASA Speed News – Installing roll cage padding (CCR 15.6.4)",
+          "url": "https://nasaspeed.news/tech/safety/installing-roll-cage-padding/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.115,
+            0.6,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.08,
+            0.14
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            1.115,
+            0.6,
+            0.52
+          ],
+          "size": [
+            0.04,
+            0.08,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interior.pedal-area-floor.footwell-closeouts",
+      "name": "Footwell & kick-panel close-out panels",
+      "qty": 2,
+      "description": "Aluminum panels covering wiring/fire-tubing runs in the kick panel area so feet cannot snag them.",
+      "location": "Kick panels, x ≈ 0.80–1.00, y ≈ 0.25–0.55, z ±0.60.",
+      "connectsTo": [
+        "electrical.main-harness.dash-harness",
+        "safety.fire-suppression.distribution-tubing"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 4,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Over-torquing spins rivnuts; 6–8 N·m typical for steel M6 rivnuts in sheet metal."
+        }
+      ],
+      "installNotes": [
+        "Make removable."
+      ],
+      "inspection": [],
+      "buildPhase": 9,
+      "installOrder": 15,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.92,
+          0.4,
+          0.62
+        ],
+        "size": [
+          0.2,
+          0.3,
+          0.004
+        ],
+        "mirror": true,
+        "color": "#9aa0a6"
+      }
+    }
+  ]
+}

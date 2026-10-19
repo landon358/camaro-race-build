@@ -1,0 +1,263 @@
+{
+  "id": "aero.ducts-and-vents",
+  "system": "aero",
+  "name": "Ducts & Vents",
+  "description": "Hood extractor, fender louvers and radiator/inlet ducting that manage cooling air and reduce front lift.",
+  "components": [
+    {
+      "id": "aero.ducts-and-vents.hood-extractor",
+      "name": "Hood extractor / vent insert",
+      "qty": 1,
+      "description": "Vent in the hood behind the radiator that lets hot, high-pressure air exit, reducing front lift and improving cooling. ZL1 hoods have a carbon vent insert (exposed weave RPO CFW on 1LE).",
+      "location": "Hood center, x ≈ −0.40 … −0.05, y ≈ 0.93.",
+      "connectsTo": [
+        "body.panels.hood",
+        "aero.ducts-and-vents.radiator-ducting",
+        "engine-support.cooling.radiator"
+      ],
+      "factory": {
+        "name": "GM ZL1 carbon hood vent insert (RPO CFW exposed weave option)",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Insert fasteners",
+          "qty": 6,
+          "spec": "GM OE screws/clips",
+          "grade": "GM OE",
+          "torque": "3.7 ft-lb (5 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal radiator exit duct to extractor."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 20,
+      "tags": [],
+      "sources": [
+        {
+          "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+          "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.19,
+            0.95,
+            0
+          ],
+          "size": [
+            0.4,
+            0.02,
+            0.55
+          ],
+          "rot": [
+            0,
+            0,
+            7.6
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Anderson Composites Type-OE carbon hood insert, 2016-24 ZL1 / 1LE",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-zl1-1le-type-oe-carbon-fiber-hood-insert-anderson-composites"
+          }
+        ],
+        "dimensions": "~400 x 550 mm vent insert in the ZL1 hood",
+        "features": "Carbon louvred insert in the centre of the ZL1 hood, exits radiator air",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.ducts-and-vents.radiator-ducting",
+      "name": "Radiator inlet/exit ducting",
+      "qty": 1,
+      "description": "Aluminum/ABS panels sealing the fascia opening to the heat-exchanger stack and the stack exit to the hood extractor so all air goes through the cores.",
+      "location": "x ≈ −0.80 … −0.30, y ≈ 0.25–0.90.",
+      "connectsTo": [
+        "engine-support.cooling.radiator",
+        "aero.ducts-and-vents.hood-extractor",
+        "body.panels.front-fascia"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivets / foam seal",
+          "qty": 20,
+          "spec": "1/8 in rivets + closed-cell foam",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check seals."
+      ],
+      "buildPhase": 10,
+      "installOrder": 21,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.42,
+            0.8,
+            0
+          ],
+          "size": [
+            0.22,
+            0.18,
+            0.62
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aero.ducts-and-vents.fender-louvers",
+      "name": "Front fender vents / louvers",
+      "qty": 2,
+      "description": "Louvered vents in the top/rear of the front fenders that relieve wheel-well pressure, reducing front lift. Fender liners must be opened behind them.",
+      "location": "Top of front fenders behind wheel, x ≈ 0.30, y ≈ 0.82, z ±0.88.",
+      "connectsTo": [
+        "body.panels.front-fenders",
+        "body.trim-and-fasteners.fender-liners"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Louver screws",
+          "qty": 8,
+          "spec": "M5 button head + nyloc / rivnuts",
+          "grade": "Stainless",
+          "torque": "3 ft-lb (4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Cut fender with template; deburr and paint edges."
+      ],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 22,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.1,
+            0.925,
+            0.75
+          ],
+          "size": [
+            0.3,
+            0.025,
+            0.16
+          ],
+          "rot": [
+            17,
+            0,
+            0
+          ],
+          "mirror": true
+        }
+      ]
+    },
+    {
+      "id": "aero.ducts-and-vents.fascia-inlets",
+      "name": "Fascia brake/cooler inlet ducts",
+      "qty": 2,
+      "description": "Inlets in the lower fascia (former DRL/fog locations) feeding brake-cooling hoses and auxiliary coolers.",
+      "location": "Lower fascia, x ≈ −0.92, y ≈ 0.35, z ±0.60.",
+      "connectsTo": [
+        "body.lighting-housings.drl-fog-delete",
+        "brakes.cooling.front-duct-inlet"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Duct flange rivets",
+          "qty": 6,
+          "spec": "1/8 in rivets",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Clear debris."
+      ],
+      "buildPhase": 10,
+      "installOrder": 23,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.765,
+            0.3,
+            0.61
+          ],
+          "size": [
+            0.06,
+            0.08,
+            0.08
+          ],
+          "axis": "x",
+          "mirror": true
+        }
+      ]
+    }
+  ]
+}

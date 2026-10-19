@@ -1,0 +1,410 @@
+{
+  "id": "engine.front-cover-and-balancer",
+  "system": "engine",
+  "name": "Front Cover & Balancer",
+  "description": "Timing cover, front crank seal, harmonic balancer/pulley and the torque-to-yield balancer bolt procedure.",
+  "components": [
+    {
+      "id": "engine.front-cover-and-balancer.front-cover",
+      "name": "Front (timing) cover",
+      "qty": 1,
+      "description": "Cast-aluminum front cover enclosing the timing chain and oil pump. On Gen V it carries the cam position sensor and the VVT actuator solenoid, and seals to the oil pan front rail.",
+      "location": "Front face of the block, behind the balancer and water pump.",
+      "connectsTo": [
+        "engine.block.cylinder-block",
+        "engine.front-cover-and-balancer.front-crank-seal",
+        "engine.oil-pan-and-pickup.wet-sump-oil-pan",
+        "engine.engine-sensors.cam-position-sensor",
+        "engine.valvetrain.vvt-solenoid",
+        "engine.accessory-drive.water-pump"
+      ],
+      "factory": {
+        "name": "GM Gen V front cover (wet sump)",
+        "notes": "Dry-sump (Corvette) covers differ around the pump."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Front cover to block bolt",
+          "qty": 11,
+          "spec": "M8 flange bolt (count approximate)",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit and Michigan Motorsports both list front cover bolts at 18 ft-lb.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Oil pan to front cover bolt",
+          "qty": 4,
+          "spec": "M8 bolt",
+          "grade": "",
+          "torque": "18 ft-lb (24 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Replace the cover gasket and front seal; RTV at the block/pan T-joints only.",
+        "Use a centering tool / balancer to center the seal before tightening the cover.",
+        "Cover must be flush with the pan rail before the pan is installed."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 30,
+      "tags": [
+        "timing-cover"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Michigan Motorsports: Gen V cam install kit for wet sump LT engines",
+          "url": "https://www.michiganmotorsports.com/gaskets-install-kits/gen-v-cam-install-kit-for-wet-sump-2014-2020-gen-5-lt-engines-5-3-6-2-l83-l86-lt1-lt4-camshaft-gaskets/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.2325,
+          0.4775,
+          0
+        ],
+        "size": [
+          0.045,
+          0.325,
+          0.3
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "LME Gen V VVT-delete timing cover kit (front cover shape)",
+            "url": "https://www.ictbillet.com/products/lme-gen-v-vvt-delete-timing-cover-kit-bundle-with-timing-chain-guide"
+          },
+          {
+            "title": "Gen V VVT delete kit (shows phaser, bolt, front-cover solenoid area)",
+            "url": "https://www.michiganmotorsports.com/camshafts-michigan-motorsports/vvt-delete-kit-for-2014-gen-v-lt1-lt4-l83-l86-l84-l87-l8t-l82-l8b-michigan-motorsports/"
+          }
+        ],
+        "dimensions": "Approx. 300 x 325 x 45 mm",
+        "features": "Cast aluminium, crank seal boss at the bottom, VVT solenoid boss on the cam centreline, cam-sensor boss above the phaser, perimeter bolts",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.front-cover-and-balancer.front-crank-seal",
+      "name": "Front crankshaft (damper) seal",
+      "qty": 1,
+      "description": "Lip seal in the front cover that seals on the balancer hub. Included in the GM-style cam install kit.",
+      "location": "Front cover, around the crank snout.",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.front-cover",
+        "engine.front-cover-and-balancer.harmonic-balancer"
+      ],
+      "factory": {
+        "name": "GM Gen V crankshaft damper seal",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Drive in square with a seal installer; light oil on the lip; never install dry onto the balancer hub."
+      ],
+      "inspection": [
+        "Check for oil sling around the balancer."
+      ],
+      "buildPhase": 5,
+      "installOrder": 29,
+      "tags": [
+        "seal"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: Gen V cam install kit for wet sump LT engines",
+          "url": "https://www.michiganmotorsports.com/gaskets-install-kits/gen-v-cam-install-kit-for-wet-sump-2014-2020-gen-5-lt-engines-5-3-6-2-l83-l86-lt1-lt4-camshaft-gaskets/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          -0.257,
+          0.4,
+          0
+        ],
+        "size": [
+          0.008,
+          0.075,
+          0.075
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "LME Gen V VVT-delete timing cover kit (front cover shape)",
+            "url": "https://www.ictbillet.com/products/lme-gen-v-vvt-delete-timing-cover-kit-bundle-with-timing-chain-guide"
+          }
+        ],
+        "dimensions": "~75 mm OD x 8 mm",
+        "features": "Steel-cased PTFE/rubber lip seal pressed into the cover",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.front-cover-and-balancer.harmonic-balancer",
+      "name": "Harmonic balancer (crank damper) & pulley",
+      "qty": 1,
+      "description": "Elastomer damper with the accessory-belt and supercharger-belt grooves. It is press-fit on the crank snout and clamped by a torque-to-yield bolt. Road-race engines often switch to an SFI-rated fluid/elastomer race damper (ATI Super Damper).",
+      "location": "Front of the crankshaft, ahead of the front cover; bottom center of the accessory drive.",
+      "connectsTo": [
+        "engine.rotating-assembly.crankshaft",
+        "engine.front-cover-and-balancer.balancer-bolt",
+        "engine.accessory-drive.serpentine-belt",
+        "engine.accessory-drive.supercharger-belt"
+      ],
+      "factory": {
+        "name": "GM LT4 balancer (anodized aluminum hub, iron ring); LT1 iron balancer",
+        "notes": "Gen V truck balancers (12684590 / 12680364) are different spacing - do not use on Camaro."
+      },
+      "raceOptions": [
+        {
+          "name": "ATI Super Damper 918856 (2016+ Camaro LT1 / LT4 wet sump, 7.48 in 6-rib, with A/C pulley; SC pulley sold separately)",
+          "brand": "ATI",
+          "partNumber": "918856",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        },
+        {
+          "name": "ATI 916358 stock-diameter 6-rib pulley / 916359 10% underdrive 6-rib pulley",
+          "brand": "ATI",
+          "partNumber": "916358 / 916359",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        }
+      ],
+      "specs": {
+        "Belt sections": "6-rib accessory + 8-rib supercharger (LT4)",
+        "Fit": "Press fit on crank snout"
+      },
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Lube the seal surface and snout lightly; press the balancer on with an installer tool or the OLD bolt to full seat (do not hammer).",
+        "Remove the seating bolt, install a NEW TTY bolt and torque per engine.front-cover-and-balancer.balancer-bolt.",
+        "Many race builders pin the balancer (dowel) on boosted engines."
+      ],
+      "inspection": [
+        "Check elastomer for walking/cracking; check index mark alignment; SFI tags if required by rules."
+      ],
+      "buildPhase": 5,
+      "installOrder": 67,
+      "tags": [
+        "balancer",
+        "damper",
+        "sfi"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevy LT4 Engine Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/HE-04914/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: ATI 918856 Super Damper, 2016+ Camaro LT1 / CTS-V LT4, 7.48 in 6-rib",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/ati-918856-super-damper-for-2016-camaro-lt1-6-2l-cts-v-lt4-stock-7-48-diameter-6-rib-with-ac-pulley-supercharger-pulley-not-included/"
+        },
+        {
+          "title": "Fastlane Spares: ATI 918856 Super Damper (2017+ LT4 ZL1 wet sump)",
+          "url": "https://fastlanespares.co.nz/products/ati-super-damper-supercharged-series-harmonic-balancers-ati918856"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 1)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/"
+        },
+        {
+          "title": "Michigan Motorsports: 6.2 Gen 5 LT engine block & rotating assembly parts (page 2)",
+          "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-5-lt-engines/?page=2"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          -0.3045,
+          0.4,
+          0
+        ],
+        "size": [
+          0.105,
+          0.205,
+          0.205
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "LG Motorsports LT4 balancer & pulley kit",
+            "url": "https://lgmotorsports.com/lt4-balancer-and-pulley-kit.html"
+          },
+          {
+            "title": "DSX C7 LT4 lower pulley (230-245 mm overdrive sizes)",
+            "url": "https://sdparts.com/i-24141001-dsx-tuning-c7-corvette-lt4-lower-pulley.html"
+          },
+          {
+            "title": "ATI 8-rib LSA/LT4 Super Damper overdrive pulley",
+            "url": "https://www.michiganmotorsports.com/engine-block-and-rotating-assembly/6-2-gen-4-ls-engines/rotating-assemblies/ati-916227-17-overdrive-8-rib-supercharger-pulley-for-lsa-lt4-super-dampers-2009-2019-cts-v-zl1/"
+          }
+        ],
+        "dimensions": "Approx. 205 mm (8.1 in) 8-rib supercharger groove + ~190 mm 6-rib accessory groove, ~105 mm deep incl. hub",
+        "features": "Black-anodised aluminium hub, bonded iron inertia ring, two ribbed grooves (8-rib blower drive in front, 6-rib accessory behind), timing mark, 3 puller holes",
+        "confidence": "estimated (derived from aftermarket overdrive pulley sizes)"
+      }
+    },
+    {
+      "id": "engine.front-cover-and-balancer.balancer-bolt",
+      "name": "Harmonic balancer bolt (TTY)",
+      "qty": 1,
+      "description": "Torque-to-yield crank bolt that clamps the balancer. GM 11547372 is the wet-sump Gen V bolt and must be replaced every time the balancer is removed. Two GM bolt designs exist (separate rotating washer vs solid flanged head) with different final angles.",
+      "location": "Center of the balancer, threading into the crank snout.",
+      "connectsTo": [
+        "engine.front-cover-and-balancer.harmonic-balancer",
+        "engine.rotating-assembly.crankshaft"
+      ],
+      "factory": {
+        "name": "GM wet-sump Gen V balancer bolt",
+        "partNumber": "GM 11547372",
+        "notes": "TTY, single use."
+      },
+      "raceOptions": [
+        {
+          "name": "ARP balancer bolt (where offered for Gen V)",
+          "brand": "ARP",
+          "notes": "Follow ARP torque with Ultra-Torque. Part number not verified here."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Balancer seating (installation) pass - using OLD bolt or installer",
+          "qty": 1,
+          "spec": "Old GM bolt or harmonic balancer installer",
+          "grade": "",
+          "torque": "240-244 ft-lb (325-331 N·m)",
+          "torqueSequence": "Draw balancer fully onto snout, then remove the old bolt.",
+          "threadlocker": "Oil",
+          "safetyWire": false,
+          "reuse": "Discard old bolt after seating",
+          "tool": "",
+          "notes": "Summit lists 244 ft-lb; other sources 240 ft-lb.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "item": "Balancer bolt - solid flanged-head design (new)",
+          "qty": 1,
+          "spec": "GM TTY balancer bolt",
+          "grade": "",
+          "torque": "89 ft-lb, loosen 1 full turn, 59 ft-lb, then +125°",
+          "torqueSequence": "89 ft-lb (121 N·m) -> loosen 360° -> 59 ft-lb (80 N·m) -> +125°",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "Flywheel lock, angle gauge",
+          "notes": "Summit and Michigan Motorsports agree.",
+          "confidence": "verified",
+          "source": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/",
+          "partNumber": "GM 11547372"
+        },
+        {
+          "item": "Balancer bolt - separate rotating-washer design (new)",
+          "qty": 1,
+          "spec": "GM TTY balancer bolt with rotating washer",
+          "grade": "",
+          "torque": "89 ft-lb, loosen 1 full turn, 59 ft-lb, then +200°",
+          "torqueSequence": "89 ft-lb (121 N·m) -> loosen 360° -> 59 ft-lb (80 N·m) -> +200°",
+          "threadlocker": "Clean engine oil",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "tool": "",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Identify which bolt design you have before choosing the final angle.",
+        "Lock the flywheel - never hold the crank via the timing chain."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 68,
+      "tags": [
+        "tty",
+        "balancer"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: GM 11547372 Gen V wet-sump harmonic balancer bolt (TTY)",
+          "url": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/gm-11547372-harmonic-balancer-crankshaft-bolt-for-2014-l83-l86-lt1-l84-l87-l8t-l8b-5-3l-6-2l-6-6l-gen-v-lt/"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT4/LT5 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.367,
+          0.4,
+          0
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.04
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT LS/LT crank pulley & balancer depth guide",
+            "url": "https://www.ictbillet.com/pages/swap-guide/ls-crank-pulley-harmonic-balancer-swap-guide"
+          }
+        ],
+        "dimensions": "M16 x 1.5 TTY bolt with ~40 mm washer face",
+        "features": "Large black hex bolt with integral washer in the balancer nose",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

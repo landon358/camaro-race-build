@@ -1,0 +1,1799 @@
+{
+  "id": "engine-support.fuel-delivery",
+  "system": "engine-support",
+  "name": "Fuel Delivery (low-pressure supply to the DI pump)",
+  "description": "Cell → pre-filter → lift pump → surge tank → twin feed pumps → 10-micron filter → bypass regulator (short-loop return at the tank, ~72 psi) → single -8 feed line under the passenger-side floor → engine-bay dry break → DI high-pressure pump inlet (engine system).",
+  "components": [
+    {
+      "id": "engine-support.fuel-delivery.factory-fuel-system",
+      "name": "Factory LT fuel delivery (reference: returnless, PWM-controlled)",
+      "qty": 1,
+      "description": "The 6th-gen Camaro uses an in-tank pump module with a remote fuel pump control module (FPCM) commanded by the ECM: returnless, variable pressure (~58 psi idle/cruise, ~72 psi WOT per EngineLabs; ICT Billet states 5 bar / 72 psi). The low-pressure supply feeds the engine-driven DI high-pressure pump (engine system). On the race car the factory tank/module is removed and replaced with the cell + surge tank system below, regulated to a constant ~72 psi.",
+      "location": "Factory saddle tank under the rear seat (removed).",
+      "connectsTo": [
+        "engine.fuel-injection.high-pressure-pump",
+        "electrical.modules.fuel-pump-control-module"
+      ],
+      "factory": {
+        "name": "GM in-tank fuel pump module + FPCM (returnless)",
+        "notes": "If the factory ECM stays, it expects to command the FPCM; with a mechanical return-style regulator, set the ECM to a fixed low-side pressure or retain the low-side pressure sensor per tuner."
+      },
+      "raceOptions": [
+        {
+          "name": "Return-style constant 72 psi system (this subsystem)",
+          "brand": ""
+        }
+      ],
+      "specs": {
+        "Low-side pressure": "~58 psi idle/cruise, ~72 psi WOT (factory variable); race: constant ~72 psi (500 kPa)",
+        "High-side (DI)": "~2,200 psi LT1 / ~3,000 psi LT4 (Lingenfelter)",
+        "Min. low side for Lingenfelter big-bore DI pump": "68 psi"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Remove factory tank, module, EVAP canister and lines during strip (phase 1).",
+        "Tuner must reconfigure low-side fuel pressure control/DTCs."
+      ],
+      "inspection": [],
+      "buildPhase": 1,
+      "installOrder": 1,
+      "tags": [
+        "factory",
+        "reference",
+        "returnless"
+      ],
+      "sources": [
+        {
+          "title": "EngineLabs: Gen V DI fuel system in swaps",
+          "url": "https://www.enginelabs.com/?p=11612"
+        },
+        {
+          "title": "ICT Billet LT fuel system",
+          "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+        },
+        {
+          "title": "Lingenfelter big-bore DI pump",
+          "url": "https://sdparts.com/i-24529492"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.fuel-delivery.lift-pump-prefilter",
+      "name": "Lift-pump pre-filter (100 micron)",
+      "qty": 1,
+      "description": "Coarse stainless-element filter between the cell outlet and the lift pump to protect the pump from foam crumbs and debris without restricting suction.",
+      "location": "Trunk, right side, between cell and lift pump.",
+      "connectsTo": [
+        "engine-support.fuel-cell.plate-fittings",
+        "engine-support.fuel-delivery.lift-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "100-micron stainless inline filter, -8 ORB ports",
+          "brand": "Aeromotive / Radium / Earl's"
+        }
+      ],
+      "specs": {
+        "Element": "100 micron stainless (cleanable)",
+        "Ports": "-8 AN"
+      },
+      "hardware": [
+        {
+          "item": "Port fittings",
+          "qty": 2,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Filter bracket clamp",
+          "qty": 1,
+          "spec": "Billet clamp, M6",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Flow arrow toward pump."
+      ],
+      "inspection": [
+        "Clean element and inspect for foam every few events"
+      ],
+      "buildPhase": 2,
+      "installOrder": 2,
+      "tags": [
+        "filter",
+        "100-micron"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.5,
+          0.445,
+          -0.29
+        ],
+        "size": [
+          0.045,
+          0.045,
+          0.13
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          }
+        ],
+        "dimensions": "~45 mm dia x 130 mm, -8 ORB ports",
+        "features": "100 micron stainless element, anodised billet housing with hex end caps",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.lift-pump",
+      "name": "Lift (transfer) pump",
+      "qty": 1,
+      "description": "Low-pressure pump that keeps the surge tank full. Its only job is to out-flow the engine's consumption so the surge tank stays full; the excess overflows back to the cell. A common rule (relayed from Radium) is ~50% of the main pump flow. Can be in-cell or external.",
+      "location": "Trunk, right side, low next to the cell (below cell outlet level helps priming).",
+      "connectsTo": [
+        "engine-support.fuel-delivery.lift-pump-prefilter",
+        "engine-support.fuel-delivery.surge-tank",
+        "engine-support.fuel-delivery.pump-power-and-control"
+      ],
+      "raceOptions": [
+        {
+          "name": "Walbro/TI Automotive inline pump",
+          "brand": "Walbro"
+        },
+        {
+          "name": "Bosch 044-type inline pump (external)",
+          "brand": "Bosch"
+        },
+        {
+          "name": "In-cell brushless pump",
+          "brand": "Fuel Safe / ATL"
+        }
+      ],
+      "specs": {
+        "Flow": "~50% of feed-pump flow (rule of thumb, unverified)",
+        "Pressure": "Low (few psi)"
+      },
+      "hardware": [
+        {
+          "item": "Pump clamp/isolator bolts",
+          "qty": 2,
+          "spec": "M6 with rubber-isolated cushion clamp",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Inlet/outlet fittings",
+          "qty": 2,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Mount low and as close to the cell as possible (pumps push better than they pull).",
+        "Add a check valve after the lift pump if the surge tank sits lower than the cell outlet."
+      ],
+      "inspection": [
+        "Listen at key-on; check current draw in PDM log"
+      ],
+      "buildPhase": 2,
+      "installOrder": 3,
+      "tags": [
+        "pump",
+        "lift"
+      ],
+      "sources": [
+        {
+          "title": "Radium FST instructions (lift pump role)",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.5,
+          0.45,
+          -0.1
+        ],
+        "size": [
+          0.06,
+          0.06,
+          0.194
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Bosch Motorsport 044 inline pump (60 mm dia x 194 mm, M18 in / M12 out)",
+            "url": "https://www.bimmerworld.com/Intake-Fuel/Bosch-Motorsport-044-Electric-Fuel-Pump.html"
+          },
+          {
+            "title": "Genuine Bosch 0580254044 (dimensions, connections)",
+            "url": "https://enginemaster.com.au/products/genuine-bosch-0580254044-fuel-pump-044-inline-motorsport"
+          },
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          }
+        ],
+        "dimensions": "60 mm dia x 194 mm, M18 x 1.5 inlet, M12 x 1.5 outlet",
+        "features": "Bosch 044-style metal canister, black outlet end cap with banjo stub + 2 terminal studs, rubber-isolated clamp. Mounted behind the cell on the trunk floor (battery occupies the passenger corner)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.lift-pump-line",
+      "name": "Lift line: cell outlet → pre-filter → lift pump → surge tank (-8 AN)",
+      "qty": 1,
+      "description": "Short -8 PTFE line from the cell pickup outlet through the pre-filter and lift pump into the surge tank supply port.",
+      "location": "Trunk, right side.",
+      "connectsTo": [
+        "engine-support.fuel-cell.plate-fittings",
+        "engine-support.fuel-delivery.lift-pump-prefilter",
+        "engine-support.fuel-delivery.lift-pump",
+        "engine-support.fuel-delivery.surge-tank"
+      ],
+      "raceOptions": [
+        {
+          "name": "-8 PTFE stainless/nylon braided hose, E85-safe",
+          "brand": "XRP / Earl's / Fragola"
+        }
+      ],
+      "specs": {
+        "Size": "-8 AN (Radium supply port -8 ORB with -6 adapter supplied)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 4,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 2,
+      "installOrder": 4,
+      "tags": [
+        "AN-8",
+        "PTFE"
+      ],
+      "sources": [
+        {
+          "title": "Radium MPFST ports",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.15,
+              0.82,
+              0.16
+            ],
+            [
+              3.18,
+              0.86,
+              0.05
+            ],
+            [
+              3.32,
+              0.86,
+              -0.15
+            ],
+            [
+              3.45,
+              0.78,
+              -0.3
+            ],
+            [
+              3.5,
+              0.6,
+              -0.38
+            ],
+            [
+              3.5,
+              0.46,
+              -0.385
+            ],
+            [
+              3.5,
+              0.445,
+              -0.357
+            ]
+          ],
+          "radius": 0.0081
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.5,
+              0.45,
+              -0.003
+            ],
+            [
+              3.5,
+              0.455,
+              0.03
+            ],
+            [
+              3.51,
+              0.46,
+              0.06
+            ]
+          ],
+          "radius": 0.0081
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "MotoIQ: Radium MPFST launch (7.8 in tall x 6 in dia, up to 3 x 39 mm pumps)",
+            "url": "https://motoiq.com/new-product-release-radium-engineerings-multi-pump-fuel-surge-tank"
+          }
+        ],
+        "dimensions": "-8 AN (0.641 in OD)",
+        "features": "PTFE stainless/nylon braided hose, cell outlet -> prefilter -> lift pump -> surge tank",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.surge-tank",
+      "name": "Fuel surge tank (multi-pump, with integrated regulator option)",
+      "qty": 1,
+      "description": "Small (~1-3 L) reservoir kept full by the lift pump so the high-pressure feed pumps never uncover during long corners or when the cell is low. Radium: the in-cell/primary pump no longer feeds the engine; it fills and maintains the surge tank.",
+      "location": "Trunk, right side, behind the bulkhead next to the cell.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.lift-pump-line",
+        "engine-support.fuel-delivery.feed-pumps",
+        "engine-support.fuel-delivery.post-pump-filter",
+        "engine-support.fuel-delivery.regulator-return-line",
+        "engine-support.fuel-delivery.surge-overflow-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Radium Engineering MPFST multi-pump fuel surge tank (fits Walbro F90000267/274/285)",
+          "brand": "Radium Engineering",
+          "notes": "PUMP OUT 10AN ORB (supplied -8 adapter); OVERFLOW/SUPPLY/RETURN 8AN ORB (supplied -6 adapters).",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        },
+        {
+          "name": "Radium MPFST-R / FST-R with built-in 1:1 regulator",
+          "brand": "Radium Engineering",
+          "notes": "Built-in regulator returns directly into the surge tank—no external return line.",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        },
+        {
+          "name": "Aeromotive / Holley surge tanks",
+          "brand": "Aeromotive / Holley"
+        }
+      ],
+      "specs": {
+        "Ports": "Pump out -10 ORB; supply/return/overflow -8 ORB (Radium MPFST)",
+        "Capacity": "~1-3 L typical (estimate)"
+      },
+      "hardware": [
+        {
+          "item": "Pump-out port fitting",
+          "qty": 1,
+          "spec": "-10 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "25–30 ft-lb (34–41 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Supply / return / overflow port fittings",
+          "qty": 3,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Surge tank mounting bracket bolts",
+          "qty": 4,
+          "spec": "M6/M8 into rivnuts",
+          "grade": "8.8",
+          "torque": "8–10 ft-lb (11–14 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount vertical, behind the bulkhead, protected from rear impact.",
+        "Prime: pull the feed-pump fuse and cycle key 3-4 times to let the lift pump fill the tank, then reinstall fuse (Radium).",
+        "Check fuel pressure before/after installation for no difference with the FST operating (Radium)."
+      ],
+      "inspection": [
+        "Leak check every event",
+        "Pressure log under long corners—any drop means lift pump/pickup issue"
+      ],
+      "buildPhase": 2,
+      "installOrder": 5,
+      "tags": [
+        "surge-tank",
+        "radium"
+      ],
+      "sources": [
+        {
+          "title": "Radium FST install instructions",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        },
+        {
+          "title": "Radium MPFST listing",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.56,
+          0.509,
+          0.13
+        ],
+        "size": [
+          0.152,
+          0.198,
+          0.152
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "MotoIQ: Radium MPFST launch (7.8 in tall x 6 in dia, up to 3 x 39 mm pumps)",
+            "url": "https://motoiq.com/new-product-release-radium-engineerings-multi-pump-fuel-surge-tank"
+          },
+          {
+            "title": "Radium Multi-Pump Fuel Surge Tank (MPFST) product page",
+            "url": "https://www.speedscience.co.nz/products/radium-multi-pump-fuel-surge-tank-mpfst"
+          },
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          }
+        ],
+        "dimensions": "6 in (152 mm) dia x 7.8 in (198 mm) tall, ~2 L",
+        "features": "Machined anodised aluminium canister with mounting feet, top cap with 2-3 pump outlets (-6) and -8 ORB feed/return/overflow ports. Mounted behind the cell on the trunk floor (battery occupies the passenger corner)",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.feed-pumps",
+      "name": "High-pressure feed pumps (twin, in surge tank)",
+      "qty": 2,
+      "description": "Electric pumps inside (or below) the surge tank that supply the DI high-pressure pump at a constant ~72 psi. Twin pumps give flow headroom for a supercharged LT4 and redundancy; stage the second pump on load via the PDM.",
+      "location": "Inside the surge tank.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.surge-tank",
+        "engine-support.fuel-delivery.post-pump-filter",
+        "engine-support.fuel-delivery.pump-power-and-control"
+      ],
+      "raceOptions": [
+        {
+          "name": "Walbro/TI F90000267 / F90000274 / F90000285 (E85-capable variants)",
+          "brand": "TI Automotive (Walbro)",
+          "partNumber": "F90000267 / F90000274 / F90000285",
+          "notes": "Pumps listed as compatible with Radium MPFST; select per fuel and flow.",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        }
+      ],
+      "specs": {
+        "Required supply": ">= 72 psi at full flow; Chevrolet guidance for crate LT4 without control kit: 500 kPa (72 psi) at 45 gph (secondhand)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Size wiring for pump current at 13.5 V; power via PDM with soft-start."
+      ],
+      "inspection": [
+        "Log fuel pressure and pump current each session"
+      ],
+      "buildPhase": 2,
+      "installOrder": 6,
+      "tags": [
+        "pump",
+        "walbro"
+      ],
+      "sources": [
+        {
+          "title": "Radium MPFST",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        },
+        {
+          "title": "EngineLabs DI fuel",
+          "url": "https://www.enginelabs.com/?p=11612"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.545,
+          0.5,
+          0.115
+        ],
+        "size": [
+          0.039,
+          0.13,
+          0.039
+        ],
+        "axis": "y",
+        "instances": [
+          [
+            3.545,
+            0.5,
+            0.115
+          ],
+          [
+            3.578,
+            0.5,
+            0.148
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Walbro/TI F90000267 450 lph (130 mm long, 39/50 mm dia)",
+            "url": "https://www.llracing.eu/spd/WB-F90000267/Walbro-Fuel-pump-F90000267-450LPH-E85"
+          },
+          {
+            "title": "MotoIQ: Radium MPFST launch (7.8 in tall x 6 in dia, up to 3 x 39 mm pumps)",
+            "url": "https://motoiq.com/new-product-release-radium-engineerings-multi-pump-fuel-surge-tank"
+          }
+        ],
+        "dimensions": "130 mm long, 39 mm upper / 50 mm base dia",
+        "features": "Walbro/TI F90000267 in-tank pumps on the MPFST top cap",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.post-pump-filter",
+      "name": "Post-pump fuel filter (10 micron)",
+      "qty": 1,
+      "description": "Fine filter on the pressure side protecting the DI high-pressure pump and injectors. Radium: use a low-micron filter on the feed line.",
+      "location": "Trunk, right side, on the surge tank pump-out line.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.surge-tank",
+        "engine-support.fuel-delivery.fuel-pressure-regulator"
+      ],
+      "raceOptions": [
+        {
+          "name": "10-micron fabric or stainless element filter, -8/-10 ORB",
+          "brand": "Aeromotive / Radium / XRP"
+        }
+      ],
+      "specs": {
+        "Element": "10 micron"
+      },
+      "hardware": [
+        {
+          "item": "Port fittings",
+          "qty": 2,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Filter clamp",
+          "qty": 1,
+          "spec": "Billet clamp M6",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Flow arrow toward engine; mount where it can be serviced without draining the cell."
+      ],
+      "inspection": [
+        "Replace element each season or on pressure drop"
+      ],
+      "buildPhase": 2,
+      "installOrder": 7,
+      "tags": [
+        "filter",
+        "10-micron"
+      ],
+      "sources": [
+        {
+          "title": "Radium FST instructions",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.56,
+          0.52,
+          0.3
+        ],
+        "size": [
+          0.05,
+          0.15,
+          0.05
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          },
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "~50 mm dia x 150 mm, -8/-10 ORB",
+        "features": "10 micron element, anodised billet housing with hex ends",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.fuel-pressure-regulator",
+      "name": "Fuel pressure regulator (bypass, ~72 psi, at the tank)",
+      "qty": 1,
+      "description": "Bypass regulator located at the surge tank (\"short-loop return\") so only ONE pressurized line runs the length of the car. Set to ~72 psi static; the DI high-pressure pump on the engine handles injection pressure. Not boost-referenced (DI low side does not need it).",
+      "location": "Trunk, right side, downstream of the post-pump filter.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.post-pump-filter",
+        "engine-support.fuel-delivery.feed-line",
+        "engine-support.fuel-delivery.regulator-return-line",
+        "engine-support.fuel-delivery.fuel-pressure-sensor"
+      ],
+      "raceOptions": [
+        {
+          "name": "Aeromotive / Radium / Fuelab EFI bypass regulator (-8 ports)",
+          "brand": "Aeromotive / Radium / Fuelab"
+        },
+        {
+          "name": "Radium FST-R/MPFST-R built-in regulator",
+          "brand": "Radium Engineering",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        }
+      ],
+      "specs": {
+        "Setpoint": "~72 psi (500 kPa); not below 68 psi with Lingenfelter big-bore DI pump",
+        "Reference": "Atmospheric (cap the reference port or vent to atmosphere)"
+      },
+      "hardware": [
+        {
+          "item": "Inlet/outlet/return fittings",
+          "qty": 3,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        },
+        {
+          "item": "Regulator mounting bolts",
+          "qty": 2,
+          "spec": "M6/1/4-20",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Set pressure with pumps running, engine off; recheck at idle."
+      ],
+      "inspection": [
+        "Log pressure; look for drift"
+      ],
+      "buildPhase": 2,
+      "installOrder": 8,
+      "tags": [
+        "regulator",
+        "72-psi"
+      ],
+      "sources": [
+        {
+          "title": "EngineLabs DI fuel pressure",
+          "url": "https://www.enginelabs.com/?p=11612"
+        },
+        {
+          "title": "ICT Billet LT fuel system",
+          "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+        },
+        {
+          "title": "Lingenfelter DI pump",
+          "url": "https://sdparts.com/i-24529492"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.56,
+          0.64,
+          0.3
+        ],
+        "size": [
+          0.06,
+          0.06,
+          0.05
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          }
+        ],
+        "dimensions": "~60 x 60 x 50 mm billet body + spring dome",
+        "features": "Bypass EFI regulator: billet body, -8 in/out ports, -6 return, 1/8 NPT gauge port, adjust screw with lock nut",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.regulator-return-line",
+      "name": "Regulator return line to surge tank (-6 AN)",
+      "qty": 1,
+      "description": "Short bypass return from the regulator back into the surge tank return port.",
+      "location": "Trunk, right side.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.fuel-pressure-regulator",
+        "engine-support.fuel-delivery.surge-tank"
+      ],
+      "raceOptions": [
+        {
+          "name": "-6 PTFE hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-6 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 2,
+      "installOrder": 9,
+      "tags": [
+        "AN-6",
+        "return"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            3.56,
+            0.64,
+            0.27
+          ],
+          [
+            3.56,
+            0.632,
+            0.22
+          ],
+          [
+            3.56,
+            0.612,
+            0.19
+          ]
+        ],
+        "radius": 0.007
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-6 AN (0.547 in OD)",
+        "features": "Short PTFE braided return into surge tank top",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.surge-overflow-line",
+      "name": "Surge tank overflow/vent return to cell (-6 AN)",
+      "qty": 1,
+      "description": "Overflow from the top of the surge tank back to the cell return fitting—carries the excess lift-pump flow and any vapor back to the cell.",
+      "location": "Trunk, surge tank top to fill plate.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.surge-tank",
+        "engine-support.fuel-cell.plate-fittings"
+      ],
+      "raceOptions": [
+        {
+          "name": "-6 PTFE hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-6 AN (Radium overflow port supplied with -6 adapter)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Must be unrestricted—never put a check valve here."
+      ],
+      "inspection": [
+        "Leak check"
+      ],
+      "buildPhase": 2,
+      "installOrder": 10,
+      "tags": [
+        "AN-6",
+        "vent"
+      ],
+      "sources": [
+        {
+          "title": "Radium MPFST",
+          "url": "https://coyotedirect.com/products/radium-multi-pump-fuel-surge-tank-fits-walbro-f90000267-274-285-pumps-not-included"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            3.55,
+            0.612,
+            0.1
+          ],
+          [
+            3.5,
+            0.72,
+            0.06
+          ],
+          [
+            3.35,
+            0.83,
+            0.02
+          ],
+          [
+            3.15,
+            0.81,
+            -0.02
+          ]
+        ],
+        "radius": 0.007
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "MotoIQ: Radium MPFST launch (7.8 in tall x 6 in dia, up to 3 x 39 mm pumps)",
+            "url": "https://motoiq.com/new-product-release-radium-engineerings-multi-pump-fuel-surge-tank"
+          }
+        ],
+        "dimensions": "-6 AN (0.547 in OD)",
+        "features": "PTFE hose from tank overflow back to cell plate",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.feed-line",
+      "name": "Main fuel feed line to engine (-8 AN PTFE / hard line)",
+      "qty": 1,
+      "description": "The single pressurized line from the regulator to the engine. Run under the car outside the cockpit along the passenger-side floor (opposite side from the driver), protected from exhaust and road debris, then up into the engine bay to the DI high-pressure pump inlet. Hard aluminum/stainless line with braided sections at the ends is the most robust approach.",
+      "location": "Trunk → under passenger-side floor pan inboard of the rocker → behind the right front wheel into the engine bay → rear of engine (HP pump inlet).",
+      "connectsTo": [
+        "engine-support.fuel-delivery.fuel-pressure-regulator",
+        "engine-support.fuel-delivery.bulkhead-fittings",
+        "engine-support.fuel-delivery.engine-quick-disconnect",
+        "engine-support.fuel-delivery.line-clamps",
+        "engine-support.fuel-delivery.heat-sleeve"
+      ],
+      "raceOptions": [
+        {
+          "name": "-8 PTFE stainless-braided hose",
+          "brand": "XRP / Earl's / Fragola"
+        },
+        {
+          "name": "1/2 in aluminum or stainless hard line with AN tube nuts/sleeves",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "Size": "-8 AN (1/2 in)",
+        "Length": "~4.5 m (estimate)"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends / tube nuts",
+          "qty": 2,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        },
+        {
+          "item": "Cushioned P-clamp (Adel) for 1/2 in line",
+          "qty": 12,
+          "spec": "1/2 in cushioned P-clamp, M6/1/4-20 into rivnut or weld nut",
+          "grade": "Steel / EPDM or Viton cushion",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Space every 300-400 mm; never clamp braided line metal-to-metal.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Phase 2: run while chassis is bare; keep >= 150 mm from exhaust or use heat sleeve/shield.",
+        "Avoid routing through the cockpit; if unavoidable, rules typically require continuous metal/braided line with no fittings inside the cockpit (check class rules)."
+      ],
+      "inspection": [
+        "Check for scrapes, clamp security, weeping at fittings"
+      ],
+      "buildPhase": 2,
+      "installOrder": 11,
+      "tags": [
+        "AN-8",
+        "feed",
+        "hard-line"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.593,
+              0.64,
+              0.3
+            ],
+            [
+              3.62,
+              0.6,
+              0.36
+            ],
+            [
+              3.58,
+              0.45,
+              0.4
+            ],
+            [
+              3.4,
+              0.43,
+              0.4
+            ],
+            [
+              2.96,
+              0.43,
+              0.4
+            ],
+            [
+              2.92,
+              0.4,
+              0.46
+            ],
+            [
+              2.88,
+              0.33,
+              0.55
+            ],
+            [
+              2.8,
+              0.21,
+              0.56
+            ],
+            [
+              2.4,
+              0.195,
+              0.56
+            ],
+            [
+              1.8,
+              0.195,
+              0.56
+            ],
+            [
+              1.2,
+              0.195,
+              0.56
+            ],
+            [
+              0.8,
+              0.2,
+              0.55
+            ],
+            [
+              0.68,
+              0.28,
+              0.52
+            ],
+            [
+              0.64,
+              0.36,
+              0.46
+            ],
+            [
+              0.62,
+              0.4,
+              0.42
+            ],
+            [
+              0.6,
+              0.45,
+              0.36
+            ]
+          ],
+          "radius": 0.0081
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.56,
+              0.612,
+              0.16
+            ],
+            [
+              3.53,
+              0.65,
+              0.22
+            ],
+            [
+              3.52,
+              0.55,
+              0.27
+            ],
+            [
+              3.53,
+              0.45,
+              0.29
+            ],
+            [
+              3.555,
+              0.445,
+              0.3
+            ]
+          ],
+          "radius": 0.0081
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-8 AN (0.641 in OD), ~5 m",
+        "features": "PTFE stainless-braided hose (or 1/2 in hard line) along the driver-side floor, through the firewall bulkhead",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.line-clamps",
+      "name": "Fuel line clamps and stand-offs",
+      "qty": 14,
+      "description": "Cushioned P-clamps and stand-off brackets securing the feed and vent lines to the floor/frame rails.",
+      "location": "Along the feed line route.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.feed-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Earl's/XRP billet line separators + Adel clamps",
+          "brand": "Earl's / XRP"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Cushioned P-clamp (Adel) for 1/2 in line",
+          "qty": 14,
+          "spec": "1/2 in cushioned P-clamp, M6/1/4-20 into rivnut or weld nut",
+          "grade": "Steel / EPDM or Viton cushion",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Space every 300-400 mm; never clamp braided line metal-to-metal.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Rivnuts in the floor pan; seal around each."
+      ],
+      "inspection": [
+        "Look for clamps that slid or rubbed"
+      ],
+      "buildPhase": 2,
+      "installOrder": 12,
+      "tags": [
+        "clamps"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.8,
+          0.185,
+          0.56
+        ],
+        "size": [
+          0.02,
+          0.02,
+          0.03
+        ],
+        "instances": [
+          [
+            2.4,
+            0.185,
+            0.56
+          ],
+          [
+            1.8,
+            0.185,
+            0.56
+          ],
+          [
+            1.2,
+            0.185,
+            0.56
+          ],
+          [
+            0.8,
+            0.19,
+            0.55
+          ],
+          [
+            3.2,
+            0.42,
+            0.4
+          ],
+          [
+            3,
+            0.42,
+            0.4
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "~20 x 20 x 30 mm billet separators / Adel clamps",
+        "features": "Anodised billet clamp with cap screw, rubber-cushioned Adel loops",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.bulkhead-fittings",
+      "name": "Bulkhead fittings (rear bulkhead / floor pass-throughs)",
+      "qty": 2,
+      "description": "AN bulkhead unions where the feed line passes through the trunk floor/rear bulkhead and into the engine bay, keeping the fuel compartment sealed per NASA 15.4.1.1 / SCCA.",
+      "location": "Trunk floor (right) and engine-bay entry.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.feed-line",
+        "engine-support.fuel-cell.bulkhead"
+      ],
+      "raceOptions": [
+        {
+          "name": "-8 AN bulkhead union with jam nut",
+          "brand": "Earl's / XRP / Fragola"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bulkhead union flare ends",
+          "qty": 2,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        },
+        {
+          "item": "Bulkhead jam nut",
+          "qty": 1,
+          "spec": "-8 AN bulkhead nut",
+          "grade": "Aluminum",
+          "torque": "15–20 ft-lb (20–27 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Use a backing washer on thin sheet.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Seal with fire-resistant sealant."
+      ],
+      "inspection": [
+        "Check jam nut tightness"
+      ],
+      "buildPhase": 2,
+      "installOrder": 13,
+      "tags": [
+        "bulkhead",
+        "AN-8"
+      ],
+      "sources": [
+        {
+          "title": "NASA CCR fuel update",
+          "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.67,
+          0.28,
+          0.52
+        ],
+        "size": [
+          0.032,
+          0.03,
+          0.032
+        ],
+        "axis": "x",
+        "instances": [
+          [
+            0.67,
+            0.28,
+            0.52
+          ],
+          [
+            2.52,
+            0.2,
+            0.56
+          ]
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "NASA fuel cell regulations update",
+            "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-ccr"
+          },
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-8 AN bulkhead union, ~1-1/16 in jam nut",
+        "features": "Anodised union with jam nut through panel",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.engine-quick-disconnect",
+      "name": "Engine-bay dry-break / quick-disconnect coupling (-8)",
+      "qty": 1,
+      "description": "Self-sealing coupling at the engine-bay entry so the engine/drivetrain can be removed without draining fuel.",
+      "location": "Right rear corner of the engine bay near the firewall.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.feed-line",
+        "engine-support.fuel-delivery.engine-feed-adapter"
+      ],
+      "raceOptions": [
+        {
+          "name": "Staubli / Jiffy-tite -8 dry-break",
+          "brand": "Staubli / Jiffy-tite"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Coupling ends",
+          "qty": 2,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Mount the fixed half to a bracket so it cannot whip."
+      ],
+      "inspection": [
+        "Check for weep at the seal"
+      ],
+      "buildPhase": 7,
+      "installOrder": 14,
+      "tags": [
+        "quick-disconnect"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.62,
+          0.4,
+          0.42
+        ],
+        "size": [
+          0.032,
+          0.07,
+          0.032
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-8 dry-break ~32 mm dia x 70 mm coupled",
+        "features": "Two-half anodised dry-break coupling with locking sleeve",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.engine-feed-adapter",
+      "name": "Engine low-pressure inlet adapter (AN to GM quick-connect at DI pump feed)",
+      "qty": 1,
+      "description": "Adapter between the -8/-6 AN feed and the factory low-pressure fuel inlet line/quick-connect that feeds the cam-driven DI high-pressure pump. The DI pump and high-pressure rails are owned by the engine team.",
+      "location": "Rear top of engine (HP pump at rear of valley).",
+      "connectsTo": [
+        "engine-support.fuel-delivery.engine-quick-disconnect",
+        "engine.fuel-injection.high-pressure-pump"
+      ],
+      "factory": {
+        "name": "GM LT low-pressure feed line with quick-connect"
+      },
+      "raceOptions": [
+        {
+          "name": "ICT Billet LT fuel feed adapters",
+          "brand": "ICT Billet",
+          "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "High-pressure fuel feed line nut (reference, engine side)",
+          "qty": 1,
+          "spec": "GM DI high-pressure line nut",
+          "grade": "OE",
+          "torque": "21 ft-lb (28 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        },
+        {
+          "item": "Adapter AN end",
+          "qty": 1,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Lube quick-connect O-rings with clean engine oil; listen for click and pull-test."
+      ],
+      "inspection": [
+        "Check for fuel smell at engine top"
+      ],
+      "buildPhase": 7,
+      "installOrder": 15,
+      "tags": [
+        "adapter",
+        "DI"
+      ],
+      "sources": [
+        {
+          "title": "ICT Billet LT fuel system",
+          "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+        },
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.588,
+          0.452,
+          0.355
+        ],
+        "size": [
+          0.04,
+          0.025,
+          0.025
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "ICT Billet LT fuel system adapters",
+            "url": "https://www.ictbillet.com/pages/auto-parts/lt-fuel-system"
+          }
+        ],
+        "dimensions": "~40 mm long, -8 AN male to GM 3/8 quick-connect",
+        "features": "Anodised billet adapter",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.fuel-pressure-sensor",
+      "name": "Low-side fuel pressure sensor",
+      "qty": 1,
+      "description": "Sealed 0-150 psi sensor logging low-side pressure (and fed to the ECM if it controls pump speed). Fuel pressure dropping in long corners is the classic sign of surge/pickup issues.",
+      "location": "At the regulator gauge port or near the engine inlet.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.fuel-pressure-regulator",
+        "electrical.sensors.fuel-pressure-sensor"
+      ],
+      "factory": {
+        "name": "GM low-side fuel pressure sensor (in factory feed line)"
+      },
+      "raceOptions": [
+        {
+          "name": "0-150 psi sealed sensor 1/8 NPT",
+          "brand": "Bosch / AEM / Motec"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor",
+          "qty": 1,
+          "spec": "1/8-27 NPT",
+          "grade": "SS",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste (fuel-safe)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Radium: install gauge/sensor anywhere along the high-pressure line from the FST-R side port."
+      ],
+      "inspection": [
+        "Compare to mechanical gauge annually"
+      ],
+      "buildPhase": 8,
+      "installOrder": 16,
+      "tags": [
+        "sensor",
+        "data"
+      ],
+      "sources": [
+        {
+          "title": "Radium FST instructions",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          3.545,
+          0.69,
+          0.3
+        ],
+        "size": [
+          0.02,
+          0.04,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Radium Engineering 20-0960 installation instructions (PDF)",
+            "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+          }
+        ],
+        "dimensions": "1/8 NPT, ~20 x 40 mm",
+        "features": "Stainless sealed sensor with connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-delivery.pump-power-and-control",
+      "name": "Fuel pump power & control (PDM channels, inertia/kill interlock)",
+      "qty": 1,
+      "description": "Lift pump and feed pumps powered from PDM outputs (or relays) triggered with the same signal (Radium recommends the surge pump relay be triggered with the primary pump). Pumps must shut off with the master kill switch and on engine stall (safety).",
+      "location": "PDM in cockpit/trunk; wiring through bulkhead grommets.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.lift-pump",
+        "engine-support.fuel-delivery.feed-pumps",
+        "electrical.pdm.pdm",
+        "electrical.power.master-cutoff"
+      ],
+      "raceOptions": [
+        {
+          "name": "PDM channels with staging logic",
+          "brand": "MoTeC / ECUMaster / AiM"
+        }
+      ],
+      "specs": {
+        "Wire": "12-10 AWG to pumps (estimate per current)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Electrical team owns wiring; ensure pumps prime ~2 s at key-on and stop if no rpm."
+      ],
+      "inspection": [
+        "Kill-switch test each event"
+      ],
+      "buildPhase": 8,
+      "installOrder": 17,
+      "tags": [
+        "electrical",
+        "safety"
+      ],
+      "sources": [
+        {
+          "title": "Radium FST instructions",
+          "url": "https://cdn.vividracing.com/file/vr/1072/2023/Radium-Engineering-20-0960-Installation-Ins.pdf"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.fuel-delivery.heat-sleeve",
+      "name": "Fuel line heat sleeve / shields",
+      "qty": 3,
+      "description": "Fiberglass/silicone fire sleeve over hoses near the headers and exhaust, plus reflective shields where the feed line passes near the right collector.",
+      "location": "Engine-bay section of the feed line and anywhere within ~150 mm of exhaust.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.feed-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Firesleeve / DEI Fire Sleeve with clamps",
+          "brand": "DEI / Thermo-Tec"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sleeve end clamps",
+          "qty": 2,
+          "spec": "SS band / hose clamp",
+          "grade": "SS",
+          "torque": "Snug",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check sleeve for oil soak/heat damage"
+      ],
+      "buildPhase": 7,
+      "installOrder": 18,
+      "tags": [
+        "heat",
+        "safety"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.8,
+            0.2,
+            0.55
+          ],
+          [
+            0.68,
+            0.28,
+            0.52
+          ],
+          [
+            0.64,
+            0.36,
+            0.46
+          ],
+          [
+            0.62,
+            0.4,
+            0.42
+          ],
+          [
+            0.6,
+            0.45,
+            0.36
+          ]
+        ],
+        "radius": 0.013
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "~26 mm OD fire sleeve over -8 hose",
+        "features": "Silicone-coated fiberglass sleeve with clamp bands",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

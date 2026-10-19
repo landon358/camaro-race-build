@@ -1,0 +1,530 @@
+{
+  "id": "wheels.wheels",
+  "system": "wheels",
+  "name": "Wheels",
+  "description": "Factory ZL1 1LE: forged aluminum 19x11 front / 19x12 rear (OE offsets ≈ ET11 / ET41). ZL1: 20x10 / 20x11 forged. Race: lightweight forged 18 or 19 in wheels sized for slicks; the brake package decides the minimum diameter (390 mm ZL1 rotors/6-pots need 19 in; Essex 372 mm kits fit 18 in ATS-V-size wheels).",
+  "components": [
+    {
+      "id": "wheels.wheels.front-wheel",
+      "name": "Front wheel",
+      "qty": 2,
+      "description": "Front wheel; width and offset define track, scrub radius and caliper clearance. Stay close to the OE ET11 19x11 geometry unless suspension geometry is re-engineered.",
+      "location": "Front hubs, center y=0.37, z=±0.78.",
+      "connectsTo": [
+        "wheels.front-hubs-bearings.hub-bearing",
+        "brakes.front-rotors.hat",
+        "wheels.studs-and-lug-nuts.lug-nuts",
+        "wheels.tires.front-tire",
+        "wheels.wheels.hub-centric-rings"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE forged aluminum 19x11 front",
+        "notes": "OE offset ≈ ET11 (wheel-size lists 9–13 mm; Apex fitment ET11). ZL1: 20x10 forged, OE ET ≈ 20 (18–22 mm). SS 1LE: 20 in forged with 285/30R20."
+      },
+      "raceOptions": [
+        {
+          "name": "Apex VS-5RS / SM-10RS / ARC-8 19x11 ET9–ET11 (front)",
+          "brand": "Apex Wheels",
+          "notes": "Direct ZL1 1LE fitment; 1LE owners run ~-3.2° front camber.",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-vs-5rs-brushed-clear-1740"
+        },
+        {
+          "name": "Apex 19x11 ET36 (SS 1LE with AP 372 mm kit)",
+          "brand": "Apex Wheels",
+          "notes": "SavageGeese SS 1LE build.",
+          "url": "https://www.essexparts.com/ap-racing-by-essex-brakes-featured-on-savagegeese-camaro-ss-1le-dream-build"
+        },
+        {
+          "name": "Forgeline GS1R / GA3R, BBS FI-R / E88, Forgestar F14, Rays/Volk TE37 (18–19 in, 5x120)",
+          "brand": "Forgeline / BBS / Forgestar / Rays",
+          "notes": "Spec offset/backspace to clear the chosen caliper; ask for a caliper template check."
+        }
+      ],
+      "specs": {
+        "OE (ZL1 1LE)": "19 x 11 in, ET ≈ 11 mm, forged",
+        "OE (ZL1)": "20 x 10 in, ET ≈ 20 mm",
+        "Bolt pattern": "5 x 120",
+        "Center bore": "66.9 mm (some list 67.1)",
+        "Seat": "60° conical"
+      },
+      "hardware": [
+        {
+          "item": "Lug nuts (see wheels.studs-and-lug-nuts.lug-nuts)",
+          "qty": 5,
+          "spec": "M14x1.5 60° conical",
+          "grade": "Steel",
+          "torque": "140 ft-lb (190 N·m)",
+          "torqueSequence": "Star pattern, 2 passes; re-check after first session",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Check caliper-to-spoke clearance (≥ 3 mm) and caliper-to-barrel radial clearance with a template before buying wheels.",
+        "Clean hub face and wheel mounting pad; no paint/corrosion in the clamp area."
+      ],
+      "inspection": [
+        "Inspect for cracks at spokes/lug seats after curb strikes; check runout when mounting tires."
+      ],
+      "buildPhase": 4,
+      "installOrder": 10,
+      "tags": [
+        "wheel",
+        "forged",
+        "19in"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "wheel-size.com – 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
+        },
+        {
+          "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+        },
+        {
+          "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE 19in VS-5RS (front ET9 / rear ET41)",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-vs-5rs-brushed-clear-1740"
+        },
+        {
+          "title": "Essex Parts – AP Racing by Essex brakes on SavageGeese Camaro SS 1LE (372mm CP9668, Apex 19x11 ET36)",
+          "url": "https://www.essexparts.com/ap-racing-by-essex-brakes-featured-on-savagegeese-camaro-ss-1le-dream-build"
+        },
+        {
+          "title": "Elite Performance – AP Racing by Essex Radi-CAL Competition Kit Front CP9660/372mm, Gen 6 Camaro",
+          "url": "https://www.elite-performance.com/products/ap-racing-by-essex-radi-cal-competition-brake-kit-front-cp9660-372mm-gen-6-camaro-cadillac-ats-v-cts-v-v3"
+        },
+        {
+          "title": "wheel-sizes.com – Chevrolet Camaro hub bore",
+          "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0,
+          0.3715,
+          0.776
+        ],
+        "size": [
+          0.518,
+          0.518,
+          0.305
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#2d3035"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Wikimedia Commons – 2018 Camaro ZL1 1LE SCD (factory 19 in forged twin-spoke wheels)",
+            "url": "https://commons.wikimedia.org/wiki/File:2018_Chevrolet_Camaro_ZL1_1LE_SCD_24.jpg"
+          },
+          {
+            "title": "Wikimedia Commons – 2018 Camaro ZL1 1LE (front wheel, red caliper trailing the axle)",
+            "url": "https://commons.wikimedia.org/wiki/File:2018_Chevrolet_Camaro_ZL1_1LE_(53776084528).jpg"
+          },
+          {
+            "title": "Apex Wheels – 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "19 x 11 in forged, ET +11 mm (mount face 11 mm outboard of rim centreline), 5 x 120, 66.9 mm bore; flange OD ~518 mm, overall width ~305 mm",
+        "features": "Satin black forged; 5 pairs of thin twin spokes (one pair straddling each lug), deep concave face because the hub sits near the rim centreline; drop well just behind the spokes so the 390 mm rotor / 6-pot caliper clear the inboard barrel",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "wheels.wheels.rear-wheel",
+      "name": "Rear wheel",
+      "qty": 2,
+      "description": "Rear wheel, wider for the 325-section tire. OE ZL1 1LE is 19x12 ET41.",
+      "location": "Rear hubs, center x=2.811, y=0.37, z=±0.78.",
+      "connectsTo": [
+        "wheels.rear-hubs-bearings.hub-bearing",
+        "brakes.rear-rotors.rotor",
+        "wheels.studs-and-lug-nuts.lug-nuts",
+        "wheels.tires.rear-tire"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE forged aluminum 19x12 rear",
+        "notes": "OE ET ≈ 41 (39–43). ZL1: 20x11 forged, ET ≈ 43 (41–45)."
+      },
+      "raceOptions": [
+        {
+          "name": "Apex 19x12 ET41 (rear)",
+          "brand": "Apex Wheels",
+          "notes": "",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+        },
+        {
+          "name": "Forgeline / BBS / Forgestar 18–19 x 12 in",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "OE (ZL1 1LE)": "19 x 12 in, ET ≈ 41 mm",
+        "OE (ZL1)": "20 x 11 in, ET ≈ 43 mm"
+      },
+      "hardware": [
+        {
+          "item": "Lug nuts",
+          "qty": 5,
+          "spec": "M14x1.5 60° conical",
+          "grade": "Steel",
+          "torque": "140 ft-lb (190 N·m)",
+          "torqueSequence": "Star pattern, 2 passes",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Check inner barrel clearance to rear toe/camber links and the rear caliper."
+      ],
+      "inspection": [
+        "As front."
+      ],
+      "buildPhase": 4,
+      "installOrder": 11,
+      "tags": [
+        "wheel"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "wheel-size.com – 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
+        },
+        {
+          "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.811,
+          0.3715,
+          0.776
+        ],
+        "size": [
+          0.518,
+          0.518,
+          0.33
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#2d3035"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Wikimedia Commons – 2018 Camaro ZL1 1LE SCD (factory 19 in forged twin-spoke wheels)",
+            "url": "https://commons.wikimedia.org/wiki/File:2018_Chevrolet_Camaro_ZL1_1LE_SCD_24.jpg"
+          },
+          {
+            "title": "Apex Wheels – 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "19 x 12 in forged, ET +41 mm, 5 x 120, 66.9 mm bore; flange OD ~518 mm, overall width ~330 mm",
+        "features": "Same twin-spoke design as the front, shallower concave because of the higher offset; satin black",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "wheels.wheels.hub-centric-rings",
+      "name": "Hub-centric rings",
+      "qty": 4,
+      "description": "Rings that fill the gap between a larger aftermarket center bore and the 66.9 mm hub pilot so the wheel is centered by the hub, not only by the nut cones.",
+      "location": "In each wheel center bore.",
+      "connectsTo": [
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel"
+      ],
+      "factory": {
+        "name": "Not required with OE wheels",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Aluminum hub rings 66.9 mm ID x wheel bore OD",
+          "brand": "Wheel maker / generic",
+          "notes": "Aluminum, not plastic, near hot brakes."
+        }
+      ],
+      "specs": {
+        "ID": "66.9 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Push into wheel bore before mounting."
+      ],
+      "inspection": [
+        "Check for distortion."
+      ],
+      "buildPhase": 4,
+      "installOrder": 9,
+      "tags": [
+        "hub-centric"
+      ],
+      "sources": [
+        {
+          "title": "Expressway tire/wheel guide – Camaro center bore 66.9 mm, 5x120, M14x1.5",
+          "url": "https://www.expressway.ph/tires/vehicles/chevrolet/camaro"
+        },
+        {
+          "title": "wheel-sizes.com – Chevrolet Camaro hub bore",
+          "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "size": [
+          0.073,
+          0.073,
+          0.008
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0,
+            0.3715,
+            0.792
+          ],
+          [
+            2.811,
+            0.3715,
+            0.822
+          ]
+        ],
+        "color": "#90a4ae"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "66.9 mm ID (Camaro hub pilot) x wheel-bore OD, ~8 mm thick",
+        "features": "Plastic / aluminium ring, only with aftermarket wheels",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "wheels.wheels.center-caps",
+      "name": "Center caps",
+      "qty": 4,
+      "description": "Cosmetic caps; usually removed on a race car for quick inspection of axle nuts and to save weight (or secured so they cannot fly off).",
+      "location": "Wheel centers.",
+      "connectsTo": [
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel"
+      ],
+      "factory": {
+        "name": "GM bowtie center cap",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Delete",
+          "brand": "n/a",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 15,
+      "tags": [
+        "cosmetic"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.064,
+          0.064,
+          0.008
+        ],
+        "axis": "z",
+        "mirror": true,
+        "instances": [
+          [
+            0,
+            0.3715,
+            0.8290000000000001
+          ],
+          [
+            2.811,
+            0.3715,
+            0.8590000000000001
+          ]
+        ],
+        "color": "#111111"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Wikimedia Commons – 2018 Camaro ZL1 1LE SCD (factory 19 in forged twin-spoke wheels)",
+            "url": "https://commons.wikimedia.org/wiki/File:2018_Chevrolet_Camaro_ZL1_1LE_SCD_24.jpg"
+          }
+        ],
+        "dimensions": "~64 mm snap-in cap in the 66.9 mm bore, flush with the lug face",
+        "features": "Black dome with Chevrolet bowtie",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.wheels.valve-stems",
+      "name": "Valve stems",
+      "qty": 4,
+      "description": "Factory: aluminum clamp-in stems that are part of the TPMS sensor. Race: short metal clamp-in stems with metal caps (rubber snap-ins can fail at track speed).",
+      "location": "Outer rim of each wheel.",
+      "connectsTo": [
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel",
+        "wheels.tpms.tpms-sensors"
+      ],
+      "factory": {
+        "name": "TPMS-integrated clamp-in valve stem",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Metal clamp-in high-speed valve stems with metal caps",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Valve stem clamp nut",
+          "qty": 1,
+          "spec": "Clamp-in stem nut",
+          "grade": "Al",
+          "torque": "≈ 4–7 N·m (35–60 in-lb) per stem maker",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace grommet each tire change",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit with each tire mount."
+      ],
+      "inspection": [
+        "Check caps fitted and no leaks."
+      ],
+      "buildPhase": 4,
+      "installOrder": 13,
+      "tags": [
+        "valve"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "size": [
+          0.012,
+          0.04,
+          0.012
+        ],
+        "axis": "y",
+        "rot": [
+          0,
+          0,
+          216
+        ],
+        "mirror": true,
+        "instances": [
+          [
+            -0.1205,
+            0.5373,
+            0.854
+          ],
+          [
+            2.6905,
+            0.5373,
+            0.864
+          ]
+        ],
+        "color": "#9e9e9e"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "TPMS clamp-in aluminium stem, ~40 mm, through the drop well between two spoke pairs",
+        "features": "Aluminium stem, hex clamp nut, black cap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.wheels.balance-weights",
+      "name": "Wheel balance weights",
+      "qty": 4,
+      "description": "Adhesive weights on the inner barrel. Race balancers often use extra-strength adhesive plus tape, as heat from big brakes softens adhesive.",
+      "location": "Inner barrel of each wheel.",
+      "connectsTo": [
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.rear-wheel"
+      ],
+      "factory": {
+        "name": "Adhesive zinc/steel weights",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Adhesive steel weights + aluminum tape",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Clean barrel with solvent before applying; keep clear of caliper sweep."
+      ],
+      "inspection": [
+        "Check weights present after each session (vibration = lost weight)."
+      ],
+      "buildPhase": 11,
+      "installOrder": 16,
+      "tags": [
+        "balance"
+      ],
+      "sources": []
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "id": "engine.valve-covers",
+  "system": "engine",
+  "name": "Valve Covers",
+  "description": "Valve covers, gaskets, oil fill and breather fittings.",
+  "components": [
+    {
+      "id": "engine.valve-covers.valve-cover",
+      "name": "Valve covers (L & R)",
+      "qty": 2,
+      "description": "Cast valve covers with integrated PCV/fresh-air baffling and coil mounting. With taller aftermarket blowers or shaft rockers, valve covers may need to be clearanced or replaced (Magnuson).",
+      "location": "Top of each cylinder head.",
+      "connectsTo": [
+        "engine.cylinder-heads.cylinder-head",
+        "engine.valvetrain.rocker-arms",
+        "engine.ignition.ignition-coils",
+        "engine.intake-manifold.pcv-system",
+        "engine.valve-covers.valve-cover-gasket"
+      ],
+      "factory": {
+        "name": "GM Gen V valve covers (LT4)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated/billet covers with -10 AN breather ports",
+          "brand": "Holley / Katech / ICT",
+          "notes": "Check rocker and blower clearance."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Valve cover bolt (center-bolt grommet style)",
+          "qty": 10,
+          "spec": "M6 shoulder bolt with grommet (count approximate)",
+          "grade": "",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "Center-out spiral.",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "",
+          "notes": "Summit lists 89 in-lb, Michigan Motorsports 88 in-lb.",
+          "confidence": "verified",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "New gaskets; clean rail; torque center-out."
+      ],
+      "inspection": [
+        "Check for oil weep at rear corners after events."
+      ],
+      "buildPhase": 5,
+      "installOrder": 57,
+      "tags": [
+        "valve-covers"
+      ],
+      "sources": [
+        {
+          "title": "Summit Racing Help Center: Chevrolet LT Gen. 5 LT1/LT2 Torque Specs",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05492/en-us"
+        },
+        {
+          "title": "Michigan Motorsports: LS / LT Engine Torque Specs (2014+ Gen V LT section)",
+          "url": "https://www.michiganmotorsports.com/ls-lt-engine-torque-specs/"
+        },
+        {
+          "title": "Magnuson Magnum DI TVS2650 torque specifications (89-89-57-037 Rev.E)",
+          "url": "https://cdn.vividracing.com/file/vr/207/2023/Magnuson-05-26-62-174-BL-Torque-Specs.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.0327,
+            0.6826,
+            0.2826
+          ],
+          "size": [
+            0.56,
+            0.07,
+            0.2
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0567,
+            0.6826,
+            -0.2826
+          ],
+          "size": [
+            0.56,
+            0.07,
+            0.2
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Moroso 68494 Gen V valve covers with coil mounts",
+            "url": "https://sdparts.com/i-24506503-moroso-68494-valve-covers-gm-lt-coil-pack-mounting-oil-fill-pcv-ports-each-cover-billet-aluminum.html"
+          },
+          {
+            "title": "Speed Engineering 16-24 Camaro SS/ZL1 valve covers",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-valve-covers-satin-black-speed-engineering"
+          },
+          {
+            "title": "Everything you want to know about the GM Gen V LT engine (Holley)",
+            "url": "https://Holley.com/blog/post/everything_you_want_to_know_about_the_gm_gen_v_lt_engine/"
+          }
+        ],
+        "dimensions": "Approx. 560 x 200 x 70 mm",
+        "features": "Black cast covers with rounded ends, 4 coil-mounting pads on the outboard edge, perimeter bolts, oil-fill neck on the driver cover, PCV fitting on the passenger cover",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valve-covers.valve-cover-gasket",
+      "name": "Valve cover gaskets",
+      "qty": 2,
+      "description": "Molded rubber perimeter gaskets (plus bolt grommets).",
+      "location": "Between each valve cover and head.",
+      "connectsTo": [
+        "engine.valve-covers.valve-cover",
+        "engine.cylinder-heads.cylinder-head"
+      ],
+      "factory": {
+        "name": "GM Gen V valve cover gasket",
+        "notes": "Listed in BTR/ICT delete kits."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "fluids": [],
+      "installNotes": [
+        "Install dry into the cover groove; no RTV except at head/front-cover corners if specified."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 56,
+      "tags": [
+        "gasket"
+      ],
+      "sources": [
+        {
+          "title": "Brian Tooley Racing: Gen V DOD/AFM conversion kit",
+          "url": "https://briantooleyracing.com/btr-gen-v-dod-afm-delete-kit.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.0327,
+            0.6588,
+            0.2588
+          ],
+          "size": [
+            0.55,
+            0.003,
+            0.19
+          ],
+          "rot": [
+            45,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.0567,
+            0.6588,
+            -0.2588
+          ],
+          "size": [
+            0.55,
+            0.003,
+            0.19
+          ],
+          "rot": [
+            -45,
+            0,
+            0
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM 12595106 valve cover seal",
+            "url": "https://partshawk.com/acdelco-12595106-engine-camshaft-housing-seal.html"
+          },
+          {
+            "title": "GM 16-24 Camaro LT1 head-removal gasket kit (intake, head, valve cover)",
+            "url": "https://wildhammermotorsports.com/16-24-camaro-ss-lt1-oem-head-removal-gasket-kit-incl-intake-exhaust-throttle-body-valve-cover-general-motors/"
+          }
+        ],
+        "dimensions": "~550 x 190 mm loop",
+        "features": "Moulded rubber O-ring gasket that sits in the head-rail groove",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine.valve-covers.oil-fill-cap-and-breathers",
+      "name": "Oil fill cap & valve-cover breather fittings",
+      "qty": 1,
+      "description": "Oil filler cap and the fresh-air/PCV fittings on the covers. Race cars use a locking/safety-wired cap and AN breather fittings to cans.",
+      "location": "Top of valve covers / oil filler tube.",
+      "connectsTo": [
+        "engine.valve-covers.valve-cover",
+        "engine.intake-manifold.pcv-system",
+        "engine.oil-pan-and-pickup.dipstick-and-fill"
+      ],
+      "factory": {
+        "name": "GM oil filler cap & quick-connect breather fittings",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Breather fitting (race, -10 AN ORB)",
+          "qty": 2,
+          "spec": "7/8-14 ORB",
+          "grade": "",
+          "torque": "18-25 ft-lb (24-34 N·m) (typical for -10 ORB into aluminum)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "tool": "",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "fluids": [],
+      "installNotes": [
+        "Safety-wire or tether the oil cap for tech inspection where required."
+      ],
+      "inspection": [],
+      "buildPhase": 5,
+      "installOrder": 58,
+      "tags": [
+        "breather"
+      ],
+      "sources": [
+        {
+          "title": "Michigan Motorsports: GM 12668614 oil filler tube, 2014+ LT",
+          "url": "https://www.michiganmotorsports.com/cylinder-heads/gm-12668614-oil-filler-tube-for-2014-lt1-lt4-l83-l86-l8b-l8t-5-3l-6-2l-6-6l/"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.177,
+          0.7543,
+          0.2977
+        ],
+        "size": [
+          0.05,
+          0.03,
+          0.05
+        ],
+        "axis": "y",
+        "rot": [
+          45,
+          0,
+          0
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Moroso 68494 Gen V valve covers with coil mounts",
+            "url": "https://sdparts.com/i-24506503-moroso-68494-valve-covers-gm-lt-coil-pack-mounting-oil-fill-pcv-ports-each-cover-billet-aluminum.html"
+          }
+        ],
+        "dimensions": "~50 mm twist cap",
+        "features": "Black ribbed cap with yellow oil-can symbol on the front of the driver cover",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

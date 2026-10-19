@@ -1,0 +1,644 @@
+{
+  "id": "aero.front-splitter",
+  "system": "aero",
+  "name": "Front Splitter",
+  "description": "Flat front splitter (factory ZL1 1LE or race splitter) supported by chassis-mounted brackets underneath and adjustable rods on top, with air dam and skid blocks.",
+  "components": [
+    {
+      "id": "aero.front-splitter.splitter-blade",
+      "name": "Splitter blade",
+      "qty": 1,
+      "description": "Horizontal plane at the base of the front fascia creating front downforce (high pressure on top, accelerated flow beneath). The ZL1 1LE has a larger unique splitter than the standard ZL1. Race splitters are flat carbon, Alumalite/ACP or 1/2 in Baltic birch plywood extended forward per class limits and must be chassis-supported – fascia mounting alone will rip off under load.",
+      "location": "Under front fascia, x ≈ −1.06 … −0.45, y ≈ 0.11, full width z ±0.90.",
+      "connectsTo": [
+        "aero.front-splitter.chassis-mounts",
+        "aero.front-splitter.support-rods",
+        "aero.front-splitter.air-dam",
+        "aero.undertray.front-undertray",
+        "body.panels.front-fascia",
+        "safety.tow-hooks.front-tow-strap"
+      ],
+      "factory": {
+        "name": "GM ZL1 1LE front splitter (larger than ZL1; lower DRL deleted)",
+        "partNumber": "",
+        "notes": "Carbon Flash Metallic splitter option noted as constrained for 2023 (GM Authority)."
+      },
+      "raceOptions": [
+        {
+          "name": "APR Performance carbon fiber front wind splitter with rods – 2016+ Camaro ZL1 1LE",
+          "brand": "APR Performance",
+          "partNumber": "CW-601821",
+          "notes": "Includes support rods.",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        },
+        {
+          "name": "APR Performance carbon splitter with rods – 2016–2018 Camaro SS",
+          "brand": "APR Performance",
+          "partNumber": "CW-602016",
+          "notes": "SS fascia.",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        },
+        {
+          "name": "EOS ZL1 1LE track-package carbon splitter (2019–2023)",
+          "brand": "Extreme Online Store",
+          "partNumber": "",
+          "notes": "Replica of 1LE part.",
+          "url": "https://ffperformance.co/product/eos-2019-2023-chevrolet-camaro-zl1-1le-track-package-carbon-fiber-front-splitter"
+        },
+        {
+          "name": "Custom flat splitter 1/2 in Baltic birch / Alumalite / carbon sandwich",
+          "brand": "Fabricated",
+          "partNumber": "",
+          "notes": "Cheapest to replace after off-track excursions.",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Material": "Carbon / ACP / plywood",
+        "Ground clearance": "≈ 2.5–4 in at race ride height (set for curbs)",
+        "Overhang": "Class-limited"
+      },
+      "hardware": [
+        {
+          "item": "Splitter-to-fascia edge fasteners",
+          "qty": 8,
+          "spec": "Dzus EHF5 or M6 button head into rivnuts",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "https://blog.demon-tweeks.com/?p=6261",
+          "notes": "Edge fasteners only locate; loads go through chassis mounts and rods."
+        }
+      ],
+      "installNotes": [
+        "Set ride height and rake first, then splitter height.",
+        "Mount to chassis brackets, then add rods, then edge fasteners.",
+        "Seal gap between fascia/air dam and splitter."
+      ],
+      "inspection": [
+        "Check for delamination/cracks and bent mounts after curbs.",
+        "Measure splitter height each event (deflection under load)."
+      ],
+      "buildPhase": 10,
+      "installOrder": 1,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Carscoops – 2018 Camaro ZL1 1LE aero package",
+          "url": "https://www.carscoops.com/2017/02/new-2018-chevrolet-camaro-zl1-1le-puts/"
+        },
+        {
+          "title": "Motor Authority – Camaro ZL1 1LE",
+          "url": "https://www.motorauthority.com/news/1109057_the-chevrolet-camaro-zl1-1le-just-arrived-to-destroy-everything"
+        },
+        {
+          "title": "evo – Camaro ZL1 gets hardcore 1LE package",
+          "url": "https://evo.co.uk/news/18903/chevrolet-camaro-zl1-gets-a-hardcore-1le-package"
+        },
+        {
+          "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+          "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+        },
+        {
+          "title": "APR Performance carbon front splitter Camaro ZL1 (CW-601821)",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        },
+        {
+          "title": "EOS ZL1 1LE track package carbon front splitter",
+          "url": "https://ffperformance.co/product/eos-2019-2023-chevrolet-camaro-zl1-1le-track-package-carbon-fiber-front-splitter"
+        },
+        {
+          "title": "FFP – ZL1 1LE conversion front splitter for 6th gen Camaro",
+          "url": "https://ffperformance.co/product/2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter-2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "plate",
+          "outline": [
+            [
+              -0.45,
+              -0.88
+            ],
+            [
+              -0.7,
+              -0.88
+            ],
+            [
+              -0.76,
+              -0.86
+            ],
+            [
+              -0.81,
+              -0.8
+            ],
+            [
+              -0.865,
+              -0.71
+            ],
+            [
+              -0.915,
+              -0.62
+            ],
+            [
+              -0.96,
+              -0.52
+            ],
+            [
+              -0.985,
+              -0.4
+            ],
+            [
+              -1.01,
+              -0.2
+            ],
+            [
+              -1.02,
+              0
+            ],
+            [
+              -1.01,
+              0.2
+            ],
+            [
+              -0.985,
+              0.4
+            ],
+            [
+              -0.96,
+              0.52
+            ],
+            [
+              -0.915,
+              0.62
+            ],
+            [
+              -0.865,
+              0.71
+            ],
+            [
+              -0.81,
+              0.8
+            ],
+            [
+              -0.76,
+              0.86
+            ],
+            [
+              -0.7,
+              0.88
+            ],
+            [
+              -0.45,
+              0.88
+            ]
+          ],
+          "y": 0.115,
+          "thickness": 0.012
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM ZL1 1LE OEM front splitter kit (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/camaro-zl1-1le-oem-front-splitter-kit-general-motors"
+          },
+          {
+            "title": "GM ZL1 1LE splitter, grille & dive-plane kit",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-1le-splitter-grille-dive-plane-kit-general-motors/"
+          },
+          {
+            "title": "GM Authority: 2018 Camaro ZL1 1LE aero (dive planes, splitter, carbon wing)",
+            "url": "https://gmauthority.com/blog/2017/02/hot-or-not-2018-chevrolet-camaro-zl1-1le/"
+          }
+        ],
+        "dimensions": "~1.76 m wide, extends ~60 mm ahead of the fascia, 12 mm board",
+        "features": "Flat splitter following the ZL1 1LE fascia plan shape, rod-supported at the front corners",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.front-splitter.chassis-mounts",
+      "name": "Splitter chassis mounts (under-car brackets)",
+      "qty": 4,
+      "description": "Steel or aluminum brackets from the front crash beam / subframe down to the splitter that carry vertical downforce load directly into the chassis.",
+      "location": "Under front of car, x ≈ −0.60 … −0.45, y ≈ 0.12–0.30, z ≈ ±0.20, ±0.45.",
+      "connectsTo": [
+        "aero.front-splitter.splitter-blade",
+        "chassis.front-bumper-beam",
+        "suspension.front-subframe.subframe"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "1 x 1 x .083 square tube or 3/16 in aluminum angle"
+      },
+      "hardware": [
+        {
+          "item": "Bracket-to-chassis bolts",
+          "qty": 2,
+          "spec": "M8 x 1.25 + nyloc / into existing beam/subframe holes",
+          "grade": "ISO 10.9",
+          "torque": "18.4 ft-lb (25 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Splitter-to-bracket bolts",
+          "qty": 2,
+          "spec": "M8 or 5/16-18 countersunk + large fender washer + nyloc",
+          "grade": "ISO 8.8 / Grade 8",
+          "torque": "14.8 ft-lb (20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Use large washers/backing plates on wood or ACP splitters to prevent pull-through."
+        }
+      ],
+      "installNotes": [
+        "Do not drill crash beam in a way that weakens it; use clamps/existing holes where possible."
+      ],
+      "inspection": [
+        "Check bolts and bracket cracks."
+      ],
+      "buildPhase": 10,
+      "installOrder": 2,
+      "tags": [],
+      "sources": [
+        {
+          "title": "APR Performance carbon front splitter Camaro ZL1 (CW-601821)",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.55,
+            0.2,
+            0.2
+          ],
+          "size": [
+            0.05,
+            0.16,
+            0.04
+          ],
+          "instances": [
+            [
+              -0.55,
+              0.2,
+              0.2
+            ],
+            [
+              -0.55,
+              0.2,
+              -0.2
+            ],
+            [
+              -0.5,
+              0.2,
+              0.45
+            ],
+            [
+              -0.5,
+              0.2,
+              -0.45
+            ]
+          ],
+          "color": "#7f8c8d"
+        }
+      ]
+    },
+    {
+      "id": "aero.front-splitter.support-rods",
+      "name": "Splitter support rods (adjustable)",
+      "qty": 2,
+      "description": "Turnbuckle-style rods from the splitter outer edges up to the bumper beam/core support (APR splitters include rods). They stop the outer corners deflecting downward at speed.",
+      "location": "Splitter corners (x ≈ −0.95, z ±0.55) up to bumper beam (x ≈ −0.80, y ≈ 0.45).",
+      "connectsTo": [
+        "aero.front-splitter.splitter-blade",
+        "chassis.front-bumper-beam"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "APR splitter support rods (included with CW-601821)",
+          "brand": "APR Performance",
+          "partNumber": "",
+          "notes": "",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        }
+      ],
+      "specs": {
+        "Rod": "Aluminum/steel rod with rod ends, length adjustable"
+      },
+      "hardware": [
+        {
+          "item": "Rod-end mounting bolts",
+          "qty": 2,
+          "spec": "M6 or 1/4-28 bolt + nyloc through rod end",
+          "grade": "ISO 8.8 / Grade 8",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Jam nuts",
+          "qty": 2,
+          "spec": "Rod-end jam nut",
+          "grade": "Steel",
+          "torque": "7.4 ft-lb (10 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Adjust rods to hold splitter flat (or slight rake) – do not preload so much it bows."
+      ],
+      "inspection": [
+        "Check jam nuts and rod ends."
+      ],
+      "buildPhase": 10,
+      "installOrder": 3,
+      "tags": [],
+      "sources": [
+        {
+          "title": "APR Performance carbon front splitter Camaro ZL1 (CW-601821)",
+          "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.95,
+              0.125,
+              0.55
+            ],
+            [
+              -0.88,
+              0.28,
+              0.5
+            ],
+            [
+              -0.8,
+              0.45,
+              0.45
+            ]
+          ],
+          "radius": 0.006,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.95,
+              0.125,
+              -0.55
+            ],
+            [
+              -0.88,
+              0.28,
+              -0.5
+            ],
+            [
+              -0.8,
+              0.45,
+              -0.45
+            ]
+          ],
+          "radius": 0.006,
+          "color": "#bdc3c7"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM ZL1 1LE OEM front splitter kit (Wildhammer)",
+            "url": "https://wildhammermotorsports.com/camaro-zl1-1le-oem-front-splitter-kit-general-motors"
+          }
+        ],
+        "dimensions": "~6 mm rods with rod ends, adjustable",
+        "features": "Aluminium rods from the splitter front corners up to the bumper beam",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "aero.front-splitter.air-dam",
+      "name": "Air dam / fascia lip",
+      "qty": 1,
+      "description": "Vertical lip at the fascia leading edge that seals the splitter to the fascia and limits air going under the car.",
+      "location": "x ≈ −0.98, y ≈ 0.12–0.28, full width.",
+      "connectsTo": [
+        "aero.front-splitter.splitter-blade",
+        "body.panels.front-fascia"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rivets / screws",
+          "qty": 12,
+          "spec": "3/16 rivets or M6 into rivnuts",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check for cracks."
+      ],
+      "buildPhase": 10,
+      "installOrder": 4,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "wall",
+          "edge": [
+            [
+              -0.72,
+              -0.84
+            ],
+            [
+              -0.76,
+              -0.8
+            ],
+            [
+              -0.81,
+              -0.71
+            ],
+            [
+              -0.86,
+              -0.62
+            ],
+            [
+              -0.905,
+              -0.52
+            ],
+            [
+              -0.93,
+              -0.4
+            ],
+            [
+              -0.955,
+              -0.2
+            ],
+            [
+              -0.965,
+              0
+            ],
+            [
+              -0.955,
+              0.2
+            ],
+            [
+              -0.93,
+              0.4
+            ],
+            [
+              -0.905,
+              0.52
+            ],
+            [
+              -0.86,
+              0.62
+            ],
+            [
+              -0.81,
+              0.71
+            ],
+            [
+              -0.76,
+              0.8
+            ],
+            [
+              -0.72,
+              0.84
+            ]
+          ],
+          "y0": 0.121,
+          "height": 0.09
+        }
+      ]
+    },
+    {
+      "id": "aero.front-splitter.skid-blocks",
+      "name": "Splitter skid blocks / wear strips",
+      "qty": 4,
+      "description": "Replaceable UHMW/phenolic or titanium skid blocks under the splitter so curb contact wears blocks, not the splitter.",
+      "location": "Splitter underside near mounts.",
+      "connectsTo": [
+        "aero.front-splitter.splitter-blade"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Countersunk screws",
+          "qty": 2,
+          "spec": "M6 flat-head + nyloc",
+          "grade": "Stainless",
+          "torque": "4.4 ft-lb (6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Replace when worn to screw heads."
+      ],
+      "buildPhase": 10,
+      "installOrder": 5,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.8,
+            0.1,
+            0.4
+          ],
+          "size": [
+            0.08,
+            0.008,
+            0.04
+          ],
+          "instances": [
+            [
+              -0.8,
+              0.1,
+              0.4
+            ],
+            [
+              -0.8,
+              0.1,
+              -0.4
+            ],
+            [
+              -0.6,
+              0.1,
+              0.2
+            ],
+            [
+              -0.6,
+              0.1,
+              -0.2
+            ]
+          ],
+          "color": "#f39c12"
+        }
+      ]
+    }
+  ]
+}

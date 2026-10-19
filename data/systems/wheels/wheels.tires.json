@@ -1,0 +1,188 @@
+{
+  "id": "wheels.tires",
+  "system": "wheels",
+  "name": "Tires",
+  "description": "Factory ZL1 1LE: Goodyear Eagle F1 SuperCar 3R 305/30R19 front, 325/30R19 rear (good for ~1.10 g). ZL1: Eagle F1 SuperCar 3 285/30ZR20 / 305/30ZR20. Race: DOT R-compound or slicks on 18\u201319 in wheels; pressures set by hot targets measured immediately after the session.",
+  "components": [
+    {
+      "id": "wheels.tires.front-tire",
+      "name": "Front tire",
+      "qty": 2,
+      "description": "Front tire. On a 3,700 lb car the fronts carry braking load and turn-in; pick a size that the front arch and steering lock tolerate at full bump with camber.",
+      "location": "Front wheels.",
+      "connectsTo": [
+        "wheels.wheels.front-wheel",
+        "wheels.wheels.valve-stems",
+        "body.fenders.front-fender"
+      ],
+      "factory": {
+        "name": "Goodyear Eagle F1 SuperCar 3R 305/30R19 (ZL1 1LE)",
+        "notes": "Load/speed 98Y per wheel-size. ZL1: Eagle F1 SuperCar 3 285/30ZR20. Door placard pressure 35 psi (2.4 bar) cold for street."
+      },
+      "raceOptions": [
+        {
+          "name": "Hoosier R7 (DOT R-compound), e.g. 315/30R18 or 305/35R19-class sizes",
+          "brand": "Hoosier",
+          "notes": "Common NASA/SCCA time-trial/racing tire; confirm available sizes."
+        },
+        {
+          "name": "Goodyear Eagle RS / Racing Eagle slicks",
+          "brand": "Goodyear",
+          "notes": ""
+        },
+        {
+          "name": "Pirelli P Zero DHD/DHF slick, Michelin Pilot Sport GT/S9, Yokohama Advan A005/A052",
+          "brand": "Pirelli / Michelin / Yokohama",
+          "notes": "Choose per series spec tire."
+        }
+      ],
+      "specs": {
+        "OE size (1LE)": "305/30R19",
+        "OE diameter (calc.)": "\u2248 666 mm",
+        "Street cold pressure": "35 psi (placard)",
+        "Race hot target (typical starting point)": "R-compound \u2248 36\u201340 psi hot; slicks \u2248 28\u201334 psi hot \u2013 use tire maker data and pyrometer",
+        "Race cold start (typical)": "\u2248 4\u20138 psi below hot target"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Mount with a new valve core/grommet; balance; set cold pressure from previous session's hot data."
+      ],
+      "inspection": [
+        "Hot pressures and probe temps (inside/middle/outside) immediately after each session.",
+        "Tread depth/heat cycles log; look for chunking and cords."
+      ],
+      "buildPhase": 11,
+      "installOrder": 20,
+      "tags": [
+        "tire",
+        "goodyear",
+        "r-compound"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "wheel-size.com \u2013 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
+        },
+        {
+          "title": "Apex Wheels \u2013 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
+          "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          0,
+          0.3715,
+          0.776
+        ],
+        "size": [
+          0.666,
+          0.666,
+          0.305
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#1b1b1b"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Apex Wheels \u2013 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) \u2013 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "Drawn 743 x 337 mm to match the reference body mesh; a true 305/30ZR19 is ~666 mm OD x 305 mm section on a 19x11 rim | Real size used: 305/30ZR19 = 666 mm dia front, 325/30ZR19 = 677 mm rear (the reference body mesh tyres are oversized at 743 mm).",
+        "features": "Goodyear Eagle F1 Supercar 3R: near-slick crown with two circumferential grooves, square shoulders, rim protector rib",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.tires.rear-tire",
+      "name": "Rear tire",
+      "qty": 2,
+      "description": "Rear driven tire. Size it for traction out of slow corners with 650+ hp.",
+      "location": "Rear wheels.",
+      "connectsTo": [
+        "wheels.wheels.rear-wheel",
+        "wheels.wheels.valve-stems"
+      ],
+      "factory": {
+        "name": "Goodyear Eagle F1 SuperCar 3R 325/30R19 (ZL1 1LE)",
+        "notes": "101Y. ZL1: Eagle F1 SuperCar 3 305/30ZR20."
+      },
+      "raceOptions": [
+        {
+          "name": "Hoosier R7 / slicks (\u2248 325\u2013345 section)",
+          "brand": "Hoosier / Goodyear / Pirelli / Michelin",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "OE size (1LE)": "325/30R19",
+        "OE diameter (calc.)": "\u2248 678 mm",
+        "Race hot target": "As front (rear often 1\u20132 psi lower)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "As front."
+      ],
+      "inspection": [
+        "As front."
+      ],
+      "buildPhase": 11,
+      "installOrder": 21,
+      "tags": [
+        "tire"
+      ],
+      "sources": [
+        {
+          "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide & specifications (GM media)",
+          "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+        },
+        {
+          "title": "wheel-size.com \u2013 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
+        }
+      ],
+      "model": {
+        "shape": "torus",
+        "pos": [
+          2.811,
+          0.3715,
+          0.776
+        ],
+        "size": [
+          0.677,
+          0.677,
+          0.325
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#1b1b1b"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Apex Wheels \u2013 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
+          },
+          {
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) \u2013 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "Drawn 743 x 337 mm to match the reference body mesh; a true 325/30ZR19 is ~678 mm OD x 325 mm section on a 19x12 rim | Real size used: 305/30ZR19 = 666 mm dia front, 325/30ZR19 = 677 mm rear (the reference body mesh tyres are oversized at 743 mm).",
+        "features": "Goodyear Eagle F1 Supercar 3R, two circumferential grooves",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

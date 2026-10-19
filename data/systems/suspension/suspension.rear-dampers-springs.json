@@ -1,0 +1,441 @@
+{
+  "id": "suspension.rear-dampers-springs",
+  "system": "suspension",
+  "name": "Rear Shocks & Springs",
+  "description": "Factory rear uses a separate coil spring seated in the lower control arm pocket and a shock mounted from the LCA to the body shock pad (3 nuts). ZL1 = MRC monotube; ZL1 1LE = Multimatic DSSV (hard-mounted, auto vs manual specific tune). Race option: keep the split spring/shock layout with race shocks and springs, or convert to rear coilovers with coilover-specific LCAs.",
+  "components": [
+    {
+      "id": "suspension.rear-dampers-springs.shock",
+      "name": "Rear shock absorber / damper",
+      "qty": 2,
+      "description": "Rear damper from the outboard end of the lower control arm up to the body shock pad. On the factory layout the LCA motion ratio at the shock is below 1, so damping must be valved for that ratio. The lower bolt is a torque-angle single-use bolt.",
+      "location": "Lower mount on LCA approx (x 2.84, y 0.21, z +/-0.62) to upper mount approx (x 2.75, y 0.70, z +/-0.58).",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-dampers-springs.upper-shock-mount",
+        "chassis.unibody.rear-shock-towers",
+        "suspension.bump-stops-and-limiters.rear-jounce-bumper",
+        "suspension.ride-height-sensors.position-sensors"
+      ],
+      "factory": {
+        "name": "ZL1: MRC monotube; ZL1 1LE: Multimatic DSSV (hard mounted)",
+        "notes": "1LE rear tune differs between manual and 10-speed automatic cars (GM bulletin 19-NA-038). SG3 kit 84408106 includes non-MRC rear shocks + new lower bolts."
+      },
+      "raceOptions": [
+        {
+          "name": "Multimatic DSSV (factory 1LE) retained",
+          "brand": "Multimatic / GM",
+          "notes": ""
+        },
+        {
+          "name": "Double/triple-adjustable race shocks (Penske, JRi, MCS, Öhlins)",
+          "brand": "Penske / JRi / MCS / Öhlins",
+          "notes": "Build to factory eye-to-eye and mounting, or as coilovers with BMR LCA361/LCA362."
+        },
+        {
+          "name": "KW V3 / Clubsport rear dampers",
+          "brand": "KW",
+          "notes": "Verify Gen 6 fitment/type (split spring vs coilover rear)."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear shock absorber lower bolt (shock to LCA)",
+          "qty": 1,
+          "spec": "Flange bolt + nut (15/18 mm per BMR); GM P/N 11609598 per BMR list",
+          "grade": "OE TTY",
+          "partNumber": "GM 11609598",
+          "torque": "74 ft-lb (100 N·m) first pass",
+          "torqueSequence": "First pass 100 N·m (74 lb ft), final pass +90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY) - GM: discard bolt",
+          "notes": "BMR cradle-bushing instructions quote 83 ft-lb straight torque; use the GM torque-angle value with a new bolt.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "item": "Rear shock upper mount nuts (to body)",
+          "qty": 3,
+          "spec": "M8 flange nut, 15 mm hex (BMR) ",
+          "grade": "OE",
+          "torque": "32 ft-lb (43 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "15 mm socket",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Remove rear wheelhouse liner (retainers, screws, 2 fascia bolts) for access to the upper nuts.",
+        "Support LCA with a jack; remove lower bolt (discard), then the 3 upper nuts.",
+        "Install new shock: upper nuts 43 N·m, new lower bolt 100 N·m + 90-105 deg."
+      ],
+      "inspection": [
+        "Check for leaks and top mount condition; record clicker settings."
+      ],
+      "buildPhase": 3,
+      "installOrder": 60,
+      "tags": [
+        "shock",
+        "damper",
+        "dssv",
+        "mrc"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions 84408106",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.95,
+              0.245,
+              0.625
+            ],
+            [
+              2.93,
+              0.73,
+              0.57
+            ]
+          ],
+          "radius": 0.025,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "GM bulletin: ZL1 1LE DSSV dampers hard-mounted, front struts with aluminium bodies",
+            "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+          },
+          {
+            "title": "Chevrolet 2019 Camaro ZL1 product guide (suspension types, ZF EPS, track 1610/1591 mm, DSSV, 3-way rear bar)",
+            "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+          }
+        ],
+        "dimensions": "approx 50 mm body, approx 490 mm eye-to-top",
+        "features": "Monotube shock behind the halfshaft: bushed lower eye on the knuckle, body, rod, threaded top through the shock tower",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-dampers-springs.upper-shock-mount",
+      "name": "Rear shock upper mount, rod nut and boot",
+      "qty": 2,
+      "description": "Upper mount assembly (3 studs) transferred from the old shock to the new one together with the dust boot and jounce bumper. The rod nut is torqued by hand tool only.",
+      "location": "Top of rear shock at body pad, approx (x 2.75, y 0.70, z +/-0.58).",
+      "connectsTo": [
+        "suspension.rear-dampers-springs.shock",
+        "chassis.unibody.rear-shock-towers"
+      ],
+      "factory": {
+        "name": "GM rear shock upper mount + nut + boot",
+        "notes": "Label the old shock before transferring parts (GM)."
+      },
+      "raceOptions": [
+        {
+          "name": "Spherical-bearing race upper mount",
+          "brand": "Damper manufacturer / fabricated",
+          "notes": "Required for coilover conversion if the stock pad mount is not designed for spring load."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear shock absorber rod nut",
+          "qty": 1,
+          "spec": "Rod nut",
+          "grade": "OE",
+          "torque": "15 ft-lb (20 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable (GM SG3: reuse)",
+          "notes": "No impact gun on rod nuts (GM).",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Check rubber for cracking (non-1LE)."
+      ],
+      "buildPhase": 3,
+      "installOrder": 61,
+      "tags": [
+        "shock-mount"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.9294,
+            0.745,
+            0.5683
+          ],
+          "size": [
+            0.12,
+            0.03,
+            0.12
+          ],
+          "axis": "y",
+          "rot": [
+            -6.5,
+            0,
+            2.3
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 120 mm, 3 studs",
+        "features": "Rubber-isolated 3-stud upper mount (1LE hard mounted) with rod nut (items 6/7)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-dampers-springs.coil-spring",
+      "name": "Rear coil spring (on lower control arm)",
+      "qty": 2,
+      "description": "Separate rear coil spring between the LCA spring pocket and a body spring seat, inboard of the shock. Because it sits partway along the LCA, its motion ratio is well below 1 - wheel rate is approx spring rate x MR^2, so rear springs are much stiffer than the wheel rate they produce. Spring tag goes at the top (toward upper insulator).",
+      "location": "Approx (x 2.88, y 0.24-0.44, z +/-0.50).",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-dampers-springs.spring-insulators",
+        "chassis.unibody.rear-rails"
+      ],
+      "factory": {
+        "name": "GM rear coil spring (rate by RPO)",
+        "notes": "Not published."
+      },
+      "raceOptions": [
+        {
+          "name": "Race rear spring for factory pocket (Eibach, Hyperco - custom)",
+          "brand": "Eibach / Hyperco",
+          "notes": "Barrel/pigtail ends must match the pocket and insulators."
+        },
+        {
+          "name": "Rear coilover conversion (see coilover-conversion)",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Motion ratio": "Approx 0.55-0.65 at spring pocket (estimate)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Compress spring by raising LCA with a jack; never let the LCA drop with spring loaded (GM warning).",
+        "Ensure spring is seated in both insulators with insulator stops against the last coil."
+      ],
+      "inspection": [
+        "Check seating and insulator wear."
+      ],
+      "buildPhase": 3,
+      "installOrder": 62,
+      "tags": [
+        "spring",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.915,
+            0.3175,
+            0.52
+          ],
+          "size": [
+            0.12,
+            0.165,
+            0.12
+          ],
+          "axis": "y",
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 rear suspension parts list (knuckle 84755517, LCA 84382226, toe link 85550692, cradle mount 84053251)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--rear-suspension"
+          }
+        ],
+        "dimensions": "approx 120 mm OD x 165 mm installed",
+        "features": "Coil spring seated in the lower control arm pocket and under the body rail (items 9/10/11)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.rear-dampers-springs.spring-insulators",
+      "name": "Rear spring insulators (upper and lower)",
+      "qty": 4,
+      "description": "Rubber insulators at both ends of the rear spring, with stops that locate the last coil.",
+      "location": "Spring ends at the LCA pocket and body seat.",
+      "connectsTo": [
+        "suspension.rear-dampers-springs.coil-spring",
+        "suspension.rear-links.lower-control-arm"
+      ],
+      "factory": {
+        "name": "GM rear coil spring upper/lower insulators",
+        "notes": "Reused per GM SG3."
+      },
+      "raceOptions": [
+        {
+          "name": "Delrin/aluminum spring seats (race)",
+          "brand": "Fabricated",
+          "notes": "Removes compliance; can also be used to fine-tune rear ride height with shims."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Insulator stop against the last coil, top and bottom."
+      ],
+      "inspection": [],
+      "buildPhase": 3,
+      "installOrder": 63,
+      "tags": [
+        "insulator"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ]
+    },
+    {
+      "id": "suspension.rear-dampers-springs.coilover-conversion",
+      "name": "Rear coilover conversion (race option)",
+      "qty": 2,
+      "description": "Moves the rear spring onto the damper (coilover) at the shock location, removing the factory spring pocket load. Gives threaded-perch ride height/corner-weight adjustment and lets spring rates be changed quickly. Requires coilover-specific LCAs (e.g. BMR LCA361/LCA362) and reinforcement of the rear shock pads since they now carry full spring load.",
+      "location": "At the rear shock location.",
+      "connectsTo": [
+        "suspension.rear-links.lower-control-arm",
+        "chassis.unibody.rear-shock-towers",
+        "chassis.strut-tower-and-chassis-braces.rear-shock-tower-brace"
+      ],
+      "factory": {
+        "name": "N/A",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR LCA361 / LCA362 coilover lower control arms",
+          "brand": "BMR Suspension",
+          "partNumber": "LCA361 / LCA362",
+          "notes": "Note camber bolt position before removal; reuse factory shock, camber and spindle hardware.",
+          "url": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        }
+      ],
+      "specs": {
+        "Typical race rear coilover spring": "approx 700-1100 lb/in (estimate; depends on motion ratio and aero)"
+      },
+      "hardware": [
+        {
+          "item": "LCA to chassis (cam bolt) - BMR coilover arm",
+          "qty": 1,
+          "spec": "Factory cam bolt hardware",
+          "grade": "OE TTY",
+          "torque": "85 ft-lb (115 N·m)",
+          "torqueSequence": "85 ft-lb + 90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        },
+        {
+          "item": "LCA to spindle - BMR coilover arm",
+          "qty": 1,
+          "spec": "Factory bolt/nut",
+          "grade": "OE TTY",
+          "torque": "111 ft-lb (150 N·m)",
+          "torqueSequence": "111 ft-lb + 90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        },
+        {
+          "item": "Lower shock mount - BMR coilover arm",
+          "qty": 1,
+          "spec": "Factory shock bolt",
+          "grade": "OE TTY",
+          "torque": "74 ft-lb (100 N·m)",
+          "torqueSequence": "74 ft-lb + 90-105 deg",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace (TTY)",
+          "confidence": "verified",
+          "source": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        }
+      ],
+      "installNotes": [
+        "Professional alignment required after installation (BMR)."
+      ],
+      "inspection": [
+        "Check shock pad for cracking."
+      ],
+      "buildPhase": 3,
+      "installOrder": 64,
+      "tags": [
+        "coilover",
+        "conversion"
+      ],
+      "sources": [
+        {
+          "title": "BMR LCA361 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/LCA361.pdf"
+        },
+        {
+          "title": "Wildhammer - BMR LCA362 listing",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-rear-lower-shock-arms-adjustable-bmr"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "id": "chassis.seam-welding-and-reinforcement",
+  "system": "chassis",
+  "name": "Seam Welding & Structural Reinforcement",
+  "description": "Stitch/seam welding of factory spot-welded seams and local reinforcement plates at high-load hard points (strut towers, cradle mounts, cage feet). Done on the bare shell before cage installation and paint.",
+  "components": [
+    {
+      "id": "chassis.seam-welding-and-reinforcement.front-structure-stitch-welds",
+      "name": "Front structure stitch welds (rails, aprons, strut towers, dash)",
+      "qty": 1,
+      "description": "Short MIG stitch welds added between factory spot welds along the front rail flanges, the strut-tower-to-apron seams, the tower-to-rail joint and the dash-to-tower junction. This prevents spot-weld peel and seam slip under racing loads and raises torsional stiffness, especially at the front where the Gen 6 strut towers carry the full front spring/damper load.",
+      "location": "Engine bay: front rails, strut towers (x approx -0.1 to 0.2, y 0.5-0.85, z +/-0.5), dash/cowl junction.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "chassis.unibody.front-frame-rails",
+        "chassis.unibody.dash-panel-and-cowl"
+      ],
+      "factory": {
+        "name": "Factory spot welds + structural adhesive",
+        "notes": "GM uses spot welds and structural adhesive. Adhesive and sealer must be ground/burned away locally before stitch welding (fumes are toxic; ventilate and wear a respirator)."
+      },
+      "raceOptions": [
+        {
+          "name": "Stitch weld pattern: 25 mm (1 in) bead every 50-75 mm, alternating sides",
+          "brand": "Fabricator practice",
+          "notes": "Short, cool stitches minimize heat distortion and burn-through of thin (0.7-1.2 mm) sheet. Fully continuous seams are not necessary and add distortion/weight."
+        }
+      ],
+      "specs": {
+        "Process": "MIG (GMAW), ER70S-6 0.023-0.030 in wire, 75/25 Ar/CO2",
+        "Typical stitch": "1 in weld / 1-2 in gap, staggered",
+        "Prep": "Strip seam sealer, adhesive and e-coat to bright metal 10 mm each side"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Measure the shell (cradle mount diagonals, tower-to-tower) before welding and fixture/brace the body so it cannot move.",
+        "Strip sealer and paint along each seam with a wire wheel / stripping disc; remove adhesive with heat gun and scraper.",
+        "Weld in a skip pattern, alternating side-to-side and front-to-rear to spread heat; let areas cool before continuing.",
+        "Re-measure, then re-seal seams with seam sealer and prime (see chassis.corrosion-and-coatings)."
+      ],
+      "inspection": [
+        "Inspect weld toes at strut towers for cracking after first race weekend and every few events thereafter."
+      ],
+      "buildPhase": 1,
+      "installOrder": 12,
+      "tags": [
+        "seam-weld",
+        "stitch-weld",
+        "front-structure"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.05,
+            0.72,
+            0.5
+          ],
+          "size": [
+            0.3,
+            0.3,
+            0.04
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "zone approx 300 x 300 mm",
+        "features": "25 mm MIG stitches along the tower/apron seams",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.seam-welding-and-reinforcement.underbody-stitch-welds",
+      "name": "Underbody stitch welds (floor-to-rocker, tunnel, seat cross-members)",
+      "qty": 1,
+      "description": "Stitch welds along the floor-to-rocker seam, floor-to-tunnel seams and seat cross-member flanges, done mostly from inside the cockpit with the interior stripped. These seams carry the main torsional shear path between front and rear structures.",
+      "location": "Cockpit floor, x approx 0.75-2.6.",
+      "connectsTo": [
+        "chassis.unibody.rocker-sills",
+        "chassis.unibody.floor-pan",
+        "chassis.floor-and-tunnel.tunnel"
+      ],
+      "factory": {
+        "name": "Factory spot welds",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Process": "MIG stitch, same parameters as front structure"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Remove all deadener first (dry ice or heat gun + scraper).",
+        "Remove fuel and brake lines from the underside before welding near them, or shield them; route new lines after welding (phase 2)."
+      ],
+      "inspection": [
+        "Check for cracking near cage feet and seat mounts."
+      ],
+      "buildPhase": 1,
+      "installOrder": 13,
+      "tags": [
+        "seam-weld",
+        "floor"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          1.6,
+          0.18,
+          0.8
+        ],
+        "size": [
+          1.7,
+          0.02,
+          0.03
+        ],
+        "mirror": true,
+        "color": "#ff7a00"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "zone along the sills",
+        "features": "MIG stitch beads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.seam-welding-and-reinforcement.rear-structure-stitch-welds",
+      "name": "Rear structure stitch welds (rear rails, shock towers, wheelhouses)",
+      "qty": 1,
+      "description": "Stitch welds at the rear rail flanges, rear wheelhouse-to-shock-tower seams and the rear floor kick-up. The rear cradle bushings and braces feed tractive and cornering loads into this area.",
+      "location": "Rear wheelhouses and trunk, x approx 2.4-3.3.",
+      "connectsTo": [
+        "chassis.unibody.rear-rails",
+        "chassis.unibody.rear-shock-towers",
+        "suspension.rear-cradle.cradle-bushings"
+      ],
+      "factory": {
+        "name": "Factory spot welds",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Remove fuel tank, rear cradle and all trim from the rear area before welding."
+      ],
+      "inspection": [
+        "Check rear cradle mount areas for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 14,
+      "tags": [
+        "seam-weld",
+        "rear-structure"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2.75,
+          0.55,
+          0.62
+        ],
+        "size": [
+          0.4,
+          0.3,
+          0.04
+        ],
+        "mirror": true,
+        "color": "#ff7a00"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "zone at the rear wheelhouses",
+        "features": "MIG stitch beads",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.seam-welding-and-reinforcement.cradle-mount-reinforcements",
+      "name": "Cradle mount reinforcement plates (front and rear)",
+      "qty": 8,
+      "description": "Steel doubler/spreader plates welded around the front and rear cradle mounting points on the rails. Recommended when the cradles are solid-mounted (rubber isolators removed), because the body then sees sharper load peaks at these 8 points.",
+      "location": "Front cradle mounts approx (x -0.38 and 0.12, y 0.30, z +/-0.42); rear cradle mounts approx (x 2.45 and 3.08, y 0.40, z +/-0.48).",
+      "connectsTo": [
+        "suspension.front-cradle.cradle-mounts",
+        "suspension.rear-cradle.cradle-bushings",
+        "chassis.unibody.front-frame-rails",
+        "chassis.unibody.rear-rails"
+      ],
+      "factory": {
+        "name": "None (factory relies on rail section and captured nut plate)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated 3-4 mm (0.120-0.160 in) steel doubler plates",
+          "brand": "Fabricator built",
+          "notes": "Plug weld + perimeter stitch; keep the captured-nut bore concentric and do not distort the nut plate."
+        }
+      ],
+      "specs": {
+        "Plate": "3-4 mm mild steel or 4130 (if TIG)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Install the cradle loosely (with bolts) before welding the plates to keep holes aligned; remove cradle before final welding."
+      ],
+      "inspection": [
+        "Check for cracking at plate perimeters."
+      ],
+      "buildPhase": 1,
+      "installOrder": 15,
+      "tags": [
+        "reinforcement",
+        "cradle-mount"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.3,
+            0.398,
+            0.46
+          ],
+          "size": [
+            0.1,
+            0.006,
+            0.1
+          ],
+          "instances": [
+            [
+              -0.3,
+              0.398,
+              0.46
+            ],
+            [
+              -0.3,
+              0.398,
+              -0.46
+            ],
+            [
+              0.38,
+              0.293,
+              0.45
+            ],
+            [
+              0.38,
+              0.293,
+              -0.45
+            ],
+            [
+              2.36,
+              0.403,
+              0.48
+            ],
+            [
+              2.36,
+              0.403,
+              -0.48
+            ],
+            [
+              3.14,
+              0.413,
+              0.46
+            ],
+            [
+              3.14,
+              0.413,
+              -0.46
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro front cradle mounting diagram: cradle, 4 isolators, TTY bolts, lower brace bar and brackets",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/c02b49f8fe0954d46ad8492e17127e20/5e6fad87434ca647dd1ae217c728d6a8.png"
+          },
+          {
+            "title": "GM Gen 6 Camaro rear suspension exploded diagram: 5 links, knuckle with 3 bushings, shock, spring, stabilizer, cradle with 4 mounts",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/47a5314e3d2e585f085dc19b25e91d72/84adf2c8487f5301158dc2711c11bb53.png"
+          }
+        ],
+        "dimensions": "100 x 100 x 3-4 mm plates",
+        "features": "Doublers around each cradle bolt on the body rails",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.seam-welding-and-reinforcement.strut-tower-gussets",
+      "name": "Strut tower reinforcement / gussets",
+      "qty": 2,
+      "description": "Plates or gussets welded to the inside of the front strut towers and between tower and rail/apron, and a reinforcing ring around the top-mount area. Especially important with camber plates (load is offset) and with hard-mounted race top mounts.",
+      "location": "Front strut towers, x approx 0.05, y 0.6-0.85, z +/-0.55.",
+      "connectsTo": [
+        "chassis.unibody.front-strut-towers",
+        "chassis.strut-tower-and-chassis-braces.front-strut-tower-brace",
+        "safety.roll-cage.front-down-bars"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Fabricated tower top doubler with cage tie-in tab",
+          "brand": "Fabricator built",
+          "notes": "Keep 3-bolt top-mount pattern and the camber-plate slot clear."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Trial-fit camber plates and strut tower brace before welding reinforcement so bolt holes and clearances are maintained."
+      ],
+      "inspection": [
+        "Look for cracks around the top-mount bolt holes."
+      ],
+      "buildPhase": 1,
+      "installOrder": 16,
+      "tags": [
+        "strut-tower",
+        "gusset"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            0.05,
+            0.878,
+            0.52
+          ],
+          "size": [
+            0.22,
+            0.006,
+            0.22
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "220 x 220 mm",
+        "features": "Tower-top doubler with centre hole and 3 stud holes",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.seam-welding-and-reinforcement.cage-mount-backing-plates",
+      "name": "Roll-cage mounting / backing plates (body interface)",
+      "qty": 8,
+      "description": "Steel landing plates welded to floor, rockers, A/B pillars and rear shock towers to receive the cage feet. The plates spread cage loads into the unibody. Sizes and thickness are set by the governing rulebook (NASA CCR / SCCA GCR cage rules specify minimum plate area and thickness).",
+      "location": "Main hoop feet near B-pillar (x approx 2.1, z +/-0.75), front hoop/A-pillar feet (x approx 0.85), rear down-bar feet at rear shock towers (x approx 2.75).",
+      "connectsTo": [
+        "safety.roll-cage.main-hoop",
+        "safety.roll-cage.a-pillar-bars",
+        "safety.roll-cage.rear-down-bars",
+        "chassis.unibody.floor-pan",
+        "chassis.unibody.rocker-sills"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Plates per rulebook (typically >= 0.080-0.125 in steel, >= 16-36 sq in depending on rules)",
+          "brand": "Rulebook-driven",
+          "notes": "Confirm exact minimums in the current NASA CCR / SCCA GCR before cutting plates."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Owned jointly with the safety system; welded during chassis prep (phase 1) before paint."
+      ],
+      "inspection": [
+        "Check plate welds during annual tech."
+      ],
+      "buildPhase": 1,
+      "installOrder": 17,
+      "tags": [
+        "cage",
+        "plates",
+        "rules"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0,
+          0.18,
+          0
+        ],
+        "size": [
+          0.15,
+          0.006,
+          0.15
+        ],
+        "instances": [
+          [
+            2.1,
+            0.18,
+            0.74
+          ],
+          [
+            2.1,
+            0.18,
+            -0.74
+          ],
+          [
+            0.85,
+            0.2,
+            0.74
+          ],
+          [
+            0.85,
+            0.2,
+            -0.74
+          ],
+          [
+            2.75,
+            0.66,
+            0.55
+          ],
+          [
+            2.75,
+            0.66,
+            -0.55
+          ]
+        ],
+        "color": "#ff7a00"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "150 x 150 mm plates",
+        "features": "Cage backing plates with hole",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

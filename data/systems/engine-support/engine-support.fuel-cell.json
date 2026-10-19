@@ -1,0 +1,1514 @@
+{
+  "id": "engine-support.fuel-cell",
+  "system": "engine-support",
+  "name": "Fuel Cell",
+  "description": "FIA FT3 fuel cell (bladder + foam + can) mounted in the trunk behind the rear axle with fill plate, rollover vent valve, vent line, filler/check valve, level sender, straps, cradle and the cockpit bulkhead required by NASA CCR 15.4 / SCCA GCR.",
+  "components": [
+    {
+      "id": "engine-support.fuel-cell.container",
+      "name": "Fuel cell container (can)",
+      "qty": 1,
+      "description": "Rigid metal (or Marlex/carbon where allowed) box that fully encloses the bladder, protects it from punctures and carries the mounting flange. SCCA requires a fully enveloping 0.036 in steel or 0.059 in aluminum enclosure (per Radium summary of GCR); NASA CCR 15.4.1.3 now also allows carbon-fiber enclosures.",
+      "location": "Trunk well directly behind the rear axle line, centered laterally, sitting on a reinforced/cut-down trunk floor. (Factory 19-gal tank under the rear seat is removed.)",
+      "connectsTo": [
+        "engine-support.fuel-cell.bladder",
+        "engine-support.fuel-cell.mounting-straps",
+        "engine-support.fuel-cell.mounting-cradle",
+        "engine-support.fuel-cell.bulkhead"
+      ],
+      "factory": {
+        "name": "N/A — factory Camaro uses a plastic saddle tank ahead of the rear axle (removed)",
+        "notes": "ZL1 factory tank ~19 gal (verify)."
+      },
+      "raceOptions": [
+        {
+          "name": "Fuel Safe Enduro Cell 22 gal B-size, 20-ga powder-coated steel can",
+          "brand": "Fuel Safe",
+          "partNumber": "ED122B",
+          "notes": "25.5 x 17.13 x 13.75 in (excl. 1.0 in flange); 22.0 gal dimensional / 19.3 gal usable; FIA FT3; 6x10 fill plate; pickup factory installed.",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "name": "ATL Saver Cell 22 gal (A/B/C sizes)",
+          "brand": "ATL",
+          "partNumber": "SA122A / SA122B / SA122C",
+          "notes": "SA122C 33.18 x 17.06 x 9.25 in (low/flat option); #8 outlet.",
+          "url": "https://atlinc.com/saver-cell-series.html"
+        },
+        {
+          "name": "ATL Sports Cell 22 gal FIA FT3 34x18x10",
+          "brand": "ATL",
+          "partNumber": "SP122C",
+          "url": "https://www.ogracing.com/products/atl-sports-cell-22-gallon-34x18x10-fia-ft3"
+        },
+        {
+          "name": "Radium Engineering aluminum-can fuel cells",
+          "brand": "Radium Engineering",
+          "url": "https://www.radiumauto.com/a/blog/post/all-about-fuel-cells"
+        }
+      ],
+      "specs": {
+        "Container (SCCA)": ">= 0.036 in steel or >= 0.059 in aluminum, fully enclosing",
+        "Container (NASA)": "Steel, aluminum, Marlex, or carbon fiber (2025 CCR update)",
+        "Mounting flange": "1.0 in external (Fuel Safe)"
+      },
+      "hardware": [
+        {
+          "item": "Can lid-to-base bolts (steel can, flanged)",
+          "qty": 16,
+          "spec": "1/4-20 or M6 with nyloc",
+          "grade": "Grade 5 / 8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Steel containers have a bolted top flange; aluminum cans slip over like a shoebox and are retained by the straps.",
+          "confidence": "estimate",
+          "source": "https://images.carid.com/fuel-safe/info/pdf/catalog.pdf"
+        }
+      ],
+      "installNotes": [
+        "Phase 1: cut trunk floor if dropping the cell, weld in floor reinforcement and strap anchor points before paint.",
+        "Leave >= 1 in clearance from the rear bumper beam/crash structure; NASA may disallow cells too close to the ground or perimeter.",
+        "NASA (eff. 2026-01-01): cell must be entirely rearward of the driver seat rear mounts (or entirely forward of the front mounts)."
+      ],
+      "inspection": [
+        "Look for can dents, cracked welds, corrosion",
+        "Check strap bolts every event"
+      ],
+      "buildPhase": 2,
+      "installOrder": 1,
+      "tags": [
+        "fuel-cell",
+        "FT3",
+        "safety"
+      ],
+      "sources": [
+        {
+          "title": "Fuel Safe ED122B",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "title": "ATL Saver Cell series",
+          "url": "https://atlinc.com/saver-cell-series.html"
+        },
+        {
+          "title": "Radium: all about fuel cells",
+          "url": "https://www.radiumauto.com/a/blog/post/all-about-fuel-cells"
+        },
+        {
+          "title": "NASA CCR fuel cell update",
+          "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.2,
+            0.585,
+            0
+          ],
+          "size": [
+            0.435,
+            0.349,
+            0.648
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          },
+          {
+            "title": "90racing: Fuel Safe ED122B listing (foam-filled steel can, -6 out/return, -8 vent)",
+            "url": "https://90racing.com/products/fuel-safe-ed122b"
+          },
+          {
+            "title": "NASA fuel cell regulations update",
+            "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-ccr"
+          }
+        ],
+        "dimensions": "25.5 x 17.13 x 13.75 in (648 x 435 x 349 mm) excl. 1 in flange; 22 gal (19.3 usable)",
+        "features": "Black powder-coated 20-ga steel can, 1 in mounting flange around top seam, stiffening beads, 6 x 10 in fill plate on top",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.bladder",
+      "name": "Fuel cell bladder (FIA FT3 / SFI)",
+      "qty": 1,
+      "description": "Flexible, puncture- and tear-resistant molded bladder that actually holds the fuel. FIA certification (FT3/FT3.5/FT5) expires 5 years from manufacture—the date is on the bladder label; an expired bladder must be replaced (not recertified) for sanctioned racing.",
+      "location": "Inside the container.",
+      "connectsTo": [
+        "engine-support.fuel-cell.container",
+        "engine-support.fuel-cell.foam-baffling",
+        "engine-support.fuel-cell.fill-plate"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe Enduro molded bladder (FIA FT3)",
+          "brand": "Fuel Safe",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "name": "ATL molded bladder (FIA FT3)",
+          "brand": "ATL",
+          "url": "https://atlinc.com/saver-cell-series.html"
+        },
+        {
+          "name": "Replacement bladder kit",
+          "brand": "Fuel Safe / ATL",
+          "notes": "Buy matching bladder+foam when the 5-year date runs out."
+        }
+      ],
+      "specs": {
+        "Certification": "FIA FT3 (minimum for NASA per older CCR; SCCA FT3 or SFI 28.3 per regional GCR appendix)",
+        "Life": "5 years from manufacture date"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Record the bladder certification label/receipt in the vehicle logbook (NASA CCR 15.4.1.10 recommendation)."
+      ],
+      "inspection": [
+        "Check certification date before each season",
+        "Inspect for swelling/cracking when foam is serviced"
+      ],
+      "buildPhase": 2,
+      "installOrder": 2,
+      "tags": [
+        "fuel-cell",
+        "FT3",
+        "expiry"
+      ],
+      "sources": [
+        {
+          "title": "Radium: all about fuel cells",
+          "url": "https://www.radiumauto.com/a/blog/post/all-about-fuel-cells"
+        },
+        {
+          "title": "NASA CCR fuel cell update",
+          "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+        },
+        {
+          "title": "MCSCC GCR appendices",
+          "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.2,
+            0.585,
+            0
+          ],
+          "size": [
+            0.42,
+            0.335,
+            0.63
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          },
+          {
+            "title": "90racing: Fuel Safe ED122B listing (foam-filled steel can, -6 out/return, -8 vent)",
+            "url": "https://90racing.com/products/fuel-safe-ed122b"
+          }
+        ],
+        "dimensions": "Fills the can, ~630 x 420 x 335 mm",
+        "features": "Molded FT3 bladder with foam, plate flange moulded in",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.foam-baffling",
+      "name": "Safety foam baffling",
+      "qty": 1,
+      "description": "Open-cell polyurethane foam that fills the bladder to suppress slosh and explosion. Required by FIA FT3. It is a wear item—replace when it loses elasticity or crumbles (crumbs clog filters). Alcohol fuels require foam removal or alcohol-specific foam.",
+      "location": "Inside the bladder.",
+      "connectsTo": [
+        "engine-support.fuel-cell.bladder",
+        "engine-support.fuel-cell.pickup-and-sump"
+      ],
+      "raceOptions": [
+        {
+          "name": "Maker replacement foam kit (cell-specific)",
+          "brand": "Fuel Safe / ATL"
+        }
+      ],
+      "specs": {
+        "Displacement": "~3-5% of volume (usable 19.3 of 22 gal in ED122B incl. foam/pickup)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Install foam blocks per maker diagram; leave the pickup/sump region clear."
+      ],
+      "inspection": [
+        "Squeeze test and look for crumbs in the pre-filter each event"
+      ],
+      "buildPhase": 2,
+      "installOrder": 3,
+      "tags": [
+        "fuel-cell",
+        "foam",
+        "wear-item"
+      ],
+      "sources": [
+        {
+          "title": "Radium: all about fuel cells",
+          "url": "https://www.radiumauto.com/a/blog/post/all-about-fuel-cells"
+        },
+        {
+          "title": "Fuel Safe ED122B",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        }
+      ]
+    },
+    {
+      "id": "engine-support.fuel-cell.fill-plate",
+      "name": "Fill plate, nut ring and gasket",
+      "qty": 1,
+      "description": "Aluminum top plate (6x10 in on ED122B) clamped to the bladder opening by an internal nut ring with a fuel-resistant gasket. Carries the filler, vent/rollover valve, pickup, return and sender.",
+      "location": "Top of the cell.",
+      "connectsTo": [
+        "engine-support.fuel-cell.bladder",
+        "engine-support.fuel-cell.plate-fittings",
+        "engine-support.fuel-cell.rollover-vent-valve",
+        "engine-support.fuel-cell.level-sender",
+        "engine-support.fuel-cell.pickup-and-sump",
+        "engine-support.fuel-cell.filler-neck"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe 6x10 fill plate (supplied)",
+          "brand": "Fuel Safe",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "name": "Custom-drilled plate with -8 outlet, -6 return, -6/-8 vent",
+          "brand": "Fuel Safe / ATL"
+        }
+      ],
+      "specs": {
+        "Size": "6 x 10 in (ED122B)",
+        "Gasket": "Aerospace-grade (Fuel Safe)"
+      },
+      "hardware": [
+        {
+          "item": "Fill plate bolts into nut ring",
+          "qty": 14,
+          "spec": "1/4-20 or 1/4-28 SS bolts with sealing washers (per maker)",
+          "grade": "SS",
+          "torque": "40–60 in-lb (4.5–6.8 N·m)",
+          "torqueSequence": "Cross pattern, two passes; recheck after 24 h",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable; replace gasket when disturbed",
+          "notes": "Over-torque crushes the gasket and distorts the plate—follow cell maker value if published.",
+          "confidence": "estimate",
+          "source": "https://images.carid.com/fuel-safe/info/pdf/catalog.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clock the plate so outlet/return/vent point toward their lines and the filler toward the fuel door side."
+      ],
+      "inspection": [
+        "Fuel odor or wet gasket = re-torque/replace gasket"
+      ],
+      "buildPhase": 2,
+      "installOrder": 4,
+      "tags": [
+        "fuel-cell",
+        "fill-plate"
+      ],
+      "sources": [
+        {
+          "title": "Fuel Safe ED122B",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "title": "Fuel Safe catalog",
+          "url": "https://images.carid.com/fuel-safe/info/pdf/catalog.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.2,
+            0.766,
+            0.08
+          ],
+          "size": [
+            0.152,
+            0.012,
+            0.254
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          },
+          {
+            "title": "ATL Saver Cell series (plate fittings, fill plates)",
+            "url": "https://atlinc.com/saver-cell-series.html"
+          }
+        ],
+        "dimensions": "6 x 10 in (152 x 254 mm) plate, 1/4 in thick",
+        "features": "Aluminium plate with rounded corners, ring of 16-20 bolts into nut ring, gasket, fittings/cap holes",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.plate-fittings",
+      "name": "Fill-plate bulkhead fittings (outlet -8, return -6, vent -6/-8)",
+      "qty": 3,
+      "description": "Male AN bulkhead/weld fittings on the fill plate for the pickup outlet (to lift pump), the return from the surge tank overflow, and the vent.",
+      "location": "On the fill plate.",
+      "connectsTo": [
+        "engine-support.fuel-cell.fill-plate",
+        "engine-support.fuel-delivery.lift-pump-line",
+        "engine-support.fuel-delivery.surge-overflow-line",
+        "engine-support.fuel-cell.vent-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe / ATL plate fittings",
+          "brand": "Fuel Safe / ATL"
+        }
+      ],
+      "specs": {
+        "Outlet": "-8 AN (ATL Saver Cell #8 outlet)",
+        "Return": "-6 AN",
+        "Vent": "-6 or -8 AN"
+      },
+      "hardware": [
+        {
+          "item": "Outlet hose end",
+          "qty": 1,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        },
+        {
+          "item": "Return hose end",
+          "qty": 1,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        },
+        {
+          "item": "Vent hose end",
+          "qty": 1,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        },
+        {
+          "item": "Bulkhead jam nuts",
+          "qty": 3,
+          "spec": "AN bulkhead nut with Viton O-ring/crush washer",
+          "grade": "Aluminum",
+          "torque": "10–15 ft-lb (14–20 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace O-ring",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Use PTFE-lined hose for E-fuels; standard rubber is fine for gasoline only."
+      ],
+      "inspection": [
+        "Leak check with cell full"
+      ],
+      "buildPhase": 2,
+      "installOrder": 5,
+      "tags": [
+        "fuel-cell",
+        "AN-8",
+        "AN-6"
+      ],
+      "sources": [
+        {
+          "title": "ATL Saver Cell",
+          "url": "https://atlinc.com/saver-cell-series.html"
+        },
+        {
+          "title": "AN torque",
+          "url": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.15,
+            0.786,
+            0.16
+          ],
+          "size": [
+            0.022,
+            0.032,
+            0.022
+          ],
+          "axis": "y",
+          "instances": [
+            [
+              3.15,
+              0.786,
+              0.16
+            ],
+            [
+              3.25,
+              0.786,
+              0.16
+            ],
+            [
+              3.15,
+              0.786,
+              -0.02
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "ATL Saver Cell series (plate fittings, fill plates)",
+            "url": "https://atlinc.com/saver-cell-series.html"
+          },
+          {
+            "title": "90racing: Fuel Safe ED122B listing (foam-filled steel can, -6 out/return, -8 vent)",
+            "url": "https://90racing.com/products/fuel-safe-ed122b"
+          }
+        ],
+        "dimensions": "-8 outlet / -6 return / -6 overflow, 22-25 mm hex",
+        "features": "Anodised AN male bulkhead fittings sealed to plate",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.pickup-and-sump",
+      "name": "Fuel pickup / sump (foam-free collector, flapper or hinged pickup)",
+      "qty": 1,
+      "description": "Internal pickup that draws from the lowest point (or a trap-door collector) so the lift pump stays fed under cornering and braking. Fuel Safe installs the pickup at the factory. With a surge tank, the cell pickup only needs to keep the lift pump fed—not the engine directly.",
+      "location": "Inside cell, low and toward the rear (fuel moves rearward under acceleration and outward in corners).",
+      "connectsTo": [
+        "engine-support.fuel-cell.fill-plate",
+        "engine-support.fuel-cell.plate-fittings",
+        "engine-support.fuel-delivery.lift-pump"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe factory-installed pickup",
+          "brand": "Fuel Safe",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        },
+        {
+          "name": "Bottom-outlet sump (factory-molded)",
+          "brand": "ATL / Fuel Safe"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Specify pickup location when ordering the cell based on cell orientation in the car."
+      ],
+      "inspection": [
+        "Check pickup sock/screen when foam is serviced"
+      ],
+      "buildPhase": 2,
+      "installOrder": 6,
+      "tags": [
+        "fuel-cell",
+        "pickup"
+      ],
+      "sources": [
+        {
+          "title": "Fuel Safe ED122B",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.15,
+            0.44,
+            0.16
+          ],
+          "size": [
+            0.06,
+            0.05,
+            0.06
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          }
+        ],
+        "dimensions": "~60 mm dia x 50 mm collector at the cell floor",
+        "features": "Weighted/flapper pickup with screen in a foam-free collector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.rollover-vent-valve",
+      "name": "Rollover / vent check valve",
+      "qty": 1,
+      "description": "Ball/float valve that lets the cell breathe but seals when inverted so fuel cannot pour out the vent. SCCA requires check valves in all fuel cell vents and no leakage when inverted.",
+      "location": "In the fill plate (in-tank) or inline at the top of the vent line.",
+      "connectsTo": [
+        "engine-support.fuel-cell.fill-plate",
+        "engine-support.fuel-cell.vent-line"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe -8AN in-tank vent check valve",
+          "brand": "Fuel Safe",
+          "partNumber": "ITVV08",
+          "url": "https://fuelsafe.com/collections/vent-rollover-valves"
+        },
+        {
+          "name": "ATL roll-over vent valve for custom top plate",
+          "brand": "ATL",
+          "url": "https://www.demon-tweeks.com/au/atl-roll-over-vent-valve-for-custom-top-plate-7002423/"
+        }
+      ],
+      "specs": {
+        "Size": "-8 AN"
+      },
+      "hardware": [
+        {
+          "item": "Valve into fill plate",
+          "qty": 1,
+          "spec": "-8 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "20–24 ft-lb (27–33 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "Lubricate O-ring, start by hand, finish with AN wrench (vent-valve maker guidance).",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Inline valves must be installed with the open end facing up (vertical)."
+      ],
+      "inspection": [
+        "Invert-test the valve off-car annually"
+      ],
+      "buildPhase": 2,
+      "installOrder": 7,
+      "tags": [
+        "fuel-cell",
+        "vent",
+        "safety"
+      ],
+      "sources": [
+        {
+          "title": "Fuel Safe vent/rollover valves",
+          "url": "https://fuelsafe.com/collections/vent-rollover-valves"
+        },
+        {
+          "title": "HPA: SCCA vent rule discussion",
+          "url": "https://www.hpacademy.com/forum/motorsport-plumbing-systems/show/fuel-tank-venting/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.25,
+            0.795,
+            -0.02
+          ],
+          "size": [
+            0.035,
+            0.05,
+            0.035
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe vent / rollover valves",
+            "url": "https://fuelsafe.com/collections/vent-rollover-valves"
+          }
+        ],
+        "dimensions": "-8 AN, ~35 mm body",
+        "features": "Anodised check/rollover valve threaded into plate vent port",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.vent-line",
+      "name": "Vent line and vent outlet (with filter/check)",
+      "qty": 1,
+      "description": "Vent hose from the rollover valve, looped above the cell top, then down to an outlet outside the body well away from exhaust and ignition sources. SCCA: vents >= 25 cm (9.84 in) rearward of the cockpit.",
+      "location": "From cell top, up to the trunk lid area, then down to a vent exit under the rear bumper (center-right).",
+      "connectsTo": [
+        "engine-support.fuel-cell.rollover-vent-valve",
+        "engine-support.fuel-cell.plate-fittings"
+      ],
+      "raceOptions": [
+        {
+          "name": "-8 AN PTFE vent hose + vent filter/charcoal",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-8 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-8 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "22.5–29 ft-lb (31–39 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-8 AN aluminum wrench"
+        },
+        {
+          "item": "P-clamps",
+          "qty": 3,
+          "spec": "1/2 in cushioned P-clamp, M6 rivnut",
+          "grade": "Steel/EPDM",
+          "torque": "50–70 in-lb (5.6–7.9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Highest point of the loop must be above the cell top.",
+        "Exit outside the body, below the car, clear of the exhaust tips."
+      ],
+      "inspection": [
+        "Check for kinks and that the outlet is not blocked"
+      ],
+      "buildPhase": 2,
+      "installOrder": 8,
+      "tags": [
+        "vent",
+        "AN-8"
+      ],
+      "sources": [
+        {
+          "title": "HPA fuel tank venting (SCCA quote)",
+          "url": "https://www.hpacademy.com/forum/motorsport-plumbing-systems/show/fuel-tank-venting/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.25,
+              0.82,
+              -0.02
+            ],
+            [
+              3.27,
+              0.9,
+              -0.06
+            ],
+            [
+              3.35,
+              0.97,
+              -0.12
+            ],
+            [
+              3.5,
+              0.99,
+              -0.15
+            ],
+            [
+              3.62,
+              0.88,
+              -0.15
+            ],
+            [
+              3.68,
+              0.6,
+              -0.12
+            ],
+            [
+              3.68,
+              0.3,
+              -0.12
+            ]
+          ],
+          "radius": 0.0081
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "HPA forum: fuel tank venting",
+            "url": "https://www.hpacademy.com/forum/motorsport-plumbing-systems/show/fuel-tank-venting/"
+          }
+        ],
+        "dimensions": "-8 AN (0.641 in OD)",
+        "features": "Black PTFE/braided vent hose looped high, exits through floor",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.filler-neck",
+      "name": "Filler neck hose and filler (remote cap or dry-break)",
+      "qty": 1,
+      "description": "Fuel-rated hose from the cell filler nipple to a remote filler at the factory fuel door location (or a dry-break receiver for endurance). If the cap is not on the cell, a check valve at the cell is required so fuel cannot escape if the neck is torn off.",
+      "location": "From the fill plate to the left rear quarter (factory fuel door area).",
+      "connectsTo": [
+        "engine-support.fuel-cell.fill-plate",
+        "engine-support.fuel-cell.filler-check-valve",
+        "body.rear-quarter.fuel-door"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe/ATL remote filler with 2 in hose",
+          "brand": "Fuel Safe / ATL"
+        },
+        {
+          "name": "Staubli/Jiffy-tite dry-break receiver",
+          "brand": "Staubli"
+        }
+      ],
+      "specs": {
+        "Hose ID": "~2 in fuel filler hose (SAE J30R7 or better)"
+      },
+      "hardware": [
+        {
+          "item": "Filler hose clamps",
+          "qty": 2,
+          "spec": "T-bolt clamp for 2 in hose",
+          "grade": "SS",
+          "torque": "45–60 in-lb (5.1–6.8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Remote filler flange screws",
+          "qty": 6,
+          "spec": "#10 or M5 with nyloc",
+          "grade": "SS",
+          "torque": "25–35 in-lb (2.8–4 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route through the bulkhead area so the neck is never in the driver compartment.",
+        "Seal the body penetration."
+      ],
+      "inspection": [
+        "Check hose for cracking and clamps for tightness"
+      ],
+      "buildPhase": 2,
+      "installOrder": 9,
+      "tags": [
+        "filler"
+      ],
+      "sources": [
+        {
+          "title": "MCSCC GCR appendices (filler check valve)",
+          "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.2,
+              0.8,
+              0.03
+            ],
+            [
+              3.18,
+              0.88,
+              0.25
+            ],
+            [
+              3.12,
+              0.93,
+              0.55
+            ],
+            [
+              3.05,
+              0.95,
+              0.8
+            ],
+            [
+              3.02,
+              0.955,
+              0.86
+            ]
+          ],
+          "radius": 0.03
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA GCR appendices (fuel cell, filler rules)",
+            "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+          },
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          }
+        ],
+        "dimensions": "2 in ID (~60 mm OD) filler hose",
+        "features": "Black SAE J30R7 hose with hose clamps from plate filler to quarter-panel remote filler",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.filler-check-valve",
+      "name": "Filler check valve (flapper)",
+      "qty": 1,
+      "description": "One-way flapper at the cell inlet that keeps fuel inside if the filler neck or cap is torn away. Required when the cap is not mounted directly on the cell.",
+      "location": "At the fill plate filler inlet.",
+      "connectsTo": [
+        "engine-support.fuel-cell.filler-neck",
+        "engine-support.fuel-cell.fill-plate"
+      ],
+      "raceOptions": [
+        {
+          "name": "Fuel Safe / ATL filler check valve",
+          "brand": "Fuel Safe / ATL"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Verify flap moves freely before closing up the cell."
+      ],
+      "inspection": [
+        "Function check at foam service"
+      ],
+      "buildPhase": 2,
+      "installOrder": 10,
+      "tags": [
+        "safety",
+        "check-valve"
+      ],
+      "sources": [
+        {
+          "title": "MCSCC GCR appendices",
+          "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.2,
+            0.785,
+            0.03
+          ],
+          "size": [
+            0.075,
+            0.035,
+            0.075
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA GCR appendices (fuel cell, filler rules)",
+            "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+          },
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          }
+        ],
+        "dimensions": "~75 mm flange, 2 in neck",
+        "features": "Aluminium flapper valve in plate fill hole",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.level-sender",
+      "name": "Fuel level sender",
+      "qty": 1,
+      "description": "Float or capacitive sender in the fill plate so the dash/logger reads fuel level (essential for endurance fuel strategy). Capacitive senders cope better with foam.",
+      "location": "Through the fill plate.",
+      "connectsTo": [
+        "engine-support.fuel-cell.fill-plate",
+        "electrical.sensors.fuel-level-sensor"
+      ],
+      "raceOptions": [
+        {
+          "name": "Capacitive fuel level probe (0-5 V)",
+          "brand": "Fuel Safe / ATL / Fueltech"
+        },
+        {
+          "name": "0-90 or 240-33 ohm float sender",
+          "brand": "ATL"
+        }
+      ],
+      "specs": {
+        "Output": "0-5 V or resistive"
+      },
+      "hardware": [
+        {
+          "item": "Sender flange screws (SAE 5-bolt)",
+          "qty": 5,
+          "spec": "#10-24 with gasket",
+          "grade": "SS",
+          "torque": "15–20 in-lb (1.7–2.3 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Order the sender length to match cell depth (13.75 in for ED122B).",
+        "Calibrate in 1-gal increments on the logger."
+      ],
+      "inspection": [
+        "Check reading vs. known fill"
+      ],
+      "buildPhase": 2,
+      "installOrder": 11,
+      "tags": [
+        "sensor",
+        "fuel-level"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.2,
+            0.595,
+            0.13
+          ],
+          "size": [
+            0.035,
+            0.35,
+            0.035
+          ],
+          "axis": "y"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "Fuel Safe ED122B Enduro Cell 22 gal B-size (25.5 x 17.13 x 13.75 in excl. 1 in flange)",
+            "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+          }
+        ],
+        "dimensions": "~19 mm probe, length to cell depth (13.75 in); 5-bolt SAE flange head",
+        "features": "Anodised capacitive probe tube with SAE 5-bolt head and connector",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.mounting-straps",
+      "name": "Fuel cell hold-down straps",
+      "qty": 4,
+      "description": "Steel straps that hold the cell can to the chassis in both directions. Common practice (NASCAR-style) is at least two lengthwise and two crosswise straps of ~1/8 x 1 in steel; check your class rules.",
+      "location": "Over the cell, bolted to the trunk floor/cradle.",
+      "connectsTo": [
+        "engine-support.fuel-cell.container",
+        "engine-support.fuel-cell.mounting-cradle",
+        "chassis.rear-structure.trunk-floor"
+      ],
+      "raceOptions": [
+        {
+          "name": "Cell maker strap kit or fabricated 1/8 x 1 in steel straps with rubber liner",
+          "brand": "Fuel Safe / ATL / fabricated"
+        }
+      ],
+      "specs": {
+        "Strap": "1/8 x 1 in (3 x 25 mm) steel minimum (common practice)"
+      },
+      "hardware": [
+        {
+          "item": "Strap bolts through floor with backing plates",
+          "qty": 8,
+          "spec": "3/8-16 x 1.25 in with 2 x 2 in x 1/8 in backing plates and nyloc nuts",
+          "grade": "Grade 8",
+          "torque": "30–35 ft-lb (41–47 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nyloc nuts when removed",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Rubber strip between strap and can to prevent chafe.",
+        "Backing plates on every floor penetration."
+      ],
+      "inspection": [
+        "Check strap tightness and bolts each event"
+      ],
+      "buildPhase": 2,
+      "installOrder": 12,
+      "tags": [
+        "mount",
+        "safety"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.06,
+            0.59,
+            0
+          ],
+          "size": [
+            0.025,
+            0.36,
+            0.69
+          ],
+          "instances": [
+            [
+              3.06,
+              0.59,
+              0
+            ],
+            [
+              3.34,
+              0.59,
+              0
+            ]
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "NASA fuel cell regulations update",
+            "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-ccr"
+          },
+          {
+            "title": "SCCA GCR appendices (fuel cell, filler rules)",
+            "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+          }
+        ],
+        "dimensions": "1/8 x 1 in (3 x 25 mm) steel straps",
+        "features": "U-straps over the can with rubber liner, bolted to cradle tabs with 3/8 in bolts",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.mounting-cradle",
+      "name": "Fuel cell cradle / floor reinforcement",
+      "qty": 1,
+      "description": "Welded square-tube cradle tied into the rear frame rails (and roll cage rear downtubes where possible) that supports the cell from below and provides the strap anchor points.",
+      "location": "Trunk floor between rear frame rails.",
+      "connectsTo": [
+        "engine-support.fuel-cell.container",
+        "engine-support.fuel-cell.mounting-straps",
+        "chassis.rear-structure.rear-frame-rail",
+        "safety.roll-cage.rear-downtubes"
+      ],
+      "raceOptions": [
+        {
+          "name": "1 x 1 x 0.083 in steel tube cradle",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Fabricate and weld in phase 1 with the cage.",
+        "One 2017-era Camaro build ran a cross-tube rail-to-rail under a 22 gal Fuel Safe cell for support."
+      ],
+      "inspection": [
+        "Check welds for cracks"
+      ],
+      "buildPhase": 1,
+      "installOrder": 13,
+      "tags": [
+        "fabrication",
+        "chassis"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.965,
+              0.423,
+              -0.36
+            ],
+            [
+              2.965,
+              0.423,
+              0.36
+            ]
+          ],
+          "radius": 0.0127
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.435,
+              0.423,
+              -0.36
+            ],
+            [
+              3.435,
+              0.423,
+              0.36
+            ]
+          ],
+          "radius": 0.0127
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.95,
+              0.423,
+              0.337
+            ],
+            [
+              3.45,
+              0.423,
+              0.337
+            ]
+          ],
+          "radius": 0.0127
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              2.95,
+              0.423,
+              -0.337
+            ],
+            [
+              3.45,
+              0.423,
+              -0.337
+            ]
+          ],
+          "radius": 0.0127
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "NASA fuel cell regulations update",
+            "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-ccr"
+          }
+        ],
+        "dimensions": "1 x 1 x 0.083 in square tube frame",
+        "features": "Welded square-tube cradle bolted through trunk floor with backing plates",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.bulkhead",
+      "name": "Fuel cell bulkhead / firewall (rear)",
+      "qty": 1,
+      "description": "Solid metal bulkhead (typ. 0.040-0.063 in aluminum or 22-ga steel) that seals the trunk/fuel compartment from the cockpit. NASA CCR 15.4.1.1: tank, pumps, cell, filler hoses and vent lines must be separated from the driver compartment by a solid bulkhead welded or bolted to the structure; SCCA requires a metal bulkhead.",
+      "location": "Behind the driver: at the rear seatback / package-shelf plane (approx. x = 2.45-2.60), sealing the trunk opening.",
+      "connectsTo": [
+        "engine-support.fuel-cell.container",
+        "safety.roll-cage.main-hoop",
+        "chassis.body-shell.rear-seat-pan",
+        "engine-support.fuel-delivery.bulkhead-fittings"
+      ],
+      "raceOptions": [
+        {
+          "name": "0.050 in aluminum riveted panel, seams sealed",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {
+        "Material": "Aluminum or steel; seams sealed with fire-resistant sealant"
+      },
+      "hardware": [
+        {
+          "item": "Rivets / rivnut bolts",
+          "qty": 40,
+          "spec": "3/16 in aluminum or steel pop rivets / M6 rivnuts at ~100 mm pitch",
+          "grade": "Aluminum/steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+        }
+      ],
+      "installNotes": [
+        "Seal every wire/line pass-through with bulkhead fittings or grommets + fire sealant."
+      ],
+      "inspection": [
+        "Look for gaps, missing rivets"
+      ],
+      "buildPhase": 1,
+      "installOrder": 14,
+      "tags": [
+        "safety",
+        "bulkhead",
+        "rules"
+      ],
+      "sources": [
+        {
+          "title": "NASA CCR 15.4 update",
+          "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-nasa-ccr/"
+        },
+        {
+          "title": "MCSCC GCR appendices",
+          "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.52,
+            0.75,
+            0
+          ],
+          "size": [
+            0.01,
+            0.62,
+            1.3
+          ],
+          "color": "#9aa4ad"
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "NASA fuel cell regulations update",
+            "url": "https://nasaspeed.news/columns/nasa-news/newly-updated-fuel-cell-regulations-published-in-ccr"
+          },
+          {
+            "title": "SCCA GCR appendices (fuel cell, filler rules)",
+            "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+          }
+        ],
+        "dimensions": "~1300 x 620 mm, 0.050 in aluminium",
+        "features": "Riveted aluminium firewall behind the rear seat area, sealed seams",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.bonding-strap",
+      "name": "Fuel cell / filler ground bonding strap",
+      "qty": 1,
+      "description": "Braided ground strap bonding the filler, cell can and plate to chassis ground to bleed static during refueling.",
+      "location": "Cell can / filler to trunk floor ground stud.",
+      "connectsTo": [
+        "engine-support.fuel-cell.container",
+        "engine-support.fuel-cell.filler-neck",
+        "electrical.grounding.chassis-ground"
+      ],
+      "raceOptions": [
+        {
+          "name": "Tinned braided strap, 6-8 in",
+          "brand": "Various"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Ground stud nut",
+          "qty": 2,
+          "spec": "M6 or 1/4-20 with star washer",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Clean paint to bare metal at the ground point."
+      ],
+      "inspection": [
+        "Check continuity < 1 ohm"
+      ],
+      "buildPhase": 2,
+      "installOrder": 15,
+      "tags": [
+        "ground",
+        "safety"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            2.95,
+            0.415,
+            0.25
+          ],
+          "size": [
+            0.15,
+            0.005,
+            0.015
+          ]
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "SCCA GCR appendices (fuel cell, filler rules)",
+            "url": "https://www.mcscc.org/forms/GCR-Appendices.pdf"
+          }
+        ],
+        "dimensions": "150-200 mm tinned braid, 15 mm wide",
+        "features": "Flat tinned-copper braid with ring lugs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.fuel-cell.fuel",
+      "name": "Fuel (fill)",
+      "qty": 1,
+      "description": "Gasoline for the LT race engine. A supercharged LT4 needs high-octane race fuel or E85 (if fuel system/tune are built for it); confirm with the engine tuner and class rules.",
+      "location": "Fuel cell.",
+      "connectsTo": [
+        "engine-support.fuel-cell.bladder"
+      ],
+      "factory": {
+        "name": "Premium unleaded (ZL1 requires premium)"
+      },
+      "raceOptions": [
+        {
+          "name": "100+ octane unleaded race fuel",
+          "brand": "Sunoco / VP"
+        },
+        {
+          "name": "E85 (requires PTFE hose, E85-rated pumps/foam)",
+          "brand": ""
+        }
+      ],
+      "specs": {
+        "Usable capacity": "19.3 gal (ED122B)"
+      },
+      "hardware": [],
+      "fluids": [
+        {
+          "name": "Race gasoline",
+          "spec": "Per tune",
+          "capacity": "22 gal nominal / 19.3 gal usable (ED122B)"
+        }
+      ],
+      "installNotes": [
+        "Never fill with alcohol fuels unless foam/hoses/bladder are rated."
+      ],
+      "inspection": [
+        "Drain/refresh if stored > 2-3 months"
+      ],
+      "buildPhase": 11,
+      "installOrder": 16,
+      "tags": [
+        "fluid"
+      ],
+      "sources": [
+        {
+          "title": "Fuel Safe ED122B",
+          "url": "https://fuelsafe.com/products/enduro-cell-complete-fuel-cell-22-gallon-b-size-ed122b"
+        }
+      ]
+    }
+  ]
+}

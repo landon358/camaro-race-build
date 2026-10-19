@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Camaro Race Build</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BmclCPaJ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DKLQs0_O.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <button class="icon-btn only-narrow" id="btn-left" title="Systems">☰</button>
+      <div class="brand">
+        <span class="brand-mark">G6</span>
+        <div class="brand-text">
+          <div class="brand-title">CAMARO RACE BUILD</div>
+          <div class="brand-sub">Gen 6 · Alpha platform · road race</div>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search parts, bolts, part numbers…  ( / )" autocomplete="off" spellcheck="false" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav class="top-actions">
+        <button class="top-btn" data-modal="catalog">Parts catalog</button>
+        <button class="top-btn" data-modal="schematics">Schematics</button>
+        <button class="top-btn" data-modal="torque">Torque specs</button>
+        <button class="top-btn" data-modal="tracker">Build tracker</button>
+        <button class="top-btn ghost" data-modal="help">?</button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="panel left" id="left-panel">
+        <div class="tabs">
+          <button class="tab active" data-tab="systems">Systems</button>
+          <button class="tab" data-tab="phases">Build order</button>
+        </div>
+        <div class="tab-body" id="tab-systems"></div>
+        <div class="tab-body" id="tab-phases" hidden></div>
+        <div class="left-foot" id="left-foot"></div>
+      </aside>
+
+      <section class="viewport" id="viewport">
+        <canvas id="c"></canvas>
+        <div id="labels" class="labels"></div>
+        <div id="hover-tip" class="hover-tip" hidden></div>
+        <div class="crumbs" id="crumbs"></div>
+        <div class="loading" id="loading"><div class="spinner"></div><div id="loading-text">Loading car…</div></div>
+
+        <div class="toolbar" id="toolbar">
+          <div class="tool-group">
+            <span class="tool-label">Body</span>
+            <div class="seg" id="seg-body">
+              <button data-v="solid">Solid</button>
+              <button data-v="ghost" class="on">Ghost</button>
+              <button data-v="off">Off</button>
+            </div>
+          </div>
+          <div class="tool-group grow">
+            <span class="tool-label">Explode</span>
+            <input type="range" id="explode" min="0" max="1" step="0.01" value="0" />
+          </div>
+          <div class="tool-group grow">
+            <span class="tool-label">Built through</span>
+            <input type="range" id="phase" min="1" max="12" step="1" value="12" />
+            <span class="tool-val" id="phase-val">All</span>
+          </div>
+          <div class="tool-group">
+            <button class="chip on" id="t-routes" title="Lines, hoses, harness & cage tubes">Lines</button>
+            <button class="chip" id="t-flow" title="Animate fluid / power flow">Flow</button>
+            <button class="chip" id="t-real" title="Realistic part colors instead of system colors">Real colors</button>
+            <button class="chip" id="t-status" title="Color parts by build status">Status</button>
+            <button class="chip" id="t-labels" title="Show labels">Labels</button>
+            <button class="chip" id="t-reset" title="Reset view">⟲</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel right" id="right-panel">
+        <div id="inspector" class="inspector"></div>
+      </aside>
+    </main>
+
+    <div class="modal" id="modal" hidden>
+      <div class="modal-card">
+        <div class="modal-head">
+          <h2 id="modal-title"></h2>
+          <div class="modal-tools" id="modal-tools"></div>
+          <button class="icon-btn" id="modal-close" title="Close">✕</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

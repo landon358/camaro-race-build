@@ -1,0 +1,184 @@
+{
+  "id": "wheels.rear-hubs-bearings",
+  "system": "wheels",
+  "name": "Rear Hubs & Bearings",
+  "description": "Driven rear corners: bolt-in hub bearing unit with splined bore; the halfshaft outer CV stub passes through and is retained by an axle (drive-shaft) nut.",
+  "components": [
+    {
+      "id": "wheels.rear-hubs-bearings.hub-bearing",
+      "name": "Rear wheel bearing & hub assembly",
+      "qty": 2,
+      "description": "Sealed, bolt-in rear hub bearing with splined center for the halfshaft and pressed M14x1.5 studs. Sees full drive torque and cornering loads on slicks – inspect every event, replace on a schedule.",
+      "location": "Rear knuckle, each side, flange outboard at z≈±0.73–0.77.",
+      "connectsTo": [
+        "suspension.rear-knuckle.knuckle",
+        "drivetrain.halfshafts.halfshaft",
+        "brakes.rear-rotors.rotor",
+        "wheels.studs-and-lug-nuts.wheel-studs",
+        "brakes.abs.wheel-speed-sensors-rear",
+        "wheels.rear-hubs-bearings.axle-nut"
+      ],
+      "factory": {
+        "name": "GM rear wheel bearing and hub assembly (Gen 6 Camaro)",
+        "notes": "Bolt-in unit (aftermarket direct replacements available)."
+      },
+      "raceOptions": [
+        {
+          "name": "New OEM GM/ACDelco or Timken/SKF unit each season",
+          "brand": "GM / Timken / SKF",
+          "notes": ""
+        }
+      ],
+      "specs": {
+        "Bolt pattern": "5 x 120 mm",
+        "Studs": "M14 x 1.5"
+      },
+      "hardware": [
+        {
+          "item": "Rear wheel bearing and hub bolt",
+          "qty": 4,
+          "spec": "M12 flange bolt (qty/size not confirmed – verify)",
+          "grade": "GM 10.9",
+          "torque": "96 ft-lb (130 N·m)",
+          "torqueSequence": "Clean the old threadlocker off the threads and apply new threadlocker. Torque in a cross pattern to 130 N·m. No angle step is listed.",
+          "threadlocker": "Clean threads; re-apply threadlocker per SKF/OE (verify GM spec)",
+          "safetyWire": false,
+          "reuse": "Replace recommended",
+          "notes": "GM 2016–18 value via TightTorque. [2026-10 check] The SKF 2023 Torque Specification Guide gives 2016–21 Camaro rear hub mount at 96 ft-lb (130 N·m) with footnote [45] (new threadlocker), which matches TightTorque (GM 2016–18 SI). BMR BK065's 45 ft-lb for the same bolts conflicts and looks low. Note that the threadlocker field may say 'none', but SKF says to re-apply threadlocker.",
+          "confidence": "typical",
+          "source": "https://cdn.skfmediahub.skf.com/api/public/094dddb2a353170f/pdf_preview_medium/094dddb2a353170f_pdf_preview_medium.pdf"
+        }
+      ],
+      "installNotes": [
+        "Clean knuckle face; install hub; torque bolts in a cross pattern.",
+        "Insert halfshaft splines (clean, light oil unless GM SI specifies dry/threadlocker), fit new axle nut."
+      ],
+      "inspection": [
+        "Check play and noise each event; check for grease leaks at seals."
+      ],
+      "buildPhase": 4,
+      "installOrder": 2,
+      "tags": [
+        "hub",
+        "bearing",
+        "rear"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "AmericanMuscle – Camaro rear wheel bearing & hub assembly (bolt-in unit, 2016–2017)",
+          "url": "https://americanmuscle.com/camaro-wheel-bearing-hub-assembly-rear-100007.html"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.811,
+          0.3715,
+          0.775
+        ],
+        "size": [
+          0.17,
+          0.17,
+          0.095
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#9e9e9e"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "Flange face at z=0.808 (rotor hat 9 mm, wheel face 0.817); 5 x 120, 66.9 mm pilot; splined bore for the halfshaft",
+        "features": "Bolt-on driven hub: splined bore, axle nut recessed in the pilot",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.rear-hubs-bearings.axle-nut",
+      "name": "Rear axle (wheel drive shaft) nut & washer",
+      "qty": 2,
+      "description": "Clamps the halfshaft CV stub to the hub bearing inner race, preloading the bearing. Under-torque here causes clicking/fretting and bearing failure.",
+      "location": "Center of each rear hub, outboard face (behind the wheel center).",
+      "connectsTo": [
+        "wheels.rear-hubs-bearings.hub-bearing",
+        "drivetrain.halfshafts.halfshaft"
+      ],
+      "factory": {
+        "name": "GM rear wheel drive shaft nut",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "New OEM nut every removal",
+          "brand": "GM",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Rear wheel drive shaft nut",
+          "qty": 1,
+          "spec": "Large flange/staked nut (M24/M27 class – verify)",
+          "grade": "GM",
+          "torque": "199 ft-lb (270 N·m) per GM 2016–18 SI listing; SKF lists 185 ft-lb (250 N·m). Unresolved, confirm in GM SI.",
+          "torqueSequence": "Use a NEW nut. Torque with the rotor locked or the wheel on the ground, then stake the nut if required (SKF note [107]).",
+          "threadlocker": "none unless GM SI specifies",
+          "safetyWire": false,
+          "reuse": "Replace each removal",
+          "tool": "32–36 mm socket (verify)",
+          "notes": "TightTorque (GM-derived) lists 199 ft-lb / 270 N·m for 2016–2024 Camaro. [2026-10 check] DOWNGRADED from typical because the sources conflict. TightTorque (GM 2016–18 SI) gives 270 N·m. The SKF 2023 Torque Specification Guide gives 185/250 for 2016–21 Camaro, and also for the Alpha-sibling ATS and 2016–19 CTS, with footnote [107] (use a new nut and stake it as required). Owner posts that quote '199 ft-lb' mostly refer to the Gen 5 car. Get the GM SI value for your model year before final torque.",
+          "confidence": "estimate",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Hold the hub with a long bar across two lug nuts (protect studs) or have an assistant on the brake; never use the impact gun for final torque."
+      ],
+      "inspection": [
+        "Check torque stripe each event."
+      ],
+      "buildPhase": 6,
+      "installOrder": 3,
+      "tags": [
+        "axle-nut"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – axle nut & wheel bearing torque chart (Camaro 2016–2024 rows)",
+          "url": "https://tighttorque.com/torque-specs/axle-nut-wheel-bearing-torque"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          2.811,
+          0.3715,
+          0.812
+        ],
+        "size": [
+          0.036,
+          0.036,
+          0.018
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#424242"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "36 mm hex (approx.) inside the hub pilot bore",
+        "features": "Flanged hex nut + washer on the halfshaft stub",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

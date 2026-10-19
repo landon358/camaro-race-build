@@ -1,0 +1,164 @@
+{
+ "id": "body",
+ "name": "Body",
+ "summary": "Exterior panels, closures and glazing of the Gen 6 Camaro race car: factory ZL1 panels or lightweight carbon replacements, pinned hood, polycarbonate side/rear windows, quick-release fascias with Dzus fasteners, lighting housings, mirrors and livery.",
+ "overview": "The Gen 6 shell is a steel unibody; roof and quarters are welded and stay. Bolt-on panels (hood, fenders, doors, decklid, fascias) can be swapped for composites where class rules allow. Anderson Composites lists Gen 6 carbon hoods (Type-OE AC-HD16CHCAM-OE ~23 lb, Type-CP double-sided ~19 lb, Type-AZ) that require hood pins and a heat shield. AeroCatch flush pins are the common choice; set the pin within ~5° of the latch axis.\n\nDoors are gutted (glass, regulator, intrusion beam removed) so the cage door bars can bow into them, but must still latch. The laminated windshield is retained with retention clips; side and rear glass are replaced by polycarbonate (Margard MR10 is hard-coated but cannot be cold-formed), using oversized holes and nylon washers so the plastic can expand. Fascias and access panels use Dzus EHF5/EHF6 quarter-turn fasteners and rivnuts so the car can be repaired quickly at the track.",
+ "buildNotes": [
+  "Fit panels and set gaps BEFORE paint; mark hinge positions.",
+  "Gut doors during cage work (phase 1).",
+  "Install hood pins after hood alignment; add cockpit-visible arrows.",
+  "Template and fit Lexan after cage/paint.",
+  "Install Dzus/rivnuts, then wrap and markings last."
+ ],
+ "schematics": [
+  {
+   "id": "body.panel-fastening",
+   "title": "Panel attachment methods",
+   "type": "block",
+   "description": "How each panel attaches and what it depends on.",
+   "nodes": [
+    {
+     "id": "hood",
+     "label": "Hood",
+     "componentId": "body.panels.hood"
+    },
+    {
+     "id": "pins",
+     "label": "AeroCatch pins",
+     "componentId": "body.hood-and-fasteners.hood-pins"
+    },
+    {
+     "id": "hinge",
+     "label": "Hinges/prop rod",
+     "componentId": "body.hood-and-fasteners.hood-hinges"
+    },
+    {
+     "id": "ff",
+     "label": "Front fascia",
+     "componentId": "body.panels.front-fascia"
+    },
+    {
+     "id": "rf",
+     "label": "Rear fascia",
+     "componentId": "body.panels.rear-fascia"
+    },
+    {
+     "id": "dzus",
+     "label": "Dzus EHF5/6",
+     "componentId": "body.trim-and-fasteners.dzus-fasteners"
+    },
+    {
+     "id": "lexan",
+     "label": "Lexan windows",
+     "componentId": "body.glass-and-lexan.rear-window"
+    },
+    {
+     "id": "rivnut",
+     "label": "Rivnuts",
+     "componentId": "body.trim-and-fasteners.rivnuts"
+    },
+    {
+     "id": "shell",
+     "label": "Unibody shell",
+     "componentId": "body.panels.quarters-and-roof"
+    },
+    {
+     "id": "splitter",
+     "label": "Splitter",
+     "componentId": "aero.front-splitter.splitter-blade"
+    }
+   ],
+   "edges": [
+    {
+     "from": "pins",
+     "to": "hood",
+     "label": "primary retention",
+     "kind": "mechanical"
+    },
+    {
+     "from": "hinge",
+     "to": "hood",
+     "label": "pivot",
+     "kind": "mechanical"
+    },
+    {
+     "from": "dzus",
+     "to": "ff",
+     "label": "quarter-turn",
+     "kind": "mechanical"
+    },
+    {
+     "from": "dzus",
+     "to": "rf",
+     "label": "quarter-turn",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rivnut",
+     "to": "lexan",
+     "label": "screws + nylon washers",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ff",
+     "to": "splitter",
+     "label": "shares edge",
+     "kind": "mechanical"
+    },
+    {
+     "from": "shell",
+     "to": "rivnut",
+     "label": "threads into",
+     "kind": "mechanical"
+    }
+   ]
+  }
+ ],
+ "routes": [],
+ "sources": [
+  {
+   "title": "Anderson Composites Type-OE hood (AC-HD16CHCAM-OE) – Evasive",
+   "url": "https://www.evasivemotorsports.com/store/product/anderson-composites-type-oe-hood-chevrolet-camaro-2016-2018/"
+  },
+  {
+   "title": "Anderson Composites Type-CP double sided hood – FFP",
+   "url": "https://ffperformance.co/product/anderson-composite-2016-2021-chevrolet-camaro-type-cp-double-sided-carbon-fiber-hood"
+  },
+  {
+   "title": "Anderson Composites Type-AZ double sided carbon hood 2016-2024 Camaro",
+   "url": "https://andersoncomposites.com/products/type-az-double-sided-carbon-fiber-hood-for-2016-2024-chevrolet-camaro.html"
+  },
+  {
+   "title": "NASA Speed News – Installing AeroCatch hood fasteners",
+   "url": "https://nasaspeed.news/toolshed-engineer/installing-aerocatch-hood-fasteners/"
+  },
+  {
+   "title": "AeroCatch Plus flush hood latch & pin kit (Anderson Composites)",
+   "url": "https://andersoncomposites.com/aerocatch-plus-flush-hood-latch-and-pin-kit-black-no-lock.html"
+  },
+  {
+   "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+   "url": "https://blog.demon-tweeks.com/?p=6261"
+  },
+  {
+   "title": "DME Racing – Dzus tab kit",
+   "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
+  },
+  {
+   "title": "SABIC Lexan Margard MR10 datasheet",
+   "url": "https://www.usplastic.com/catalog/files/specsheets/MR10-Datasheet.pdf"
+  },
+  {
+   "title": "GRM forum – Lexan windows thickness/bracing",
+   "url": "https://grassrootsmotorsports.com/forum/grm/lexan-windows/49593/page1"
+  },
+  {
+   "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+   "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+  },
+  {
+   "title": "SCCA Time Trials – Full Safety Rules",
+   "url": "https://timetrials.scca.com/pages/full-safety-rules"
+  }
+ ]
+}

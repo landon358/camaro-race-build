@@ -1,0 +1,702 @@
+{
+  "id": "engine-support.catch-cans-and-breathers",
+  "system": "engine-support",
+  "name": "Catch Cans & Breathers",
+  "description": "Crankcase and dry-sump tank ventilation: valve-cover breathers, tank vent, air/oil separator with drain-back, breather filter and optional crankcase vacuum.",
+  "components": [
+    {
+      "id": "engine-support.catch-cans-and-breathers.factory-pcv",
+      "name": "Factory PCV system (reference) & fresh-air port",
+      "qty": 1,
+      "description": "The LT4 meters crankcase gases into the supercharger inlet under vacuum and uses a fresh-air line from the intake tube under boost. With a dry sump the crankcase is mostly evacuated by the scavenge stages and vented through the oil tank; the factory PCV is commonly retained only as a fresh-air/vent path through a catch can, or blocked off per engine builder.",
+      "location": "Valve covers / front of supercharger / intake tube.",
+      "connectsTo": [
+        "engine.valve-covers.pcv-port",
+        "engine-support.induction.intake-tube",
+        "engine-support.catch-cans-and-breathers.catch-can"
+      ],
+      "factory": {
+        "name": "GM LT4 PCV hoses and integrated PCV orifice"
+      },
+      "raceOptions": [
+        {
+          "name": "Catch can on the PCV (dirty) side with check valve",
+          "brand": "Elite Engineering / RX / Mighty Mouse"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Coordinate with engine builder—blocking PCV on a boosted engine without adequate vent capacity pressurizes the crankcase."
+      ],
+      "inspection": [
+        "Check hoses for oil"
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "pcv",
+        "reference"
+      ],
+      "sources": []
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.pcv-fresh-air",
+      "name": "Fresh-air / breather port on intake tube",
+      "qty": 1,
+      "description": "Port on the intake tube (filtered side) for the crankcase fresh-air line or the catch-can return, so crankcase vapors are not vented to atmosphere where rules prohibit it.",
+      "location": "Intake tube between MAF and throttle body.",
+      "connectsTo": [
+        "engine-support.induction.intake-tube",
+        "engine-support.catch-cans-and-breathers.catch-can"
+      ],
+      "raceOptions": [
+        {
+          "name": "Weld-in -10 AN bung",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hose end",
+          "qty": 1,
+          "spec": "-10 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "30–36 ft-lb (41–49 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-10 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Place after the MAF (for MAF-based tunes, metered air must not bypass)."
+      ],
+      "inspection": [],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "pcv"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.37,
+          0.855,
+          0.14
+        ],
+        "size": [
+          0.02,
+          0.03,
+          0.02
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Roto-Fab 10161056 ZL1 cold air intake (oiled filter, sealed box)",
+            "url": "https://www.lingenfelter.com/product/RFB10161056.html"
+          }
+        ],
+        "dimensions": "-10 AN weld-in bung",
+        "features": "Aluminium bung with AN male nipple on intake tube",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.valve-cover-breathers",
+      "name": "Valve cover breather fittings",
+      "qty": 2,
+      "description": "AN breather fittings (with internal baffles) in each valve cover so crankcase pressure from blow-by is vented to the catch can rather than past the seals.",
+      "location": "Top of each valve cover, rear.",
+      "connectsTo": [
+        "engine.valve-covers.valve-cover-left",
+        "engine.valve-covers.valve-cover-right",
+        "engine-support.catch-cans-and-breathers.breather-hoses"
+      ],
+      "factory": {
+        "name": "GM valve cover PCV/vent ports"
+      },
+      "raceOptions": [
+        {
+          "name": "Baffled -10/-12 AN valve-cover adapters",
+          "brand": "Moroso / XRP / Holley"
+        }
+      ],
+      "specs": {
+        "Size": "-10 or -12 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 1,
+          "spec": "-10 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "30–36 ft-lb (41–49 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-10 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Ensure the valve cover port is baffled so oil splash is not pulled out."
+      ],
+      "inspection": [
+        "Check for oil in lines"
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "breather"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.2,
+          0.755,
+          0.27
+        ],
+        "size": [
+          0.025,
+          0.04,
+          0.025
+        ],
+        "axis": "y",
+        "mirror": true
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-10 AN baffled adapters",
+        "features": "Anodised AN fittings on valve covers",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.breather-hoses",
+      "name": "Valve cover breather hoses (-10 AN)",
+      "qty": 2,
+      "description": "Lines from each valve cover to the catch can, rising then falling continuously so condensed oil drains toward the can.",
+      "location": "Over the rear of the engine to the passenger-side firewall catch can.",
+      "connectsTo": [
+        "engine-support.catch-cans-and-breathers.valve-cover-breathers",
+        "engine-support.catch-cans-and-breathers.catch-can"
+      ],
+      "raceOptions": [
+        {
+          "name": "-10 push-lock or braided hose",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-10 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-10 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "30–36 ft-lb (41–49 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-10 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Avoid low spots that trap oil."
+      ],
+      "inspection": [
+        "Chafe check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "AN-10"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.2,
+              0.775,
+              0.27
+            ],
+            [
+              0.28,
+              0.84,
+              0.22
+            ],
+            [
+              0.36,
+              0.88,
+              0.05
+            ],
+            [
+              0.4,
+              0.87,
+              -0.25
+            ],
+            [
+              0.38,
+              0.83,
+              -0.46
+            ]
+          ],
+          "radius": 0.0101
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.2,
+              0.775,
+              -0.27
+            ],
+            [
+              0.28,
+              0.83,
+              -0.33
+            ],
+            [
+              0.36,
+              0.84,
+              -0.44
+            ],
+            [
+              0.37,
+              0.83,
+              -0.47
+            ]
+          ],
+          "radius": 0.0101
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-10 AN (0.797 in OD)",
+        "features": "Braided/push-lock hoses valve covers -> catch can",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.tank-vent-line",
+      "name": "Dry-sump tank vent line (-12 AN)",
+      "qty": 1,
+      "description": "Large vent from the top of the dry-sump tank (where scavenged air separates) to the catch can/air-oil separator. Undersized vents cause oil to blow out of the tank.",
+      "location": "Oil tank top (right front) rearward along the passenger side to the catch can at the firewall.",
+      "connectsTo": [
+        "engine-support.lubrication.oil-tank",
+        "engine-support.catch-cans-and-breathers.catch-can"
+      ],
+      "raceOptions": [
+        {
+          "name": "-12 AN hose (some builders use -10 to an air/oil separator)",
+          "brand": "XRP / Earl's"
+        }
+      ],
+      "specs": {
+        "Size": "-10 to -12 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-12 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "38–46 ft-lb (52–62 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-12 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Rise from the tank, then fall continuously to the can."
+      ],
+      "inspection": [
+        "Look for oil carry-over"
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "dry-sump",
+        "vent"
+      ],
+      "sources": [
+        {
+          "title": "Peterson tank / plumbing practice",
+          "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.42,
+            0.865,
+            -0.53
+          ],
+          [
+            -0.36,
+            0.88,
+            -0.5
+          ],
+          [
+            -0.15,
+            0.86,
+            -0.42
+          ],
+          [
+            0.05,
+            0.85,
+            -0.4
+          ],
+          [
+            0.25,
+            0.84,
+            -0.44
+          ],
+          [
+            0.36,
+            0.83,
+            -0.5
+          ]
+        ],
+        "radius": 0.0118
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          },
+          {
+            "title": "Peterson 08-0007 dry-sump tank 2.5 gal, 6 in dia x 24 in",
+            "url": "https://enginemaster.com.au/products/peterson-pfs08-0007-08-0007-dry-sump-tank-2-5-gallon-6-diameter-x-24-length"
+          }
+        ],
+        "dimensions": "-12 AN (0.928 in OD)",
+        "features": "Braided vent hose tank top -> catch can",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.catch-can",
+      "name": "Catch can / air-oil separator (with drain-back)",
+      "qty": 1,
+      "description": "Baffled can that separates oil mist from crankcase/tank vapors. Most sanctioning bodies require a catch can (often >= 1 qt / 1 L) on any breather that would otherwise vent to atmosphere. Can drains back to the dry-sump tank.",
+      "location": "Passenger side of the engine bay at the firewall, above the oil tank level.",
+      "connectsTo": [
+        "engine-support.catch-cans-and-breathers.tank-vent-line",
+        "engine-support.catch-cans-and-breathers.breather-hoses",
+        "engine-support.catch-cans-and-breathers.catch-can-drain",
+        "engine-support.catch-cans-and-breathers.breather-filter"
+      ],
+      "raceOptions": [
+        {
+          "name": "Moroso / Canton / Peterson air-oil separator (1-2 qt)",
+          "brand": "Moroso / Canton / Peterson"
+        },
+        {
+          "name": "Elite Engineering E2X / RX catch can for ZL1 PCV",
+          "brand": "Elite Engineering / RX"
+        }
+      ],
+      "specs": {
+        "Capacity": "1-2 qt",
+        "Ports": "-10/-12 AN in, -6 drain"
+      },
+      "hardware": [
+        {
+          "item": "Can mounting bolts",
+          "qty": 3,
+          "spec": "M6 into rivnuts",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Port fittings",
+          "qty": 3,
+          "spec": "-10 ORB (SAE J1926 straight-thread O-ring boss) port fitting with Viton/FKM O-ring",
+          "grade": "Aluminum / steel",
+          "torque": "25–30 ft-lb (34–41 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — lubricate O-ring with clean oil/fuel; no thread sealant",
+          "safetyWire": false,
+          "reuse": "Replace O-ring each removal",
+          "notes": "ORB seals on the O-ring, not the threads. Values are typical aluminum-port guidance; follow fitting maker (Earl's/XRP/Fragola) if listed.",
+          "confidence": "estimate",
+          "source": "https://www.vansaircraft.com/wp-content/uploads/2019/01/Torque_Spec_Aluminum_Fittings.pdf"
+        }
+      ],
+      "installNotes": [
+        "Mount above the tank oil level so it drains by gravity."
+      ],
+      "inspection": [
+        "Empty/inspect after every session if no drain-back"
+      ],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "catch-can",
+        "rules"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.38,
+          0.71,
+          -0.48
+        ],
+        "size": [
+          0.079,
+          0.22,
+          0.079
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Forum: Elite E2-X catch can 9.6 in tall x 3.1 in dia with fittings",
+            "url": "https://stangnet.com/mustang-forums/threads/closed-pcv-system-dual-valve-catch-can.913654/"
+          },
+          {
+            "title": "Camaro5: catch can installs on Gen 6 Camaro",
+            "url": "https://www.camaro5.com/forums/showthread.php?p=10835926"
+          }
+        ],
+        "dimensions": "~3.1 in (79 mm) dia x ~9.6 in (245 mm) with fittings",
+        "features": "Billet anodised can with finned body, top cap with AN inlets, bottom drain",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.catch-can-drain",
+      "name": "Catch can drain-back line (-6 AN) with check valve",
+      "qty": 1,
+      "description": "Returns separated oil from the can bottom to the dry-sump tank (or pan scavenge) with a one-way check valve so tank pressure cannot push oil up into the can.",
+      "location": "Can bottom forward to the oil tank.",
+      "connectsTo": [
+        "engine-support.catch-cans-and-breathers.catch-can",
+        "engine-support.lubrication.oil-tank"
+      ],
+      "raceOptions": [
+        {
+          "name": "-6 AN line + inline check valve",
+          "brand": "Earl's / XRP"
+        }
+      ],
+      "specs": {
+        "Size": "-6 AN"
+      },
+      "hardware": [
+        {
+          "item": "Hose ends",
+          "qty": 2,
+          "spec": "-6 AN 37° flare (JIC-compatible), aluminum or stainless hose end",
+          "grade": "Aluminum 6061-T6 / 304 SS",
+          "torque": "12.5–16 ft-lb (17–22 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none — light oil on threads and 37° seat (no sealant on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect (replace if seat galled or cracked)",
+          "notes": "Assemble flare joints at the low end of the range; aluminum fittings gall easily. If it weeps, tighten in small increments without exceeding max. Mark with torque stripe.",
+          "confidence": "typical",
+          "source": "https://speeding.fi/i/guides-and-information/an-fittings-and-hose/an-fittings-tightening-torque.html",
+          "tool": "-6 AN aluminum wrench"
+        }
+      ],
+      "installNotes": [
+        "Continuous downhill fall."
+      ],
+      "inspection": [
+        "Check valve function"
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "drain"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.38,
+            0.6,
+            -0.48
+          ],
+          [
+            0.2,
+            0.4,
+            -0.5
+          ],
+          [
+            -0.1,
+            0.36,
+            -0.52
+          ],
+          [
+            -0.3,
+            0.38,
+            -0.52
+          ],
+          [
+            -0.34,
+            0.4,
+            -0.52
+          ]
+        ],
+        "radius": 0.007
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "XRP stainless braided CPE hose size chart (-6 0.547, -8 0.641, -10 0.797, -12 0.928, -16 1.156 in OD)",
+            "url": "https://www.lpiracing.com/fluid-delivery-products/hoses/xrp-stainless-steel-braided-cpe-hose/?amp=1"
+          }
+        ],
+        "dimensions": "-6 AN (0.547 in OD)",
+        "features": "Braided drain hose with inline check valve back to oil tank",
+        "confidence": "published"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.breather-filter",
+      "name": "Catch-can breather filter / vent",
+      "qty": 1,
+      "description": "Small filter on the catch can vent (atmospheric) or a return line to the intake tube fresh-air port, depending on rules and the engine builder.",
+      "location": "Top of the catch can.",
+      "connectsTo": [
+        "engine-support.catch-cans-and-breathers.catch-can",
+        "engine-support.catch-cans-and-breathers.pcv-fresh-air"
+      ],
+      "raceOptions": [
+        {
+          "name": "-10 AN breather filter",
+          "brand": "Moroso / K&N"
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [
+        "Replace if oil-soaked"
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "filter"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.385,
+          0.855,
+          -0.48
+        ],
+        "size": [
+          0.055,
+          0.06,
+          0.055
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Forum: Elite E2-X catch can 9.6 in tall x 3.1 in dia with fittings",
+            "url": "https://stangnet.com/mustang-forums/threads/closed-pcv-system-dual-valve-catch-can.913654/"
+          }
+        ],
+        "dimensions": "~55 mm dia x 60 mm, -10 AN",
+        "features": "Chrome-capped pleated breather filter",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.catch-cans-and-breathers.crankcase-vacuum",
+      "name": "Crankcase vacuum (optional pump stage / regulator)",
+      "qty": 1,
+      "description": "Option: size scavenge stages (or add a dedicated vacuum stage) to pull 5-15 inHg of crankcase vacuum for ring seal and power, with an adjustable vacuum regulator/relief on the tank or valve cover. Requires sealed breathers (check valves) and a builder-specified setup.",
+      "location": "Dry-sump pump / valve cover.",
+      "connectsTo": [
+        "engine-support.lubrication.dry-sump-pump",
+        "engine-support.catch-cans-and-breathers.valve-cover-breathers"
+      ],
+      "raceOptions": [
+        {
+          "name": "Dailey roots-pump vacuum capability / Peterson vacuum regulator",
+          "brand": "Dailey / Peterson",
+          "url": "https://www.enginelabs.com/?p=112873"
+        }
+      ],
+      "specs": {
+        "Typical vacuum": "5-15 inHg (builder specified)"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Fit a crankcase vacuum gauge/sensor and a relief valve."
+      ],
+      "inspection": [
+        "Log crankcase pressure"
+      ],
+      "buildPhase": 7,
+      "installOrder": 9,
+      "tags": [
+        "optional",
+        "vacuum"
+      ],
+      "sources": [
+        {
+          "title": "Dailey (EngineLabs)",
+          "url": "https://www.enginelabs.com/?p=112873"
+        }
+      ]
+    }
+  ]
+}

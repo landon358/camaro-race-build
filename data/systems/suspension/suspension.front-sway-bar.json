@@ -1,0 +1,314 @@
+{
+  "id": "suspension.front-sway-bar",
+  "system": "suspension",
+  "name": "Front Sway Bar (Stabilizer Shaft)",
+  "description": "Direct-acting front stabilizer bar mounted to the front of the cradle in two insulators/clamps, with end links running to brackets on the strut bodies. Race options are stiffer adjustable bars and adjustable spherical end links for preload-free installation.",
+  "components": [
+    {
+      "id": "suspension.front-sway-bar.bar",
+      "name": "Front stabilizer bar",
+      "qty": 1,
+      "description": "Tubular/solid torsion bar across the front of the cradle. 'Direct-acting' means the end links attach to the strut, so the bar sees nearly 1:1 wheel motion. Removal requires taking off the front splash shields and the aluminum lower cradle brace.",
+      "location": "Front of front cradle, main bar approx x -0.30, y 0.22, z +/-0.40, arms back to x approx -0.02 at z +/-0.58.",
+      "connectsTo": [
+        "suspension.front-sway-bar.insulators-and-clamps",
+        "suspension.front-sway-bar.end-links",
+        "suspension.front-cradle.cradle",
+        "suspension.front-cradle.lower-cradle-brace"
+      ],
+      "factory": {
+        "name": "GM front stabilizer shaft (size varies by RPO)",
+        "notes": "Diameter not verified."
+      },
+      "raceOptions": [
+        {
+          "name": "BMR SB053 adjustable front sway bar",
+          "brand": "BMR Suspension",
+          "partNumber": "SB053",
+          "notes": "Mount nuts 35 ft-lb, end links 35 ft-lb per BMR. (SB052 = front + rear kit.)",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB053.pdf"
+        },
+        {
+          "name": "Hotchkis / Eibach / Pfadt adjustable bars",
+          "brand": "Various",
+          "notes": "Verify Gen 6 fitment and clearance to engine oil pan/dry-sump lines."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Install on cradle before cradle goes in if possible.",
+        "With BMR bars, push the bar toward the engine with a pry bar before torquing clamps so slotted mounts are at end of adjustment."
+      ],
+      "inspection": [
+        "Check bar ends for cracks at adjustment holes."
+      ],
+      "buildPhase": 3,
+      "installOrder": 30,
+      "tags": [
+        "sway-bar",
+        "anti-roll-bar"
+      ],
+      "sources": [
+        {
+          "title": "BMR SB052 / SB053 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/SB052.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.055,
+              0.335,
+              0.575
+            ],
+            [
+              -0.17,
+              0.305,
+              0.52
+            ],
+            [
+              -0.27,
+              0.275,
+              0.44
+            ],
+            [
+              -0.3,
+              0.265,
+              0.39
+            ],
+            [
+              -0.3,
+              0.265,
+              -0.39
+            ],
+            [
+              -0.27,
+              0.275,
+              -0.44
+            ],
+            [
+              -0.17,
+              0.305,
+              -0.52
+            ],
+            [
+              -0.055,
+              0.335,
+              -0.575
+            ]
+          ],
+          "radius": 0.015
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "2017 Camaro ZL1 suspension components parts list (knuckle 84169866, links 84012305/84051641/23317367, cradle 84776046, struts 85649816)",
+            "url": "https://g.oempartsonline.com/v-2017-chevrolet-camaro--zl1--6-2l-v8-gas/suspension--suspension-components"
+          }
+        ],
+        "dimensions": "approx 30 mm bar (estimate), approx 1.2 m wide end to end",
+        "features": "Bar runs across ahead of the rack on the forward cradle arms, arms bend rearward-outward to flattened, drilled ends; direct-acting end links to the strut",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-sway-bar.insulators-and-clamps",
+      "name": "Front sway bar insulators (bushings) and clamps",
+      "qty": 2,
+      "description": "Rubber insulators clamped to the cradle by two-bolt clamps (4 bolts total, 13 mm hex). Race replacements are polyurethane or Delrin with grease fittings, plus collars to stop lateral bar walk.",
+      "location": "Cradle front, approx (x -0.30, y 0.22, z +/-0.30).",
+      "connectsTo": [
+        "suspension.front-sway-bar.bar",
+        "suspension.front-cradle.cradle"
+      ],
+      "factory": {
+        "name": "GM stabilizer shaft insulators + clamps",
+        "notes": "GM stabilizer bar bracket P/Ns 84026866 / 84026867 appear in GM catalogs for Gen 6 (position not verified)."
+      },
+      "raceOptions": [
+        {
+          "name": "Polyurethane / Delrin greasable bushings",
+          "brand": "BMR (with SB053), Energy Suspension",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Stabilizer shaft insulator clamp nut/bolt",
+          "qty": 2,
+          "spec": "M8, 13 mm hex",
+          "grade": "OE",
+          "torque": "16 ft-lb (22 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "tool": "13 mm socket",
+          "notes": "Per clamp (4 per car). GM SI value as listed by TightTorque; BMR bars use 35 ft-lb with their own hardware. [2026-10 check] Confirmed in GM SC1 kit sheets 84242387/84401189 and the 1LE kit sheet 84233246 ('tighten the nuts to 22 N·m (16 lb ft)'). Same value as before.",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84242387.pdf",
+          "torqueSequence": "Single torque, no angle step. Use a swivel socket and keep the tool off the steering gear boots."
+        }
+      ],
+      "installNotes": [
+        "Grease poly bushings; center the bar before torquing."
+      ],
+      "inspection": [
+        "Check for squeaks/torn insulators."
+      ],
+      "buildPhase": 3,
+      "installOrder": 31,
+      "tags": [
+        "sway-bar-bushing"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque Camaro 6 torque table",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "title": "GM stabilizer bar bracket 84026867",
+          "url": "https://www.gmpartsdirect.com/oem-parts/gm-stabilizer-bar-bracket-84026867"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.3,
+            0.265,
+            0.37
+          ],
+          "size": [
+            0.06,
+            0.06,
+            0.05
+          ],
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          }
+        ],
+        "dimensions": "approx 60 x 60 x 50 mm",
+        "features": "Split rubber insulator with formed steel U-clamp bolted to the cradle arm (items 5/16)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "suspension.front-sway-bar.end-links",
+      "name": "Front sway bar end links",
+      "qty": 2,
+      "description": "Ball-stud links from the bar ends up to a bracket on each strut body. OE nuts are 18 mm and require a 6 mm hex key to hold the stud. Adjustable race links let the bar be installed with zero preload at race ride height (set on scales).",
+      "location": "From bar end approx (x -0.02, y 0.28, z +/-0.58) up to the strut bracket approx (x 0.0, y 0.47, z +/-0.64).",
+      "connectsTo": [
+        "suspension.front-sway-bar.bar",
+        "suspension.front-struts-springs.strut"
+      ],
+      "factory": {
+        "name": "GM front stabilizer shaft links",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "BMR ELK015 adjustable end link kit (front + rear)",
+          "brand": "BMR Suspension",
+          "partNumber": "ELK015",
+          "notes": "Rod-end links with jam nuts; set neutral length on car.",
+          "url": "https://www.bmrsuspension.com/siteart/install/ELK015.pdf"
+        },
+        {
+          "name": "SPL FE CAM6 front swaybar endlinks",
+          "brand": "SPL Parts",
+          "partNumber": "SPL FE CAM6",
+          "notes": "Camaro/ATS adjustable front links.",
+          "url": "https://durable.parts/?s=cam6&post_type=product"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Front stabilizer shaft link nut (each end)",
+          "qty": 2,
+          "spec": "M12 class prevailing-torque nut, 18 mm hex; hold stud with 6 mm hex key",
+          "grade": "OE",
+          "torque": "74 ft-lb (100 N·m)",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nut recommended (prevailing-torque)",
+          "tool": "18 mm wrench + 6 mm hex key",
+          "notes": "GM SG3: link nut at strut 100 N·m. BMR aftermarket links use 35 ft-lb (their hardware).",
+          "confidence": "verified",
+          "source": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        }
+      ],
+      "installNotes": [
+        "Install at ride height (car on scales/pads) with driver weight, adjust link length so the stud drops in with no force, then torque."
+      ],
+      "inspection": [
+        "Check ball studs for play; check jam nuts on adjustable links."
+      ],
+      "buildPhase": 3,
+      "installOrder": 32,
+      "tags": [
+        "end-link"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "BMR ELK015 instructions",
+          "url": "https://www.bmrsuspension.com/siteart/install/ELK015.pdf"
+        }
+      ],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              -0.055,
+              0.335,
+              0.575
+            ],
+            [
+              -0.0317,
+              0.5348,
+              0.6123
+            ]
+          ],
+          "radius": 0.008,
+          "mirror": true
+        }
+      ],
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM Gen 6 Camaro (ZL1) front suspension exploded diagram: hub, knuckle, strut, spring, mount, links, stabilizer, cradle (OEM Parts Online)",
+            "url": "https://cdn-illustrations.revolutionparts.io/strapr1/4f614d32b0e4edd423d455f00b4a1887/66f3998cf782e9506cd769ce6b8d1de6.png"
+          },
+          {
+            "title": "SPL FE CAM6 front sway-bar end links photo",
+            "url": "https://cdn11.bigcommerce.com/s-xn4bghc5/images/stencil/600x600/products/362/3874/SPL-FE-CAM6-L1-0-Front-Sway-Bar-Endlinks-HiRes-080423__58784.1732635839.jpg?c=2"
+          }
+        ],
+        "dimensions": "approx 205 mm centres",
+        "features": "Ball-stud link from the bar end up to the tab on the strut body (direct-acting)",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+ "id": "aero",
+ "name": "Aerodynamics",
+ "summary": "Downforce and drag management for the Gen 6 Camaro: factory ZL1 1LE aero (larger splitter, dive planes, exposed-carbon rear wing, carbon hood vent) as the baseline, or chassis-mounted race splitter, canards, undertray, adjustable wing and diffuser where class rules allow.",
+ "overview": "The ZL1 1LE package adds a larger unique splitter, front dive planes and a tall exposed carbon rear wing (RPO T42) to the ZL1; Chevrolet credited it with a 3-second gain around its Milford road course, and one press source quotes ~300 lb of rear downforce at top speed. For racing, the critical difference is load paths: the splitter must be carried by brackets to the crash beam/subframe and adjustable rods, not by the plastic fascia; the wing should load through uprights into mount plates and preferably chassis structure, not the decklid skin.\n\nBalance is tuned with wing angle and Gurney height at the rear against splitter height/extension and canards at the front. Underbody flow is cleaned up with a front undertray (also protecting the oil pan), optional flat mid-floor, rocker-skirt blades and a rear diffuser. Hood extractor and fender louvers reduce front lift and help cooling.\n\nCheck every item against the class rules (NASA ST/GTS, SCCA, Trans Am) – splitter overhang, wing span/height and flat bottoms are commonly limited.",
+ "buildNotes": [
+  "Set ride height/rake first.",
+  "Mount splitter to chassis brackets, then rods, then fascia edge fasteners.",
+  "Fit undertray and side-skirt blades.",
+  "Mount wing plates/chassis struts before decklid paint; install uprights, element, endplates, Gurney.",
+  "Baseline AoA mid-range; balance during shakedown."
+ ],
+ "schematics": [
+  {
+   "id": "aero.load-path",
+   "title": "Aero load paths (wing & splitter to chassis)",
+   "type": "mechanical",
+   "description": "How aerodynamic loads travel from surfaces into the unibody.",
+   "nodes": [
+    {
+     "id": "wing",
+     "label": "Wing main element",
+     "componentId": "aero.rear-wing.main-element"
+    },
+    {
+     "id": "gurney",
+     "label": "Gurney flap",
+     "componentId": "aero.rear-wing.gurney-flap"
+    },
+    {
+     "id": "ep",
+     "label": "Endplates",
+     "componentId": "aero.rear-wing.endplates"
+    },
+    {
+     "id": "up",
+     "label": "Uprights",
+     "componentId": "aero.rear-wing.uprights"
+    },
+    {
+     "id": "mp",
+     "label": "Mount plates",
+     "componentId": "aero.rear-wing.mount-plates"
+    },
+    {
+     "id": "lid",
+     "label": "Decklid",
+     "componentId": "body.panels.decklid"
+    },
+    {
+     "id": "rails",
+     "label": "Rear rails / trunk structure",
+     "componentId": "chassis.unibody.rear-rails"
+    },
+    {
+     "id": "spl",
+     "label": "Splitter blade",
+     "componentId": "aero.front-splitter.splitter-blade"
+    },
+    {
+     "id": "rods",
+     "label": "Support rods",
+     "componentId": "aero.front-splitter.support-rods"
+    },
+    {
+     "id": "cm",
+     "label": "Chassis mounts",
+     "componentId": "aero.front-splitter.chassis-mounts"
+    },
+    {
+     "id": "beam",
+     "label": "Front bumper beam",
+     "componentId": "chassis.front-bumper-beam"
+    },
+    {
+     "id": "sub",
+     "label": "Front subframe",
+     "componentId": "suspension.front-subframe.subframe"
+    },
+    {
+     "id": "fascia",
+     "label": "Front fascia",
+     "componentId": "body.panels.front-fascia"
+    },
+    {
+     "id": "dive",
+     "label": "Dive planes / canards",
+     "componentId": "aero.dive-planes-canards.factory-dive-planes"
+    },
+    {
+     "id": "ut",
+     "label": "Front undertray",
+     "componentId": "aero.undertray.front-undertray"
+    },
+    {
+     "id": "diff",
+     "label": "Diffuser",
+     "componentId": "aero.rear-diffuser.diffuser-panel"
+    },
+    {
+     "id": "db",
+     "label": "Diffuser brackets",
+     "componentId": "aero.rear-diffuser.diffuser-brackets"
+    },
+    {
+     "id": "rsub",
+     "label": "Rear subframe / beam",
+     "componentId": "suspension.rear-subframe.subframe"
+    },
+    {
+     "id": "tires",
+     "label": "Tires (grip)",
+     "componentId": "wheels.tires.tire"
+    }
+   ],
+   "edges": [
+    {
+     "from": "gurney",
+     "to": "wing",
+     "label": "trailing-edge lip",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ep",
+     "to": "wing",
+     "label": "tips",
+     "kind": "mechanical"
+    },
+    {
+     "from": "wing",
+     "to": "up",
+     "label": "downforce (M6 10.9)",
+     "kind": "mechanical"
+    },
+    {
+     "from": "up",
+     "to": "mp",
+     "label": "M8 10.9",
+     "kind": "mechanical"
+    },
+    {
+     "from": "mp",
+     "to": "lid",
+     "label": "through-bolted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "mp",
+     "to": "rails",
+     "label": "preferred chassis path",
+     "kind": "mechanical"
+    },
+    {
+     "from": "spl",
+     "to": "cm",
+     "label": "vertical load (M8)",
+     "kind": "mechanical"
+    },
+    {
+     "from": "spl",
+     "to": "rods",
+     "label": "corner load",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rods",
+     "to": "beam",
+     "label": "rod ends",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cm",
+     "to": "beam",
+     "label": "bolted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "cm",
+     "to": "sub",
+     "label": "bolted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "dive",
+     "to": "fascia",
+     "label": "backing plate",
+     "kind": "mechanical"
+    },
+    {
+     "from": "fascia",
+     "to": "beam",
+     "label": "brackets",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ut",
+     "to": "spl",
+     "label": "continuation",
+     "kind": "mechanical"
+    },
+    {
+     "from": "diff",
+     "to": "db",
+     "label": "panel fasteners",
+     "kind": "mechanical"
+    },
+    {
+     "from": "db",
+     "to": "rsub",
+     "label": "bolted",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rails",
+     "to": "tires",
+     "label": "via rear suspension",
+     "kind": "mechanical"
+    },
+    {
+     "from": "sub",
+     "to": "tires",
+     "label": "via front suspension",
+     "kind": "mechanical"
+    }
+   ]
+  },
+  {
+   "id": "aero.airflow",
+   "title": "Airflow paths",
+   "type": "flow",
+   "description": "Where air enters and exits the front of the car.",
+   "nodes": [
+    {
+     "id": "in",
+     "label": "Fascia openings",
+     "componentId": "body.panels.front-fascia"
+    },
+    {
+     "id": "duct",
+     "label": "Radiator ducting",
+     "componentId": "aero.ducts-and-vents.radiator-ducting"
+    },
+    {
+     "id": "rad",
+     "label": "Heat exchangers",
+     "componentId": "engine-support.cooling.radiator"
+    },
+    {
+     "id": "ext",
+     "label": "Hood extractor",
+     "componentId": "aero.ducts-and-vents.hood-extractor"
+    },
+    {
+     "id": "brk",
+     "label": "Brake inlets",
+     "componentId": "aero.ducts-and-vents.fascia-inlets"
+    },
+    {
+     "id": "well",
+     "label": "Front wheel wells",
+     "componentId": "body.trim-and-fasteners.fender-liners"
+    },
+    {
+     "id": "lv",
+     "label": "Fender louvers",
+     "componentId": "aero.ducts-and-vents.fender-louvers"
+    },
+    {
+     "id": "under",
+     "label": "Underbody (splitter → undertray → diffuser)",
+     "componentId": "aero.undertray.front-undertray"
+    },
+    {
+     "id": "diff",
+     "label": "Diffuser exit",
+     "componentId": "aero.rear-diffuser.diffuser-panel"
+    }
+   ],
+   "edges": [
+    {
+     "from": "in",
+     "to": "duct",
+     "label": "ram air",
+     "kind": "air"
+    },
+    {
+     "from": "duct",
+     "to": "rad",
+     "label": "sealed",
+     "kind": "air"
+    },
+    {
+     "from": "rad",
+     "to": "ext",
+     "label": "hot air out",
+     "kind": "air"
+    },
+    {
+     "from": "in",
+     "to": "brk",
+     "label": "cool air",
+     "kind": "air"
+    },
+    {
+     "from": "brk",
+     "to": "well",
+     "label": "to rotors",
+     "kind": "air"
+    },
+    {
+     "from": "well",
+     "to": "lv",
+     "label": "pressure relief",
+     "kind": "air"
+    },
+    {
+     "from": "in",
+     "to": "under",
+     "label": "under splitter",
+     "kind": "air"
+    },
+    {
+     "from": "under",
+     "to": "diff",
+     "label": "expansion",
+     "kind": "air"
+    }
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "id": "aero.route.splitter-rod-l",
+   "name": "Splitter rod LH",
+   "kind": "mechanical",
+   "componentId": "aero.front-splitter.support-rods",
+   "radius": 0.006,
+   "points": [
+    [
+     -0.95,
+     0.125,
+     0.55
+    ],
+    [
+     -0.88,
+     0.28,
+     0.5
+    ],
+    [
+     -0.8,
+     0.45,
+     0.45
+    ]
+   ]
+  },
+  {
+   "id": "aero.route.splitter-rod-r",
+   "name": "Splitter rod RH",
+   "kind": "mechanical",
+   "componentId": "aero.front-splitter.support-rods",
+   "radius": 0.006,
+   "points": [
+    [
+     -0.95,
+     0.125,
+     -0.55
+    ],
+    [
+     -0.88,
+     0.28,
+     -0.5
+    ],
+    [
+     -0.8,
+     0.45,
+     -0.45
+    ]
+   ]
+  },
+  {
+   "id": "aero.route.wing-upright-l",
+   "name": "Wing upright LH",
+   "kind": "mechanical",
+   "componentId": "aero.rear-wing.uprights",
+   "radius": 0.012,
+   "points": [
+    [
+     3.58,
+     0.99,
+     0.4
+    ],
+    [
+     3.66,
+     1.27,
+     0.4
+    ]
+   ]
+  },
+  {
+   "id": "aero.route.wing-upright-r",
+   "name": "Wing upright RH",
+   "kind": "mechanical",
+   "componentId": "aero.rear-wing.uprights",
+   "radius": 0.012,
+   "points": [
+    [
+     3.58,
+     0.99,
+     -0.4
+    ],
+    [
+     3.66,
+     1.27,
+     -0.4
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Carscoops – 2018 Camaro ZL1 1LE aero package",
+   "url": "https://www.carscoops.com/2017/02/new-2018-chevrolet-camaro-zl1-1le-puts/"
+  },
+  {
+   "title": "Motor Authority – Camaro ZL1 1LE",
+   "url": "https://www.motorauthority.com/news/1109057_the-chevrolet-camaro-zl1-1le-just-arrived-to-destroy-everything"
+  },
+  {
+   "title": "evo – Camaro ZL1 gets hardcore 1LE package",
+   "url": "https://evo.co.uk/news/18903/chevrolet-camaro-zl1-gets-a-hardcore-1le-package"
+  },
+  {
+   "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+   "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+  },
+  {
+   "title": "APR Performance carbon front splitter Camaro ZL1 (CW-601821)",
+   "url": "https://vividracing.com/apr-performance-splitter-camaro-zl1-1214-p-150791036.html"
+  },
+  {
+   "title": "EOS ZL1 1LE track package carbon front splitter",
+   "url": "https://ffperformance.co/product/eos-2019-2023-chevrolet-camaro-zl1-1le-track-package-carbon-fiber-front-splitter"
+  },
+  {
+   "title": "FFP – ZL1 1LE conversion front splitter for 6th gen Camaro",
+   "url": "https://ffperformance.co/product/2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter-2016-chevrolet-6th-gen-camaro-zl1-1le-conversion-front-splitter/"
+  },
+  {
+   "title": "EOS 2016-2024 Camaro ZL1 carbon side skirts",
+   "url": "https://ffperformance.co/product/eos-2016-2024-6th-gen-camaro-zl1-carbon-fiber-side-skirts/"
+  },
+  {
+   "title": "EOS 17-24 Camaro ZL1 carbon side skirt overlays",
+   "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-carbon-fiber-side-skirt-overlays-includes-2-eos/"
+  },
+  {
+   "title": "eBay – ZL1 carbon rear bumper diffuser 2016-2018 Camaro",
+   "url": "https://www.ebay.de/itm/192787177256"
+  },
+  {
+   "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+   "url": "https://blog.demon-tweeks.com/?p=6261"
+  }
+ ]
+}

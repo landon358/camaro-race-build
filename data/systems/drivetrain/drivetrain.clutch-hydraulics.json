@@ -1,0 +1,1050 @@
+{
+  "id": "drivetrain.clutch-hydraulics",
+  "system": "drivetrain",
+  "name": "Clutch Hydraulics",
+  "description": "Pedal, master cylinder, reservoir, pressure line, bulkhead, hydraulic release bearing (concentric slave), remote bleeder, pedal sensor and over-travel stop. Factory shares the brake reservoir and DOT 4 fluid; race builds use a dedicated reservoir, -3 AN line and an adjustable HRB.",
+  "components": [
+    {
+      "id": "drivetrain.clutch-hydraulics.clutch-pedal",
+      "name": "Clutch pedal assembly",
+      "qty": 1,
+      "description": "Driver's clutch pedal and pivot that pushes the clutch master cylinder pushrod. On the factory car it is part of the hanging pedal assembly behind the dash; most race builds move to a floor-mounted pedal box with an adjustable pushrod and positive over-travel stop.",
+      "location": "Driver footwell, leftmost pedal (x\u22480.88, y\u22480.25-0.55, z\u2248+0.45).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.master-cylinder",
+        "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor",
+        "drivetrain.clutch-hydraulics.pedal-stop",
+        "brakes.pedal-box.pedal-box",
+        "chassis.firewall.firewall"
+      ],
+      "factory": {
+        "name": "GM hanging clutch pedal (Gen 6 manual)",
+        "notes": "Pedal includes a clutch pedal position sensor used by Active Rev Match, launch control and no-lift-shift logic."
+      },
+      "raceOptions": [
+        {
+          "name": "Floor-mount 3-pedal box",
+          "brand": "Tilton / OBP / Wilwood",
+          "notes": "Integrates clutch master, brake masters and balance bar; set clutch pedal ratio so HRB travel is reached at ~75-85% of pedal stroke."
+        }
+      ],
+      "specs": {
+        "Actuation": "Hydraulic, pushrod to master cylinder"
+      },
+      "hardware": [
+        {
+          "item": "Pedal assembly-to-dash/firewall nut",
+          "qty": 4,
+          "spec": "M8 x 1.25 flange nut",
+          "grade": "8",
+          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Typical for M8 pedal-bracket studs; verify against GM SI for the Gen 6 pedal bracket. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the brake pedal assembly nut (pedal bracket to dash) at 25 N\u00b7m. The same source lists 'Clutch pedal assembly to Brake pedal bolts' at 20 N\u00b7m (15 ft-lb). The C7 SI clutch pedal bracket nuts are 27 N\u00b7m.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Pushrod-to-pedal clevis pin & retainer clip",
+          "qty": 1,
+          "spec": "Clevis pin + spring clip",
+          "grade": "",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace clip each removal",
+          "notes": "Lubricate pin with white lithium grease.",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install pedal box before routing the clutch line.",
+        "Set pushrod free-play so the master piston fully returns (compensating port open).",
+        "Set over-travel stop after bleeding (see pedal-stop)."
+      ],
+      "inspection": [
+        "Pivot bushing play",
+        "Clevis pin wear",
+        "Pedal returns fully"
+      ],
+      "buildPhase": 9,
+      "installOrder": 79,
+      "tags": [
+        "pedal",
+        "clutch"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.89,
+          0.38,
+          0.45
+        ],
+        "size": [
+          0.12,
+          0.36,
+          0.08
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "Arm ~360 mm pivot to pad, pad ~75 x 55 mm",
+        "features": "Hanging stamped-steel clutch pedal: pivot boss at top, curved arm, rubber pad, pushrod clevis",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.master-cylinder",
+      "name": "Clutch master cylinder",
+      "qty": 1,
+      "description": "Converts pedal force into hydraulic pressure for the release bearing. Bore size trades pedal effort against pedal travel; it must be matched to the release-bearing piston area and the clutch's required release travel.",
+      "location": "Factory: engine side of firewall behind the brake booster area, driver side (x\u22480.64, y\u22480.62, z\u2248+0.45). Race: on floor pedal box.",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.clutch-pedal",
+        "drivetrain.clutch-hydraulics.reservoir",
+        "drivetrain.clutch-hydraulics.pressure-line"
+      ],
+      "factory": {
+        "name": "GM clutch master cylinder (Gen 6 manual)",
+        "notes": "Fed from the shared brake/clutch master reservoir; owner manual specifies DOT 4 for the hydraulic brake/clutch system."
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton 75-series master cylinder",
+          "brand": "Tilton",
+          "notes": "Common race choice; select bore (e.g. 0.700 or 0.750 in) per Tilton's HRB matching chart so full release occurs before pedal stop."
+        }
+      ],
+      "specs": {
+        "Fluid": "DOT 4"
+      },
+      "fluids": [
+        {
+          "name": "DOT 4 brake/clutch fluid (factory spec)",
+          "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
+          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+        }
+      ],
+      "hardware": [
+        {
+          "item": "Master cylinder-to-firewall/pedal-box nut",
+          "qty": 2,
+          "spec": "M8 x 1.25 (OEM) or 5/16-18 (Tilton)",
+          "grade": "8.8 / Gr 8",
+          "torque": "OEM GM clutch actuator (master) cylinder: 115 in-lb (13 N\u00b7m). Tilton 5/16-18 mounting: per Tilton sheet (do not exceed ~15 ft-lb / 20 N\u00b7m on the plastic/aluminum flange).",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch actuator cylinder bolt' at 13 N\u00b7m. The C7 GM SI lists 'Clutch Actuator Cylinder Mounting Bolts' at 12 N\u00b7m (106 lb in). CORRECTED from 18 ft-lb (25 N\u00b7m) for the OEM unit.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Pressure outlet fitting",
+          "qty": 1,
+          "spec": "OEM quick-connect or -3 AN adapter (Tilton 7/16-20 UNF port)",
+          "grade": "",
+          "torque": "Snug + 1/8 turn; AN: \u224810-12 ft-lb (14-16 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none (no tape on flares)",
+          "safetyWire": false,
+          "reuse": "Inspect flare/O-ring",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Bench-bleed before installing.",
+        "Install with pushrod aligned straight to avoid side-load.",
+        "Connect reservoir feed, then pressure line."
+      ],
+      "inspection": [
+        "Fluid weep at pushrod boot",
+        "Fluid level / dark fluid (replace with brake fluid at each brake flush)"
+      ],
+      "buildPhase": 9,
+      "installOrder": 80,
+      "tags": [
+        "clutch-master",
+        "hydraulic"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        },
+        {
+          "title": "2021 Chevrolet Camaro High Performance Owner Manual Supplement (ZL1 capacities, eLSD, track fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.64,
+          0.62,
+          0.45
+        ],
+        "size": [
+          0.14,
+          0.035,
+          0.035
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~140 x 35 mm",
+        "features": "Firewall-mounted plastic/aluminium clutch master with pushrod to the pedal",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.reservoir",
+      "name": "Clutch fluid reservoir",
+      "qty": 1,
+      "description": "Supplies fluid to the clutch master. The factory car shares the brake master reservoir (marked brake/clutch); a race car usually gets a dedicated small remote reservoir so a clutch-circuit leak cannot drain the brake reservoir.",
+      "location": "Factory: brake master cylinder reservoir, driver side of engine bay (x\u22480.58, y\u22480.82, z\u2248+0.45). Race: separate reservoir on firewall/pedal-box bracket.",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.master-cylinder",
+        "drivetrain.clutch-hydraulics.reservoir-hose",
+        "brakes.master-cylinder.reservoir"
+      ],
+      "factory": {
+        "name": "Shared brake/clutch reservoir",
+        "notes": "Owner manual identifies item 'Brake/Clutch Fluid Reservoir'; filled with GM approved DOT 4."
+      },
+      "raceOptions": [
+        {
+          "name": "Remote clutch reservoir with -4 AN feed",
+          "brand": "Tilton / Wilwood",
+          "notes": "Dedicated reservoir mounted above the master inlet."
+        }
+      ],
+      "specs": {},
+      "fluids": [
+        {
+          "name": "DOT 4 brake/clutch fluid (factory spec)",
+          "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
+          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+        }
+      ],
+      "hardware": [
+        {
+          "item": "Reservoir bracket screw",
+          "qty": 2,
+          "spec": "M6 x 1.0 or 1/4-20",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount reservoir higher than master inlet.",
+        "Use a vented cap; keep away from exhaust heat."
+      ],
+      "inspection": [
+        "Level check every session",
+        "Fluid color"
+      ],
+      "buildPhase": 9,
+      "installOrder": 81,
+      "tags": [
+        "reservoir"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.6,
+          0.86,
+          0.5
+        ],
+        "size": [
+          0.05,
+          0.08,
+          0.05
+        ],
+        "axis": "y"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~50 x 80 mm",
+        "features": "Shared brake/clutch reservoir feed",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.reservoir-hose",
+      "name": "Reservoir-to-master feed hose",
+      "qty": 1,
+      "description": "Low-pressure gravity feed from reservoir to clutch master inlet.",
+      "location": "Between reservoir and master cylinder inlet on the firewall.",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.reservoir",
+        "drivetrain.clutch-hydraulics.master-cylinder"
+      ],
+      "factory": {
+        "name": "GM molded feed hose with spring clamps",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-4 AN braided or brake-fluid-rated push-lock hose",
+          "brand": "XRP / Earl's / Goodridge",
+          "notes": "Must be rated for glycol brake fluid (EPDM inner), not fuel hose."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Hose clamp",
+          "qty": 2,
+          "spec": "Spring or small worm clamp",
+          "grade": "",
+          "torque": "N/A (snug)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace spring clamps if weak",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route without dips that trap air."
+      ],
+      "inspection": [
+        "Hose cracking / softening"
+      ],
+      "buildPhase": 9,
+      "installOrder": 82,
+      "tags": [
+        "hose"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.6,
+            0.82,
+            0.5
+          ],
+          [
+            0.62,
+            0.72,
+            0.48
+          ],
+          [
+            0.64,
+            0.65,
+            0.45
+          ]
+        ],
+        "radius": 0.005
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~10 mm hose",
+        "features": "Moulded feed hose with spring clamps",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.pressure-line",
+      "name": "Clutch pressure line (master to release bearing)",
+      "qty": 1,
+      "description": "High-pressure line carrying fluid from the clutch master to the release bearing / concentric slave. Factory uses a formed line with GM quick-connects; race cars run -3 AN PTFE-lined stainless braid with a bulkhead fitting at the bellhousing so the trans can be dropped without opening the system more than necessary.",
+      "location": "Down the firewall, along the driver-side transmission tunnel to the bellhousing (see route drivetrain.route.clutch-line).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.master-cylinder",
+        "drivetrain.clutch-hydraulics.bulkhead-fitting",
+        "drivetrain.clutch-hydraulics.release-bearing"
+      ],
+      "factory": {
+        "name": "GM clutch actuator pipe with quick-connect fittings",
+        "notes": "Some GM manual applications include an in-line restrictor/damper in the clutch pipe; if present it slows clutch engagement - race builds typically delete it with an AN line."
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN PTFE stainless braided line",
+          "brand": "XRP / Earl's / Goodridge / Aeroquip",
+          "notes": "Fire-sleeve near exhaust; P-clip every 300 mm."
+        }
+      ],
+      "specs": {
+        "Size": "-3 AN (3/16 in) typical race"
+      },
+      "hardware": [
+        {
+          "item": "AN -3 hose end",
+          "qty": 2,
+          "spec": "-3 AN 37\u00b0 flare",
+          "grade": "",
+          "torque": "\u224810-12 ft-lb (14-16 N\u00b7m) / hand-tight + 1/8 turn",
+          "torqueSequence": "",
+          "threadlocker": "none (no tape)",
+          "safetyWire": false,
+          "reuse": "Reusable (inspect flare)",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "P-clip / Adel clamp",
+          "qty": 6,
+          "spec": "Cushioned clamp + M6 screw or rivnut",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route away from headers/downpipe (\u226575 mm or heat-sleeved).",
+        "Leave service loop at bellhousing for trans removal.",
+        "Pressure-test and bleed after HRB installed."
+      ],
+      "inspection": [
+        "Chafe at tunnel edges",
+        "Weeping at fittings",
+        "Heat damage near exhaust"
+      ],
+      "buildPhase": 6,
+      "installOrder": 25,
+      "tags": [
+        "clutch-line",
+        "an-3"
+      ],
+      "sources": [
+        {
+          "title": "2022 Chevrolet Camaro Owner Manual (capacities, recommended fluids, track-event fluid intervals)",
+          "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/camaro/2022-chevrolet-camaro-owners-manual.pdf"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.64,
+            0.62,
+            0.42
+          ],
+          [
+            0.62,
+            0.52,
+            0.38
+          ],
+          [
+            0.58,
+            0.42,
+            0.3
+          ],
+          [
+            0.53,
+            0.35,
+            0.22
+          ],
+          [
+            0.5,
+            0.335,
+            0.178
+          ]
+        ],
+        "radius": 0.004
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~6 mm steel/nylon line",
+        "features": "Clutch actuator pipe from the master cylinder down the driver side of the bell to the CSC quick-connect",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.bulkhead-fitting",
+      "name": "Bellhousing bulkhead fitting",
+      "qty": 1,
+      "description": "AN bulkhead through the bellhousing (or OEM pass-through) connecting the external clutch line to the internal release-bearing feed hose. Race SFI bellhousings have a dedicated hole for it.",
+      "location": "Driver side of bellhousing, lower quadrant (x\u22480.48, y\u22480.29, z\u2248+0.17).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.pressure-line",
+        "drivetrain.clutch-hydraulics.release-bearing",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "OEM quick-connect at bellhousing/CSC",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN bulkhead with jam nut",
+          "brand": "Earl's / XRP / Tilton",
+          "notes": "Supplied in Tilton HRB kits in many cases."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bulkhead jam nut",
+          "qty": 1,
+          "spec": "-3 AN bulkhead nut",
+          "grade": "",
+          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Orient so the external line exits rearward/downward away from exhaust."
+      ],
+      "inspection": [
+        "Jam nut tightness",
+        "Leak"
+      ],
+      "buildPhase": 6,
+      "installOrder": 26,
+      "tags": [
+        "fitting",
+        "an"
+      ],
+      "sources": [
+        {
+          "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.5,
+          0.335,
+          0.165
+        ],
+        "size": [
+          0.016,
+          0.016,
+          0.025
+        ],
+        "axis": "z"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "T56/TR-6060 concentric slave cylinder with remote bleeder (shape reference)",
+            "url": "https://malwoodauto.com.au/?p=13597"
+          }
+        ],
+        "dimensions": "~16 mm quick-connect",
+        "features": "Plastic/steel quick-connect at the bellhousing driver side",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.release-bearing",
+      "name": "Hydraulic release bearing / concentric slave cylinder",
+      "qty": 1,
+      "description": "Hydraulic piston and bearing concentric with the input shaft that pushes the pressure plate fingers. The factory TR-6060 uses a concentric slave cylinder (CSC) bolted to the front bearing retainer; race HRBs are height-adjustable and serviceable so release clearance can be set for any clutch.",
+      "location": "Inside the bellhousing on the transmission front bearing retainer, around the input shaft (x\u22480.50, y\u22480.40, z=0).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.bulkhead-fitting",
+        "drivetrain.clutch-hydraulics.remote-bleeder",
+        "drivetrain.clutch-hydraulics.release-bearing-shims",
+        "drivetrain.flywheel-clutch.pressure-plate",
+        "drivetrain.transmission.transmission"
+      ],
+      "factory": {
+        "name": "GM/Tremec concentric slave cylinder (TR-6060)",
+        "notes": "Not adjustable; replace whenever the clutch is replaced. Some aftermarket clutch kits (e.g. Mantic) include a new hydraulic release bearing; McLeod 6406807MD does not include a throwout bearing."
+      },
+      "raceOptions": [
+        {
+          "name": "Tilton 6200-series 44 mm HRB, Chevy Tremec TR6060",
+          "brand": "Tilton",
+          "partNumber": "60-6241",
+          "notes": "Listed height adjustment 2.66-3.63 in. LS/LT-to-TKO/500/600 version is 60-6231.",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        },
+        {
+          "name": "Tilton 6100-series flat-face HRB, Chevy Tremec TR6060",
+          "brand": "Tilton",
+          "partNumber": "60-6111",
+          "notes": "Listed height range 2.66-3.63 in.",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6100-Series-Hydraulic-Release-Bearings-Flat-face"
+        },
+        {
+          "name": "McLeod / Quarter Master adjustable HRB",
+          "brand": "McLeod / Quarter Master",
+          "notes": "Order to suit bellhousing depth and clutch finger height."
+        }
+      ],
+      "specs": {
+        "Bore (Tilton 6200)": "44 mm",
+        "Adjustment (TR6060 Tilton)": "2.66-3.63 in"
+      },
+      "fluids": [
+        {
+          "name": "DOT 4 brake/clutch fluid (factory spec)",
+          "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
+          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+        }
+      ],
+      "hardware": [
+        {
+          "item": "CSC-to-front-bearing-retainer bolt (OEM)",
+          "qty": 3,
+          "spec": "OEM metric bolt",
+          "grade": "OEM",
+          "torque": "115 in-lb (13 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Value from a forum-posted GM SI list for the 5th-gen TR-6060 slave; confirm against GM SI for Gen 6 before relying on it. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Concentric actuator cylinder bolt' at 13 N\u00b7m (115 lb in). This is consistent with the C7 GM SI clutch actuator cylinder bolts at 12 N\u00b7m. CORRECTED from 22 ft-lb (30 N\u00b7m), a 5th-gen forum value that would over-torque these small bolts in the aluminum retainer.",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        },
+        {
+          "item": "Race HRB mounting screw (to retainer adapter)",
+          "qty": 3,
+          "spec": "Per HRB kit (typically 1/4-20 or M6 socket-head)",
+          "grade": "12.9 SHCS",
+          "torque": "8 ft-lb (11 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Use Tilton/maker sheet value if given.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Measure from bellhousing mounting face to pressure-plate fingers (engaged) and from bellhousing face to HRB mounting face on the trans.",
+        "Set HRB height (shims/threaded body) for the clutch maker's clearance - commonly ~0.10-0.15 in (2.5-4 mm) air gap at rest - typical, follow maker.",
+        "Pre-bleed the HRB on the bench where possible; fit the internal hose and bleeder line before mating the trans.",
+        "Safety-wire or Loctite all internal fittings - a loose fitting inside the bell means pulling the trans."
+      ],
+      "inspection": [
+        "Clutch release point drift (indicates leak or wear)",
+        "Fluid in bellhousing inspection hole"
+      ],
+      "buildPhase": 6,
+      "installOrder": 27,
+      "tags": [
+        "hrb",
+        "csc",
+        "throwout-bearing"
+      ],
+      "sources": [
+        {
+          "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        },
+        {
+          "title": "Tilton 6100-series flat-face hydraulic release bearings (TR6060 application 60-6111)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6100-Series-Hydraulic-Release-Bearings-Flat-face"
+        },
+        {
+          "title": "McLeod 6406807 series twin-disc kits for 2016-24 Camaro SS/ZL1 (8-bolt crank, 1-1/8 x 26 spline)",
+          "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
+        },
+        {
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.5225,
+          0.4,
+          0
+        ],
+        "size": [
+          0.065,
+          0.12,
+          0.12
+        ],
+        "axis": "x",
+        "color": "#c0392b"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "T56/TR-6060 concentric slave cylinder with remote bleeder (shape reference)",
+            "url": "https://malwoodauto.com.au/?p=13597"
+          },
+          {
+            "title": "TREMEC TR-6060 (Wikipedia: aluminium main case, extension and clutch housing; Camaro SS/ZL1 applications)",
+            "url": "https://en.wikipedia.org/wiki/Tremec_TR-6060_transmission"
+          }
+        ],
+        "dimensions": "~120 mm over the 3 mounting ears, ~65 mm long",
+        "features": "Concentric slave: black body on the input-bearing retainer, 3-ear bolt flange, rubber dust boot, sealed release bearing at the front, feed port and bleeder spigots at the top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.release-bearing-shims",
+      "name": "Release bearing shims / spacers",
+      "qty": 1,
+      "description": "Spacer rings or shim stack used to set race HRB height (air gap) to the pressure plate fingers. Re-check whenever the clutch pack is changed or resurfaced.",
+      "location": "Between the HRB base and the transmission front bearing retainer.",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.release-bearing"
+      ],
+      "factory": {
+        "name": "Not used (factory CSC non-adjustable)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "HRB kit spacer set",
+          "brand": "Tilton / McLeod",
+          "notes": "Supplied with or available for most adjustable HRBs."
+        }
+      ],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [
+        "Record final shim stack in build log for the next clutch change."
+      ],
+      "inspection": [
+        "Re-measure air gap at every clutch service"
+      ],
+      "buildPhase": 6,
+      "installOrder": 28,
+      "tags": [
+        "shim",
+        "setup"
+      ],
+      "sources": [
+        {
+          "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0.553,
+          0.4,
+          0
+        ],
+        "size": [
+          0.003,
+          0.09,
+          0.09
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~90 mm OD shim",
+        "features": "Spacer between CSC and case face (aftermarket only)",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.remote-bleeder",
+      "name": "Remote bleeder line and valve",
+      "qty": 1,
+      "description": "Flexible line from the HRB bleed port out through the bellhousing to an accessible bleed screw, so the clutch can be bled without removing the transmission.",
+      "location": "From HRB inside bellhousing to a bracket on the bellhousing/trans side, driver side (x\u22480.55, y\u22480.42, z\u2248+0.20).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.release-bearing",
+        "drivetrain.bellhousing.bellhousing"
+      ],
+      "factory": {
+        "name": "OEM bleeder on clutch line/CSC quick-connect",
+        "notes": "Factory system bleeds at the slave/line; GM procedure uses pressure/vacuum bleeding."
+      },
+      "raceOptions": [
+        {
+          "name": "-3 AN bleed hose + bleed nipple bracket",
+          "brand": "Tilton / McLeod",
+          "notes": "Included in most race HRB kits."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Bleed screw",
+          "qty": 1,
+          "spec": "Bleed nipple (per kit)",
+          "grade": "",
+          "torque": "\u22487 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Bleeder bracket screw",
+          "qty": 2,
+          "spec": "M6",
+          "grade": "",
+          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue 242",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount bleeder at the HIGHEST point of the HRB circuit.",
+        "Bleed: fill reservoir, gravity-bleed, then pressure/pedal bleed until no air; check release point."
+      ],
+      "inspection": [
+        "Bleed at each brake-fluid change",
+        "Check bleeder cap fitted"
+      ],
+      "buildPhase": 6,
+      "installOrder": 29,
+      "tags": [
+        "bleeder"
+      ],
+      "sources": [
+        {
+          "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        }
+      ],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            0.51,
+            0.455,
+            -0.02
+          ],
+          [
+            0.52,
+            0.53,
+            -0.08
+          ],
+          [
+            0.56,
+            0.56,
+            -0.16
+          ]
+        ],
+        "radius": 0.003
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "T56/TR-6060 concentric slave cylinder with remote bleeder (shape reference)",
+            "url": "https://malwoodauto.com.au/?p=13597"
+          }
+        ],
+        "dimensions": "-3 AN / 3/16 in line",
+        "features": "Bleeder line from the CSC bleed spigot out of the bell",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor",
+      "name": "Clutch pedal position sensor / clutch switch",
+      "qty": 1,
+      "description": "Sensor on the clutch pedal that reports pedal travel. The GM ECM uses it for Active Rev Match, launch control, no-lift-shift and start interlock. In a race build the ECU (or MoTeC/standalone) uses a clutch switch for launch and flat-shift strategies.",
+      "location": "Clutch pedal bracket (x\u22480.86, y\u22480.55, z\u2248+0.45).",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.clutch-pedal",
+        "engine.ecu.ecm",
+        "electrical.power-distribution.pdm"
+      ],
+      "factory": {
+        "name": "GM clutch pedal position sensor",
+        "notes": "ARM monitors shift lever and clutch operation (GM bulletin 17-NA-251)."
+      },
+      "raceOptions": [
+        {
+          "name": "Adjustable clutch switch / linear pot",
+          "brand": "various",
+          "notes": "Wire to race ECU digital/analog input for launch/flat-shift."
+        }
+      ],
+      "specs": {
+        "Signal": "Analog position (OEM)"
+      },
+      "hardware": [
+        {
+          "item": "Sensor mounting screw",
+          "qty": 2,
+          "spec": "M5/M6 screw",
+          "grade": "",
+          "torque": "27 in-lb (3 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch pedal position switch bolt' at 3 N\u00b7m (27 lb in).",
+          "confidence": "typical",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Calibrate pedal travel in ECU after pedal box install."
+      ],
+      "inspection": [
+        "Connector security",
+        "Signal sweep in data"
+      ],
+      "buildPhase": 8,
+      "installOrder": 69,
+      "tags": [
+        "sensor",
+        "signal"
+      ],
+      "sources": [
+        {
+          "title": "GM Service Bulletin 17-NA-251: 2018 Camaro ZL1 1LE New Model Features (TREMEC 6060 RPO MH3 ratios, 226 mm eLSD, coolers)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10126120-9999.pdf"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.86,
+          0.55,
+          0.45
+        ],
+        "size": [
+          0.04,
+          0.03,
+          0.03
+        ]
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~40 x 30 mm",
+        "features": "Clutch pedal position sensor on the pedal bracket",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "drivetrain.clutch-hydraulics.pedal-stop",
+      "name": "Clutch pedal over-travel stop",
+      "qty": 1,
+      "description": "Adjustable stop that limits clutch pedal travel just past full release. Prevents over-stroking the HRB (which can blow its seals or pop the piston) and protects the diaphragm spring.",
+      "location": "Behind/below the clutch pedal arm on the pedal box or floor.",
+      "connectsTo": [
+        "drivetrain.clutch-hydraulics.clutch-pedal",
+        "drivetrain.clutch-hydraulics.release-bearing"
+      ],
+      "factory": {
+        "name": "Factory pedal bracket stop",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Threaded adjustable pedal stop",
+          "brand": "Tilton / OBP",
+          "notes": "Set with engine running: find full release in gear, add ~3-6 mm."
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Stop bolt + jam nut",
+          "qty": 1,
+          "spec": "M8 or 5/16 bolt with jam nut",
+          "grade": "",
+          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Adjust only after the system is fully bled."
+      ],
+      "inspection": [
+        "Jam nut tight",
+        "Stop position after clutch change"
+      ],
+      "buildPhase": 9,
+      "installOrder": 83,
+      "tags": [
+        "pedal-stop"
+      ],
+      "sources": [
+        {
+          "title": "Tilton 6200-series 44 mm hydraulic release bearings (TR6060 application 60-6241)",
+          "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          0.93,
+          0.3,
+          0.45
+        ],
+        "size": [
+          0.04,
+          0.012,
+          0.012
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [],
+        "dimensions": "~12 mm stop",
+        "features": "Adjustable over-travel stop",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

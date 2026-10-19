@@ -1,0 +1,127 @@
+{
+  "id": "interior.ballast",
+  "system": "interior",
+  "name": "Ballast",
+  "description": "Class ballast secured inside the cockpit to reach minimum weight and tune corner weights.",
+  "components": [
+    {
+      "id": "interior.ballast.ballast-plates",
+      "name": "Ballast plates (steel/lead)",
+      "qty": 1,
+      "description": "Steel or lead plates placed low and inboard (usually passenger floor) to meet class minimum weight and improve cross-weight with the driver on the left.",
+      "location": "Passenger floor near tunnel, x ≈ 2.00, y ≈ 0.22, z ≈ −0.22.",
+      "connectsTo": [
+        "interior.ballast.ballast-mount",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "Material": "Steel plate or lead; tungsten for tight packaging",
+        "Typical increment": "10–25 lb plates"
+      },
+      "hardware": [
+        {
+          "item": "Ballast through-bolts",
+          "qty": 2,
+          "spec": "1/2-13 UNC bolt + nyloc + backing plate under floor",
+          "grade": "SAE Grade 5 min (Grade 8 preferred)",
+          "torque": "75 ft-lb (102 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace nylocs",
+          "confidence": "typical",
+          "source": "https://timetrials.scca.com/pages/full-safety-rules",
+          "notes": "Common SCCA/NASA practice is ≥ two 1/2 in Grade 5 bolts per ~100 lb with backing plates – verify current rulebook; torque is standard Grade 5 dry chart value."
+        }
+      ],
+      "installNotes": [
+        "Ballast must be bolted, never strapped; record weights for tech."
+      ],
+      "inspection": [
+        "Check bolts tight; tech seal if required."
+      ],
+      "buildPhase": 11,
+      "installOrder": 27,
+      "tags": [],
+      "sources": [
+        {
+          "title": "SCCA Time Trials – Full Safety Rules",
+          "url": "https://timetrials.scca.com/pages/full-safety-rules"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2,
+          0.225,
+          -0.22
+        ],
+        "size": [
+          0.25,
+          0.05,
+          0.15
+        ]
+      }
+    },
+    {
+      "id": "interior.ballast.ballast-mount",
+      "name": "Ballast box / mounting plate",
+      "qty": 1,
+      "description": "Welded or bolted steel box/plate with backing plate under the floor that captures the ballast plates.",
+      "location": "Under ballast plates.",
+      "connectsTo": [
+        "interior.ballast.ballast-plates",
+        "chassis.unibody.floor-pan"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Backing plate",
+          "qty": 1,
+          "spec": "3/16 in steel plate under floor",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Position before final corner weighting."
+      ],
+      "inspection": [],
+      "buildPhase": 1,
+      "installOrder": 5,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          2,
+          0.198,
+          -0.22
+        ],
+        "size": [
+          0.28,
+          0.004,
+          0.18
+        ]
+      }
+    }
+  ]
+}

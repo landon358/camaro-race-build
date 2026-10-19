@@ -1,0 +1,177 @@
+{
+  "id": "wheels.spacers",
+  "system": "wheels",
+  "name": "Wheel Spacers (if used)",
+  "description": "Hub-centric slip-on spacers used to fine-tune track width or clear calipers. Always pair with extended studs so lug nuts engage at least the stud diameter (full nut preferred). Bolt-on adapters (spacer with its own studs) add a joint and are banned or discouraged in some classes.",
+  "components": [
+    {
+      "id": "wheels.spacers.front-spacers",
+      "name": "Front hub-centric spacers",
+      "qty": 2,
+      "description": "Slip-on hub-centric spacer between rotor hat and wheel (typ. 5–15 mm).",
+      "location": "Front hub face, between rotor hat and wheel.",
+      "connectsTo": [
+        "brakes.front-rotors.hat",
+        "wheels.wheels.front-wheel",
+        "wheels.studs-and-lug-nuts.wheel-studs"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Hub-centric 5x120 / 66.9 mm aluminum spacer with lip",
+          "brand": "H&R / Eibach / Wildhammer",
+          "notes": "Must also re-center on wheel bore (lip both sides)."
+        }
+      ],
+      "specs": {
+        "Bolt pattern": "5x120",
+        "Bore": "66.9 mm"
+      },
+      "hardware": [
+        {
+          "item": "Extended wheel studs",
+          "qty": 5,
+          "spec": "M14x1.5 press-in, length = OE + spacer thickness",
+          "grade": "10.9 equiv.",
+          "torque": "140 ft-lb (190 N·m) at lug nut",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lug torque unchanged; verify ≥ 1x diameter thread engagement.",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [
+        "Clean all three faces (hub/hat, spacer, wheel)."
+      ],
+      "inspection": [
+        "Check for fretting/cracks at each tire change."
+      ],
+      "buildPhase": 4,
+      "installOrder": 8,
+      "tags": [
+        "spacer",
+        "optional"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          0,
+          0.3715,
+          0.792
+        ],
+        "size": [
+          0.16,
+          0.16,
+          0.01
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#90a4ae"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "10 mm hub-centric, 5 x 120, 66.9 mm bore, M14 stud holes",
+        "features": "Billet aluminium disc with hub lip; requires 10 mm longer studs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "wheels.spacers.rear-spacers",
+      "name": "Rear hub-centric spacers",
+      "qty": 2,
+      "description": "As front, for rear track/clearance.",
+      "location": "Rear hub face.",
+      "connectsTo": [
+        "brakes.rear-rotors.rotor",
+        "wheels.wheels.rear-wheel",
+        "wheels.studs-and-lug-nuts.wheel-studs"
+      ],
+      "factory": {
+        "name": "None",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Hub-centric 5x120 spacer",
+          "brand": "Various",
+          "notes": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Extended wheel studs",
+          "qty": 5,
+          "spec": "M14x1.5",
+          "grade": "10.9 equiv.",
+          "torque": "140 ft-lb (190 N·m) at lug nut",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "verified",
+          "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 4,
+      "installOrder": 8,
+      "tags": [
+        "spacer",
+        "optional"
+      ],
+      "sources": [
+        {
+          "title": "TightTorque – Chevrolet Camaro 6 (2016–2024) torque table, compiled from GM 2016–2018 Camaro service manual sections",
+          "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+        }
+      ],
+      "model": {
+        "shape": "disc",
+        "pos": [
+          2.811,
+          0.3715,
+          0.822
+        ],
+        "size": [
+          0.16,
+          0.16,
+          0.01
+        ],
+        "axis": "z",
+        "mirror": true,
+        "color": "#90a4ae"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "wheel-sizes.com – Camaro 5x120, centre bore 66.9 mm, M14x1.5",
+            "url": "https://wheel-sizes.com/hubbore/chevrolet/camaro/"
+          }
+        ],
+        "dimensions": "10 mm hub-centric, 5 x 120, 66.9 mm bore",
+        "features": "Billet aluminium disc with hub lip",
+        "confidence": "estimated"
+      }
+    }
+  ]
+}

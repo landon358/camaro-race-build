@@ -1,0 +1,535 @@
+{
+ "id": "steering",
+ "name": "Steering",
+ "summary": "Gen 6 Camaro uses a ZF rack-mounted electric power steering (variable-ratio rack-and-pinion) bolted to the front cradle, a collapsible tilt/telescope column and a two-piece intermediate shaft. Race builds keep the ZF EPS rack (no bolt-in race rack exists), add a quick-release race wheel, and correct bump steer with adjustable outer tie rod ends.",
+ "overview": "The steering gear is a ZF rack with the assist motor and controller mounted on the rack (GM: 'ZF rack-mounted electric, power-assisted and variable ratio rack-and-pinion'), turning circle 38.4 ft on the ZL1. The rack bolts to the front cradle; inner tie rods thread onto the rack bar and outer tie rod ends taper into the knuckle steering arms (the model places the rack ahead of the axle line - verify on your car). The column is collapsible with an electric column lock and steering angle sensor; a two-piece intermediate shaft passes the dash panel and runs beside the driver-side exhaust to the pinion.\n\nKeeping EPS in a race car: the controller needs a heavy 12 V feed and ground, an ignition/wake signal and GM CAN messages (vehicle speed etc.). With a standalone engine ECU/PDM, plan a strategy (retain the needed GM modules on a private CAN, or use a gateway/emulator) during electrical design. The ZL1 1LE shipped with 'power steering deflectors' for track use, indicating EPS heat is a concern - duct cool air to it and log supply voltage.\n\nRace cockpit: quick-release wheel (NRG, Works Bell, OMP, Sparco), a Gen 6-specific hub adapter, and button/horn wiring through a contact QR or coiled cord. Removing the airbag wheel requires properly disabling SRS. Rules (NASA CCR / SCCA GCR) commonly allow aftermarket wheels and quick releases; check class rules regarding retaining collapsible columns and airbags.\n\nCommon issues: torn rack boots from header heat, inner tie rod wear, U-joint pinch bolts not seated in spline grooves, lash in cheap quick releases, bump steer after lowering.",
+ "buildNotes": [
+  "Bolt rack to front cradle on the bench; center the rack.",
+  "Install tie rods, set approximate toe (count threads).",
+  "Install column on IP beam or cage dash bar; install intermediate shafts with rack and wheel centered.",
+  "Wire EPS (phase 8): heavy feed, ground, wake, CAN.",
+  "Fit hub adapter, quick release, race wheel and button wiring (phase 9).",
+  "Set alignment toe and measure/correct bump steer with adjustable TREs (phase 11); recalibrate SAS if factory ABS/ESC retained."
+ ],
+ "schematics": [
+  {
+   "id": "steering.linkage",
+   "title": "Steering linkage (driver to tires)",
+   "type": "mechanical",
+   "description": "Mechanical steering path from the driver's hands to both front knuckles, including the EPS assist input at the rack.",
+   "nodes": [
+    {
+     "id": "wheel",
+     "label": "Steering wheel",
+     "componentId": "steering.wheel-and-quick-release.steering-wheel"
+    },
+    {
+     "id": "qr",
+     "label": "Quick release",
+     "componentId": "steering.wheel-and-quick-release.quick-release"
+    },
+    {
+     "id": "hub",
+     "label": "Hub adapter",
+     "componentId": "steering.wheel-and-quick-release.hub-adapter"
+    },
+    {
+     "id": "sas",
+     "label": "Steering angle sensor / clockspring",
+     "componentId": "steering.column-and-shaft.steering-angle-sensor-and-clockspring"
+    },
+    {
+     "id": "col",
+     "label": "Collapsible column",
+     "componentId": "steering.column-and-shaft.column"
+    },
+    {
+     "id": "uj1",
+     "label": "Upper U-joint",
+     "componentId": "steering.column-and-shaft.upper-intermediate-shaft"
+    },
+    {
+     "id": "ish1",
+     "label": "Upper intermediate shaft",
+     "componentId": "steering.column-and-shaft.upper-intermediate-shaft"
+    },
+    {
+     "id": "seal",
+     "label": "Dash panel seal",
+     "componentId": "steering.column-and-shaft.firewall-seal"
+    },
+    {
+     "id": "uj2",
+     "label": "Mid joint",
+     "componentId": "steering.column-and-shaft.lower-intermediate-shaft"
+    },
+    {
+     "id": "ish2",
+     "label": "Lower intermediate shaft",
+     "componentId": "steering.column-and-shaft.lower-intermediate-shaft"
+    },
+    {
+     "id": "pinion",
+     "label": "Pinion + torque sensor",
+     "componentId": "steering.rack.eps-gear"
+    },
+    {
+     "id": "motor",
+     "label": "EPS motor (assist)",
+     "componentId": "steering.rack.eps-motor-and-controller"
+    },
+    {
+     "id": "rack",
+     "label": "Rack bar",
+     "componentId": "steering.rack.eps-gear"
+    },
+    {
+     "id": "itrL",
+     "label": "LH inner tie rod",
+     "componentId": "steering.tie-rods.inner-tie-rod"
+    },
+    {
+     "id": "itrR",
+     "label": "RH inner tie rod",
+     "componentId": "steering.tie-rods.inner-tie-rod"
+    },
+    {
+     "id": "jamL",
+     "label": "LH jam nut",
+     "componentId": "steering.tie-rods.jam-nut"
+    },
+    {
+     "id": "jamR",
+     "label": "RH jam nut",
+     "componentId": "steering.tie-rods.jam-nut"
+    },
+    {
+     "id": "treL",
+     "label": "LH outer tie rod end / bump-steer TRE",
+     "componentId": "steering.tie-rods.outer-tie-rod-end"
+    },
+    {
+     "id": "treR",
+     "label": "RH outer tie rod end / bump-steer TRE",
+     "componentId": "steering.tie-rods.outer-tie-rod-end"
+    },
+    {
+     "id": "kL",
+     "label": "LH knuckle steering arm",
+     "componentId": "suspension.front-knuckles.knuckle"
+    },
+    {
+     "id": "kR",
+     "label": "RH knuckle steering arm",
+     "componentId": "suspension.front-knuckles.knuckle"
+    },
+    {
+     "id": "cradle",
+     "label": "Front cradle (rack mount)",
+     "componentId": "suspension.front-cradle.cradle"
+    }
+   ],
+   "edges": [
+    {
+     "from": "wheel",
+     "to": "qr",
+     "label": "6x70 bolts",
+     "kind": "mechanical"
+    },
+    {
+     "from": "qr",
+     "to": "hub",
+     "label": "spline QR",
+     "kind": "mechanical"
+    },
+    {
+     "from": "hub",
+     "to": "col",
+     "label": "center bolt 45 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "col",
+     "to": "sas",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "col",
+     "to": "uj1",
+     "label": "pinch bolt 30 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "uj1",
+     "to": "ish1",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ish1",
+     "to": "seal",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ish1",
+     "to": "uj2",
+     "label": "mid bolt 36 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "uj2",
+     "to": "ish2",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "ish2",
+     "to": "pinion",
+     "label": "lower bolt 50 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "motor",
+     "to": "rack",
+     "label": "assist force",
+     "kind": "mechanical"
+    },
+    {
+     "from": "pinion",
+     "to": "rack",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rack",
+     "to": "itrL",
+     "label": "105 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rack",
+     "to": "itrR",
+     "label": "105 N·m",
+     "kind": "mechanical"
+    },
+    {
+     "from": "itrL",
+     "to": "jamL",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "itrR",
+     "to": "jamR",
+     "label": "",
+     "kind": "mechanical"
+    },
+    {
+     "from": "jamL",
+     "to": "treL",
+     "label": "toe adjust",
+     "kind": "mechanical"
+    },
+    {
+     "from": "jamR",
+     "to": "treR",
+     "label": "toe adjust",
+     "kind": "mechanical"
+    },
+    {
+     "from": "treL",
+     "to": "kL",
+     "label": "taper nut 35 N·m + angle",
+     "kind": "mechanical"
+    },
+    {
+     "from": "treR",
+     "to": "kR",
+     "label": "taper nut 35 N·m + angle",
+     "kind": "mechanical"
+    },
+    {
+     "from": "rack",
+     "to": "cradle",
+     "label": "rack nuts 58 N·m + angle",
+     "kind": "mechanical"
+    }
+   ]
+  },
+  {
+   "id": "steering.eps-electrical",
+   "title": "EPS electrical / network (block)",
+   "type": "wiring",
+   "description": "What the ZF rack-mounted EPS needs to work in a race car. Exact fuse ratings, pinouts and CAN message IDs come from GM SI wiring diagrams - not verified here.",
+   "nodes": [
+    {
+     "id": "bat",
+     "label": "Battery",
+     "componentId": "electrical.battery-and-cutoff.battery"
+    },
+    {
+     "id": "kill",
+     "label": "Master cutoff",
+     "componentId": "electrical.battery-and-cutoff.master-switch"
+    },
+    {
+     "id": "pdm",
+     "label": "PDM / fuse (high-current EPS feed)",
+     "componentId": "electrical.power-distribution.pdm"
+    },
+    {
+     "id": "gnd",
+     "label": "Chassis ground",
+     "componentId": "electrical.grounding.chassis-ground"
+    },
+    {
+     "id": "eps",
+     "label": "EPS controller + motor",
+     "componentId": "steering.rack.eps-motor-and-controller"
+    },
+    {
+     "id": "ts",
+     "label": "Torque sensor (pinion)",
+     "componentId": "steering.rack.eps-gear"
+    },
+    {
+     "id": "ign",
+     "label": "Ignition / wake",
+     "componentId": "electrical.power-distribution.pdm"
+    },
+    {
+     "id": "can",
+     "label": "GM LAN / CAN bus",
+     "componentId": "electrical.can-bus.gmlan"
+    },
+    {
+     "id": "ecm",
+     "label": "ECM (vehicle speed / engine run)",
+     "componentId": "electrical.engine-management.ecu"
+    },
+    {
+     "id": "bcm",
+     "label": "BCM / power mode (if retained)",
+     "componentId": "electrical.body-control.bcm"
+    },
+    {
+     "id": "abs",
+     "label": "ABS/ESC module",
+     "componentId": "brakes.abs.abs-module"
+    },
+    {
+     "id": "sas",
+     "label": "Steering angle sensor",
+     "componentId": "steering.column-and-shaft.steering-angle-sensor-and-clockspring"
+    },
+    {
+     "id": "dash",
+     "label": "Dash / logger",
+     "componentId": "electrical.data-acquisition.dash-display"
+    }
+   ],
+   "edges": [
+    {
+     "from": "bat",
+     "to": "kill",
+     "label": "main feed",
+     "kind": "power"
+    },
+    {
+     "from": "kill",
+     "to": "pdm",
+     "label": "",
+     "kind": "power"
+    },
+    {
+     "from": "pdm",
+     "to": "eps",
+     "label": "EPS B+ (heavy gauge)",
+     "kind": "power"
+    },
+    {
+     "from": "eps",
+     "to": "gnd",
+     "label": "heavy ground",
+     "kind": "ground"
+    },
+    {
+     "from": "ign",
+     "to": "eps",
+     "label": "wake / run",
+     "kind": "signal"
+    },
+    {
+     "from": "ts",
+     "to": "eps",
+     "label": "torque signal",
+     "kind": "signal"
+    },
+    {
+     "from": "ecm",
+     "to": "can",
+     "label": "vehicle speed, engine run",
+     "kind": "can"
+    },
+    {
+     "from": "bcm",
+     "to": "can",
+     "label": "power mode",
+     "kind": "can"
+    },
+    {
+     "from": "can",
+     "to": "eps",
+     "label": "",
+     "kind": "can"
+    },
+    {
+     "from": "sas",
+     "to": "can",
+     "label": "steering angle",
+     "kind": "can"
+    },
+    {
+     "from": "can",
+     "to": "abs",
+     "label": "",
+     "kind": "can"
+    },
+    {
+     "from": "eps",
+     "to": "can",
+     "label": "EPS status/DTC",
+     "kind": "can"
+    },
+    {
+     "from": "can",
+     "to": "dash",
+     "label": "log EPS current/temp if available",
+     "kind": "can"
+    }
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "id": "steering.route.column-and-shafts",
+   "name": "Steering column and intermediate shafts",
+   "kind": "mechanical",
+   "componentId": "steering.column-and-shaft.column",
+   "radius": 0.014,
+   "points": [
+    [
+     1.22,
+     0.79,
+     0.37
+    ],
+    [
+     1.0,
+     0.68,
+     0.37
+    ],
+    [
+     0.85,
+     0.6,
+     0.37
+    ],
+    [
+     0.66,
+     0.52,
+     0.385
+    ],
+    [
+     0.4,
+     0.42,
+     0.4
+    ],
+    [
+     0.15,
+     0.35,
+     0.35
+    ],
+    [
+     -0.11,
+     0.27,
+     0.28
+    ]
+   ]
+  },
+  {
+   "id": "steering.route.tie-rod-left",
+   "name": "LH tie rod",
+   "kind": "mechanical",
+   "componentId": "steering.tie-rods.inner-tie-rod",
+   "radius": 0.01,
+   "points": [
+    [
+     -0.13,
+     0.26,
+     0.31
+    ],
+    [
+     -0.13,
+     0.255,
+     0.5
+    ],
+    [
+     -0.12,
+     0.25,
+     0.68
+    ]
+   ]
+  },
+  {
+   "id": "steering.route.tie-rod-right",
+   "name": "RH tie rod",
+   "kind": "mechanical",
+   "componentId": "steering.tie-rods.inner-tie-rod",
+   "radius": 0.01,
+   "points": [
+    [
+     -0.13,
+     0.26,
+     -0.31
+    ],
+    [
+     -0.13,
+     0.255,
+     -0.5
+    ],
+    [
+     -0.12,
+     0.25,
+     -0.68
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "2019 Camaro ZL1 product guide / specifications",
+   "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
+  },
+  {
+   "title": "GM bulletin 19-NA-038 (power steering deflectors)",
+   "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+  },
+  {
+   "title": "TightTorque Camaro 6 torque table (steering values)",
+   "url": "https://tighttorque.com/cars/chevrolet/camaro-6"
+  },
+  {
+   "title": "Chevy-Specs 2016 Camaro 6.2 front torque specs",
+   "url": "https://chevy-specs.com/cars/2016/camaro6.2/torque-specs_front.php"
+  },
+  {
+   "title": "SPL Parts TRE CAM6 bump steer tie rod ends",
+   "url": "https://durable.parts/product/spl-tre-cam6/"
+  },
+  {
+   "title": "2013 Cadillac ATS brochure (ZF EPS on Alpha)",
+   "url": "https://xr793.com/wp-content/uploads/2017/03/2013-Cadillac-ATS-Intro.pdf"
+  }
+ ]
+}

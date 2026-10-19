@@ -1,0 +1,927 @@
+{
+  "id": "engine-support.intercooler-loop",
+  "system": "engine-support",
+  "name": "LT4 Supercharger Intercooler Low-Temp Loop",
+  "description": "Separate low-temperature coolant loop for the LT4 supercharger charge-air cooler bricks: front heat exchanger, electric pump, reservoir and hoses. Not needed if the race engine is naturally aspirated (LT1-based).",
+  "components": [
+    {
+      "id": "engine-support.intercooler-loop.heat-exchanger",
+      "name": "Intercooler low-temperature heat exchanger (LTR)",
+      "qty": 1,
+      "description": "Front-mounted liquid-to-air heat exchanger for the LT4 supercharger charge-air-cooler loop. It runs much colder than the engine radiator, so it sits FIRST in the airflow. Upgrading it is the single most effective fix for heat-soak (IAT rise) on track in a ZL1.",
+      "location": "Front of the heat-exchanger stack, lower nose behind the grille/splitter opening, ahead of the engine radiator.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.hx-to-pump-hose",
+        "engine-support.intercooler-loop.reservoir-to-hx-hose",
+        "engine-support.coolers-auxiliary.cooler-stack-frame",
+        "engine-support.cooling.radiator-ducting"
+      ],
+      "factory": {
+        "name": "GM ZL1 supercharger intercooler heat exchanger",
+        "notes": "Part of the ZL1 11-heat-exchanger package; two of the 11 are the intercooler bricks in the supercharger lid (forum)."
+      },
+      "raceOptions": [
+        {
+          "name": "AFCO Racing 2017-24 Camaro ZL1 heat exchanger",
+          "brand": "AFCO Racing",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-heat-exchanger-afco-racing/"
+        },
+        {
+          "name": "CSF/GMS Camaro ZL1 Stage I supercharger cooling package",
+          "brand": "CSF / GMS",
+          "partNumber": "GMS8205-S1",
+          "notes": "HX described as more than 2x factory size.",
+          "url": "https://csfrace.com/products/gms8205-s1-gms-camaro-zl1-stage-i-super-charger-cooling-package"
+        },
+        {
+          "name": "PLM 17-24 Camaro ZL1 XL heat exchanger (75% larger)",
+          "brand": "PLM",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-6-2-lt4-xl-heat-exchanger-75-larger-plm/"
+        }
+      ],
+      "specs": {
+        "Coolant": "50/50 DEX-COOL (Lingenfelter guidance) or water + inhibitor per rules"
+      },
+      "hardware": [
+        {
+          "item": "HX mounting bolts to stack frame/brackets",
+          "qty": 4,
+          "spec": "M6 x 1.0 with rubber isolators",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "Blue (Loctite 243)",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Install before the radiator/stack is closed out; duct-seal it to the fascia opening.",
+        "Protect with mesh—it is the first core stones hit."
+      ],
+      "inspection": [
+        "Check fins and tanks, clear debris",
+        "Log IAT and IC coolant temp to see degradation"
+      ],
+      "buildPhase": 7,
+      "installOrder": 1,
+      "tags": [
+        "lt4",
+        "intercooler",
+        "heat-exchanger"
+      ],
+      "sources": [
+        {
+          "title": "AFCO ZL1 HX",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-heat-exchanger-afco-racing/"
+        },
+        {
+          "title": "CSF/GMS supercharger cooling pkg",
+          "url": "https://csfrace.com/products/gms8205-s1-gms-camaro-zl1-stage-i-super-charger-cooling-package"
+        },
+        {
+          "title": "PLM XL HX",
+          "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-6-2-lt4-xl-heat-exchanger-75-larger-plm/"
+        },
+        {
+          "title": "Street Muscle: ZL1 supercharger cooling",
+          "url": "https://www.streetmusclemag.com/?p=2403861"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.76,
+          0.4,
+          0
+        ],
+        "size": [
+          0.04,
+          0.3,
+          0.66
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "CSF 8205 ZL1 heat exchanger — photo",
+            "url": "https://csfrace.com/cdn/shop/files/8205_1_9a55ae21-3352-46cd-9130-52e6b8bee09d.jpg?v=1734738473&width=1946"
+          },
+          {
+            "title": "CSF 8205 Camaro ZL1 (2017+) high-performance intercooler heat exchanger — product page",
+            "url": "https://csfrace.com/products/8205-dms-2nd-3rd-gen-camaro-zl1-3rd-gen-cts-v-high-performance-heat-exchanger"
+          },
+          {
+            "title": "PLM 2017-24 ZL1 XL heat exchanger (core 23 x 12 x 2.5 in)",
+            "url": "https://wildhammermotorsports.com/17-24-camaro-zl1-6-2-lt4-xl-heat-exchanger-75-larger-plm/"
+          },
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "~660 W x 300 H x 40 mm (aftermarket 2-row 42 mm; PLM XL core 584 x 305 x 64)",
+        "features": "Thin aluminium bar/tube core ahead of radiator, end tanks with 3/4 in hose barbs, bleed screw top",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.ic-pump",
+      "name": "Intercooler coolant pump (electric)",
+      "qty": 1,
+      "description": "Electric circulation pump for the low-temp loop. Forum teardown reports the ZL1 pump is not CAN-controlled and is fed switched 12 V; on a race car run it continuously from a PDM channel whenever the engine runs (and optionally in the pits to pull heat out between sessions).",
+      "location": "Low in the nose below/behind the heat-exchanger stack, passenger side.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.hx-to-pump-hose",
+        "engine-support.intercooler-loop.pump-to-sc-hose",
+        "electrical.pdm.ic-pump-output"
+      ],
+      "factory": {
+        "name": "GM ZL1 intercooler pump",
+        "notes": "Lingenfelter states the CTS-V pump flows ~25% less than the ZL1 pump; VariMax pump matches ZL1 flow."
+      },
+      "raceOptions": [
+        {
+          "name": "VariMax (TAFX410110) high-flow pump",
+          "brand": "Lingenfelter / VariMax",
+          "partNumber": "TAFX410110",
+          "notes": "Listed in Lingenfelter CTS-V kit; flow equals ZL1 factory pump.",
+          "url": "https://www.lingenfelter.com/PDFdownloads/L330030709.pdf"
+        },
+        {
+          "name": "Bosch/Pierburg CWA-series brushless pump",
+          "brand": "Bosch / Pierburg"
+        }
+      ],
+      "specs": {
+        "Power": "Switched 12 V (ZL1, per forum)"
+      },
+      "hardware": [
+        {
+          "item": "Pump bracket screws",
+          "qty": 2,
+          "spec": "M5 x 0.8 x 12 SHCS + nyloc (Lingenfelter kit style)",
+          "grade": "SS",
+          "torque": "40–50 in-lb (4.5–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": "https://www.lingenfelter.com/PDFdownloads/L330030709.pdf"
+        },
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Mount pump below the reservoir level so it stays flooded; inlet from HX.",
+        "Wire through PDM with override switch for bleeding."
+      ],
+      "inspection": [
+        "Listen for pump at key-on; check IC temp data delta across the HX"
+      ],
+      "buildPhase": 7,
+      "installOrder": 2,
+      "tags": [
+        "lt4",
+        "pump",
+        "electrical-load"
+      ],
+      "sources": [
+        {
+          "title": "Camaro5 ZL1 IC pump teardown",
+          "url": "https://www.camaro5.com/forums/showthread.php?p=8265917"
+        },
+        {
+          "title": "Lingenfelter CTS-V IC pump kit",
+          "url": "https://www.lingenfelter.com/PDFdownloads/L330030709.pdf"
+        }
+      ],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.55,
+          0.26,
+          0.48
+        ],
+        "size": [
+          0.15,
+          0.08,
+          0.08
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Lingenfelter VariMax intercooler pump instructions (PDF)",
+            "url": "https://www.lingenfelter.com/PDFdownloads/L330030709.pdf"
+          },
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "~80 mm dia x 150 mm, 3/4 in inlet/outlet",
+        "features": "Black brushless pump: motor can + volute with axial inlet and tangential outlet, 5-pin connector, rubber-isolated bracket",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.ic-reservoir",
+      "name": "Intercooler coolant reservoir / degas tank",
+      "qty": 1,
+      "description": "Adds volume (thermal mass) and an air-separation point to the low-temp loop. The factory ZL1 has minimal reservoir volume; a large aftermarket tank both slows heat-soak and makes bleeding easy.",
+      "location": "Driver side of the engine bay, behind the air box and ahead of the left strut tower (highest point of the IC loop).",
+      "connectsTo": [
+        "engine-support.intercooler-loop.sc-to-reservoir-hose",
+        "engine-support.intercooler-loop.reservoir-to-hx-hose"
+      ],
+      "factory": {
+        "name": "GM ZL1 intercooler degas bottle",
+        "notes": "Reviewers criticized the lack of a coolant tank volume."
+      },
+      "raceOptions": [
+        {
+          "name": "Lingenfelter Gen VI ZL1 intercooler coolant reservoir tank (2.5 gal high capacity)",
+          "brand": "Lingenfelter",
+          "url": "https://lingenfelter.com/product/camaro-intercooler-coolant-reservoir-tank"
+        }
+      ],
+      "specs": {
+        "Factory loop capacity": "Conflicting secondary sources: 2.1 qt (AMSOIL) vs 4.5 qt (forum ZL1 fluid list) — verify",
+        "Aftermarket tank": "up to 2.5 gal"
+      },
+      "hardware": [
+        {
+          "item": "Reservoir mounting bolts",
+          "qty": 3,
+          "spec": "M6 into rivnuts with isolators",
+          "grade": "8.8",
+          "torque": "60–80 in-lb (6.8–9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "estimate",
+          "source": ""
+        },
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Must be the highest point of the IC loop."
+      ],
+      "inspection": [
+        "Check level cold"
+      ],
+      "buildPhase": 7,
+      "installOrder": 3,
+      "tags": [
+        "lt4",
+        "reservoir"
+      ],
+      "sources": [
+        {
+          "title": "Lingenfelter ZL1 IC reservoir",
+          "url": "https://lingenfelter.com/product/camaro-intercooler-coolant-reservoir-tank"
+        },
+        {
+          "title": "AIRAID ZL1 specs",
+          "url": "https://www.airaid.com/blog/in-depth-2017-chevrolet-camaro-zl1-specs-performance-upgrades-from-airaid/"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.17,
+          0.75,
+          0.44
+        ],
+        "size": [
+          0.14,
+          0.14,
+          0.1
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Moroso 63873 ZL1 (17+) supercharger coolant tank (bolts into factory location)",
+            "url": "https://sdparts.com/i-24506234-moroso-63873-tank-supercharger-camaro-zl1-17-up.html"
+          },
+          {
+            "title": "Lingenfelter Gen VI ZL1 intercooler coolant reservoir (2.5 gal, TIG-welded 5052)",
+            "url": "https://lingenfelter.com/product/camaro-intercooler-coolant-reservoir-tank"
+          },
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "~140 x 140 x 100 mm",
+        "features": "Translucent plastic degas bottle with cap; aluminium race tank option",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.hx-to-pump-hose",
+      "name": "Hose: heat exchanger outlet to pump inlet",
+      "qty": 1,
+      "description": "Short suction hose from the HX outlet to the pump inlet.",
+      "location": "Lower front, passenger side.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.heat-exchanger",
+        "engine-support.intercooler-loop.ic-pump"
+      ],
+      "factory": {
+        "name": "GM ZL1 IC hose"
+      },
+      "raceOptions": [
+        {
+          "name": "3/4 in silicone or -12 AN",
+          "brand": "Samco / XRP"
+        }
+      ],
+      "specs": {
+        "Size": "~3/4 in (verify)"
+      },
+      "hardware": [
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Chafe and clamp check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 4,
+      "tags": [
+        "hose",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.755,
+            0.27,
+            0.34
+          ],
+          [
+            -0.7,
+            0.235,
+            0.36
+          ],
+          [
+            -0.64,
+            0.235,
+            0.39
+          ],
+          [
+            -0.625,
+            0.26,
+            0.45
+          ],
+          [
+            -0.627,
+            0.26,
+            0.47
+          ]
+        ],
+        "radius": 0.0125
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "3/4 in ID (~25 mm OD)",
+        "features": "Black molded rubber hose with spring clamps",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.pump-to-sc-hose",
+      "name": "Hose: pump outlet to supercharger intercooler inlet",
+      "qty": 1,
+      "description": "Pressure hose from the pump up to the supercharger lid intercooler inlet port.",
+      "location": "Passenger side, from lower nose up to the front of the supercharger.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.ic-pump",
+        "engine-support.intercooler-loop.sc-intercooler-interface"
+      ],
+      "factory": {
+        "name": "GM ZL1 IC hose"
+      },
+      "raceOptions": [
+        {
+          "name": "3/4 in silicone/aluminum hard line or -12 AN",
+          "brand": "Fabricated"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Route clear of the accessory drive and dry-sump belt."
+      ],
+      "inspection": [
+        "Chafe check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 5,
+      "tags": [
+        "hose",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.605,
+            0.305,
+            0.48
+          ],
+          [
+            -0.58,
+            0.36,
+            0.475
+          ],
+          [
+            -0.45,
+            0.43,
+            0.475
+          ],
+          [
+            -0.33,
+            0.62,
+            0.42
+          ],
+          [
+            -0.25,
+            0.7,
+            0.24
+          ],
+          [
+            -0.205,
+            0.78,
+            0.1
+          ],
+          [
+            -0.21,
+            0.86,
+            0.05
+          ]
+        ],
+        "radius": 0.0125
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "3/4 in ID (~25 mm OD)",
+        "features": "Black molded rubber hose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.sc-to-reservoir-hose",
+      "name": "Hose: supercharger intercooler outlet to reservoir",
+      "qty": 1,
+      "description": "Hot return from the supercharger bricks to the reservoir (air rises here).",
+      "location": "Front of supercharger to driver-side reservoir.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.sc-intercooler-interface",
+        "engine-support.intercooler-loop.ic-reservoir"
+      ],
+      "factory": {
+        "name": "GM ZL1 IC hose"
+      },
+      "raceOptions": [
+        {
+          "name": "3/4 in silicone",
+          "brand": "Samco"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Chafe check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 6,
+      "tags": [
+        "hose",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.21,
+            0.88,
+            0.17
+          ],
+          [
+            -0.22,
+            0.9,
+            0.28
+          ],
+          [
+            -0.2,
+            0.86,
+            0.4
+          ],
+          [
+            -0.18,
+            0.83,
+            0.44
+          ]
+        ],
+        "radius": 0.0125
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "3/4 in ID (~25 mm OD)",
+        "features": "Black molded rubber hose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.reservoir-to-hx-hose",
+      "name": "Hose: reservoir to heat exchanger inlet",
+      "qty": 1,
+      "description": "Return from the reservoir down to the HX inlet to complete the loop.",
+      "location": "Driver side, from reservoir down to the front stack.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.ic-reservoir",
+        "engine-support.intercooler-loop.heat-exchanger"
+      ],
+      "factory": {
+        "name": "GM ZL1 IC hose"
+      },
+      "raceOptions": [
+        {
+          "name": "3/4 in silicone",
+          "brand": "Samco"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Constant-tension / T-bolt hose clamp (3/4 in)",
+          "qty": 2,
+          "spec": "Spring (OE) or SS T-bolt clamp for 3/4 in hose",
+          "grade": "SS",
+          "torque": "35–50 in-lb (4–5.6 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Lingenfelter recommends OEM constant-tension or spring clamps over worm clamps because rubber hoses expand thermally.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Chafe check"
+      ],
+      "buildPhase": 7,
+      "installOrder": 7,
+      "tags": [
+        "hose",
+        "lt4"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "tube",
+        "path": [
+          [
+            -0.17,
+            0.68,
+            0.44
+          ],
+          [
+            -0.25,
+            0.58,
+            0.5
+          ],
+          [
+            -0.4,
+            0.47,
+            0.54
+          ],
+          [
+            -0.55,
+            0.45,
+            0.52
+          ],
+          [
+            -0.66,
+            0.46,
+            0.42
+          ],
+          [
+            -0.74,
+            0.5,
+            0.34
+          ]
+        ],
+        "radius": 0.0125
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "3/4 in ID (~25 mm OD)",
+        "features": "Black molded rubber hose",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.sc-intercooler-interface",
+      "name": "Supercharger intercooler ports & bleed screw (bricks owned by engine team)",
+      "qty": 1,
+      "description": "The two air-to-water intercooler bricks live inside the LT4 supercharger lid (engine system). The cooling team plumbs to its coolant manifold inlet/outlet and uses its bleed/Schrader point when filling.",
+      "location": "Front of the supercharger lid, top of engine.",
+      "connectsTo": [
+        "engine.supercharger.intercooler-bricks",
+        "engine-support.intercooler-loop.pump-to-sc-hose",
+        "engine-support.intercooler-loop.sc-to-reservoir-hose"
+      ],
+      "factory": {
+        "name": "GM LT4 supercharger water manifold and intercooler bricks"
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Supercharger water manifold bolts",
+          "qty": 4,
+          "spec": "M6",
+          "grade": "GM OE",
+          "torque": "89 in-lb (10.1 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Gen V value from published spec compilation (Summit Racing / Michigan Motorsports); confirm against GM service information.",
+          "confidence": "typical",
+          "source": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "installNotes": [
+        "Bleed: fill reservoir, run pump in short cycles with Schrader/bleed open; vacuum fill (Airlift) gets the last air out (forum guidance). GM fill tool GE-52079 referenced in a 2018 GM charge-air-cooler procedure."
+      ],
+      "inspection": [
+        "Look for coolant in intake (brick leak) at teardown"
+      ],
+      "buildPhase": 7,
+      "installOrder": 8,
+      "tags": [
+        "lt4",
+        "supercharger",
+        "interface"
+      ],
+      "sources": [
+        {
+          "title": "Summit Gen V LT4 torque",
+          "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.215,
+          0.875,
+          0.11
+        ],
+        "size": [
+          0.03,
+          0.04,
+          0.18
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Summit: Gen V LT cooling system notes",
+            "url": "https://help.summitracing.com/knowledgebase/article/SR-05493/en-us"
+          },
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "2 x 3/4 in ports ~120 mm apart",
+        "features": "Cast port necks on supercharger front with bleed screw",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.ic-temp-sensor",
+      "name": "Intercooler coolant temperature sensor (data)",
+      "qty": 1,
+      "description": "Optional NTC sensor in the HX outlet line so the logger can show IC loop temperature vs. IAT.",
+      "location": "Inline in the HX-to-pump hose.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.hx-to-pump-hose",
+        "electrical.sensors.ic-coolant-temp-sensor"
+      ],
+      "raceOptions": [
+        {
+          "name": "Inline 3/4 in hose sensor adapter + 1/8 NPT NTC sensor",
+          "brand": "Various"
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Sensor",
+          "qty": 1,
+          "spec": "1/8-27 NPT",
+          "grade": "Brass",
+          "torque": "10–12 ft-lb (14–16 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "PTFE paste",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 8,
+      "installOrder": 9,
+      "tags": [
+        "sensor",
+        "data"
+      ],
+      "sources": [],
+      "model": {
+        "shape": "cylinder",
+        "pos": [
+          -0.67,
+          0.235,
+          0.365
+        ],
+        "size": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "axis": "x"
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "GM parts diagram: 2021 Camaro ZL1 intercooler / pump / degas",
+            "url": "https://www.gmoutletparts.com/v-2021-chevrolet-camaro--zl1--6-2l-v8-gas/fuel-system--intercooler"
+          }
+        ],
+        "dimensions": "Inline 3/4 in adapter ~30 mm with 1/8 NPT sensor",
+        "features": "Billet inline adapter with brass NTC sensor",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "engine-support.intercooler-loop.ic-coolant",
+      "name": "Intercooler loop coolant (fill)",
+      "qty": 1,
+      "description": "Factory loop uses DEX-COOL 50/50. Lingenfelter specifies 50/50 DEX-COOL with tap or distilled water for its reservoir kit. On track, follow the same glycol rules as the engine circuit.",
+      "location": "Low-temp loop.",
+      "connectsTo": [
+        "engine-support.intercooler-loop.ic-reservoir"
+      ],
+      "factory": {
+        "name": "DEX-COOL 50/50"
+      },
+      "raceOptions": [
+        {
+          "name": "Distilled water + WaterWetter (if glycol banned)",
+          "brand": "Red Line"
+        }
+      ],
+      "specs": {
+        "Capacity": "2.1 qt (AMSOIL) or 4.5 qt (forum list) factory — unverified; more with large reservoir"
+      },
+      "hardware": [],
+      "fluids": [
+        {
+          "name": "IC loop coolant",
+          "spec": "DEX-COOL 50/50 or water + inhibitor",
+          "capacity": "~2-5 qt factory (unverified); up to +2.5 gal with Lingenfelter tank"
+        }
+      ],
+      "installNotes": [
+        "Fill and bleed after engine coolant; air in this loop kills IC performance."
+      ],
+      "inspection": [
+        "Check level cold"
+      ],
+      "buildPhase": 11,
+      "installOrder": 10,
+      "tags": [
+        "fluid",
+        "lt4"
+      ],
+      "sources": [
+        {
+          "title": "Lingenfelter IC reservoir",
+          "url": "https://lingenfelter.com/product/camaro-intercooler-coolant-reservoir-tank"
+        }
+      ]
+    }
+  ]
+}
