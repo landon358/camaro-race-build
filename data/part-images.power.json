@@ -9,9 +9,9 @@
       "plugs"
     ],
     "title": "File:Spark plug.jpg",
-    "author": "Unknown",
+    "author": "Unknown (public domain)",
     "license": "Public domain",
-    "licenseUrl": "",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Spark_plug.jpg"
   },
   "piston": {
@@ -42,7 +42,7 @@
       "forged crankshaft"
     ],
     "title": "File:Crankshaft jap grayscale.jpg",
-    "author": "Crankshaft_jap.jpg: Alex Kovach\nderivative work: Saibo (Δ)",
+    "author": "Alex Kovach; derivative work: Saibo",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Crankshaft_jap_grayscale.jpg"
@@ -76,7 +76,7 @@
     "title": "File:Camshaft.jpg",
     "author": "Sonett72 at English Wikipedia",
     "license": "Public domain",
-    "licenseUrl": "",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Camshaft.jpg"
   },
   "cam-bearing": {
@@ -110,7 +110,7 @@
     "title": "File:Stripped Rover V8 engine.JPG",
     "author": "Lewis Collard",
     "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:Stripped_Rover_V8_engine.JPG"
   },
   "cylinder-head": {
@@ -159,7 +159,7 @@
     "title": "File:Nockenwellenantrieb.jpg",
     "author": "Kolossos",
     "license": "CC BY-SA 3.0",
-    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Nockenwellenantrieb.jpg"
   },
   "cam-phaser": {
@@ -191,7 +191,7 @@
     "title": "File:Oil Pump from Toyota Coaster Bus.JPG",
     "author": "Ll1324",
     "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:Oil_Pump_from_Toyota_Coaster_Bus.JPG"
   },
   "oil-filter": {
@@ -255,7 +255,7 @@
     "title": "File:MV8 dry sump.jpg",
     "author": "Amwildcat",
     "license": "Public domain",
-    "licenseUrl": "",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:MV8_dry_sump.jpg"
   },
   "thermostat": {
@@ -299,9 +299,9 @@
       "throttle body interface"
     ],
     "title": "File:Throttle body.jpg",
-    "author": "No machine-readable author provided. M100~commonswiki assumed (based on copyright claims).",
+    "author": "M100 (assumed, Wikimedia Commons)",
     "license": "Public domain",
-    "licenseUrl": "",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Throttle_body.jpg"
   },
   "intake-manifold": {
@@ -314,9 +314,9 @@
       "intake runner gaskets & supercharger gasket kit"
     ],
     "title": "File:EF7 Engine intake manifold.jpg",
-    "author": "Original uploaded by Arsi Warrior (Transfered by Finavon)",
+    "author": "Arsi Warrior",
     "license": "Public domain",
-    "licenseUrl": "",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:EF7_Engine_intake_manifold.jpg"
   },
   "breather-filter": {
@@ -384,7 +384,7 @@
     "title": "File:VDO Siemens Common-Rail Hochdruckpumpe.jpg",
     "author": "Stahlkocher",
     "license": "CC BY-SA 3.0",
-    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:VDO_Siemens_Common-Rail_Hochdruckpumpe.jpg"
   },
   "fuel-pump": {
@@ -497,7 +497,7 @@
     "title": "File:Mercedes V12 exhaust manifold.jpg",
     "author": "Lewis Collard",
     "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:Mercedes_V12_exhaust_manifold.jpg"
   },
   "catalytic-converter": {
@@ -515,5 +515,336 @@
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Catalytic_converter_20230510.jpg"
+  },
+  "muffler": {
+    "file": "img/parts/e-muffler.jpg",
+    "kind": "part",
+    "label": "Muffler",
+    "keywords": [
+      "mufflers",
+      "muffler",
+      "silencer",
+      "mid pipes"
+    ],
+    "title": "File:CRX OEM Muffler c.JPG",
+    "author": "CrowzRSA",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:CRX_OEM_Muffler_c.JPG"
+  },
+  "exhaust-tips": {
+    "file": "img/parts/e-exhaust-tips.jpg",
+    "kind": "part",
+    "label": "Exhaust tailpipes / tips",
+    "keywords": [
+      "tailpipes / tips",
+      "tailpipes",
+      "exhaust tips",
+      "side-exit option"
+    ],
+    "title": "File:Exhaust pipe muffler.JPG",
+    "author": "KeysPhotography.com",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Exhaust_pipe_muffler.JPG"
+  },
+  "head-gasket": {
+    "file": "img/parts/e-head-gasket.jpg",
+    "kind": "part",
+    "label": "Cylinder head gaskets",
+    "keywords": [
+      "cylinder head gaskets",
+      "head gasket",
+      "head gaskets",
+      "gaskets"
+    ],
+    "title": "File:2.5 Safrane Head Gasket.jpg",
+    "author": "TangoSix",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2.5_Safrane_Head_Gasket.jpg"
+  },
+  "harmonic-balancer": {
+    "file": "img/parts/e-harmonic-balancer.jpg",
+    "kind": "part",
+    "label": "Harmonic balancer & pulley",
+    "keywords": [
+      "harmonic balancer & pulley",
+      "harmonic balancer",
+      "crank pulley",
+      "harmonic balancer bolt"
+    ],
+    "title": "File:Jeep 2.5 liter 4-cylinder engine chromed p.jpg",
+    "author": "CZmarlin (Christopher Ziemnowicz)",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Jeep_2.5_liter_4-cylinder_engine_chromed_p.jpg"
+  },
+  "belt-tensioner": {
+    "file": "img/parts/e-belt-tensioner.jpg",
+    "kind": "part",
+    "label": "Accessory belt tensioner",
+    "keywords": [
+      "accessory belt tensioner",
+      "belt tensioner",
+      "tensioner",
+      "accessory belt - 6-rib",
+      "supercharger drive belt with tensioner & idlers"
+    ],
+    "title": "File:Tensioner.jpg",
+    "author": "Una Smith",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tensioner.jpg"
+  },
+  "idler-pulley": {
+    "file": "img/parts/e-idler-pulley.jpg",
+    "kind": "part",
+    "label": "Idler & tensioner pulleys",
+    "keywords": [
+      "idler pulleys",
+      "idler pulley",
+      "idlers"
+    ],
+    "title": "File:Belt tensioner (15973554259).jpg",
+    "author": "dave_7 from Lethbridge, Canada",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Belt_tensioner_(15973554259).jpg"
+  },
+  "alternator": {
+    "file": "img/parts/e-alternator.jpg",
+    "kind": "part",
+    "label": "Alternator",
+    "keywords": [
+      "alternator & mounting bracket",
+      "alternator"
+    ],
+    "title": "File:Automotive alternator. Terminals.jpg",
+    "author": "Zinnsoldat",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Automotive_alternator._Terminals.jpg"
+  },
+  "oxygen-sensor": {
+    "file": "img/parts/e-oxygen-sensor.jpg",
+    "kind": "part",
+    "label": "Oxygen sensor",
+    "keywords": [
+      "oxygen sensors & bungs",
+      "oxygen sensor",
+      "o2 sensor",
+      "wideband",
+      "lambda sensor"
+    ],
+    "title": "File:Lambda sond till volvo240 etc.jpg",
+    "author": "Martin Olsson (mnemo)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lambda_sond_till_volvo240_etc.jpg"
+  },
+  "valve-springs": {
+    "file": "img/parts/e-valve-springs.jpg",
+    "kind": "part",
+    "label": "Valve springs & valvetrain",
+    "keywords": [
+      "valve springs, retainers & locks",
+      "valve springs",
+      "valve spring",
+      "retainers",
+      "valve stem seals"
+    ],
+    "title": "File:Head D15A3.JPG",
+    "author": "Ian Brockhoff (IJB TA at English Wikipedia)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Head_D15A3.JPG"
+  },
+  "valves": {
+    "file": "img/parts/e-valves.jpg",
+    "kind": "part",
+    "label": "Intake & exhaust valves (head)",
+    "keywords": [
+      "intake valves",
+      "exhaust valves",
+      "valves",
+      "valve"
+    ],
+    "title": "File:1-1111 Zylinderkopf PSA TU1A 160 Mm Ventile Innenansicht IMG TH 20250225 101947 02.jpg",
+    "author": "1-1111",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1-1111_Zylinderkopf_PSA_TU1A_160_Mm_Ventile_Innenansicht_IMG_TH_20250225_101947_02.jpg"
+  },
+  "lifters": {
+    "file": "img/parts/e-lifters.jpg",
+    "kind": "part",
+    "label": "Hydraulic lifters",
+    "keywords": [
+      "hydraulic roller lifters",
+      "lifters",
+      "lifter",
+      "tappets",
+      "lifter guide trays",
+      "afm valve lifter oil manifold / afm block-off"
+    ],
+    "title": "File:Punterie idrauliche SOHC.jpg",
+    "author": "A7N8X",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Punterie_idrauliche_SOHC.jpg"
+  },
+  "piston-rings": {
+    "file": "img/parts/e-piston-rings.jpg",
+    "kind": "part",
+    "label": "Piston rings",
+    "keywords": [
+      "piston rings",
+      "rings",
+      "ring set"
+    ],
+    "title": "File:AMIR-PISTON RING-1.JPG",
+    "author": "AMIR MARINE",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:AMIR-PISTON_RING-1.JPG"
+  },
+  "camaro-airbox": {
+    "file": "img/parts/e-camaro-airbox.jpg",
+    "kind": "part",
+    "label": "Camaro LT1 engine bay & airbox",
+    "keywords": [
+      "sealed cold-air box",
+      "air box",
+      "cold-air snorkel / inlet duct from front fascia",
+      "intake tube",
+      "air box heat shield / hood seal",
+      "mass airflow sensor with integrated iat"
+    ],
+    "title": "File:Chevrolet-Camaro-LT1.jpg",
+    "author": "Dcmaradiaga",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chevrolet-Camaro-LT1.jpg"
+  },
+  "supercharger": {
+    "file": "img/parts/e-supercharger.jpg",
+    "kind": "part",
+    "label": "Roots-type supercharger",
+    "keywords": [
+      "supercharger",
+      "supercharger / intake manifold assembly",
+      "blower",
+      "supercharger lid & lid gasket",
+      "supercharger bypass valve & actuator"
+    ],
+    "title": "File:Dragster Kompressor 2005.jpg",
+    "author": "Stahlkocher",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Dragster_Kompressor_2005.jpg"
+  },
+  "engine-coolant": {
+    "file": "img/parts/e-engine-coolant.jpg",
+    "kind": "part",
+    "label": "Engine coolant",
+    "keywords": [
+      "engine coolant",
+      "coolant",
+      "intercooler loop coolant",
+      "antifreeze"
+    ],
+    "title": "File:Antifreeze in the radiator.jpg",
+    "author": "EvelynGiggles",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Antifreeze_in_the_radiator.jpg"
+  },
+  "crank-sensor": {
+    "file": "img/parts/e-crank-sensor.jpg",
+    "kind": "part",
+    "label": "Crankshaft position sensor",
+    "keywords": [
+      "crankshaft position sensor",
+      "camshaft position sensor",
+      "crank sensor",
+      "cam sensor",
+      "58x crankshaft reluctor wheel"
+    ],
+    "title": "File:Crankshaft sensor.png",
+    "author": "Tamasflex",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Crankshaft_sensor.png"
+  },
+  "coolant-hose": {
+    "file": "img/parts/e-coolant-hose.jpg",
+    "kind": "part",
+    "label": "Coolant hose",
+    "keywords": [
+      "heater core delete / bypass loop",
+      "coolant hose",
+      "upper radiator hose",
+      "lower radiator hose",
+      "radiator hose",
+      "radiator degas/vent line",
+      "engine steam/air bleed line",
+      "surge tank make-up/fill line"
+    ],
+    "title": "File:LR121446 by-pass hose-heater water.jpg",
+    "author": "Europartsgiant",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:LR121446_by-pass_hose-heater_water.jpg"
+  },
+  "zl1-supercharger": {
+    "file": "img/parts/e-zl1-supercharger.jpg",
+    "kind": "part",
+    "label": "Camaro ZL1 LT4 supercharger assembly",
+    "keywords": [
+      "supercharger / intake manifold assembly",
+      "factory lt4",
+      "lt4 supercharger",
+      "intercooler bricks & coolant manifolds",
+      "supercharger intercooler ports & bleed screw"
+    ],
+    "title": "File:Camaro ZL1 Engine.jpg",
+    "author": "squeuei from Japan",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Camaro_ZL1_Engine.jpg"
+  },
+  "cold-air-intake": {
+    "file": "img/parts/e-cold-air-intake.jpg",
+    "kind": "part",
+    "label": "Cold-air intake tube (Camaro)",
+    "keywords": [
+      "intake tube",
+      "cold air intake",
+      "silicone couplers / hump hoses",
+      "fresh-air / breather port on intake tube",
+      "air filter element"
+    ],
+    "title": "File:Cool-Air-intake.jpg",
+    "author": "Gearheadgirl",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cool-Air-intake.jpg"
+  },
+  "heat-shield": {
+    "file": "img/parts/e-heat-shield.jpg",
+    "kind": "part",
+    "label": "Exhaust heat shield",
+    "keywords": [
+      "heat shields",
+      "heat shield",
+      "header ceramic coating / wrap and blankets",
+      "fuel line heat sleeve / shields"
+    ],
+    "title": "File:Ford Focus-exhaust heat shield-01ASD.jpg",
+    "author": "Asurnipal",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Focus-exhaust_heat_shield-01ASD.jpg"
   }
 }

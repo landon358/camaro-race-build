@@ -36,8 +36,11 @@ const words = (t) => t.trim().split(' ').filter((w) => w && !FILLER.has(w));
 
 /** Best photo for a text: fields are tried in order (name before notes); within a field the longest keyword wins.
  *  For parts the keyword must cover at least half the name, so "plugs" does not label "Oil galley plugs". */
+// Hardware that only ever comes along with a bolt; it labels a row only when the row's own name says so.
+const SECONDARY = /washer|thread ?lock|loctite|safety wire|lock ?wire|sealant/;
+
 function best(photos, kind, fields) {
-  for (const text of fields) {
+  for (const [fi, text] of fields.entries()) {
     let win = null; let score = 0;
     const n = words(text).length || 1;
     for (const [key, p] of Object.entries(photos)) {
@@ -45,6 +48,7 @@ function best(photos, kind, fields) {
       for (const kw of p.keywords) {
         const s = norm(kw).trim().length;
         if (s <= score || !has(text, kw)) continue;
+        if (kind === 'fastener' && fi > 0 && SECONDARY.test(kw)) continue;
         if (kind === 'part' && words(norm(kw)).length / n < 0.5) continue;
         score = s; win = key;
       }
@@ -81,7 +85,10 @@ export function attachPhotos(components, photos) {
     if (pk && fits(c, photos[pk])) { c.photo = pk; parts++; }
     for (const h of c.hardware) {
       total++;
-      const fk = best(photos, 'fastener', [norm(h.item), norm(`${h.spec || ''} ${h.grade || ''}`), norm(h.notes)]);
+      // item name first, then size/grade; never notes, which mention other hardware ("use a new washer")
+      // "steering wheel bolt" is not a wheel (lug) bolt
+      const own = (t) => norm(t).replace(/ steering wheel /g, ' steeringwheel ');
+      const fk = best(photos, 'fastener', [own(h.item), own(`${h.spec || ''} ${h.grade || ''}`)]);
       if (fk) { h.photo = fk; rows++; }
     }
   }

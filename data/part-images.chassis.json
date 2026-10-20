@@ -1,0 +1,572 @@
+{
+  "abs-unit": {
+    "file": "img/parts/c-abs-unit.jpg",
+    "kind": "part",
+    "label": "ABS hydraulic unit",
+    "keywords": [
+      "brake pressure modulator valve + ebcm",
+      "brake pressure modulator valve",
+      "bpmv",
+      "ebcm",
+      "abs",
+      "abs unit",
+      "abs hydraulic unit",
+      "abs modulator",
+      "bosch motorsport abs m5 / m7 kit",
+      "abs delete",
+      "hydraulic control unit"
+    ],
+    "title": "File:ABS HCU April 2018.jpg",
+    "author": "Samf4u",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ABS_HCU_April_2018.jpg"
+  },
+  "ball-joint": {
+    "file": "img/parts/c-ball-joint.jpg",
+    "kind": "part",
+    "label": "Ball joint",
+    "keywords": [
+      "lower ball joints",
+      "ball joint",
+      "ball joints",
+      "lower control arm with ball joint"
+    ],
+    "title": "File:Spindle joint.jpg",
+    "author": "Craig Howell",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Spindle_joint.jpg"
+  },
+  "brake-booster": {
+    "file": "img/parts/c-brake-booster.jpg",
+    "kind": "part",
+    "label": "Vacuum brake booster",
+    "keywords": [
+      "vacuum brake booster",
+      "brake booster",
+      "booster",
+      "brake servo",
+      "vacuum servo"
+    ],
+    "title": "File:Servofreno.JPG",
+    "author": "Elwood",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Servofreno.JPG"
+  },
+  "brake-caliper": {
+    "file": "img/parts/c-brake-caliper.jpg",
+    "kind": "part",
+    "label": "Brake caliper",
+    "keywords": [
+      "brake caliper",
+      "caliper",
+      "monobloc caliper",
+      "racing caliper",
+      "caliper piston seals & dust boots",
+      "caliper seals & boots",
+      "caliper bleeder screws"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031223).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031223).jpg"
+  },
+  "brake-duct": {
+    "file": "img/parts/c-brake-duct.jpg",
+    "kind": "part",
+    "label": "Brake cooling ducts",
+    "keywords": [
+      "brake ducts",
+      "brake duct hose",
+      "brake duct inlets",
+      "brake duct backing plates",
+      "brake cooling duct"
+    ],
+    "title": "File:LMP Front Right Assembly.JPG",
+    "author": "Nave.notnilc",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:LMP_Front_Right_Assembly.JPG"
+  },
+  "brake-fluid": {
+    "file": "img/parts/c-brake-fluid.jpg",
+    "kind": "part",
+    "label": "Brake fluid",
+    "keywords": [
+      "brake fluid",
+      "dot 4",
+      "dot 3",
+      "bleeding procedure"
+    ],
+    "title": "File:L\u00edquido para frenos Bardahl DOT 3, 1000cc.jpg",
+    "author": "Just a Man",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:L%C3%ADquido_para_frenos_Bardahl_DOT_3,_1000cc.jpg"
+  },
+  "brake-hose": {
+    "file": "img/parts/c-brake-hose.jpg",
+    "kind": "part",
+    "label": "Braided brake hose",
+    "keywords": [
+      "flexible brake hoses",
+      "brake hose",
+      "braided brake hose",
+      "stainless braided hose",
+      "reservoir-to-master feed hoses"
+    ],
+    "title": "File:Evolity Stahlflex Bremsleitung.jpg",
+    "author": "Matthias1203",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Evolity_Stahlflex_Bremsleitung.jpg"
+  },
+  "brake-pads": {
+    "file": "img/parts/c-brake-pads.jpg",
+    "kind": "part",
+    "label": "Brake pads",
+    "keywords": [
+      "brake pads",
+      "brake pad",
+      "pads",
+      "pad thermal shims / heat barriers",
+      "pad & rotor bedding procedure"
+    ],
+    "title": "File:Ece-r90-nummer bremsbelag.jpg",
+    "author": "Knaaken",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ece-r90-nummer_bremsbelag.jpg"
+  },
+  "brake-pushrods-switch": {
+    "file": "img/parts/c-brake-pushrods-switch.jpg",
+    "kind": "part",
+    "label": "Brake pushrods, switch & line clips",
+    "keywords": [
+      "brake light switch / brake pressure switch",
+      "brake light switch",
+      "brake line clips, p-clamps & grommets",
+      "brake line clips",
+      "master cylinder pushrod",
+      "brake pedal assembly"
+    ],
+    "title": "File:Caterham Roadsport building - 073 - Adjust pedals closer - Flickr - exfordy.jpg",
+    "author": "Brian Snelson from Hockley, Essex, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caterham_Roadsport_building_-_073_-_Adjust_pedals_closer_-_Flickr_-_exfordy.jpg"
+  },
+  "brake-rotor": {
+    "file": "img/parts/c-brake-rotor.jpg",
+    "kind": "part",
+    "label": "Brake rotor",
+    "keywords": [
+      "brake rotor",
+      "rotor",
+      "brake disc",
+      "rotor hat",
+      "rotor ring-to-hat hardware",
+      "two-piece rotor"
+    ],
+    "title": "File:Ferrari F430 Challenge Brake.JPG",
+    "author": "The359",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ferrari_F430_Challenge_Brake.JPG"
+  },
+  "coil-spring": {
+    "file": "img/parts/c-coil-spring.jpg",
+    "kind": "part",
+    "label": "Coil springs",
+    "keywords": [
+      "coil spring",
+      "coil springs",
+      "spring",
+      "spring insulators"
+    ],
+    "title": "File:Jeep Liberty Springs 2005.jpg",
+    "author": "Michael Robinson (unixxx)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Jeep_Liberty_Springs_2005.jpg"
+  },
+  "coilover": {
+    "file": "img/parts/c-coilover.jpg",
+    "kind": "part",
+    "label": "Coilovers",
+    "keywords": [
+      "coilover conversion",
+      "coilover",
+      "coilovers",
+      "threaded spring perch / height-adjust collar",
+      "helper / tender spring and coupler"
+    ],
+    "title": "File:Coilovers.jpg",
+    "author": "Cameron Chapman",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Coilovers.jpg"
+  },
+  "control-arms": {
+    "file": "img/parts/c-control-arms.jpg",
+    "kind": "part",
+    "label": "Double-wishbone control arms",
+    "keywords": [
+      "upper control arm",
+      "double wishbone",
+      "wishbone",
+      "control arms",
+      "suspension arms",
+      "upper trailing arm",
+      "lower trailing arm"
+    ],
+    "title": "File:Double wishbone suspension.jpg",
+    "author": "RB30DE",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Double_wishbone_suspension.jpg"
+  },
+  "eps-column": {
+    "file": "img/parts/c-eps-column.jpg",
+    "kind": "part",
+    "label": "Electric power steering column",
+    "keywords": [
+      "eps motor and integrated controller",
+      "eps motor",
+      "electric power steering",
+      "eps column",
+      "epas",
+      "steering angle sensor and clockspring",
+      "clockspring"
+    ],
+    "title": "File:EPAS power steering column.jpg",
+    "author": "Samf4u",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:EPAS_power_steering_column.jpg"
+  },
+  "lower-control-arm": {
+    "file": "img/parts/c-lower-control-arm.jpg",
+    "kind": "part",
+    "label": "Lower control arm",
+    "keywords": [
+      "lower control arm",
+      "lower control arm with ball joint",
+      "control arm",
+      "track control arm",
+      "front lca inner bushing",
+      "lca",
+      "link inner bushings",
+      "knuckle bushings",
+      "bushings"
+    ],
+    "title": "File:Track control arm for a Kia Ceed 02.jpg",
+    "author": "So9q",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Track_control_arm_for_a_Kia_Ceed_02.jpg"
+  },
+  "master-cylinder": {
+    "file": "img/parts/c-master-cylinder.jpg",
+    "kind": "part",
+    "label": "Brake master cylinder",
+    "keywords": [
+      "tandem master cylinder with reservoir",
+      "master cylinder",
+      "brake master cylinder",
+      "front-circuit master cylinder",
+      "rear-circuit master cylinder",
+      "master cylinder outlet lines",
+      "remote brake fluid reservoirs"
+    ],
+    "title": "File:Caterham Roadsport building - 037 - Bleed brakes. - Flickr - exfordy.jpg",
+    "author": "Brian Snelson from Hockley, Essex, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caterham_Roadsport_building_-_037_-_Bleed_brakes._-_Flickr_-_exfordy.jpg"
+  },
+  "outer-tie-rod-end": {
+    "file": "img/parts/c-outer-tie-rod-end.jpg",
+    "kind": "part",
+    "label": "Outer tie rod end",
+    "keywords": [
+      "outer tie rod end",
+      "tie rod end",
+      "tie rod jam nut",
+      "track rod end"
+    ],
+    "title": "File:Tie rod end.jpeg",
+    "author": "Craig Howell",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tie_rod_end.jpeg"
+  },
+  "parking-brake-shoes": {
+    "file": "img/parts/c-parking-brake-shoes.jpg",
+    "kind": "part",
+    "label": "Parking brake shoes",
+    "keywords": [
+      "drum-in-hat parking brake shoes & hardware",
+      "parking brake shoes",
+      "brake shoes",
+      "drum brake shoes"
+    ],
+    "title": "File:Brake shoes.jpg",
+    "author": "Maly LOLek",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Brake_shoes.jpg"
+  },
+  "rack-boot": {
+    "file": "img/parts/c-rack-boot.jpg",
+    "kind": "part",
+    "label": "Steering rack boot & inner tie rod",
+    "keywords": [
+      "rack boots and clamps",
+      "rack boot",
+      "steering rack boot",
+      "inner tie rod"
+    ],
+    "title": "File:\" 13 - ITALIAN automotive engineering - Alfa Romeo 4C chassis - monocoque carbon fiber - aluminum platform (architecture) DxO 10.jpg",
+    "author": "youkeys",
+    "license": "CC BY 2.0 it",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/it/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:%22_13_-_ITALIAN_automotive_engineering_-_Alfa_Romeo_4C_chassis_-_monocoque_carbon_fiber_-_aluminum_platform_(architecture)_DxO_10.jpg"
+  },
+  "radius-rod": {
+    "file": "img/parts/c-radius-rod.jpg",
+    "kind": "part",
+    "label": "Radius rod & sway bar",
+    "keywords": [
+      "radius rod with ball joint",
+      "radius rod",
+      "front radius rod bushing",
+      "front stabilizer bar",
+      "stabilizer bar",
+      "sway bar"
+    ],
+    "title": "File:Radius rod sway bar.jpg",
+    "author": "RB30DE",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Radius_rod_sway_bar.jpg"
+  },
+  "rear-hub-brake": {
+    "file": "img/parts/c-rear-hub-brake.jpg",
+    "kind": "part",
+    "label": "Rear hub, caliper & handbrake cable",
+    "keywords": [
+      "parking brake cables",
+      "parking brake intermediate cable / equalizer",
+      "handbrake cable",
+      "wheel speed sensors",
+      "wheel speed sensor",
+      "brake shield / parking-brake backing plate",
+      "brake dust shield"
+    ],
+    "title": "File:Caterham Roadsport building - 026 - Speed sensor, RH rear hub - disc, caliper and handbrake cable - Flickr - exfordy.jpg",
+    "author": "Brian Snelson from Hockley, Essex, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caterham_Roadsport_building_-_026_-_Speed_sensor,_RH_rear_hub_-_disc,_caliper_and_handbrake_cable_-_Flickr_-_exfordy.jpg"
+  },
+  "rod-end": {
+    "file": "img/parts/c-rod-end.jpg",
+    "kind": "part",
+    "label": "Rod end bearings",
+    "keywords": [
+      "bump-steer adjustable outer tie rod ends",
+      "rod end",
+      "rod ends",
+      "heim joint",
+      "spherical rod end"
+    ],
+    "title": "File:2000s rod end bearing M80 or MB0 111 gr.jpg",
+    "author": "R. Henrik Nilsson",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2000s_rod_end_bearing_M80_or_MB0_111_gr.jpg"
+  },
+  "steering-column": {
+    "file": "img/parts/c-steering-column.jpg",
+    "kind": "part",
+    "label": "Steering column",
+    "keywords": [
+      "steering column",
+      "steering columns",
+      "upper intermediate steering shaft",
+      "lower intermediate steering shaft",
+      "intermediate shaft"
+    ],
+    "title": "File:KN13 Pulsar SE - Manual Steering Column Swap 03 (32899098853) power steering rack.jpg",
+    "author": "3ndymion from US",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:KN13_Pulsar_SE_-_Manual_Steering_Column_Swap_03_(32899098853)_power_steering_rack.jpg"
+  },
+  "steering-rack": {
+    "file": "img/parts/c-steering-rack.jpg",
+    "kind": "part",
+    "label": "Steering rack",
+    "keywords": [
+      "steering gear",
+      "steering rack",
+      "rack and pinion",
+      "power steering rack",
+      "rack-to-cradle mounting bolts/nuts"
+    ],
+    "title": "File:Power steering rack.jpg",
+    "author": "l0lnix",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Power_steering_rack.jpg"
+  },
+  "steering-wheel": {
+    "file": "img/parts/c-steering-wheel.jpg",
+    "kind": "part",
+    "label": "Racing steering wheel",
+    "keywords": [
+      "steering wheel",
+      "racing steering wheel",
+      "steering wheel quick release",
+      "quick release",
+      "hub adapter for gen 6 column spline",
+      "hub adapter",
+      "horn / steering-wheel button wiring through quick release"
+    ],
+    "title": "File:Stoxkarts-047569.jpg",
+    "author": "Higgi29",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Stoxkarts-047569.jpg"
+  },
+  "strut": {
+    "file": "img/parts/c-strut.jpg",
+    "kind": "part",
+    "label": "Strut / damper",
+    "keywords": [
+      "strut / damper",
+      "strut",
+      "macpherson strut",
+      "damper",
+      "shock absorber / damper",
+      "shock absorber"
+    ],
+    "title": "File:McPherson-Federbein.jpg",
+    "author": "Stahlkocher at German Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:McPherson-Federbein.jpg"
+  },
+  "subframe": {
+    "file": "img/parts/c-subframe.jpg",
+    "kind": "part",
+    "label": "Front subframe (cradle)",
+    "keywords": [
+      "front cradle",
+      "rear cradle",
+      "cradle",
+      "subframe",
+      "front cradle mounting bolts and isolators / solid mounts",
+      "rear cradle mount bushings and main cradle bolts",
+      "front lower cradle brace"
+    ],
+    "title": "File:VectraFrontSubframeBMuseum.JPG",
+    "author": "Simon Speed",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:VectraFrontSubframeBMuseum.JPG"
+  },
+  "tire": {
+    "file": "img/parts/c-tire.jpg",
+    "kind": "part",
+    "label": "Racing slick tires",
+    "keywords": [
+      "tire",
+      "tires",
+      "tyre",
+      "tyres",
+      "slick",
+      "racing slick"
+    ],
+    "title": "File:F1 Slick Tires.jpg",
+    "author": "vtornet",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:F1_Slick_Tires.jpg"
+  },
+  "tpms-sensor": {
+    "file": "img/parts/c-tpms-sensor.jpg",
+    "kind": "part",
+    "label": "TPMS sensors",
+    "keywords": [
+      "tpms sensors",
+      "tpms sensor",
+      "tpms",
+      "tire pressure sensor",
+      "tpms receiver / bcm function"
+    ],
+    "title": "File:Tire pressure sensors.jpg",
+    "author": "TpmsReset",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tire_pressure_sensors.jpg"
+  },
+  "valve-stem": {
+    "file": "img/parts/c-valve-stem.jpg",
+    "kind": "part",
+    "label": "Valve stem",
+    "keywords": [
+      "valve stems",
+      "valve stem",
+      "tire valve"
+    ],
+    "title": "File:Tire valve stem-cap off.jpg",
+    "author": "CZmarlin (Christopher Ziemnowicz)",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Tire_valve_stem-cap_off.jpg"
+  },
+  "wheel": {
+    "file": "img/parts/c-wheel.jpg",
+    "kind": "part",
+    "label": "Wheel",
+    "keywords": [
+      "wheel",
+      "wheels",
+      "rim",
+      "alloy wheel",
+      "centerlock wheel",
+      "center caps"
+    ],
+    "title": "File:White 997 GT3 RS 4.0 centerlock wheel rim FoS 2011.jpg",
+    "author": "Adam Russell from England",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:White_997_GT3_RS_4.0_centerlock_wheel_rim_FoS_2011.jpg"
+  },
+  "wheel-hub": {
+    "file": "img/parts/c-wheel-hub.jpg",
+    "kind": "part",
+    "label": "Wheel bearing & hub assembly",
+    "keywords": [
+      "wheel bearing & hub assembly",
+      "wheel bearing",
+      "hub assembly",
+      "wheel hub",
+      "hub bearing",
+      "axle nut & washer",
+      "wheel studs",
+      "hub-centric spacers",
+      "hub-centric rings"
+    ],
+    "title": "File:Wheel hub assembly.jpg",
+    "author": "Cschirp",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wheel_hub_assembly.jpg"
+  }
+}

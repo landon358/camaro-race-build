@@ -829,7 +829,7 @@
       "fender"
     ],
     "title": "File:1977 AMC Hornet AMX at 2021 PA show finished in 6P Firecracker Red 5of8.jpg",
-    "author": "CZmarlin — Christopher Ziemnowicz, a photo credit would be appreciated if this image is used anywhere other than Wikipedia.",
+    "author": "CZmarlin — Christopher Ziemnowicz",
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:1977_AMC_Hornet_AMX_at_2021_PA_show_finished_in_6P_Firecracker_Red_5of8.jpg"
@@ -844,7 +844,7 @@
       "knee padding"
     ],
     "title": "File:1974 AMC Matador Penske-Allison race car at 2024 AMO meet 12of17.jpg",
-    "author": "CZmarlin — Christopher Ziemnowicz, a photo credit would be appreciated if this image is used anywhere other than Wikipedia.",
+    "author": "CZmarlin — Christopher Ziemnowicz",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:1974_AMC_Matador_Penske-Allison_race_car_at_2024_AMO_meet_12of17.jpg"
@@ -863,5 +863,19 @@
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:Carbon_wheel_arch_(maybe_McLaren_650S%27s)_exhibited_in_McLaren_Osaka_Hakko.JPG"
+  },
+  "windshield": {
+    "file": "img/parts/s-windshield.jpg",
+    "kind": "part",
+    "label": "Windshield & trim",
+    "keywords": [
+      "windshield & retention clips",
+      "windshield"
+    ],
+    "title": "File:1975 AACA AMC Pacer X red-white winwip.jpg",
+    "author": "CZmarlin — Christopher Ziemnowicz",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:1975_AACA_AMC_Pacer_X_red-white_winwip.jpg"
   }
 }

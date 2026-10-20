@@ -1,0 +1,808 @@
+{
+  "clutch-disc": {
+    "file": "img/parts/d-clutch-disc.jpg",
+    "kind": "part",
+    "label": "Clutch disc",
+    "keywords": [
+      "clutch friction disc and floater plate",
+      "clutch friction disc",
+      "clutch disc",
+      "friction disc",
+      "clutch plate",
+      "floater plate"
+    ],
+    "title": "File:Clutch disc.JPG",
+    "author": "100yen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Clutch_disc.JPG"
+  },
+  "twin-plate-clutch": {
+    "file": "img/parts/d-twin-plate-clutch.jpg",
+    "kind": "part",
+    "label": "Twin-plate race clutch on flywheel",
+    "keywords": [
+      "twin-plate clutch",
+      "twin plate clutch",
+      "multi-plate clutch",
+      "race clutch",
+      "clutch assembly",
+      "pressure-plate locating dowels"
+    ],
+    "title": "File:Twinplate PMC Clutch.jpg",
+    "author": "PMC Motorsport",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Twinplate_PMC_Clutch.jpg"
+  },
+  "pressure-plate": {
+    "file": "img/parts/d-pressure-plate.jpg",
+    "kind": "part",
+    "label": "Clutch pressure plate",
+    "keywords": [
+      "pressure plate",
+      "clutch pressure plate",
+      "clutch cover"
+    ],
+    "title": "File:Pull type clutch.jpg",
+    "author": "Panoha",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pull_type_clutch.jpg"
+  },
+  "flywheel": {
+    "file": "img/parts/d-flywheel.jpg",
+    "kind": "part",
+    "label": "Flywheel and clutch (cutaway)",
+    "keywords": [
+      "flywheel",
+      "dual-mass flywheel",
+      "starter ring gear",
+      "ring gear"
+    ],
+    "title": "File:Zweimassenschwungrad und kupplung aufgeschnitten.jpg",
+    "author": "Cschirp",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zweimassenschwungrad_und_kupplung_aufgeschnitten.jpg"
+  },
+  "release-bearing": {
+    "file": "img/parts/d-release-bearing.jpg",
+    "kind": "part",
+    "label": "Concentric slave cylinder (hydraulic release bearing)",
+    "keywords": [
+      "hydraulic release bearing / concentric slave cylinder",
+      "hydraulic release bearing",
+      "concentric slave cylinder",
+      "release bearing",
+      "throwout bearing",
+      "release bearing shims / spacers",
+      "remote bleeder line and valve"
+    ],
+    "title": "File:M5OD transmission, input.jpg",
+    "author": "J.C. Fields (Talk) (Uploads)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:M5OD_transmission,_input.jpg"
+  },
+  "bellhousing": {
+    "file": "img/parts/d-bellhousing.jpg",
+    "kind": "part",
+    "label": "Bellhousing",
+    "keywords": [
+      "bellhousing / scattershield",
+      "bellhousing",
+      "scattershield",
+      "bellhousing inspection / dust cover",
+      "bellhousing alignment check",
+      "block-to-bellhousing locating dowels",
+      "offset alignment dowels",
+      "bellhousing bulkhead fitting"
+    ],
+    "title": "File:Miata 6 speed bellhousing.jpg",
+    "author": "GrabberYellow",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miata_6_speed_bellhousing.jpg"
+  },
+  "clutch-master": {
+    "file": "img/parts/d-clutch-master.jpg",
+    "kind": "part",
+    "label": "Clutch master cylinder with reservoir",
+    "keywords": [
+      "clutch master cylinder",
+      "master cylinder",
+      "clutch fluid reservoir",
+      "reservoir-to-master feed hose"
+    ],
+    "title": "File:Master clutch cylinder for Shacman and Howo 2013-11-23 19-51.jpg",
+    "author": "User:Otospareparts",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Master_clutch_cylinder_for_Shacman_and_Howo_2013-11-23_19-51.jpg"
+  },
+  "slave-cylinder": {
+    "file": "img/parts/d-slave-cylinder.jpg",
+    "kind": "part",
+    "label": "Clutch slave cylinder",
+    "keywords": [
+      "clutch slave cylinder",
+      "slave cylinder",
+      "clutch pressure line"
+    ],
+    "title": "File:Nehmerzylinder IMG 6706.JPG",
+    "author": "Hans Haase",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nehmerzylinder_IMG_6706.JPG"
+  },
+  "transmission": {
+    "file": "img/parts/d-transmission.jpg",
+    "kind": "part",
+    "label": "Tremec TR-6070 manual transmission",
+    "keywords": [
+      "transmission",
+      "manual transmission",
+      "gearbox",
+      "tr-6070",
+      "transmission output flange",
+      "transmission rear output seal",
+      "input shaft / front bearing retainer seal",
+      "fill and drain plugs",
+      "transmission vent / breather",
+      "gearbox oil filter"
+    ],
+    "title": "File:TREMEC TR-6070 7-speed manual transmission.jpg",
+    "author": "MeMike200",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:TREMEC_TR-6070_7-speed_manual_transmission.jpg"
+  },
+  "shifter": {
+    "file": "img/parts/d-shifter.jpg",
+    "kind": "part",
+    "label": "Manual gear shifter",
+    "keywords": [
+      "shifter",
+      "gear shifter",
+      "shift lever",
+      "gear lever",
+      "shifter isolator / mount",
+      "external shift rod / linkage",
+      "shift linkage bushings",
+      "shifter boots"
+    ],
+    "title": "File:Volkswagen Passat Estate B8 6-speed gear shifter.jpg",
+    "author": "21C117",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Passat_Estate_B8_6-speed_gear_shifter.jpg"
+  },
+  "shift-knob": {
+    "file": "img/parts/d-shift-knob.jpg",
+    "kind": "part",
+    "label": "Shift knob",
+    "keywords": [
+      "shift knob",
+      "gear knob"
+    ],
+    "title": "File:Audi RS4 Avant Gear Knob (8560986619).jpg",
+    "author": "Shawn Jooste",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Audi_RS4_Avant_Gear_Knob_(8560986619).jpg"
+  },
+  "paddle-shifter": {
+    "file": "img/parts/d-paddle-shifter.jpg",
+    "kind": "part",
+    "label": "Steering-wheel paddle shifter",
+    "keywords": [
+      "steering-wheel paddle shifters",
+      "paddle shifters",
+      "paddle shifter",
+      "gear shift controller"
+    ],
+    "title": "File:Toyota 86 GT - Paddle shifter.jpg",
+    "author": "Cllackr",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_86_GT_-_Paddle_shifter.jpg"
+  },
+  "flex-coupler": {
+    "file": "img/parts/d-flex-coupler.jpg",
+    "kind": "part",
+    "label": "Rubber flex coupler",
+    "keywords": [
+      "front flex coupler - trans end",
+      "rear flex coupler - differential end",
+      "flex coupler",
+      "flex disc",
+      "giubo",
+      "rag joint"
+    ],
+    "title": "File:Rotoflex-coupling.jpg",
+    "author": "Grenadille",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rotoflex-coupling.jpg"
+  },
+  "driveshaft": {
+    "file": "img/parts/d-driveshaft.jpg",
+    "kind": "part",
+    "label": "Driveshaft with universal joints",
+    "keywords": [
+      "one-piece race driveshaft",
+      "front driveshaft section",
+      "rear driveshaft section",
+      "driveshaft",
+      "drive shaft",
+      "propeller shaft",
+      "u-joint",
+      "universal joint"
+    ],
+    "title": "File:Cardan Shaft.jpg",
+    "author": "IP83",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cardan_Shaft.jpg"
+  },
+  "halfshaft": {
+    "file": "img/parts/d-halfshaft.jpg",
+    "kind": "part",
+    "label": "Halfshaft with CV joint",
+    "keywords": [
+      "halfshaft assembly",
+      "halfshaft",
+      "half shaft",
+      "cv axle",
+      "outer cv joint",
+      "inner cv joint",
+      "cv joint",
+      "front cv joint & flange adapter",
+      "inner stub retaining circlip"
+    ],
+    "title": "File:CV joint half axle.jpg",
+    "author": "BiH",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:CV_joint_half_axle.jpg"
+  },
+  "cv-boot": {
+    "file": "img/parts/d-cv-boot.jpg",
+    "kind": "part",
+    "label": "CV boot kit with clamps",
+    "keywords": [
+      "cv boots",
+      "cv boot",
+      "cv boot clamps",
+      "boot clamps"
+    ],
+    "title": "File:Achsmanschette.jpg",
+    "author": "btr",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Achsmanschette.jpg"
+  },
+  "differential": {
+    "file": "img/parts/d-differential.jpg",
+    "kind": "part",
+    "label": "Rear differential housing",
+    "keywords": [
+      "rear differential assembly",
+      "differential",
+      "diff",
+      "differential front mount bushings",
+      "differential rear mount bushing",
+      "differential cover & gasket / rtv",
+      "differential fill and drain plugs",
+      "differential vent / breather hose",
+      "pinion flange, nut & pinion seal",
+      "differential side seals"
+    ],
+    "title": "File:Caterham Roadsport building - 014 - Differential in place (with new breather pipe) - Flickr - exfordy.jpg",
+    "author": "Brian Snelson from Hockley, Essex, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caterham_Roadsport_building_-_014_-_Differential_in_place_(with_new_breather_pipe)_-_Flickr_-_exfordy.jpg"
+  },
+  "lsd": {
+    "file": "img/parts/d-lsd.jpg",
+    "kind": "part",
+    "label": "Limited-slip differential and clutch pack",
+    "keywords": [
+      "elsd hydraulic actuator & clutch pack",
+      "limited slip differential",
+      "limited-slip differential",
+      "lsd",
+      "clutch pack"
+    ],
+    "title": "File:Components NISMO GT LSD Pro 01.JPG",
+    "author": "160SX",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Components_NISMO_GT_LSD_Pro_01.JPG"
+  },
+  "trans-cooler": {
+    "file": "img/parts/d-trans-cooler.jpg",
+    "kind": "part",
+    "label": "Transmission oil cooler on a race car",
+    "keywords": [
+      "transmission oil cooler",
+      "transmission cooler lines",
+      "transmission cooler pickup / return fittings"
+    ],
+    "title": "File:McLaren MP4 2 TAG Porsche turbo transmission oil cooler suspension diffuser (6293158855).jpg",
+    "author": "Bill Abbott",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:McLaren_MP4_2_TAG_Porsche_turbo_transmission_oil_cooler_suspension_diffuser_(6293158855).jpg"
+  },
+  "diff-cooler": {
+    "file": "img/parts/d-diff-cooler.jpg",
+    "kind": "part",
+    "label": "Transmission and differential oil cooler kit",
+    "keywords": [
+      "differential oil cooler",
+      "differential cooler pump",
+      "differential cooler lines",
+      "differential cooler pickup / return fittings",
+      "transmission cooler pump",
+      "cooler pump control",
+      "transmission/differential cooler pumps & fans",
+      "in-line oil filters",
+      "oil cooler"
+    ],
+    "title": "File:EVOLVE Mission&Differential Oil Cooler.JPG",
+    "author": "Tokumeigakarinoaoshima",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:EVOLVE_Mission%26Differential_Oil_Cooler.JPG"
+  },
+  "wheel-speed": {
+    "file": "img/parts/d-wheel-speed.jpg",
+    "kind": "part",
+    "label": "Wheel speed (ABS) sensor",
+    "keywords": [
+      "wheel speed signals",
+      "wheel speed sensor",
+      "abs sensor",
+      "output speed sensor"
+    ],
+    "title": "File:ABS Sensor VAG IMG 0562.JPG",
+    "author": "Hans Haase",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ABS_Sensor_VAG_IMG_0562.JPG"
+  },
+  "battery": {
+    "file": "img/parts/d-battery.jpg",
+    "kind": "part",
+    "label": "12 V battery",
+    "keywords": [
+      "battery",
+      "car battery",
+      "starter battery"
+    ],
+    "title": "File:Starterbatterie Blei-Calcium.jpg",
+    "author": "Rainer Kamenz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Starterbatterie_Blei-Calcium.jpg"
+  },
+  "alternator": {
+    "file": "img/parts/d-alternator.jpg",
+    "kind": "part",
+    "label": "Alternator",
+    "keywords": [
+      "alternator"
+    ],
+    "title": "File:Car alternator on a workbench surrounded by various auto parts in a garage setting.jpg",
+    "author": "Shixart1985",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Car_alternator_on_a_workbench_surrounded_by_various_auto_parts_in_a_garage_setting.jpg"
+  },
+  "ecu": {
+    "file": "img/parts/d-ecu.jpg",
+    "kind": "part",
+    "label": "Engine control unit",
+    "keywords": [
+      "engine control unit",
+      "ecu",
+      "engine computer"
+    ],
+    "title": "File:Motronic-Steuergerät.JPG",
+    "author": "Mib18",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Motronic-Steuerger%C3%A4t.JPG"
+  },
+  "camera": {
+    "file": "img/parts/d-camera.jpg",
+    "kind": "part",
+    "label": "In-car action camera",
+    "keywords": [
+      "in-car camera with data overlay",
+      "in-car camera",
+      "onboard camera",
+      "action camera"
+    ],
+    "title": "File:GoPro Hero 9 Black - Front 2.jpg",
+    "author": "Greyfiveys",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:GoPro_Hero_9_Black_-_Front_2.jpg"
+  },
+  "dash-display": {
+    "file": "img/parts/d-dash-display.jpg",
+    "kind": "part",
+    "label": "Race dash display with shift lights",
+    "keywords": [
+      "dash display / display-logger",
+      "dash display",
+      "digital dash",
+      "display-logger",
+      "shift lights",
+      "shift light"
+    ],
+    "title": "File:MOD7-R.jpg",
+    "author": "Philippe BALZANO MOD7CE",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MOD7-R.jpg"
+  },
+  "connector": {
+    "file": "img/parts/d-connector.jpg",
+    "kind": "part",
+    "label": "Circular MIL-spec connectors",
+    "keywords": [
+      "firewall bulkhead connector",
+      "rear bulkhead connector",
+      "bulkhead connector",
+      "circular connector",
+      "mil-spec connector"
+    ],
+    "title": "File:38999 connector nickel-teflon.jpg",
+    "author": "Abaillieul",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:38999_connector_nickel-teflon.jpg"
+  },
+  "wiring-harness": {
+    "file": "img/parts/d-wiring-harness.jpg",
+    "kind": "part",
+    "label": "Wiring harness through bulkhead grommet",
+    "keywords": [
+      "engine harness",
+      "dash harness",
+      "chassis trunk harness",
+      "rear harness",
+      "front chassis harness",
+      "wiring harness",
+      "harness",
+      "sensor/load connectors, grommets and clamps",
+      "grommet"
+    ],
+    "title": "File:Wire harness into engine compartment.jpg",
+    "author": "simonov",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wire_harness_into_engine_compartment.jpg"
+  },
+  "heat-shrink": {
+    "file": "img/parts/d-heat-shrink.jpg",
+    "kind": "part",
+    "label": "Heat-shrink tubing",
+    "keywords": [
+      "wire, heat-shrink jacket & sleeving",
+      "heat-shrink",
+      "heat shrink",
+      "sleeving"
+    ],
+    "title": "File:Heat-shrink tubing.jpg",
+    "author": "oomlout",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Heat-shrink_tubing.jpg"
+  },
+  "rotary-switch": {
+    "file": "img/parts/d-rotary-switch.jpg",
+    "kind": "part",
+    "label": "Rotary switch",
+    "keywords": [
+      "rotary switches",
+      "rotary switch"
+    ],
+    "title": "File:RCL371 series rotary switch 01.jpg",
+    "author": "Retired electrician",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:RCL371_series_rotary_switch_01.jpg"
+  },
+  "egt": {
+    "file": "img/parts/d-egt.jpg",
+    "kind": "part",
+    "label": "Thermocouple temperature probe",
+    "keywords": [
+      "exhaust gas temperature probes",
+      "egt probe",
+      "thermocouple"
+    ],
+    "title": "File:ThermocoupleProbe.jpg",
+    "author": "User:Harke",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ThermocoupleProbe.jpg"
+  },
+  "pneumatic": {
+    "file": "img/parts/d-pneumatic.jpg",
+    "kind": "part",
+    "label": "Pneumatic actuator with solenoid valve",
+    "keywords": [
+      "pneumatic shift actuator & valve block",
+      "pneumatic actuator",
+      "solenoid valve",
+      "valve block"
+    ],
+    "title": "File:Solenoid valve 2019.jpg",
+    "author": "ToT89",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Solenoid_valve_2019.jpg"
+  },
+  "starter": {
+    "file": "img/parts/d-starter.jpg",
+    "kind": "part",
+    "label": "Starter motor",
+    "keywords": [
+      "starter motor",
+      "starter",
+      "starter solenoid"
+    ],
+    "title": "File:Automobile starter.JPG",
+    "author": "Willdre",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Automobile_starter.JPG"
+  },
+  "relay": {
+    "file": "img/parts/d-relay.jpg",
+    "kind": "part",
+    "label": "Automotive relay socket",
+    "keywords": [
+      "starter trigger relay / pdm start channel",
+      "alternator field-kill relay / dump resistor",
+      "relay",
+      "relays",
+      "relay socket"
+    ],
+    "title": "File:Socket for automotive relays.jpg",
+    "author": "Retired electrician",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Socket_for_automotive_relays.jpg"
+  },
+  "fuses": {
+    "file": "img/parts/d-fuses.jpg",
+    "kind": "part",
+    "label": "Blade fuses",
+    "keywords": [
+      "fuses",
+      "fuse",
+      "blade fuse",
+      "main fuse / mega-fuse holder"
+    ],
+    "title": "File:Fuse255.jpg",
+    "author": "Illusive255",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fuse255.jpg"
+  },
+  "fuse-panel": {
+    "file": "img/parts/d-fuse-panel.jpg",
+    "kind": "part",
+    "label": "Fuse and relay panel",
+    "keywords": [
+      "auxiliary fused block",
+      "sealed relay/fuse panel",
+      "fuse box",
+      "fuse block",
+      "fuse panel",
+      "relay panel",
+      "electronics mounting panel"
+    ],
+    "title": "File:New fuse box.jpg",
+    "author": "simonov",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_fuse_box.jpg"
+  },
+  "gps": {
+    "file": "img/parts/d-gps.jpg",
+    "kind": "part",
+    "label": "GPS antenna",
+    "keywords": [
+      "gps receiver with imu",
+      "gps antenna",
+      "gps receiver",
+      "gps"
+    ],
+    "title": "File:GPS Active Antenna\" (GPS faol antennasi.jpg",
+    "author": "Solijon Solayev",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:GPS_Active_Antenna%22_(GPS_faol_antennasi.jpg"
+  },
+  "ring-pinion": {
+    "file": "img/parts/d-ring-pinion.jpg",
+    "kind": "part",
+    "label": "Ring and pinion gear set",
+    "keywords": [
+      "ring & pinion gear set",
+      "ring and pinion",
+      "ring gear and pinion",
+      "crown wheel and pinion"
+    ],
+    "title": "File:Ring&Pinion Pattern Drive.jpg",
+    "author": "Michael Robinson (unixxx)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ring%26Pinion_Pattern_Drive.jpg"
+  },
+  "lambda-sensor": {
+    "file": "img/parts/d-lambda-sensor.jpg",
+    "kind": "part",
+    "label": "Oxygen (lambda) sensor",
+    "keywords": [
+      "wideband lambda sensors & controller",
+      "wideband lambda sensor",
+      "lambda sensor",
+      "oxygen sensor",
+      "o2 sensor"
+    ],
+    "title": "File:Lambda sond till volvo240 etc.jpg",
+    "author": "Martin Olsson (mnemo)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lambda_sond_till_volvo240_etc.jpg"
+  },
+  "radiator-fan": {
+    "file": "img/parts/d-radiator-fan.jpg",
+    "kind": "part",
+    "label": "Electric radiator cooling fans",
+    "keywords": [
+      "radiator cooling fan",
+      "cooling fan",
+      "electric fan",
+      "radiator fan",
+      "fan control"
+    ],
+    "title": "File:Radiator fans installed.jpg",
+    "author": "simonov",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Radiator_fans_installed.jpg"
+  },
+  "fuel-pump": {
+    "file": "img/parts/d-fuel-pump.jpg",
+    "kind": "part",
+    "label": "Electric fuel pump",
+    "keywords": [
+      "fuel pump control",
+      "fuel pump power & ground harness",
+      "fuel pump",
+      "electric fuel pump"
+    ],
+    "title": "File:Bosch Fuel Pump 0 580 254 957-92467.jpg",
+    "author": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bosch_Fuel_Pump_0_580_254_957-92467.jpg"
+  },
+  "headlight": {
+    "file": "img/parts/d-headlight.jpg",
+    "kind": "part",
+    "label": "Headlight",
+    "keywords": [
+      "headlights & driving lights",
+      "headlight",
+      "headlights",
+      "driving lights"
+    ],
+    "title": "File:Headlight of a Soviet car.jpg",
+    "author": "Dmitry Makeev",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Headlight_of_a_Soviet_car.jpg"
+  },
+  "toggle-switch": {
+    "file": "img/parts/d-toggle-switch.jpg",
+    "kind": "part",
+    "label": "Toggle switch",
+    "keywords": [
+      "toggle switch",
+      "switch",
+      "switch panel",
+      "can keypad / switch panel"
+    ],
+    "title": "File:Toggle Switch - 3PDT.jpg",
+    "author": "SparkFun Electronics from Boulder, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toggle_Switch_-_3PDT.jpg"
+  },
+  "start-button": {
+    "file": "img/parts/d-start-button.jpg",
+    "kind": "part",
+    "label": "Engine start button",
+    "keywords": [
+      "ignition switch & start button",
+      "start button",
+      "engine start button",
+      "push-to-start"
+    ],
+    "title": "File:Engine Start Button (3733678176).jpg",
+    "author": "Eric Kilby from Somerville, MA, USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Engine_Start_Button_(3733678176).jpg"
+  },
+  "cutoff-switch": {
+    "file": "img/parts/d-cutoff-switch.jpg",
+    "kind": "part",
+    "label": "Battery master cutoff switch",
+    "keywords": [
+      "mechanical master electrical cutoff switch",
+      "master electrical cutoff switch",
+      "battery cutoff switch",
+      "master switch",
+      "battery isolator switch",
+      "cutoff switch",
+      "kill switch",
+      "external master switch actuator"
+    ],
+    "title": "File:Batt-schalter natoknochen 2.jpg",
+    "author": "Hempe Fahrzeugteile (Matthias Hempe)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Batt-schalter_natoknochen_2.jpg"
+  },
+  "brake-light": {
+    "file": "img/parts/d-brake-light.jpg",
+    "kind": "part",
+    "label": "LED brake / tail light",
+    "keywords": [
+      "brake lights",
+      "brake light",
+      "tail light",
+      "rear lamp",
+      "position / marker / id lights",
+      "marker lights",
+      "rain light"
+    ],
+    "title": "File:2016 Lexus GS-F Fujiweiss LED-Rueckleuchte.jpg",
+    "author": "Kickaffe (Mario von Berg)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2016_Lexus_GS-F_Fujiweiss_LED-Rueckleuchte.jpg"
+  },
+  "ground-strap": {
+    "file": "img/parts/d-ground-strap.jpg",
+    "kind": "part",
+    "label": "Braided ground strap",
+    "keywords": [
+      "engine-to-chassis ground straps",
+      "transmission / driveline ground strap",
+      "bonding straps",
+      "ground strap",
+      "ground straps",
+      "battery negative cable to chassis",
+      "earth strap"
+    ],
+    "title": "File:MFrey Masseband.jpg",
+    "author": "MichaelFrey",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MFrey_Masseband.jpg"
+  }
+}
