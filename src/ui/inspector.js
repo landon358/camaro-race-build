@@ -7,7 +7,7 @@ import { previewSlot } from './preview.js';
 import { carMap } from './carmap.js';
 import { printTorqueCard } from './print.js';
 import {
-  statusBadge, torqueBlock, tqMain, confPill, confirmText, confirmLine, humanize, byPartOrder, systemName, groupTitle, zoneName, zoneCounts, partNumbers, pct, STATUS_WORD,
+  statusBadge, torqueBlock, tqMain, confPill, confirmText, confirmLine, humanize, byPartOrder, systemName, groupTitle, zoneName, zoneCounts, partNumbers, pct, STATUS_WORD, photoOf, photoFig, photoCredit,
 } from './present.js';
 import { CONFIDENCE, confidenceOf, hasTorque, fastenerSummary, fastenerWords, boltLabel, parseTorque, parseHw, isDuplicateRow } from '../torque.js';
 
@@ -144,47 +144,8 @@ const goZone = (z) => { select({ type: 'zone', id: z }); emit('frame', { type: '
 
 // ------------------------------------------------------------------ home
 function renderHome(h) {
-  const comps = state.db.components;
-  const all = comps.map((c) => c.id);
-  const d = el('div', 'home');
-  // phone peek: one tap to a corner
-  const strip = el('nav', 'zone-strip');
-  strip.setAttribute('aria-label', 'Jump to a corner');
-  for (const [z, t] of [['FL', 'FL'], ['FR', 'FR'], ['RL', 'RL'], ['RR', 'RR'], ['ENG', 'ENG']]) {
-    const b = btn(esc(t), () => goZone(z));
-    b.setAttribute('aria-label', zoneName(z));
-    strip.appendChild(b);
-  }
-  d.appendChild(strip);
-  const done = comps.filter((c) => track(c.id).status === 'installed').length;
-  d.appendChild(el('p', 'eyebrow', 'Gen 6 Camaro · Road race'));
-  d.appendChild(el('h2', 'home-title', 'Pick a spot on the car'));
-  d.appendChild(el('p', 'lede', 'Every part at that spot, from every system.'));
-  d.appendChild(carMap({ size: 'large', counts: zoneCounts(all), onPick: goZone }));
-  const pills = el('div', 'zone-pills');
-  for (const z of ['UNDER', 'CAR', 'PROC']) {
-    const n = comps.filter((c) => c.zone === z).length;
-    pills.appendChild(btn(`${esc(zoneName(z))} <span class="n">${n}</span>`, () => goZone(z), 'chip'));
-  }
-  d.appendChild(pills);
-  d.appendChild(el('div', 'stat-line', `<span><b>${done}</b> / ${comps.length} installed</span><span class="meter"><i style="width:${(done / comps.length) * 100}%"></i></span>`));
-
-  const sp = el('div', 'sys-progress');
-  for (const s of state.db.systems) {
-    const ids = s.subsystems.flatMap((x) => x.componentIds);
-    const p = pct(ids);
-    sp.appendChild(btn(`<span class="sw" style="background:${s.color}"></span><span>${esc(systemName(s.id))}</span><span class="n">${Math.round(p * 100)}%</span><span class="meter"><i style="width:${p * 100}%"></i></span>`, () => {
-      select({ type: 'system', id: s.id });
-      emit('frame', { type: 'system', id: s.id });
-    }));
-  }
-  const prog = fold('Progress by system', '', { count: state.db.systems.length });
-  prog.querySelector('.fold-body').appendChild(sp);
-  d.appendChild(prog);
-  const torques = comps.flatMap((c) => c.hardware.filter(hasTorque));
-  const by = (k) => torques.filter((x) => confidenceOf(x) === k).length;
-  d.appendChild(fold('How far to trust the torque numbers', `<p class="trust">${confPill('verified')} ${by('verified')} ${confPill('typical')} ${by('typical')} ${confPill('estimate')} ${by('estimate')}</p><ul class="list-plain">${['verified', 'typical', 'estimate'].map((k) => `<li><b>${esc(CONFIDENCE[k].label)}</b> — ${esc(CONFIDENCE[k].desc)}</li>`).join('')}</ul>`));
-  h.appendChild(d);
+  // nothing picked: the panel is hidden and the car has the room (see body.has-sel)
+  h.appendChild(el('p', 'pl-hint home-empty', 'Pick a system or a spot on the car.'));
 }
 
 // ------------------------------------------------------------------ system
@@ -196,7 +157,7 @@ function renderSystem(h, s) {
   headBlock(h, {
     crumbList: [homeCrumb],
     title: systemName(s.id),
-    sub: `<span>${ids.length} parts · ${Math.round(pct(ids) * 100)}% installed</span>`,
+    sub: `<span>${ids.length} parts</span>`,
     actions,
   });
   const body = tabBar(h, 'system', [['areas', 'Areas', s.subsystems.length], ['parts', 'All parts', ids.length], ['about', 'About', '']], () => render(true));
@@ -226,8 +187,7 @@ function renderSystem(h, s) {
     }
     const list = sec('Areas');
     for (const sub of s.subsystems) {
-      const p = pct(sub.componentIds);
-      list.appendChild(btn(`<span class="name">${esc(sub.name)}</span><span class="count">${sub.componentIds.length}${p ? ` · ${Math.round(p * 100)}%` : ''}</span>${icon('right', 16)}`, () => {
+      list.appendChild(btn(`<span class="name">${esc(sub.name)}</span><span class="count">${sub.componentIds.length}</span>${icon('right', 16)}`, () => {
         select({ type: 'subsystem', id: sub.id });
         emit('frame', { type: 'subsystem', id: sub.id });
       }, 'row grp-card'));
@@ -246,7 +206,7 @@ function renderGroup(h, sub) {
   headBlock(h, {
     crumbList: [homeCrumb, { label: systemName(s.id), sel: { type: 'system', id: s.id } }],
     title: groupTitle(sub),
-    sub: `<span>${ids.length} parts · ${torqued} torque specs · ${Math.round(pct(ids) * 100)}% installed</span>`,
+    sub: `<span>${ids.length} parts · ${torqued} torque specs</span>`,
     aside: onlyZone ? carMap({ size: 'small', active: onlyZone }) : null,
     actions: [
       toolBtn('wrench', 'Torque specs', () => emit('open-modal', { name: 'torque', subsystem: sub.id })),
@@ -257,9 +217,6 @@ function renderGroup(h, sub) {
   if (tabs.subsystem === 'about') {
     if (sub.description) body.appendChild(sec('What this area covers', `<p>${esc(sub.description)}</p>`));
     if (s.summary) body.appendChild(sec(`About ${systemName(s.id)}`, `<p>${esc(s.summary)}</p>`));
-    const bulk = sec('Mark every part here');
-    bulk.appendChild(bulkStatus(ids));
-    body.appendChild(bulk);
   } else {
     renderPartsList(body, ids, { group: 'tier', groupId: sub.id, onOpenCatalog: () => emit('open-modal', { name: 'catalog', subsystem: sub.id }) });
   }
@@ -272,7 +229,7 @@ function renderZone(h, z) {
   headBlock(h, {
     crumbList: [homeCrumb],
     title: zoneName(z),
-    sub: `<span>${ids.length} parts · ${Math.round(pct(ids) * 100)}% installed</span>`,
+    sub: `<span>${ids.length} parts from ${new Set(comps.map((c) => c.system)).size} systems</span>`,
     aside: carMap({ size: 'small', active: z }),
     actions: [
       toolBtn('wrench', 'Torque specs', () => emit('open-modal', { name: 'torque', zone: z })),
@@ -314,7 +271,6 @@ function renderComponent(h, c) {
   });
 
   // status first: the thing people do most at the car
-  head.appendChild(statusControl(c));
   head.appendChild(torqueHero(c));
 
   // one quiet line of facts instead of tiles
@@ -431,15 +387,35 @@ function statusControl(c) {
 }
 
 function overviewTab(body, c) {
+  const ph = photoOf(c.photo);
   const fig = el('div', 'preview-box');
-  fig.appendChild(previewSlot(c.id, true));
-  const pause = el('button', 'icon-btn preview-ctl', icon(state.spin ? 'pause' : 'play', 16));
-  pause.type = 'button';
-  pause.setAttribute('aria-label', state.spin ? 'Pause rotation' : 'Resume rotation');
-  pause.addEventListener('click', () => { set('spin', !state.spin); pause.innerHTML = icon(state.spin ? 'pause' : 'play', 16); pause.setAttribute('aria-label', state.spin ? 'Pause rotation' : 'Resume rotation'); });
-  fig.appendChild(pause);
-  fig.appendChild(el('div', 'preview-cap', 'Drag to turn'));
-  body.appendChild(fig);
+  const model = () => {
+    fig.replaceChildren(previewSlot(c.id, true));
+    const pause = el('button', 'icon-btn preview-ctl', icon(state.spin ? 'pause' : 'play', 16));
+    pause.type = 'button';
+    pause.setAttribute('aria-label', state.spin ? 'Pause rotation' : 'Resume rotation');
+    pause.addEventListener('click', () => { set('spin', !state.spin); pause.innerHTML = icon(state.spin ? 'pause' : 'play', 16); pause.setAttribute('aria-label', state.spin ? 'Pause rotation' : 'Resume rotation'); });
+    fig.appendChild(pause);
+    fig.appendChild(el('div', 'preview-cap', 'Drag to turn'));
+  };
+  if (!ph) { model(); body.appendChild(fig); }
+  else {
+    // A real photo identifies a part on the shelf better than the simplified model, so it shows first.
+    const seg = el('div', 'seg preview-seg');
+    seg.setAttribute('role', 'group');
+    seg.setAttribute('aria-label', 'Preview');
+    const photo = () => { fig.replaceChildren(el('div', 'preview-photo', `<img src="./${esc(ph.file)}" alt="${esc(ph.label)}" decoding="async">`)); };
+    const views = [['Photo', photo], ['3D model', model]];
+    for (const [label, show] of views) {
+      const b = btn(esc(label), () => { show(); seg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); }, '');
+      b.setAttribute('aria-pressed', String(label === 'Photo'));
+      seg.appendChild(b);
+    }
+    photo();
+    body.appendChild(seg);
+    body.appendChild(fig);
+    body.appendChild(el('p', 'photo-note', `${esc(ph.label)} — same kind of part, not necessarily your brand. ${photoCredit(ph)}`));
+  }
   if (c.modelRef) {
     const r = c.modelRef;
     const imgs = (r.images || []).map((x) => (typeof x === 'string' ? { url: x, title: x } : x)).map((x) => ({ ...x, url: safeUrl(x.url) })).filter((x) => x.url);
@@ -490,10 +466,22 @@ function boltsTab(body, c) {
     const dup = isDuplicateRow(x);
     const rows = [['Size', x.spec], ['Grade', x.grade], ['Part #', x.partNumber], ['Sequence', x.torqueSequence || (hasTorque(x) && Number(x.qty) > 2 ? 'No sequence on file — work in a criss-cross pattern' : '')], ['Threads', x.threadlocker], ['Safety wire', x.safetyWire ? 'Yes' : ''], ['Reuse', x.reuse], ['Tool', x.tool], ['Notes', x.notes]].filter(([, v]) => v);
     const src = safeUrl(x.source);
-    body.appendChild(el('article', `hw${est ? ' est' : ''}`, `
-      <div class="hw-top"><span class="hw-qty">${esc(x.qty ?? '')}×</span><span class="hw-item">${esc(x.item || 'Fastener')}</span>${dup ? '<span class="pill">Shared joint — counted once</span>' : ''}</div>
+    const ph = photoOf(x.photo);
+    const card = body.appendChild(el('article', `hw${est ? ' est' : ''}${ph ? ' has-photo' : ''}`, `
+      <div class="hw-top">${ph ? `<button type="button" class="hw-photo" aria-expanded="false" aria-label="Show photo: ${esc(ph.label)}"><img src="./${esc(ph.file)}" alt="" loading="lazy" decoding="async"></button>` : ''}<span class="hw-qty">${esc(x.qty ?? '')}×</span><span class="hw-item">${esc(x.item || 'Fastener')}</span>${dup ? '<span class="pill">Shared joint — counted once</span>' : ''}</div>
       <div class="hw-torque">${torqueBlock(x)}</div>
       <dl class="hw-grid">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(humanize(v))}</dd>`).join('')}${src ? `<dt>Source</dt><dd><a href="${esc(src)}" target="_blank" rel="noopener">${esc(new URL(src).hostname)}</a></dd>` : ''}</dl>`));
+    if (ph) {
+      // Tap the thumbnail for a big photo with its credit; tap again to fold it away.
+      const b = card.querySelector('.hw-photo');
+      let big = null;
+      b.addEventListener('click', () => {
+        if (big) { big.remove(); big = null; b.setAttribute('aria-expanded', 'false'); return; }
+        big = el('div', 'hw-photo-big', photoFig(ph, { cap: `${ph.label} — typical example` }));
+        card.querySelector('.hw-top').after(big);
+        b.setAttribute('aria-expanded', 'true');
+      });
+    }
   }
 }
 
@@ -509,7 +497,7 @@ function optionsTab(body, c) {
   if (c.factory) opts.push({ key: 'factory', kind: 'GM factory', ...c.factory });
   c.raceOptions.forEach((o, i) => opts.push({ key: `race-${i}`, kind: o.brand ? `Race · ${o.brand}` : 'Race option', ...o }));
   if (!opts.length) { body.appendChild(el('p', 'pl-hint', 'No options recorded.')); return; }
-  body.appendChild(el('p', 'pl-hint', 'Tap the one you are running — it is saved with your build and used for the shopping list.'));
+  body.appendChild(el('p', 'pl-hint', 'Tap the one you are running — the headline torque follows it. Saved on this device.'));
   for (const o of opts) {
     const u = safeUrl(o.url);
     const chosen = t.choice === o.key;

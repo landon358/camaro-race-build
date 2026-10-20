@@ -3,7 +3,7 @@ import { state, select, emit, set } from '../state.js';
 import { el, esc } from './dom.js';
 import { icon } from './icons.js';
 import { previewSlot } from './preview.js';
-import { statusBadge, partNumbers, torqueLine, systemName, zoneName, groupTitle } from './present.js';
+import { statusBadge, partNumbers, torqueLine, systemName, zoneName, groupTitle, photoOf } from './present.js';
 
 export { partNumbers };
 
@@ -24,8 +24,10 @@ const dims = (d) => {
 function card(c, layout, opts) {
   const pns = partNumbers(c);
   const item = el('div', `pl-item ${layout}`);
-  const fig = el('div', 'pl-fig');
-  fig.appendChild(previewSlot(c.id));
+  const ph = photoOf(c.photo);
+  // a real photo when there is one (easier to match to the part on the shelf), else the 3D model
+  const fig = el('div', `pl-fig${ph ? ' photo-fig' : ''}`, ph ? `<img src="./${esc(ph.file)}" alt="" loading="lazy" decoding="async">` : '');
+  if (!ph) fig.appendChild(previewSlot(c.id));
   item.appendChild(fig);
   // inside an area or a location the corner is already known: short name, no chip
   const inContext = (opts.groupId && c.subsystem === opts.groupId) || (opts.zoneCtx && c.zone === opts.zoneCtx);

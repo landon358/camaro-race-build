@@ -103,7 +103,8 @@ export class Viewer {
     loader.setMeshoptDecoder(MeshoptDecoder);
     const gltf = await loader.loadAsync(url);
     this.bodyNodes = new Map();
-    const paint = new THREE.MeshPhysicalMaterial({ color: 0x8a1712, metalness: 0.6, roughness: 0.32, clearcoat: 1, clearcoatRoughness: 0.08 });
+    // team livery: quail silver, high-gloss metallic under a mirror clear coat
+    const paint = new THREE.MeshPhysicalMaterial({ color: 0x9ba1a8, metalness: 0.95, roughness: 0.26, clearcoat: 1, clearcoatRoughness: 0.02, envMapIntensity: 1 });
     const mats = {
       paint,
       red: new THREE.MeshStandardMaterial({ color: 0xb3161b, metalness: 0.3, roughness: 0.4 }),

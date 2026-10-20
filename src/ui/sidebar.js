@@ -3,7 +3,8 @@
 import { state, on, select, set, emit, track } from '../state.js';
 import { el, esc } from './dom.js';
 import { icon } from './icons.js';
-import { statusBadge, byPartOrder, systemName, groupTitle, partName, pct, zoneName } from './present.js';
+import { statusBadge, byPartOrder, systemName, groupTitle, partName, pct, zoneName, zoneCounts } from './present.js';
+import { carMap } from './carmap.js';
 import { reuseClass } from '../torque.js';
 
 const open = new Set();
@@ -161,37 +162,44 @@ function renderSystems() {
 
 // ------------------------------------------------------------------ locations
 function renderLocations() {
+  // the car is the menu: tap a corner or an area; only the spot you picked opens below
   const host = document.getElementById('tab-locations');
   const frag = document.createDocumentFragment();
-  frag.appendChild(el('p', 'sub-note', 'Everything at one spot on the car, from every system — e.g. the whole front left corner.'));
-  for (const z of ZONE_ORDER) {
-    const comps = state.db.components.filter((c) => c.zone === z);
-    if (!comps.length) continue;
-    const key = `zone:${z}`;
-    const isOpen = open.has(key);
-    const box = el('div', 'tree-sys');
-    box.appendChild(row('sys', `${chev()}${icon('pin', 16)}<span class="name">${esc(zoneName(z))}</span>${count(comps.length)}`, {
-      expanded: isOpen,
-      current: isSel('zone', z),
-      onClick: () => {
-        if (isSel('zone', z)) toggle(key);
-        else { open.add(key); select({ type: 'zone', id: z }); emit('frame', { type: 'zone', id: z }); }
-      },
-    }));
-    if (isOpen) {
-      for (const s of state.db.systems) {
-        const ids = comps.filter((c) => c.system === s.id).sort(byPartOrder).map((c) => c.id);
-        if (!ids.length) continue;
-        const sk = `${key}:${s.id}`;
-        const sOpen = open.has(sk);
-        box.appendChild(row('grp', `${chev()}<span class="sw" style="background:${s.color}" aria-hidden="true"></span><span class="name">${esc(systemName(s.id))}</span>${count(ids.length)}`, {
-          expanded: sOpen,
-          onClick: () => toggle(sk),
-        }));
-        if (sOpen) partsWithTiers(box, ids);
-      }
+  const cur = state.selection?.type === 'zone' ? state.selection.id
+    : state.selection?.type === 'component' ? state.byId.get(state.selection.id)?.zone : null;
+  const pickZone = (z) => { open.add(`zone:${z}`); select({ type: 'zone', id: z }); emit('frame', { type: 'zone', id: z }); };
+  const mapBox = el('div', 'loc-map');
+  mapBox.appendChild(carMap({ size: 'large', counts: zoneCounts(state.db.components.map((c) => c.id)), active: cur, onPick: pickZone }));
+  frag.appendChild(mapBox);
+  const chips = el('div', 'loc-chips');
+  for (const z of ['UNDER', 'CAR', 'PROC']) {
+    const n = state.db.components.filter((c) => c.zone === z).length;
+    if (!n) continue;
+    const b = el('button', `chip${cur === z ? ' on' : ''}`, `${esc(zoneName(z))} <span class="n">${n}</span>`);
+    b.type = 'button';
+    if (cur === z) b.setAttribute('aria-current', 'true');
+    b.addEventListener('click', () => pickZone(z));
+    chips.appendChild(b);
+  }
+  frag.appendChild(chips);
+  if (cur) {
+    const comps = state.db.components.filter((c) => c.zone === cur);
+    const box = el('div', 'tree-sys loc-open');
+    box.appendChild(el('div', 'loc-head', `${icon('pin', 14)}<b>${esc(zoneName(cur))}</b><span class="count">${comps.length} parts</span>`));
+    for (const s of state.db.systems) {
+      const ids = comps.filter((c) => c.system === s.id).sort(byPartOrder).map((c) => c.id);
+      if (!ids.length) continue;
+      const sk = `zone:${cur}:${s.id}`;
+      const sOpen = open.has(sk);
+      box.appendChild(row('grp', `${chev()}<span class="sw" style="background:${s.color}" aria-hidden="true"></span><span class="name">${esc(systemName(s.id))}</span>${count(ids.length)}`, {
+        expanded: sOpen,
+        onClick: () => toggle(sk),
+      }));
+      if (sOpen) partsWithTiers(box, ids);
     }
     frag.appendChild(box);
+  } else {
+    frag.appendChild(el('p', 'sub-note', 'Tap a corner or an area of the car to list everything there, from every system.'));
   }
   keepScroll(host, frag);
 }
@@ -206,7 +214,7 @@ function renderPhases() {
     const isOpen = state.phase === p.n;
     const box = el('div', 'phase');
     box.dataset.open = String(isOpen);
-    box.appendChild(row('sys', `<span class="phase-n" aria-hidden="true">${p.n}</span><span class="name"><span>${esc(p.name)}</span><br><span class="count">${esc(p.detail)}</span></span><span class="count">${Math.round(pct(comps.map((c) => c.id)) * 100)}% · ${comps.length}</span>`, {
+    box.appendChild(row('sys', `<span class="phase-n" aria-hidden="true">${p.n}</span><span class="name"><span>${esc(p.name)}</span><br><span class="count">${esc(p.detail)}</span></span><span class="count">${comps.length}</span>`, {
       expanded: isOpen,
       label: `Step ${p.n} of ${state.db.phases.length}: ${p.name}, ${comps.length} parts`,
       onClick: () => set('phase', isOpen ? 12 : p.n),
@@ -232,7 +240,7 @@ function renderPhases() {
 export function renderFoot() {
   const total = state.db.components.length;
   const installed = state.db.components.filter((c) => track(c.id).status === 'installed').length;
-  document.getElementById('left-foot').innerHTML = `<span>${total} parts</span><span>${installed} installed (${Math.round((installed / total) * 100)}%)</span>`;
+  document.getElementById('left-foot').innerHTML = `<span>${total} parts</span><span>${state.db.systems.length} systems</span>`;
   const bar = document.querySelector('#brand-progress i');
   if (bar) bar.style.width = `${(installed / total) * 100}%`;
   document.getElementById('brand-progress')?.setAttribute('title', `${installed} of ${total} parts installed`);

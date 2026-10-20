@@ -152,7 +152,7 @@ function initChrome() {
 function initTopActions() {
   // two daily tools up front; the rest one tap deeper
   const host = $('top-actions');
-  const main = [['torque', 'wrench', 'Torque'], ['inspect', 'inspect', 'Checklist'], ['tracker', 'installed', 'Progress']];
+  const main = [['torque', 'wrench', 'Torque'], ['catalog', 'parts', 'Catalog'], ['inspect', 'inspect', 'Checklist']];
   for (const [name, ic, label] of main) {
     const b = el('button', 'btn', `${icon(ic, 16)}<span class="lbl">${esc(label)}</span>`);
     b.type = 'button';
@@ -163,7 +163,7 @@ function initTopActions() {
   const more = el('button', 'btn', `<span class="lbl">More</span>${icon('down', 14)}`);
   more.type = 'button';
   more.setAttribute('aria-label', 'More tools');
-  popover(more, (pop, close) => moreMenu(pop, close, { skip: ['inspect'] }), { host: document.body, alignRight: true });
+  popover(more, (pop, close) => moreMenu(pop, close, { skip: ['inspect', 'catalog'] }), { host: document.body, alignRight: true });
   host.appendChild(more);
 }
 
@@ -266,7 +266,7 @@ function initViewbar() {
   const bodyBtn = tool('car', 'Body');
   popover(bodyBtn, (pop) => {
     pop.appendChild(el('h3', '', 'Body shell'));
-    pop.appendChild(seg('Body shell', [['solid', 'Solid'], ['ghost', 'See-through'], ['off', 'Hidden']], () => state.bodyMode, (v) => set('bodyMode', v)));
+    pop.appendChild(seg('Body shell', [['solid', 'Solid'], ['ghost', 'See-through'], ['off', 'Hidden']], () => state.bodyMode, (v) => { state.bodyModeByHand = true; set('bodyMode', v); }));
     pop.appendChild(el('h3', '', 'Panels on the shell'));
     const row = el('div', 'pop-row');
     for (const k of Object.keys(state.bodyParts)) {
@@ -295,7 +295,7 @@ function initViewbar() {
   const colourBtn = tool('layers', 'Colour');
   popover(colourBtn, (pop) => {
     pop.appendChild(el('h3', '', 'Colour parts by'));
-    pop.appendChild(seg('Colour parts by', [['real', 'Real finish'], ['system', 'System'], ['status', 'Build status']], () => state.colorMode, (v) => set('colorMode', v)));
+    pop.appendChild(seg('Colour parts by', [['real', 'Real finish'], ['system', 'System']], () => state.colorMode, (v) => set('colorMode', v)));
   }, { alignRight: true });
 
   const viewBtn = tool('sliders', 'View');
@@ -439,7 +439,7 @@ function initDrawer() {
 }
 
 // ------------------------------------------------------------------ phone: tab bar + bottom sheet
-const SNAP = ['peek', 'half', 'full'];
+const SNAP = ['peek', 'half', 'full']; // 'closed' when nothing is selected
 let snap = 'peek';
 
 function sheetPx(s) {
@@ -519,13 +519,13 @@ function initSheet() {
 
   on('select', (sel) => {
     if (!phone()) { updateObstruction(); return; }
-    if (sel && snap === 'peek') setSnap('half', { silent: true });
-    if (!sel) setSnap('peek', { silent: true });
+    if (sel && (snap === 'peek' || snap === 'closed')) setSnap('half', { silent: true });
+    if (!sel) setSnap('closed', { silent: true });
     updateObstruction();
   });
   on('search-chosen', () => { if (phone() && snap === 'full') setSnap('half'); });
   window.addEventListener('resize', () => setSnap(snap));
-  setSnap('peek');
+  setSnap(state.selection ? 'half' : 'closed');
   initTabbar();
 }
 
@@ -533,11 +533,11 @@ let tabbarItems = [];
 function initTabbar() {
   const bar = $('tabbar');
   const items = [
-    ['car', 'car', 'Car', () => { openDrawer(false); emit('close-modal'); setSnap('peek'); }],
+    ['car', 'car', 'Car', () => { openDrawer(false); emit('close-modal'); setSnap(state.selection ? 'peek' : 'closed'); }],
     ['browse', 'list', 'Browse', () => { emit('close-modal'); openDrawer(!$('browse').classList.contains('open')); }],
     ['inspect', 'inspect', 'Checks', () => { openDrawer(false); emit('open-modal', { name: 'inspect' }); }],
     ['torque', 'wrench', 'Torque', () => { openDrawer(false); emit('open-modal', { name: 'torque' }); }],
-    ['tracker', 'installed', 'Progress', () => { openDrawer(false); emit('open-modal', { name: 'tracker' }); }],
+    ['catalog', 'parts', 'Catalog', () => { openDrawer(false); emit('open-modal', { name: 'catalog' }); }],
     ['more', 'menu', 'More', null],
   ];
   tabbarItems = items.map(([id, ic, label, fn]) => {
@@ -545,7 +545,7 @@ function initTabbar() {
     b.type = 'button';
     b.dataset.tab = id;
     if (fn) b.addEventListener('click', fn);
-    else popover(b, (pop, close) => { emit('close-modal'); openDrawer(false); moreMenu(pop, close, { skip: ['inspect'] }); }, { host: document.body, sheet: true });
+    else popover(b, (pop, close) => { emit('close-modal'); openDrawer(false); moreMenu(pop, close, { skip: ['inspect', 'catalog'] }); }, { host: document.body, sheet: true });
     bar.appendChild(b);
     return b;
   });
@@ -558,7 +558,7 @@ function initTabbar() {
 function drawTabbar() {
   if (!tabbarItems.length) return;
   const modal = $('modal').open ? document.getElementById('modal-title').textContent : '';
-  const cur = $('browse').classList.contains('open') ? 'browse' : modal === 'Torque specs' ? 'torque' : modal === 'Build tracker' ? 'tracker' : modal === 'Between-sessions checklist' ? 'inspect' : modal ? 'more' : 'car';
+  const cur = $('browse').classList.contains('open') ? 'browse' : modal === 'Torque specs' ? 'torque' : modal === 'Parts catalog' ? 'catalog' : modal === 'Between-sessions checklist' ? 'inspect' : modal ? 'more' : 'car';
   for (const b of tabbarItems) b.setAttribute('aria-current', String(b.dataset.tab === cur));
 }
 
@@ -607,6 +607,10 @@ function applyHash() {
 
 // clearing the selection shows the whole car again
 on('select', (sel) => { if (!sel && viewer) viewer.resetView(); });
+// the details panel only takes space once something is picked; at start the car gets the room
+on('select', (sel) => document.body.classList.toggle('has-sel', !!sel));
+// solid silver car at rest, see-through while looking at parts — until the body mode is chosen by hand
+on('select', (sel) => { if (!state.bodyModeByHand && state.bodyMode !== (sel ? 'ghost' : 'solid')) set('bodyMode', sel ? 'ghost' : 'solid'); });
 
 boot().catch((e) => {
   console.error(e);

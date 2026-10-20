@@ -1,0 +1,867 @@
+{
+  "roll-cage": {
+    "file": "img/parts/s-roll-cage.jpg",
+    "kind": "part",
+    "label": "Roll cage",
+    "keywords": [
+      "roll cage",
+      "roll-cage",
+      "main hoop",
+      "front hoop",
+      "roof side rails",
+      "halo bars",
+      "main hoop diagonal brace",
+      "roof reinforcement x-brace",
+      "main hoop mounting plates",
+      "front hoop mounting plates"
+    ],
+    "title": "File:Überrollkäfig EMS.jpg",
+    "author": "Stahlkocher",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:%C3%9Cberrollk%C3%A4fig_EMS.jpg"
+  },
+  "cage-rear-stays": {
+    "file": "img/parts/s-cage-rear-stays.jpg",
+    "kind": "part",
+    "label": "Roll cage rear stays & harness bar",
+    "keywords": [
+      "backstays",
+      "rear stays",
+      "backstays / rear stays",
+      "rear cross brace",
+      "rear cross brace & rear diagonal",
+      "rear diagonal",
+      "harness bar",
+      "backstay mounting plates",
+      "shoulder-belt wrap mount on harness bar"
+    ],
+    "title": "File:Suzuki Swift JWRC '05 005.JPG",
+    "author": "Tennen-Gas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_JWRC_%2705_005.JPG"
+  },
+  "cage-door-bars": {
+    "file": "img/parts/s-cage-door-bars.jpg",
+    "kind": "part",
+    "label": "Roll cage door bars",
+    "keywords": [
+      "door bars",
+      "nascar-style door bars",
+      "driver-side nascar-style door bars",
+      "driver door-bar vertical uprights",
+      "passenger-side x door bars",
+      "x door bars",
+      "doors – gutted for door bars"
+    ],
+    "title": "File:Roll Cage - Flickr - ozz13x.jpg",
+    "author": "ozz13x",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Roll_Cage_-_Flickr_-_ozz13x.jpg"
+  },
+  "cage-cockpit": {
+    "file": "img/parts/s-cage-cockpit.jpg",
+    "kind": "part",
+    "label": "Roll cage (cockpit view)",
+    "keywords": [
+      "dash bar",
+      "roll cage tubing"
+    ],
+    "title": "File:Race car roll cage (Unsplash).jpg",
+    "author": "Lloyd Dirks (lloydaleveque)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Race_car_roll_cage_(Unsplash).jpg"
+  },
+  "racing-harness": {
+    "file": "img/parts/s-racing-harness.jpg",
+    "kind": "part",
+    "label": "6-point racing harness",
+    "keywords": [
+      "6-point racing harness",
+      "racing harness",
+      "shoulder belt",
+      "lap belt",
+      "anti-submarine belt",
+      "shoulder-belt spacing collars / guides"
+    ],
+    "title": "File:Schroth, Professional MotorSport World Expo 2024, Cologne (P1031216).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Schroth,_Professional_MotorSport_World_Expo_2024,_Cologne_(P1031216).jpg"
+  },
+  "harness-in-seat": {
+    "file": "img/parts/s-harness-in-seat.jpg",
+    "kind": "part",
+    "label": "Racing seat with 6-point harness",
+    "keywords": [
+      "harness in seat",
+      "lap-belt eyebolts & reinforcement plates",
+      "anti-submarine belt anchors",
+      "seat belt-slot edge protectors",
+      "belt-slot"
+    ],
+    "title": "File:Bucket seat with Schroth six-point harness in a 2010 Porsche 997 GT3 RS 3.8.jpg",
+    "author": "The Car Spy",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bucket_seat_with_Schroth_six-point_harness_in_a_2010_Porsche_997_GT3_RS_3.8.jpg"
+  },
+  "fhr-devices": {
+    "file": "img/parts/s-fhr-devices.jpg",
+    "kind": "part",
+    "label": "Frontal head restraint (FHR) devices",
+    "keywords": [
+      "frontal head restraint device",
+      "frontal head restraint",
+      "fhr",
+      "hans",
+      "hans device"
+    ],
+    "title": "File:Schroth, Professional MotorSport World Expo 2024, Cologne (P1031214).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Schroth,_Professional_MotorSport_World_Expo_2024,_Cologne_(P1031214).jpg"
+  },
+  "hans-helmet": {
+    "file": "img/parts/s-hans-helmet.jpg",
+    "kind": "part",
+    "label": "Helmet with HANS device",
+    "keywords": [
+      "helmet fhr anchor posts",
+      "fhr anchor",
+      "hans device on helmet"
+    ],
+    "title": "File:Mattias Andersson helmet 2011.jpg",
+    "author": "Green Yoshi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mattias_Andersson_helmet_2011.jpg"
+  },
+  "kill-switch-pulls": {
+    "file": "img/parts/s-kill-switch-pulls.jpg",
+    "kind": "part",
+    "label": "External kill-switch & extinguisher pulls",
+    "keywords": [
+      "external kill-switch t-handle / pull ring",
+      "external kill-switch",
+      "kill-switch",
+      "kill switch",
+      "pull ring",
+      "external pull handle & cable",
+      "external pull handle",
+      "electrical cutoff decal",
+      "fire system decals",
+      "kill-switch pull cable & sheath"
+    ],
+    "title": "File:Porsche race car safety stuff Master power-off and fire extinguisher (7482875040).jpg",
+    "author": "Bill Abbott",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porsche_race_car_safety_stuff_Master_power-off_and_fire_extinguisher_(7482875040).jpg"
+  },
+  "hand-extinguisher": {
+    "file": "img/parts/s-hand-extinguisher.jpg",
+    "kind": "part",
+    "label": "Hand-held fire extinguisher",
+    "keywords": [
+      "hand-held extinguisher",
+      "fire extinguisher",
+      "extinguisher",
+      "metal quick-release extinguisher mount"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031168).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031168).jpg"
+  },
+  "suppression-bottles": {
+    "file": "img/parts/s-suppression-bottles.jpg",
+    "kind": "part",
+    "label": "Fire suppression bottles",
+    "keywords": [
+      "fire suppression bottle",
+      "fire suppression",
+      "suppression bottle",
+      "bottle mounting bracket & quick-release straps"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031158).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031158).jpg"
+  },
+  "tow-eye": {
+    "file": "img/parts/s-tow-eye.jpg",
+    "kind": "part",
+    "label": "Screw-in tow eye",
+    "keywords": [
+      "rear tow eye",
+      "tow eye",
+      "rear tow eye / strap",
+      "rear tow point",
+      "tow point",
+      "front tow-eye receptacle",
+      "tow hook"
+    ],
+    "title": "File:Буксировочная петля (буксировочный крюк, проушина).jpg",
+    "author": "Paplauskas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%D0%91%D1%83%D0%BA%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_%D0%BF%D0%B5%D1%82%D0%BB%D1%8F_(%D0%B1%D1%83%D0%BA%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D0%BA%D1%80%D1%8E%D0%BA,_%D0%BF%D1%80%D0%BE%D1%83%D1%88%D0%B8%D0%BD%D0%B0).jpg"
+  },
+  "tow-strap": {
+    "file": "img/parts/s-tow-strap.jpg",
+    "kind": "part",
+    "label": "Race tow strap",
+    "keywords": [
+      "front tow strap / hook",
+      "tow strap",
+      "race tow strap",
+      "front tow-eye receptacle and race tow strap",
+      "tow point arrow decals"
+    ],
+    "title": "File:Manthey Racing, Professional MotorSport World Expo 2024, Cologne (P1031137).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Manthey_Racing,_Professional_MotorSport_World_Expo_2024,_Cologne_(P1031137).jpg"
+  },
+  "racing-seat": {
+    "file": "img/parts/s-racing-seat.jpg",
+    "kind": "part",
+    "label": "Racing bucket seat",
+    "keywords": [
+      "driver racing seat",
+      "racing seat",
+      "bucket seat",
+      "seat"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031202).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031202).jpg"
+  },
+  "seat-on-mount": {
+    "file": "img/parts/s-seat-on-mount.jpg",
+    "kind": "part",
+    "label": "Racing seat on mount base",
+    "keywords": [
+      "seat floor mount",
+      "seat side-mount brackets",
+      "seat-mount floor reinforcement plates",
+      "seat-back brace",
+      "seat mount"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031271).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031271).jpg"
+  },
+  "splitter": {
+    "file": "img/parts/s-splitter.jpg",
+    "kind": "part",
+    "label": "Front splitter & support rods",
+    "keywords": [
+      "splitter blade",
+      "splitter support rods",
+      "splitter",
+      "splitter chassis mounts",
+      "splitter skid blocks / wear strips"
+    ],
+    "title": "File:SplitterNASCARKaseyKahneFront.jpg",
+    "author": "Royalbroil",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SplitterNASCARKaseyKahneFront.jpg"
+  },
+  "diffuser": {
+    "file": "img/parts/s-diffuser.jpg",
+    "kind": "part",
+    "label": "Rear diffuser with strakes",
+    "keywords": [
+      "diffuser panel & strakes",
+      "diffuser",
+      "diffuser mounting brackets",
+      "strakes"
+    ],
+    "title": "File:Dallara 191 diffuser 2010 Pavilion Pit Stop.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Dallara_191_diffuser_2010_Pavilion_Pit_Stop.jpg"
+  },
+  "rear-wing": {
+    "file": "img/parts/s-rear-wing.jpg",
+    "kind": "part",
+    "label": "Rear wing",
+    "keywords": [
+      "wing main element",
+      "rear wing",
+      "wing"
+    ],
+    "title": "File:25 Jahre quattro IMSA GTO.jpg",
+    "author": "s at de.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:25_Jahre_quattro_IMSA_GTO.jpg"
+  },
+  "wing-endplate": {
+    "file": "img/parts/s-wing-endplate.jpg",
+    "kind": "part",
+    "label": "Wing endplate",
+    "keywords": [
+      "wing endplates",
+      "endplate"
+    ],
+    "title": "File:Sauber C17 Herbert (Rear Wing 2).jpg",
+    "author": "Lukas Raich",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sauber_C17_Herbert_(Rear_Wing_2).jpg"
+  },
+  "headlamp": {
+    "file": "img/parts/s-headlamp.jpg",
+    "kind": "part",
+    "label": "Headlamp assembly",
+    "keywords": [
+      "headlamp assemblies",
+      "headlamp",
+      "headlight"
+    ],
+    "title": "File:2016 Chevrolet Camaro SS headlights.jpg",
+    "author": "Yahya S. from United States",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2016_Chevrolet_Camaro_SS_headlights.jpg"
+  },
+  "side-mirror": {
+    "file": "img/parts/s-side-mirror.jpg",
+    "kind": "part",
+    "label": "Side mirror",
+    "keywords": [
+      "side mirrors",
+      "side mirror",
+      "wing mirror"
+    ],
+    "title": "File:Wing mirror.jpg",
+    "author": "Petar Milošević",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wing_mirror.jpg"
+  },
+  "naca-duct": {
+    "file": "img/parts/s-naca-duct.jpg",
+    "kind": "part",
+    "label": "NACA duct in side window",
+    "keywords": [
+      "cockpit fresh-air naca duct & hose",
+      "naca duct",
+      "fresh-air duct"
+    ],
+    "title": "File:Chase Briscoe 14 Sonoma 2023 NACA duct (cropped).jpg",
+    "author": "TaurusEmerald",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chase_Briscoe_14_Sonoma_2023_NACA_duct_(cropped).jpg"
+  },
+  "strut-brace": {
+    "file": "img/parts/s-strut-brace.jpg",
+    "kind": "part",
+    "label": "Strut tower brace",
+    "keywords": [
+      "front strut tower brace",
+      "strut tower brace",
+      "strut brace",
+      "rear shock tower brace / trunk cross-brace",
+      "strut tower reinforcement / gussets"
+    ],
+    "title": "File:Strut Bar.jpg",
+    "author": "Techsport at English Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Strut_Bar.jpg"
+  },
+  "subframe": {
+    "file": "img/parts/s-subframe.jpg",
+    "kind": "part",
+    "label": "Front subframe / cradle",
+    "keywords": [
+      "cradle",
+      "subframe",
+      "cradle mount reinforcement plates",
+      "captured nut plates for cradle and brace bolts",
+      "rear cradle mounting structure"
+    ],
+    "title": "File:VectraFrontSubframeBMuseum.JPG",
+    "author": "Simon Speed",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:VectraFrontSubframeBMuseum.JPG"
+  },
+  "switch-panel": {
+    "file": "img/parts/s-switch-panel.jpg",
+    "kind": "part",
+    "label": "Switch panel keypad",
+    "keywords": [
+      "switch panel / keypad housing",
+      "switch panel",
+      "keypad"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031251).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031251).jpg"
+  },
+  "digital-dash": {
+    "file": "img/parts/s-digital-dash.jpg",
+    "kind": "part",
+    "label": "Digital dash display",
+    "keywords": [
+      "digital dash/logger display mount",
+      "digital dash",
+      "logger display",
+      "dash display"
+    ],
+    "title": "File:Professional MotorSport World Expo 2024, Cologne (P1031189).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Professional_MotorSport_World_Expo_2024,_Cologne_(P1031189).jpg"
+  },
+  "race-dash": {
+    "file": "img/parts/s-race-dash.jpg",
+    "kind": "part",
+    "label": "Race dash panel & gauges",
+    "keywords": [
+      "race dash panel or trimmed factory ip",
+      "race dash panel",
+      "dash panel",
+      "gauges",
+      "factory ip cross-car beam"
+    ],
+    "title": "File:1979 AMC Spirit AMX Nurburgring winner at 2024 AMO meet 23of44.jpg",
+    "author": "CZmarlin — Christopher Ziemnowicz",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1979_AMC_Spirit_AMX_Nurburgring_winner_at_2024_AMO_meet_23of44.jpg"
+  },
+  "body-shell": {
+    "file": "img/parts/s-body-shell.jpg",
+    "kind": "part",
+    "label": "Body-in-white shell",
+    "keywords": [
+      "body-in-white shell",
+      "body-in-white",
+      "body shell",
+      "floor pan and seat cross-members",
+      "floor pan",
+      "a/b/c pillars, roof rails and roof bows",
+      "a/b/c pillars",
+      "rocker panels",
+      "body datum / locating holes",
+      "epoxy primer and chassis paint"
+    ],
+    "title": "File:Car body1.jpg",
+    "author": "Cjp24",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Car_body1.jpg"
+  },
+  "body-structure": {
+    "file": "img/parts/s-body-structure.jpg",
+    "kind": "part",
+    "label": "Body structure & frame rails",
+    "keywords": [
+      "front frame rails and lower load path",
+      "frame rails",
+      "rear frame rails and rear cradle mounting structure",
+      "front strut towers",
+      "dash panel, cowl and plenum",
+      "trunk floor / rear floor pan",
+      "rear shock towers / shock mounting pads"
+    ],
+    "title": "File:Car Show 078 - Flickr - Tabercil.jpg",
+    "author": "Tabercil",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Car_Show_078_-_Flickr_-_Tabercil.jpg"
+  },
+  "sound-deadener": {
+    "file": "img/parts/s-sound-deadener.jpg",
+    "kind": "part",
+    "label": "Sound deadener sheets",
+    "keywords": [
+      "sound deadener",
+      "factory sound deadener / nvh material removal",
+      "sound deadener, insulation and undercoat removal",
+      "insulation",
+      "nvh material"
+    ],
+    "title": "File:Interior going together.jpg",
+    "author": "simonov",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_going_together.jpg"
+  },
+  "undercoat-removal": {
+    "file": "img/parts/s-undercoat-removal.jpg",
+    "kind": "part",
+    "label": "Underbody coating (removal)",
+    "keywords": [
+      "undercoat removal",
+      "underbody stone-chip coating",
+      "undercoat",
+      "underbody coating"
+    ],
+    "title": "File:Unterbodenschutz vw derby mit trockeneisstrahlen entfernen.jpg",
+    "author": "Geesmo1337",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Unterbodenschutz_vw_derby_mit_trockeneisstrahlen_entfernen.jpg"
+  },
+  "underbody-rustproof": {
+    "file": "img/parts/s-underbody-rustproof.jpg",
+    "kind": "part",
+    "label": "Underbody rust-proofing",
+    "keywords": [
+      "cavity wax / internal rust proofing",
+      "cavity wax",
+      "rust proofing"
+    ],
+    "title": "File:Tectyl.jpg",
+    "author": "Svein-Jørgen Wiken",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tectyl.jpg"
+  },
+  "door-card": {
+    "file": "img/parts/s-door-card.jpg",
+    "kind": "part",
+    "label": "Door card",
+    "keywords": [
+      "driver door card",
+      "passenger door card",
+      "door card",
+      "door release pulls & pull straps"
+    ],
+    "title": "File:SERA door card.jpg",
+    "author": "Pycy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SERA_door_card.jpg"
+  },
+  "tail-lamp": {
+    "file": "img/parts/s-tail-lamp.jpg",
+    "kind": "part",
+    "label": "Tail lamp assembly",
+    "keywords": [
+      "tail lamp assemblies",
+      "tail lamp",
+      "taillight"
+    ],
+    "title": "File:Chevrolet Camaro ZL1 rear (pixabay) .jpg",
+    "author": "coltsfan",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Chevrolet_Camaro_ZL1_rear_(pixabay)_.jpg"
+  },
+  "rear-fascia": {
+    "file": "img/parts/s-rear-fascia.jpg",
+    "kind": "part",
+    "label": "Rear fascia, decklid & spoiler",
+    "keywords": [
+      "rear fascia / bumper cover",
+      "rear fascia",
+      "decklid",
+      "rear quarter panels & roof"
+    ],
+    "title": "File:Camaro ZL1 rear view.jpg",
+    "author": "Ominae",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Camaro_ZL1_rear_view.jpg"
+  },
+  "fender-vent": {
+    "file": "img/parts/s-fender-vent.jpg",
+    "kind": "part",
+    "label": "Fender vent / louvers",
+    "keywords": [
+      "front fender vents / louvers",
+      "fender vents",
+      "louvers"
+    ],
+    "title": "File:2005 Chrysler Crossfire coupe in Cobalt Blue in PA 3of6.jpg",
+    "author": "CZmarlin — Christopher Ziemnowicz",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:2005_Chrysler_Crossfire_coupe_in_Cobalt_Blue_in_PA_3of6.jpg"
+  },
+  "canards": {
+    "file": "img/parts/s-canards.jpg",
+    "kind": "part",
+    "label": "Canards / dive planes & splitter",
+    "keywords": [
+      "factory zl1 1le dive planes",
+      "dive planes",
+      "upper canards",
+      "canards",
+      "canard"
+    ],
+    "title": "File:MotorSport World Expo 2012 (8185610167).jpg",
+    "author": "Neuwieser from Germany",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MotorSport_World_Expo_2012_(8185610167).jpg"
+  },
+  "air-dam": {
+    "file": "img/parts/s-air-dam.jpg",
+    "kind": "part",
+    "label": "Front fascia, air dam & splitter",
+    "keywords": [
+      "air dam / fascia lip",
+      "air dam",
+      "fascia lip",
+      "front fascia / bumper cover",
+      "front fascia",
+      "fascia brake/cooler inlet ducts",
+      "fascia quick-release brackets"
+    ],
+    "title": "File:MotorSport World Expo 2012 (8185609509).jpg",
+    "author": "Neuwieser from Germany",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MotorSport_World_Expo_2012_(8185609509).jpg"
+  },
+  "vented-hood": {
+    "file": "img/parts/s-vented-hood.jpg",
+    "kind": "part",
+    "label": "Carbon hood with vents",
+    "keywords": [
+      "hood",
+      "hood extractor / vent insert",
+      "hood vent",
+      "carbon hood"
+    ],
+    "title": "File:2006 Ford Mustang GT, carbon‑fiber hood with vents, Golden Super Cruise 2026-05-02.jpg",
+    "author": "Xnatedawgx",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2006_Ford_Mustang_GT,_carbon%E2%80%91fiber_hood_with_vents,_Golden_Super_Cruise_2026-05-02.jpg"
+  },
+  "vinyl-wrap": {
+    "file": "img/parts/s-vinyl-wrap.jpg",
+    "kind": "part",
+    "label": "Vinyl wrap application",
+    "keywords": [
+      "vinyl wrap / livery",
+      "vinyl wrap",
+      "livery",
+      "paint"
+    ],
+    "title": "File:Wrapping process.jpg",
+    "author": "Victorcgcia",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wrapping_process.jpg"
+  },
+  "race-numbers": {
+    "file": "img/parts/s-race-numbers.jpg",
+    "kind": "part",
+    "label": "Race numbers on car",
+    "keywords": [
+      "race numbers & class letters",
+      "race numbers",
+      "class letters",
+      "safety markings"
+    ],
+    "title": "File:Peyton Harbison Bandolero Race Car Las Vegas 2024.jpg",
+    "author": "TaurusEmerald",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peyton_Harbison_Bandolero_Race_Car_Las_Vegas_2024.jpg"
+  },
+  "cage-in-shell": {
+    "file": "img/parts/s-cage-in-shell.jpg",
+    "kind": "part",
+    "label": "Welded-in safety cage in bare shell",
+    "keywords": [
+      "roll-cage mounting / backing plates",
+      "front down-bars to strut towers",
+      "front down-bars",
+      "cage gussets",
+      "weld-on tabs and brackets",
+      "front strut-tower plates"
+    ],
+    "title": "File:BMW 1 - Scheffler Safety Cage.JPG",
+    "author": "forgeracing.pl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_1_-_Scheffler_Safety_Cage.JPG"
+  },
+  "window-net": {
+    "file": "img/parts/s-window-net.jpg",
+    "kind": "part",
+    "label": "Driver window net",
+    "keywords": [
+      "driver window net",
+      "window net",
+      "upper net rod",
+      "lower net mount",
+      "window net quick-release latch"
+    ],
+    "title": "File:Pink window net (51594327799).jpg",
+    "author": "Zach Catanzareti Photo",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pink_window_net_(51594327799).jpg"
+  },
+  "heat-shield": {
+    "file": "img/parts/s-heat-shield.jpg",
+    "kind": "part",
+    "label": "Exhaust / tunnel heat shield",
+    "keywords": [
+      "tunnel and floor heat shielding",
+      "heat shielding",
+      "heat shield"
+    ],
+    "title": "File:Ford Focus-exhaust heat shield-01ASD.jpg",
+    "author": "Asurnipal",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Focus-exhaust_heat_shield-01ASD.jpg"
+  },
+  "master-switch": {
+    "file": "img/parts/s-master-switch.jpg",
+    "kind": "part",
+    "label": "Battery master switch",
+    "keywords": [
+      "master switch",
+      "battery master switch",
+      "cable abutment bracket at master switch",
+      "electrical cutoff"
+    ],
+    "title": "File:Düşük voltajlı.JPG",
+    "author": "Dacia 1410 Sport",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:D%C3%BC%C5%9F%C3%BCk_voltajl%C4%B1.JPG"
+  },
+  "driveshaft-tunnel": {
+    "file": "img/parts/s-driveshaft-tunnel.jpg",
+    "kind": "part",
+    "label": "Floor pan & driveshaft tunnel",
+    "keywords": [
+      "transmission / driveshaft tunnel",
+      "driveshaft tunnel",
+      "tunnel",
+      "driveshaft tunnel brace"
+    ],
+    "title": "File:VW kaefer 1300 1966 unterboden.jpg",
+    "author": "Günther Pöpperl (BICYCLE)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:VW_kaefer_1300_1966_unterboden.jpg"
+  },
+  "wing-swan-neck": {
+    "file": "img/parts/s-wing-swan-neck.jpg",
+    "kind": "part",
+    "label": "Swan-neck rear wing mount",
+    "keywords": [
+      "wing uprights / stands",
+      "wing uprights",
+      "swan neck",
+      "wing mount plates & decklid/chassis reinforcement",
+      "wing mount"
+    ],
+    "title": "File:Audi R18 TDI swan-necked rear wing mount 2011 Tokyo Motor Show.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Audi_R18_TDI_swan-necked_rear_wing_mount_2011_Tokyo_Motor_Show.jpg"
+  },
+  "ballast-weights": {
+    "file": "img/parts/s-ballast-weights.jpg",
+    "kind": "part",
+    "label": "Lead ballast weights",
+    "keywords": [
+      "ballast plates",
+      "ballast",
+      "ballast box / mounting plate"
+    ],
+    "title": "File:Ballast weights for Draeger Ray P5167668.JPG",
+    "author": "Peter Southwood",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ballast_weights_for_Draeger_Ray_P5167668.JPG"
+  },
+  "grommets": {
+    "file": "img/parts/s-grommets.jpg",
+    "kind": "part",
+    "label": "Rubber grommets & plugs",
+    "keywords": [
+      "body plugs, drain plugs and pass-through grommets",
+      "grommets",
+      "floor/body hole plugs",
+      "hole plugs",
+      "bulkhead pass-through seals & fittings"
+    ],
+    "title": "File:Rubbergrommets.jpg",
+    "author": "Sonett72",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Rubbergrommets.jpg"
+  },
+  "front-fender": {
+    "file": "img/parts/s-front-fender.jpg",
+    "kind": "part",
+    "label": "Front fender",
+    "keywords": [
+      "front fenders",
+      "fender"
+    ],
+    "title": "File:1977 AMC Hornet AMX at 2021 PA show finished in 6P Firecracker Red 5of8.jpg",
+    "author": "CZmarlin — Christopher Ziemnowicz, a photo credit would be appreciated if this image is used anywhere other than Wikipedia.",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:1977_AMC_Hornet_AMX_at_2021_PA_show_finished_in_6P_Firecracker_Red_5of8.jpg"
+  },
+  "cage-padding": {
+    "file": "img/parts/s-cage-padding.jpg",
+    "kind": "part",
+    "label": "Roll cage padding in race cockpit",
+    "keywords": [
+      "roll cage padding",
+      "cage padding",
+      "knee padding"
+    ],
+    "title": "File:1974 AMC Matador Penske-Allison race car at 2024 AMO meet 12of17.jpg",
+    "author": "CZmarlin — Christopher Ziemnowicz, a photo credit would be appreciated if this image is used anywhere other than Wikipedia.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1974_AMC_Matador_Penske-Allison_race_car_at_2024_AMO_meet_12of17.jpg"
+  },
+  "wheelhouse-liner": {
+    "file": "img/parts/s-wheelhouse-liner.jpg",
+    "kind": "part",
+    "label": "Wheel arch liner",
+    "keywords": [
+      "wheelhouse liners",
+      "wheel arch liner",
+      "wheelhouse"
+    ],
+    "title": "File:Carbon wheel arch (maybe McLaren 650S's) exhibited in McLaren Osaka Hakko.JPG",
+    "author": "Tokumeigakarinoaoshima",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Carbon_wheel_arch_(maybe_McLaren_650S%27s)_exhibited_in_McLaren_Osaka_Hakko.JPG"
+  }
+}

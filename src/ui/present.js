@@ -1,6 +1,6 @@
 // Shared presentation: status, confidence, torque, names. One look everywhere.
 import { state, track, STATUSES } from '../state.js';
-import { esc } from './dom.js';
+import { esc, safeUrl } from './dom.js';
 import { icon, STATUS_ICON } from './icons.js';
 import { CONFIDENCE, confidenceOf, parseTorque, parseHw, isDuplicateRow, hasTorque, reuseClass, REUSE_LABEL, REUSE_DESC, fastenerSummary, boltLabel } from '../torque.js';
 
@@ -8,6 +8,8 @@ export const STATUS_WORD = Object.fromEntries(STATUSES.map((s) => [s.id, s.label
 
 /** Build status as glyph + word. Empty string when not set (unless `always`). */
 export function statusBadge(id, always = false) {
+  return ''; // build progress is switched off: this is a parts catalogue
+  // eslint-disable-next-line no-unreachable
   const s = track(id).status;
   if (!s) return always ? `<span class="st">${icon('circle', 14)}Not set</span>` : '';
   return `<span class="st st-${s}">${icon(STATUS_ICON[s], 14)}${esc(STATUS_WORD[s])}</span>`;
@@ -144,4 +146,21 @@ export function humanize(text) {
       const last = base.split('.').pop().replace(/-/g, ' ');
       return last.charAt(0).toUpperCase() + last.slice(1);
     });
+}
+
+// ------------------------------------------------------------------ real-part photos
+/** Photo record for a part or fastener (free-licensed, from Wikimedia Commons), or null. */
+export const photoOf = (key) => (key && state.db.photos?.[key]) || null;
+
+/** "Photo: author · licence" with links to the file page and licence. */
+export function photoCredit(p) {
+  const src = safeUrl(p.source);
+  const lic = safeUrl(p.licenseUrl);
+  const who = p.author && !/^unknown$/i.test(p.author) ? esc(p.author) : 'Wikimedia Commons';
+  return `Photo: ${src ? `<a href="${esc(src)}" target="_blank" rel="noopener">${who}</a>` : who}${p.license ? ` · ${lic ? `<a href="${esc(lic)}" target="_blank" rel="noopener">${esc(p.license)}</a>` : esc(p.license)}` : ''}`;
+}
+
+/** A photo with its credit underneath. */
+export function photoFig(p, { cap = '', cls = '' } = {}) {
+  return `<figure class="photo ${cls}"><img src="./${esc(p.file)}" alt="${esc(p.label)}" loading="lazy" decoding="async"><figcaption>${cap ? `<span>${esc(cap)}</span>` : ''}<span class="photo-credit">${photoCredit(p)}</span></figcaption></figure>`;
 }

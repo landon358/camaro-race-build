@@ -1,0 +1,519 @@
+{
+  "spark-plug": {
+    "file": "img/parts/e-spark-plug.jpg",
+    "kind": "part",
+    "label": "Spark plugs",
+    "keywords": [
+      "spark plugs",
+      "spark plug",
+      "plugs"
+    ],
+    "title": "File:Spark plug.jpg",
+    "author": "Unknown",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Spark_plug.jpg"
+  },
+  "piston": {
+    "file": "img/parts/e-piston.jpg",
+    "kind": "part",
+    "label": "Forged pistons",
+    "keywords": [
+      "pistons",
+      "piston",
+      "forged pistons",
+      "wrist pins & pin retainers",
+      "wrist pin"
+    ],
+    "title": "File:Piston and Conn-rod for NISSAN VQ35DE by HKS 01.jpg",
+    "author": "160SX (talk)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Piston_and_Conn-rod_for_NISSAN_VQ35DE_by_HKS_01.jpg"
+  },
+  "crankshaft": {
+    "file": "img/parts/e-crankshaft.jpg",
+    "kind": "part",
+    "label": "Crankshaft",
+    "keywords": [
+      "crankshaft",
+      "crank",
+      "billet crankshaft",
+      "forged crankshaft"
+    ],
+    "title": "File:Crankshaft jap grayscale.jpg",
+    "author": "Crankshaft_jap.jpg: Alex Kovach\nderivative work: Saibo (Δ)",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Crankshaft_jap_grayscale.jpg"
+  },
+  "connecting-rod": {
+    "file": "img/parts/e-connecting-rod.jpg",
+    "kind": "part",
+    "label": "Connecting rods",
+    "keywords": [
+      "connecting rods & rod bolts",
+      "connecting rods",
+      "connecting rod",
+      "con rod",
+      "rod bolts"
+    ],
+    "title": "File:Pleuel TopFuelDragster Ferrari458.jpg",
+    "author": "Auge=mit",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pleuel_TopFuelDragster_Ferrari458.jpg"
+  },
+  "camshaft": {
+    "file": "img/parts/e-camshaft.jpg",
+    "kind": "part",
+    "label": "Camshaft",
+    "keywords": [
+      "camshaft",
+      "cam",
+      "roller camshaft"
+    ],
+    "title": "File:Camshaft.jpg",
+    "author": "Sonett72 at English Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Camshaft.jpg"
+  },
+  "cam-bearing": {
+    "file": "img/parts/e-cam-bearing.jpg",
+    "kind": "part",
+    "label": "Camshaft bearing caps & shells",
+    "keywords": [
+      "camshaft bearings",
+      "cam bearings",
+      "camshaft bearing"
+    ],
+    "title": "File:XK engine inlet camshaft bearing caps and shells-0742.jpg",
+    "author": "HReuter",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:XK_engine_inlet_camshaft_bearing_caps_and_shells-0742.jpg"
+  },
+  "engine-block": {
+    "file": "img/parts/e-engine-block.jpg",
+    "kind": "part",
+    "label": "Cylinder block (V8)",
+    "keywords": [
+      "cylinder block",
+      "engine block",
+      "block",
+      "cylinder bores / liners & finish",
+      "cylinder bores",
+      "block coolant drain & core plugs",
+      "oil galley plugs"
+    ],
+    "title": "File:Stripped Rover V8 engine.JPG",
+    "author": "Lewis Collard",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Stripped_Rover_V8_engine.JPG"
+  },
+  "cylinder-head": {
+    "file": "img/parts/e-cylinder-head.jpg",
+    "kind": "part",
+    "label": "Cylinder head",
+    "keywords": [
+      "cylinder heads",
+      "cylinder head",
+      "heads",
+      "cylinder head locating dowels"
+    ],
+    "title": "File:Musée Lamborghini 0046.JPG",
+    "author": "Arnaud 25",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Lamborghini_0046.JPG"
+  },
+  "rocker-arm": {
+    "file": "img/parts/e-rocker-arm.jpg",
+    "kind": "part",
+    "label": "Rocker arms",
+    "keywords": [
+      "rocker arms & rocker stands",
+      "rocker arms",
+      "rocker arm",
+      "rockers"
+    ],
+    "title": "File:Ford3.0rockerarms.jpg",
+    "author": "Redelback49",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford3.0rockerarms.jpg"
+  },
+  "timing-chain": {
+    "file": "img/parts/e-timing-chain.jpg",
+    "kind": "part",
+    "label": "Timing chain & sprockets",
+    "keywords": [
+      "timing chain",
+      "timing chain guide",
+      "timing chain tensioner",
+      "crankshaft timing sprocket",
+      "cam drive"
+    ],
+    "title": "File:Nockenwellenantrieb.jpg",
+    "author": "Kolossos",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Nockenwellenantrieb.jpg"
+  },
+  "cam-phaser": {
+    "file": "img/parts/e-cam-phaser.jpg",
+    "kind": "part",
+    "label": "VVT cam phasers & timing chain",
+    "keywords": [
+      "vvt cam phaser & sprocket",
+      "cam phaser",
+      "vvt",
+      "phaser center bolt / oil control valve",
+      "phaser limiter / lockout block"
+    ],
+    "title": "File:Timing Chain.jpg",
+    "author": "Logansenf",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Timing_Chain.jpg"
+  },
+  "oil-pump": {
+    "file": "img/parts/e-oil-pump.jpg",
+    "kind": "part",
+    "label": "Engine oil pump (gerotor)",
+    "keywords": [
+      "engine oil pump",
+      "oil pump",
+      "gerotor"
+    ],
+    "title": "File:Oil Pump from Toyota Coaster Bus.JPG",
+    "author": "Ll1324",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Oil_Pump_from_Toyota_Coaster_Bus.JPG"
+  },
+  "oil-filter": {
+    "file": "img/parts/e-oil-filter.jpg",
+    "kind": "part",
+    "label": "Spin-on oil filter",
+    "keywords": [
+      "engine oil filter",
+      "oil filter",
+      "oil filter, filter mount & oil-cooler adapter"
+    ],
+    "title": "File:New motorcycle oil filter Hiflo Filtro.jpg",
+    "author": "Petrb",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_motorcycle_oil_filter_Hiflo_Filtro.jpg"
+  },
+  "oil-cooler": {
+    "file": "img/parts/e-oil-cooler.jpg",
+    "kind": "part",
+    "label": "Oil cooler",
+    "keywords": [
+      "engine oil cooler",
+      "oil cooler",
+      "oil cooler lines",
+      "trans & differential cooler mounting provisions"
+    ],
+    "title": "File:Oil Cooler (1910727937).jpg",
+    "author": "dave_7 from Lethbridge, Canada",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oil_Cooler_(1910727937).jpg"
+  },
+  "oil-cooler-adapter": {
+    "file": "img/parts/e-oil-cooler-adapter.jpg",
+    "kind": "part",
+    "label": "Oil filter / oil-cooler adapter",
+    "keywords": [
+      "oil filter, filter mount & oil-cooler adapter",
+      "oil-cooler adapter",
+      "oil cooler adapter",
+      "remote oil filter mount",
+      "oil thermostat / cooler bypass valve"
+    ],
+    "title": "File:Oil cooler 059117021B for AUDI.jpg",
+    "author": "Blsrq",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oil_cooler_059117021B_for_AUDI.jpg"
+  },
+  "dry-sump-engine": {
+    "file": "img/parts/e-dry-sump-engine.jpg",
+    "kind": "part",
+    "label": "Dry-sump race engine (pump stack)",
+    "keywords": [
+      "multi-stage dry-sump oil pump",
+      "dry-sump oil pump",
+      "dry sump",
+      "dry-sump pump mounting bracket"
+    ],
+    "title": "File:MV8 dry sump.jpg",
+    "author": "Amwildcat",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:MV8_dry_sump.jpg"
+  },
+  "thermostat": {
+    "file": "img/parts/e-thermostat.jpg",
+    "kind": "part",
+    "label": "Engine thermostat",
+    "keywords": [
+      "engine thermostat",
+      "thermostat",
+      "thermostat housing / water inlet"
+    ],
+    "title": "File:Replacement Thermostat.jpg",
+    "author": "Hoikka1",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Replacement_Thermostat.jpg"
+  },
+  "intercooler": {
+    "file": "img/parts/e-intercooler.jpg",
+    "kind": "part",
+    "label": "Intercooler",
+    "keywords": [
+      "intercooler bricks & coolant manifolds",
+      "intercooler",
+      "intercooler low-temperature heat exchanger",
+      "heat exchanger"
+    ],
+    "title": "File:Intercooler-2 Stage system.jpg",
+    "author": "Steev Selby from Wollongong, Australia",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Intercooler-2_Stage_system.jpg"
+  },
+  "throttle-body": {
+    "file": "img/parts/e-throttle-body.jpg",
+    "kind": "part",
+    "label": "Throttle body",
+    "keywords": [
+      "electronic throttle body",
+      "throttle body",
+      "throttle body interface"
+    ],
+    "title": "File:Throttle body.jpg",
+    "author": "No machine-readable author provided. M100~commonswiki assumed (based on copyright claims).",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Throttle_body.jpg"
+  },
+  "intake-manifold": {
+    "file": "img/parts/e-intake-manifold.jpg",
+    "kind": "part",
+    "label": "Intake manifold",
+    "keywords": [
+      "na intake manifold - alternative to supercharger",
+      "intake manifold",
+      "intake runner gaskets & supercharger gasket kit"
+    ],
+    "title": "File:EF7 Engine intake manifold.jpg",
+    "author": "Original uploaded by Arsi Warrior (Transfered by Finavon)",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:EF7_Engine_intake_manifold.jpg"
+  },
+  "breather-filter": {
+    "file": "img/parts/e-breather-filter.jpg",
+    "kind": "part",
+    "label": "Breather filter & braided lines",
+    "keywords": [
+      "catch-can breather filter / vent",
+      "breather filter",
+      "valve cover breather fittings",
+      "oil fill cap & valve-cover breather fittings",
+      "valve cover breather hoses"
+    ],
+    "title": "File:Under the hood of car.jpg",
+    "author": "Envy fstop",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Under_the_hood_of_car.jpg"
+  },
+  "expansion-tank": {
+    "file": "img/parts/e-expansion-tank.jpg",
+    "kind": "part",
+    "label": "Coolant expansion tank & radiator",
+    "keywords": [
+      "coolant surge / expansion tank",
+      "expansion tank",
+      "surge tank",
+      "pressure cap",
+      "intercooler coolant reservoir / degas tank"
+    ],
+    "title": "File:Caterham Roadsport building - 058 - Coolant expansion tank, oil breather catch tank and radiator - Flickr - exfordy.jpg",
+    "author": "Brian Snelson from Hockley, Essex, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caterham_Roadsport_building_-_058_-_Coolant_expansion_tank,_oil_breather_catch_tank_and_radiator_-_Flickr_-_exfordy.jpg"
+  },
+  "direct-injector": {
+    "file": "img/parts/e-direct-injector.jpg",
+    "kind": "part",
+    "label": "High-pressure injector",
+    "keywords": [
+      "direct injectors",
+      "fuel injectors",
+      "injectors",
+      "di injector combustion seals, backup rings & o-rings",
+      "port fuel injection conversion / supplemental pi kit"
+    ],
+    "title": "File:Bosch common rail injector (cropped).JPG",
+    "author": "Panoha",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bosch_common_rail_injector_(cropped).JPG"
+  },
+  "hp-fuel-pump": {
+    "file": "img/parts/e-hp-fuel-pump.jpg",
+    "kind": "part",
+    "label": "High-pressure fuel pump",
+    "keywords": [
+      "high-pressure di fuel pump",
+      "high pressure fuel pump",
+      "hpfp",
+      "hpfp roller follower & guide",
+      "low-pressure feed connection to hp pump"
+    ],
+    "title": "File:VDO Siemens Common-Rail Hochdruckpumpe.jpg",
+    "author": "Stahlkocher",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:VDO_Siemens_Common-Rail_Hochdruckpumpe.jpg"
+  },
+  "fuel-pump": {
+    "file": "img/parts/e-fuel-pump.jpg",
+    "kind": "part",
+    "label": "Inline electric fuel pump",
+    "keywords": [
+      "lift pump",
+      "high-pressure feed pumps",
+      "fuel pump",
+      "fuel pump power & control",
+      "factory lt fuel delivery"
+    ],
+    "title": "File:Bosch Fuel Pump 0 580 254 957-92468.jpg",
+    "author": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bosch_Fuel_Pump_0_580_254_957-92468.jpg"
+  },
+  "fuel-filter": {
+    "file": "img/parts/e-fuel-filter.jpg",
+    "kind": "part",
+    "label": "Inline fuel filter",
+    "keywords": [
+      "post-pump fuel filter",
+      "lift-pump pre-filter",
+      "fuel filter",
+      "inline scavenge screens / filters"
+    ],
+    "title": "File:Just a fuel filter... (22493933238).jpg",
+    "author": "Diego Torres Silvestre from Sao Paulo, Brazil",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Just_a_fuel_filter..._(22493933238).jpg"
+  },
+  "fuel-cell-bladder": {
+    "file": "img/parts/e-fuel-cell-bladder.jpg",
+    "kind": "part",
+    "label": "Fuel cell bladder",
+    "keywords": [
+      "fuel cell bladder",
+      "fuel cell container",
+      "fuel cell",
+      "safety foam baffling",
+      "fuel pickup / sump"
+    ],
+    "title": "File:ATL-F1-Fuel-Bladder.jpg",
+    "author": "ATLFuelCells",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ATL-F1-Fuel-Bladder.jpg"
+  },
+  "fuel-pressure-regulator": {
+    "file": "img/parts/e-fuel-pressure-regulator.jpg",
+    "kind": "part",
+    "label": "Fuel pressure regulator & gauge",
+    "keywords": [
+      "fuel pressure regulator",
+      "regulator return line to surge tank",
+      "low-side fuel pressure sensor"
+    ],
+    "title": "File:Nissan Skyline R34, Tomei fuel pressure gauge.jpg",
+    "author": "Cjp24",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_R34,_Tomei_fuel_pressure_gauge.jpg"
+  },
+  "ignition-coil": {
+    "file": "img/parts/e-ignition-coil.jpg",
+    "kind": "part",
+    "label": "Ignition coil pack",
+    "keywords": [
+      "ignition coils",
+      "ignition coil",
+      "coil pack",
+      "coil-to-plug leads / boots & heat sleeves"
+    ],
+    "title": "File:Ignition coil module.jpg",
+    "author": "Cschirp",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Ignition_coil_module.jpg"
+  },
+  "exhaust-manifold": {
+    "file": "img/parts/e-exhaust-manifold.jpg",
+    "kind": "part",
+    "label": "Cast exhaust manifold",
+    "keywords": [
+      "factory zl1 exhaust manifolds",
+      "exhaust manifold",
+      "exhaust manifolds",
+      "header / exhaust manifold gaskets"
+    ],
+    "title": "File:Darn - exhaust conflicts with steering column (1910727875).jpg",
+    "author": "dave_7 from Lethbridge, Canada",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Darn_-_exhaust_conflicts_with_steering_column_(1910727875).jpg"
+  },
+  "headers": {
+    "file": "img/parts/e-headers.jpg",
+    "kind": "part",
+    "label": "Tubular exhaust headers",
+    "keywords": [
+      "long-tube headers",
+      "headers",
+      "header",
+      "collector joints and gaskets"
+    ],
+    "title": "File:Mercedes V12 exhaust manifold.jpg",
+    "author": "Lewis Collard",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes_V12_exhaust_manifold.jpg"
+  },
+  "catalytic-converter": {
+    "file": "img/parts/e-catalytic-converter.jpg",
+    "kind": "part",
+    "label": "Catalytic converter",
+    "keywords": [
+      "connection pipes / catalysts",
+      "catalytic converter",
+      "catalysts",
+      "cat"
+    ],
+    "title": "File:Catalytic converter 20230510.jpg",
+    "author": "Santeri Viinamäki",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Catalytic_converter_20230510.jpg"
+  }
+}

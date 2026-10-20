@@ -57,7 +57,7 @@ const DEF = {
   wheel: { color: '#2d3035', metalness: 0.85, roughness: 0.28 },
   cage: { color: '#d8d9d6', metalness: 0.25, roughness: 0.45 },
   chassis: { color: '#c7c9cc', metalness: 0.2, roughness: 0.6 },
-  paint: { color: '#8a1712', metalness: 0.6, roughness: 0.32 },
+  paint: { color: '#9ba1a8', metalness: 0.95, roughness: 0.26 }, // quail silver, high gloss
   seat: { color: '#18181a', metalness: 0.05, roughness: 0.9 },
   webbing: { color: '#2346a8', metalness: 0, roughness: 0.85 },
   yellow: { color: '#e8b400', metalness: 0.1, roughness: 0.5 },

@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applyLayout } from './layout.mjs';
+import { loadPhotos, attachPhotos } from './photos.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sysDir = path.join(root, 'data', 'systems');
@@ -205,8 +206,13 @@ let split = { splitCount: 0, splitMap: {} };
 if (fs.existsSync(layoutFile)) split = applyLayout(systems, components, readJson(layoutFile) || {}, warn);
 console.log(`  layout: ${split.splitCount} parts split into per-corner parts`);
 
+const photos = loadPhotos(root, path.join(root, 'public'), warn);
+const pm = attachPhotos(components, photos);
+console.log(`  photos: ${Object.keys(photos).length} on file, ${pm.parts}/${components.length} parts and ${pm.rows}/${pm.total} fasteners matched`);
+
 const fitFile = path.join(root, 'data', 'fit.json');
 const db = {
+  photos,
   fit: fs.existsSync(fitFile) ? readJson(fitFile) : {},
   splitMap: split.splitMap,
   zones: split.zones,

@@ -7,7 +7,7 @@ import { renderSchematic } from './schematic.js';
 import { KINDS } from '../kinds.js';
 import { renderPartsList } from './partslist.js';
 import { printTorqueCard, printChecklist } from './print.js';
-import { tqMain, humanize, partOrder, byPartOrder, confPill, confirmText, confirmLine, confirmIsNote, reusePill, statusBadge, systemName, groupTitle, zoneName, partNumbers, STATUS_WORD } from './present.js';
+import { tqMain, humanize, partOrder, byPartOrder, confPill, confirmText, confirmLine, confirmIsNote, reusePill, statusBadge, systemName, groupTitle, zoneName, partNumbers, STATUS_WORD, photoCredit, photoOf } from './present.js';
 import { CONFIDENCE, confidenceOf, hasTorque, parseTorque, parseHw, isDuplicateRow, reuseClass } from '../torque.js';
 
 const dlg = () => document.getElementById('modal');
@@ -276,9 +276,11 @@ function torque(tools, body, opts0) {
       const why = confirmText(h, t);
       const confirm = !!why && !confirmIsNote(h, t);
       const tq = `<div class="tq-main">${tqMain(t, h.torque)}</div>`;
-      tb.appendChild(el('tr', confirm ? 'est' : '', `<td class="tq-cell">${tq}${confirmLine(h, t, 'div')}</td><td>${esc(h.item)}</td><td class="mono">${esc(h.qty ?? '')}</td><td class="mono">${esc([h.spec, h.grade].filter(Boolean).join(' · '))}</td><td>${confPill(h)}</td><td class="mono">${esc(h.threadlocker && !/^none/i.test(h.threadlocker) ? h.threadlocker.replace(/\s*\(.*\)/, '') : '—')}</td><td>${reusePill(h)}</td><td class="muted">${clip(humanize([h.torqueSequence, h.notes].filter(Boolean).join(' — ')))}</td>`));
+      const ph = photoOf(h.photo);
+      const thumb = ph ? `<img class="tq-thumb" src="./${esc(ph.file)}" alt="" title="${esc(ph.label)} — typical example" loading="lazy" decoding="async">` : '';
+      tb.appendChild(el('tr', confirm ? 'est' : '', `<td class="tq-cell">${tq}${confirmLine(h, t, 'div')}</td><td><div class="tq-fastener">${thumb}<span>${esc(h.item)}</span></div></td><td class="mono">${esc(h.qty ?? '')}</td><td class="mono">${esc([h.spec, h.grade].filter(Boolean).join(' · '))}</td><td>${confPill(h)}</td><td class="mono">${esc(h.threadlocker && !/^none/i.test(h.threadlocker) ? h.threadlocker.replace(/\s*\(.*\)/, '') : '—')}</td><td>${reusePill(h)}</td><td class="muted">${clip(humanize([h.torqueSequence, h.notes].filter(Boolean).join(' — ')))}</td>`));
       const card = el('div', `card${confirm ? ' est' : ''}`, `
-        <div class="card-head"><b>${esc(h.item || 'Fastener')}${h.qty ? ` <span class="muted">×${esc(h.qty)}</span>` : ''}</b>${confPill(h)}</div>
+        <div class="card-head">${thumb}<b>${esc(h.item || 'Fastener')}${h.qty ? ` <span class="muted">×${esc(h.qty)}</span>` : ''}</b>${confPill(h)}</div>
         <div class="card-sub">${esc(c.short)}${h.spec ? ` · <span class="mono">${esc(h.spec)}</span>` : ''}</div>
         <div class="tq-main">${tqMain(t, h.torque)}</div>
         <div class="row-pills">${reusePill(h)}${confirmLine(h, t)}</div>
@@ -636,7 +638,7 @@ function help(tools, body) {
       <li><b>Turn</b>: drag · <b>Move</b>: right-drag or two fingers · <b>Zoom</b>: scroll or pinch.</li>
       <li><b>Tap</b> a part to select it; <b>double-tap</b> to zoom right in. The selected part is orange and the parts it connects to are teal.</li>
       <li><b>Body</b> shows, fades or hides the shell, and hides the hood, doors, interior or wheels so you can see in.</li>
-      <li><b>Colours</b>: Part colours look like the real finish; System colours tell systems apart; Build status shows your progress.</li>
+      <li><b>Colours</b>: Real finish looks like the actual parts; System colours tell systems apart.</li>
       <li><b>Explode</b> pulls systems apart. <b>Hoses &amp; wiring</b> shows lines; <b>Flow</b> animates what runs through them.</li>
     </ul>
     <h3>Line colours</h3>
@@ -648,10 +650,15 @@ function help(tools, body) {
       <li>${confPill('estimate')} ${esc(CONFIDENCE.estimate.desc)}</li>
       <li>Values show N·m first, then ft-lb. Angle steps (“then +90°”) come after the torque step.</li>
     </ul>
-    <h3>Your progress</h3>
+    <h3>Saved on this device</h3>
     <ul>
-      <li>Statuses, brand choices, notes and checklist ticks are saved <b>in this browser on this device</b>. Helpers on another phone have their own copy.</li>
-      <li>Use <b>Build tracker › Back up</b> often, and <b>Restore</b> to move your progress to another device.</li>
-      <li>3D shapes are simplified models placed at their real positions; sizes marked “Approx.” are estimates.</li>
+      <li>Your brand choices (Options tab), notes and checklist ticks are saved in this browser on this device.</li>
+      <li>3D shapes are simplified models placed at their real positions; photos are reference images of the same kind of part, not your exact part.</li>
     </ul>`));
+  const photos = Object.values(state.db.photos || {}).sort((a, b) => a.label.localeCompare(b.label));
+  if (photos.length) {
+    const d = el('details', 'fold');
+    d.innerHTML = `<summary><span>Photo credits</span><span class="n">${photos.length}</span>${icon('down', 14)}</summary><div class="fold-body"><p class="pl-hint">Free-licensed photos from Wikimedia Commons. Tap a credit for the original file and its licence.</p><ul class="list-plain credits">${photos.map((p) => `<li><b>${esc(p.label)}</b> — ${photoCredit(p)}</li>`).join('')}</ul></div>`;
+    body.appendChild(d);
+  }
 }

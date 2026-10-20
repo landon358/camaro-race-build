@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 170">
+  <g fill="currentColor" fill-rule="evenodd" style="color:#000">
+    <!-- bowtie outline -->
+    <path d="M140 10 H300 V50 H430 L392 125 H300 V160 H140 V125 H10 L48 50 H140 Z M158 28 V68 H59 L39 107 H158 V142 H282 V107 H381 L401 68 H282 V28 Z" fill="#000"/>
+    <rect x="462" y="12" width="9" height="146" fill="#000"/>
+    <text x="500" y="158" font-family="Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif" font-size="176" font-style="italic" transform="skewX(-8) translate(22 0)" fill="#000" textLength="960" lengthAdjust="spacingAndGlyphs">PERFORMANCE</text>
+  </g>
+</svg>
