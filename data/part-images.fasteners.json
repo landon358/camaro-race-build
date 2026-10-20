@@ -1,4 +1,25 @@
 {
+  "f-12-spline-socket-screw": {
+    "file": "img/parts/f-12-spline-socket-screw.jpg",
+    "kind": "fastener",
+    "label": "12-spline socket cap screw",
+    "keywords": [
+      "12-spline",
+      "12 spline",
+      "12-point socket",
+      "12 point socket",
+      "triple square",
+      "xzn",
+      "spline drive",
+      "spline socket",
+      "multi-spline"
+    ],
+    "title": "File:Screw with head 12-Spline Flange.jpg",
+    "author": "Andrew Pertsev",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Screw_with_head_12-Spline_Flange.jpg"
+  },
   "f-acorn-nut": {
     "file": "img/parts/f-acorn-nut.jpg",
     "kind": "fastener",
@@ -17,6 +38,45 @@
     "license": "CC BY 3.0 ch",
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0/ch/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:HutMutternM6a.jpg"
+  },
+  "f-an-fitting": {
+    "file": "img/parts/f-an-fitting.jpg",
+    "kind": "fastener",
+    "label": "AN / JIC hose end fitting",
+    "keywords": [
+      "an fitting",
+      "an fittings",
+      "an hose end",
+      "an hose ends",
+      "hose end",
+      "hose ends",
+      "jic",
+      "jic fitting",
+      "37 flare",
+      "37 degree flare",
+      "an flare",
+      "-3 an",
+      "-4 an",
+      "-6 an",
+      "-8 an",
+      "-10 an",
+      "-12 an",
+      "-16 an",
+      "an adapter",
+      "an union",
+      "an bulkhead",
+      "bulkhead fitting",
+      "port fitting",
+      "port fittings",
+      "braided hose fitting",
+      "aeroquip",
+      "an hose end / fitting"
+    ],
+    "title": "File:ANfitting.jpg",
+    "author": "Scottanon",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:ANfitting.jpg"
   },
   "f-banjo-bolt": {
     "file": "img/parts/f-banjo-bolt.jpg",
@@ -82,7 +142,7 @@
       "steel rivet"
     ],
     "title": "File:Blindnieten.JPG",
-    "author": "User Jcmaco on en.wikipedia",
+    "author": "Jcmaco (English Wikipedia)",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Blindnieten.JPG"
@@ -127,7 +187,7 @@
       "nylon tie"
     ],
     "title": "File:Self-Locking-Nylon-Cable-Tie 27863-480x360 (4817475598).jpg",
-    "author": "Emilian Robert Vicol from Com. Balanesti, Romania",
+    "author": "Emilian Robert Vicol",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Self-Locking-Nylon-Cable-Tie_27863-480x360_(4817475598).jpg"
@@ -214,24 +274,6 @@
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "source": "https://commons.wikimedia.org/wiki/File:Screw_Head_-_Torx_6_Lobe.jpg"
   },
-  "f-eye-bolt": {
-    "file": "img/parts/f-eye-bolt.jpg",
-    "kind": "fastener",
-    "label": "Eye bolt",
-    "keywords": [
-      "eye bolt",
-      "eyebolt",
-      "eye bolts",
-      "lifting eye",
-      "ring bolt",
-      "eye-bolt"
-    ],
-    "title": "File:Screw head - Eye bolt-01.jpg",
-    "author": "Contribus",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Screw_head_-_Eye_bolt-01.jpg"
-  },
   "f-flange-nut": {
     "file": "img/parts/f-flange-nut.jpg",
     "kind": "fastener",
@@ -252,13 +294,39 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Serrated_hex_flange_nut.jpg"
   },
+  "f-flare-fitting": {
+    "file": "img/parts/f-flare-fitting.jpg",
+    "kind": "fastener",
+    "label": "Tube nut (flare nut) on flared line",
+    "keywords": [
+      "flare",
+      "flare fitting",
+      "flare nut",
+      "flare nuts",
+      "tube nut",
+      "tube nuts",
+      "line nut",
+      "brake line nut",
+      "brake line fitting",
+      "inverted flare",
+      "bubble flare",
+      "double flare",
+      "45 flare",
+      "flared tube",
+      "tube nut each end"
+    ],
+    "title": "File:Flare Fitting 2.jpg",
+    "author": "Mortezarahimi3rd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Flare_Fitting_2.jpg"
+  },
   "f-flat-washer": {
     "file": "img/parts/f-flat-washer.jpg",
     "kind": "fastener",
     "label": "Flat washers",
     "keywords": [
       "washer",
-      "washers",
       "flat washer",
       "flat washers",
       "plain washer",
@@ -315,7 +383,7 @@
   "f-hex-nut": {
     "file": "img/parts/f-hex-nut.jpg",
     "kind": "fastener",
-    "label": "Hex nut",
+    "label": "Hex nut (also used for jam/check nuts)",
     "keywords": [
       "hex nut",
       "hexagon nut",
@@ -327,7 +395,13 @@
       "retaining nut",
       "terminal nut",
       "panel nut",
-      "nut (oe)"
+      "nut (oe)",
+      "jam nut",
+      "jam nuts",
+      "check nut",
+      "counter nut",
+      "lock jam nut",
+      "thin nut"
     ],
     "title": "File:Hex nut.JPG",
     "author": "Plbcr",
@@ -433,7 +507,7 @@
       "quick release pin"
     ],
     "title": "File:Klappsplint.jpg",
-    "author": "de:Benutzer:MarkusHagenlocher",
+    "author": "MarkusHagenlocher",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Klappsplint.jpg"
@@ -486,7 +560,7 @@
       "pin + r-clip"
     ],
     "title": "File:Federstecker.jpg",
-    "author": "User:MarkusHagenlocher",
+    "author": "MarkusHagenlocher",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Federstecker.jpg"
@@ -642,7 +716,7 @@
       "helical spring washer"
     ],
     "title": "File:Grower01.jpg",
-    "author": "Rondelle_03.jpg: Tiesse derivative work: Xoristzatziki (talk)",
+    "author": "Tiesse (original photo); derivative work by Xoristzatziki",
     "license": "Public domain",
     "licenseUrl": "",
     "source": "https://commons.wikimedia.org/wiki/File:Grower01.jpg"
@@ -766,13 +840,32 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Torx_screws.jpg"
   },
+  "f-v-band-clamp": {
+    "file": "img/parts/f-v-band-clamp.jpg",
+    "kind": "fastener",
+    "label": "V-band (Marman) clamp",
+    "keywords": [
+      "v-band clamp",
+      "v-band",
+      "vband",
+      "v band",
+      "v band clamp",
+      "marman clamp",
+      "exhaust v-band",
+      "turbo v-band",
+      "v-band flange"
+    ],
+    "title": "File:Engine research (9069970928), clamp.jpg",
+    "author": "Oak Ridge National Laboratory",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Engine_research_(9069970928),_clamp.jpg"
+  },
   "f-wheel-bolt": {
     "file": "img/parts/f-wheel-bolt.jpg",
     "kind": "fastener",
     "label": "Wheel (lug) bolts, ball vs conical seat",
     "keywords": [
-      "wheel bolt",
-      "wheel bolts",
       "lug bolt",
       "lug bolts",
       "conical seat",

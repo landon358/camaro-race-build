@@ -17,7 +17,9 @@ export function loadPhotos(root, publicDir, warn) {
   for (const f of fs.readdirSync(dir).filter((n) => /^part-images\..+\.json$/.test(n)).sort()) {
     let j;
     try { j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); } catch (e) { warn(`${f}: ${e.message}`); continue; }
-    for (const [key, p] of Object.entries(j)) {
+    const group = f.split('.')[1];
+    for (const [k, p] of Object.entries(j)) {
+      const key = `${group}:${k}`; // groups may reuse a name ("fuel-pump" in power and driveline)
       if (!p?.file || !fs.existsSync(path.join(publicDir, p.file))) { warn(`${f}: ${key} has no image file`); continue; }
       if (!/^https:\/\/commons\.wikimedia\.org\//.test(p.source || '')) { warn(`${f}: ${key} is not from Wikimedia Commons`); continue; }
       photos[key] = {
