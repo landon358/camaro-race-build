@@ -618,9 +618,9 @@
       "model": {
         "shape": "box",
         "pos": [
-          -0.228,
-          0.835,
-          0.07
+          -0.232,
+          0.8,
+          0.195
         ],
         "size": [
           0.04,
@@ -852,7 +852,8 @@
         "dimensions": "Approx. 540 x 420 x 220 mm",
         "features": "Black composite LT1 manifold: central plenum, 87 mm front inlet, 8 curved runners down to the head ports, MAP sensor on top",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "engine.intake-manifold.pcv-system",

@@ -23,7 +23,7 @@ export const SYSTEMS = [
   { id: 'drivetrain', name: 'Drivetrain', color: '#e055c8', explode: [0.2, -0.45, 0] },
   { id: 'electrical', name: 'Electrical & Electronics', color: '#40e0ff', explode: [0.2, 0.5, -0.6] },
   { id: 'interior', name: 'Interior', color: '#b08968', explode: [0.3, 0.6, 0.4] },
-  { id: 'body', name: 'Body & Glass', color: '#e8e8e8', explode: [0, 1.4, 0], opacity: 0.3 },
+  { id: 'body', name: 'Body & Glass', color: '#e8e8e8', explode: [0, 0, 0] },
   { id: 'aero', name: 'Aero', color: '#9be15d', explode: [0.4, -0.1, 0] },
 ];
 
@@ -120,6 +120,10 @@ for (const meta of SYSTEMS) {
             sources: asArray(c.sources),
             model: normModel(c.model),
             modelRef: c.modelRef && typeof c.modelRef === "object" ? c.modelRef : null,
+            // the same physical part as another entry (drawn once, highlighted together)
+            sameAs: typeof c.sameAs === 'string' ? c.sameAs : undefined,
+            // an alternative to a part that is drawn: only drawn when picked
+            alt: c.alt === true || undefined,
           };
           components.push(comp);
           subsystem.componentIds.push(id);
@@ -206,6 +210,37 @@ let split = { splitCount: 0, splitMap: {} };
 if (fs.existsSync(layoutFile)) split = applyLayout(systems, components, readJson(layoutFile) || {}, warn);
 console.log(`  layout: ${split.splitCount} parts split into per-corner parts`);
 
+// A route draws a part's hose or pipe as a line. Take the line from the part's own path, so moving the
+// part can never leave a second copy behind (the route nearest the part's path, by both ends, wins).
+{
+  const byIdC = new Map(components.map((c) => [c.id, c]));
+  const flip = (p) => p.map(([x, y, z]) => [x, y, -z]);
+  const gap = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+  let synced = 0;
+  for (const s of systems) for (const r of s.routes) {
+    const c = byIdC.get(r.componentId);
+    if (!c) continue;
+    const paths = [];
+    for (const m of c.model) {
+      if (!Array.isArray(m.path) || m.path.length < 2) continue;
+      const p = m.mirrored ? flip(m.path) : m.path;
+      paths.push(p);
+      if (m.mirror) paths.push(flip(p));
+    }
+    if (!paths.length) continue;
+    const a = r.points[0], z = r.points[r.points.length - 1];
+    let best = null; let bestD = Infinity;
+    for (const p of paths) {
+      for (const q of [p, [...p].reverse()]) {
+        const d = gap(q[0], a) + gap(q[q.length - 1], z);
+        if (d < bestD) { bestD = d; best = q; }
+      }
+    }
+    if (best && bestD < 0.6) { r.points = best.map((pt) => [...pt]); synced++; }
+  }
+  console.log(`  routes: ${synced} taken from their part's path`);
+}
+
 const photos = loadPhotos(root, path.join(root, 'public'), warn);
 const pm = attachPhotos(components, photos);
 console.log(`  photos: ${Object.keys(photos).length} on file, ${pm.parts}/${components.length} parts and ${pm.rows}/${pm.total} fasteners matched`);
@@ -230,7 +265,10 @@ const db = {
 };
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
-fs.writeFileSync(outFile, JSON.stringify(db));
+// written whole then swapped in, so a reader (or a second build) never sees half a file
+const tmpFile = `${outFile}.${process.pid}.tmp`;
+fs.writeFileSync(tmpFile, JSON.stringify(db));
+fs.renameSync(tmpFile, outFile);
 
 console.log(`db.json: ${systems.length} systems, ${systems.reduce((n, s) => n + s.subsystems.length, 0)} subsystems, ${components.length} components, ${hw} hardware entries, ${systems.reduce((n, s) => n + s.schematics.length, 0)} schematics, ${systems.reduce((n, s) => n + s.routes.length, 0)} routes`);
 for (const s of systems) console.log(`  ${s.id.padEnd(15)} ${String(s.subsystems.length).padStart(3)} subsystems ${String(s.subsystems.reduce((n, x) => n + x.componentIds.length, 0)).padStart(4)} components`);

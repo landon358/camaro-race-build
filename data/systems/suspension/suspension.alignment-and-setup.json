@@ -10,17 +10,57 @@
       "qty": 1,
       "description": "Front camber is set with camber plates (or by link length with adjustable LCAs); caster is set with camber/caster plates or adjustable radius rods (factory caster is not adjustable); toe with the tie rods. Equalize caster within approx 0.2 deg side-to-side for straight-line stability under braking.",
       "location": "Front wheels.",
-      "connectsTo": ["suspension.front-struts-springs.camber-caster-plate", "suspension.front-lower-links.radius-rod", "suspension.front-lower-links.lower-control-arm", "steering.tie-rods.inner-tie-rod"],
-      "factory": { "name": "GM factory alignment (approximate)", "notes": "Camber approx -0.5 to -1.0 deg (street); ZL1 1LE track top-mount position adds negative camber; caster approx 6.5-7.7 deg (fixed); total toe approx 0 to +0.1 deg in. Values are estimates - confirm against GM SI / Track Preparation Guide for your RPO." },
-      "raceOptions": [{ "name": "Typical road-race targets", "brand": "Setup", "notes": "Camber -2.7 to -3.5 deg (200TW street tires toward -2.7/-3.2; slicks toward -3.5 or more); caster 7.5-9.0 deg (equal L/R); total toe 0 to 1/16 in out (0 to -0.1 deg). Owner-reported 2020 ZL1 1LE track alignment with BMR/SPL parts: -3.2 deg front camber, 7.6-7.7 deg caster." }],
-      "specs": { "Factory caster": "Not adjustable", "Race camber": "-2.7 to -3.5 deg (typical)", "Race caster": "7.5-9.0 deg (typical)", "Race toe": "0 to 1/16 in total out" },
+      "connectsTo": [
+        "suspension.front-struts-springs.camber-caster-plate",
+        "suspension.front-lower-links.radius-rod",
+        "suspension.front-lower-links.lower-control-arm",
+        "steering.tie-rods.inner-tie-rod"
+      ],
+      "factory": {
+        "name": "GM factory alignment (approximate)",
+        "notes": "Camber approx -0.5 to -1.0 deg (street); ZL1 1LE track top-mount position adds negative camber; caster approx 6.5-7.7 deg (fixed); total toe approx 0 to +0.1 deg in. Values are estimates - confirm against GM SI / Track Preparation Guide for your RPO."
+      },
+      "raceOptions": [
+        {
+          "name": "Typical road-race targets",
+          "brand": "Setup",
+          "notes": "Camber -2.7 to -3.5 deg (200TW street tires toward -2.7/-3.2; slicks toward -3.5 or more); caster 7.5-9.0 deg (equal L/R); total toe 0 to 1/16 in out (0 to -0.1 deg). Owner-reported 2020 ZL1 1LE track alignment with BMR/SPL parts: -3.2 deg front camber, 7.6-7.7 deg caster."
+        }
+      ],
+      "specs": {
+        "Factory caster": "Not adjustable",
+        "Race camber": "-2.7 to -3.5 deg (typical)",
+        "Race caster": "7.5-9.0 deg (typical)",
+        "Race toe": "0 to 1/16 in total out"
+      },
       "hardware": [],
-      "installNotes": ["Set ride height and corner weights first.", "Driver weight (or ballast) in seat, fuel at race level, tire pressures at target.", "Final-torque all front TTY pivot bolts at ride height before aligning."],
-      "inspection": ["Re-check after any curb strike or off."],
+      "installNotes": [
+        "Set ride height and corner weights first.",
+        "Driver weight (or ballast) in seat, fuel at race level, tire pressures at target.",
+        "Final-torque all front TTY pivot bolts at ride height before aligning."
+      ],
+      "inspection": [
+        "Re-check after any curb strike or off."
+      ],
       "buildPhase": 11,
       "installOrder": 100,
-      "tags": ["alignment", "camber", "caster", "toe", "setup"],
-      "sources": [{ "title": "Lapmeta - owner-reported ZL1 1LE track alignments", "url": "https://www.lapmeta.com/ja/vi/29025" }, { "title": "GM bulletin 19-NA-038 (Track Preparation Guide reference)", "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf" }]
+      "tags": [
+        "alignment",
+        "camber",
+        "caster",
+        "toe",
+        "setup"
+      ],
+      "sources": [
+        {
+          "title": "Lapmeta - owner-reported ZL1 1LE track alignments",
+          "url": "https://www.lapmeta.com/ja/vi/29025"
+        },
+        {
+          "title": "GM bulletin 19-NA-038 (Track Preparation Guide reference)",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ]
     },
     {
       "id": "suspension.alignment-and-setup.rear-alignment",
@@ -28,17 +68,48 @@
       "qty": 1,
       "description": "Rear camber is set by the LCA inner eccentric (or adjustable upper/lower links) and toe by the toe-link inner eccentric (or adjustable toe links). OE eccentrics offer approx 1 deg of range; lock them out or use adjustable links for racing.",
       "location": "Rear wheels.",
-      "connectsTo": ["suspension.rear-links.camber-and-toe-eccentrics", "suspension.rear-links.toe-link", "suspension.rear-links.upper-control-arm"],
-      "factory": { "name": "GM factory rear alignment (approximate)", "notes": "Camber approx -0.7 to -1.2 deg; total toe approx +0.1 to +0.2 deg in. Estimates - confirm in GM SI." },
-      "raceOptions": [{ "name": "Typical road-race targets", "brand": "Setup", "notes": "Camber -1.5 to -2.2 deg (owner-reported ZL1 1LE track alignments -1.8 to -2.0 deg); total toe 1/16-1/8 in in (approx 0.1-0.25 deg). Never run rear toe-out." }],
-      "specs": { "Race rear camber": "-1.5 to -2.2 deg (typical)", "Race rear toe": "1/16-1/8 in total in" },
+      "connectsTo": [
+        "suspension.rear-links.camber-and-toe-eccentrics",
+        "suspension.rear-links.toe-link",
+        "suspension.rear-links.upper-control-arm"
+      ],
+      "factory": {
+        "name": "GM factory rear alignment (approximate)",
+        "notes": "Camber approx -0.7 to -1.2 deg; total toe approx +0.1 to +0.2 deg in. Estimates - confirm in GM SI."
+      },
+      "raceOptions": [
+        {
+          "name": "Typical road-race targets",
+          "brand": "Setup",
+          "notes": "Camber -1.5 to -2.2 deg (owner-reported ZL1 1LE track alignments -1.8 to -2.0 deg); total toe 1/16-1/8 in in (approx 0.1-0.25 deg). Never run rear toe-out."
+        }
+      ],
+      "specs": {
+        "Race rear camber": "-1.5 to -2.2 deg (typical)",
+        "Race rear toe": "1/16-1/8 in total in"
+      },
       "hardware": [],
-      "installNotes": ["Final-torque LCA inner cam bolt (115 N·m + 90-105 deg) and toe cam bolt (70 N·m + 90-105 deg) after setting, with new bolts."],
+      "installNotes": [
+        "Final-torque LCA inner cam bolt (115 N·m + 90-105 deg) and toe cam bolt (70 N·m + 90-105 deg) after setting, with new bolts."
+      ],
       "inspection": [],
       "buildPhase": 11,
       "installOrder": 101,
-      "tags": ["alignment", "rear", "setup"],
-      "sources": [{ "title": "GM SG3 instructions", "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf" }, { "title": "SPL EL CAM6 (eccentric slip)", "url": "https://durable.parts/product/spl-el-cam6/" }]
+      "tags": [
+        "alignment",
+        "rear",
+        "setup"
+      ],
+      "sources": [
+        {
+          "title": "GM SG3 instructions",
+          "url": "https://ecommerce-assets.ext.gm.com/assets/products/documents/ISheets_84408106.pdf"
+        },
+        {
+          "title": "SPL EL CAM6 (eccentric slip)",
+          "url": "https://durable.parts/product/spl-el-cam6/"
+        }
+      ]
     },
     {
       "id": "suspension.alignment-and-setup.ride-height-and-corner-weights",
@@ -46,17 +117,46 @@
       "qty": 1,
       "description": "Set on level scale pads with driver (or ballast) and race fuel load. Adjust threaded perches (coilovers / ZL1 1LE front: approx 1.5 mm per turn) to reach target ride heights and approx 50% cross weight (LF+RR). Lowering a strut car too far drops the front roll center below ground and worsens bump steer - correct with roll-center spacers/links and bump-steer tie rod ends rather than just going lower.",
       "location": "Whole car.",
-      "connectsTo": ["suspension.front-struts-springs.threaded-spring-perch", "suspension.rear-dampers-springs.coilover-conversion", "steering.bump-steer.adjustable-tie-rod-ends"],
-      "factory": { "name": "Factory trim height", "notes": "GM SG3 kit lowers approx 20 mm; ZL1 1LE front perch +/-10 mm." },
-      "raceOptions": [{ "name": "Typical race starting point", "brand": "Setup", "notes": "Lower approx 25-40 mm from stock, slight positive rake (rear higher) for splitter/diffuser cars; check splitter height and class minimums; 50% cross weight." }],
-      "specs": { "Cross weight target": "50% (LF+RR)", "Front natural frequency (typical)": "approx 2.0-2.8 Hz", "Rear natural frequency (typical)": "approx 10-15% above or near front depending on philosophy" },
+      "connectsTo": [
+        "suspension.front-struts-springs.threaded-spring-perch",
+        "suspension.rear-dampers-springs.coilover-conversion",
+        "steering.bump-steer.adjustable-tie-rod-ends"
+      ],
+      "factory": {
+        "name": "Factory trim height",
+        "notes": "GM SG3 kit lowers approx 20 mm; ZL1 1LE front perch +/-10 mm."
+      },
+      "raceOptions": [
+        {
+          "name": "Typical race starting point",
+          "brand": "Setup",
+          "notes": "Lower approx 25-40 mm from stock, slight positive rake (rear higher) for splitter/diffuser cars; check splitter height and class minimums; 50% cross weight."
+        }
+      ],
+      "specs": {
+        "Cross weight target": "50% (LF+RR)",
+        "Front natural frequency (typical)": "approx 2.0-2.8 Hz",
+        "Rear natural frequency (typical)": "approx 10-15% above or near front depending on philosophy"
+      },
       "hardware": [],
-      "installNotes": ["Disconnect sway bar end links while corner weighting, then reconnect with zero preload.", "Bounce/roll the car between measurements to settle bushings."],
+      "installNotes": [
+        "Disconnect sway bar end links while corner weighting, then reconnect with zero preload.",
+        "Bounce/roll the car between measurements to settle bushings."
+      ],
       "inspection": [],
       "buildPhase": 11,
       "installOrder": 102,
-      "tags": ["ride-height", "corner-weights", "setup"],
-      "sources": [{ "title": "GM bulletin 19-NA-038", "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf" }]
+      "tags": [
+        "ride-height",
+        "corner-weights",
+        "setup"
+      ],
+      "sources": [
+        {
+          "title": "GM bulletin 19-NA-038",
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10155023-9999.pdf"
+        }
+      ]
     },
     {
       "id": "suspension.alignment-and-setup.final-torque-at-ride-height",
@@ -64,17 +164,48 @@
       "qty": 1,
       "description": "Checklist step: every rubber-bushed pivot (front LCA and radius rod inner bolts; rear LCA, UCA, trailing arm and toe-link bolts) must be final-torqued with the suspension at normal ride height, using new torque-to-yield bolts. Torquing at full droop pre-twists the bushings, raising ride height and causing premature bushing failure. Paint-mark every bolt after torque.",
       "location": "All pivots.",
-      "connectsTo": ["suspension.front-lower-links.lower-control-arm", "suspension.front-lower-links.radius-rod", "suspension.rear-links.lower-control-arm", "suspension.rear-links.upper-control-arm", "suspension.rear-links.upper-trailing-arm", "suspension.rear-links.lower-trailing-arm", "suspension.rear-links.toe-link"],
-      "factory": { "name": "GM procedure (torque-to-yield fasteners)", "notes": "" },
-      "raceOptions": [{ "name": "Spherical-bearing links", "brand": "Various", "notes": "Spherical bearings do not need ride-height torquing but still follow fastener specs." }],
+      "connectsTo": [
+        "suspension.front-lower-links.lower-control-arm",
+        "suspension.front-lower-links.radius-rod",
+        "suspension.rear-links.lower-control-arm",
+        "suspension.rear-links.upper-control-arm",
+        "suspension.rear-links.upper-trailing-arm",
+        "suspension.rear-links.lower-trailing-arm",
+        "suspension.rear-links.toe-link"
+      ],
+      "factory": {
+        "name": "GM procedure (torque-to-yield fasteners)",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Spherical-bearing links",
+          "brand": "Various",
+          "notes": "Spherical bearings do not need ride-height torquing but still follow fastener specs."
+        }
+      ],
       "specs": {},
       "hardware": [],
-      "installNotes": ["Use drive-on ramps/pit pads or jack each knuckle to measured ride height.", "Use an angle gauge for the angle step."],
-      "inspection": ["Witness marks checked every event."],
+      "installNotes": [
+        "Use drive-on ramps/pit pads or jack each knuckle to measured ride height.",
+        "Use an angle gauge for the angle step."
+      ],
+      "inspection": [
+        "Witness marks checked every event."
+      ],
       "buildPhase": 11,
       "installOrder": 103,
-      "tags": ["torque", "tty", "checklist"],
-      "sources": [{ "title": "BMR TCA029 (load suspension before tightening)", "url": "https://www.BMRsuspension.com/siteart/install/TCA029.pdf" }]
+      "tags": [
+        "torque",
+        "tty",
+        "checklist"
+      ],
+      "sources": [
+        {
+          "title": "BMR TCA029 (load suspension before tightening)",
+          "url": "https://www.BMRsuspension.com/siteart/install/TCA029.pdf"
+        }
+      ]
     }
   ]
 }

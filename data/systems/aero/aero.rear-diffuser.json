@@ -74,14 +74,14 @@
         {
           "shape": "box",
           "pos": [
-            3.524,
-            0.26,
+            3.52,
+            0.21,
             0
           ],
           "size": [
             0.54,
             0.09,
-            0.74
+            1.2
           ],
           "rot": [
             0,
@@ -100,7 +100,55 @@
         "dimensions": "~540 mm long x 740 mm wide ramp at ~12°, 6 strakes up to 85 mm deep",
         "features": "Carbon/aluminium ramp from the rear subframe to the bumper, vertical strakes deepening rearward",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "aero.rear-diffuser.diffuser-ramp"
+    },
+    {
+      "id": "aero.rear-diffuser.diffuser-ramp",
+      "name": "Diffuser ramp & strakes",
+      "qty": 2,
+      "description": "2 mm carbon/aluminium ramp from the mid-floor trailing edge behind the rear axle, kicking up 8° to the rear-fascia lip, with six vertical strakes deepening to 85 mm at the trailing edge. Draws aero.rear-diffuser.diffuser-panel.",
+      "location": "x 3.00-3.65, top y 0.183 rising to 0.273, z ±0.50.",
+      "connectsTo": [
+        "aero.rear-diffuser.diffuser-panel",
+        "aero.undertray.mid-floor-panels",
+        "aero.rear-diffuser.diffuser-brackets",
+        "body.panels.rear-fascia"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 16,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.326,
+            0.1839,
+            0
+          ],
+          "size": [
+            0.646,
+            0.089,
+            1.0
+          ],
+          "rot": [
+            0,
+            0,
+            8
+          ]
+        }
+      ]
     },
     {
       "id": "aero.rear-diffuser.diffuser-brackets",
@@ -145,35 +193,160 @@
         {
           "shape": "box",
           "pos": [
-            3.4,
-            0.29,
-            0.3
+            3.12,
+            0.2193,
+            0.22
           ],
           "size": [
             0.04,
-            0.06,
-            0.03
+            0.0445,
+            0.004
           ],
           "instances": [
             [
-              3.4,
-              0.29,
-              0.3
+              3.12,
+              0.2193,
+              0.22
             ],
             [
-              3.4,
-              0.29,
-              -0.3
+              3.12,
+              0.2193,
+              -0.22
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.12,
+            0.2386,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.003,
+            0.02
+          ],
+          "instances": [
+            [
+              3.12,
+              0.2386,
+              0.22
             ],
             [
-              3.68,
-              0.37,
-              0.3
+              3.12,
+              0.2386,
+              -0.22
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.12,
+            0.2014,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.003,
+            0.02
+          ],
+          "rot": [
+            0,
+            0,
+            8
+          ],
+          "instances": [
+            [
+              3.12,
+              0.2014,
+              0.22
             ],
             [
-              3.68,
-              0.37,
-              -0.3
+              3.12,
+              0.2014,
+              -0.22
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.3,
+            0.2349,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.025,
+            0.004
+          ],
+          "instances": [
+            [
+              3.3,
+              0.2349,
+              0.22
+            ],
+            [
+              3.3,
+              0.2349,
+              -0.22
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.3,
+            0.2444,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.003,
+            0.02
+          ],
+          "instances": [
+            [
+              3.3,
+              0.2444,
+              0.22
+            ],
+            [
+              3.3,
+              0.2444,
+              -0.22
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.3,
+            0.2267,
+            0.22
+          ],
+          "size": [
+            0.04,
+            0.003,
+            0.02
+          ],
+          "rot": [
+            0,
+            0,
+            8
+          ],
+          "instances": [
+            [
+              3.3,
+              0.2267,
+              0.22
+            ],
+            [
+              3.3,
+              0.2267,
+              -0.22
             ]
           ]
         }

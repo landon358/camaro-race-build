@@ -9,7 +9,7 @@
       "name": "Clutch pedal assembly",
       "qty": 1,
       "description": "Driver's clutch pedal and pivot that pushes the clutch master cylinder pushrod. On the factory car it is part of the hanging pedal assembly behind the dash; most race builds move to a floor-mounted pedal box with an adjustable pushrod and positive over-travel stop.",
-      "location": "Driver footwell, leftmost pedal (x\u22480.88, y\u22480.25-0.55, z\u2248+0.45).",
+      "location": "Driver footwell, leftmost pedal (x≈0.88, y≈0.25-0.55, z≈+0.45).",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.master-cylinder",
         "drivetrain.clutch-hydraulics.clutch-pedal-position-sensor",
@@ -37,12 +37,12 @@
           "qty": 4,
           "spec": "M8 x 1.25 flange nut",
           "grade": "8",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Typical for M8 pedal-bracket studs; verify against GM SI for the Gen 6 pedal bracket. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the brake pedal assembly nut (pedal bracket to dash) at 25 N\u00b7m. The same source lists 'Clutch pedal assembly to Brake pedal bolts' at 20 N\u00b7m (15 ft-lb). The C7 SI clutch pedal bracket nuts are 27 N\u00b7m.",
+          "notes": "Typical for M8 pedal-bracket studs; verify against GM SI for the Gen 6 pedal bracket. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the brake pedal assembly nut (pedal bracket to dash) at 25 N·m. The same source lists 'Clutch pedal assembly to Brake pedal bolts' at 20 N·m (15 ft-lb). The C7 SI clutch pedal bracket nuts are 27 N·m.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -108,7 +108,7 @@
       "name": "Clutch master cylinder",
       "qty": 1,
       "description": "Converts pedal force into hydraulic pressure for the release bearing. Bore size trades pedal effort against pedal travel; it must be matched to the release-bearing piston area and the clutch's required release travel.",
-      "location": "Factory: engine side of firewall behind the brake booster area, driver side (x\u22480.64, y\u22480.62, z\u2248+0.45). Race: on floor pedal box.",
+      "location": "Factory: engine side of firewall behind the brake booster area, driver side (x≈0.64, y≈0.62, z≈+0.45). Race: on floor pedal box.",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.clutch-pedal",
         "drivetrain.clutch-hydraulics.reservoir",
@@ -132,7 +132,7 @@
         {
           "name": "DOT 4 brake/clutch fluid (factory spec)",
           "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
-          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+          "capacity": "≈0.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
         }
       ],
       "hardware": [
@@ -141,12 +141,12 @@
           "qty": 2,
           "spec": "M8 x 1.25 (OEM) or 5/16-18 (Tilton)",
           "grade": "8.8 / Gr 8",
-          "torque": "OEM GM clutch actuator (master) cylinder: 115 in-lb (13 N\u00b7m). Tilton 5/16-18 mounting: per Tilton sheet (do not exceed ~15 ft-lb / 20 N\u00b7m on the plastic/aluminum flange).",
+          "torque": "OEM GM clutch actuator (master) cylinder: 115 in-lb (13 N·m). Tilton 5/16-18 mounting: per Tilton sheet (do not exceed ~15 ft-lb / 20 N·m on the plastic/aluminum flange).",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch actuator cylinder bolt' at 13 N\u00b7m. The C7 GM SI lists 'Clutch Actuator Cylinder Mounting Bolts' at 12 N\u00b7m (106 lb in). CORRECTED from 18 ft-lb (25 N\u00b7m) for the OEM unit.",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch actuator cylinder bolt' at 13 N·m. The C7 GM SI lists 'Clutch Actuator Cylinder Mounting Bolts' at 12 N·m (106 lb in). CORRECTED from 18 ft-lb (25 N·m) for the OEM unit.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -155,7 +155,7 @@
           "qty": 1,
           "spec": "OEM quick-connect or -3 AN adapter (Tilton 7/16-20 UNF port)",
           "grade": "",
-          "torque": "Snug + 1/8 turn; AN: \u224810-12 ft-lb (14-16 N\u00b7m)",
+          "torque": "Snug + 1/8 turn; AN: ≈10-12 ft-lb (14-16 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (no tape on flares)",
           "safetyWire": false,
@@ -190,20 +190,43 @@
           "url": "https://my.chevrolet.com/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/camaro/2021-chevrolet-camaro-high-performance-owners-manual-supplement.pdf"
         }
       ],
-      "model": {
-        "shape": "cylinder",
-        "pos": [
-          0.64,
-          0.62,
-          0.45
-        ],
-        "size": [
-          0.14,
-          0.035,
-          0.035
-        ],
-        "axis": "x"
-      },
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.6215,
+            0.51,
+            0.44
+          ],
+          "size": [
+            0.14,
+            0.035,
+            0.035
+          ],
+          "axis": "x"
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.662,
+              0.51,
+              0.44
+            ],
+            [
+              0.76,
+              0.51,
+              0.442
+            ],
+            [
+              0.832,
+              0.51,
+              0.448
+            ]
+          ],
+          "radius": 0.004
+        }
+      ],
       "modelRef": {
         "images": [],
         "dimensions": "~140 x 35 mm",
@@ -216,7 +239,7 @@
       "name": "Clutch fluid reservoir",
       "qty": 1,
       "description": "Supplies fluid to the clutch master. The factory car shares the brake master reservoir (marked brake/clutch); a race car usually gets a dedicated small remote reservoir so a clutch-circuit leak cannot drain the brake reservoir.",
-      "location": "Factory: brake master cylinder reservoir, driver side of engine bay (x\u22480.58, y\u22480.82, z\u2248+0.45). Race: separate reservoir on firewall/pedal-box bracket.",
+      "location": "Factory: brake master cylinder reservoir, driver side of engine bay (x≈0.58, y≈0.82, z≈+0.45). Race: separate reservoir on firewall/pedal-box bracket.",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.master-cylinder",
         "drivetrain.clutch-hydraulics.reservoir-hose",
@@ -238,7 +261,7 @@
         {
           "name": "DOT 4 brake/clutch fluid (factory spec)",
           "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
-          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+          "capacity": "≈0.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
         }
       ],
       "hardware": [
@@ -247,7 +270,7 @@
           "qty": 2,
           "spec": "M6 x 1.0 or 1/4-20",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -361,14 +384,24 @@
             0.5
           ],
           [
-            0.62,
-            0.72,
+            0.61,
+            0.74,
             0.48
           ],
           [
-            0.64,
-            0.65,
-            0.45
+            0.614,
+            0.62,
+            0.455
+          ],
+          [
+            0.6145,
+            0.56,
+            0.442
+          ],
+          [
+            0.6145,
+            0.531,
+            0.44
           ]
         ],
         "radius": 0.005
@@ -409,9 +442,9 @@
         {
           "item": "AN -3 hose end",
           "qty": 2,
-          "spec": "-3 AN 37\u00b0 flare",
+          "spec": "-3 AN 37° flare",
           "grade": "",
-          "torque": "\u224810-12 ft-lb (14-16 N\u00b7m) / hand-tight + 1/8 turn",
+          "torque": "≈10-12 ft-lb (14-16 N·m) / hand-tight + 1/8 turn",
           "torqueSequence": "",
           "threadlocker": "none (no tape)",
           "safetyWire": false,
@@ -425,7 +458,7 @@
           "qty": 6,
           "spec": "Cushioned clamp + M6 screw or rivnut",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -436,7 +469,7 @@
         }
       ],
       "installNotes": [
-        "Route away from headers/downpipe (\u226575 mm or heat-sleeved).",
+        "Route away from headers/downpipe (≥75 mm or heat-sleeved).",
         "Leave service loop at bellhousing for trans removal.",
         "Pressure-test and bleed after HRB installed."
       ],
@@ -461,24 +494,34 @@
         "shape": "tube",
         "path": [
           [
-            0.64,
-            0.62,
-            0.42
+            0.552,
+            0.51,
+            0.44
           ],
           [
-            0.62,
-            0.52,
-            0.38
-          ],
-          [
-            0.58,
-            0.42,
-            0.3
+            0.54,
+            0.5,
+            0.44
           ],
           [
             0.53,
-            0.35,
-            0.22
+            0.43,
+            0.43
+          ],
+          [
+            0.52,
+            0.39,
+            0.36
+          ],
+          [
+            0.51,
+            0.36,
+            0.26
+          ],
+          [
+            0.5,
+            0.34,
+            0.2
           ],
           [
             0.5,
@@ -500,7 +543,7 @@
       "name": "Bellhousing bulkhead fitting",
       "qty": 1,
       "description": "AN bulkhead through the bellhousing (or OEM pass-through) connecting the external clutch line to the internal release-bearing feed hose. Race SFI bellhousings have a dedicated hole for it.",
-      "location": "Driver side of bellhousing, lower quadrant (x\u22480.48, y\u22480.29, z\u2248+0.17).",
+      "location": "Driver side of bellhousing, lower quadrant (x≈0.48, y≈0.29, z≈+0.17).",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.pressure-line",
         "drivetrain.clutch-hydraulics.release-bearing",
@@ -524,7 +567,7 @@
           "qty": 1,
           "spec": "-3 AN bulkhead nut",
           "grade": "",
-          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torque": "15 ft-lb (20 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -584,7 +627,7 @@
       "name": "Hydraulic release bearing / concentric slave cylinder",
       "qty": 1,
       "description": "Hydraulic piston and bearing concentric with the input shaft that pushes the pressure plate fingers. The factory TR-6060 uses a concentric slave cylinder (CSC) bolted to the front bearing retainer; race HRBs are height-adjustable and serviceable so release clearance can be set for any clutch.",
-      "location": "Inside the bellhousing on the transmission front bearing retainer, around the input shaft (x\u22480.50, y\u22480.40, z=0).",
+      "location": "Inside the bellhousing on the transmission front bearing retainer, around the input shaft (x≈0.50, y≈0.40, z=0).",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.bulkhead-fitting",
         "drivetrain.clutch-hydraulics.remote-bleeder",
@@ -625,7 +668,7 @@
         {
           "name": "DOT 4 brake/clutch fluid (factory spec)",
           "spec": "GM-approved DOT 4; race: high-boiling DOT 4 (e.g. Castrol SRF, Motul RBF660) - same fluid as brakes if reservoir is shared",
-          "capacity": "\u22480.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
+          "capacity": "≈0.1-0.2 L for the clutch circuit (shares brake reservoir on factory cars)"
         }
       ],
       "hardware": [
@@ -634,12 +677,12 @@
           "qty": 3,
           "spec": "OEM metric bolt",
           "grade": "OEM",
-          "torque": "115 in-lb (13 N\u00b7m)",
+          "torque": "115 in-lb (13 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Value from a forum-posted GM SI list for the 5th-gen TR-6060 slave; confirm against GM SI for Gen 6 before relying on it. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Concentric actuator cylinder bolt' at 13 N\u00b7m (115 lb in). This is consistent with the C7 GM SI clutch actuator cylinder bolts at 12 N\u00b7m. CORRECTED from 22 ft-lb (30 N\u00b7m), a 5th-gen forum value that would over-torque these small bolts in the aluminum retainer.",
+          "notes": "Value from a forum-posted GM SI list for the 5th-gen TR-6060 slave; confirm against GM SI for Gen 6 before relying on it. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Concentric actuator cylinder bolt' at 13 N·m (115 lb in). This is consistent with the C7 GM SI clutch actuator cylinder bolts at 12 N·m. CORRECTED from 22 ft-lb (30 N·m), a 5th-gen forum value that would over-torque these small bolts in the aluminum retainer.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -648,7 +691,7 @@
           "qty": 3,
           "spec": "Per HRB kit (typically 1/4-20 or M6 socket-head)",
           "grade": "12.9 SHCS",
-          "torque": "8 ft-lb (11 N\u00b7m)",
+          "torque": "8 ft-lb (11 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -689,7 +732,7 @@
           "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
         },
         {
-          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N·m, threadlocker, slave cylinder)",
           "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
         }
       ],
@@ -790,7 +833,7 @@
       "name": "Remote bleeder line and valve",
       "qty": 1,
       "description": "Flexible line from the HRB bleed port out through the bellhousing to an accessible bleed screw, so the clutch can be bled without removing the transmission.",
-      "location": "From HRB inside bellhousing to a bracket on the bellhousing/trans side, driver side (x\u22480.55, y\u22480.42, z\u2248+0.20).",
+      "location": "From HRB inside bellhousing to a bracket on the bellhousing/trans side, driver side (x≈0.55, y≈0.42, z≈+0.20).",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.release-bearing",
         "drivetrain.bellhousing.bellhousing"
@@ -813,7 +856,7 @@
           "qty": 1,
           "spec": "Bleed nipple (per kit)",
           "grade": "",
-          "torque": "\u22487 ft-lb (10 N\u00b7m)",
+          "torque": "≈7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -827,7 +870,7 @@
           "qty": 2,
           "spec": "M6",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -856,27 +899,64 @@
           "url": "https://rossp-rosssport.dc01.gob2b.com/Brands/TILTON/Driveline-Components/Clutch-Release-Bearings/Tilton-6200-Series-Hydraulic-Release-Bearings-44mm"
         }
       ],
-      "model": {
-        "shape": "tube",
-        "path": [
-          [
-            0.51,
-            0.455,
-            -0.02
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.51,
+              0.4,
+              0.058
+            ],
+            [
+              0.52,
+              0.405,
+              0.1
+            ],
+            [
+              0.53,
+              0.415,
+              0.14
+            ],
+            [
+              0.53,
+              0.42,
+              0.152
+            ]
           ],
-          [
-            0.52,
+          "radius": 0.003
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
             0.53,
-            -0.08
+            0.42,
+            0.162
           ],
-          [
-            0.56,
-            0.56,
-            -0.16
-          ]
-        ],
-        "radius": 0.003
-      },
+          "size": [
+            0.014,
+            0.014,
+            0.022
+          ],
+          "axis": "z",
+          "color": "#c9a227"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            0.53,
+            0.42,
+            0.18
+          ],
+          "size": [
+            0.007,
+            0.007,
+            0.014
+          ],
+          "axis": "z",
+          "color": "#d8d8d8"
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -894,7 +974,7 @@
       "name": "Clutch pedal position sensor / clutch switch",
       "qty": 1,
       "description": "Sensor on the clutch pedal that reports pedal travel. The GM ECM uses it for Active Rev Match, launch control, no-lift-shift and start interlock. In a race build the ECU (or MoTeC/standalone) uses a clutch switch for launch and flat-shift strategies.",
-      "location": "Clutch pedal bracket (x\u22480.86, y\u22480.55, z\u2248+0.45).",
+      "location": "Clutch pedal bracket (x≈0.86, y≈0.55, z≈+0.45).",
       "connectsTo": [
         "drivetrain.clutch-hydraulics.clutch-pedal",
         "engine.ecu.ecm",
@@ -920,12 +1000,12 @@
           "qty": 2,
           "spec": "M5/M6 screw",
           "grade": "",
-          "torque": "27 in-lb (3 N\u00b7m)",
+          "torque": "27 in-lb (3 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch pedal position switch bolt' at 3 N\u00b7m (27 lb in).",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch pedal position switch bolt' at 3 N·m (27 lb in).",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         }
@@ -997,7 +1077,7 @@
           "qty": 1,
           "spec": "M8 or 5/16 bolt with jam nut",
           "grade": "",
-          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torque": "15 ft-lb (20 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,

@@ -9,7 +9,7 @@
       "name": "Bellhousing / scattershield",
       "qty": 1,
       "description": "Connects the engine block to the transmission case, locates the transmission input concentric to the crankshaft and encloses the flywheel and clutch. A race car should use an SFI 6.x-certified steel scattershield (or the factory aluminum bell plus an SFI flywheel blanket) to contain a clutch/flywheel explosion next to the driver's feet.",
-      "location": "Between engine block rear face (x\u22480.38) and transmission case front (x\u22480.56), on crank centerline y\u22480.40.",
+      "location": "Between engine block rear face (x≈0.38) and transmission case front (x≈0.56), on crank centerline y≈0.40.",
       "connectsTo": [
         "engine.block.block",
         "drivetrain.transmission.transmission",
@@ -43,8 +43,8 @@
       "specs": {
         "Engine side pattern": "GM LS/LT",
         "Trans side pattern": "T56/TR-6060 style (Magnum common pattern)",
-        "Bore runout target": "\u22640.005 in TIR typical (follow bellhousing maker)",
-        "Face runout target": "\u22640.005 in TIR typical"
+        "Bore runout target": "≤0.005 in TIR typical (follow bellhousing maker)",
+        "Face runout target": "≤0.005 in TIR typical"
       },
       "hardware": [
         {
@@ -52,13 +52,13 @@
           "qty": 6,
           "spec": "M10 x 1.5 flange bolt (GM LS/LT pattern), length per bell",
           "grade": "10.9 / ARP",
-          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torque": "37 ft-lb (50 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (oil threads lightly)",
           "safetyWire": false,
           "reuse": "Reusable",
           "tool": "15 mm socket, long extensions + swivel",
-          "notes": "50 N\u00b7m is the widely used GM LS/LT transmission-to-engine value; count and lengths vary (6-8 incl. starter-area bolts). Torque-wrench extensions/swivels change applied torque - keep the wrench square. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Engine to Clutch housing fasteners 50 N\u00b7m (37 lb ft)', and Summit SR-05493 gives 37 ft-lb. Remains typical.",
+          "notes": "50 N·m is the widely used GM LS/LT transmission-to-engine value; count and lengths vary (6-8 incl. starter-area bolts). Torque-wrench extensions/swivels change applied torque - keep the wrench square. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Engine to Clutch housing fasteners 50 N·m (37 lb ft)', and Summit SR-05493 gives 37 ft-lb. Remains typical.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -67,12 +67,12 @@
           "qty": 4,
           "spec": "M10/M12 per case (TR-6060 detachable bell)",
           "grade": "10.9",
-          "torque": "35 ft-lb (48 N\u00b7m)",
+          "torque": "35 ft-lb (48 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Estimate - use Tremec/bellhousing maker value. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch housing assembly to Transmission case bolts' at 48 N\u00b7m (35 lb ft) for the TREMEC MM6 (TR-6060). CORRECTED from a 37 ft-lb estimate. An aftermarket bellhousing maker's value overrides this.",
+          "notes": "Estimate - use Tremec/bellhousing maker value. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Clutch housing assembly to Transmission case bolts' at 48 N·m (35 lb ft) for the TREMEC MM6 (TR-6060). CORRECTED from a 37 ft-lb estimate. An aftermarket bellhousing maker's value overrides this.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -117,7 +117,7 @@
           "url": "https://shiftsst.com/blog/tremec-magnum-xl-gm-features-and-dimensions/315"
         },
         {
-          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N·m, threadlocker, slave cylinder)",
           "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
         }
       ],
@@ -229,7 +229,8 @@
         "dimensions": "~16 mm hollow dowels, ~20 mm proud of the block",
         "features": "Two hollow steel dowels in the lower block bell-bolt bosses (shared with engine.flexplate-flywheel-interface.bellhousing-dowels)",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "engine.flexplate-flywheel-interface.bellhousing-dowels"
     },
     {
       "id": "drivetrain.bellhousing.offset-dowels",
@@ -300,7 +301,7 @@
       "name": "Bellhousing inspection / dust cover",
       "qty": 1,
       "description": "Thin cover closing the lower opening of the bellhousing so debris cannot enter the clutch and fingers cannot be caught. Also a convenient spot to look for rear-main or HRB leaks.",
-      "location": "Bottom of bellhousing (x\u22480.45, y\u22480.20).",
+      "location": "Bottom of bellhousing (x≈0.45, y≈0.20).",
       "connectsTo": [
         "drivetrain.bellhousing.bellhousing"
       ],
@@ -322,12 +323,12 @@
           "qty": 3,
           "spec": "M6 x 1.0",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Checked 2026-10: the C7 LT1 GM SI lists 'Engine Flywheel Inspection Cover Retaining Bolts' at 25 N\u00b7m (18 lb ft), likely for M8 bolts on that car. Keep 10 N\u00b7m only if your cover screws are M6.",
+          "notes": "Checked 2026-10: the C7 LT1 GM SI lists 'Engine Flywheel Inspection Cover Retaining Bolts' at 25 N·m (18 lb ft), likely for M8 bolts on that car. Keep 10 N·m only if your cover screws are M6.",
           "confidence": "estimate",
           "source": ""
         }
@@ -352,14 +353,19 @@
       "model": {
         "shape": "box",
         "pos": [
-          0.45,
-          0.205,
+          0.46,
+          0.2183,
           0
         ],
         "size": [
           0.1,
           0.006,
-          0.16
+          0.1
+        ],
+        "rot": [
+          0,
+          0,
+          22.8
         ]
       },
       "modelRef": {
@@ -386,8 +392,8 @@
       },
       "raceOptions": [],
       "specs": {
-        "Bore TIR": "\u22640.005 in typical (some makers allow \u22640.008 in)",
-        "Face TIR": "\u22640.005 in typical"
+        "Bore TIR": "≤0.005 in typical (some makers allow ≤0.008 in)",
+        "Face TIR": "≤0.005 in typical"
       },
       "hardware": [],
       "installNotes": [

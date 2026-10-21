@@ -1,1 +1,122 @@
-{"chassis.mounting-points.lift-and-jack-points|0|2|0":{"s":1,"t":[0,-0.02,0]},"chassis.mounting-points.lift-and-jack-points|0|3|0":{"s":1,"t":[0,-0.02,0]},"chassis.unibody.body-in-white|w|0":{"s":0.95,"t":[0.01,0,0]},"chassis.unibody.front-frame-rails|0|0|0":{"s":0.95,"t":[0.03,0,0]},"chassis.unibody.front-frame-rails|0|0|1":{"s":0.95,"t":[0.03,0,0]},"chassis.unibody.rocker-sills|0|0|0":{"s":1,"t":[0,-0.01,0]},"chassis.unibody.rocker-sills|0|0|1":{"s":1,"t":[0,0,0.01]},"chassis.unibody.pillars-and-roof-structure|0|0|0":{"s":1,"t":[0,-0.07,0]},"chassis.unibody.pillars-and-roof-structure|1|0|0":{"s":1,"t":[0,-0.08,0]},"chassis.unibody.rear-rails|0|0|0":{"s":0.95,"t":[-0.029,0.001,-0.003]},"chassis.unibody.rear-rails|0|0|1":{"s":0.95,"t":[-0.029,0.001,0.003]},"chassis.unibody.trunk-floor|0|0|0":{"s":1,"t":[-0.01,0.001,0]},"safety.kill-switches.external-t-handle|0|0|0":{"s":1,"t":[0.01,0,0]},"engine-support.coolers-auxiliary.debris-screens|0|0|0":{"s":1,"t":[0.05,0,0]},"engine-support.coolers-auxiliary.debris-screens|1|0|0":{"s":1,"t":[0.03,0,0]},"engine-support.coolers-auxiliary.debris-screens|1|0|1":{"s":1,"t":[0.03,0,0]},"engine-support.cooling.radiator-ducting|0|0|0":{"s":1,"t":[0.05,0,0]},"engine-support.cooling.radiator-ducting|2|0|0":{"s":1,"t":[0.049,0.002,-0.008]},"engine-support.cooling.radiator-ducting|2|0|1":{"s":1,"t":[0.05,0,0]},"engine-support.exhaust.mufflers|0|0|0":{"s":1,"t":[0,0.06,0]},"engine-support.exhaust.mufflers|0|0|1":{"s":1,"t":[0,0.06,0]},"engine-support.exhaust.side-exit-option|0|0|0":{"s":1,"t":[0,-0.042,-0.042]},"engine-support.exhaust.side-exit-option|0|0|1":{"s":1,"t":[0,-0.042,0.042]},"engine-support.induction.fascia-snorkel|0|0|0":{"s":1,"t":[0.098,-0.098,0]},"engine-support.lubrication.oil-cooler|0|0|0":{"s":1,"t":[0.03,0,0]},"drivetrain.coolers.cooler-ducting|1|0|0":{"s":1,"t":[-0.039,0.001,0.01]},"electrical.battery-and-cutoff.external-kill-switch|0|0|0":{"s":1,"t":[0.01,0,0]},"electrical.data-acquisition.gps-imu|0|0|0":{"s":1,"t":[0,-0.01,0]},"electrical.lighting.rain-light|0|0|0":{"s":1,"t":[0,0.04,0]},"electrical.lighting.position-marker-lights|0|0|0":{"s":1,"t":[0.01,0,0]},"electrical.lighting.position-marker-lights|0|1|0":{"s":1,"t":[0.01,0,0]},"interior.driver-cooling.fresh-air-duct|0|0|0":{"s":1,"t":[0,-0.02,0]},"body.hood-and-fasteners.hood-pins|0|0|0":{"s":1,"t":[0.042,-0.042,0]},"body.hood-and-fasteners.hood-pins|0|0|1":{"s":1,"t":[0.042,-0.042,0]},"body.hood-and-fasteners.hood-latch|0|0|0":{"s":1,"t":[0,-0.02,0]},"body.hood-and-fasteners.hood-hinges|0|0|0":{"s":1,"t":[0,-0.04,0]},"body.hood-and-fasteners.hood-hinges|0|0|1":{"s":1,"t":[0,-0.04,0]},"body.trim-and-fasteners.dzus-fasteners|0|0|0":{"s":1,"t":[0.07,-0.07,0]},"body.trim-and-fasteners.dzus-fasteners|0|1|0":{"s":1,"t":[0.07,-0.07,0]},"body.trim-and-fasteners.dzus-fasteners|0|2|0":{"s":1,"t":[0,0.02,0]},"body.trim-and-fasteners.dzus-fasteners|0|3|0":{"s":1,"t":[-0.09,0,0]},"body.trim-and-fasteners.dzus-fasteners|0|4|0":{"s":1,"t":[-0.09,0,0]},"body.trim-and-fasteners.fascia-quick-release|0|0|0":{"s":1,"t":[0.158,0,-0.062]},"body.trim-and-fasteners.fascia-quick-release|0|0|1":{"s":1,"t":[0.158,0,0.062]},"aero.ducts-and-vents.radiator-ducting|0|0|0":{"s":1,"t":[0,-0.03,0]},"aero.ducts-and-vents.fascia-inlets|0|0|0":{"s":1,"t":[0.05,0,0]},"aero.ducts-and-vents.fascia-inlets|0|0|1":{"s":1,"t":[0.05,0,0]},"aero.front-splitter.support-rods|0|0|0":{"s":1,"t":[0.155,0.018,-0.034]},"aero.front-splitter.support-rods|1|0|0":{"s":1,"t":[0.155,0.018,0.034]},"suspension.rear-links.lower-control-arm--rl|0|0|0":{"s":1,"t":[0,0.01,0]},"suspension.rear-links.lower-control-arm--rr|0|0|0":{"s":1,"t":[0,0.01,0]},"brakes.cooling.inlets--fl|0|0|0":{"s":1,"t":[0.01,0,0]},"brakes.cooling.inlets--fr|0|0|0":{"s":1,"t":[0.01,0,0]},"body.lighting-housings.drl-fog-delete|0|0|0":{"s":1,"t":[0.203,0.017,-0.052]},"body.lighting-housings.drl-fog-delete|0|0|1":{"s":1,"t":[0.203,0.017,0.052]}}
+{
+ "chassis.unibody.trunk-floor|0|0|0": {
+  "s": 1,
+  "t": [
+   -0.01,
+   0.001,
+   0
+  ]
+ },
+ "engine-support.cooling.radiator-ducting|0|0|0": {
+  "s": 1,
+  "t": [
+   0.05,
+   0,
+   0
+  ]
+ },
+ "engine-support.cooling.radiator-ducting|2|0|0": {
+  "s": 1,
+  "t": [
+   0.049,
+   0.002,
+   -0.008
+  ]
+ },
+ "engine-support.cooling.radiator-ducting|2|0|1": {
+  "s": 1,
+  "t": [
+   0.05,
+   0,
+   0
+  ]
+ },
+ "engine-support.lubrication.oil-cooler|0|0|0": {
+  "s": 1,
+  "t": [
+   0.03,
+   0,
+   0
+  ]
+ },
+ "electrical.lighting.rain-light|0|0|0": {
+  "s": 1,
+  "t": [
+   0,
+   0.04,
+   0
+  ]
+ },
+ "electrical.lighting.position-marker-lights|0|0|0": {
+  "s": 1,
+  "t": [
+   0.01,
+   0,
+   0
+  ]
+ },
+ "electrical.lighting.position-marker-lights|0|1|0": {
+  "s": 1,
+  "t": [
+   0.01,
+   0,
+   0
+  ]
+ },
+ "body.hood-and-fasteners.hood-latch|0|0|0": {
+  "s": 1,
+  "t": [
+   0,
+   -0.02,
+   0
+  ]
+ },
+ "body.hood-and-fasteners.hood-hinges|0|0|0": {
+  "s": 1,
+  "t": [
+   0,
+   -0.04,
+   0
+  ]
+ },
+ "body.hood-and-fasteners.hood-hinges|0|0|1": {
+  "s": 1,
+  "t": [
+   0,
+   -0.04,
+   0
+  ]
+ },
+ "body.trim-and-fasteners.fascia-quick-release|0|0|0": {
+  "s": 1,
+  "t": [
+   0.158,
+   0,
+   -0.062
+  ]
+ },
+ "body.trim-and-fasteners.fascia-quick-release|0|0|1": {
+  "s": 1,
+  "t": [
+   0.158,
+   0,
+   0.062
+  ]
+ },
+ "suspension.rear-links.lower-control-arm--rl|0|0|0": {
+  "s": 1,
+  "t": [
+   0,
+   0.01,
+   0
+  ]
+ },
+ "suspension.rear-links.lower-control-arm--rr|0|0|0": {
+  "s": 1,
+  "t": [
+   0,
+   0.01,
+   0
+  ]
+ }
+}

@@ -456,7 +456,7 @@ const axial = {
   },
 
   /** 12 V cooler circulation pump: motor can + gear-pump head with two AN ports. */
-  drivetrain_oilPump(L, D) {
+  drivetrain_oilPump(L, D, D2, ctx) {
     const b = new PartBuilder();
     const R = D / 2;
     b.add(latheX([[0.0001, -L / 2], [R * 0.85, -L / 2], [R * 0.9, -L / 2 + 0.006], [R * 0.9, L * 0.1], [R * 0.7, L * 0.12]], 28), 'black');
@@ -464,7 +464,17 @@ const axial = {
     b.add(hexX(R * 0.35, L * 0.08), 'blue', [L / 2 - L * 0.04, 0, 0]);
     b.add(cylY(R * 0.3, R * 0.5, 6), 'blue', [L * 0.3, R * 0.85, 0]);
     b.add(box(L * 0.12, R * 0.4, R * 0.45, 0.003), 'plastic', [-L * 0.2, R * 0.95, 0]);
-    b.add(box(L * 0.5, 0.003, R * 2.4, 0), 'steel', [0, -R * 0.95, 0]); // strap bracket base
+    const p = ctx?.pos;
+    if (p && p[0] < 1.4 && !ctx?.m?.rot) {
+      // engine-bay (trans) pump: L-bracket, strap base under the can + web bolted to the frame-rail inner face
+      const side = Math.sign(p[2]) || -1;
+      const web = R + 0.018;
+      b.add(box(L * 0.5, 0.003, R * 1.2 + web, 0), 'steel', [0, -R * 0.95, side * (web - R * 1.2) / 2]);
+      b.add(box(L * 0.5, R * 1.7, 0.004, 0.001), 'steel', [0, -R * 0.12, side * web]);
+      for (const x of [-L * 0.15, L * 0.15]) bolt(b, [x, -R * 0.2, side * (web + 0.002)], 'z', 0.006, 0.005, 'chrome', side);
+    } else {
+      b.add(box(L * 0.5, 0.003, R * 2.4, 0), 'steel', [0, -R * 0.95, 0]); // strap bracket base
+    }
     return b.build();
   },
 
@@ -676,23 +686,26 @@ const boxes = {
     return b.build();
   },
 
-  /** Gen 6 manual-trans support: e-coated stamped hat-section beam, dropped centre, bolt-up ends. */
+  /** Gen 6 manual-trans support: e-coated stamped hat-section beam. The centre arches up into the tunnel to
+   *  carry the isolator; the flat ends bolt up under the floor beside the tunnel. Front/rear flanges turn down. */
   drivetrain_crossmember(sx, sy, sz) {
     const b = new PartBuilder();
     const hz = sz / 2;
     const yHi = sy / 2 - 0.008, yLo = -sy / 2 + 0.012;
-    const line = [[-hz, yHi], [-hz * 0.72, yHi], [-hz * 0.5, yLo], [hz * 0.5, yLo], [hz * 0.72, yHi], [hz, yHi]];
+    const line = [[-hz, yLo], [-hz * 0.72, yLo], [-hz * 0.5, yHi], [hz * 0.5, yHi], [hz * 0.72, yLo], [hz, yLo]];
     const strip = (lineP, t) => [...lineP.map(([z, y]) => [z, y + t / 2]), ...lineP.slice().reverse().map(([z, y]) => [z, y - t / 2])];
     b.add(extrudeX(shapeZY(strip(line, 0.006)), sx * 0.9, 4), 'black');
     for (const s of [-1, 1]) {
-      const lip = line.map(([z, y]) => [z, y - 0.012]);
-      b.add(extrudeX(shapeZY(strip(lip, 0.024)), 0.003, 4), 'black', [s * sx * 0.45, 0, 0]);
+      const lip = line.map(([z, y]) => [z, y - 0.009]);
+      b.add(extrudeX(shapeZY(strip(lip, 0.018)), 0.003, 4), 'black', [s * sx * 0.45, 0, 0]);
     }
     for (const s of [-1, 1]) {
-      for (const x of [-sx * 0.25, sx * 0.25]) bolt(b, [x, yHi - 0.003, s * (hz - 0.035)], 'y', 0.008, 0.007, 'chrome', -1);
-      b.add(cylY(0.016, 0.002, 18), 'black', [0, yLo + 0.004, s * hz * 0.25]); // lightening hole marker
+      // floor bolts through the flat ends (heads underneath)
+      for (const x of [-sx * 0.25, sx * 0.25]) bolt(b, [x, yLo - 0.003, s * (hz - 0.035)], 'y', 0.008, 0.007, 'chrome', -1);
+      b.add(cylY(0.016, 0.002, 18), 'black', [0, yHi + 0.004, s * hz * 0.32]); // lightening hole marker
     }
-    for (const z of [-0.035, 0.035]) bolt(b, [0, yLo - 0.003, z], 'y', 0.008, 0.007, 'chrome', -1);
+    // isolator stud nuts under the raised centre
+    for (const z of [-0.035, 0.035]) bolt(b, [0, yHi - 0.006, z], 'y', 0.008, 0.007, 'chrome', -1);
     return b.build();
   },
 
@@ -734,8 +747,11 @@ const boxes = {
   },
 
   /** Air-to-oil cooler: tube-and-fin core, two side tanks on the long axis, -10 AN ports, tabs. */
-  drivetrain_oilCooler(sx, sy, sz) {
+  drivetrain_oilCooler(sx, sy, sz, ctx) {
     const dims = [sx, sy, sz];
+    // AN ports go on the face away from the air duct: the front (trans) cooler is fed from a nose duct
+    // ahead of it (-X), so its ports face rearward (+X); the rear (diff) cooler is fed from behind (+X).
+    const portSide = dims.indexOf(Math.min(...dims)) === 0 && (ctx?.pos?.[0] ?? 2) < 1.4 ? 1 : -1;
     const thin = dims.indexOf(Math.min(...dims));
     const other = [0, 1, 2].filter((i) => i !== thin);
     const long = dims[other[0]] >= dims[other[1]] ? other[0] : other[1];
@@ -754,8 +770,8 @@ const boxes = {
       const ts = [...dims]; ts[long] = tank; ts[thin] = dims[thin] * 1.1;
       const p = [0, 0, 0]; p[long] = s * (dims[long] / 2 - tank / 2);
       b.add(box(ts[0], ts[1], ts[2], 0.006), 'black', p);
-      // AN port on the back face of each tank
-      const q = [...p]; q[thin] = -dims[thin] * 0.55; q[short] = s * dims[short] * 0.25;
+      // AN port on the back (non-duct) face of each tank
+      const q = [...p]; q[thin] = portSide * dims[thin] * 0.55; q[short] = s * dims[short] * 0.25;
       const rot = thin === 0 ? [0, 0, 0] : thin === 1 ? [0, 0, PI / 2] : [0, -PI / 2, 0];
       b.add(hexX(0.013, 0.02), 'blue', q, rot);
       // mounting tab
@@ -778,18 +794,22 @@ const boxes = {
     return b.build();
   },
 
-  /** Moulded plastic cooler duct (tapered rectangular box section). */
-  drivetrain_coolerDuct(sx, sy, sz) {
+  /** Moulded plastic cooler duct (tapered rectangular box section). The full-size end seals on the cooler
+   *  core face; the smaller end is the inlet behind the fascia opening. Front duct: cooler is at +X;
+   *  rear duct: cooler is at -X. */
+  drivetrain_coolerDuct(sx, sy, sz, ctx) {
     const b = new PartBuilder();
     const t = 0.003;
     const sq = [[1, 1], [-1, 1], [-1, -1], [1, -1]];
-    // walls as thin plates from a large inlet (-X) to a smaller outlet (+X)
+    const big = (ctx?.pos?.[0] ?? 2) < 1.4 ? 1 : -1;
+    // walls as thin plates from the full-size cooler end to the 76 % inlet end
     for (const [i, j] of [[0, 1], [1, 2], [2, 3], [3, 0]]) {
       const a = sq[i], c = sq[j];
-      const p0 = V(-sx / 2, a[1] * sy / 2, a[0] * sz / 2), p1 = V(-sx / 2, c[1] * sy / 2, c[0] * sz / 2);
-      const q0 = V(sx / 2, a[1] * sy * 0.38, a[0] * sz * 0.38), q1 = V(sx / 2, c[1] * sy * 0.38, c[0] * sz * 0.38);
+      const p0 = V(big * sx / 2, a[1] * sy / 2, a[0] * sz / 2), p1 = V(big * sx / 2, c[1] * sy / 2, c[0] * sz / 2);
+      const q0 = V(-big * sx / 2, a[1] * sy * 0.38, a[0] * sz * 0.38), q1 = V(-big * sx / 2, c[1] * sy * 0.38, c[0] * sz * 0.38);
       const g = new THREE.BufferGeometry();
-      g.setAttribute('position', new THREE.Float32BufferAttribute([...p0.toArray(), ...q0.toArray(), ...q1.toArray(), ...p0.toArray(), ...q1.toArray(), ...p1.toArray()], 3));
+      const tri = big < 0 ? [p0, q0, q1, p0, q1, p1] : [p0, q1, q0, p0, p1, q1]; // keep outward winding when mirrored
+      g.setAttribute('position', new THREE.Float32BufferAttribute(tri.flatMap((v) => v.toArray()), 3));
       g.computeVertexNormals();
       b.add(g, 'plastic');
     }
@@ -999,8 +1019,8 @@ export default {
     [/^drivetrain\.shifter\.shift-boots$/, 'boot', { axis: 'y' }],
     [/^drivetrain\.shifter\.pneumatic-actuator$/, 'drivetrain_pneumaticActuator', { axis: 'x' }],
     [/^drivetrain\.shifter\.air-supply$/, 'drivetrain_airTank', { axis: 'x' }],
-    [/^drivetrain\.coolers\.(trans|diff)-cooler$/, 'drivetrain_oilCooler'],
-    [/^drivetrain\.coolers\.(trans|diff)-cooler-pump$/, 'drivetrain_oilPump', { axis: 'x' }],
+    [/^drivetrain\.coolers\.(trans|diff)-cooler$/, 'drivetrain_oilCooler', { perPart: true }],
+    [/^drivetrain\.coolers\.(trans|diff)-cooler-pump$/, 'drivetrain_oilPump', { axis: 'x', perPart: true }],
     [/^drivetrain\.coolers\.(trans|diff)-thermostat$/, 'drivetrain_thermostat'],
     [/^drivetrain\.coolers\.(trans|diff)-cooler-lines$/, 'braided'],
     [/^drivetrain\.coolers\.(trans|diff)-cooler-fittings$/, 'drivetrain_anFitting'],

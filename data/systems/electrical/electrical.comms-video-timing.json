@@ -9,7 +9,7 @@
       "name": "Two-way radio & car harness",
       "qty": 1,
       "description": "UHF/VHF handheld or mobile radio in a dash/ floor mount, connected via a car harness (with amplifier for engine-noise) to the helmet kit and a steering-wheel PTT. Powered from the aux block or a PDM channel; NASA wording allows radio comms to stay live with the master OFF.",
-      "location": "Passenger floor or door bar mount (x\u22481.55, y\u22480.45, z\u2248-0.45).",
+      "location": "Passenger floor or door bar mount (x≈1.55, y≈0.45, z≈-0.45).",
       "connectsTo": [
         "electrical.comms-video-timing.helmet-kit",
         "electrical.comms-video-timing.ptt-button",
@@ -37,7 +37,7 @@
           "qty": 2,
           "spec": "M5 into rivnut / cage clamp",
           "grade": "",
-          "torque": "3\u20134 N\u00b7m",
+          "torque": "3–4 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -66,20 +66,25 @@
       "model": {
         "shape": "box",
         "pos": [
-          1.55,
-          0.45,
-          -0.45
+          1.5835,
+          0.3035,
+          -0.4
         ],
         "size": [
           0.035,
           0.2,
           0.056
+        ],
+        "rot": [
+          0,
+          180,
+          0
         ]
       },
       "modelRef": {
         "images": [
           {
-            "title": "Kenwood NX-P1300 \u2013 122.9 x 54.1 x 33.5 mm (HD Supply listing)",
+            "title": "Kenwood NX-P1300 – 122.9 x 54.1 x 33.5 mm (HD Supply listing)",
             "url": "https://hdsupplysolutions.com/p/kenwood-protalk-nx-p1300auk-p142445"
           }
         ],
@@ -93,7 +98,7 @@
       "name": "Helmet kit (mic + speakers) & coil cord",
       "qty": 1,
       "description": "Helmet-mounted boom or lip mic and speakers/earbuds, with a quick-disconnect coil cord to the car harness that pulls apart if the driver exits in a hurry.",
-      "location": "Driver helmet; car-side connector near seat (x\u22481.70, y\u22480.70, z\u2248+0.20).",
+      "location": "Driver helmet; car-side connector near seat (x≈1.70, y≈0.70, z≈+0.20).",
       "connectsTo": [
         "electrical.comms-video-timing.radio",
         "safety.driver.helmet"
@@ -119,7 +124,7 @@
           "qty": 2,
           "spec": "M4 stainless + nyloc",
           "grade": "",
-          "torque": "1.5 N\u00b7m (13 in-lb)",
+          "torque": "1.5 N·m (13 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -143,9 +148,9 @@
       "model": {
         "shape": "box",
         "pos": [
-          1.7,
-          0.7,
-          0.2
+          1.9,
+          0.8,
+          0.066
         ],
         "size": [
           0.03,
@@ -191,7 +196,7 @@
           "qty": 1,
           "spec": "Velcro strap on rim, or M3 screws into button box",
           "grade": "",
-          "torque": "0.8 N\u00b7m (screws)",
+          "torque": "0.8 N·m (screws)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -244,8 +249,8 @@
       "id": "electrical.comms-video-timing.antenna",
       "name": "Radio antenna",
       "qty": 1,
-      "description": "Roof-mounted NMO antenna (ground-plane on steel roof) with coax to the radio; keep \u2265 300 mm from the GPS antenna.",
-      "location": "Roof, rear center (x\u22482.30, y\u22481.37, z=0).",
+      "description": "Roof-mounted NMO antenna (ground-plane on steel roof) with coax to the radio; keep ≥ 300 mm from the GPS antenna.",
+      "location": "Roof, rear center (x≈2.30, y≈1.37, z=0).",
       "connectsTo": [
         "electrical.comms-video-timing.radio",
         "body.roof.roof-panel"
@@ -305,8 +310,8 @@
       "id": "electrical.comms-video-timing.in-car-camera",
       "name": "In-car camera with data overlay",
       "qty": 1,
-      "description": "Forward-facing camera recording video synchronized with logger data. The AiM SmartyCam 3 Sport takes CAN data from AiM loggers (must be externally powered, 9\u201315 V) and overlays speed/rpm/gear/lap; other systems sync GoPro footage with MoTeC/ AiM data in post.",
-      "location": "Cage main hoop or roof bar behind driver, looking forward over the driver's shoulder (x\u22482.05, y\u22481.22, z\u2248+0.05).",
+      "description": "Forward-facing camera recording video synchronized with logger data. The AiM SmartyCam 3 Sport takes CAN data from AiM loggers (must be externally powered, 9–15 V) and overlays speed/rpm/gear/lap; other systems sync GoPro footage with MoTeC/ AiM data in post.",
+      "location": "Cage main hoop or roof bar behind driver, looking forward over the driver's shoulder (x≈2.05, y≈1.22, z≈+0.05).",
       "connectsTo": [
         "electrical.main-harness.can-bus-backbone",
         "electrical.power-distribution.pdm",
@@ -322,7 +327,7 @@
           "name": "AiM SmartyCam 3 Sport",
           "brand": "AiM",
           "partNumber": "",
-          "notes": "1080p, 67\u00b0/84\u00b0 lens, IP65, 9\u201315 V, CAN to AiM devices.",
+          "notes": "1080p, 67°/84° lens, IP65, 9–15 V, CAN to AiM devices.",
           "url": "https://xtramotorsport.com/product/aim-smartycam-3-sport/"
         },
         {
@@ -333,7 +338,7 @@
         }
       ],
       "specs": {
-        "Power": "9\u201315 V"
+        "Power": "9–15 V"
       },
       "hardware": [
         {
@@ -341,7 +346,7 @@
           "qty": 2,
           "spec": "M5/M6 through cage clamp",
           "grade": "",
-          "torque": "5 N\u00b7m",
+          "torque": "5 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -382,20 +387,25 @@
       "model": {
         "shape": "box",
         "pos": [
-          2.05,
-          1.22,
+          2.18,
+          1.2305,
           0.05
         ],
         "size": [
           0.0465,
           0.054,
           0.0799
+        ],
+        "rot": [
+          180,
+          0,
+          0
         ]
       },
       "modelRef": {
         "images": [
           {
-            "title": "AiM SmartyCam 3 Sport \u2013 79.9 x 54 x 46.5 mm (Bimmerworld)",
+            "title": "AiM SmartyCam 3 Sport – 79.9 x 54 x 46.5 mm (Bimmerworld)",
             "url": "https://www.bimmerworld.com/Gauges-Data-Acquisition/Video-Recording/AiM-SmartyCam-HD-Camera-System-84-Deg-Lens.html"
           },
           {
@@ -412,8 +422,8 @@
       "id": "electrical.comms-video-timing.transponder",
       "name": "Timing transponder (MyLaps)",
       "qty": 1,
-      "description": "Active timing transponder required by most sanctioning bodies. Direct-power units (MyLaps TR2 Direct Power / X2 RaceLink Club) are wired to switched 12 V on a 2.5 A fuse with chassis ground (TR2 guide: brown +12 V, blue ground; seal unused white/black). Mount vertical, \u2264 60 cm above ground, with clear view of the track surface (no metal or carbon below it); front wheel well area is the preferred car location in the TR2 guide. Subscription-based.",
-      "location": "Right-side front wheel well area or rocker/ floor near the front, typically passenger side (x\u22480.35, y\u22480.35, z\u2248-0.80) \u2013 confirm series requirement.",
+      "description": "Active timing transponder required by most sanctioning bodies. Direct-power units (MyLaps TR2 Direct Power / X2 RaceLink Club) are wired to switched 12 V on a 2.5 A fuse with chassis ground (TR2 guide: brown +12 V, blue ground; seal unused white/black). Mount vertical, ≤ 60 cm above ground, with clear view of the track surface (no metal or carbon below it); front wheel well area is the preferred car location in the TR2 guide. Subscription-based.",
+      "location": "Right-side front wheel well area or rocker/ floor near the front, typically passenger side (x≈0.35, y≈0.35, z≈-0.80) – confirm series requirement.",
       "connectsTo": [
         "electrical.power-distribution.aux-fuse-block",
         "electrical.grounding.front-ground-stud"
@@ -428,7 +438,7 @@
           "name": "MyLaps X2 RaceLink Club transponder kit",
           "brand": "MyLaps",
           "partNumber": "10C100 (kit)",
-          "notes": "7\u201318 V, includes M8 power cable for direct power use.",
+          "notes": "7–18 V, includes M8 power cable for direct power use.",
           "url": "https://discoveryparts.com/products/mylaps-x2-racelink-club-transponder-kit-pcc-legal"
         },
         {
@@ -440,7 +450,7 @@
         }
       ],
       "specs": {
-        "Supply": "7\u201318 V, 2.5 A fuse",
+        "Supply": "7–18 V, 2.5 A fuse",
         "Max height": "60 cm above ground (car)"
       },
       "hardware": [
@@ -449,7 +459,7 @@
           "qty": 2,
           "spec": "M5 screws or heavy zip ties through holder",
           "grade": "",
-          "torque": "2 N\u00b7m",
+          "torque": "2 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -496,11 +506,11 @@
       "modelRef": {
         "images": [
           {
-            "title": "MyLaps TR2 car transponder \u2013 73 x 50 x 22 mm, 110 g (Harris Race Radios)",
+            "title": "MyLaps TR2 car transponder – 73 x 50 x 22 mm, 110 g (Harris Race Radios)",
             "url": "https://harrisraceradios.com/product/mylaps-tr2-car-transponder/"
           }
         ],
-        "dimensions": "73 x 50 x 22 mm, mount \u2264 60 cm above ground with clear view of the track loop.",
+        "dimensions": "73 x 50 x 22 mm, mount ≤ 60 cm above ground with clear view of the track loop.",
         "features": "Black sealed housing with mounting ears and label, cable gland for direct power.",
         "confidence": "published"
       }

@@ -400,11 +400,11 @@
         "pos": [
           0,
           0.3715,
-          0.703
+          0.6815
         ],
         "size": [
-          0.4,
-          0.4,
+          0.36,
+          0.36,
           0.002
         ],
         "axis": "z",
@@ -416,7 +416,8 @@
         "dimensions": "~400 mm stamped shield behind the rotor, cut out around the caliper",
         "features": "Stamped steel, turned outer lip, 3 bolt holes to the knuckle",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     }
   ]
 }

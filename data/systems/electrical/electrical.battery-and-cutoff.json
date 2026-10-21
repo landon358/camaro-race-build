@@ -456,9 +456,9 @@
         {
           "shape": "box",
           "pos": [
-            3.17,
-            0.4225,
-            -0.62
+            3.47,
+            0.4485,
+            -0.58
           ],
           "size": [
             0.06,
@@ -719,9 +719,9 @@
         {
           "shape": "box",
           "pos": [
-            1.08,
-            0.525,
-            0.02
+            1.075,
+            0.5915,
+            -0.05
           ],
           "size": [
             0.072,
@@ -819,21 +819,7 @@
           "url": "https://classicmotorsports.com/forum/grm/battery-cutoff-switch/205475/page1"
         }
       ],
-      "model": [
-        {
-          "shape": "box",
-          "pos": [
-            0.7,
-            1.035,
-            0.45
-          ],
-          "size": [
-            0.1,
-            0.02,
-            0.1
-          ]
-        }
-      ],
+      "model": [],
       "modelRef": {
         "images": [
           {
@@ -844,7 +830,8 @@
         "dimensions": "FIA/NASA marking triangle ~100 mm sides with a ~22 mm remote button (estimated).",
         "features": "Blue triangle with white edge and red spark decal, red push button / pull handle at the windshield base.",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "safety.kill-switches.external-t-handle"
     },
     {
       "id": "electrical.battery-and-cutoff.internal-kill-switch",
@@ -988,14 +975,14 @@
         {
           "shape": "box",
           "pos": [
-            3.17,
-            0.4225,
-            -0.5
+            3.27,
+            0.4425,
+            -0.405
           ],
           "size": [
-            0.045,
+            0.1,
             0.035,
-            0.1
+            0.045
           ]
         }
       ],

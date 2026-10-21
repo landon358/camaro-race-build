@@ -8,8 +8,8 @@
       "id": "drivetrain.rear-differential.differential-assembly",
       "name": "Rear differential assembly (226 mm, eLSD)",
       "qty": 1,
-      "description": "Aluminum-cased independent-rear-suspension differential carried in the rear cradle on three bushings (two front, one rear). ZL1/1LE cars use a 226 mm unit with a GM electronic limited-slip differential (eLSD): a hydraulically actuated clutch pack that varies locking between 0 and 2,000 N\u00b7m (1,475 lb-ft) breakaway torque and reaches full engagement within 0.150 s, integrated with Performance Traction Management. Ratio 3.73:1 with the manual transmission.",
-      "location": "Rear cradle, center at x\u22482.80, y\u22480.36, z=0; pinion faces forward (flange x\u22482.62); halfshafts plug in each side.",
+      "description": "Aluminum-cased independent-rear-suspension differential carried in the rear cradle on three bushings (two front, one rear). ZL1/1LE cars use a 226 mm unit with a GM electronic limited-slip differential (eLSD): a hydraulically actuated clutch pack that varies locking between 0 and 2,000 N·m (1,475 lb-ft) breakaway torque and reaches full engagement within 0.150 s, integrated with Performance Traction Management. Ratio 3.73:1 with the manual transmission.",
+      "location": "Rear cradle, center at x≈2.80, y≈0.36, z=0; pinion faces forward (flange x≈2.62); halfshafts plug in each side.",
       "connectsTo": [
         "suspension.rear-cradle.cradle",
         "drivetrain.rear-differential.front-mount-bushings",
@@ -45,8 +45,8 @@
         "Ring gear size": "226 mm",
         "Ratio (manual)": "3.73:1",
         "Ratio (ZL1 auto)": "2.85:1",
-        "eLSD range": "0-2,000 N\u00b7m (1,475 lb-ft) breakaway",
-        "eLSD response": "\u22640.150 s to full engagement",
+        "eLSD range": "0-2,000 N·m (1,475 lb-ft) breakaway",
+        "eLSD response": "≤0.150 s to full engagement",
         "Mounts": "2 front bushings + 1 rear bushing to cradle"
       },
       "fluids": [
@@ -65,7 +65,7 @@
       "installNotes": [
         "Fit new mount bushings/lockouts to the housing or cradle first (see mount components).",
         "Raise diff into cradle on a jack; start the large rear bolt by hand to avoid cross-threading, then the two front bolts.",
-        "Torque front bolts, then rear TAY bolt (162 ft-lb + 60\u00b0).",
+        "Torque front bolts, then rear TAY bolt (162 ft-lb + 60°).",
         "Install halfshafts (seat circlips), connect eLSD harness/vent/cooler lines, fill with fluid before first rotation.",
         "Set pinion angle relative to trans output to keep driveshaft joint angles within maker limits."
       ],
@@ -241,7 +241,7 @@
       "name": "eLSD hydraulic actuator & clutch pack",
       "qty": 1,
       "description": "Electro-hydraulic actuator (motor-driven pump/piston) that clamps the eLSD clutch pack. Has its own sealed actuation fluid (160 mL). Control comes from the GM chassis controller over the vehicle network.",
-      "location": "Side of the differential housing (x\u22482.82, y\u22480.30, z\u2248-0.18).",
+      "location": "Side of the differential housing (x≈2.82, y≈0.30, z≈-0.18).",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "drivetrain.rear-differential.elsd-control-module"
@@ -273,7 +273,7 @@
           "qty": 4,
           "spec": "M8 (typ.)",
           "grade": "",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "OEM",
           "safetyWire": false,
@@ -336,7 +336,7 @@
       "name": "eLSD control module / harness",
       "qty": 1,
       "description": "Electronic control for the eLSD (modes 1-4 tied to traction/stability/PTM settings). Part of the GM chassis network; requires GM ECM/EBCM data to function.",
-      "location": "On/near the differential (x\u22482.90, y\u22480.46, z\u2248+0.15).",
+      "location": "On/near the differential (x≈2.90, y≈0.46, z≈+0.15).",
       "connectsTo": [
         "drivetrain.rear-differential.elsd-actuator",
         "electrical.harness.chassis-harness",
@@ -356,7 +356,7 @@
           "qty": 2,
           "spec": "M6",
           "grade": "",
-          "torque": "7 ft-lb (10 N\u00b7m)",
+          "torque": "7 ft-lb (10 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -413,7 +413,7 @@
       "name": "Differential front mount bushings",
       "qty": 2,
       "description": "Two rubber bushings at the front ears of the differential that bolt it to the rear cradle. Large voids allow pinion wind-up and wheel hop; lockout inserts, poly or aluminum bushings stop the movement.",
-      "location": "Front ears of diff housing, x\u22482.68, y\u22480.42, z\u2248\u00b10.13, bolted to rear cradle.",
+      "location": "Front ears of diff housing, x≈2.68, y≈0.42, z≈±0.13, bolted to rear cradle.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "suspension.rear-cradle.cradle"
@@ -452,7 +452,7 @@
           "qty": 1,
           "spec": "18 mm hex bolt (OEM)",
           "grade": "OEM",
-          "torque": "45 ft-lb (61 N\u00b7m)",
+          "torque": "45 ft-lb (61 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -524,7 +524,7 @@
       "name": "Differential rear mount bushing",
       "qty": 1,
       "description": "Single large bushing at the rear of the differential, through-bolted to the rear of the cradle with a large torque-angle-yield bolt.",
-      "location": "Rear of diff housing / rear cradle cross-member, x\u22483.00, y\u22480.40, z=0.",
+      "location": "Rear of diff housing / rear cradle cross-member, x≈3.00, y≈0.40, z=0.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "suspension.rear-cradle.cradle"
@@ -549,8 +549,8 @@
           "qty": 1,
           "spec": "Large bolt, 24 mm head (OEM)",
           "grade": "OEM TAY",
-          "torque": "162 ft-lb (220 N\u00b7m) + 60\u00b0",
-          "torqueSequence": "Thread in by hand to avoid misalignment; torque to 162 ft-lb then turn an additional 60\u00b0",
+          "torque": "162 ft-lb (220 N·m) + 60°",
+          "torqueSequence": "Thread in by hand to avoid misalignment; torque to 162 ft-lb then turn an additional 60°",
           "threadlocker": "none (OEM coated)",
           "safetyWire": false,
           "reuse": "Replace (TTY)",
@@ -617,7 +617,7 @@
       "name": "Pinion flange, nut & pinion seal",
       "qty": 1,
       "description": "Flange on the pinion shaft that receives the rear driveshaft coupler or the one-piece shaft flange; pinion seal behind it keeps lube in. Pinion nut sets bearing preload - do not loosen casually.",
-      "location": "Front of diff, x\u22482.62, y\u22480.36, z=0.",
+      "location": "Front of diff, x≈2.62, y≈0.36, z=0.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "drivetrain.driveshaft.rear-flex-coupler",
@@ -695,7 +695,7 @@
       "name": "Differential side (axle) seals",
       "qty": 2,
       "description": "Lip seals where each halfshaft enters the diff. Damaged easily when installing halfshafts - use a seal protector.",
-      "location": "Left/right output bores, x\u22482.80, y\u22480.36, z\u2248\u00b10.17.",
+      "location": "Left/right output bores, x≈2.80, y≈0.36, z≈±0.17.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "drivetrain.halfshafts.halfshaft"
@@ -751,7 +751,7 @@
       "name": "Differential cover & gasket / RTV",
       "qty": 1,
       "description": "Rear cover of the differential housing. Seal with the GM-specified gasket or RTV bead. Finned aluminum race covers add capacity and cooling and can carry cooler ports and a temp sensor boss.",
-      "location": "Rear face of diff, x\u22482.96, y\u22480.36.",
+      "location": "Rear face of diff, x≈2.96, y≈0.36.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "drivetrain.rear-differential.fill-drain-plugs",
@@ -775,12 +775,12 @@
           "qty": 10,
           "spec": "M8 x 1.25 (typ.)",
           "grade": "8.8",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "Criss-cross pattern",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists differential carrier cover bolts at 38 N\u00b7m (28 ft-lb) on the 200 mm axle. For the 225 mm axle it lists Torx bolts at 105 N\u00b7m and hex bolts at 90 N\u00b7m first pass, plus side cover bolts at 54 N\u00b7m. Those larger values are for structural housing bolts, not M8 cover screws. Identify your axle and bolt size before torquing. Still an estimate.",
+          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists differential carrier cover bolts at 38 N·m (28 ft-lb) on the 200 mm axle. For the 225 mm axle it lists Torx bolts at 105 N·m and hex bolts at 90 N·m first pass, plus side cover bolts at 54 N·m. Those larger values are for structural housing bolts, not M8 cover screws. Identify your axle and bolt size before torquing. Still an estimate.",
           "confidence": "estimate",
           "source": ""
         }
@@ -845,7 +845,7 @@
       "name": "Differential fill and drain plugs",
       "qty": 1,
       "description": "Fill/level plug and (magnetic) drain plug. Fill to the bottom of the fill hole with the car level. Use new washers/O-rings.",
-      "location": "Fill: rear/side of housing (x\u22482.95, y\u22480.39). Drain: bottom (x\u22482.82, y\u22480.23).",
+      "location": "Fill: rear/side of housing (x≈2.95, y≈0.39). Drain: bottom (x≈2.82, y≈0.23).",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly"
       ],
@@ -874,12 +874,12 @@
           "qty": 1,
           "spec": "OEM plug + seal",
           "grade": "",
-          "torque": "33 ft-lb (45 N\u00b7m)",
+          "torque": "33 ft-lb (45 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Replace seal",
-          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential fill plug at 45 N\u00b7m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
+          "notes": "Estimate - confirm GM SI. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential fill plug at 45 N·m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -888,12 +888,12 @@
           "qty": 1,
           "spec": "OEM plug + seal",
           "grade": "",
-          "torque": "33 ft-lb (45 N\u00b7m)",
+          "torque": "33 ft-lb (45 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Replace seal",
-          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential drain plug at 45 N\u00b7m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists the differential drain plug at 45 N·m (33 lb ft). CORRECTED from a 22 ft-lb estimate.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         }
@@ -964,7 +964,7 @@
       "name": "Differential vent / breather hose",
       "qty": 1,
       "description": "Breather that relieves housing pressure. Extend with a hose to a high point or catch bottle so hot lube is not pushed out onto the exhaust/brakes.",
-      "location": "Top of housing (x\u22482.80, y\u22480.50) with hose up into trunk area.",
+      "location": "Top of housing (x≈2.80, y≈0.50) with hose up into trunk area.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly"
       ],
@@ -1052,7 +1052,7 @@
       "name": "Differential temperature sensor (race add-on)",
       "qty": 1,
       "description": "Fluid temperature sensor logged on the race dash and used to switch the diff cooler pump. Diff temps climb fast on track - GM warns of high rear axle temperatures on a first track event.",
-      "location": "Cover boss or cooler pickup fitting (x\u22482.95, y\u22480.30, z\u2248-0.08).",
+      "location": "Cover boss or cooler pickup fitting (x≈2.95, y≈0.30, z≈-0.08).",
       "connectsTo": [
         "drivetrain.rear-differential.cover-and-gasket",
         "drivetrain.coolers.diff-cooler-pump",
@@ -1076,7 +1076,7 @@
           "qty": 1,
           "spec": "1/8 NPT",
           "grade": "",
-          "torque": "\u224810-15 ft-lb (14-20 N\u00b7m)",
+          "torque": "≈10-15 ft-lb (14-20 N·m)",
           "torqueSequence": "",
           "threadlocker": "Thread sealant",
           "safetyWire": false,

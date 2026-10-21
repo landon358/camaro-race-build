@@ -47,7 +47,7 @@ export function printTorqueCard({ title, ids }) {
     </tbody></table>`).join('');
   printHtml(`
     <h1>${esc(title)}</h1>
-    <div class="p-sub">Team Camaro Racing · TPR Racing · ${n} torque specs · printed ${esc(today())}.
+    <div class="p-sub">TPR Racing · ${n} torque specs · printed ${esc(today())}.
       Verified = from GM or the part maker. Typical = common published value. Estimate = confirm before torquing. Mark = witness mark painted after torquing.</div>
     ${body || '<p>No torque values recorded for these parts.</p>'}`);
 }
@@ -61,7 +61,7 @@ export function printChecklist(items, title = 'Between-sessions inspection') {
   }
   printHtml(`
     <h1>${esc(title)}</h1>
-    <div class="p-sub">Team Camaro Racing · TPR Racing · ${items.length} checks · printed ${esc(today())}. Event: ____________________</div>
+    <div class="p-sub">TPR Racing · ${items.length} checks · printed ${esc(today())}. Event: ____________________</div>
     ${[...byZone].map(([z, list]) => `<h2>${esc(zoneName(z))}</h2><table><thead><tr><th style="width:30%">Part</th><th>Check</th><th style="width:8mm">OK</th><th style="width:30mm">Notes</th></tr></thead><tbody>
       ${list.map((it) => `<tr><td>${esc(it.c.displayName)}</td><td>${esc(it.text)}</td><td><span class="p-box"></span></td><td></td></tr>`).join('')}
     </tbody></table>`).join('')}`);

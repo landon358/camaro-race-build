@@ -336,8 +336,9 @@ const axial = {
     return b.build();
   },
 
-  // Kooks-style oval race muffler: rolled lock-seam ends, centre 3 in stubs.
-  engine_support_muffler(L, D1, D2) {
+  // Kooks-style oval race muffler: rolled lock-seam ends, 3 in stubs. variant 'lowInlet': the inlet (-X)
+  // stub sits low in the oval so the mid pipe can pass under the rear cradle brace; outlet stays centred.
+  engine_support_muffler(L, D1, D2, ctx) {
     const b = new PartBuilder();
     const body = L * 0.83;
     const R = 0.5;
@@ -346,7 +347,8 @@ const axial = {
     // lock seam along the bottom
     b.add(box(body - 0.03, 0.006, 0.01, 0.002), 'stainless', [0, -D1 * 0.49, D2 * 0.05]);
     const pr = 0.038, stub = (L - body) / 2 + 0.005;
-    for (const s of [-1, 1]) b.add(cylX(pr, stub, 20), 'stainless', [s * (body / 2 + stub / 2 - 0.004), 0, 0]);
+    const lowDy = ctx?.variant === 'lowInlet' ? -Math.max(0, D1 / 2 - pr - 0.002) : 0;
+    for (const s of [-1, 1]) b.add(cylX(pr, stub, 20), 'stainless', [s * (body / 2 + stub / 2 - 0.004), s < 0 ? lowDy : 0, 0]);
     return b.build();
   },
 
@@ -545,10 +547,14 @@ const axial = {
     prof.push([R * 0.95, -L / 2 + body], [0.0001, -L / 2 + body]);
     b.add(latheX(prof, 32), 'satin');
     b.add(cylX(R * 1.02, L * 0.07, 32), 'machined', [-L / 2 + body + L * 0.035, 0, 0]);
-    for (const zz of [-R * 0.45, R * 0.45]) {
-      b.add(hexX(0.011, 0.012), 'blue', [-L / 2 + body + L * 0.07 + 0.006, 0, zz]);
-      b.add(cylX(0.0075, 0.02, 12), 'red', [-L / 2 + body + L * 0.07 + 0.02, 0, zz]);
+    const lid = -L / 2 + body + L * 0.07;
+    // three -10 AN inlet bungs (two crankcase breathers + dry-sump tank vent); local y = world -x when vertical
+    for (const [yy, zz] of [[R * 0.56, R * 0.56], [R * 0.56, -R * 0.56], [-R * 0.56, R * 0.56]]) {
+      b.add(hexX(0.011, 0.012), 'blue', [lid + 0.006, yy, zz]);
+      b.add(cylX(0.0075, 0.02, 12), 'red', [lid + 0.02, yy, zz]);
     }
+    // centre outlet riser carrying the breather filter
+    b.add(cylX(0.008, 0.04, 14), 'machined', [lid + 0.02, 0, 0]);
     b.add(hexX(0.008, 0.012), 'blue', [-L / 2 - 0.006, 0, 0]);
     b.add(cylX(0.003, L * 0.12, 6), 'chrome', [L / 2 - L * 0.06, R * 0.5, 0]);
     return b.build();
@@ -651,7 +657,7 @@ const boxes = {
     neckX(b, [sx / 2 - 0.005, 0.66 - 0.48, zt], 0.019, 0.05, 'plastic'); // inlet (driver, top)
     neckX(b, [sx / 2 - 0.005, 0.28 - 0.48, -zt], 0.021, 0.05, 'plastic'); // outlet (passenger, bottom)
     b.add(cylY(0.005, 0.03, 10), 'plastic', [0, sy / 2 + 0.015, zt]); // degas nipple
-    for (const z of [-0.3, 0.3]) for (const s of [-1, 1]) b.add(cylY(0.006, 0.03, 10), 'plastic', [0, s * (sy / 2 + 0.01), z]);
+    for (const z of [-0.3, 0.3]) for (const s of [-1, 1]) b.add(cylY(0.006, 0.03, 10), 'plastic', [-sx / 2 + 0.005, s * (sy / 2 + 0.01), z]); // isolator pins (front edge, into the support-rail grommets)
     // tank ribs
     for (const s of [-1, 1]) for (let i = -3; i <= 3; i++) b.add(box(sx * 0.4, 0.006, tw * 0.9, 0.002), 'plastic', [sx / 2, i * sy * 0.12, s * zt]);
     return b.build();
@@ -872,13 +878,18 @@ const boxes = {
     for (let i = 0; i < bays; i++) {
       const x = -sx / 2 + ((i + 0.5) / bays) * sx * 0.95;
       b.add(box(sx / bays - 0.03, 0.012, sz * 0.5, 0.005), 'machined', [x, -sy / 2 - 0.004, 0]);
-      b.add(hexX(0.014, 0.014), 'blue', [x, -sy * 0.15, side * (sz * 0.46 + 0.006)], [0, PI / 2, 0]);
       b.add(cylZ(0.004, 0.006, 6), 'chrome', [x, -sy / 2 - 0.012, sz * 0.18], [PI / 2, 0, 0]);
+    }
+    // -12 scavenge outlets grouped on the passenger side ahead of the starter (rear bays drain forward
+    // through internal pickup tubes); 35 mm pitch, matching the scavenge-line start points.
+    // (outlets at a fixed 35 mm pitch from the front edge, which sits just behind the rack / cradle crossmember)
+    for (let i = 0; i < 4; i++) {
+      b.add(hexX(0.014, 0.014), 'blue', [-sx / 2 + 0.025 + i * 0.035, -sy * 0.15, side * (sz * 0.46 + 0.006)], [0, PI / 2, 0]);
     }
     // fins on the outboard driver side
     for (let i = 0; i < 6; i++) b.add(box(sx * 0.8, 0.004, 0.008, 0.001), 'machined', [0, -sy / 2 + 0.012 + i * 0.012, -side * (sz * 0.46 + 0.004)]);
-    // front pressure inlet boss
-    b.add(hexX(0.014, 0.014), 'blue', [-sx / 2 - 0.007, 0, side * sz * 0.33]);
+    // front pressure inlet boss (on the centreline, under the flat rack-relief front cover)
+    b.add(hexX(0.014, 0.014), 'blue', [-sx / 2 - 0.007, 0, 0]);
     // rail bolts
     for (let i = 0; i < 9; i++) for (const s of [-1, 1]) b.add(cylY(0.004, 0.005, 6), 'chrome', [-sx / 2 + 0.02 + (i / 8) * (sx - 0.04), sy / 2 + 0.002, s * (sz / 2 + 0.004)]);
     return b.build();
@@ -898,17 +909,18 @@ const boxes = {
 
   // Rubber-lined bands holding the round oil tank + mounting plate on the fender side.
   engine_support_tankBands(sx, sy, sz, ctx) {
-    const side = ctx?.side || 1;
+    const side = -(ctx?.side || 1); // inboard, towards the frame rail
     const b = new PartBuilder();
     const R = Math.min(sx, sz) / 2 - 0.006;
     for (const yy of [-sy / 2 + 0.03, sy / 2 - 0.03]) {
       const g = ringX(R + 0.004, R, 0.025, 40);
       b.add(g, 'satin', [0, yy, 0], [0, 0, PI / 2]);
       b.add(ringX(R, R - 0.003, 0.027, 40), 'rubber', [0, yy, 0], [0, 0, PI / 2]);
-      b.add(box(0.02, 0.025, 0.03, 0.002), 'satin', [0, yy, side * (R + 0.015)]);
-      b.add(cylX(0.003, 0.03, 6), 'chrome', [0, yy, side * (R + 0.018)]);
+      b.add(box(0.03, 0.025, 0.006, 0.001), 'satin', [0, yy, side * (R + 0.0065)]);
+      for (const xx of [-0.01, 0.01]) b.add(cylZ(0.003, 0.016, 6), 'chrome', [xx, yy, side * (R + 0.008)]);
     }
-    b.add(box(sx * 0.6, sy, 0.005, 0.002), 'aluminum', [0, 0, side * (R + 0.032)]);
+    // plate bolted to the frame-rail outer face, 14 mm gap tank-to-rail
+    b.add(box(sx * 0.6, sy, 0.005, 0.002), 'aluminum', [0, 0, side * (R + 0.0115)]);
     return b.build();
   },
 
@@ -1060,8 +1072,9 @@ const paths = {
       const rr = clamp(r, 0.018, 0.028);
       b.add(tubeAlong(curve, rr, null, 14), 'stainless');
       const p = pts[0];
-      b.add(box(0.112, 0.068, 0.0095, 0.004), 'stainless', [p.x, p.y, p.z - 0.002]);
-      for (const s of [-1, 1]) b.add(cylZ(0.0075, 0.012, 6), 'chrome', [p.x + s * 0.03, p.y + s * 0.027, p.z + 0.006]);
+      const sz = Math.sign(p.z) || 1;
+      b.add(box(0.112, 0.068, 0.0095, 0.004), 'stainless', [p.x, p.y, p.z - sz * 0.002]);
+      for (const s of [-1, 1]) b.add(cylZ(0.0075, 0.012, 6), 'chrome', [p.x + s * 0.03, p.y + s * 0.027, p.z + sz * 0.006]);
       return b.build();
     }
     const rr = clamp(r, 0.03, 0.05);
@@ -1118,11 +1131,11 @@ const paths = {
       b.addMatrix(sphere(1, 20, 12), 'stainless', new THREE.Matrix4().compose(c, new THREE.Quaternion(), V(rr * 2.6, rr * 1.05, rr * 1.6)));
     }
     if (v === 'cat') {
-      const c = curve.getPointAt(0.55), tan = curve.getTangentAt(0.55);
-      const body = latheX([[rr, -0.5], [rr * 1.45, -0.3], [rr * 1.45, 0.3], [rr, 0.5]], 28);
+      const c = curve.getPointAt(0.75), tan = curve.getTangentAt(0.75); // cat body on the level run under the floor
+      const body = latheX([[rr, -0.5], [rr * 1.3, -0.3], [rr * 1.3, 0.3], [rr, 0.5]], 28);
       b.addMatrix(body, 'stainless', alignX(c.clone().addScaledVector(tan, -0.09), c.clone().addScaledVector(tan, 0.09), 1));
       // heat-shield seam bands
-      for (const s of [-0.05, 0.05]) seg(b, UCYL24, 'stainless', c.clone().addScaledVector(tan, s - 0.003), c.clone().addScaledVector(tan, s + 0.003), rr * 2.95);
+      for (const s of [-0.05, 0.05]) seg(b, UCYL24, 'stainless', c.clone().addScaledVector(tan, s - 0.003), c.clone().addScaledVector(tan, s + 0.003), rr * 2.65);
     }
     if (v === 'side') {
       const pe = pts[pts.length - 1];
@@ -1220,7 +1233,7 @@ const rules = [
   [id('exhaust\\.mid-pipes'), 'engine_support_pipe', { variant: 'mid' }],
   [id('exhaust\\.tailpipes'), 'engine_support_pipe', { variant: 'tips' }],
   [id('exhaust\\.side-exit-option'), 'engine_support_pipe', { variant: 'side' }],
-  [id('exhaust\\.mufflers'), 'engine_support_muffler'],
+  [id('exhaust\\.mufflers'), 'engine_support_muffler', { variant: 'lowInlet' }],
   [id('exhaust\\.flex-joints'), 'engine_support_flex'],
   [id('exhaust\\.o2-sensors'), 'engine_support_sensor', { variant: 'o2' }],
   [id('exhaust\\.egt-probes'), 'engine_support_sensor', { variant: 'egt' }],
@@ -1262,9 +1275,9 @@ const rules = [
   [id('induction\\.throttle-body-interface'), 'engine_support_tbRing'],
   // lubrication
   [id('lubrication\\.factory-wet-sump-pan'), 'engine_support_wetSump'],
-  [id('lubrication\\.dry-sump-pan'), 'engine_support_drySumpPan'],
+  [id('lubrication\\.dry-sump-pan'), 'engine_support_drySumpPan', { prim: true }], // prim 1 = flat front cover over the rack (plain)
   [id('lubrication\\.dry-sump-pump'), 'engine_support_dryPump'],
-  [id('lubrication\\.pump-bracket'), 'engine_support_pumpBracket'],
+  [id('lubrication\\.pump-bracket'), 'engine_support_pumpBracket', { prim: true }], // arms (prims 1+) stay plain boxes
   [id('lubrication\\.drive-mandrel'), 'engine_support_mandrel'],
   [id('lubrication\\.(crank-drive-pulley|pump-pulley)'), 'engine_support_htdPulley'],
   [id('lubrication\\.drive-belt'), 'engine_support_htdBelt'],

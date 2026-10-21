@@ -1,187 +1,254 @@
 {
- "id": "body.lighting-housings",
- "system": "body",
- "name": "Lighting Housings",
- "description": "Factory headlamp and tail-lamp housings retained or replaced with lightweight covers; fog/DRL deletes. Lamp wiring and rain light belong to electrical.",
- "components": [
-  {
-   "id": "body.lighting-housings.headlamps",
-   "name": "Headlamp assemblies (retain or delete covers)",
-   "qty": 2,
-   "description": "Factory LED headlamps are heavy and expensive to crash; endurance cars keep them, sprint cars swap to lightweight covers or decals where rules allow.",
-   "location": "x ≈ −0.80, y ≈ 0.72, z ±0.68.",
-   "connectsTo": [
-    "body.panels.front-fascia",
-    "electrical.main-harness.front-harness"
-   ],
-   "factory": {
-    "name": "GM Camaro LED/HID headlamp assembly",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [
+  "id": "body.lighting-housings",
+  "system": "body",
+  "name": "Lighting Housings",
+  "description": "Factory headlamp and tail-lamp housings retained or replaced with lightweight covers; fog/DRL deletes. Lamp wiring and rain light belong to electrical.",
+  "components": [
     {
-     "name": "Headlight delete cover (ABS/composite) or decal",
-     "brand": "various",
-     "partNumber": "",
-     "notes": "",
-     "url": ""
-    }
-   ],
-   "specs": {},
-   "hardware": [
+      "id": "body.lighting-housings.headlamps",
+      "name": "Headlamp assemblies (retain or delete covers)",
+      "qty": 2,
+      "description": "Factory LED headlamps are heavy and expensive to crash; endurance cars keep them, sprint cars swap to lightweight covers or decals where rules allow.",
+      "location": "x ≈ −0.80, y ≈ 0.72, z ±0.68.",
+      "connectsTo": [
+        "body.panels.front-fascia",
+        "electrical.main-harness.front-harness"
+      ],
+      "factory": {
+        "name": "GM Camaro LED/HID headlamp assembly",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Headlight delete cover (ABS/composite) or decal",
+          "brand": "various",
+          "partNumber": "",
+          "notes": "",
+          "url": ""
+        }
+      ],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Headlamp mounting bolts",
+          "qty": 3,
+          "spec": "M6 x 1.0 (GM OE)",
+          "grade": "GM OE",
+          "torque": "6.6 ft-lb (9 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 18,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.8,
+          0.72,
+          0.68
+        ],
+        "size": [
+          0.25,
+          0.1,
+          0.35
+        ],
+        "mirror": true,
+        "color": "#f4f6f7"
+      }
+    },
     {
-     "item": "Headlamp mounting bolts",
-     "qty": 3,
-     "spec": "M6 x 1.0 (GM OE)",
-     "grade": "GM OE",
-     "torque": "6.6 ft-lb (9 N·m)",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "estimate",
-     "source": "",
-     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
-    }
-   ],
-   "installNotes": [],
-   "inspection": [],
-   "buildPhase": 10,
-   "installOrder": 18,
-   "tags": [],
-   "sources": [],
-   "model": {
-    "shape": "box",
-    "pos": [
-     -0.8,
-     0.72,
-     0.68
-    ],
-    "size": [
-     0.25,
-     0.1,
-     0.35
-    ],
-    "mirror": true,
-    "color": "#f4f6f7"
-   }
-  },
-  {
-   "id": "body.lighting-housings.tail-lamps",
-   "name": "Tail lamp assemblies",
-   "qty": 2,
-   "description": "Factory tail lamps typically retained (brake lights required by most series).",
-   "location": "x ≈ 3.80, y ≈ 0.85, z ±0.60.",
-   "connectsTo": [
-    "body.panels.rear-fascia",
-    "electrical.main-harness.rear-harness"
-   ],
-   "factory": {
-    "name": "GM Camaro tail lamp",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [],
-   "specs": {},
-   "hardware": [
+      "id": "body.lighting-housings.tail-lamps",
+      "name": "Tail lamp assemblies",
+      "qty": 2,
+      "description": "Factory tail lamps typically retained (brake lights required by most series).",
+      "location": "x ≈ 3.80, y ≈ 0.85, z ±0.60.",
+      "connectsTo": [
+        "body.panels.rear-fascia",
+        "electrical.main-harness.rear-harness"
+      ],
+      "factory": {
+        "name": "GM Camaro tail lamp",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Tail lamp nuts",
+          "qty": 4,
+          "spec": "M6 x 1.0 nut (GM OE)",
+          "grade": "GM OE",
+          "torque": "5.2 ft-lb (7 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "Brake lights work."
+      ],
+      "buildPhase": 10,
+      "installOrder": 19,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          3.8,
+          0.85,
+          0.6
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.4
+        ],
+        "mirror": true,
+        "color": "#c0392b"
+      }
+    },
     {
-     "item": "Tail lamp nuts",
-     "qty": 4,
-     "spec": "M6 x 1.0 nut (GM OE)",
-     "grade": "GM OE",
-     "torque": "5.2 ft-lb (7 N·m)",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "estimate",
-     "source": "",
-     "notes": "Estimate for this fastener size/grade – confirm in GM service information for 2016–2024 Camaro."
+      "id": "body.lighting-housings.drl-fog-delete",
+      "name": "Lower DRL/fog delete panels",
+      "qty": 2,
+      "description": "Blanking/ducting panels in the lower fascia where DRLs/fogs were (ZL1 1LE deletes the lower DRL); often turned into brake-duct inlets.",
+      "location": "Lower fascia, x ≈ −0.92, y ≈ 0.35, z ±0.60.",
+      "connectsTo": [
+        "body.panels.front-fascia",
+        "brakes.cooling.front-duct-inlet"
+      ],
+      "factory": {
+        "name": "1LE: lower DRL deleted with unique splitter",
+        "partNumber": "",
+        "notes": "Per GM Authority option list."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Push rivets / screws",
+          "qty": 4,
+          "spec": "Plastic push rivets or M5 screws",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 20,
+      "tags": [],
+      "sources": [
+        {
+          "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
+          "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.7041,
+            0.4275,
+            0.5952
+          ],
+          "size": [
+            0.004,
+            0.125,
+            0.0454
+          ],
+          "rot": [
+            0,
+            28.3,
+            0
+          ],
+          "mirror": true,
+          "color": "#222222"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6114,
+            0.4275,
+            0.7673
+          ],
+          "size": [
+            0.004,
+            0.125,
+            0.0056
+          ],
+          "rot": [
+            0,
+            28.3,
+            0
+          ],
+          "mirror": true,
+          "color": "#222222"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6531,
+            0.48,
+            0.69
+          ],
+          "size": [
+            0.004,
+            0.02,
+            0.17
+          ],
+          "rot": [
+            0,
+            28.3,
+            0
+          ],
+          "mirror": true,
+          "color": "#222222"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6531,
+            0.3725,
+            0.69
+          ],
+          "size": [
+            0.004,
+            0.015,
+            0.17
+          ],
+          "rot": [
+            0,
+            28.3,
+            0
+          ],
+          "mirror": true,
+          "color": "#222222"
+        }
+      ]
     }
-   ],
-   "installNotes": [],
-   "inspection": [
-    "Brake lights work."
-   ],
-   "buildPhase": 10,
-   "installOrder": 19,
-   "tags": [],
-   "sources": [],
-   "model": {
-    "shape": "box",
-    "pos": [
-     3.8,
-     0.85,
-     0.6
-    ],
-    "size": [
-     0.1,
-     0.1,
-     0.4
-    ],
-    "mirror": true,
-    "color": "#c0392b"
-   }
-  },
-  {
-   "id": "body.lighting-housings.drl-fog-delete",
-   "name": "Lower DRL/fog delete panels",
-   "qty": 2,
-   "description": "Blanking/ducting panels in the lower fascia where DRLs/fogs were (ZL1 1LE deletes the lower DRL); often turned into brake-duct inlets.",
-   "location": "Lower fascia, x ≈ −0.92, y ≈ 0.35, z ±0.60.",
-   "connectsTo": [
-    "body.panels.front-fascia",
-    "brakes.cooling.front-duct-inlet"
-   ],
-   "factory": {
-    "name": "1LE: lower DRL deleted with unique splitter",
-    "partNumber": "",
-    "notes": "Per GM Authority option list."
-   },
-   "raceOptions": [],
-   "specs": {},
-   "hardware": [
-    {
-     "item": "Push rivets / screws",
-     "qty": 4,
-     "spec": "Plastic push rivets or M5 screws",
-     "grade": "n/a",
-     "torque": "N/A",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "typical",
-     "source": ""
-    }
-   ],
-   "installNotes": [],
-   "inspection": [],
-   "buildPhase": 10,
-   "installOrder": 20,
-   "tags": [],
-   "sources": [
-    {
-     "title": "GM Authority – 2023 ZL1 1LE options (RPO T42, CFW)",
-     "url": "https://gmauthority.com/blog/2023/05/the-2023-chevy-camaro-zl1-1le-is-under-constraint/"
-    }
-   ],
-   "model": {
-    "shape": "box",
-    "pos": [
-     -0.92,
-     0.35,
-     0.6
-    ],
-    "size": [
-     0.05,
-     0.08,
-     0.2
-    ],
-    "mirror": true,
-    "color": "#222222"
-   }
-  }
- ]
+  ]
 }

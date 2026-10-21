@@ -261,15 +261,16 @@ const paths = {
     return b.build();
   },
 
-  /** Window-net mounting rod with weld-on tabs at both ends. */
-  safety_netRod(pts, r) {
+  /** Window-net mounting rod with weld-on tabs at both ends (tabs rise to the tube above; variant 'down': drop to the tube below). */
+  safety_netRod(pts, r, ctx) {
     const rr = clamp(r, 0.004, 0.008);
     const b = new PartBuilder();
     const a = pts[0], z = pts[pts.length - 1];
     const dir = V().subVectors(z, a).normalize();
     b.addMatrix(cylX(rr, 1, 10), 'machined', frameAt(a.clone().lerp(z, 0.5), dir).multiply(new THREE.Matrix4().makeScale(a.distanceTo(z), 1, 1)));
+    const dn = ctx?.variant === 'down' ? -1 : 1;
     for (const p of [a, z]) {
-      b.addMatrix(box(0.02, 0.05, 0.004, 0.002), 'cage', frameAt(p.clone().add(V(0, 0.022, 0)), dir));
+      b.addMatrix(box(0.02, 0.05, 0.004, 0.002), 'cage', frameAt(p.clone().add(V(0, dn * 0.022, 0)), dir));
       b.addMatrix(cylX(rr * 1.6, 0.012, 10), 'black', frameAt(p, dir));
     }
     return b.build();
@@ -466,11 +467,12 @@ const axial = {
   },
 
   /** External kill-switch / fire pull T-handle on the cowl (length = shaft along axis). */
-  safety_tHandle(L, D1, D2) {
+  safety_tHandle(L, D1, D2, ctx) {
+    // variant 'fire': red fire-system pull handle; default: yellow electrical cut-off pull
     const b = new PartBuilder();
     b.add(cylX(0.004, L, 8), 'chrome', [-L * 0.1, 0, 0]);
     b.add(cylX(0.012, 0.006, 16), 'black', [-L / 2 + 0.003, 0, 0]);
-    b.add(box(0.012, Math.max(D1, D2) * 0.9, 0.012, 0.004), 'yellow', [L / 2 - 0.006, 0, 0]);
+    b.add(box(0.012, Math.max(D1, D2) * 0.9, 0.012, 0.004), ctx?.variant === 'fire' ? 'red' : 'yellow', [L / 2 - 0.006, 0, 0]);
     return b.build();
   },
 };
@@ -590,11 +592,17 @@ const boxes = {
   },
 
   /** Lever-action window-net latch (spring-rod receiver on the roof bar). */
-  safety_netLatch(sx, sy, sz) {
+  safety_netLatch(sx, sy, sz, ctx) {
+    // clamp block on the cage tube (top), rod receiver, over-centre lever and a red pull tab toward the driver (inboard)
     const b = new PartBuilder();
+    const inb = -(Math.sign(ctx?.pos?.[2] ?? 1) || 1);
     b.add(box(sx, sy * 0.35, sz, 0.004), 'machined', [0, sy * 0.3, 0]);
+    // weld-on tab from the clamp block up onto the cage tube
+    b.add(box(sx * 0.6, 0.014, 0.004, 0.001), 'cage', [0, sy * 0.475 + 0.006, 0]);
     b.add(box(sx * 0.9, 0.008, sz * 0.5, 0.003), 'yellow', [-sx * 0.05, -sy * 0.05, 0], [0, 0, -0.35]);
     b.add(cylZ(0.006, sz * 1.1, 10), 'chrome', [sx * 0.3, sy * 0.3, 0]);
+    b.add(box(0.012, 0.008, 0.04, 0.003), 'red', [-sx * 0.1, -sy * 0.12, inb * (sz / 2 + 0.018)]);
+    b.add(torusX(0.008, 0.002, 6, 14), 'red', [-sx * 0.1, -sy * 0.12, inb * (sz / 2 + 0.042)], [0, PI / 2, 0]);
     return b.build();
   },
 
@@ -675,12 +683,59 @@ const boxes = {
     return b.build();
   },
 
-  /** Display mount bracket (behind the dash display). */
+  /** Display mount: cradle/bezel around the dash display — 3 mm back plate plus a 12 mm wide frame (box depth = sx)
+   *  that wraps the display edges, with four bezel screws on the driver-facing (+x) face. */
   safety_displayMount(sx, sy, sz) {
     const b = new PartBuilder();
-    b.add(box(Math.min(sx, 0.004), sy, sz, 0.002), 'satin');
-    for (const s of [-1, 1]) b.add(box(sx, sy * 0.8, 0.004, 0.001), 'satin', [0, 0, s * (sz / 2 - 0.002)]);
-    for (const u of [-1, 1]) for (const v of [-1, 1]) b.add(cylX(0.005, 0.008, 8), 'chrome', [sx / 2, v * sy * 0.3, u * sz * 0.35]);
+    const fw = 0.012;
+    b.add(box(0.003, sy, sz, 0.001), 'satin', [-sx / 2 + 0.0015, 0, 0]);
+    const frame = shapeFrom(roundRectPts(sz, sy, 0.008), [roundRectPts(sz - 2 * fw, sy - 2 * fw, 0.004).reverse()]);
+    b.add(extrudeX(frame, sx), 'black');
+    for (const u of [-1, 1]) for (const v of [-1, 1]) b.add(cylX(0.003, 0.002, 8), 'chrome', [sx / 2 + 0.001, v * (sy / 2 - fw / 2), u * (sz / 2 - fw / 2)]);
+    return b.build();
+  },
+
+  /** Safety decal lying on a body surface (thin along the box's smallest dimension, outward = +normal; for a decal on a
+   *  vertical x-facing surface the outward side is picked from the car end it sits on).
+   *  variant 'spark' = electrical cut-off symbol: blue triangle, white border, red spark;
+   *  'fire' = fire-system marking: white disc, red border, red 'E'; 'arrow' = tow-point arrow (yellow on black) pointing down. */
+  safety_decal(sx, sy, sz, ctx) {
+    const d = [sx, sy, sz];
+    const ti = thinAxis(d);
+    const t = Math.max(0.0015, Math.min(d[ti], 0.003));
+    const [U, V] = ti === 2 ? [sx, sy] : ti === 0 ? [sz, sy] : [sx, sz];
+    const out = ti === 0 && (ctx?.pos?.[0] ?? 0) < 1.4 ? -1 : 1; // front-facing decal: layers stack toward -x
+    const b = new PartBuilder();
+    const rot = ti === 2 ? [0, 0, 0] : ti === 0 ? [0, PI / 2, 0] : [-PI / 2, 0, 0];
+    const lay = (pts, fin, k) => {
+      const g = extrudeZ(shapeFrom(pts), t / 3);
+      g.translate(0, 0, out * (-t / 2 + (k + 0.5) * (t / 3)));
+      b.add(g, fin, [0, 0, 0], rot);
+    };
+    const v = ctx?.variant;
+    if (v === 'fire') {
+      const R = Math.min(U, V) / 2;
+      lay(circlePts(0, 0, R, 32, false), 'red', 0);
+      lay(circlePts(0, 0, R * 0.84, 32, false), 'cage', 1);
+      const w = R * 0.8, h = R * 1.04, s = R * 0.18;
+      lay([[-w / 2, -h / 2], [w / 2, -h / 2], [w / 2, -h / 2 + s], [-w / 2 + s, -h / 2 + s], [-w / 2 + s, -s / 2], [w * 0.35, -s / 2],
+        [w * 0.35, s / 2], [-w / 2 + s, s / 2], [-w / 2 + s, h / 2 - s], [w / 2, h / 2 - s], [w / 2, h / 2], [-w / 2, h / 2]], 'red', 2);
+    } else if (v === 'spark') {
+      const S = Math.min(U, V / 0.866), H = S * 0.866;
+      const tri = (k) => [[-S * k / 2, -H * k / 3], [S * k / 2, -H * k / 3], [0, (2 * H * k) / 3]];
+      lay(tri(1), 'cage', 0);
+      lay(tri(0.82), 'blue', 1);
+      const bolt = [[0.04, 0.3], [-0.1, 0.02], [0.0, 0.02], [-0.07, -0.24], [0.11, 0.07], [0.01, 0.07], [0.1, 0.3]].map(([x, y]) => [x * S, y * S - H * 0.05]);
+      lay(bolt, 'red', 2);
+    } else {
+      // tow arrow pointing down (-V) at the strap
+      lay(roundRectPts(U, V, 0.004), 'black', 0);
+      const head = V * 0.42;
+      const arrow = [[-0.14 * U, V / 2 - 0.006], [0.14 * U, V / 2 - 0.006], [0.14 * U, -V / 2 + head], [0.4 * U, -V / 2 + head], [0, -V / 2 + 0.005],
+        [-0.4 * U, -V / 2 + head], [-0.14 * U, -V / 2 + head]];
+      lay(arrow, 'yellow', 1);
+      lay(arrow, 'yellow', 2);
+    }
     return b.build();
   },
 
@@ -715,8 +770,27 @@ const boxes = {
   },
 
   /** Dead pedal: angled footrest plate with lightening holes on a floor bracket (inside its box). */
-  safety_deadPedal(sx, sy, sz) {
+  safety_deadPedal(sx, sy, sz, ctx) {
     const b = new PartBuilder();
+    if (thinAxis([sx, sy, sz]) === 1) {
+      // The box IS the angled footrest plate (tilted by the model rot about z): plate with lightening holes and grip
+      // slots, a floor tab under the low end and a support web from the high end down to the floor (world vertical).
+      const t = Math.min(sy, 0.006);
+      const a = THREE.MathUtils.degToRad(+(ctx?.m?.rot?.[2]) || 0);
+      const holes = [-0.28, 0, 0.28].map((f) => circlePts(f * sx, 0, Math.min(0.016, sz * 0.15), 14));
+      b.add(extrudeY(shapeFrom(roundRectPts(sx, sz, 0.012), holes), t), 'aluminum');
+      for (const f of [-0.42, -0.14, 0.14, 0.42]) b.add(box(0.006, 0.002, sz * 0.7, 0.0005), 'black', [f * sx, t / 2 + 0.001, 0]);
+      const hi = a < 0 ? -1 : 1; // plate end that is up in the world
+      const H = Math.abs(sx * Math.sin(a)); // drop from the high end to the low end (which rests on the floor)
+      const up = [Math.sin(a), Math.cos(a)]; // world up expressed in the plate frame
+      const P = [hi * (sx / 2 - 0.012), -t / 2];
+      b.add(box(0.004, H, sz * 0.8, 0.001), 'aluminum', [P[0] - up[0] * H / 2, P[1] - up[1] * H / 2, 0], [0, 0, -a]);
+      // floor tab: horizontal in the world, running from the low end away from the high end
+      const wx = -hi * 0.02, wy = -0.0015;
+      const L = [-hi * (sx / 2) + wx * Math.cos(a) + wy * Math.sin(a), -t / 2 - wx * Math.sin(a) + wy * Math.cos(a)];
+      b.add(box(0.04, 0.003, sz * 0.8, 0.001), 'aluminum', [L[0], L[1], 0], [0, 0, -a]);
+      return b.build();
+    }
     const th = 0.61; // plate ~55 deg from horizontal, face toward the driver (rear/up)
     const L = Math.min((sy * 0.9) / Math.cos(th), (sx * 0.8) / Math.sin(th));
     b.add(new THREE.BoxGeometry(0.004, L, sz * 0.9), 'aluminum', [sx * 0.1, 0.01, 0], [0, 0, th]);
@@ -803,32 +877,71 @@ const boxes = {
   },
 
   /** Louvred vent panel (hood extractor / fender louvres): frame + angled slats across z. */
-  safety_louvers(sx, sy, sz) {
+  safety_louvers(sx, sy, sz, ctx) {
+    // variant 'bend:R' bends the panel across z about a centre of curvature R below it (louvres let into a crowned fender)
+    const R = String(ctx?.variant || '').startsWith('bend:') ? parseFloat(ctx.variant.slice(5)) : 0;
     const b = new PartBuilder();
-    const fw = 0.02, t = Math.min(sy, 0.004);
-    const frame = shapeFrom(roundRectPts(sx, sz, 0.02), [roundRectPts(sx - 2 * fw, sz - 2 * fw, 0.012).reverse()]);
-    b.add(extrudeY(frame, t), 'carbon', [0, sy / 2 - t / 2, 0]);
+    const fw = R ? 0.012 : 0.02, t = Math.min(sy, 0.004);
+    const seg = R ? 10 : 1;
+    if (!R) {
+      const frame = shapeFrom(roundRectPts(sx, sz, 0.02), [roundRectPts(sx - 2 * fw, sz - 2 * fw, 0.012).reverse()]);
+      b.add(extrudeY(frame, t), 'carbon', [0, sy / 2 - t / 2, 0]);
+    } else {
+      for (const s of [-1, 1]) b.add(new THREE.BoxGeometry(sx, t, fw, 6, 1, 2), 'carbon', [0, sy / 2 - t / 2, s * (sz / 2 - fw / 2)]);
+      for (const s of [-1, 1]) b.add(new THREE.BoxGeometry(fw, t, sz - 2 * fw, 1, 1, seg), 'carbon', [s * (sx / 2 - fw / 2), sy / 2 - t / 2, 0]);
+    }
     const n = Math.max(3, Math.round((sx - 2 * fw) / 0.028));
+    const drop = R ? Math.min(sy * 0.5, 0.008) : Math.min(sy * 0.5, 0.012);
     for (let i = 0; i < n; i++) {
       const x = -sx / 2 + fw + ((i + 0.5) / n) * (sx - 2 * fw);
-      b.add(new THREE.BoxGeometry(0.026, 0.0025, sz - 2 * fw), 'carbon', [x, sy / 2 - Math.min(sy * 0.5, 0.012), 0], [0, 0, -0.6]);
+      b.add(new THREE.BoxGeometry(0.026, 0.0025, sz - 2 * fw, 1, 1, seg), 'carbon', [x, sy / 2 - drop, 0], [0, 0, -0.6]);
     }
-    return b.build();
+    const out = b.build();
+    if (R) {
+      out.traverse((o) => {
+        if (!o.isMesh) return;
+        const pa = o.geometry.attributes.position;
+        for (let i = 0; i < pa.count; i++) {
+          const y = pa.getY(i), z = pa.getZ(i), f = z / R, r = R + y;
+          pa.setY(i, r * Math.cos(f) - R);
+          pa.setZ(i, r * Math.sin(f));
+        }
+        pa.needsUpdate = true;
+        o.geometry.computeVertexNormals();
+        o.geometry.computeBoundingSphere();
+      });
+    }
+    return out;
   },
 
-  /** Rear diffuser: ramp panel, vertical strakes deepening to the rear, side fences. Local box (rot applied). */
-  safety_diffuser(sx, sy, sz) {
+  /** Rear diffuser: ramp panel, vertical strakes deepening to the rear, side fences. Local box (rot applied).
+   *  variant 'cut:len,z0,z1': exhaust cut-outs from the leading edge back `len` (along the ramp) between |z| z0 and z1;
+   *  strakes inside that band start behind the cut-out. */
+  safety_diffuser(sx, sy, sz, ctx) {
     const b = new PartBuilder();
     const t = 0.004, top = sy / 2 - t / 2;
-    b.add(new THREE.BoxGeometry(sx, t, sz), 'carbon', [0, top, 0]);
-    const strake = shapeFrom([[-sx / 2, 0], [sx / 2, 0], [sx / 2, -(sy - t)], [sx * 0.3, -(sy - t)]]);
+    const cut = /^cut:/.test(ctx?.variant || '') ? ctx.variant.slice(4).split(',').map(Number) : null;
+    const x0 = -sx / 2, xc = cut ? x0 + cut[0] : x0;
+    if (cut) {
+      const [, z0, z1] = cut;
+      // outline with the two notches open at the leading edge
+      const out = [[x0, -sz / 2], [sx / 2, -sz / 2], [sx / 2, sz / 2], [x0, sz / 2], [x0, z1], [xc, z1], [xc, z0], [x0, z0],
+        [x0, -z0], [xc, -z0], [xc, -z1], [x0, -z1]];
+      b.add(extrudeY(shapeFrom(out), t), 'carbon', [0, top, 0]);
+    } else {
+      b.add(new THREE.BoxGeometry(sx, t, sz), 'carbon', [0, top, 0]);
+    }
     const zs = [-0.5, -0.32, -0.12, 0.12, 0.32, 0.5];
     for (const k of zs) {
+      const zk = k * (sz - 0.006);
+      const xs = cut && Math.abs(zk) > cut[1] - 0.005 && Math.abs(zk) < cut[2] + 0.005 ? xc + 0.01 : -sx / 2;
+      const strake = shapeFrom([[xs, 0], [sx / 2, 0], [sx / 2, -(sy - t)], [Math.max(sx * 0.3, xs + 0.05), -(sy - t)]]);
       const g = extrudeZ(strake, k === -0.5 || k === 0.5 ? 0.005 : 0.004);
-      b.add(g, 'carbon', [0, sy / 2 - t, k * (sz - 0.006)]);
+      b.add(g, 'carbon', [0, sy / 2 - t, zk]);
     }
-    // leading-edge lip
-    b.add(box(0.02, 0.006, sz, 0.002), 'carbon', [-sx / 2 + 0.01, top - 0.004, 0]);
+    // leading-edge lip (split around the cut-outs)
+    const lips = cut ? [[-sz / 2, -cut[2]], [-cut[1], cut[1]], [cut[2], sz / 2]] : [[-sz / 2, sz / 2]];
+    for (const [a, c] of lips) b.add(box(0.02, 0.006, c - a, 0.002), 'carbon', [-sx / 2 + 0.01, top - 0.004, (a + c) / 2]);
     return b.build();
   },
 
@@ -948,6 +1061,7 @@ export default {
     [/^safety\.head-and-neck\.head-surround-padding$/, 'safety_headPad'],
     // ---------------- window net
     [/^safety\.window-net\.net$/, 'safety_windowNet'],
+    [/^safety\.window-net\.lower-mount$/, 'safety_netRod', { shapes: ['tube'], variant: 'down' }],
     [/^safety\.window-net\.(upper-mount-rod|lower-mount)$/, 'safety_netRod', { shapes: ['tube'] }],
     [/^safety\.window-net\.latch$/, 'safety_netLatch'],
     // ---------------- fire system, extinguisher, kill switch, tow
@@ -958,6 +1072,10 @@ export default {
     [/^safety\.fire-suppression\.engine-nozzles$/, 'safety_nozzle', { variant: 'engine' }],
     [/^safety\.fire-suppression\.bulkhead-fitting$/, 'safety_bulkhead'],
     [/^safety\.kill-switches\.external-t-handle$/, 'safety_tHandle'],
+    [/^safety\.fire-suppression\.(internal|external)-pull-cable$/, 'safety_tHandle', { shapes: ['cylinder'], variant: 'fire' }],
+    [/^safety\.kill-switches\.decal$/, 'safety_decal', { variant: 'spark' }],
+    [/^safety\.fire-suppression\.decals$/, 'safety_decal', { variant: 'fire' }],
+    [/^safety\.tow-hooks\.tow-markers$/, 'safety_decal', { variant: 'arrow', usesPos: true }],
     [/^safety\.tow-hooks\.(front|rear)-tow-strap$/, 'safety_towStrap'],
     // ---------------- interior
     [/^interior\.dash\.race-dash-panel$/, 'safety_dashPanel', { usesPos: true }],
@@ -980,11 +1098,12 @@ export default {
     [/^aero\.rear-wing\.uprights$/, 'safety_wingStand', { shapes: ['tube'] }],
     [/^aero\.rear-wing\.mount-plates$/, 'safety_cagePlate', { variant: 'carbon' }],
     [/^aero\.dive-planes-canards\./, 'safety_canard'],
+    [/^aero\.ducts-and-vents\.fender-louvers$/, 'safety_louvers', { variant: 'bend:0.17' }],
     [/^aero\.ducts-and-vents\.(hood-extractor|fender-louvers)$/, 'safety_louvers'],
     [/^aero\.ducts-and-vents\.fascia-inlets$/, 'safety_ductInlet'],
     [/^aero\.ducts-and-vents\.radiator-ducting$/, 'safety_radDuct'],
-    [/^aero\.rear-diffuser\.diffuser-panel$/, 'safety_diffuser'],
-    [/^aero\.side-skirts\.side-skirts$/, 'safety_sideSkirt'],
+    [/^aero\.rear-diffuser\.(diffuser-panel|diffuser-ramp)$/, 'safety_diffuser', { variant: 'cut:0.225,0.17,0.405' }],
+    [/^aero\.side-skirts\.(side-skirts|skirt-shells)$/, 'safety_sideSkirt'],
     [/^aero\.front-splitter\.support-rods$/, 'safety_splitterRod', { shapes: ['tube'] }],
   ],
   axial,

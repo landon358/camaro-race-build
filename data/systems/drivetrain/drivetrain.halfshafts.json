@@ -9,7 +9,7 @@
       "name": "Rear halfshaft assembly (L/R)",
       "qty": 2,
       "description": "Independent-rear-suspension drive shafts from the differential side gears to the rear hubs, each with a plunging inner CV and fixed outer CV. Left and right are different lengths/part numbers. On a race car with slicks and a race LSD, factory shafts are a known weak link under hard launches and curb strikes - upgraded shafts are common for high-power builds.",
-      "location": "From diff outputs (x\u22482.80, y\u22480.36, z\u2248\u00b10.17) to rear hub/knuckle (x\u22482.811, y\u22480.37, z\u2248\u00b10.72). Left (+z) shown; mirrored.",
+      "location": "From diff outputs (x≈2.80, y≈0.36, z≈±0.17) to rear hub/knuckle (x≈2.811, y≈0.37, z≈±0.72). Left (+z) shown; mirrored.",
       "connectsTo": [
         "drivetrain.rear-differential.differential-assembly",
         "drivetrain.rear-differential.axle-seals",
@@ -93,8 +93,8 @@
             ],
             [
               2.811,
-              0.37,
-              0.66
+              0.369,
+              0.8
             ]
           ],
           "radius": 0.0145,
@@ -122,7 +122,7 @@
       "name": "Inner CV joint (plunging)",
       "qty": 2,
       "description": "Plunging joint at the diff end that accommodates halfshaft length change through suspension travel.",
-      "location": "Inboard end of each halfshaft next to the diff (z\u2248\u00b10.22).",
+      "location": "Inboard end of each halfshaft next to the diff (z≈±0.22).",
       "connectsTo": [
         "drivetrain.halfshafts.halfshaft",
         "drivetrain.rear-differential.differential-assembly",
@@ -203,7 +203,7 @@
       "name": "Outer CV joint (fixed)",
       "qty": 2,
       "description": "Fixed ball-type joint at the hub end; its splined stub passes through the hub bearing and is retained by the axle nut.",
-      "location": "Outboard end of each halfshaft at the hub (z\u2248\u00b10.66).",
+      "location": "Outboard end of each halfshaft at the hub (z≈±0.66).",
       "connectsTo": [
         "drivetrain.halfshafts.halfshaft",
         "suspension.rear-knuckle.hub-bearing",
@@ -247,13 +247,13 @@
         "shape": "cylinder",
         "pos": [
           2.811,
-          0.37,
-          0.69
+          0.3715,
+          0.71
         ],
         "size": [
           0.1,
           0.1,
-          0.15
+          0.19
         ],
         "axis": "z",
         "mirror": true
@@ -464,7 +464,7 @@
       "name": "Axle (hub) nut & washer",
       "qty": 2,
       "description": "Retains the outer CV stub in the hub bearing and preloads the joint/bearing interface. Single-use on GM applications; under-torque leads to fretted splines and clicking.",
-      "location": "Center of each rear hub, outboard (z\u2248\u00b10.74).",
+      "location": "Center of each rear hub, outboard (z≈±0.74).",
       "connectsTo": [
         "drivetrain.halfshafts.outer-cv-joint",
         "suspension.rear-knuckle.hub-bearing"
@@ -479,15 +479,15 @@
         {
           "item": "Rear axle (wheel drive shaft) nut",
           "qty": 1,
-          "spec": "OEM prevailing-torque nut + washer (large, \u2248M24-M27)",
+          "spec": "OEM prevailing-torque nut + washer (large, ≈M24-M27)",
           "grade": "OEM",
-          "torque": "199 ft-lb (270 N\u00b7m)",
+          "torque": "199 ft-lb (270 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (prevailing torque)",
           "safetyWire": false,
           "reuse": "Replace each removal",
-          "tool": "Large axle-nut socket, torque wrench \u2265300 N\u00b7m",
-          "notes": "Gen 6 GM SI may specify a torque+angle procedure - look it up before final torque. Torque with wheel on ground or brakes locked, never with an impact gun. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Rear wheel drive shaft nut 270 N\u00b7m (199 lb ft)', a Gen 6 value. The same table lists the rear wheel drive shaft to drive flange bolts (halfshaft to diff) at 50 N\u00b7m first pass; their final step is in SI.",
+          "tool": "Large axle-nut socket, torque wrench ≥300 N·m",
+          "notes": "Gen 6 GM SI may specify a torque+angle procedure - look it up before final torque. Torque with wheel on ground or brakes locked, never with an impact gun. Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual lists 'Rear wheel drive shaft nut 270 N·m (199 lb ft)', a Gen 6 value. The same table lists the rear wheel drive shaft to drive flange bolts (halfshaft to diff) at 50 N·m first pass; their final step is in SI.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         }
@@ -537,7 +537,7 @@
       "name": "Inner stub retaining circlip",
       "qty": 2,
       "description": "Spring circlip on the inner stub spline that snaps into a groove in the diff side gear, retaining the halfshaft axially.",
-      "location": "Inner stub spline inside the diff (z\u2248\u00b10.14).",
+      "location": "Inner stub spline inside the diff (z≈±0.14).",
       "connectsTo": [
         "drivetrain.halfshafts.inner-cv-joint",
         "drivetrain.rear-differential.differential-assembly"

@@ -8,8 +8,8 @@
       "id": "electrical.main-harness.firewall-bulkhead",
       "name": "Firewall bulkhead connector",
       "qty": 1,
-      "description": "Panel-mount circular connector pair that splits the engine harness from the cabin harness at the firewall so the engine can be removed without unpinning anything. Typical: Deutsch Autosport AS (MIL-DTL-38999 Series 1.5-derived) shell 18\u201322 jam-nut receptacle, or a Deutsch DRB/HD30 bulkhead on a budget build. Also seals the firewall (fire barrier).",
-      "location": "Passenger-side firewall, upper (x\u22480.66, y\u22480.72, z\u2248-0.30).",
+      "description": "Panel-mount circular connector pair that splits the engine harness from the cabin harness at the firewall so the engine can be removed without unpinning anything. Typical: Deutsch Autosport AS (MIL-DTL-38999 Series 1.5-derived) shell 18–22 jam-nut receptacle, or a Deutsch DRB/HD30 bulkhead on a budget build. Also seals the firewall (fire barrier).",
+      "location": "Passenger-side firewall, upper (x≈0.66, y≈0.72, z≈-0.30).",
       "connectsTo": [
         "electrical.engine-management.engine-harness",
         "electrical.main-harness.dash-harness",
@@ -23,10 +23,10 @@
       },
       "raceOptions": [
         {
-          "name": "Deutsch Autosport AS jam-nut receptacle + plug, shell 18\u201322",
+          "name": "Deutsch Autosport AS jam-nut receptacle + plug, shell 18–22",
           "brand": "TE Connectivity Deutsch",
           "partNumber": "",
-          "notes": "Shell 18 \u2248 66 x 22D contacts, shell 20 \u2248 79, shell 22 \u2248 100 (5 A per 22D contact; use size 20/16 contacts for power).",
+          "notes": "Shell 18 ≈ 66 x 22D contacts, shell 20 ≈ 79, shell 22 ≈ 100 (5 A per 22D contact; use size 20/16 contacts for power).",
           "url": "https://xtramotorsport.com/connectors/autosport-connectors/"
         },
         {
@@ -37,7 +37,7 @@
           "url": "https://www.efihardware.com/products/c514/Bulkhead-Connectors"
         },
         {
-          "name": "Souriau 8STA (interchangeable with AS when shell/keyway match \u2013 verify)",
+          "name": "Souriau 8STA (interchangeable with AS when shell/keyway match – verify)",
           "brand": "Souriau",
           "partNumber": "",
           "notes": ""
@@ -53,7 +53,7 @@
           "qty": 1,
           "spec": "Supplied AS jam nut",
           "grade": "",
-          "torque": "Per TE AS data \u2013 hand tight + ~1/8 turn with strap wrench (estimate)",
+          "torque": "Per TE AS data – hand tight + ~1/8 turn with strap wrench (estimate)",
           "threadlocker": "none",
           "safetyWire": true,
           "reuse": "Reusable",
@@ -106,7 +106,7 @@
           "url": "https://xtramotorsport.com/connectors/autosport-connectors/"
         },
         {
-          "title": "HPA \u2013 bulkhead connector practice",
+          "title": "HPA – bulkhead connector practice",
           "url": "https://www.hpacademy.com/forum/practical-harness-construction-club-level/show/bulkhead-connector-for-everything-or-hardwire-as-much-as-possible/"
         }
       ],
@@ -126,7 +126,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "Deutsch AS shell 18\u201322 jam-nut receptacle: flange \u00d8~45\u201350 mm (estimated).",
+        "dimensions": "Deutsch AS shell 18–22 jam-nut receptacle: flange Ø~45–50 mm (estimated).",
         "features": "Black zinc-nickel jam-nut receptacle through the firewall, mating plug and Raychem boots both sides.",
         "confidence": "estimated"
       }
@@ -136,7 +136,7 @@
       "name": "Dash harness",
       "qty": 1,
       "description": "Cabin harness connecting ECU, PDM, dash/logger, keypad, steering-wheel connector, master/kill switches, pedal sensor, tuning port, radio and camera. Usually built as one assembly with the electronics panel.",
-      "location": "Behind the dash bar, passenger to driver side (y\u22480.60\u20130.75, x\u22481.0\u20131.2).",
+      "location": "Behind the dash bar, passenger to driver side (y≈0.60–0.75, x≈1.0–1.2).",
       "connectsTo": [
         "electrical.main-harness.firewall-bulkhead",
         "electrical.power-distribution.pdm",
@@ -152,7 +152,7 @@
       },
       "raceOptions": [],
       "specs": {
-        "Wire": "M22759/32 22\u201314 AWG",
+        "Wire": "M22759/32 22–14 AWG",
         "Jacket": "DR-25 or Raychem/ Roundit sleeve inside cabin"
       },
       "hardware": [
@@ -161,7 +161,7 @@
           "qty": 10,
           "spec": "Cage-tube clamps or Adel clamps, M5/M6",
           "grade": "",
-          "torque": "4\u20136 N\u00b7m",
+          "torque": "4–6 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -233,7 +233,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "Trunk \u00d8~24 mm over DR-25.",
+        "dimensions": "Trunk Ø~24 mm over DR-25.",
         "features": "Black DR-25 jacket with Adel clamps and Autosport connectors.",
         "confidence": "estimated"
       }
@@ -242,7 +242,7 @@
       "id": "electrical.main-harness.chassis-trunk",
       "name": "Chassis trunk harness (front-to-rear)",
       "qty": 1,
-      "description": "Main harness trunk from the dash/electronics panel along the passenger side of the tunnel (or sill) to the rear bulkhead \u2013 carries fuel pump power (often 2 x 12 AWG), rear lights, rain light, rear sensors, CAN backbone and damper-pot/IR sensor signals for the rear axle.",
+      "description": "Main harness trunk from the dash/electronics panel along the passenger side of the tunnel (or sill) to the rear bulkhead – carries fuel pump power (often 2 x 12 AWG), rear lights, rain light, rear sensors, CAN backbone and damper-pot/IR sensor signals for the rear axle.",
       "location": "Passenger side of the transmission tunnel at floor level inside the cabin, under the seat mounts' path, then up to the trunk bulkhead.",
       "connectsTo": [
         "electrical.main-harness.dash-harness",
@@ -256,7 +256,7 @@
       },
       "raceOptions": [],
       "specs": {
-        "Length": "\u2248 2.8\u20133.2 m"
+        "Length": "≈ 2.8–3.2 m"
       },
       "hardware": [
         {
@@ -264,7 +264,7 @@
           "qty": 10,
           "spec": "EPDM-lined P-clamp, 19 mm ID, M5 rivnut + screw every 300 mm",
           "grade": "",
-          "torque": "4 N\u00b7m (35 in-lb)",
+          "torque": "4 N·m (35 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -341,7 +341,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "Trunk \u00d8~24 mm, \u22482.8\u20133.2 m.",
+        "dimensions": "Trunk Ø~24 mm, ≈2.8–3.2 m.",
         "features": "Black DR-25 jacket along the passenger side of the tunnel.",
         "confidence": "estimated"
       }
@@ -351,7 +351,7 @@
       "name": "Rear bulkhead connector (trunk)",
       "qty": 1,
       "description": "Connector at the rear seat-back/trunk bulkhead separating the rear harness (fuel pumps, lights, rear sensors, battery isolator control) so the fuel cell area can be serviced independently.",
-      "location": "Rear bulkhead/package-tray area, passenger side (x\u22483.0, y\u22480.55, z\u2248-0.40).",
+      "location": "Rear bulkhead/package-tray area, passenger side (x≈3.0, y≈0.55, z≈-0.40).",
       "connectsTo": [
         "electrical.main-harness.chassis-trunk",
         "electrical.main-harness.rear-harness",
@@ -387,7 +387,7 @@
         }
       ],
       "installNotes": [
-        "The rear bulkhead between cabin and fuel cell must remain sealed (fire/fume barrier) \u2013 rules require it."
+        "The rear bulkhead between cabin and fuel cell must remain sealed (fire/fume barrier) – rules require it."
       ],
       "inspection": [
         "Seal intact."
@@ -446,7 +446,7 @@
           "qty": 8,
           "spec": "EPDM-lined, M5",
           "grade": "",
-          "torque": "4 N\u00b7m",
+          "torque": "4 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -505,7 +505,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "\u00d8~20 mm.",
+        "dimensions": "Ø~20 mm.",
         "features": "Black DR-25 jacket in the trunk to the tail lamps and rain light.",
         "confidence": "estimated"
       }
@@ -535,7 +535,7 @@
           "qty": 12,
           "spec": "EPDM-lined, M5/M6",
           "grade": "",
-          "torque": "4\u20136 N\u00b7m",
+          "torque": "4–6 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -605,7 +605,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "\u00d8~18 mm.",
+        "dimensions": "Ø~18 mm.",
         "features": "Black jacket along the inner fenders and radiator support.",
         "confidence": "estimated"
       }
@@ -614,7 +614,7 @@
       "id": "electrical.main-harness.can-bus-backbone",
       "name": "CAN bus backbone & terminations",
       "qty": 1,
-      "description": "Twisted-pair CAN backbone (1 Mbit/s) linking ECU, PDM, dash/logger, keypad, GPS/IMU, ABS module (if CAN-capable), tire-temp sensors, lambda controller and camera. Daisy-chained with short stubs (< 0.3 m) and a 120 \u03a9 termination at each physical end (total \u2248 60 \u03a9 measured across CAN-H/CAN-L with power off). Often split into an engine bus (ECU-PDM-dash) and a data bus (dash-sensors).",
+      "description": "Twisted-pair CAN backbone (1 Mbit/s) linking ECU, PDM, dash/logger, keypad, GPS/IMU, ABS module (if CAN-capable), tire-temp sensors, lambda controller and camera. Daisy-chained with short stubs (< 0.3 m) and a 120 Ω termination at each physical end (total ≈ 60 Ω measured across CAN-H/CAN-L with power off). Often split into an engine bus (ECU-PDM-dash) and a data bus (dash-sensors).",
       "location": "Inside the dash harness and chassis trunk.",
       "connectsTo": [
         "electrical.engine-management.ecu",
@@ -626,13 +626,13 @@
         "brakes.abs.bosch-motorsport-abs"
       ],
       "factory": {
-        "name": "GM GMLAN high-speed (500 kbit/s) CAN (GM lists Camaro through MY2019 as Global A; verify 2020\u20132024 \u2013 no evidence found of Global B/VIP on Camaro)",
+        "name": "GM GMLAN high-speed (500 kbit/s) CAN (GM lists Camaro through MY2019 as Global A; verify 2020–2024 – no evidence found of Global B/VIP on Camaro)",
         "partNumber": "",
         "notes": "Standalone controller kits do not need the body GMLAN network."
       },
       "raceOptions": [
         {
-          "name": "Twisted shielded pair 24 AWG (M27500-24TG2T14-style) with 120 \u03a9 termination resistors in DTM plugs",
+          "name": "Twisted shielded pair 24 AWG (M27500-24TG2T14-style) with 120 Ω termination resistors in DTM plugs",
           "brand": "",
           "partNumber": "",
           "notes": ""
@@ -640,14 +640,14 @@
       ],
       "specs": {
         "Bit rate": "1 Mbit/s typical (match all devices)",
-        "Termination": "2 x 120 \u03a9",
+        "Termination": "2 x 120 Ω",
         "Twist": "~33 twists/m"
       },
       "hardware": [
         {
           "item": "Termination resistor plugs",
           "qty": 2,
-          "spec": "120 \u03a9 0.25 W in DTM-2 or DTM-4 plug",
+          "spec": "120 Ω 0.25 W in DTM-2 or DTM-4 plug",
           "grade": "",
           "torque": "N/A",
           "threadlocker": "none",
@@ -658,7 +658,7 @@
         }
       ],
       "installNotes": [
-        "Measure ~60 \u03a9 between CAN-H and CAN-L with everything connected and powered off.",
+        "Measure ~60 Ω between CAN-H and CAN-L with everything connected and powered off.",
         "Check bus load on the dash/logger; keep < 60 %."
       ],
       "inspection": [
@@ -672,7 +672,7 @@
       ],
       "sources": [
         {
-          "title": "GM TechLink \u2013 Global A module identification",
+          "title": "GM TechLink – Global A module identification",
           "url": "https://gm-techlink.com/?p=11221"
         }
       ],
@@ -710,8 +710,13 @@
             0.1
           ],
           [
+            1.88,
+            1.338,
+            0
+          ],
+          [
             1.9,
-            1.345,
+            1.3574,
             0
           ]
         ],
@@ -719,7 +724,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "24 AWG twisted shielded pair, \u00d8~5 mm; DTM node connectors.",
+        "dimensions": "24 AWG twisted shielded pair, Ø~5 mm; DTM node connectors.",
         "features": "Thin twisted pair with white DTM plugs at each node.",
         "confidence": "estimated"
       }
@@ -728,7 +733,7 @@
       "id": "electrical.main-harness.wire-and-sleeving",
       "name": "Wire, heat-shrink jacket & sleeving (consumables)",
       "qty": 1,
-      "description": "Materials for the whole harness: M22759/32 ('Spec 55', XL-ETFE, 150 \u00b0C, 600 V, tinned copper) or M22759/44 (200 \u00b0C silver-plated) for hot areas; Raychem DR-25 (MIL-DTL-23053/16) heat-shrink jacket \u2013 needs ~175 \u00b0C surface temperature to recover, so only over Tefzel/PTFE wire; molded 202K/202D boots with RT-125 epoxy; reflective sleeve near headers.",
+      "description": "Materials for the whole harness: M22759/32 ('Spec 55', XL-ETFE, 150 °C, 600 V, tinned copper) or M22759/44 (200 °C silver-plated) for hot areas; Raychem DR-25 (MIL-DTL-23053/16) heat-shrink jacket – needs ~175 °C surface temperature to recover, so only over Tefzel/PTFE wire; molded 202K/202D boots with RT-125 epoxy; reflective sleeve near headers.",
       "location": "Throughout.",
       "connectsTo": [
         "electrical.main-harness.chassis-trunk",
@@ -756,9 +761,9 @@
         }
       ],
       "specs": {
-        "Signal": "22\u201324 AWG",
+        "Signal": "22–24 AWG",
         "Sensor power": "22 AWG",
-        "Load power": "16\u201312 AWG by current",
+        "Load power": "16–12 AWG by current",
         "Crimp": "Mil-spec ratcheting crimpers per contact size"
       },
       "hardware": [
@@ -817,7 +822,7 @@
           "url": "https://xtramotorsport.com/motorsport-wiring/raychem-dr-25-heat-shrink/"
         },
         {
-          "title": "HPA forum \u2013 M22759/32 vs Spec 55",
+          "title": "HPA forum – M22759/32 vs Spec 55",
           "url": "https://www.hpacademy.com/forum/efi-wiring-fundamentals/show/m2275932-vs-spec55-wire/"
         }
       ]
@@ -842,7 +847,7 @@
           "name": "TE Deutsch DT/DTM/DTP",
           "brand": "TE Connectivity",
           "partNumber": "",
-          "notes": "IP67/IP68 sealed, 125 \u00b0C.",
+          "notes": "IP67/IP68 sealed, 125 °C.",
           "url": "https://www.efihardware.com/products/c514/Bulkhead-Connectors"
         }
       ],
@@ -851,7 +856,7 @@
         {
           "item": "Panel grommets",
           "qty": 12,
-          "spec": "Rubber grommets for 19\u201332 mm holes",
+          "spec": "Rubber grommets for 19–32 mm holes",
           "grade": "",
           "torque": "N/A",
           "threadlocker": "none",
@@ -904,7 +909,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "Deutsch DT/DTM pairs 20\u201330 mm.",
+        "dimensions": "Deutsch DT/DTM pairs 20–30 mm.",
         "features": "Grey receptacle + black plug with orange wedge lock.",
         "confidence": "estimated"
       }

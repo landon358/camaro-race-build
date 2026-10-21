@@ -23,16 +23,21 @@ export const GEOM = {
   front: {
     wx: 0, wz: 0.776, et: 0.011, rimW: 11 * 0.0254, mount: 0.787, hubFace: 0.780,
     ringC: 0.733, ringT: 0.036, rotorR: 0.195, ringRi: 0.112, plateT: 0.011, bolts: 10,
-    cal: { th: 20 * D2R, a: 0.70, rin: 0.118, rout: 0.226, rb: 0.199, halfT: 0.030, padT: 0.0158, bpT: 0.006,
+    // rout 0.219: outer arc + 4.8 mm bevel stays >= 10 mm inside the 19 in barrel (inner r 0.2348)
+    cal: { th: 20 * D2R, a: 0.70, rin: 0.118, rout: 0.2175, rb: 0.199, halfT: 0.030, padT: 0.0158, bpT: 0.006,
       padRi: 0.126, padRo: 0.194, padA: 0.50, pistons: [0.030, 0.034, 0.038], windows: 2 },
     wellX: [0.049, 0.104],
   },
   rear: {
-    wx: 2.811, wz: 0.776, et: 0.041, rimW: 12 * 0.0254, mount: 0.817, hubFace: 0.808,
+    // race fitment: 19x11 ET54.5 with 305/30-19 (square to the front) so the tyre's outer face sits at
+    // z 0.915, inside the rear quarter lip; the mounting face (0.817) and hub/rotor/caliper are unchanged
+    wx: 2.811, wz: 0.7625, et: 0.0545, rimW: 11 * 0.0254, mount: 0.817, hubFace: 0.808,
     ringC: 0.759, ringT: 0.028, rotorR: 0.1825, ringRi: 0.106, plateT: 0.0085, bolts: 0,
     cal: { th: 20 * D2R, a: 0.55, rin: 0.112, rout: 0.207, rb: 0.186, halfT: 0.0265, padT: 0.014, bpT: 0.005,
       padRi: 0.120, padRo: 0.181, padA: 0.36, pistons: [0.028, 0.032], windows: 1 },
-    wellX: [0.060, 0.115],
+    wellX: [0.075, 0.096], // drop well kept outboard of the caliper's outer face (z 0.819)
+    // caliper mounting bracket (adapter plate) between the knuckle's outboard face and the caliper lugs
+    bracket: { z0: 0.681, rin: 0.090, rout: 0.119, ext: 0.17, pad: 0.019, lowZ: 0.6575 },
   },
 };
 // derived caliper z planes
@@ -122,6 +127,19 @@ function caliperBody(b, which, c0) {
     b.add(cylZ(0.017, c.halfT * 0.9, 20), 'red', [p[0], p[1], (c.zIn[0] + c.zIn[1]) / 2 + dz]);
     b.add(hexZ(0.0115, 0.009), 'steel', [p[0], p[1], c.zIn[0] - 0.006 + dz]);
     b.add(cylZ(0.0145, 0.002, 20), 'steel', [p[0], p[1], c.zIn[0] - 0.0012 + dz]);
+  }
+  // rear: caliper bracket plate bolted to the knuckle's outboard face, the caliper lugs bolt onto it
+  if (g.bracket) {
+    const k = g.bracket;
+    // an arc web under the piston bosses (seats on the knuckle's hub-ring face) and a round pad at each caliper lug
+    const z0 = k.z0 + dz, z1 = c.zIn[0] - 0.0004 + dz;
+    b.add(extZ(band(cx, cy, k.rin, k.rout, th - a - k.ext, th + a + k.ext), z0, z1, 0.0015, 20), 'black');
+    for (const s of [-1, 1]) {
+      // the lower (trailing) lug sits over a lower knuckle boss, so its pad carries a spacer down onto it
+      const t = th + s * (a + 0.08), r = c.rin + 0.016, zb = s < 0 ? k.lowZ + dz : z0;
+      b.add(cylZ(k.pad, z1 - zb, 24), 'black', [cx + r * Math.cos(t), cy + r * Math.sin(t), (zb + z1) / 2]);
+    }
+    // (knuckle bolts enter from the knuckle side; the caliper lug bolts thread into the plate)
   }
   // brake hose inlet boss (inboard face, upper/trailing end)
   const ti = th + a * 0.55, ri = which === 'front' ? 0.185 : 0.172;
@@ -349,16 +367,27 @@ const axial = {
       const r = 0.055 + 0.03 * Math.pow(lobe, 4);
       if (i === 0) ear.moveTo(r * Math.cos(t), r * Math.sin(t)); else ear.lineTo(r * Math.cos(t), r * Math.sin(t));
     }
+    // the mounting ears seat on the knuckle's outboard face (front: duct plate sandwiched between),
+    // measured from the wheel-flange face so the barrel length can change without moving them
+    const earIn = xFace - (rear ? 0.120 : 0.097);
     const eg = new THREE.ExtrudeGeometry(ear, { depth: 0.012, bevelEnabled: false });
-    eg.translate(0, 0, -h + 0.018);
+    eg.translate(0, 0, earIn);
     eg.applyMatrix4(new THREE.Matrix4().set(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1));
     b.add(eg, 'cast');
-    for (let k = 0; k < 3; k++) b.add(hexX(0.009, 0.008), 'steel', P(-h + 0.014, 0.075, (210 + k * 120) * D2R));
-    // wheel-speed sensor boss / connector
-    b.add(cylX(0.009, 0.02, 12), 'black', P(-h + 0.006, 0.05, 150 * D2R));
+    // 3 hub bolts: heads on the knuckle's inboard face (bolts pass through the knuckle into the ears)
+    const boltX = xFace - (rear ? 0.163 : 0.140) - 0.004;
+    for (let k = 0; k < 3; k++) {
+      const t = (210 + k * 120) * D2R;
+      b.add(hexX(0.009, 0.008), 'steel', P(boltX, 0.075, t));
+      b.add(cylX(0.0055, earIn - boltX + 0.012, 10), 'steel', P((boltX + earIn + 0.012) / 2, 0.075, t));
+    }
     // stud holes in flange
     for (let k = 0; k < 5; k++) b.add(cylX(0.0075, 0.0105, 12), 'black', P(xFace - 0.005, 0.06, LUG_ANG(k)));
-    if (rear) b.add(cylX(0.022, 0.012, 24), 'black', [h - 0.008, 0, 0]); // splined bore for the halfshaft
+    // rear: drive hub with an open female-splined bore through its full length for the CV stub
+    if (rear) {
+      b.add(cylX(0.016, L + 0.002, 24), 'black');
+      for (let k = 0; k < 12; k++) { const t = (k / 12) * 2 * PI; b.add(box(L + 0.0015, 0.003, 0.0035, 0), 'steel', P(0, 0.0165, t), radRot(t)); }
+    }
     return b.build();
   },
 
@@ -466,12 +495,17 @@ const axial = {
   // ---------------- wheel-speed sensor: active 2-wire, plastic body with mounting ear
   brakes_wss(L, D) {
     // sensing tip toward +X (outboard, into the bearing encoder), connector at -X
+    // Layout from the inboard end: connector head (proud of the knuckle), mounting ear that bolts to the
+    // knuckle's inboard face 16.5 mm in, then the sensing body through the knuckle bore to the encoder.
     const b = new PartBuilder();
     const h = L / 2, R = D / 2;
-    b.add(cylX(R * 0.55, L * 0.6, 14), 'plastic', [h - L * 0.3, 0, 0]);
-    b.add(box(0.004, R * 3.2, R * 1.6, 0.002), 'plastic', [0, R * 0.9, 0]);
-    b.add(box(L * 0.4, R * 1.2, R * 1.4, 0.002), 'plastic', [-h + L * 0.2, 0, 0]);
-    b.add(cylX(0.003, 0.004, 8), 'steel', [-0.003, R * 1.9, 0]);
+    const xe = -h + 0.0165; // ear centre
+    b.add(cylX(R * 0.55, h - xe, 14), 'plastic', [(h + xe) / 2, 0, 0]);
+    b.add(cylX(R * 0.62, 0.004, 14), 'black', [h - 0.002, 0, 0]);
+    b.add(box(0.004, R * 3.2, R * 1.6, 0.002), 'plastic', [xe, R * 0.9, 0]);
+    b.add(cylX(0.003, 0.006, 8), 'steel', [xe - 0.004, R * 1.9, 0]);
+    b.add(box(0.0125, R * 1.2, R * 1.4, 0.002), 'plastic', [-h + 0.00625, 0, 0]);
+    b.add(cylX(R * 0.3, 0.012, 8), 'black', [-h - 0.006, 0, 0]);
     return b.build();
   },
 
@@ -589,11 +623,29 @@ const axial = {
 
   // ---------------- duct backing plate (aluminium plate behind the rotor eye)
   brakes_ductPlate(L, D, D2, ctx) {
+    // Keyhole plate clamped between knuckle and hub ears: a disc that stays inside the pad inner radius,
+    // a forward lobe (150-210 deg) that carries the duct spigot, a hole for the hub barrel and the air port.
     const b = new PartBuilder();
-    const R = D / 2;
-    b.add(ringX(R, 0.06, Math.max(L, 0.003), 48), 'aluminum');
-    b.add(latheX([[0.06, L / 2], [R - 0.01, L / 2 + 0.012], [R, L / 2 + 0.012], [R, L / 2]], 48), 'aluminum');
-    for (let k = 0; k < 3; k++) b.add(hexX(0.008, 0.006), 'steel', P(-L / 2 - 0.003, 0.083, (210 + k * 120) * D2R));
+    const R = D / 2, t = Math.max(L, 0.003), RL = 0.16, a0 = 150 * D2R, a1 = 210 * D2R;
+    const s = new THREE.Shape();
+    s.absarc(0, 0, R, a1, a0 + 2 * PI, false); // the round part (trailing side, around the caliper)
+    // lobe: straight flanks out to RL, rounded nose
+    s.lineTo(RL * 0.8 * Math.cos(a0), RL * 0.8 * Math.sin(a0));
+    s.absarc(0, 0, RL, a0 + 0.08, a1 - 0.08, false);
+    s.lineTo(R * Math.cos(a1), R * Math.sin(a1));
+    s.holes.push(new THREE.Path().absarc(0, 0, 0.06, 0, 2 * PI, true));
+    const rp = 0.1186, ap = 174.4 * D2R; // duct port under the spigot
+    s.holes.push(new THREE.Path().absarc(rp * Math.cos(ap), rp * Math.sin(ap), 0.028, 0, 2 * PI, true));
+    const geo = new THREE.ExtrudeGeometry(s, { depth: t, bevelEnabled: false, curveSegments: 40 });
+    geo.translate(0, 0, -t / 2);
+    geo.applyMatrix4(new THREE.Matrix4().set(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1));
+    b.add(geo, 'aluminum');
+    // turned stiffening lip on the round part (outboard, 8 mm), kept inside the pad inner radius
+    const n = 28;
+    for (let i = 0; i < n; i++) {
+      const q = a1 + ((i + 0.5) / n) * (a0 + 2 * PI - a1);
+      b.add(box(0.008, 0.002, ((a0 + 2 * PI - a1) / n) * R * 1.05, 0), 'aluminum', P(t / 2 + 0.004, R - 0.001, q), radRot(q));
+    }
     return b.build();
   },
 
@@ -632,6 +684,14 @@ const axial = {
     b.add(cylX(0.009, 0.005, 14), 'stainless', P(0, Ro - 0.02, -PI / 2));
     b.add(cylX(0.008, 0.012, 12), 'steel', P(0, Ro - 0.015, PI / 2));
     b.add(cylZ(0.003, Ro * 0.9, 8), 'blue', P(0.004, Ro - 0.03, PI / 2).map((v, i) => (i === 2 ? 0 : v)));
+    return b.build();
+  },
+
+  // ---------------- thermal-paint indicator stripes on the rotor's outer edge (3 temperature grades)
+  brakes_paintBands(L, D) {
+    const b = new PartBuilder();
+    const R = D / 2, w = Math.min(0.0045, L * 0.14);
+    [['yellow', -0.3], ['orange', 0], ['red', 0.3]].forEach(([fin, f]) => b.add(ringX(R + 0.0007, R - 0.0015, w, 72), fin, [f * L, 0, 0]));
     return b.build();
   },
 
@@ -705,15 +765,19 @@ const boxes = {
 
   // ---------------- ABS delete / distribution tee (billet block + 3 AN fittings)
   brakes_teeBlock(sx, sy, sz) {
+    // billet tee: inlet port on the front (-x) face, outlet ports on both side (+/-z) faces, mounting bolt
     const b = new PartBuilder();
     b.add(box(sx * 0.7, sy * 0.7, sz * 0.7, 0.002), 'red');
     b.add(hexX(sy * 0.22, sx * 0.15), 'blue', [-sx / 2 + sx * 0.075, 0, 0]);
-    b.add(hexX(sy * 0.22, sx * 0.15), 'blue', [sx / 2 - sx * 0.075, 0, 0]);
-    const g = hexX(sy * 0.22, sz * 0.15); g.rotateY(PI / 2);
-    b.add(g, 'blue', [0, 0, sz / 2 - sz * 0.075]);
-    b.add(cylY(0.003, sy, 8), 'steel', [0, 0, -sz * 0.2]);
+    for (const s of [-1, 1]) {
+      const g = hexX(sy * 0.22, sz * 0.15); g.rotateY(PI / 2);
+      b.add(g, 'blue', [0, 0, s * (sz / 2 - sz * 0.075)]);
+    }
+    b.add(cylY(0.003, sy, 8), 'steel', [sx * 0.2, 0, 0]);
+    b.add(cylY(0.0055, 0.003, 6), 'steel', [sx * 0.2, sy * 0.35 + 0.0015, 0]);
     return b.build();
   },
+
 
   // ---------------- GM EPB cable-puller actuator (motor + gearbox + cable outlet)
   brakes_epb(sx, sy, sz) {
@@ -722,7 +786,10 @@ const boxes = {
     b.add(cylX(sy * 0.38, sx * 0.4, 20), 'satin', [-sx * 0.3, -sy * 0.05, 0]);
     b.add(box(sx * 0.15, sy * 0.35, sz * 0.4, 0.002), 'plastic', [sx * 0.2, sy * 0.5, 0]);
     b.add(cylX(0.008, sx * 0.12, 12), 'steel', [sx / 2 - sx * 0.06, -sy * 0.15, 0]);
-    for (const s of [-1, 1]) b.add(box(sx * 0.12, 0.004, sz * 0.3, 0), 'steel', [s * sx * 0.32, -sy / 2, s * sz * 0.45]);
+    for (const s of [-1, 1]) b.add(box(sx * 0.12, 0.004, sz * 0.3, 0), 'steel', [s * sx * 0.32, -sy / 2 + 0.006, s * sz * 0.45]);
+    // fabricated mounting bracket: base plate bolted to the panel below (4 bolts) under the actuator feet
+    b.add(box(sx * 1.08, 0.004, sz * 1.25, 0.001), 'steel', [0, -sy / 2 + 0.002, 0]);
+    for (const i of [-1, 1]) for (const k of [-1, 1]) b.add(cylY(0.0065, 0.004, 6), 'chrome', [i * sx * 0.48, -sy / 2 + 0.006, k * sz * 0.54]);
     return b.build();
   },
 
@@ -749,6 +816,49 @@ const boxes = {
     b.add(cylY(0.007, sy * 0.3, 12), 'black', [sx * 0.32, sy * 0.5, 0]);
     b.add(box(sx * 0.15, sy * 0.25, sz * 0.3, 0.002), 'plastic', [-sx * 0.3, sy * 0.4, 0]);
     for (const s of [-1, 1]) b.add(cylZ(0.009, 0.01, 12), 'rubber', [s * sx * 0.25, -sy * 0.45, 0]);
+    return b.build();
+  },
+
+  // ---------------- stamped hose bracket tab on the wheelhouse wall (normal = thinnest axis):
+  // one bolt, keyed U-clip slot for the hose end fitting, folded stiffening edge
+  brakes_hoseBracket(sx, sy, sz, ctx) {
+    const b = new PartBuilder();
+    const dims = [sx, sy, sz], n = dims.indexOf(Math.min(...dims));
+    const out = n === 2 ? ctx.side : 1; // wheel-well side of the plate
+    const t = dims[n];
+    b.add(box(sx, sy, sz, Math.min(0.001, t * 0.3)), 'steel');
+    if (n === 2) {
+      b.add(box(sx * 0.9, 0.003, 0.008, 0), 'steel', [0, sy / 2 - 0.0015, out * (t / 2 + 0.004)]);
+      const bolt = hexX(0.0065, 0.005); bolt.rotateY(PI / 2);
+      b.add(bolt, 'chrome', [-sx * 0.28, -sy * 0.15, out * (t / 2 + 0.0025)]);
+      b.add(box(0.008, sy * 0.45, t + 0.0006, 0), 'black', [sx * 0.18, sy * 0.1, 0]);
+      b.add(box(0.012, 0.0025, 0.002, 0), 'stainless', [sx * 0.18, sy * 0.1, out * (t / 2 + 0.001)]);
+    } else {
+      b.add(cylY(0.0065, 0.005, 6), 'chrome', [-sx * 0.28, sy / 2 + 0.0025, 0]);
+    }
+    return b.build();
+  },
+
+  // ---------------- factory BPMV bracket: level isolator plate on two legs down to the sloping frame-rail top
+  brakes_bpmvBracket(sx, sy, sz, ctx) {
+    const b = new PartBuilder();
+    const [px, py] = ctx.pos;
+    // front frame-rail centreline (chassis.unibody.front-frame-rails); its box section tops out 0.078 above it (probed)
+    const railTop = (x) => {
+      const P = [[-0.85, 0.47], [-0.45, 0.46], [0.2, 0.45], [0.42, 0.33], [0.62, 0.255], [0.95, 0.24]];
+      for (let i = 0; i < P.length - 1; i++) if (x <= P[i + 1][0]) { const f = (x - P[i][0]) / (P[i + 1][0] - P[i][0]); return P[i][1] + f * (P[i + 1][1] - P[i][1]) + 0.078; }
+      return 0.3;
+    };
+    b.add(box(sx, sy, sz, 0.002), 'steel');
+    for (const s of [-1, 1]) {
+      const lx = s * (sx / 2 - 0.012), top = -sy / 2, bot = railTop(px + lx) - py;
+      const hgt = top - bot;
+      if (hgt > 0.004) b.add(box(0.024, hgt, sz * 0.7, 0.001), 'steel', [lx, (top + bot) / 2, 0]);
+      b.add(box(0.03, 0.004, sz * 0.7, 0.001), 'steel', [lx, bot + 0.002, 0]);
+      b.add(cylY(0.007, 0.005, 6), 'chrome', [lx, bot + 0.0065, 0]);
+    }
+    for (const i of [-1, 1]) b.add(cylY(0.012, 0.012, 12), 'rubber', [i * sx * 0.3, sy / 2 + 0.006, 0]);
+    b.add(cylY(0.012, 0.012, 12), 'rubber', [0, sy / 2 + 0.006, sz * 0.32]);
     return b.build();
   },
 
@@ -900,18 +1010,30 @@ const whole = {
 
   // GM EBCM + BPMV (Bosch ESP-style): aluminium valve block, pump motor, black EBCM cover
   brakes_bpmv(min, max, ctx) {
+    // drawn from the data primitives: [0] valve block, [1] EBCM cover (rear face), [2] pump motor (axis x, forward)
     const c = ctx.center;
     const W = (x, y, z) => [x - c.x, y - c.y, z - c.z];
     const b = new PartBuilder();
-    const x = -0.30, y = 0.60, z = 0.55;
-    b.add(box(0.12, 0.10, 0.12, 0.004), 'aluminum', W(x, y, z));
-    b.add(latheX([[0.0001, 0.61], [0.034, 0.61], [0.036, 0.62], [0.036, 0.645], [0.03, 0.652], [0.0001, 0.652]].map(([r, q]) => [r, q]), 24), 'black', W(x, y - 0.005, 0), [0, -PI / 2, 0]);
-    b.add(box(0.105, 0.085, 0.032, 0.006), 'black', W(x, y, 0.474));
-    b.add(box(0.045, 0.028, 0.02, 0.003), 'black', W(x + 0.02, y + 0.03, 0.455));
-    for (let i = 0; i < 6; i++) b.add(cylY(0.0055, 0.008, 6), 'steel', W(x - 0.04 + (i % 3) * 0.04, y + 0.054, z + (i < 3 ? -0.025 : 0.025)));
+    const [mB, mE, mP] = ctx.comp.model;
+    const [x, y, z] = mB.pos, [bx, by, bz] = mB.size;
+    b.add(box(bx, by, bz, 0.004), 'aluminum', W(x, y, z));
+    const [ex, ey, ez] = mE.pos, [ew, eh, ed] = mE.size;
+    b.add(box(ew, eh, ed, 0.006), 'black', W(ex, ey, ez));
+    b.add(box(0.02, 0.028, 0.045, 0.003), 'black', W(ex + ew / 2 + 0.008, ey + eh * 0.25, ez)); // 46-pin connector
+    const [px, py, pz] = mP.pos, pl = mP.size[0], pr = mP.size[1] / 2;
+    const xa = px + pl / 2, xb = px - pl / 2; // xa on the block face, xb motor end cap
+    b.add(latheX([[0.0001, 0], [pr - 0.002, 0], [pr, 0.01], [pr, pl - 0.007], [pr - 0.006, pl], [0.0001, pl]], 24), 'black', W(xa, py, pz), [0, PI, 0]);
+    void xb;
+    // 2 MC inlets (rear row) + 4 wheel outlets (front row) on top
+    for (let i = 0; i < 6; i++) {
+      const front = i >= 2, k = front ? i - 2 : i;
+      const xx = x + (front ? -bx * 0.25 : bx * 0.25), zz = front ? z + (-1.5 + k) * bz * 0.2 : z + (k ? 1 : -1) * bz * 0.18;
+      b.add(cylY(0.0055, 0.008, 6), 'steel', W(xx, y + by / 2 + 0.004, zz));
+    }
     void min; void max;
     return b.build();
   },
+
 };
 
 export default {
@@ -952,7 +1074,7 @@ export default {
     [/^brakes\.lines\.(front|rear)-flex-hoses$/, 'brakes_flexHose'],
     [/^brakes\.lines\.rear-tee$/, 'brakes_teeBlock'],
     [/^brakes\.abs\.abs-delete-block$/, 'brakes_teeBlock'],
-    [/^brakes\.lines\.hose-brackets$/, 'brakes_plate'],
+    [/^brakes\.lines\.hose-brackets$/, 'brakes_hoseBracket'],
     [/^brakes\.lines\.(bulkhead-fittings|adaptors)$/, 'brakes_fitting'],
     // pedal box & masters
     [/^brakes\.pedal-box\.pedal-assembly$/, 'brakes_pedalBox', { whole: true }],
@@ -970,7 +1092,7 @@ export default {
     [/^brakes\.master-cylinders\.brake-pressure-sensors$/, 'brakes_pressureSensor'],
     // ABS
     [/^brakes\.abs\.factory-bpmv-ebcm$/, 'brakes_bpmv', { whole: true }],
-    [/^brakes\.abs\.bpmv-bracket$/, 'brakes_plate', { variant: 'bracket' }],
+    [/^brakes\.abs\.bpmv-bracket$/, 'brakes_bpmvBracket', { usesPos: true }],
     [/^brakes\.abs\.bosch-motorsport-abs$/, 'brakes_boschM5'],
     [/^brakes\.abs\.abs-map-switch$/, 'brakes_rotarySwitch'],
     [/^brakes\.abs\.wheel-speed-sensors-(front|rear)$/, 'brakes_wss'],
@@ -980,7 +1102,7 @@ export default {
     [/^brakes\.cooling\.(duct-hose|rear-ducts)$/, 'brakes_ductHose'],
     [/^brakes\.cooling\.backing-plates$/, 'brakes_ductPlate', { shapes: ['disc'] }],
     [/^brakes\.cooling\.backing-plates$/, 'brakes_ductSpigot', { shapes: ['cylinder'] }],
-    [/^brakes\.cooling\.temperature-indicators$/, 'brakes_irSensor', { axis: 'z' }],
+    [/^brakes\.cooling\.temperature-indicators$/, 'brakes_paintBands', { axis: 'z' }],
     // parking brake
     [/^brakes\.parking-brake\.epb-actuator-module$/, 'brakes_epb'],
     [/^brakes\.parking-brake\.(intermediate-cable|rear-cables)$/, 'brakes_cable'],

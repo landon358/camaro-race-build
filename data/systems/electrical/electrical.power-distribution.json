@@ -9,7 +9,7 @@
       "name": "Power Distribution Module (PDM)",
       "qty": 1,
       "description": "Programmable solid-state switching module that replaces fuses and relays. Each output has current limiting, retry logic, and logs current/voltage over CAN to the dash/logger. Typical channel plan on this car: ECU main, ignition coils, injectors/DI driver, fuel pumps (2 x PWM), radiator fan (PWM), intercooler pump, starter, dash/logger, keypad, ABS, alternator L-terminal, rain light, brake lights, headlights, wipers, radio, camera, cool-suit, transponder (if not always-hot), data sensors 12 V.",
-      "location": "Passenger side under/behind the dash on a vibration-isolated aluminum panel (x\u22481.05, y\u22480.55, z\u2248-0.40), close to the ECU and the firewall bulkhead.",
+      "location": "Passenger side under/behind the dash on a vibration-isolated aluminum panel (x≈1.05, y≈0.55, z≈-0.40), close to the ECU and the firewall bulkhead.",
       "connectsTo": [
         "electrical.power-distribution.pdm-power-feed",
         "electrical.grounding.electronics-star-ground",
@@ -35,7 +35,7 @@
           "name": "MoTeC PDM30",
           "brand": "MoTeC",
           "partNumber": "14103 (MoTeC page; one retailer lists 14104)",
-          "notes": "8 x 20 A + 22 x 8 A outputs (115 A / 60 A transient), 16 switch inputs, 1 CAN, M6 battery stud, 34 + 26 pin connectors, 270\u2013300 g. Config via PDM Manager + UTC #61059.",
+          "notes": "8 x 20 A + 22 x 8 A outputs (115 A / 60 A transient), 16 switch inputs, 1 CAN, M6 battery stud, 34 + 26 pin connectors, 270–300 g. Config via PDM Manager + UTC #61059.",
           "url": "https://www.motec.com.au/products/PDM30"
         },
         {
@@ -61,7 +61,7 @@
         }
       ],
       "specs": {
-        "Supply": "8\u201330 V",
+        "Supply": "8–30 V",
         "Battery input": "M6 stud (PDM30)",
         "Comms": "CAN 1 Mbit/s to dash/ECU",
         "Total continuous (PDM30)": "~120 A practical"
@@ -72,11 +72,11 @@
           "qty": 1,
           "spec": "M6 x 1.0 nut + spring washer on ring lug",
           "grade": "",
-          "torque": "4\u20135 N\u00b7m (35\u201344 in-lb)",
+          "torque": "4–5 N·m (35–44 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "MoTeC specifies an M6 stud; torque value not found \u2013 do not over-torque the PCB-mounted stud. Support the cable with a P-clamp so its weight is not on the stud.",
+          "notes": "MoTeC specifies an M6 stud; torque value not found – do not over-torque the PCB-mounted stud. Support the cable with a P-clamp so its weight is not on the stud.",
           "confidence": "estimate",
           "source": "https://www.motec.com.au/products/PDM30"
         },
@@ -85,7 +85,7 @@
           "qty": 4,
           "spec": "M5 screws through rubber isolators into rivnuts",
           "grade": "stainless",
-          "torque": "3 N\u00b7m (27 in-lb)",
+          "torque": "3 N·m (27 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -95,7 +95,7 @@
         {
           "item": "Anti-vibration mounts",
           "qty": 4,
-          "spec": "M5 rubber bobbin isolators (~30 Shore A\u201350 Shore A)",
+          "spec": "M5 rubber bobbin isolators (~30 Shore A–50 Shore A)",
           "grade": "",
           "torque": "Hand tight",
           "threadlocker": "none",
@@ -121,7 +121,7 @@
         "Write the load list with continuous/inrush currents first; assign 20 A channels to fans, pumps, starter and ignition; pair outputs where current exceeds a channel rating.",
         "Mount the PDM within ~1 m of the battery-feed junction with the main cable fused.",
         "Program soft-start/PWM for fan and fuel pumps; program retries (e.g. 3) except for the starter.",
-        "Program logic: engine-kill input from isolator \u2192 all engine outputs off; rain light ON with headlights or keypad; brake lights from brake-pressure channel via CAN.",
+        "Program logic: engine-kill input from isolator → all engine outputs off; rain light ON with headlights or keypad; brake lights from brake-pressure channel via CAN.",
         "Log every output current; set warning thresholds on the dash."
       ],
       "inspection": [
@@ -172,7 +172,7 @@
       "modelRef": {
         "images": [
           {
-            "title": "MoTeC PDM30 product page \u2013 107.5 x 127.5 x 38.7 mm",
+            "title": "MoTeC PDM30 product page – 107.5 x 127.5 x 38.7 mm",
             "url": "https://www.motec.com.au/pdm30/"
           },
           {
@@ -194,7 +194,7 @@
       "name": "PDM main power feed cable",
       "qty": 1,
       "description": "Fused cable from the front power junction (or directly from the master switch load side) to the PDM battery stud.",
-      "location": "Passenger firewall junction \u2192 through firewall bulkhead \u2192 PDM.",
+      "location": "Passenger firewall junction → through firewall bulkhead → PDM.",
       "connectsTo": [
         "electrical.charging-starting.front-power-junction",
         "electrical.battery-and-cutoff.main-fuse",
@@ -207,8 +207,8 @@
       },
       "raceOptions": [],
       "specs": {
-        "Gauge": "4 AWG copper (\u2264 150 A)",
-        "Length": "\u2248 0.8 m"
+        "Gauge": "4 AWG copper (≤ 150 A)",
+        "Length": "≈ 0.8 m"
       },
       "hardware": [
         {
@@ -228,7 +228,7 @@
           "qty": 2,
           "spec": "EPDM-lined, 10 mm ID",
           "grade": "",
-          "torque": "6 N\u00b7m",
+          "torque": "6 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -282,7 +282,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "4 AWG, \u22480.8 m, M6 lug at the PDM.",
+        "dimensions": "4 AWG, ≈0.8 m, M6 lug at the PDM.",
         "features": "Red cable with tinned lugs and red boots.",
         "confidence": "estimated"
       }
@@ -306,7 +306,7 @@
       },
       "raceOptions": [
         {
-          "name": "Blue Sea Systems ST Blade 4\u20136 circuit sealed fuse block",
+          "name": "Blue Sea Systems ST Blade 4–6 circuit sealed fuse block",
           "brand": "Blue Sea Systems",
           "partNumber": "",
           "notes": ""
@@ -322,7 +322,7 @@
           "qty": 2,
           "spec": "M5",
           "grade": "stainless",
-          "torque": "3 N\u00b7m",
+          "torque": "3 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -368,7 +368,7 @@
       "modelRef": {
         "images": [
           {
-            "title": "Blue Sea 5025 ST Blade 6-circuit \u2013 4.894 x 3.315 x 1.518 in (Lakeside Marine)",
+            "title": "Blue Sea 5025 ST Blade 6-circuit – 4.894 x 3.315 x 1.518 in (Lakeside Marine)",
             "url": "https://lakesidemarineandservice.com/products/blue-sea-5025-6-gang-fuse-block-st-ato-atc-negative-bus-and-cover"
           },
           {
@@ -398,7 +398,7 @@
       },
       "raceOptions": [
         {
-          "name": "Littelfuse/ Cooper Bussmann / E-T-A push-reset panel breakers 5\u201330 A",
+          "name": "Littelfuse/ Cooper Bussmann / E-T-A push-reset panel breakers 5–30 A",
           "brand": "E-T-A / Littelfuse",
           "partNumber": "",
           "notes": ""
@@ -411,7 +411,7 @@
           "qty": 1,
           "spec": "3/8-32 thread panel nut",
           "grade": "",
-          "torque": "15 in-lb (1.7 N\u00b7m)",
+          "torque": "15 in-lb (1.7 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -479,7 +479,7 @@
           "qty": 4,
           "spec": "M6",
           "grade": "8.8",
-          "torque": "8 N\u00b7m",
+          "torque": "8 N·m",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -526,14 +526,15 @@
         "dimensions": "~112.8 x 75 x 60.3 mm with the deep relay cover.",
         "features": "Black base, grey/black snap cover with side latches, sealed connector underneath.",
         "confidence": "published"
-      }
+      },
+      "alt": true
     },
     {
       "id": "electrical.power-distribution.pdm-mounting-panel",
       "name": "Electronics mounting panel (PDM/ECU tray)",
       "qty": 1,
       "description": "Removable aluminum panel (passenger footwell / lower dash) carrying the PDM, ECU, star ground, aux fuse block and CAN junctions. Built as a bench-wired assembly that bolts in.",
-      "location": "Passenger footwell front bulkhead / under dash (x\u22481.0, y\u22480.48, z\u2248-0.40).",
+      "location": "Passenger footwell front bulkhead / under dash (x≈1.0, y≈0.48, z≈-0.40).",
       "connectsTo": [
         "electrical.power-distribution.pdm",
         "electrical.engine-management.ecu",
@@ -555,7 +556,7 @@
           "qty": 4,
           "spec": "M6 into rivnuts with rubber isolators",
           "grade": "8.8",
-          "torque": "8 N\u00b7m (71 in-lb)",
+          "torque": "8 N·m (71 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",

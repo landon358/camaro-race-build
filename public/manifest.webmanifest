@@ -1,7 +1,7 @@
 {
-  "name": "Team Camaro Racing | TPR Racing",
+  "name": "TPR Racing",
   "short_name": "TPR Racing",
-  "description": "3D parts catalogue for the Team Camaro Racing Gen 6 Camaro road-race car.",
+  "description": "3D parts catalogue for the TPR Racing Gen 6 Camaro road-race car.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

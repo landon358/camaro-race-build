@@ -969,6 +969,7 @@ export default {
     [E('grounding\\.(engine-to-chassis-strap|transmission-ground)'), 'electrical_strap'],
     [E('grounding\\.electronics-star-ground'), 'electrical_module', { variant: 'busbar' }],
     [E('grounding\\.body-bonding-straps'), 'electrical_module', { variant: 'strapBox' }],
+    [E('grounding\\.body-bonding-straps'), 'electrical_strap'], // path models: braided cradle-to-rail straps
     [E('lighting\\.rain-light'), 'electrical_module', { variant: 'lampRain' }],
     [E('lighting\\.brake-lights'), 'electrical_module', { variant: 'lampTail' }],
     [E('lighting\\.brake-pressure-switch'), 'electrical_sensor', { variant: 'hswitch' }],

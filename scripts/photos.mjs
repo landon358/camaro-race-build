@@ -94,5 +94,12 @@ export function attachPhotos(components, photos) {
       if (fk) { h.photo = fk; rows++; }
     }
   }
+  // a part that is the same physical part as another shows that part's photo
+  const byIdC = new Map(components.map((c) => [c.id, c]));
+  for (const c of components) {
+    if (!c.sameAs) continue;
+    const to = byIdC.get(c.sameAs);
+    if (to?.photo) { if (!c.photo) parts++; c.photo = to.photo; } else if (to && c.photo) { delete c.photo; parts--; }
+  }
   return { parts, rows, total };
 }

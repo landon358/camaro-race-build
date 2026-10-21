@@ -75,19 +75,19 @@
         {
           "shape": "box",
           "pos": [
-            -0.743,
-            0.4,
-            0.72
+            -0.535,
+            0.45,
+            0.905
           ],
           "size": [
-            0.2,
-            0.006,
-            0.11
+            0.18,
+            0.005,
+            0.1
           ],
           "rot": [
-            0,
-            -51,
-            10
+            16.73,
+            -43.76,
+            11.75
           ],
           "mirror": true
         }
@@ -110,7 +110,55 @@
         "dimensions": "~200 x 110 mm blades (estimated)",
         "features": "Black composite dive planes on the lower fascia corners ahead of the front wheels",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "aero.dive-planes-canards.dive-plane-blades"
+    },
+    {
+      "id": "aero.dive-planes-canards.dive-plane-blades",
+      "name": "Dive-plane blades (fascia corners)",
+      "qty": 2,
+      "description": "Carbon dive-plane blades on the front-fascia outer corners. Draws aero.dive-planes-canards.factory-dive-planes (the reference mesh for that id sits inside the fog-lamp opening).",
+      "location": "Front fascia outer corners, x ≈ -0.54, y ≈ 0.45, z ±0.90.",
+      "connectsTo": [
+        "aero.dive-planes-canards.factory-dive-planes",
+        "body.panels.front-fascia",
+        "aero.dive-planes-canards.upper-canards"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 14,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.535,
+            0.45,
+            0.905
+          ],
+          "size": [
+            0.18,
+            0.005,
+            0.1
+          ],
+          "rot": [
+            16.73,
+            -43.76,
+            11.75
+          ],
+          "mirror": true
+        }
+      ]
     },
     {
       "id": "aero.dive-planes-canards.upper-canards",
@@ -153,9 +201,9 @@
         {
           "shape": "box",
           "pos": [
-            -0.74,
-            0.5,
-            0.735
+            -0.579,
+            0.532,
+            0.884
           ],
           "size": [
             0.16,
@@ -163,9 +211,9 @@
             0.09
           ],
           "rot": [
-            0,
-            -55,
-            10
+            12.96,
+            -39.27,
+            8.29
           ],
           "mirror": true
         }

@@ -10,7 +10,15 @@ import { makePrimitive, makeWhole, wholeRuleFor, mirrored, makeRoute } from './p
 import { finishMaterial } from './parts/finishes.js';
 
 // components that reuse another component's real panel mesh
-const PANEL_ALIASES = { 'electrical.lighting.headlights': 'body.lighting-housings.headlamps' };
+// Which Body toggle (Hood / Doors / Interior / Wheels / Shell) a body-skin part belongs to.
+function shellGroup(c) {
+  const id = c.baseId || c.id;
+  if (/^body\.panels\.hood|hood-extractor|^body\.hood-and-fasteners\./.test(id)) return 'Hood';
+  if (/^body\.panels\.doors|driver-window|passenger-window|side-mirrors/.test(id)) return 'Doors';
+  return 'Shell';
+}
+// Explode: body panels fly straight out from the middle of the car (hood up, doors out, fascias fore and aft).
+const CAR_MID = { x: 1.4, y: 0.55, z: 0 };
 
 export const STATUS_COLORS = { needed: '#e6e9ee', ordered: '#60a5fa', inhand: '#fbbf24', installed: '#4ade80', none: '#3a414d' };
 
@@ -75,6 +83,14 @@ export class Viewer {
     this.xrayMat = new THREE.MeshBasicMaterial({ color: 0xffb347, transparent: true, opacity: 0.38, depthTest: false, depthWrite: false });
     this.xrayGroupMat = new THREE.MeshBasicMaterial({ color: 0xdfe8f5, transparent: true, opacity: 0.1, depthTest: false, depthWrite: false });
     this.xrayNbMat = new THREE.MeshBasicMaterial({ color: 0x5fd4c8, transparent: true, opacity: 0.15, depthTest: false, depthWrite: false });
+    // see-through body: a faint skin plus crisp feature lines
+    this.ghostMat = new THREE.MeshStandardMaterial({
+      color: 0x9fb4d0, transparent: true, opacity: 0.035, depthWrite: false, roughness: 0.4, metalness: 0, side: THREE.DoubleSide,
+    });
+    this.edgeMat = new THREE.LineBasicMaterial({ color: 0x8ea0ba, transparent: true, opacity: 0.32, depthWrite: false });
+    // a skin panel the picked part connects to: tinted teal but still see-through
+    this.nbGhostMat = new THREE.MeshStandardMaterial({ color: 0x5fd4c8, emissive: 0x0c4a45, emissiveIntensity: 0.4, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide });
+    this.aliasOf = new Map(); // part id -> the part that draws it
     this.needsRender = true;
 
     this.compGroups = new Map(); // comp id -> Group
@@ -132,10 +148,6 @@ export class Viewer {
       if (n.includes('red')) return mats.red;
       return mats.black;
     };
-    this.ghostMat = new THREE.MeshStandardMaterial({
-      color: 0x9fb4d0, transparent: true, opacity: 0.035, depthWrite: false, roughness: 0.4, metalness: 0, side: THREE.DoubleSide,
-    });
-    this.edgeMat = new THREE.LineBasicMaterial({ color: 0x8ea0ba, transparent: true, opacity: 0.32, depthWrite: false });
     gltf.scene.traverse((o) => {
       if (o.isMesh) {
         o.userData.solidMat = pick(o.material?.name);
@@ -147,7 +159,7 @@ export class Viewer {
       this.bodyNodes.set(child.name, child);
       this.bodyRoot.add(child);
     }
-    this.applyBody();
+    this.bodyRoot.visible = false; // dev tools measure against it; the car is drawn from its parts
   }
 
   /** Real panel meshes cut from the reference body, keyed by component id. */
@@ -200,28 +212,9 @@ export class Viewer {
     mk('RIGHT · PASSENGER', 1.4, -1.45, Math.PI);
   }
 
+  /** The body is drawn from its panel parts, so the Body controls are applied with everything else. */
   applyBody() {
-    const mode = state.bodyMode;
-    for (const [group, names] of Object.entries(BODY_GROUPS)) {
-      for (const n of names) {
-        const node = this.bodyNodes?.get(n);
-        if (!node) continue;
-        node.visible = mode !== 'off' && state.bodyParts[group] !== false;
-        node.traverse((o) => {
-          if (!o.isMesh) return;
-          o.material = mode === 'ghost' ? this.ghostMat : o.userData.solidMat;
-          // see-through mode draws crisp feature lines instead of stacked transparent skins
-          if (mode === 'ghost' && !o.userData.edges) {
-            const edges = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 28), this.edgeMat);
-            edges.raycast = () => {};
-            o.add(edges);
-            o.userData.edges = edges;
-          }
-          if (o.userData.edges) o.userData.edges.visible = mode === 'ghost';
-        });
-      }
-    }
-    this.invalidate();
+    this.applyAll();
   }
 
   // ------------------------------------------------------------------ parts
@@ -262,7 +255,10 @@ export class Viewer {
       Object.entries(STATUS_COLORS).map(([k, c]) => [k, new THREE.MeshStandardMaterial({ color: c, metalness: 0.2, roughness: 0.55 })])
     );
 
+    this.aliasOf.clear();
     for (const c of db.components) {
+      // the same physical part as another entry: drawn once, by that entry
+      if (c.sameAs && db.components.some((o) => o.id === c.sameAs)) { this.aliasOf.set(c.id, c.sameAs); continue; }
       if (!c.model.length) continue;
       const g = new THREE.Group();
       g.name = c.id;
@@ -270,17 +266,24 @@ export class Viewer {
       const wholeGen = wholeRuleFor(c);
       // paint, wrap, numbers and decals are finishes on the shell, not shapes of their own
       if (/^body\.paint-wrap\./.test(c.baseId || c.id)) continue;
-      const panel = this.panelMeshes?.get((PANEL_ALIASES[c.baseId || c.id] || c.baseId || c.id).replace(/[^a-z0-9-]/gi, ''));
-      if (panel) this._tag(g, panel.clone(), c, null, 'panel');
+      const panel = this.panelMeshes?.get((c.baseId || c.id).replace(/[^a-z0-9-]/gi, ''));
+      // real panels cut from the reference body: the car's skin, governed by the Body control
+      if (panel) {
+        this._tag(g, panel.clone(), c, null, 'panel');
+        g.userData.shell = shellGroup(c);
+        g.traverse((o) => { if (o.isMesh) delete o.userData.opacity; }); // skin is opaque; see-through is the Body control's job
+      }
       else if (wholeGen) makeWhole(c, wholeGen).forEach((o, k) => this._tag(g, o, c, null, `w|${k}`));
       else c.model.forEach((m, i) => this._addPrimitive(g, m, c, i));
       if (!g.children.length) continue;
       const box = new THREE.Box3().setFromObject(g);
       g.userData.center = box.getCenter(new THREE.Vector3());
       g.userData.box = box;
+      g.userData.alt = !!c.alt;
       this.compGroups.set(c.id, g);
       this.sysGroups.get(c.system)?.add(g);
     }
+    for (const [id, to] of this.aliasOf) if (this.compGroups.has(to)) this.compGroups.set(id, this.compGroups.get(to));
 
     for (const s of db.systems) {
       const box = new THREE.Box3();
@@ -341,12 +344,19 @@ export class Viewer {
     if (!c) return false;
     const a = r.points[0], b = r.points[r.points.length - 1];
     const near = (p, q) => p && q && Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) < 0.06;
-    return c.model.some((m) => m.path && m.path.length >= 2 && ((near(m.path[0], a) && near(m.path[m.path.length - 1], b)) || (near(m.path[0], b) && near(m.path[m.path.length - 1], a))));
+    const flip = (p) => [p[0], p[1], -p[2]];
+    return c.model.some((m) => {
+      if (!m.path || m.path.length < 2) return false;
+      const base = m.mirrored ? m.path.map(flip) : m.path;
+      const sides = m.mirror ? [base, base.map(flip)] : [base];
+      return sides.some((p) => (near(p[0], a) && near(p[p.length - 1], b)) || (near(p[0], b) && near(p[p.length - 1], a)));
+    });
   }
 
   _addRoute(r, sys) {
-    if (this._routeDuplicated(r)) return;
-    const body = makeRoute(r, sys.id);
+    // the part already draws this hose or pipe: keep only the flow overlay, never a second copy
+    const dup = this._routeDuplicated(r);
+    const body = dup ? new THREE.Group() : makeRoute(r, sys.id);
     if (!body) return;
     const pts = r.points.filter((q) => Array.isArray(q) && q.length === 3 && q.every((v) => Number.isFinite(+v))).map((q) => new THREE.Vector3(+q[0], +q[1], +q[2]));
     const curve = pts.length === 2 ? new THREE.LineCurve3(pts[0], pts[1]) : new THREE.CatmullRomCurve3(pts, false, 'centripetal');
@@ -410,17 +420,36 @@ export class Viewer {
       sg.userData.offset = ex;
       for (const g of sg.children) {
         const c = g.userData.comp;
-        const shownBySel = !sysHidden || sel?.type !== 'component' || sel.id === c.id;
-        g.visible = (!c.buildPhase || c.buildPhase <= phaseLimit) && shownBySel;
-        const spread = g.userData.center.clone().sub(sg.userData.center).multiplyScalar(t * 0.55);
-        g.position.copy(ex).add(spread);
+        const picked = sel?.type === 'component' && (sel.id === c.id || this.aliasOf.get(sel.id) === c.id);
+        const shownBySel = !sysHidden || sel?.type !== 'component' || picked;
+        // an alternative to a drawn part only appears when it is the one picked
+        const altOk = !g.userData.alt || picked;
+        // the skin follows the Body control; a picked panel always shows
+        const shell = g.userData.shell;
+        const skinOk = !shell || picked || (state.bodyMode !== 'off' && state.bodyParts[shell] !== false);
+        const toggleOk = picked || (sid !== 'interior' || state.bodyParts.Interior !== false) && (sid !== 'wheels' || state.bodyParts.Wheels !== false);
+        g.visible = (!c.buildPhase || c.buildPhase <= phaseLimit) && shownBySel && altOk && skinOk && toggleOk;
+        if (shell || sid === 'body') {
+          const d = new THREE.Vector3(g.userData.center.x - CAR_MID.x, g.userData.center.y - CAR_MID.y, g.userData.center.z - CAR_MID.z);
+          d.x *= 0.55; d.y *= 1.3; d.z *= 1.4;
+          g.position.copy(d.lengthSq() ? d.normalize().multiplyScalar(t * 1.1) : d);
+        } else {
+          const spread = g.userData.center.clone().sub(sg.userData.center).multiplyScalar(t * 0.55);
+          g.position.copy(ex).add(spread);
+        }
         let mode = this._modeFor(c, sid, sel, focus);
         if (this.hoverId === c.id && mode !== 'hl') mode = 'hover';
         // a selected system / area / location stands out in its system colour against the dimmed rest
         const groupSel = sel && sel.type !== 'component' && mode === 'normal' && colorMode !== 'status';
+        // see-through skin: everything not picked or connected fades to a ghost with feature lines
+        const ghost = shell && state.bodyMode === 'ghost' && (mode === 'normal' || mode === 'dim') && !(groupSel && sid !== 'body');
         g.traverse((o) => {
           if (!o.isMesh) return;
-          if (mode === 'hl') o.material = this.hlMat;
+          if (shell) this._edges(o, ghost);
+          if (ghost) o.material = this.ghostMat;
+          else if (shell && mode === 'nb' && state.bodyMode === 'ghost') { o.material = this.nbGhostMat; this._edges(o, true); }
+          else if (shell && mode === 'dim') o.material = finishMaterial(o.userData.finish || 'steel');
+          else if (mode === 'hl') o.material = this.hlMat;
           else if (mode === 'hover') o.material = this.hoverMat;
           else if (mode === 'nb') o.material = this.nbMat;
           else if (mode === 'dim') o.material = sel.type === 'component' ? this.dimMat : this.dimGhostMat;
@@ -528,13 +557,24 @@ export class Viewer {
     return null;
   }
 
+  /** Feature lines on a skin panel, made the first time it goes see-through. */
+  _edges(o, on) {
+    if (on && !o.userData.edges) {
+      const e = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 28), this.edgeMat);
+      e.raycast = () => {};
+      o.add(e);
+      o.userData.edges = e;
+    }
+    if (o.userData.edges) o.userData.edges.visible = on;
+  }
+
   _modeFor(c, sid, sel, focus) {
     if (!sel) return 'normal';
     if (sel.type === 'system') return sid === sel.id ? 'normal' : 'dim';
     if (sel.type === 'subsystem') return c && c.subsystem === sel.id ? 'normal' : 'dim';
     if (sel.type === 'zone') return c && c.zone === sel.id ? 'normal' : 'dim';
     if (sel.type === 'component') {
-      if (c?.id === sel.id) return 'hl';
+      if (c?.id === sel.id || (c && this.aliasOf.get(sel.id) === c.id)) return 'hl';
       if (c && focus?.has(c.id)) return 'nb';
       return 'dim';
     }

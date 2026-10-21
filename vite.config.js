@@ -20,7 +20,8 @@ function precache() {
         }
       };
       walk(dist);
-      const list = files.filter((f) => f !== 'sw.js' && !f.endsWith('.map') && !/\.woff$/.test(f));
+      // the reference body mesh is only for the dev measuring tools
+      const list = files.filter((f) => f !== 'sw.js' && !f.endsWith('.map') && !/\.woff$/.test(f) && f !== 'models/camaro.glb');
       const hash = crypto.createHash('sha1');
       for (const f of list.sort()) hash.update(f).update(fs.readFileSync(path.join(dist, f)));
       const version = hash.digest('hex').slice(0, 10);

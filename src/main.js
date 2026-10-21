@@ -108,15 +108,8 @@ async function boot() {
   initInspector();
   applyHash();
 
-  if (viewer) {
-    progress(0.8, 'Loading the car body…');
-    try {
-      await viewer.loadBody(`${BASE}models/camaro.glb`);
-    } catch (e) {
-      console.error('Body failed to load', e);
-    }
-    progress(1, 'Ready');
-  }
+  // the car's skin is drawn from its body-panel parts (loaded above); the single reference mesh is dev-only
+  if (viewer) progress(1, 'Ready');
   const loading = $('loading');
   loading.classList.add('done');
   setTimeout(() => (loading.hidden = true), 350);
@@ -267,7 +260,7 @@ function initViewbar() {
   popover(bodyBtn, (pop) => {
     pop.appendChild(el('h3', '', 'Body shell'));
     pop.appendChild(seg('Body shell', [['solid', 'Solid'], ['ghost', 'See-through'], ['off', 'Hidden']], () => state.bodyMode, (v) => { state.bodyModeByHand = true; set('bodyMode', v); }));
-    pop.appendChild(el('h3', '', 'Panels on the shell'));
+    pop.appendChild(el('h3', '', 'Show'));
     const row = el('div', 'pop-row');
     for (const k of Object.keys(state.bodyParts)) {
       const b = el('button', 'toggle', esc(k));
@@ -280,16 +273,6 @@ function initViewbar() {
       row.appendChild(b);
     }
     pop.appendChild(row);
-    const b = el('button', 'toggle', 'Body & glass parts as their own pieces');
-    b.type = 'button';
-    b.setAttribute('aria-pressed', String(!state.hiddenSystems.has('body')));
-    b.addEventListener('click', () => {
-      const h = new Set(state.hiddenSystems);
-      h.has('body') ? h.delete('body') : h.add('body');
-      set('hiddenSystems', h);
-      b.setAttribute('aria-pressed', String(!h.has('body')));
-    });
-    pop.appendChild(b);
   }, { alignRight: true });
 
   const colourBtn = tool('layers', 'Colour');
@@ -358,7 +341,7 @@ function initStageOverlays() {
   const draw = () => {
     chip.replaceChildren();
     const sel = state.selection;
-    const hidden = [...state.hiddenSystems].filter((s) => s !== 'body');
+    const hidden = [...state.hiddenSystems];
     if (sel) {
       let label = '';
       let kind = '';
@@ -378,7 +361,7 @@ function initStageOverlays() {
     if (hidden.length) {
       const b = el('button', 'path-pill', `${icon('eyeOff', 14)}<span>${hidden.length} system${hidden.length > 1 ? 's' : ''} hidden</span><b>Show all</b>`);
       b.type = 'button';
-      b.addEventListener('click', () => set('hiddenSystems', new Set(state.hiddenSystems.has('body') ? ['body'] : [])));
+      b.addEventListener('click', () => set('hiddenSystems', new Set()));
       chip.appendChild(b);
     }
     chip.hidden = !chip.children.length;

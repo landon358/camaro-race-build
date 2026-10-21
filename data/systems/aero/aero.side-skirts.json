@@ -73,13 +73,13 @@
           "shape": "box",
           "pos": [
             1.425,
-            0.2,
-            0.885
+            0.21,
+            0.905
           ],
           "size": [
             1.85,
             0.12,
-            0.06
+            0.05
           ],
           "mirror": true
         }
@@ -98,7 +98,51 @@
         "dimensions": "~1.85 m long, ~120 mm tall, along the rocker between the wheel openings",
         "features": "ZL1-style rocker molding: curved outer face, flat bottom lip",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "aero.side-skirts.skirt-shells"
+    },
+    {
+      "id": "aero.side-skirts.skirt-shells",
+      "name": "Side skirt shells (rocker overlay)",
+      "qty": 2,
+      "description": "Carbon ZL1-style rocker skirt overlays along the lower rocker, flaring out to the rocker skin line at the bottom. Draws aero.side-skirts.side-skirts (the reference mesh for that id is a fragment over the rear arch).",
+      "location": "Lower rocker between the wheel openings, x 0.50-2.35, y 0.20-0.27, z ±0.83-0.90.",
+      "connectsTo": [
+        "aero.side-skirts.side-skirts",
+        "aero.side-skirts.skirt-extensions",
+        "chassis.unibody.rocker-sills",
+        "body.panels.quarters-and-roof"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [],
+      "installNotes": [],
+      "inspection": [],
+      "buildPhase": 10,
+      "installOrder": 18,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.425,
+            0.235,
+            0.865
+          ],
+          "size": [
+            1.85,
+            0.07,
+            0.07
+          ],
+          "mirror": true
+        }
+      ]
     },
     {
       "id": "aero.side-skirts.skirt-extensions",
@@ -145,15 +189,65 @@
           "shape": "box",
           "pos": [
             1.425,
-            0.137,
-            0.915
+            0.1985,
+            0.8425
           ],
           "size": [
             1.85,
-            0.006,
-            0.07
+            0.005,
+            0.085
           ],
           "mirror": true
+        },
+        {
+          "shape": "box",
+          "pos": [
+            1.425,
+            0.194,
+            0.8815
+          ],
+          "size": [
+            1.85,
+            0.008,
+            0.005
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "box",
+          "pos": [
+            0.7,
+            0.2085,
+            0.815
+          ],
+          "size": [
+            0.05,
+            0.015,
+            0.025
+          ],
+          "mirror": true,
+          "instances": [
+            [
+              0.7,
+              0.2085,
+              0.815
+            ],
+            [
+              1.2,
+              0.2085,
+              0.815
+            ],
+            [
+              1.7,
+              0.2085,
+              0.815
+            ],
+            [
+              2.2,
+              0.2085,
+              0.815
+            ]
+          ]
         }
       ]
     }

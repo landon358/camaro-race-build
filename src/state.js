@@ -9,7 +9,7 @@ export const state = {
   subById: new Map(),
   reverseLinks: new Map(), // component id -> [component ids that connect to it]
   selection: null, // { type: 'system'|'subsystem'|'zone'|'component', id }
-  hiddenSystems: new Set(['body']), // body panels duplicate the reference mesh; shown when selected
+  hiddenSystems: new Set(), // the car's skin is its body-panel parts
   bodyMode: 'solid', // the silver car at rest; see-through once a part is picked (unless chosen by hand)
   bodyModeByHand: false,
   bodyParts: { Hood: true, Doors: true, Interior: true, Wheels: true, Shell: true },

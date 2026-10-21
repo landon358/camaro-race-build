@@ -312,7 +312,7 @@ export function applyLayout(systems, components, layout, log = () => {}) {
     .replace(ID, (id) => nameOf.get(id) || nameOf.get(id.replace(/--[a-z]{2}$/, '')) || words(id))
     .replace(/listed again here for the [a-z ]+? builder;?\s*/gi, '') : t);
   // every shown string of a part, however deep (fluids, specs, options …); ids, links and sources stay as they are
-  const KEEP = new Set(['id', 'baseId', 'system', 'subsystem', 'connectsTo', 'sources', 'source', 'url', 'zone', 'loc', 'model', 'images', 'modelRef_images']);
+  const KEEP = new Set(['id', 'baseId', 'sameAs', 'system', 'subsystem', 'connectsTo', 'sources', 'source', 'url', 'zone', 'loc', 'model', 'images', 'modelRef_images']);
   const deep = (v, key) => {
     if (KEEP.has(key)) return v;
     if (typeof v === 'string') return fix(v);

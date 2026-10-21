@@ -9,7 +9,7 @@
       "name": "Shifter (remote shift control)",
       "qty": 1,
       "description": "The Gen 6 TR-6060 uses a remote shift control connected to the gearbox's internal shift rails by an external shift rod, which lets the shifter sit rearward of the trans' own shift tower. Race upgrades shorten throw, remove rubber isolation and add positive gate stops; a sequential box uses a push-pull lever or paddle actuation instead.",
-      "location": "Center tunnel/console, slightly right of the driver (base x\u22481.30, y\u22480.45; knob x\u22481.32, y\u22480.68, z\u2248+0.06).",
+      "location": "Center tunnel/console, slightly right of the driver (base x≈1.30, y≈0.45; knob x≈1.32, y≈0.68, z≈+0.06).",
       "connectsTo": [
         "drivetrain.shifter.shift-rod",
         "drivetrain.shifter.shifter-isolator",
@@ -51,12 +51,12 @@
           "qty": 4,
           "spec": "M8 x 1.25",
           "grade": "8.8",
-          "torque": "OEM shift control to tunnel reinforcement: 106 in-lb (12 N\u00b7m); OEM shift control adapter plate bolt 13 ft-lb (18 N\u00b7m) / nut 106 in-lb (12 N\u00b7m). Aftermarket shifter: maker value.",
+          "torque": "OEM shift control to tunnel reinforcement: 106 in-lb (12 N·m); OEM shift control adapter plate bolt 13 ft-lb (18 N·m) / nut 106 in-lb (12 N·m). Aftermarket shifter: maker value.",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual (TREMEC MM6 section) lists these values. CORRECTED from 18 ft-lb (25 N\u00b7m) for the OEM base.",
+          "notes": "Checked 2026-10: the TightTorque table compiled from the 2016-2018 Camaro service manual (TREMEC MM6 section) lists these values. CORRECTED from 18 ft-lb (25 N·m) for the OEM base.",
           "confidence": "typical",
           "source": "https://tighttorque.com/cars/chevrolet/camaro-6"
         },
@@ -170,7 +170,7 @@
       "name": "External shift rod / linkage",
       "qty": 1,
       "description": "Rod linking the remote shifter to the transmission's shift-rail input. Any slop here becomes a vague, missable shift; race builds use rod ends or solid bushings.",
-      "location": "Above the tailhousing from trans shift input (x\u22481.00, y\u22480.50) back to the shifter base (x\u22481.28, y\u22480.45).",
+      "location": "Above the tailhousing from trans shift input (x≈1.00, y≈0.50) back to the shifter base (x≈1.28, y≈0.45).",
       "connectsTo": [
         "drivetrain.shifter.shifter-assembly",
         "drivetrain.shifter.shift-rod-bushings",
@@ -194,7 +194,7 @@
           "qty": 2,
           "spec": "M8 or 5/16 in",
           "grade": "10.9 / Gr 8",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "none (nylock)",
           "safetyWire": false,
@@ -208,7 +208,7 @@
           "qty": 2,
           "spec": "Per rod-end thread",
           "grade": "",
-          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torque": "15 ft-lb (20 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -371,7 +371,7 @@
           "qty": 4,
           "spec": "M8",
           "grade": "",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -426,7 +426,7 @@
       "name": "Shift knob",
       "qty": 1,
       "description": "Driver interface. A heavier knob improves shift feel; for sequential boxes a pull-trigger/upshift-downshift legend and reverse lockout trigger are typical.",
-      "location": "Top of shift lever (x\u22481.32, y\u22480.68, z\u2248+0.06).",
+      "location": "Top of shift lever (x≈1.32, y≈0.68, z≈+0.06).",
       "connectsTo": [
         "drivetrain.shifter.shifter-assembly"
       ],
@@ -530,7 +530,7 @@
           "qty": 4,
           "spec": "M5 / #10",
           "grade": "",
-          "torque": "\u22482-3 ft-lb (3-4 N\u00b7m)",
+          "torque": "≈2-3 ft-lb (3-4 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,
@@ -561,16 +561,21 @@
       "model": {
         "shape": "cone",
         "pos": [
-          1.315,
-          0.56,
-          0.035
+          1.3126,
+          0.5443,
+          0.032
         ],
         "size": [
           0.12,
           0.11,
           0.12
         ],
-        "axis": "y"
+        "axis": "y",
+        "rot": [
+          0,
+          0,
+          -9
+        ]
       },
       "modelRef": {
         "images": [
@@ -589,7 +594,7 @@
       "name": "Steering-wheel paddle shifters (sequential option)",
       "qty": 1,
       "description": "Upshift/downshift paddles (or buttons) on the steering wheel/quick-release hub feeding the gear shift controller. Used with pneumatic or electric actuation on a sequential gearbox - the Camaro GT4.R uses pneumatic paddle shift with its Xtrac sequential.",
-      "location": "Behind steering wheel rim (x\u22481.27, y\u22480.80, z\u2248+0.37 \u00b10.12).",
+      "location": "Behind steering wheel rim (x≈1.27, y≈0.80, z≈+0.37 ±0.12).",
       "connectsTo": [
         "drivetrain.shifter.shift-controller",
         "steering.steering-wheel.wheel",
@@ -615,7 +620,7 @@
           "qty": 4,
           "spec": "M5",
           "grade": "",
-          "torque": "\u22483 ft-lb (4 N\u00b7m)",
+          "torque": "≈3 ft-lb (4 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -683,7 +688,7 @@
       "name": "Gear shift controller (GCU)",
       "qty": 1,
       "description": "Electronic controller that commands the pneumatic/electric actuator, requests ignition cut (upshift) and throttle blip (downshift) from the ECU, reads the barrel position sensor and enforces protection (over-rev downshift lockout, reverse lockout).",
-      "location": "Behind dash / passenger footwell electronics tray (x\u22481.05, y\u22480.55, z\u2248-0.15).",
+      "location": "Behind dash / passenger footwell electronics tray (x≈1.05, y≈0.55, z≈-0.15).",
       "connectsTo": [
         "drivetrain.shifter.paddle-shifters",
         "drivetrain.shifter.pneumatic-actuator",
@@ -711,7 +716,7 @@
           "qty": 4,
           "spec": "M5",
           "grade": "",
-          "torque": "\u22483 ft-lb (4 N\u00b7m)",
+          "torque": "≈3 ft-lb (4 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -764,7 +769,7 @@
       "name": "Pneumatic shift actuator & valve block",
       "qty": 1,
       "description": "Double-acting air ram with solenoid valves that pushes/pulls the sequential gearbox's shift rod/barrel. Mounted rigidly to the gearbox to avoid misalignment.",
-      "location": "On top/side of sequential gearbox (x\u22481.00, y\u22480.55, z\u2248-0.06).",
+      "location": "On top/side of sequential gearbox (x≈1.00, y≈0.55, z≈-0.06).",
       "connectsTo": [
         "drivetrain.shifter.shift-controller",
         "drivetrain.shifter.air-supply",
@@ -782,7 +787,7 @@
         }
       ],
       "specs": {
-        "Working pressure": "\u22486-10 bar typical (per kit)"
+        "Working pressure": "≈6-10 bar typical (per kit)"
       },
       "hardware": [
         {
@@ -790,7 +795,7 @@
           "qty": 4,
           "spec": "M8",
           "grade": "",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -804,7 +809,7 @@
           "qty": 1,
           "spec": "M8",
           "grade": "",
-          "torque": "18 ft-lb (25 N\u00b7m)",
+          "torque": "18 ft-lb (25 N·m)",
           "torqueSequence": "",
           "threadlocker": "Blue 242",
           "safetyWire": false,
@@ -838,16 +843,21 @@
       "model": {
         "shape": "cylinder",
         "pos": [
-          1,
-          0.56,
-          -0.06
+          0.935,
+          0.535,
+          0.03
         ],
         "size": [
           0.18,
-          0.05,
-          0.05
+          0.045,
+          0.045
         ],
-        "axis": "x"
+        "axis": "x",
+        "rot": [
+          90,
+          0,
+          0
+        ]
       },
       "modelRef": {
         "images": [],
@@ -861,7 +871,7 @@
       "name": "Air supply (compressor, tank, regulator, lines)",
       "qty": 1,
       "description": "On-board 12 V compressor and/or refillable tank with regulator and pressure switch feeding the shift actuator via nylon air line.",
-      "location": "Passenger footwell/behind passenger seat area (x\u22481.90, y\u22480.25, z\u2248-0.40), line along tunnel.",
+      "location": "Passenger footwell/behind passenger seat area (x≈1.90, y≈0.25, z≈-0.40), line along tunnel.",
       "connectsTo": [
         "drivetrain.shifter.pneumatic-actuator",
         "electrical.power-distribution.pdm"
@@ -884,7 +894,7 @@
           "qty": 4,
           "spec": "M6/M8",
           "grade": "",
-          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torque": "15 ft-lb (20 N·m)",
           "torqueSequence": "",
           "threadlocker": "none",
           "safetyWire": false,

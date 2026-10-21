@@ -9,7 +9,7 @@
       "name": "Alternator",
       "qty": 1,
       "description": "Belt-driven alternator on the Gen V LT front accessory drive. The OE unit is ECM-controlled (GM 'L' terminal turn-on and 'F' field-duty feedback) so a standalone ECU must either drive the L terminal or the alternator must be converted to self-regulating. 170 A class OE units are common on LT1/LT4. A road-race car can downsize if the load budget allows (fans, fuel pumps and cool-suit are the big loads).",
-      "location": "Front of engine, on the accessory drive bracket (driver side upper front on the Camaro LT1/LT4 installation \u2013 confirm on your engine).",
+      "location": "Front of engine, on the accessory drive bracket (driver side upper front on the Camaro LT1/LT4 installation – confirm on your engine).",
       "connectsTo": [
         "engine.accessory-drive.serpentine-belt",
         "electrical.charging-starting.alternator-charge-cable",
@@ -17,8 +17,8 @@
         "electrical.grounding.engine-to-chassis-strap"
       ],
       "factory": {
-        "name": "GM 170 A alternator (2016\u20132020 Camaro 6.2 L, aftermarket interchange listings)",
-        "partNumber": "84143540 (interchange 22949467) \u2013 verify by VIN",
+        "name": "GM 170 A alternator (2016–2020 Camaro 6.2 L, aftermarket interchange listings)",
+        "partNumber": "84143540 (interchange 22949467) – verify by VIN",
         "notes": "Part number from aftermarket interchange listings, not a GM catalog page; confirm with a GM dealer VIN lookup."
       },
       "raceOptions": [
@@ -26,13 +26,13 @@
           "name": "Lightweight race alternator (self-exciting, 1-wire or 3-wire) on custom bracket",
           "brand": "Powermaster / Mechman / similar",
           "partNumber": "",
-          "notes": "Removes dependency on ECM L-terminal control; choose amperage \u2265 calculated running load + 20 %."
+          "notes": "Removes dependency on ECM L-terminal control; choose amperage ≥ calculated running load + 20 %."
         },
         {
           "name": "Retain OE alternator, controlled by race ECU or PDM",
           "brand": "GM",
           "partNumber": "",
-          "notes": "MoTeC/PDM can drive the L terminal (12 V switched via resistor) \u2013 keep the OE unit for reliability."
+          "notes": "MoTeC/PDM can drive the L terminal (12 V switched via resistor) – keep the OE unit for reliability."
         }
       ],
       "specs": {
@@ -46,12 +46,12 @@
           "qty": 2,
           "spec": "M10 x 1.5 flange bolt (OE)",
           "grade": "10.9",
-          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torque": "37 ft-lb (50 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
           "tool": "15 mm socket",
-          "notes": "GM LS/LT alternator mounting bolts are commonly specified at 50 N\u00b7m; confirm in GM SI for the LT1/LT4.",
+          "notes": "GM LS/LT alternator mounting bolts are commonly specified at 50 N·m; confirm in GM SI for the LT1/LT4.",
           "confidence": "typical",
           "source": ""
         },
@@ -60,11 +60,11 @@
           "qty": 1,
           "spec": "M8 x 1.25 nut",
           "grade": "OE",
-          "torque": "15 ft-lb (20 N\u00b7m)",
+          "torque": "15 ft-lb (20 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
-          "notes": "Typical GM alternator battery-terminal nut torque \u2013 hold the stud's insulated boot; do not over-torque (cracks the insulator).",
+          "notes": "Typical GM alternator battery-terminal nut torque – hold the stud's insulated boot; do not over-torque (cracks the insulator).",
           "confidence": "typical",
           "source": ""
         },
@@ -82,12 +82,12 @@
         }
       ],
       "installNotes": [
-        "Install with the engine accessory drive (phase 6\u20137), wire it in phase 8.",
+        "Install with the engine accessory drive (phase 6–7), wire it in phase 8.",
         "Before startup, confirm the L-terminal is driven (or the unit is self-exciting); otherwise it will not charge.",
         "Check belt alignment with a straightedge; wrap angle matters at sustained 7000 rpm."
       ],
       "inspection": [
-        "Charging voltage logged (13.8\u201314.6 V AGM).",
+        "Charging voltage logged (13.8–14.6 V AGM).",
         "B+ nut tight, boot in place.",
         "Bearing noise/play; belt condition."
       ],
@@ -99,7 +99,7 @@
       ],
       "sources": [
         {
-          "title": "Aftermarket listing \u2013 170 A alternator 84143540 Camaro 2015-2020",
+          "title": "Aftermarket listing – 170 A alternator 84143540 Camaro 2015-2020",
           "url": "https://www.ebay.com/itm/186590429105"
         }
       ],
@@ -120,7 +120,7 @@
       "modelRef": {
         "images": [
           {
-            "title": "GM 84143540 170 A alternator (2015-2020 Camaro/Tahoe) \u2013 eBay listing",
+            "title": "GM 84143540 170 A alternator (2015-2020 Camaro/Tahoe) – eBay listing",
             "url": "https://www.ebay.com/itm/387416891908"
           },
           {
@@ -128,10 +128,11 @@
             "url": "https://www.gmoutletparts.com/v-2023-chevrolet-camaro--ss--6-2l-v8-gas/electrical--alternator"
           }
         ],
-        "dimensions": "Body \u00d8~145 mm, ~165 mm long + 26 mm 6-rib pulley (\u00d8~57 mm); pulley face in the accessory-belt plane (x \u2248 -0.35).",
+        "dimensions": "Body Ø~145 mm, ~165 mm long + 26 mm 6-rib pulley (Ø~57 mm); pulley face in the accessory-belt plane (x ≈ -0.35).",
         "features": "Cast aluminium front/rear housings with vent windows, steel stator band, black plastic rear cover, B+ stud with red boot, 2-pin L/F regulator socket, 3 bolt bosses.",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "engine.accessory-drive.alternator-mount"
     },
     {
       "id": "electrical.charging-starting.alternator-control-connector",
@@ -151,7 +152,7 @@
       },
       "raceOptions": [],
       "specs": {
-        "Wire": "20\u201322 AWG M22759/32"
+        "Wire": "20–22 AWG M22759/32"
       },
       "hardware": [
         {
@@ -222,15 +223,15 @@
       },
       "raceOptions": [
         {
-          "name": "4 AWG fine-strand tinned copper in DR-25 or with heat sleeve, fused at junction (MIDI 175\u2013200 A)",
+          "name": "4 AWG fine-strand tinned copper in DR-25 or with heat sleeve, fused at junction (MIDI 175–200 A)",
           "brand": "",
           "partNumber": "",
           "notes": "Fuse protects the cable from a shorted alternator diode."
         }
       ],
       "specs": {
-        "Gauge": "4 AWG (\u22641.5 m) for 170 A alternator",
-        "Fuse": "175\u2013200 A MIDI/MEGA at junction"
+        "Gauge": "4 AWG (≤1.5 m) for 170 A alternator",
+        "Fuse": "175–200 A MIDI/MEGA at junction"
       },
       "hardware": [
         {
@@ -250,7 +251,7 @@
           "qty": 4,
           "spec": "Adel/EPDM-lined P-clamp, 13 mm ID, M6 screw",
           "grade": "",
-          "torque": "6 N\u00b7m (53 in-lb)",
+          "torque": "6 N·m (53 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -259,7 +260,7 @@
         }
       ],
       "installNotes": [
-        "Keep \u2265 150 mm from exhaust headers or use reflective heat sleeve."
+        "Keep ≥ 150 mm from exhaust headers or use reflective heat sleeve."
       ],
       "inspection": [
         "Chafe points at engine-to-chassis transitions (engine moves on mounts)."
@@ -304,7 +305,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "4 AWG fine-strand cable (\u00d8 ~11 mm over jacket) with M8 ring lugs.",
+        "dimensions": "4 AWG fine-strand cable (Ø ~11 mm over jacket) with M8 ring lugs.",
         "features": "Red jacket, tinned lugs with red heat-shrink boots.",
         "confidence": "estimated"
       }
@@ -332,7 +333,7 @@
           "name": "Lightweight high-torque mini starter for LS/LT",
           "brand": "Powermaster / Tilton / Bosch (race)",
           "partNumber": "",
-          "notes": "Saves ~3\u20134 kg; choose a version clearing your headers and dry-sump pump. Check flywheel tooth count (168 vs 153) compatibility."
+          "notes": "Saves ~3–4 kg; choose a version clearing your headers and dry-sump pump. Check flywheel tooth count (168 vs 153) compatibility."
         }
       ],
       "specs": {
@@ -346,12 +347,12 @@
           "spec": "M10 x 1.5 x 120 mm",
           "grade": "10.9 (OE)",
           "partNumber": "GM 11610633",
-          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torque": "37 ft-lb (50 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
           "tool": "13 mm / 15 mm socket with long extension",
-          "notes": "Bolt size/part from Michigan Motorsports listing; torque is the widely published GM LS/LT starter bolt value \u2013 confirm in GM SI.",
+          "notes": "Bolt size/part from Michigan Motorsports listing; torque is the widely published GM LS/LT starter bolt value – confirm in GM SI.",
           "confidence": "typical",
           "source": "https://www.michiganmotorsports.com/fasteners-arp-and-stock/gm-11610633-starter-bolts-for-ls-lt-engines-4-8l-5-3l-6-0l-6-2l"
         },
@@ -360,7 +361,7 @@
           "qty": 1,
           "spec": "M8 x 1.25 nut",
           "grade": "OE",
-          "torque": "80 in-lb (9 N\u00b7m)",
+          "torque": "80 in-lb (9 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -373,7 +374,7 @@
           "qty": 1,
           "spec": "M5 / #10 nut",
           "grade": "OE",
-          "torque": "30 in-lb (3.4 N\u00b7m)",
+          "torque": "30 in-lb (3.4 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -443,7 +444,7 @@
             "url": "https://www.michiganmotorsports.com/new-products/gm-19418859-ls-swap-starter-oem-2010-15-camaro-ss-ls3-l99-starter/"
           }
         ],
-        "dimensions": "Overall ~240 mm long, motor can \u00d8~85 mm, solenoid \u00d8~45 mm on top; 2 x M10 x 1.5 x 120 mm mounting bolts (GM 11610633).",
+        "dimensions": "Overall ~240 mm long, motor can Ø~85 mm, solenoid Ø~45 mm on top; 2 x M10 x 1.5 x 120 mm mounting bolts (GM 11610633).",
         "features": "Black motor can, cast gear-reduction housing and 2-bolt flange to the passenger-side block rear, zinc solenoid on top with M8 battery stud and S-terminal, pinion nose into the bellhousing.",
         "confidence": "estimated"
       }
@@ -452,7 +453,7 @@
       "id": "electrical.charging-starting.starter-trigger",
       "name": "Starter trigger relay / PDM start channel",
       "qty": 1,
-      "description": "Start button \u2192 ECU/PDM logic \u2192 starter solenoid S terminal. With a PDM, use a high-current (20 A) channel with inhibit logic (clutch switch or neutral, engine not running, master ON). The OE starter solenoid draws high inrush; a dedicated 40 A relay close to the starter is also acceptable.",
+      "description": "Start button → ECU/PDM logic → starter solenoid S terminal. With a PDM, use a high-current (20 A) channel with inhibit logic (clutch switch or neutral, engine not running, master ON). The OE starter solenoid draws high inrush; a dedicated 40 A relay close to the starter is also acceptable.",
       "location": "PDM channel in cabin, or relay on firewall near the starter wire exit.",
       "connectsTo": [
         "electrical.power-distribution.pdm",
@@ -483,7 +484,7 @@
           "qty": 1,
           "spec": "M5 screw",
           "grade": "",
-          "torque": "4 N\u00b7m",
+          "torque": "4 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -534,7 +535,7 @@
       "name": "Main battery positive cable (trunk to engine bay)",
       "qty": 1,
       "description": "The long heavy cable from the battery (trunk, right side) through the master switch to the front power junction and starter. On a race car it runs inside the cabin along the passenger rocker/sill (inside the cage) and passes through the firewall with a sealed bulkhead stud or grommet. Size for the starter's cranking current with < 0.5 V total drop.",
-      "location": "Trunk right \u2192 under/behind rear seat area \u2192 passenger-side sill inside cabin \u2192 passenger footwell \u2192 firewall bulkhead \u2192 starter.",
+      "location": "Trunk right → under/behind rear seat area → passenger-side sill inside cabin → passenger footwell → firewall bulkhead → starter.",
       "connectsTo": [
         "electrical.battery-and-cutoff.battery",
         "electrical.battery-and-cutoff.master-switch",
@@ -562,7 +563,7 @@
       ],
       "specs": {
         "Gauge": "1/0 AWG copper (recommended); 2 AWG minimum",
-        "Length": "\u2248 5.0\u20135.5 m"
+        "Length": "≈ 5.0–5.5 m"
       },
       "hardware": [
         {
@@ -582,7 +583,7 @@
           "qty": 10,
           "spec": "EPDM-lined P-clamp, 16 mm ID, M6 rivnut + M6 screw every 300 mm",
           "grade": "",
-          "torque": "6 N\u00b7m (53 in-lb)",
+          "torque": "6 N·m (53 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -637,86 +638,114 @@
           "url": "https://mazdaracers.com/topic/7387-should-the-master-switch-kill-the-engine"
         }
       ],
-      "model": {
-        "shape": "tube",
-        "path": [
-          [
-            3.26,
-            0.565,
-            -0.486
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.261,
+              0.572,
+              -0.486
+            ],
+            [
+              3.27,
+              0.588,
+              -0.46
+            ],
+            [
+              3.29,
+              0.56,
+              -0.425
+            ],
+            [
+              3.31,
+              0.48,
+              -0.405
+            ],
+            [
+              3.31,
+              0.465,
+              -0.405
+            ]
           ],
-          [
-            3.24,
-            0.5,
-            -0.48
+          "radius": 0.008
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              3.23,
+              0.465,
+              -0.405
+            ],
+            [
+              3.19,
+              0.465,
+              -0.42
+            ],
+            [
+              3.12,
+              0.43,
+              -0.5
+            ],
+            [
+              3,
+              0.42,
+              -0.62
+            ],
+            [
+              2.5,
+              0.25,
+              -0.72
+            ],
+            [
+              1.9,
+              0.22,
+              -0.74
+            ],
+            [
+              1.3,
+              0.22,
+              -0.72
+            ],
+            [
+              0.95,
+              0.3,
+              -0.55
+            ],
+            [
+              0.72,
+              0.5,
+              -0.4
+            ],
+            [
+              0.62,
+              0.55,
+              -0.35
+            ],
+            [
+              0.45,
+              0.38,
+              -0.26
+            ],
+            [
+              0.26,
+              0.33,
+              -0.18
+            ],
+            [
+              0.226,
+              0.32,
+              -0.181
+            ]
           ],
-          [
-            3.2,
-            0.44,
-            -0.47
-          ],
-          [
-            3.12,
-            0.43,
-            -0.5
-          ],
-          [
-            3,
-            0.42,
-            -0.62
-          ],
-          [
-            2.5,
-            0.25,
-            -0.72
-          ],
-          [
-            1.9,
-            0.22,
-            -0.74
-          ],
-          [
-            1.3,
-            0.22,
-            -0.72
-          ],
-          [
-            0.95,
-            0.3,
-            -0.55
-          ],
-          [
-            0.72,
-            0.5,
-            -0.4
-          ],
-          [
-            0.62,
-            0.55,
-            -0.35
-          ],
-          [
-            0.45,
-            0.38,
-            -0.26
-          ],
-          [
-            0.26,
-            0.33,
-            -0.18
-          ],
-          [
-            0.226,
-            0.32,
-            -0.181
-          ]
-        ],
-        "radius": 0.008
-      },
+          "radius": 0.008
+        }
+      ],
       "modelRef": {
         "images": [],
-        "dimensions": "1/0 AWG welding cable \u00d8 ~15 mm, \u22485.2 m, 3/8\" and M8 ring lugs.",
-        "features": "Red EPDM jacket, tinned copper lugs with red heat-shrink, runs battery + \u2192 ANL fuse \u2192 right sill \u2192 firewall \u2192 starter solenoid.",
+        "dimensions": "1/0 AWG welding cable Ø ~15 mm, ≈5.2 m, 3/8\" and M8 ring lugs.",
+        "features": "Red EPDM jacket, tinned copper lugs with red heat-shrink, runs battery + → ANL fuse → right sill → firewall → starter solenoid.",
         "confidence": "estimated"
       }
     },
@@ -725,7 +754,7 @@
       "name": "Front power junction / firewall bulkhead power stud",
       "qty": 1,
       "description": "Insulated through-firewall power stud or junction block where the main cable, starter cable, alternator charge cable and the PDM feed meet. Also serves as the underhood remote jump point (the Gen 6 has an OE remote positive terminal for the same reason).",
-      "location": "Passenger-side firewall, upper engine-bay side (x\u22480.62, y\u22480.70, z\u2248-0.35).",
+      "location": "Passenger-side firewall, upper engine-bay side (x≈0.62, y≈0.70, z≈-0.35).",
       "connectsTo": [
         "electrical.charging-starting.main-positive-cable",
         "electrical.charging-starting.alternator-charge-cable",
@@ -742,7 +771,7 @@
           "name": "Blue Sea Systems PowerBar / insulated bulkhead stud",
           "brand": "Blue Sea Systems",
           "partNumber": "",
-          "notes": "3/8 in stud, \u2265 250 A, with insulating cover."
+          "notes": "3/8 in stud, ≥ 250 A, with insulating cover."
         }
       ],
       "specs": {
@@ -754,7 +783,7 @@
           "qty": 4,
           "spec": "3/8-16 nut + lock washer",
           "grade": "",
-          "torque": "12 ft-lb (16 N\u00b7m)",
+          "torque": "12 ft-lb (16 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -766,7 +795,7 @@
           "qty": 2,
           "spec": "M6 screw + nyloc",
           "grade": "8.8",
-          "torque": "8 N\u00b7m (71 in-lb)",
+          "torque": "8 N·m (71 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",

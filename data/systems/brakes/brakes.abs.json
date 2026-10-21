@@ -131,9 +131,9 @@
         {
           "shape": "box",
           "pos": [
-            -0.3,
-            0.6,
-            0.55
+            0.46,
+            0.495,
+            -0.455
           ],
           "size": [
             0.12,
@@ -145,30 +145,30 @@
         {
           "shape": "box",
           "pos": [
-            -0.3,
-            0.6,
-            0.474
+            0.536,
+            0.495,
+            -0.455
           ],
           "size": [
-            0.105,
+            0.032,
             0.085,
-            0.032
+            0.105
           ],
           "color": "#1a1a1a"
         },
         {
           "shape": "cylinder",
           "pos": [
-            -0.3,
-            0.595,
-            0.631
+            0.379,
+            0.49,
+            -0.455
           ],
           "size": [
+            0.042,
             0.072,
-            0.072,
-            0.042
+            0.072
           ],
-          "axis": "z",
+          "axis": "x",
           "color": "#1a1a1a"
         }
       ],
@@ -177,7 +177,8 @@
         "dimensions": "Valve block ~120 x 100 x 120 mm + EBCM cover + pump motor",
         "features": "Aluminium block with 6 ports on top, black pump motor, black EBCM with connector",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "brakes.abs.bpmv-bracket",
@@ -238,13 +239,13 @@
       "model": {
         "shape": "box",
         "pos": [
-          -0.3,
-          0.545,
-          0.55
+          0.46,
+          0.439,
+          -0.455
         ],
         "size": [
           0.14,
-          0.008,
+          0.006,
           0.12
         ],
         "color": "#333333"
@@ -254,7 +255,8 @@
         "dimensions": "~140 x 120 mm",
         "features": "Steel bracket with rubber isolators",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "brakes.abs.bosch-motorsport-abs",
@@ -341,8 +343,8 @@
       "model": {
         "shape": "box",
         "pos": [
-          0.86,
-          0.29,
+          0.92,
+          0.247,
           -0.35
         ],
         "size": [
@@ -419,12 +421,12 @@
       "model": {
         "shape": "cylinder",
         "pos": [
-          1.14,
-          0.7,
-          0.05
+          1.1325,
+          0.68,
+          0.23
         ],
         "size": [
-          0.03,
+          0.06,
           0.035,
           0.035
         ],
@@ -503,14 +505,14 @@
         "size": [
           0.02,
           0.02,
-          0.035
+          0.05
         ],
         "axis": "z",
         "mirror": true,
         "pos": [
           -0.0433,
           0.3965,
-          0.688
+          0.645
         ],
         "color": "#111111"
       },
@@ -580,14 +582,14 @@
         "size": [
           0.02,
           0.02,
-          0.035
+          0.05
         ],
         "axis": "z",
         "mirror": true,
         "pos": [
-          2.7677,
-          0.3965,
-          0.7155
+          2.748,
+          0.402,
+          0.6475
         ],
         "color": "#111111"
       },
@@ -652,14 +654,14 @@
       "model": {
         "shape": "box",
         "pos": [
-          1.6,
-          0.24,
-          0
+          1.4,
+          0.2105,
+          -0.245
         ],
         "size": [
-          0.06,
-          0.03,
-          0.05
+          0.08,
+          0.021,
+          0.056
         ],
         "color": "#1e5aa8"
       },
@@ -747,14 +749,14 @@
       "model": {
         "shape": "box",
         "pos": [
-          0.64,
-          0.5,
-          -0.4
+          0.7,
+          0.45,
+          -0.44
         ],
         "size": [
           0.04,
           0.03,
-          0.04
+          0.05
         ],
         "color": "#c62828"
       },
@@ -763,7 +765,8 @@
         "dimensions": "~40 mm billet tee",
         "features": "Anodised block with 3 AN fittings",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     }
   ]
 }

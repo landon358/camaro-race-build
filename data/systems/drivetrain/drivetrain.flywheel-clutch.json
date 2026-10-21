@@ -9,7 +9,7 @@
       "name": "Crankshaft pilot bearing",
       "qty": 1,
       "description": "Needle/roller pilot bearing pressed into the rear of the LT crankshaft that supports the nose of the transmission input shaft. A worn or dry pilot bearing causes input-shaft wobble, clutch chatter and gear-clash; it is cheap insurance to replace every time the clutch is out.",
-      "location": "Pressed into the pilot bore at the rear flange of the crankshaft, inside the flywheel center, on crank centerline (y\u22480.40).",
+      "location": "Pressed into the pilot bore at the rear flange of the crankshaft, inside the flywheel center, on crank centerline (y≈0.40).",
       "connectsTo": [
         "engine.rotating-assembly.crankshaft",
         "drivetrain.flywheel-clutch.flywheel",
@@ -80,7 +80,7 @@
       "name": "Flywheel",
       "qty": 1,
       "description": "Bolts to the LT crankshaft rear flange (8-bolt pattern) and provides the friction face for the clutch, the starter ring gear and the mounting face for the pressure plate. For road racing, a lighter steel/billet flywheel matched to a multi-disc clutch reduces rotating inertia (faster rev-matching) while keeping enough mass for clean launches out of the pits.",
-      "location": "Inside the bellhousing on the crankshaft rear flange, immediately behind the engine block rear face (x\u22480.40, y\u22480.40).",
+      "location": "Inside the bellhousing on the crankshaft rear flange, immediately behind the engine block rear face (x≈0.40, y≈0.40).",
       "connectsTo": [
         "engine.rotating-assembly.crankshaft",
         "drivetrain.flywheel-clutch.clutch-disc-pack",
@@ -124,13 +124,13 @@
           "qty": 8,
           "spec": "M11 x 1.5 flange bolt (GM LT)",
           "grade": "OEM",
-          "torque": "11 ft-lb (15 N\u00b7m), then 22 ft-lb (30 N\u00b7m), then +45\u00b0",
-          "torqueSequence": "Three passes in a criss-cross sequence: 15 N\u00b7m, then 30 N\u00b7m, then a final +45\u00b0 angle. Use NEW GM bolts (torque-to-angle, one-time use).",
+          "torque": "11 ft-lb (15 N·m), then 22 ft-lb (30 N·m), then +45°",
+          "torqueSequence": "Three passes in a criss-cross sequence: 15 N·m, then 30 N·m, then a final +45° angle. Use NEW GM bolts (torque-to-angle, one-time use).",
           "threadlocker": "GM threadlocker (GM 12345382 / 10953489) if bolts not pre-coated",
           "safetyWire": false,
           "reuse": "Replace each removal (recommended)",
           "tool": "Flywheel holder + 12-pt/hex socket",
-          "notes": "Values are the GM 6.2L flywheel bolt sequence as posted from GM SI for the Gen 5 (LS3) car; Gen V LT uses the same 3-pass procedure - verify against GM SI for your engine. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists Flywheel Bolts: first pass 15 N\u00b7m (11 lb ft), second pass 30 N\u00b7m (22 lb ft), final pass 45 degrees, new fastener. The 2016-18 Camaro SM (via TightTorque, 15/30 N\u00b7m), Summit SR-05493 and Rated R agree. CORRECTED from 20/50/100 N\u00b7m, which was the Gen III/IV (LS) torque-only procedure.",
+          "notes": "Values are the GM 6.2L flywheel bolt sequence as posted from GM SI for the Gen 5 (LS3) car; Gen V LT uses the same 3-pass procedure - verify against GM SI for your engine. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum) lists Flywheel Bolts: first pass 15 N·m (11 lb ft), second pass 30 N·m (22 lb ft), final pass 45 degrees, new fastener. The 2016-18 Camaro SM (via TightTorque, 15/30 N·m), Summit SR-05493 and Rated R agree. CORRECTED from 20/50/100 N·m, which was the Gen III/IV (LS) torque-only procedure.",
           "confidence": "verified",
           "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
         },
@@ -138,9 +138,9 @@
           "item": "Flywheel-to-crankshaft bolt (race, ARP 234-2802)",
           "qty": 8,
           "spec": "ARP GM LT1 6.2L flywheel bolt, 12-pt, 0.900 in UHL",
-          "grade": "ARP chromoly (\u2248180-190 ksi)",
+          "grade": "ARP chromoly (≈180-190 ksi)",
           "partNumber": "ARP 234-2802",
-          "torque": "85 ft-lb (115 N\u00b7m) with Loctite 242 on threads and ARP Ultra-Torque under head",
+          "torque": "85 ft-lb (115 N·m) with Loctite 242 on threads and ARP Ultra-Torque under head",
           "torqueSequence": "Hand tight, then alternating/criss-cross to 85 ft-lb in one or more passes",
           "threadlocker": "Loctite 242 on threads + ARP Ultra-Torque under head (per ARP LS sheet)",
           "safetyWire": false,
@@ -155,7 +155,7 @@
         "Install new pilot bearing first.",
         "Hang flywheel (note any locating dowel/offset hole), install bolts finger-tight with specified threadlocker.",
         "Lock crank (flywheel holder in a bellhousing bolt hole), torque in star pattern in 3 passes.",
-        "Dial-indicate flywheel face runout (\u22640.005 in / 0.13 mm typical) before fitting clutch."
+        "Dial-indicate flywheel face runout (≤0.005 in / 0.13 mm typical) before fitting clutch."
       ],
       "inspection": [
         "Heat checks, blue spots or cracks on friction face",
@@ -193,7 +193,7 @@
           "url": "https://www.jegs.com/i/arp-070-330-2802-pro-series-flywheel-bolts-small-block-chevy-gen-iii-ls-series"
         },
         {
-          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N·m, threadlocker, slave cylinder)",
           "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
         }
       ],
@@ -322,7 +322,7 @@
       "name": "Clutch friction disc(s) and floater plate",
       "qty": 1,
       "description": "The friction disc(s) splined to the transmission input shaft; twin- and triple-disc packs add an intermediate (floater) plate between discs. Disc material (organic, ceramic/metallic, carbon-carbon) sets torque capacity, engagement feel and temperature tolerance. Orientation of each disc ('flywheel side' stamp) and the floater is critical.",
-      "location": "Sandwiched between flywheel face and pressure plate, splined to the TR-6060 input shaft (x\u22480.42-0.45).",
+      "location": "Sandwiched between flywheel face and pressure plate, splined to the TR-6060 input shaft (x≈0.42-0.45).",
       "connectsTo": [
         "drivetrain.flywheel-clutch.flywheel",
         "drivetrain.flywheel-clutch.pressure-plate",
@@ -437,7 +437,7 @@
       "name": "Pressure plate (clutch cover)",
       "qty": 1,
       "description": "Diaphragm-spring clutch cover bolted to the flywheel that clamps the disc pack. The release bearing pushes the diaphragm fingers to release. Clamp load and finger height determine pedal effort and the release-bearing setup height.",
-      "location": "Bolted to the flywheel, facing the transmission (x\u22480.45-0.48, y\u22480.40).",
+      "location": "Bolted to the flywheel, facing the transmission (x≈0.45-0.48, y≈0.40).",
       "connectsTo": [
         "drivetrain.flywheel-clutch.flywheel",
         "drivetrain.flywheel-clutch.clutch-disc-pack",
@@ -464,13 +464,13 @@
           "qty": 6,
           "spec": "Bolt size per cover (OEM GM / kit-supplied)",
           "grade": "8.8/10.9 or ARP",
-          "torque": "OEM GM cover (M10 x 1.5 bolts): 11 ft-lb (15 N\u00b7m), then 26 ft-lb (35 N\u00b7m), then 52 ft-lb (70 N\u00b7m). Aftermarket covers: maker value.",
-          "torqueSequence": "Tighten in sequence and in even increments over the three passes (15 / 35 / 70 N\u00b7m), with the alignment tool installed.",
+          "torque": "OEM GM cover (M10 x 1.5 bolts): 11 ft-lb (15 N·m), then 26 ft-lb (35 N·m), then 52 ft-lb (70 N·m). Aftermarket covers: maker value.",
+          "torqueSequence": "Tighten in sequence and in even increments over the three passes (15 / 35 / 70 N·m), with the alignment tool installed.",
           "threadlocker": "Blue (Loctite 242/243) unless maker says dry",
           "safetyWire": false,
           "reuse": "Inspect; replace if stretched",
           "tool": "Alignment tool installed during torque",
-          "notes": "Bolt count varies by cover (6-9). 70 N\u00b7m is the GM-style value cited by owners on 2016 Camaro clutch installs; the clutch maker's instruction sheet overrides. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum), clutch section: 'Clutch Pressure Plate Bolts' first pass 15 N\u00b7m, second 35 N\u00b7m, final 70 N\u00b7m (52 lb ft), tightened in sequence and in even increments. The McLeod C5-C7 replacement bolt is M10 x 1.5 x 25. Summit SR-05493 lists 22 ft-lb, which conflicts. The Camaro-specific SI table was not found. Never apply 70 N\u00b7m to an aftermarket cover that uses M8 or 5/16 bolts.",
+          "notes": "Bolt count varies by cover (6-9). 70 N·m is the GM-style value cited by owners on 2016 Camaro clutch installs; the clutch maker's instruction sheet overrides. Checked 2026-10: GM SI fastener table for the C7 LT1 (screenshots reposted on CorvetteForum), clutch section: 'Clutch Pressure Plate Bolts' first pass 15 N·m, second 35 N·m, final 70 N·m (52 lb ft), tightened in sequence and in even increments. The McLeod C5-C7 replacement bolt is M10 x 1.5 x 25. Summit SR-05493 lists 22 ft-lb, which conflicts. The Camaro-specific SI table was not found. Never apply 70 N·m to an aftermarket cover that uses M8 or 5/16 bolts.",
           "confidence": "typical",
           "source": "https://www.corvetteforum.com/how-tos/a/c7-corvette-torque-value-368690"
         }
@@ -499,7 +499,7 @@
           "url": "https://wildhammermotorsports.com/16-24-camaro-ss-zl1-twin-disc-clutch-kit-s-mcleod"
         },
         {
-          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N\u00b7m, threadlocker, slave cylinder)",
+          "title": "Camaro5 forum - GM SI torque list as posted (flywheel 20/50/100 N·m, threadlocker, slave cylinder)",
           "url": "https://www.camaro5.com/forums/showthread.php?p=11485096"
         }
       ],
@@ -565,7 +565,7 @@
       },
       "hardware": [],
       "installNotes": [
-        "Check starter pinion engagement depth/backlash with a feeler after engine install (\u22480.020 in / 0.5 mm typical)."
+        "Check starter pinion engagement depth/backlash with a feeler after engine install (≈0.020 in / 0.5 mm typical)."
       ],
       "inspection": [
         "Chipped or burred teeth",

@@ -2,7 +2,7 @@
   "id": "electrical.grounding",
   "system": "electrical",
   "name": "Grounding",
-  "description": "Grounding scheme: battery negative to chassis (through the isolator), engine block to chassis straps, transmission ground, front and rear chassis ground studs, and a dedicated electronics star ground for the ECU, PDM, logger and sensors. A road-race unibody with seam-welded, painted panels and a welded cage needs deliberate ground paths \u2013 paint and seam sealer are insulators.",
+  "description": "Grounding scheme: battery negative to chassis (through the isolator), engine block to chassis straps, transmission ground, front and rear chassis ground studs, and a dedicated electronics star ground for the ECU, PDM, logger and sensors. A road-race unibody with seam-welded, painted panels and a welded cage needs deliberate ground paths – paint and seam sealer are insulators.",
   "components": [
     {
       "id": "electrical.grounding.battery-negative-cable",
@@ -37,7 +37,7 @@
           "qty": 1,
           "spec": "M8 x 1.25 or M10 x 1.5 nut + serrated/star washer",
           "grade": "8",
-          "torque": "M8: 16 ft-lb (22 N\u00b7m); M10: 30 ft-lb (40 N\u00b7m)",
+          "torque": "M8: 16 ft-lb (22 N·m); M10: 30 ft-lb (40 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -63,19 +63,34 @@
           "shape": "tube",
           "path": [
             [
-              3.26,
-              0.565,
+              3.261,
+              0.572,
               -0.614
             ],
             [
-              3.22,
-              0.53,
-              -0.64
+              3.28,
+              0.59,
+              -0.622
             ],
             [
-              3.17,
-              0.45,
-              -0.64
+              3.4,
+              0.59,
+              -0.622
+            ],
+            [
+              3.44,
+              0.56,
+              -0.605
+            ],
+            [
+              3.475,
+              0.49,
+              -0.595
+            ],
+            [
+              3.482,
+              0.472,
+              -0.5926
             ]
           ],
           "radius": 0.008
@@ -84,23 +99,33 @@
           "shape": "tube",
           "path": [
             [
-              3.19,
-              0.45,
-              -0.6
+              3.482,
+              0.472,
+              -0.5674
             ],
             [
-              3.21,
-              0.43,
-              -0.53
+              3.49,
+              0.5,
+              -0.555
             ],
             [
-              3.3,
-              0.42,
-              -0.44
+              3.49,
+              0.55,
+              -0.52
+            ],
+            [
+              3.48,
+              0.548,
+              -0.47
+            ],
+            [
+              3.46,
+              0.48,
+              -0.42
             ],
             [
               3.45,
-              0.42,
+              0.438,
               -0.4
             ]
           ],
@@ -109,7 +134,7 @@
       ],
       "modelRef": {
         "images": [],
-        "dimensions": "1/0 AWG: battery \u2013 \u2192 isolator \u2192 trunk ground stud.",
+        "dimensions": "1/0 AWG: battery – → isolator → trunk ground stud.",
         "features": "Black jacket, tinned ring lugs with black boots.",
         "confidence": "estimated"
       }
@@ -148,7 +173,7 @@
           "qty": 1,
           "spec": "M10 x 1.5 flange nut",
           "grade": "8",
-          "torque": "30 ft-lb (40 N\u00b7m)",
+          "torque": "30 ft-lb (40 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -207,7 +232,7 @@
       },
       "raceOptions": [
         {
-          "name": "Tinned copper braided strap 1/0 equivalent, 300\u2013400 mm",
+          "name": "Tinned copper braided strap 1/0 equivalent, 300–400 mm",
           "brand": "",
           "partNumber": "",
           "notes": "Braid tolerates engine movement on solid/poly mounts."
@@ -215,7 +240,7 @@
       ],
       "specs": {
         "Gauge": "1/0 AWG equivalent",
-        "Length": "\u2248 300\u2013400 mm, with slack for engine roll"
+        "Length": "≈ 300–400 mm, with slack for engine roll"
       },
       "hardware": [
         {
@@ -223,7 +248,7 @@
           "qty": 1,
           "spec": "M10 x 1.5 x 25 bolt + serrated washer",
           "grade": "10.9",
-          "torque": "37 ft-lb (50 N\u00b7m)",
+          "torque": "37 ft-lb (50 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -236,7 +261,7 @@
           "qty": 1,
           "spec": "M8 x 1.25 nut + serrated washer",
           "grade": "8",
-          "torque": "16 ft-lb (22 N\u00b7m)",
+          "torque": "16 ft-lb (22 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -273,8 +298,8 @@
           ],
           [
             0.4,
-            0.46,
-            -0.45
+            0.44,
+            -0.46
           ]
         ],
         "radius": 0.007,
@@ -282,7 +307,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "Tinned copper braid ~20 mm wide, 300\u2013400 mm long.",
+        "dimensions": "Tinned copper braid ~20 mm wide, 300–400 mm long.",
         "features": "Flat braided strap with tinned ring lugs.",
         "confidence": "estimated"
       }
@@ -304,7 +329,7 @@
       },
       "raceOptions": [],
       "specs": {
-        "Gauge": "8\u20134 AWG braid"
+        "Gauge": "8–4 AWG braid"
       },
       "hardware": [
         {
@@ -312,7 +337,7 @@
           "qty": 2,
           "spec": "M8 x 1.25",
           "grade": "8.8",
-          "torque": "16 ft-lb (22 N\u00b7m)",
+          "torque": "16 ft-lb (22 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -349,7 +374,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "8\u20134 AWG equivalent braid.",
+        "dimensions": "8–4 AWG equivalent braid.",
         "features": "Flat braided strap with ring lugs.",
         "confidence": "estimated"
       }
@@ -380,7 +405,7 @@
           "qty": 1,
           "spec": "M8 x 1.25 flange nut",
           "grade": "8",
-          "torque": "16 ft-lb (22 N\u00b7m)",
+          "torque": "16 ft-lb (22 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -403,9 +428,9 @@
       "model": {
         "shape": "cylinder",
         "pos": [
-          0.45,
-          0.46,
-          -0.45
+          0.4,
+          0.429,
+          -0.46
         ],
         "size": [
           0.01,
@@ -426,7 +451,7 @@
       "name": "Electronics star ground (cabin)",
       "qty": 1,
       "description": "Single bus bar / stud in the cabin where the ECU power grounds, PDM ground, logger/dash ground and sensor-ground references terminate, tied to the chassis with one short heavy cable. Prevents ground loops and offsets in analogue sensor readings. ECU sensor grounds (0 V references) go back to the ECU only, never to chassis.",
-      "location": "Passenger footwell bulkhead near the ECU/PDM (x\u22480.95, y\u22480.40, z\u2248-0.35).",
+      "location": "Passenger footwell bulkhead near the ECU/PDM (x≈0.95, y≈0.40, z≈-0.35).",
       "connectsTo": [
         "electrical.engine-management.ecu",
         "electrical.power-distribution.pdm",
@@ -455,7 +480,7 @@
           "qty": 2,
           "spec": "M6 screw into rivnut",
           "grade": "8.8",
-          "torque": "8 N\u00b7m (71 in-lb)",
+          "torque": "8 N·m (71 in-lb)",
           "threadlocker": "Blue",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -467,7 +492,7 @@
           "qty": 8,
           "spec": "#10 / M5 screw",
           "grade": "",
-          "torque": "20 in-lb (2.3 N\u00b7m)",
+          "torque": "20 in-lb (2.3 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -533,7 +558,7 @@
           "qty": 2,
           "spec": "M8 x 1.25",
           "grade": "8.8",
-          "torque": "16 ft-lb (22 N\u00b7m)",
+          "torque": "16 ft-lb (22 N·m)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",

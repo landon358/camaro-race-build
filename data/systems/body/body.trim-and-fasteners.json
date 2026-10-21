@@ -1,297 +1,1267 @@
 {
- "id": "body.trim-and-fasteners",
- "system": "body",
- "name": "Trim & Fasteners",
- "description": "Quick-release Dzus fasteners, rivnuts, fascia quick-release brackets, fender liners and clips used across body and aero.",
- "components": [
-  {
-   "id": "body.trim-and-fasteners.dzus-fasteners",
-   "name": "Dzus quarter-turn fasteners (EHF5/EHF6) & springs",
-   "qty": 40,
-   "description": "Quarter-turn studs with riveted receptacle springs for panels that come off often (fascias, undertray, access panels). EHF5 (37 mm head, 27 mm rivet spacing) uses S5 spring; EHF6 (44 mm, 34 mm spacing) uses S6. Choose stud by grip length = total panel stack thickness.",
-   "location": "Fascias, undertray, splitter, access panels.",
-   "connectsTo": [
-    "body.panels.front-fascia",
-    "body.panels.rear-fascia",
-    "aero.undertray.front-undertray",
-    "aero.front-splitter.splitter-blade"
-   ],
-   "factory": {
-    "name": "Not fitted on production car",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [
+  "id": "body.trim-and-fasteners",
+  "system": "body",
+  "name": "Trim & Fasteners",
+  "description": "Quick-release Dzus fasteners, rivnuts, fascia quick-release brackets, fender liners and clips used across body and aero.",
+  "components": [
     {
-     "name": "Dzus/Southco D4 or Hartwell-Dzus Raceline studs",
-     "brand": "Southco / Hartwell",
-     "partNumber": "",
-     "notes": "Self-ejecting option eases large panels.",
-     "url": "https://blog.demon-tweeks.com/?p=6261"
+      "id": "body.trim-and-fasteners.dzus-fasteners",
+      "name": "Dzus quarter-turn fasteners (EHF5/EHF6) & springs",
+      "qty": 40,
+      "description": "Quarter-turn studs with riveted receptacle springs for panels that come off often (fascias, undertray, access panels). EHF5 (37 mm head, 27 mm rivet spacing) uses S5 spring; EHF6 (44 mm, 34 mm spacing) uses S6. Choose stud by grip length = total panel stack thickness.",
+      "location": "Fascias, undertray, splitter, access panels.",
+      "connectsTo": [
+        "body.panels.front-fascia",
+        "body.panels.rear-fascia",
+        "aero.undertray.front-undertray",
+        "aero.front-splitter.splitter-blade"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Dzus/Southco D4 or Hartwell-Dzus Raceline studs",
+          "brand": "Southco / Hartwell",
+          "partNumber": "",
+          "notes": "Self-ejecting option eases large panels.",
+          "url": "https://blog.demon-tweeks.com/?p=6261"
+        },
+        {
+          "name": "DME Racing weld-in Dzus tab kit",
+          "brand": "DME Racing",
+          "partNumber": "",
+          "notes": "For aluminum structures.",
+          "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
+        }
+      ],
+      "specs": {
+        "EHF5": "37 mm head, 27 mm rivet spacing, S5 spring",
+        "EHF6": "44 mm head, 34 mm rivet spacing, S6 spring"
+      },
+      "hardware": [
+        {
+          "item": "Spring receptacle rivets",
+          "qty": 2,
+          "spec": "1/8 in blind rivets per spring",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "verified",
+          "source": "https://blog.demon-tweeks.com/?p=6261"
+        }
+      ],
+      "installNotes": [
+        "Measure grip (e.g. two 2.5 mm panels = 5 mm grip).",
+        "Rivet springs to inner panel/bracket; stud retained in outer panel."
+      ],
+      "inspection": [
+        "Replace springs that lose tension."
+      ],
+      "buildPhase": 10,
+      "installOrder": 22,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+          "url": "https://blog.demon-tweeks.com/?p=6261"
+        },
+        {
+          "title": "DME Racing – Dzus tab kit",
+          "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
+        }
+      ],
+      "model": [
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.762,
+            0.8195,
+            0
+          ],
+          "rot": [
+            -1,
+            0,
+            23.4
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.76,
+            0.8149,
+            0
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            -1,
+            0,
+            23.4
+          ],
+          "color": "#7f8c8d"
+        },
+        {
+          "path": [
+            [
+              -0.7594,
+              0.8135,
+              0.0001
+            ],
+            [
+              -0.75,
+              0.792,
+              0.0004
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d"
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.702,
+            0.8246,
+            0.2503
+          ],
+          "rot": [
+            8.5,
+            0,
+            23.2
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.7,
+            0.82,
+            0.2497
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            8.5,
+            0,
+            23.2
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              -0.6994,
+              0.8187,
+              0.2495
+            ],
+            [
+              -0.6907,
+              0.7985,
+              0.2464
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.706,
+            0.8082,
+            0.4003
+          ],
+          "rot": [
+            6.8,
+            0,
+            24.5
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.704,
+            0.8036,
+            0.3997
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            6.8,
+            0,
+            24.5
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.5025,
+            0.3314,
+            0.876
+          ],
+          "rot": [
+            77.9,
+            0,
+            35.5
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.4995,
+            0.3306,
+            0.872
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            77.9,
+            0,
+            35.5
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              -0.4987,
+              0.3303,
+              0.8708
+            ],
+            [
+              -0.4454,
+              0.3146,
+              0.7979
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.8259,
+            0.5,
+            0
+          ],
+          "rot": [
+            0,
+            0,
+            -90
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.8209,
+            0.5,
+            0
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            0,
+            0,
+            -90
+          ],
+          "color": "#7f8c8d"
+        },
+        {
+          "path": [
+            [
+              3.8194,
+              0.5,
+              0
+            ],
+            [
+              3.74,
+              0.5,
+              0
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d"
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.8145,
+            0.5,
+            0.2002
+          ],
+          "rot": [
+            90,
+            0,
+            -85.7
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.8095,
+            0.5,
+            0.1998
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            90,
+            0,
+            -85.7
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              3.808,
+              0.5,
+              0.1997
+            ],
+            [
+              3.74,
+              0.5,
+              0.1946
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.7755,
+            0.5,
+            0.4208
+          ],
+          "rot": [
+            90,
+            0,
+            -70.7
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.7707,
+            0.5,
+            0.4192
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            90,
+            0,
+            -70.7
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              3.7693,
+              0.5,
+              0.4187
+            ],
+            [
+              3.7261,
+              0.5,
+              0.4036
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.7008,
+            0.3408,
+            0.15
+          ],
+          "rot": [
+            178.9,
+            0,
+            -17.5
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.6992,
+            0.3456,
+            0.15
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            178.9,
+            0,
+            -17.5
+          ],
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              3.6988,
+              0.347,
+              0.1499
+            ],
+            [
+              3.6848,
+              0.3915,
+              0.149
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.92,
+            0.1885,
+            0
+          ],
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.92,
+            0.2073,
+            0
+          ],
+          "size": [
+            0.008,
+            0.0326,
+            0.008
+          ],
+          "axis": "y",
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.92,
+            0.2211,
+            0
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d"
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.88,
+            0.1885,
+            0.3
+          ],
+          "rot": [
+            0,
+            0,
+            0
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.88,
+            0.2087,
+            0.3
+          ],
+          "size": [
+            0.008,
+            0.0355,
+            0.008
+          ],
+          "axis": "y",
+          "color": "#95a5a6",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.88,
+            0.224,
+            0.3
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            -0.8,
+            0.1885,
+            0.55
+          ],
+          "rot": [
+            0,
+            0,
+            0
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.8,
+            0.201,
+            0.55
+          ],
+          "size": [
+            0.008,
+            0.02,
+            0.008
+          ],
+          "axis": "y",
+          "color": "#95a5a6",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            -0.8,
+            0.2015,
+            0.55
+          ],
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d",
+          "mirror": true
+        }
+      ]
     },
     {
-     "name": "DME Racing weld-in Dzus tab kit",
-     "brand": "DME Racing",
-     "partNumber": "",
-     "notes": "For aluminum structures.",
-     "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
-    }
-   ],
-   "specs": {
-    "EHF5": "37 mm head, 27 mm rivet spacing, S5 spring",
-    "EHF6": "44 mm head, 34 mm rivet spacing, S6 spring"
-   },
-   "hardware": [
-    {
-     "item": "Spring receptacle rivets",
-     "qty": 2,
-     "spec": "1/8 in blind rivets per spring",
-     "grade": "n/a",
-     "torque": "N/A",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "verified",
-     "source": "https://blog.demon-tweeks.com/?p=6261"
-    }
-   ],
-   "installNotes": [
-    "Measure grip (e.g. two 2.5 mm panels = 5 mm grip).",
-    "Rivet springs to inner panel/bracket; stud retained in outer panel."
-   ],
-   "inspection": [
-    "Replace springs that lose tension."
-   ],
-   "buildPhase": 10,
-   "installOrder": 22,
-   "tags": [],
-   "sources": [
-    {
-     "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
-     "url": "https://blog.demon-tweeks.com/?p=6261"
+      "id": "body.trim-and-fasteners.rivnuts",
+      "name": "Rivnuts (threaded inserts)",
+      "qty": 60,
+      "description": "Steel rivnuts (M6 / 1/4-20 typical, M5 for Lexan) giving reusable threads in sheet metal for panels, Lexan, undertray and interior.",
+      "location": "Throughout body/interior.",
+      "connectsTo": [
+        "body.glass-and-lexan.rear-window",
+        "interior.dash.race-dash-panel",
+        "aero.undertray.front-undertray"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Mating screws",
+          "qty": 1,
+          "spec": "M6 x 1.0 button head",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "Low torque to avoid spinning the insert."
+        }
+      ],
+      "installNotes": [
+        "Use correct grip-range rivnut; set with proper tool."
+      ],
+      "inspection": [
+        "Replace spun rivnuts."
+      ],
+      "buildPhase": 10,
+      "installOrder": 23,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6402,
+            1.2947,
+            0.1
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            0.7,
+            0,
+            -14
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6385,
+            1.2882,
+            0.0999
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            0.7,
+            0,
+            -14
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6202,
+            1.2978,
+            0.22
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            2.1,
+            0,
+            -12.7
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6187,
+            1.2913,
+            0.2198
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            2.1,
+            0,
+            -12.7
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6602,
+            1.2776,
+            0.3601
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            5,
+            0,
+            -15.3
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6584,
+            1.2711,
+            0.3595
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            5,
+            0,
+            -15.3
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.7502,
+            1.2429,
+            0.4521
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            8.5,
+            0,
+            -16.5
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.7483,
+            1.2365,
+            0.4511
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            8.5,
+            0,
+            -16.5
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.8702,
+            1.2059,
+            0.4481
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -17.9
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.8682,
+            1.1995,
+            0.4473
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -17.9
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.9802,
+            1.1705,
+            0.4441
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -18.5
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.9781,
+            1.1642,
+            0.4433
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -18.5
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.0902,
+            1.1343,
+            0.4361
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -18.5
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.0881,
+            1.128,
+            0.4353
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            7.1,
+            0,
+            -18.5
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.2142,
+            1.113,
+            0
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            0,
+            0,
+            -19.3
+          ],
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.212,
+            1.1066,
+            0
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            0,
+            0,
+            -19.3
+          ],
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.1943,
+            1.1187,
+            0.12
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            0.7,
+            0,
+            -20.6
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.1919,
+            1.1124,
+            0.1199
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            0.7,
+            0,
+            -20.6
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.2682,
+            1.0887,
+            0.21
+          ],
+          "size": [
+            0.012,
+            0.0015,
+            0.012
+          ],
+          "axis": "y",
+          "rot": [
+            2.1,
+            0,
+            -19.3
+          ],
+          "mirror": true,
+          "color": "#bdc3c7"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            3.266,
+            1.0823,
+            0.2098
+          ],
+          "size": [
+            0.007,
+            0.012,
+            0.007
+          ],
+          "axis": "y",
+          "rot": [
+            2.1,
+            0,
+            -19.3
+          ],
+          "mirror": true,
+          "color": "#95a5a6"
+        }
+      ]
     },
     {
-     "title": "DME Racing – Dzus tab kit",
-     "url": "https://dmeracing.com/product/dzus-tab-kit-quarter-turn-fastener/"
-    }
-   ],
-   "model": {
-    "shape": "cylinder",
-    "pos": [
-     -0.95,
-     0.3,
-     0.5
-    ],
-    "size": [
-     0.015,
-     0.005,
-     0.015
-    ],
-    "axis": "x",
-    "instances": [
-     [
-      -0.95,
-      0.3,
-      0.5
-     ],
-     [
-      -0.95,
-      0.3,
-      -0.5
-     ],
-     [
-      -0.95,
-      0.3,
-      0
-     ],
-     [
-      3.82,
-      0.4,
-      0.5
-     ],
-     [
-      3.82,
-      0.4,
-      -0.5
-     ]
-    ],
-    "color": "#bdc3c7"
-   }
-  },
-  {
-   "id": "body.trim-and-fasteners.rivnuts",
-   "name": "Rivnuts (threaded inserts)",
-   "qty": 60,
-   "description": "Steel rivnuts (M6 / 1/4-20 typical, M5 for Lexan) giving reusable threads in sheet metal for panels, Lexan, undertray and interior.",
-   "location": "Throughout body/interior.",
-   "connectsTo": [
-    "body.glass-and-lexan.rear-window",
-    "interior.dash.race-dash-panel",
-    "aero.undertray.front-undertray"
-   ],
-   "factory": {
-    "name": "Not fitted on production car",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [],
-   "specs": {},
-   "hardware": [
+      "id": "body.trim-and-fasteners.fascia-quick-release",
+      "name": "Fascia quick-release brackets (clevis pins/R-clips)",
+      "qty": 6,
+      "description": "Brackets with clevis pins & R-clips or Dzus so fascias detach in minutes for repairs and radiator access.",
+      "location": "Fascia-to-fender and fascia-to-beam joints.",
+      "connectsTo": [
+        "body.panels.front-fascia",
+        "body.panels.rear-fascia"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Clevis pin + R-clip",
+          "qty": 1,
+          "spec": "1/4 in clevis pin, R-clip",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [],
+      "inspection": [
+        "R-clips present."
+      ],
+      "buildPhase": 10,
+      "installOrder": 24,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          -0.75,
+          0.55,
+          0.85
+        ],
+        "size": [
+          0.04,
+          0.04,
+          0.02
+        ],
+        "mirror": true,
+        "color": "#7f8c8d"
+      }
+    },
     {
-     "item": "Mating screws",
-     "qty": 1,
-     "spec": "M6 x 1.0 button head",
-     "grade": "ISO 8.8",
-     "torque": "5.9 ft-lb (8 N·m)",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "estimate",
-     "source": "",
-     "notes": "Low torque to avoid spinning the insert."
+      "id": "body.trim-and-fasteners.fender-liners",
+      "name": "Wheelhouse liners (trimmed/retained)",
+      "qty": 4,
+      "description": "Factory plastic liners trimmed for tire clearance or removed; front liners help direct air to fender vents and keep debris off wiring.",
+      "location": "Inside wheel wells.",
+      "connectsTo": [
+        "body.panels.front-fenders",
+        "aero.ducts-and-vents.fender-louvers"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Push clips / screws",
+          "qty": 8,
+          "spec": "GM push clips / M6 screws",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Check full-lock/full-bump clearance."
+      ],
+      "inspection": [
+        "Look for tire rub."
+      ],
+      "buildPhase": 10,
+      "installOrder": 25,
+      "tags": [],
+      "sources": [],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0,
+          0.6,
+          0.8
+        ],
+        "size": [
+          0.7,
+          0.3,
+          0.004
+        ],
+        "mirror": true,
+        "color": "#1b1b1b"
+      }
     }
-   ],
-   "installNotes": [
-    "Use correct grip-range rivnut; set with proper tool."
-   ],
-   "inspection": [
-    "Replace spun rivnuts."
-   ],
-   "buildPhase": 10,
-   "installOrder": 23,
-   "tags": [],
-   "sources": [],
-   "model": {
-    "shape": "cylinder",
-    "pos": [
-     2.7,
-     1.25,
-     0.4
-    ],
-    "size": [
-     0.01,
-     0.01,
-     0.01
-    ],
-    "axis": "y",
-    "color": "#bdc3c7"
-   }
-  },
-  {
-   "id": "body.trim-and-fasteners.fascia-quick-release",
-   "name": "Fascia quick-release brackets (clevis pins/R-clips)",
-   "qty": 6,
-   "description": "Brackets with clevis pins & R-clips or Dzus so fascias detach in minutes for repairs and radiator access.",
-   "location": "Fascia-to-fender and fascia-to-beam joints.",
-   "connectsTo": [
-    "body.panels.front-fascia",
-    "body.panels.rear-fascia"
-   ],
-   "factory": {
-    "name": "Not fitted on production car",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [],
-   "specs": {},
-   "hardware": [
-    {
-     "item": "Clevis pin + R-clip",
-     "qty": 1,
-     "spec": "1/4 in clevis pin, R-clip",
-     "grade": "Steel",
-     "torque": "N/A",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "typical",
-     "source": ""
-    }
-   ],
-   "installNotes": [],
-   "inspection": [
-    "R-clips present."
-   ],
-   "buildPhase": 10,
-   "installOrder": 24,
-   "tags": [],
-   "sources": [],
-   "model": {
-    "shape": "box",
-    "pos": [
-     -0.75,
-     0.55,
-     0.85
-    ],
-    "size": [
-     0.04,
-     0.04,
-     0.02
-    ],
-    "mirror": true,
-    "color": "#7f8c8d"
-   }
-  },
-  {
-   "id": "body.trim-and-fasteners.fender-liners",
-   "name": "Wheelhouse liners (trimmed/retained)",
-   "qty": 4,
-   "description": "Factory plastic liners trimmed for tire clearance or removed; front liners help direct air to fender vents and keep debris off wiring.",
-   "location": "Inside wheel wells.",
-   "connectsTo": [
-    "body.panels.front-fenders",
-    "aero.ducts-and-vents.fender-louvers"
-   ],
-   "factory": {
-    "name": "Not fitted on production car",
-    "partNumber": "",
-    "notes": ""
-   },
-   "raceOptions": [],
-   "specs": {},
-   "hardware": [
-    {
-     "item": "Push clips / screws",
-     "qty": 8,
-     "spec": "GM push clips / M6 screws",
-     "grade": "n/a",
-     "torque": "N/A",
-     "torqueSequence": "",
-     "threadlocker": "none",
-     "safetyWire": false,
-     "reuse": "Reusable",
-     "confidence": "typical",
-     "source": ""
-    }
-   ],
-   "installNotes": [
-    "Check full-lock/full-bump clearance."
-   ],
-   "inspection": [
-    "Look for tire rub."
-   ],
-   "buildPhase": 10,
-   "installOrder": 25,
-   "tags": [],
-   "sources": [],
-   "model": {
-    "shape": "box",
-    "pos": [
-     0,
-     0.6,
-     0.8
-    ],
-    "size": [
-     0.7,
-     0.3,
-     0.004
-    ],
-    "mirror": true,
-    "color": "#1b1b1b"
-   }
-  }
- ]
+  ]
 }

@@ -2,7 +2,7 @@
 // (uniform shrink about the piece centre + small shift) so nothing pokes through the shell.
 // The body is rendered from five sides into position maps (front, rear, top, left, right);
 // openings such as the grille or wheel arches are bridged, so parts behind them count as inside.
-// Run on the dev server: (await import('/src/tools/fit-measure.js')).measure()
+// Run on the dev server: await __app.viewer.loadBody('./models/camaro.glb'); (await import('/src/tools/fit-measure.js')).measure()
 import * as THREE from 'three';
 import { BODY_GROUPS } from '../viewer.js';
 
@@ -69,6 +69,8 @@ function skin(buf, w, h, axis, sign, win) {
 
 export function measure(opts = {}) {
   const v = window.__app.viewer;
+  // the app no longer loads the single reference mesh; load it first: await __app.viewer.loadBody('./models/camaro.glb')
+  if (!v.bodyNodes) throw new Error("Reference body not loaded: await __app.viewer.loadBody('./models/camaro.glb')");
   const scene = new THREE.Scene();
   const wheelNames = new Set(BODY_GROUPS.Wheels || []);
   v.bodyRoot.updateMatrixWorld(true);

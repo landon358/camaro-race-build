@@ -25,7 +25,7 @@ for (const c of db.components) {
 }
 // no research ids in any text the app shows
 const ID = /\b(chassis|safety|suspension|steering|brakes|wheels|engine|engine-support|drivetrain|electrical|interior|body|aero)\.[a-z0-9-]+\.[a-z0-9-]+/;
-const KEEP = new Set(['id', 'baseId', 'system', 'subsystem', 'connectsTo', 'sources', 'source', 'url', 'zone', 'loc', 'model', 'images']);
+const KEEP = new Set(['id', 'baseId', 'sameAs', 'system', 'subsystem', 'connectsTo', 'sources', 'source', 'url', 'zone', 'loc', 'model', 'images']);
 const strings = (v, key, out = []) => {
   if (KEEP.has(key)) return out;
   if (typeof v === 'string') out.push(v);

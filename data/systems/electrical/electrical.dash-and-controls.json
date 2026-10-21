@@ -9,7 +9,7 @@
       "name": "Dash display / display-logger",
       "qty": 1,
       "description": "Colour TFT display showing rpm, gear, speed, lap/delta, temps/pressures and alarms; most race dashes also log (the logger heart of the data system) and drive shift lights. Receives ECU, PDM, ABS, GPS and sensor data over CAN.",
-      "location": "In front of the driver behind the steering wheel, on a bracket from the dash bar (x\u22481.15, y\u22480.85, z=+0.37).",
+      "location": "In front of the driver behind the steering wheel, on a bracket from the dash bar (x≈1.15, y≈0.85, z=+0.37).",
       "connectsTo": [
         "electrical.main-harness.can-bus-backbone",
         "electrical.engine-management.ecu",
@@ -28,7 +28,7 @@
         {
           "name": "MoTeC C187 display logger",
           "brand": "MoTeC",
-          "partNumber": "18072 (part number recently changed \u2013 confirm)",
+          "partNumber": "18072 (part number recently changed – confirm)",
           "notes": "7 in colour, 4 CAN buses, 10 AV / 4 AT inputs (20/8 with I/O upgrade 29900), 250 MB logging, 79-pin Autosport connector.",
           "url": "https://www.motec.com.au/products/C187"
         },
@@ -36,7 +36,7 @@
           "name": "MoTeC C127 display",
           "brand": "MoTeC",
           "partNumber": "18069",
-          "notes": "7 in, 2 CAN, logging optional (120 MB). Listed obsolete by MoTeC \u2013 buy C1212/C1812 class replacement.",
+          "notes": "7 in, 2 CAN, logging optional (120 MB). Listed obsolete by MoTeC – buy C1212/C1812 class replacement.",
           "url": "https://www.motec.com.au/c127"
         },
         {
@@ -57,7 +57,7 @@
           "qty": 4,
           "spec": "M4 or M5 screws into display inserts",
           "grade": "stainless",
-          "torque": "M4: 1.5 N\u00b7m; M5: 2.5 N\u00b7m",
+          "torque": "M4: 1.5 N·m; M5: 2.5 N·m",
           "threadlocker": "Blue (sparingly)",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -68,9 +68,9 @@
         {
           "item": "Dash bracket clamps to dash bar",
           "qty": 2,
-          "spec": "Tube clamps for 38\u201345 mm cage tube, M6",
+          "spec": "Tube clamps for 38–45 mm cage tube, M6",
           "grade": "8.8",
-          "torque": "8 N\u00b7m (71 in-lb)",
+          "torque": "8 N·m (71 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -129,7 +129,7 @@
             "url": "https://motec.com.au/products/C127 - OBSOLETE"
           },
           {
-            "title": "MoTeC C187 product page \u2013 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
+            "title": "MoTeC C187 product page – 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
             "url": "https://www.motec.com.au/products/C187"
           },
           {
@@ -137,8 +137,8 @@
             "url": "https://www.hpacademy.com/blog/motec-have-just-released-their-new-c127-and-c187"
           }
         ],
-        "dimensions": "196.2 x 122.5 x 24.9 mm (excl. connector), 7\" (176\u2013178 mm) 800 x 480 TFT, 670\u2013715 g.",
-        "features": "Black bezel, wide 7\" screen low in the face, row of 10 RGB shift LEDs above the screen, 3 alarm LEDs down each side, single 79-pin Autosport connector at the rear, 4 rear threaded mounts. Tilted back ~15\u00b0 toward the driver.",
+        "dimensions": "196.2 x 122.5 x 24.9 mm (excl. connector), 7\" (176–178 mm) 800 x 480 TFT, 670–715 g.",
+        "features": "Black bezel, wide 7\" screen low in the face, row of 10 RGB shift LEDs above the screen, 3 alarm LEDs down each side, single 79-pin Autosport connector at the rear, 4 rear threaded mounts. Tilted back ~15° toward the driver.",
         "confidence": "published"
       }
     },
@@ -147,7 +147,7 @@
       "name": "CAN keypad / switch panel",
       "qty": 1,
       "description": "Sealed CAN keypad replacing toggle switches: ignition, start, fuel pumps prime, fans override, lights, rain light, wipers, pit limiter, cool-suit, radio, dash page, alarm acknowledge. Each button LED shows PDM output state. Alternatively the Cartek PDP-16 has its own integrated button panel.",
-      "location": "Center console/dash center, reachable with belts tight (x\u22481.15, y\u22480.70, z\u2248+0.05).",
+      "location": "Center console/dash center, reachable with belts tight (x≈1.15, y≈0.70, z≈+0.05).",
       "connectsTo": [
         "electrical.power-distribution.pdm",
         "electrical.main-harness.can-bus-backbone",
@@ -191,7 +191,7 @@
           "qty": 4,
           "spec": "M4 screws + nyloc",
           "grade": "stainless",
-          "torque": "1.5 N\u00b7m (13 in-lb)",
+          "torque": "1.5 N·m (13 in-lb)",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -225,25 +225,20 @@
       "model": {
         "shape": "box",
         "pos": [
-          1.15,
-          0.7,
-          0.05
+          1.065,
+          0.77,
+          0
         ],
         "size": [
           0.035,
           0.0895,
           0.1295
-        ],
-        "rot": [
-          0,
-          0,
-          25
         ]
       },
       "modelRef": {
         "images": [
           {
-            "title": "MoTeC keypads (motec.com.au) \u2013 41400 15-button 129.54 x 89.46 x 15.74 mm",
+            "title": "MoTeC keypads (motec.com.au) – 41400 15-button 129.54 x 89.46 x 15.74 mm",
             "url": "https://www.motec.com.au/keypads"
           },
           {
@@ -286,7 +281,7 @@
           "qty": 2,
           "spec": "Supplied 12 mm or 15/32 panel nut",
           "grade": "",
-          "torque": "1\u20132 N\u00b7m",
+          "torque": "1–2 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -335,7 +330,7 @@
       "name": "Steering-wheel buttons & quick-release electrical connector",
       "qty": 1,
       "description": "Buttons on the race wheel for radio PTT, pit limiter, dash page/lap marker, flash/high beam, and ack. Signals pass through a quick-release hub with integrated multi-pin connector, or via an infrared wireless system so no wires cross the quick release.",
-      "location": "Steering wheel (x\u22481.25, y\u22480.80, z=+0.37).",
+      "location": "Steering wheel (x≈1.25, y≈0.80, z=+0.37).",
       "connectsTo": [
         "steering.column.quick-release",
         "electrical.power-distribution.pdm",
@@ -379,7 +374,7 @@
           "qty": 6,
           "spec": "M5 x 0.8 countersunk",
           "grade": "10.9 / stainless",
-          "torque": "5 N\u00b7m (44 in-lb)",
+          "torque": "5 N·m (44 in-lb)",
           "threadlocker": "Blue (Loctite 243)",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -445,7 +440,7 @@
       "name": "Shift lights",
       "qty": 1,
       "description": "Sequential LED shift lights (integrated in the C187/C127 top LED bar or an external CAN shift-light module) driven from rpm and gear; also used for alarm flashing and pit-limiter indication.",
-      "location": "Top of dash display / dash bar in line of sight (x\u22481.14, y\u22480.93, z=+0.37).",
+      "location": "Top of dash display / dash bar in line of sight (x≈1.14, y≈0.93, z=+0.37).",
       "connectsTo": [
         "electrical.dash-and-controls.dash-display"
       ],
@@ -470,7 +465,7 @@
           "qty": 2,
           "spec": "M3 stainless",
           "grade": "",
-          "torque": "0.8 N\u00b7m",
+          "torque": "0.8 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -513,7 +508,7 @@
             "url": "https://motec.com.au/products/C127 - OBSOLETE"
           },
           {
-            "title": "MoTeC C187 product page \u2013 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
+            "title": "MoTeC C187 product page – 196.2 x 122.5 x 24.9 mm, 79-pin Autosport",
             "url": "https://www.motec.com.au/products/C187"
           },
           {
@@ -530,7 +525,7 @@
       "id": "electrical.dash-and-controls.warning-lamps",
       "name": "Hardwired warning lamps (oil pressure / master alarm)",
       "qty": 2,
-      "description": "Large, bright LED lamps for low oil pressure and master alarm, driven by a dash/PDM output \u2013 visible even if the dash page is changed. Cheap insurance for a dry-sump race engine.",
+      "description": "Large, bright LED lamps for low oil pressure and master alarm, driven by a dash/PDM output – visible even if the dash page is changed. Cheap insurance for a dry-sump race engine.",
       "location": "Dash bar either side of display.",
       "connectsTo": [
         "electrical.dash-and-controls.dash-display",
@@ -543,7 +538,7 @@
       },
       "raceOptions": [],
       "specs": {
-        "Size": "22\u201330 mm LED"
+        "Size": "22–30 mm LED"
       },
       "hardware": [
         {
@@ -597,7 +592,7 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "22 mm panel-mount LED pilot lamps, bezel \u00d8~28 mm, ~40 mm deep.",
+        "dimensions": "22 mm panel-mount LED pilot lamps, bezel Ø~28 mm, ~40 mm deep.",
         "features": "Chrome bezel, red domed lens, black threaded body with jam nut.",
         "confidence": "estimated"
       }
@@ -634,7 +629,7 @@
           "qty": 1,
           "spec": "Supplied",
           "grade": "",
-          "torque": "1.5 N\u00b7m",
+          "torque": "1.5 N·m",
           "threadlocker": "none",
           "safetyWire": false,
           "reuse": "Reusable",
@@ -686,16 +681,16 @@
       },
       "modelRef": {
         "images": [],
-        "dimensions": "12-position rotary switch, knob \u00d8~30 mm, ~50 mm overall depth (estimated).",
+        "dimensions": "12-position rotary switch, knob Ø~30 mm, ~50 mm overall depth (estimated).",
         "features": "Black knob with white pointer, chrome jam nut, black body with solder pins.",
         "confidence": "estimated"
       }
     },
     {
       "id": "electrical.dash-and-controls.factory-body-electronics",
-      "name": "Factory body electronics (BCM, IPC, radio, airbag) \u2013 removal/retention",
+      "name": "Factory body electronics (BCM, IPC, radio, airbag) – removal/retention",
       "qty": 1,
-      "description": "Gen 6 body control module (BCM), instrument cluster, infotainment, airbag SDM, keyless entry, column modules. With a Chevrolet Performance controller kit or race standalone ECU the engine runs without them; removing them saves weight and failure points. Retaining OE ABS/stability and electric power steering requires those modules (and their CAN messages) to be satisfied \u2013 a key decision tied to the steering and brakes systems.",
+      "description": "Gen 6 body control module (BCM), instrument cluster, infotainment, airbag SDM, keyless entry, column modules. With a Chevrolet Performance controller kit or race standalone ECU the engine runs without them; removing them saves weight and failure points. Retaining OE ABS/stability and electric power steering requires those modules (and their CAN messages) to be satisfied – a key decision tied to the steering and brakes systems.",
       "location": "Throughout the factory dash/body (removed in phase 1 strip).",
       "connectsTo": [
         "steering.power-steering.eps-module",
@@ -723,7 +718,7 @@
       ],
       "sources": [
         {
-          "title": "GM TechLink \u2013 Global A module security",
+          "title": "GM TechLink – Global A module security",
           "url": "https://gm-techlink.com/?p=11221"
         }
       ]

@@ -203,7 +203,8 @@
         "dimensions": "Gen 6 tail lamp ~340 x 80 mm face, wraps the rear corner (estimated).",
         "features": "Dark housing with two rectangular red LED elements per side and a centre chrome divider.",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "body.lighting-housings.tail-lamps"
     },
     {
       "id": "electrical.lighting.brake-pressure-switch",
@@ -358,7 +359,8 @@
         "dimensions": "Gen 6 headlamp module ~180 x 60 mm face, ~140 mm deep, kept inside the fascia envelope (estimated).",
         "features": "Black housing, projector lens, LED signature strip, clear outer lens; swept back along the hood edge.",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "body.lighting-housings.headlamps"
     },
     {
       "id": "electrical.lighting.position-marker-lights",

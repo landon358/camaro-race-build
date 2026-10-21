@@ -791,7 +791,8 @@ const axial = {
     }
     b.add(cylX(R * 0.98, 0.004, 32), 'rubber', [L / 2 - 0.026, 0, 0]);
     b.add(latheX([[0.0001, L / 2 - 0.024], [R * 1.04, L / 2 - 0.024], [R * 1.04, L / 2 - 0.006], [R * 0.9, L / 2], [0.0001, L / 2]], 32), 'cast');
-    b.add(box(0.012, 0.02, 0.03, 0.004), 'cast', [L / 2 - 0.012, R * 1.05, 0]);
+    // cooler-line port on the adapter, on the canonical +Z side (forward when the filter is mounted sideways on the pan)
+    b.add(box(0.012, 0.03, 0.02, 0.004), 'cast', [L / 2 - 0.012, 0, R * 1.05]);
     return b.build();
   },
 
@@ -1273,20 +1274,22 @@ const boxes = {
   },
 
   engine_oilPan(sx, sy, sz, ctx) {
-    // ZL1 wet-sump pan: cast aluminium, shallow front over the crossmember, deep rear sump with ribs
-    const px = ctx.pos[0];
-    const top = sy / 2, bot = -sy / 2, yf = top - 0.062;
-    const x1 = 0.0 - px, x2 = 0.07 - px;
+    // ZL1 wet-sump pan: cast aluminium, shallow front over the steering rack, deep centre sump with ribs,
+    // rear stepped up over the cradle rear crossmember (x 0.29-0.35, top y 0.215)
+    const [px, py] = ctx.pos;
+    const top = sy / 2, bot = -sy / 2, yf = top - 0.035;
+    const x1 = 0.0 - px, x2 = 0.07 - px, x3 = 0.255 - px, x4 = 0.28 - px, yr = 0.226 - py;
     const prof = new THREE.Shape();
-    [[-sx / 2, top - 0.01], [-sx / 2, yf + 0.012], [-sx / 2 + 0.014, yf], [x1, yf], [x2, bot + 0.004], [sx / 2 - 0.035, bot], [sx / 2 - 0.004, bot + 0.03], [sx / 2 - 0.004, top - 0.01]].forEach(([x, y], i) => (i ? prof.lineTo(x, y) : prof.moveTo(x, y)));
+    [[-sx / 2, top - 0.01], [-sx / 2, yf + 0.012], [-sx / 2 + 0.014, yf], [x1, yf], [x2, bot + 0.004], [x3, bot], [x4, yr], [sx / 2 - 0.02, yr], [sx / 2 - 0.004, yr + 0.02], [sx / 2 - 0.004, top - 0.01]].forEach(([x, y], i) => (i ? prof.lineTo(x, y) : prof.moveTo(x, y)));
     prof.closePath();
     const b = new PartBuilder();
     b.add(extZ(prof, sz - 0.03, 8, 0.008), 'cast');
     b.add(box(sx, 0.012, sz, 0.004), 'cast', [0, top - 0.006, 0]);
-    for (const z of [-0.1, -0.05, 0, 0.05, 0.1]) b.add(box(sx / 2 - 0.04 - x2, 0.007, 0.006, 0.002), 'cast', [(x2 + sx / 2 - 0.04) / 2, bot - 0.002, z]);
-    hexHead(b, [sx / 2 - 0.07, bot, -0.05], [0, -1, 0], 0.009, 0.008);
-    b.add(cylZ(0.026, 0.02, 24), 'cast', [-0.12 - px, yf + 0.03, -(sz / 2 - 0.004)]);
-    b.add(cylY(0.018, 0.01, 18), 'cast', [0.18 - px, bot - 0.003, -0.1]);
+    for (const z of [-0.1, -0.05, 0, 0.05, 0.1]) b.add(box(x3 - x2 - 0.02, 0.006, 0.006, 0.002), 'cast', [(x2 + x3) / 2, bot + 0.002, z]);
+    hexHead(b, [0.2 - px, bot + 0.004, -0.05], [0, -1, 0], 0.009, 0.006);
+    // driver-side wall: oil filter adapter pad (x 0.14) and oil level/temp sensor boss (x 0.25)
+    b.add(cylZ(0.03, 0.008, 24), 'cast', [0.14 - px, 0.229 - py, sz / 2 - 0.011]);
+    b.add(cylZ(0.016, 0.008, 18), 'cast', [0.25 - px, 0.228 - py, sz / 2 - 0.019]);
     for (let i = 0; i < 8; i++) {
       const x = -sx / 2 + 0.02 + (i * (sx - 0.04)) / 7;
       for (const s of [-1, 1]) hexHead(b, [x, top - 0.012, s * (sz / 2 - 0.008)], [0, -1, 0], 0.0055, 0.006);
@@ -1336,18 +1339,24 @@ const paths = {
     const cyl = s > 0 ? LT.cylL : LT.cylR;
     const b = new PartBuilder();
     const rr = pi ? 0.009 : 0.0105;
-    b.add(tubeAlong(curveFrom(pts), rr, null, 14), pi ? 'red' : 'stainless');
-    const a = pts[0], z = pts[pts.length - 1];
-    for (const [p, q] of [[a, pts[1]], [z, pts[pts.length - 2]]]) {
+    b.add(tubeAlong(curveFrom(pts), rr, pts.length > 2 ? 64 : null, 14), pi ? 'red' : 'stainless');
+    for (const [p, q] of [[pts[0], pts[1]], [pts[pts.length - 1], pts[pts.length - 2]]]) {
       const d = V().subVectors(p, q).normalize();
       b.addMatrix(HEX, pi ? 'blue' : 'steel', alignX(p, p.clone().addScaledVector(d, 0.012), rr * 2.4));
     }
+    // injectors sit along the straight run; with 4+ points the first/last legs are end fittings turning into their bosses
+    const a = pts.length >= 4 ? pts[1] : pts[0], z = pts.length >= 4 ? pts[pts.length - 2] : pts[pts.length - 1];
     const at = (x) => { const t = clamp((x - a.x) / (z.x - a.x || 1e-6), 0, 1); return a.clone().lerp(z, t); };
     for (const c of cyl) {
       const p = at(c);
       if (pi) {
-        b.add(cylY(0.0085, 0.02, 14), 'red', [p.x, p.y - 0.014, p.z]);
-        b.add(latheX([[0.0001, -0.03], [0.006, -0.03], [0.007, 0.0], [0.0085, 0.006], [0.0001, 0.006]], 14), 'black', [p.x, p.y - 0.03, p.z], [0, 0, PI / 2]);
+        // port injector (EV14 compact) angled 45 deg down/in from the rail into the spacer boss at the runner-to-head joint
+        const d = V(0, -S2, -s * S2);
+        const at2 = (t) => p.clone().addScaledVector(d, t);
+        rodBetween(b, ROD16, 'red', at2(0.004), at2(0.016), 0.016);
+        rodBetween(b, ROD16, 'black', at2(0.016), at2(0.034), 0.0135);
+        rodBetween(b, ROD12, 'blue', at2(0.03), at2(0.034), 0.0155);
+        rodBetween(b, ROD12, 'steel', at2(0.034), at2(0.045), 0.008);
       } else {
         // injector cup angled down/out towards the head, plus a hold-down boss
         const d = V(0, -S2, s * S2);
@@ -1387,9 +1396,11 @@ const paths = {
     const p0 = pts[0];
     b.add(box(0.008, 0.05, 0.026, 0.004), 'steel', [p0.x, p0.y, p0.z]);
     for (const s of [-1, 1]) hexHead(b, [p0.x - 0.004, p0.y + s * 0.018, p0.z], [-1, 0, 0], 0.005, 0.005);
+    // the path ends at the screen: the tube drops into the top of the oval screen housing, whose
+    // mesh face sits ~2 mm under the path end (so the end point is the pickup's foot above the pan floor)
     const pe = pts[pts.length - 1];
-    b.add(cylY(0.5, 0.012, 28), 'steel', [pe.x, pe.y - 0.004, pe.z], [0, 0, 0], [0.11, 1, 0.08]);
-    b.add(cylY(0.5, 0.002, 28), 'black', [pe.x, pe.y - 0.0105, pe.z], [0, 0, 0], [0.1, 1, 0.07]);
+    b.add(cylY(0.5, 0.012, 28), 'steel', [pe.x, pe.y + 0.006, pe.z], [0, 0, 0], [0.11, 1, 0.08]);
+    b.add(cylY(0.5, 0.002, 28), 'black', [pe.x, pe.y - 0.001, pe.z], [0, 0, 0], [0.1, 1, 0.07]);
     return b.build();
   },
 

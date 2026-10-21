@@ -72,8 +72,8 @@
           0.792
         ],
         "size": [
-          0.16,
-          0.16,
+          0.15,
+          0.15,
           0.01
         ],
         "axis": "z",
@@ -90,7 +90,8 @@
         "dimensions": "10 mm hub-centric, 5 x 120, 66.9 mm bore, M14 stud holes",
         "features": "Billet aluminium disc with hub lip; requires 10 mm longer studs",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "wheels.spacers.rear-spacers",
@@ -150,12 +151,12 @@
         "pos": [
           2.811,
           0.3715,
-          0.822
+          0.8195
         ],
         "size": [
-          0.16,
-          0.16,
-          0.01
+          0.15,
+          0.15,
+          0.005
         ],
         "axis": "z",
         "mirror": true,
@@ -171,7 +172,8 @@
         "dimensions": "10 mm hub-centric, 5 x 120, 66.9 mm bore",
         "features": "Billet aluminium disc with hub lip",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     }
   ]
 }

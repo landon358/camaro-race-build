@@ -2,7 +2,7 @@
   "id": "wheels.tires",
   "system": "wheels",
   "name": "Tires",
-  "description": "Factory ZL1 1LE: Goodyear Eagle F1 SuperCar 3R 305/30R19 front, 325/30R19 rear (good for ~1.10 g). ZL1: Eagle F1 SuperCar 3 285/30ZR20 / 305/30ZR20. Race: DOT R-compound or slicks on 18\u201319 in wheels; pressures set by hot targets measured immediately after the session.",
+  "description": "Factory ZL1 1LE: Goodyear Eagle F1 SuperCar 3R 305/30R19 front, 325/30R19 rear (good for ~1.10 g). ZL1: Eagle F1 SuperCar 3 285/30ZR20 / 305/30ZR20. Race: DOT R-compound or slicks on 18–19 in wheels; pressures set by hot targets measured immediately after the session.",
   "components": [
     {
       "id": "wheels.tires.front-tire",
@@ -38,10 +38,10 @@
       ],
       "specs": {
         "OE size (1LE)": "305/30R19",
-        "OE diameter (calc.)": "\u2248 666 mm",
+        "OE diameter (calc.)": "≈ 666 mm",
         "Street cold pressure": "35 psi (placard)",
-        "Race hot target (typical starting point)": "R-compound \u2248 36\u201340 psi hot; slicks \u2248 28\u201334 psi hot \u2013 use tire maker data and pyrometer",
-        "Race cold start (typical)": "\u2248 4\u20138 psi below hot target"
+        "Race hot target (typical starting point)": "R-compound ≈ 36–40 psi hot; slicks ≈ 28–34 psi hot – use tire maker data and pyrometer",
+        "Race cold start (typical)": "≈ 4–8 psi below hot target"
       },
       "hardware": [],
       "installNotes": [
@@ -64,11 +64,11 @@
           "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
         },
         {
-          "title": "wheel-size.com \u2013 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "title": "wheel-size.com – 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
           "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
         },
         {
-          "title": "Apex Wheels \u2013 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
+          "title": "Apex Wheels – 6th Gen Camaro ZL1 1LE fitment 19x11 ET11 / 19x12 ET41, Eagle F1 SuperCar 3R 305/30-19 & 325/30-19",
           "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
         }
       ],
@@ -80,8 +80,8 @@
           0.776
         ],
         "size": [
-          0.666,
-          0.666,
+          0.743,
+          0.743,
           0.305
         ],
         "axis": "z",
@@ -91,11 +91,11 @@
       "modelRef": {
         "images": [
           {
-            "title": "Apex Wheels \u2013 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "title": "Apex Wheels – 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
             "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
           },
           {
-            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) \u2013 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
             "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
           }
         ],
@@ -120,15 +120,15 @@
       },
       "raceOptions": [
         {
-          "name": "Hoosier R7 / slicks (\u2248 325\u2013345 section)",
+          "name": "Hoosier R7 / slicks (≈ 325–345 section)",
           "brand": "Hoosier / Goodyear / Pirelli / Michelin",
           "notes": ""
         }
       ],
       "specs": {
         "OE size (1LE)": "325/30R19",
-        "OE diameter (calc.)": "\u2248 678 mm",
-        "Race hot target": "As front (rear often 1\u20132 psi lower)"
+        "OE diameter (calc.)": "≈ 678 mm",
+        "Race hot target": "As front (rear often 1–2 psi lower)"
       },
       "hardware": [],
       "installNotes": [
@@ -148,7 +148,7 @@
           "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
         },
         {
-          "title": "wheel-size.com \u2013 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
+          "title": "wheel-size.com – 2018 Chevrolet Camaro OE fitments (ZL1 OE offsets, 35 psi placard)",
           "url": "https://www.wheel-size.com/size/chevrolet/camaro/2018/"
         }
       ],
@@ -157,12 +157,12 @@
         "pos": [
           2.811,
           0.3715,
-          0.776
+          0.7625
         ],
         "size": [
-          0.677,
-          0.677,
-          0.325
+          0.743,
+          0.743,
+          0.305
         ],
         "axis": "z",
         "mirror": true,
@@ -171,11 +171,11 @@
       "modelRef": {
         "images": [
           {
-            "title": "Apex Wheels \u2013 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
+            "title": "Apex Wheels – 6th-gen ZL1 1LE fitment: 19x11 ET11 front, 19x12 ET41 rear, 305/30-19 & 325/30-19",
             "url": "https://apexwheels.com/gallery/chevrolet/camaro/zl1-1le-6th-gen/chevrolet-camaro-19-arc-8-satin-bronze-1968"
           },
           {
-            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) \u2013 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
+            "title": "2019 Chevrolet Camaro ZL1 / ZL1 1LE product guide (GM media) – 390 mm front / 365 mm rear, 6- and 4-piston Brembo",
             "url": "https://www.automobilrevue.cz/priloha/5c52e04a77969/2019-chevrolet-camaro-zl1-product-guide-071618-5c7513e929f7f.pdf"
           }
         ],

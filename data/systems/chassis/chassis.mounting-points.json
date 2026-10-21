@@ -47,7 +47,7 @@
           "shape": "box",
           "pos": [
             0,
-            0.14,
+            0.172,
             0
           ],
           "size": [
@@ -58,23 +58,23 @@
           "instances": [
             [
               0.55,
-              0.14,
-              0.86
+              0.172,
+              0.8
             ],
             [
               0.55,
-              0.14,
-              -0.86
+              0.172,
+              -0.8
             ],
             [
-              2.35,
-              0.14,
-              0.86
+              2.175,
+              0.201,
+              0.8
             ],
             [
-              2.35,
-              0.14,
-              -0.86
+              2.175,
+              0.201,
+              -0.8
             ]
           ],
           "color": "#e0c000"
@@ -92,10 +92,10 @@
       "name": "Front tow-eye receptacle and race tow strap",
       "qty": 1,
       "description": "Threaded receptacle in the front bumper beam/crush can (accessed through a fascia cover) for the factory screw-in tow eye. Race sanctioning bodies require an accessible, clearly marked tow point at front and rear; most racers install a fabric tow strap bolted to the bumper beam or frame rail tip.",
-      "location": "Front fascia, right-of-center lower area, x approx -0.95, y approx 0.30.",
+      "location": "Sleeve on the front bumper-beam face, right of centre, behind the fascia tow cover: x -0.729 to -0.693, y 0.475, z -0.47.",
       "connectsTo": [
         "chassis.unibody.front-frame-rails",
-        "body.bumpers.front-bumper-beam",
+        "chassis.mounting-points.front-bumper-beam",
         "aero.splitter.splitter"
       ],
       "factory": {
@@ -143,14 +143,14 @@
         {
           "shape": "cylinder",
           "pos": [
-            -0.86,
-            0.3,
-            -0.25
+            -0.7105,
+            0.475,
+            -0.47
           ],
           "size": [
-            0.06,
-            0.03,
-            0.03
+            0.036,
+            0.035,
+            0.035
           ],
           "axis": "x",
           "color": "#e01010"
@@ -168,10 +168,10 @@
       "name": "Rear tow point",
       "qty": 1,
       "description": "Rear tow eye receptacle / rear tow strap mounted to the rear rail or rear bumper beam. Must be reachable without removing bodywork and must clear the diffuser and exhaust.",
-      "location": "Rear fascia lower area, x approx 3.80, y approx 0.35.",
+      "location": "Sleeve through the rear bumper beam, left of centre, ending behind the rear fascia tow opening: x 3.725-3.792, y 0.50, z 0.30.",
       "connectsTo": [
         "chassis.unibody.rear-rails",
-        "body.bumpers.rear-bumper-beam",
+        "chassis.mounting-points.rear-bumper-beam",
         "aero.diffuser.diffuser"
       ],
       "factory": {
@@ -215,14 +215,14 @@
         {
           "shape": "cylinder",
           "pos": [
-            3.8,
-            0.35,
+            3.7585,
+            0.5,
             0.3
           ],
           "size": [
-            0.06,
-            0.03,
-            0.03
+            0.067,
+            0.035,
+            0.035
           ],
           "axis": "x",
           "color": "#e01010"
@@ -232,6 +232,340 @@
         "images": [],
         "dimensions": "approx M20 screw-in eye",
         "features": "Threaded tow point with tow strap",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.front-bumper-beam",
+      "name": "Front bumper beam and crush cans",
+      "qty": 1,
+      "description": "Swept aluminium bumper beam behind the front fascia, between the intercooler heat exchanger and the radiator, bolted to two crush cans on the front frame-rail tips. It carries the front tow-eye sleeve and the upper splitter hanger tabs.",
+      "location": "Inside the front fascia: beam x -0.735 to -0.66, y 0.435-0.515, z +/-0.56; crush cans x -0.675 to -0.59 at z +/-0.465.",
+      "connectsTo": [
+        "chassis.unibody.front-frame-rails",
+        "chassis.mounting-points.front-tow-eye-receptacle",
+        "aero.front-splitter.chassis-mounts",
+        "aero.front-splitter.support-rods",
+        "body.panels.front-fascia"
+      ],
+      "factory": {
+        "name": "GM extruded aluminium front bumper beam with bolt-on crush cans",
+        "notes": "Crush cans bolt to the rail-tip flanges with 4 nuts each."
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Crush-can to rail-tip flange nut",
+          "qty": 8,
+          "spec": "M10 flange nut",
+          "grade": "10",
+          "torque": "",
+          "threadlocker": "",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Torque per GM service information.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit the beam before the fascia; check the tow-eye sleeve lines up with the fascia tow cover."
+      ],
+      "inspection": [
+        "Check the crush cans for buckling after any front contact."
+      ],
+      "buildPhase": 1,
+      "installOrder": 18,
+      "tags": [
+        "structure",
+        "impact"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            -0.7125,
+            0.475,
+            0
+          ],
+          "size": [
+            0.045,
+            0.08,
+            0.68
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6975,
+            0.475,
+            0.445
+          ],
+          "size": [
+            0.045,
+            0.08,
+            0.232
+          ],
+          "rot": [
+            0,
+            7.43,
+            0
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6975,
+            0.475,
+            -0.445
+          ],
+          "size": [
+            0.045,
+            0.08,
+            0.232
+          ],
+          "rot": [
+            0,
+            -7.43,
+            0
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.6325,
+            0.47,
+            0.465
+          ],
+          "size": [
+            0.085,
+            0.085,
+            0.075
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.594,
+            0.47,
+            0.465
+          ],
+          "size": [
+            0.008,
+            0.13,
+            0.11
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.669,
+            0.47,
+            0.465
+          ],
+          "size": [
+            0.008,
+            0.11,
+            0.1
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.7175,
+            0.41,
+            0.2
+          ],
+          "size": [
+            0.035,
+            0.05,
+            0.006
+          ],
+          "mirror": true,
+          "color": "#7f8c8d"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            -0.71,
+            0.41,
+            0.55
+          ],
+          "size": [
+            0.03,
+            0.05,
+            0.006
+          ],
+          "mirror": true,
+          "color": "#7f8c8d"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "beam approx 45 x 80 mm section, 1.12 m wide; crush cans approx 85 x 75 mm",
+        "features": "Swept beam, two crush cans with flanges, splitter hanger tabs",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "chassis.mounting-points.rear-bumper-beam",
+      "name": "Rear bumper beam and crush cans",
+      "qty": 1,
+      "description": "Steel rear bumper beam behind the rear fascia, bolted to short crush cans on the rear-rail tips. It carries the rear tow sleeve.",
+      "location": "Inside the rear fascia: beam x 3.66-3.74, y 0.45-0.55, z +/-0.52; crush cans x 3.605-3.668 at z +/-0.485.",
+      "connectsTo": [
+        "chassis.unibody.rear-rails",
+        "chassis.mounting-points.rear-tow-point",
+        "body.panels.rear-fascia"
+      ],
+      "factory": {
+        "name": "GM rear bumper beam with bolt-on crush cans",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {},
+      "hardware": [
+        {
+          "item": "Crush-can to rail-tip flange nut",
+          "qty": 8,
+          "spec": "M10 flange nut",
+          "grade": "10",
+          "torque": "",
+          "threadlocker": "",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "notes": "Torque per GM service information.",
+          "confidence": "estimate",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Fit the beam before the rear fascia; line the tow sleeve up with the fascia tow opening."
+      ],
+      "inspection": [
+        "Check the crush cans for buckling after any rear contact."
+      ],
+      "buildPhase": 1,
+      "installOrder": 18,
+      "tags": [
+        "structure",
+        "impact"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            3.715,
+            0.5,
+            0
+          ],
+          "size": [
+            0.05,
+            0.1,
+            0.6
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.7,
+            0.5,
+            0.41
+          ],
+          "size": [
+            0.05,
+            0.1,
+            0.222
+          ],
+          "rot": [
+            0,
+            -7.77,
+            0
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.7,
+            0.5,
+            -0.41
+          ],
+          "size": [
+            0.05,
+            0.1,
+            0.222
+          ],
+          "rot": [
+            0,
+            7.77,
+            0
+          ],
+          "color": "#9aa3ad"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.6365,
+            0.485,
+            0.485
+          ],
+          "size": [
+            0.063,
+            0.08,
+            0.07
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.608,
+            0.48,
+            0.49
+          ],
+          "size": [
+            0.008,
+            0.12,
+            0.1
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            3.662,
+            0.49,
+            0.485
+          ],
+          "size": [
+            0.008,
+            0.09,
+            0.08
+          ],
+          "mirror": true,
+          "color": "#8a939c"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "beam approx 50 x 100 mm section, 1.04 m wide",
+        "features": "Beam with two crush cans and flanges",
         "confidence": "estimated"
       }
     },
@@ -309,9 +643,9 @@
         {
           "shape": "cylinder",
           "pos": [
-            0,
-            0.2,
-            0
+            1.2,
+            0.191,
+            -0.42
           ],
           "size": [
             0.012,
@@ -321,44 +655,44 @@
           "axis": "y",
           "instances": [
             [
-              1,
-              0.21,
-              0.12
+              1.2,
+              0.191,
+              -0.42
             ],
             [
-              1.4,
-              0.21,
-              0.12
-            ],
-            [
-              1.8,
-              0.21,
-              0.12
-            ],
-            [
-              2.2,
-              0.21,
-              0.12
-            ],
-            [
-              1,
-              0.21,
-              -0.12
-            ],
-            [
-              1.4,
-              0.21,
-              -0.12
+              1.5,
+              0.1962,
+              -0.42
             ],
             [
               1.8,
-              0.21,
-              -0.12
+              0.2014,
+              -0.42
+            ],
+            [
+              2.05,
+              0.2061,
+              -0.42
+            ],
+            [
+              1.2,
+              0.1915,
+              0.56
+            ],
+            [
+              1.5,
+              0.1967,
+              0.56
+            ],
+            [
+              1.8,
+              0.202,
+              0.56
             ],
             [
               2.2,
-              0.21,
-              -0.12
+              0.214,
+              0.56
             ]
           ],
           "color": "#c0c0c0"

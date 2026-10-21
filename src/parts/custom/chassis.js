@@ -144,9 +144,43 @@ function curveSamples(pts, n, t0 = 0, t1 = 1) {
   return out;
 }
 
+/** Lathe about local +X (up). phi = 0 faces local +Z (outboard after the y-axis canonical rotation). */
+function latheXPart(profile, seg, phiStart = 0, phiLength = PI * 2) {
+  const pts = profile.map(([r, x]) => new THREE.Vector2(Math.max(0.0001, r), x));
+  const g = new THREE.LatheGeometry(pts, seg, phiStart, phiLength);
+  g.rotateZ(-PI / 2);
+  return g;
+}
+/** Strut / shock tower shell (+X up): tapered skirt open outboard by +/-open below the cap, flat cap on top. */
+function towerShell(b, L, R0, o) {
+  const t = 0.003;
+  const top = L / 2, bot = -L / 2, hs = top - o.split;
+  const rCap = R0 * o.capR, rSh = R0 * (o.capR + 0.1);
+  const rAt = (h) => R0 + ((rSh - R0) * (h - bot)) / (top - o.shoulder - bot);
+  const ps = o.open, pl = PI * 2 - 2 * o.open;
+  // upper ring (full) up to and including the cap
+  b.add(latheXPart([[rAt(hs), hs], [rSh, top - o.shoulder], [rCap, top - t], [o.hole, top - t], [o.hole, top], [rCap + t, top], [rSh + t, top - o.shoulder + 0.002], [rAt(hs) + t, hs], [rAt(hs), hs]], 36), 'chassis');
+  // lower skirt, open toward the wheel
+  b.add(latheXPart([[R0, bot], [rAt(hs), hs], [rAt(hs) + t, hs], [R0 + t, bot], [R0, bot]], 30, ps, pl), 'chassis');
+  // base weld flange
+  b.add(latheXPart([[R0, bot], [R0 * 1.12, bot], [R0 * 1.12, bot + 0.004], [R0, bot + 0.004], [R0, bot]], 30, ps, pl), 'chassis');
+  for (let i = 0; i < 3; i++) {
+    const a = PI / 2 + (i * 2 * PI) / 3;
+    b.add(cylX(0.0075, 0.003, 10), 'black', [top + 0.0005, Math.cos(a) * R0 * o.studR, Math.sin(a) * R0 * o.studR]);
+  }
+  for (let i = 0; i < o.ribs; i++) {
+    const a = ps + ((i + 0.5) / o.ribs) * pl;
+    const h0 = bot + 0.03, h1 = hs - 0.01;
+    const r0 = rAt(h0) + 0.002, r1 = rAt(h1) + 0.002;
+    // lathe vertex (r, h, phi) -> local (h, -r sin phi, r cos phi)
+    barAB(b, 'chassis', V(h0, -r0 * Math.sin(a), r0 * Math.cos(a)), V(h1, -r1 * Math.sin(a), r1 * Math.cos(a)), 0.006, 0.012, V(0, -Math.sin(a), Math.cos(a)), 0.002);
+  }
+}
+
 // ------------------------------------------------------------------ hard points (left side)
 const _fsT = V(0.05, 0.875, 0.52);
-const _fsC = V(0.012, 0.52, 0.615);
+// strut axis: 6 deg caster, 10 deg inward lean in the front view (was 15); top fixed at the tower centre
+const _fsC = V(0.012, 0.52, 0.5826);
 const _fsD = V().subVectors(_fsT, _fsC).normalize();
 const _fsB = _fsC.clone().addScaledVector(_fsD, (0.46 - 0.52) / _fsD.y);
 const fsAt = (y) => _fsB.clone().addScaledVector(_fsD, (y - _fsB.y) / _fsD.y);
@@ -176,9 +210,12 @@ export const GEOM = {
   },
   rack: { x: -0.115, y: 0.22, half: 0.3, inner: 0.33, pinion: [-0.049, 0.323, 0.265] },
   rear: {
-    uca: [2.87, 0.575, 0.655], utl: [2.75, 0.565, 0.655], ltl: [2.73, 0.215, 0.66], lca: [2.87, 0.195, 0.66],
-    toe: [3.0, 0.26, 0.655], shockLow: a3(_rsL), shockTop: a3(_rsT), shockRot: rotFor(_rsD), at: (y) => a3(rsAt(y)),
-    endLink: [3.02, 0.31, 0.615], hub: [2.811, 0.3715, 0.666],
+    // upper camber, upper trailing, toe and end-link pivots sit inboard of the rear wheel (inner face z 0.611):
+    // their eyes / clevises end at z <= 0.60. The lower trailing pivot is at z 0.60 (its link grazed the barrel lip); the LCA clevis stays at r < 0.21,
+    // inside the barrel clear zone (barrel inner radius 0.235).
+    uca: [2.87, 0.575, 0.57], utl: [2.75, 0.565, 0.57], ltl: [2.73, 0.215, 0.6], lca: [2.87, 0.195, 0.66],
+    toe: [3.0, 0.26, 0.575], shockLow: a3(_rsL), shockTop: a3(_rsT), shockRot: rotFor(_rsD), at: (y) => a3(rsAt(y)),
+    endLink: [3.02, 0.31, 0.585], hub: [2.811, 0.3715, 0.666],
     ucaIn: [2.89, 0.52, 0.32], utlIn: [2.5, 0.5, 0.5], ltlIn: [2.45, 0.255, 0.47], lcaIn: [2.93, 0.235, 0.3],
     toeIn: [3.04, 0.235, 0.33], pocket: [2.915, 0.225, 0.52],
   },
@@ -456,55 +493,40 @@ const axial = {
   },
 
   chassis_towEye(L, D, D2, ctx) {
-    // Screw-in tow eye boss with race tow strap loop; strap points away from the car.
+    // Tow-eye receptacle: threaded steel sleeve welded to the bumper beam, its open end flush with the fascia
+    // opening (red marked ring). Front: sleeve ends on the beam face (backing plate). Rear (no factory point):
+    // bolt-on receiver sleeve under the beam with a weld gusset up into it. The strap itself is a safety part.
     const s = ctx?.pos && ctx.pos[0] < 1.4 ? -1 : 1;
+    const R0 = D / 2;
     const b = new PartBuilder();
-    b.add(cylX(D * 0.3, L * 0.5, 16), 'chrome', [-s * L * 0.2, 0, 0]);
-    b.add(tubeGeo(D * 0.42, D * 0.28, D * 0.25, 16), 'chrome', [s * L * 0.15, 0, 0], [0, 0, PI / 2]);
-    const loop = new THREE.TorusGeometry(D * 0.9, 0.0025, 4, 24);
-    loop.scale(1.4, 1, 6);
-    b.add(loop, 'red', [s * (L * 0.15 + D * 0.95), 0, 0]);
+    b.add(tubeGeo(R0, R0 * 0.55, L, 20), 'steel');
+    b.add(cylX(R0 * 0.55, L * 0.96, 12), 'black');
+    b.add(tubeGeo(R0 + 0.0015, R0 * 0.55, 0.006, 20), 'red', [s * (L / 2 - 0.003), 0, 0]);
+    b.add(box(0.006, R0 * 3.4, R0 * 3.4, 0.004), 'steel', [-s * (L / 2 - 0.003), 0, 0]);
+    if (s > 0) {
+      b.add(box(L * 0.55, 0.035, 0.006, 0.002), 'steel', [-L * 0.2, R0 + 0.0175, 0]);
+      b.add(box(L * 0.55, 0.006, R0 * 2.2, 0.002), 'steel', [-L * 0.2, R0 + 0.032, 0]);
+    }
     return b.build();
   },
 
   chassis_tower(L, D) {
-    // +X = up. Front strut tower: tapered pressed shell, cap with centre hole + 3-stud pattern, weld flange.
-    const R0 = D / 2;
-    const t = 0.004;
+    // +X = up. Front strut tower: pressed shell rising from the rail top / wheelhouse to a flat cap with the
+    // strut-mount centre hole and 3-stud pattern. The lower skirt is open on the outboard (wheel) side, where
+    // the coil-over enters from the wheelhouse; weld flange round the base, stiffening ribs on the skirt.
     const b = new PartBuilder();
-    b.add(latheX([[R0, -L / 2], [R0 * 0.74, L / 2 - 0.018], [R0 * 0.6, L / 2 - t], [0.034, L / 2 - t], [0.034, L / 2], [R0 * 0.6 + t, L / 2], [R0 * 0.74 + t, L / 2 - 0.016], [R0 + t, -L / 2], [R0, -L / 2]], 32), 'chassis');
-    b.add(tubeGeo(R0 * 1.12, R0 * 0.98, 0.004, 32), 'chassis', [-L / 2 + 0.002, 0, 0]);
-    for (let i = 0; i < 3; i++) {
-      const a = PI / 2 + (i * 2 * PI) / 3;
-      b.add(cylX(0.0075, 0.003, 10), 'black', [L / 2 + 0.0005, Math.cos(a) * R0 * 0.44, Math.sin(a) * R0 * 0.44]);
-    }
-    for (let i = 0; i < 6; i++) {
-      const a = (i / 6) * PI * 2;
-      b.add(box(L * 0.7, 0.004, 0.012, 0), 'chassis', [-L * 0.1, Math.cos(a) * R0 * 0.86, Math.sin(a) * R0 * 0.86], [a, 0, 0]);
-    }
+    towerShell(b, L, D / 2, { capR: 0.8, shoulder: 0.035, hole: 0.034, open: (60 * PI) / 180, split: 0.09, studR: 0.44, ribs: 6 });
     return b.build();
   },
 
   chassis_shockTower(L, D) {
-    const R0 = D / 2;
+    // +X = up. Rear shock tower pocket: pressed shell from the rear-rail top / wheelhouse inner to the upper
+    // shock-mount pad, open toward the wheel below the pad.
     const b = new PartBuilder();
-    b.add(latheX([[R0, -L / 2], [R0 * 0.8, L / 2 - 0.01], [R0 * 0.7, L / 2 - 0.003], [0.022, L / 2 - 0.003], [0.022, L / 2], [R0 * 0.7 + 0.003, L / 2], [R0 * 0.8 + 0.003, L / 2 - 0.008], [R0 + 0.003, -L / 2], [R0, -L / 2]], 28), 'chassis');
-    for (let i = 0; i < 3; i++) {
-      const a = (i * 2 * PI) / 3;
-      b.add(cylX(0.006, 0.003, 10), 'black', [L / 2 + 0.0005, Math.cos(a) * R0 * 0.48, Math.sin(a) * R0 * 0.48]);
-    }
+    towerShell(b, L, D / 2, { capR: 0.74, shoulder: 0.02, hole: 0.022, open: (62 * PI) / 180, split: 0.05, studR: 0.48, ribs: 0 });
     return b.build();
   },
 
-  chassis_safetyLoop(L, D) {
-    // Bolt-in driveshaft safety loop: formed steel strap hoop around the shaft + mounting plate to the tunnel.
-    const R0 = D / 2;
-    const b = new PartBuilder();
-    b.add(tubeGeo(R0, R0 - 0.007, L, 32), 'red');
-    b.add(box(L * 1.2, 0.008, D * 1.15, 0.003), 'red', [0, R0 + 0.004, 0]);
-    for (const s of [-1, 1]) b.add(cylX(0.006, 0.02, 8), 'chrome', [0, R0 + 0.012, s * D * 0.45], [0, 0, PI / 2]);
-    return b.build();
-  },
 };
 
 // ======================================================================= BOXES (world aligned)
@@ -515,14 +537,15 @@ const boxes = {
     const W = (x, y, z) => V(x - p[0], y - p[1], z - p[2]);
     const b = new PartBuilder();
     // lateral extrusions: front (rack + lateral-link member) and rear
-    extrusionZ(b, 'aluminum', -0.035 - p[0], 0.2 - p[1], 0.09, 0.075, -0.4 - p[2], 0.4 - p[2], 3);
-    extrusionZ(b, 'aluminum', 0.31 - p[0], 0.185 - p[1], 0.065, 0.06, -0.36 - p[2], 0.36 - p[2], 2);
-    for (let i = -3; i <= 3; i++) b.add(cylY(0.007, 0.002, 10), 'black', W(-0.035, 0.2385, i * 0.1).toArray());
+    // (tops at y 0.2225 / 0.205: clear of the dry-sump pan underside, 0.235-0.315 over x -0.2..0.4)
+    extrusionZ(b, 'aluminum', -0.035 - p[0], 0.185 - p[1], 0.09, 0.075, -0.4 - p[2], 0.4 - p[2], 3);
+    extrusionZ(b, 'aluminum', 0.31 - p[0], 0.175 - p[1], 0.065, 0.06, -0.36 - p[2], 0.36 - p[2], 2);
+    for (let i = -3; i <= 3; i++) b.add(cylY(0.007, 0.002, 10), 'black', W(-0.035, 0.2235, i * 0.1).toArray());
     for (const s of [-1, 1]) {
       // cast side node (longitudinal) and corner nodes
       barAB(b, 'cast', W(-0.1, 0.192, s * 0.37), W(0.36, 0.185, s * 0.37), 0.08, 0.07, Y(), 0.014);
-      b.add(box(0.13, 0.095, 0.1, 0.016), 'cast', W(-0.035, 0.2, s * 0.37).toArray());
-      b.add(box(0.1, 0.085, 0.09, 0.014), 'cast', W(0.31, 0.19, s * 0.36).toArray());
+      b.add(box(0.13, 0.095, 0.1, 0.016), 'cast', W(-0.035, 0.19, s * 0.37).toArray());
+      b.add(box(0.1, 0.085, 0.09, 0.014), 'cast', W(0.31, 0.18, s * 0.36).toArray());
       // engine mount pedestal with two studs
       b.add(box(0.1, 0.05, 0.075, 0.01), 'cast', W(0.02, 0.255, s * 0.315).toArray());
       for (const dx of [-0.03, 0.03]) b.add(cylY(0.006, 0.02, 8), 'chrome', W(0.02 + dx, 0.285, s * 0.315).toArray());
@@ -533,14 +556,16 @@ const boxes = {
       // forward arm to the tension-rod (radius-rod) hydraulic bushing pocket
       barAB(b, 'cast', W(-0.09, 0.2, s * 0.38), W(-0.335, 0.2, s * 0.38), 0.07, 0.06, Y(), 0.014);
       tubeAt(b, 'cast', W(-0.37, 0.2, s * 0.38), Y(), 0.053, 0.045, 0.075, 28);
-      // front body-mount tower (isolator on top)
+      // front body-mount tower: housing top 4-5 mm under the frame-rail underside (y 0.398 at x -0.3),
+      // bushing inside the housing, bolt up into the rail
       barAB(b, 'cast', W(-0.3, 0.215, s * 0.39), W(-0.3, 0.215, s * 0.445), 0.045, 0.05, Y(), 0.01);
-      barAB(b, 'cast', W(-0.3, 0.2, s * 0.46), W(-0.3, 0.3, s * 0.46), 0.055, 0.055, V(1, 0, 0), 0.012);
-      tubeAt(b, 'cast', W(-0.3, 0.33, s * 0.46), Y(), 0.04, 0.032, 0.07, 24);
-      barAB(b, 'cast', W(-0.24, 0.225, s * 0.395), W(-0.3, 0.31, s * 0.45), 0.012, 0.03, V(1, 0, 0), 0.004);
-      // rear body mount
-      barAB(b, 'cast', W(0.31, 0.19, s * 0.36), W(0.38, 0.205, s * 0.445), 0.05, 0.05, Y(), 0.01);
+      barAB(b, 'cast', W(-0.3, 0.2, s * 0.46), W(-0.3, 0.33, s * 0.46), 0.055, 0.055, V(1, 0, 0), 0.012);
+      tubeAt(b, 'cast', W(-0.3, 0.358, s * 0.46), Y(), 0.04, 0.032, 0.07, 24);
+      barAB(b, 'cast', W(-0.24, 0.225, s * 0.395), W(-0.3, 0.34, s * 0.45), 0.012, 0.03, V(1, 0, 0), 0.004);
+      // rear body mount: housing + a cast pad sloped to the rail's 28.6 deg underside, 3.5 mm under it
+      barAB(b, 'cast', W(0.31, 0.18, s * 0.36), W(0.38, 0.205, s * 0.445), 0.05, 0.05, Y(), 0.01);
       tubeAt(b, 'cast', W(0.38, 0.215, s * 0.45), Y(), 0.04, 0.032, 0.06, 24);
+      barAB(b, 'cast', W(0.3405, 0.2674, s * 0.45), W(0.4205, 0.2237, s * 0.45), 0.06, 0.08, Y(), 0.008);
       // sway-bar bracket pad on the forward arm
       b.add(box(0.07, 0.008, 0.07, 0.002), 'cast', W(-0.3, 0.239, s * 0.37).toArray());
     }
@@ -657,12 +682,14 @@ const boxes = {
     const G = GEOM.rear;
     const b = new PartBuilder();
     const fin = 'cast';
-    const hub = W(G.hub);
-    tubeAt(b, fin, hub, V(0, 0, 1), 0.085, 0.045, 0.042, 28);
-    for (const a of [PI / 4, (3 * PI) / 4, (5 * PI) / 4, (7 * PI) / 4]) cylAt(b, fin, hub.clone().add(V(Math.cos(a) * 0.075, Math.sin(a) * 0.075, 0)), V(0, 0, 1), 0.011, 0.044, 10);
+    // hub-face boss (bearing flange seat) stays just inboard of the hub flange at z 0.666; everything else is
+    // pulled inboard of the wheel barrel
+    const hub = W([G.hub[0], G.hub[1], G.hub[2] - 0.021]);
+    tubeAt(b, fin, hub, V(0, 0, 1), 0.085, 0.045, 0.03, 28);
+    for (const a of [PI / 4, (3 * PI) / 4, (5 * PI) / 4, (7 * PI) / 4]) cylAt(b, fin, hub.clone().add(V(Math.cos(a) * 0.075, Math.sin(a) * 0.075, 0)), V(0, 0, 1), 0.011, 0.032, 10);
     // upper T: column from hub to cross bar carrying upper camber + upper trailing bushing eyes
     const uca = W(G.uca), utl = W(G.utl);
-    barAB(b, fin, hub.clone().add(V(0, 0.07, -0.01)), W([2.81, 0.55, 0.656]), 0.045, 0.04, V(0, 0, 1), 0.012);
+    barAB(b, fin, hub.clone().add(V(0, 0.07, -0.01)), W([2.81, 0.55, G.uca[2]]), 0.045, 0.04, V(0, 0, 1), 0.012);
     barAB(b, fin, utl, uca, 0.035, 0.04, Y(), 0.01);
     tubeAt(b, fin, uca, V(1, 0, 0), 0.03, 0.024, 0.05, 16);
     tubeAt(b, fin, utl, V(0, 0, 1), 0.03, 0.024, 0.05, 16);
@@ -810,15 +837,57 @@ const boxes = {
   },
 
   chassis_tunnelBrace(sx, sy, sz) {
-    // Bolt-in driveshaft tunnel brace: two flat feet on the tunnel flanges joined by a formed bridge.
+    // Bolt-in driveshaft tunnel brace (GM / BMR DTB-type): one long, narrow laser-cut flat bar across the tunnel
+    // opening. Flat feet at each end bolt to the floor pan outboard of the tunnel flanges (2 bolts each); the
+    // centre span is joggled down to pass under the exhaust and carries a centre bolt + lightening slots.
+    // Box: sx = fore-aft width, sy = joggle depth (feet top = +sy/2 = floor underside), sz = overall span.
     const b = new PartBuilder();
-    for (const s of [-1, 1]) {
-      b.add(box(sx * 0.35, 0.006, sz * 0.22, 0.002), 'red', [0, sy / 2 - 0.003, s * sz * 0.39]);
-      for (const dx of [-0.05, 0.05]) b.add(hexX(0.009, 0.008), 'chrome', [dx, sy / 2 - 0.01, s * sz * 0.4], [0, 0, PI / 2]);
+    const t = 0.006;
+    const footIn = sz / 2 - 0.075; // feet run from |z| = footIn to sz/2
+    const midHalf = footIn - 0.045; // joggle length 45 mm
+    const yFoot = sy / 2 - t / 2, yMid = -sy / 2 + t / 2;
+    const sh = roundRect(new THREE.Shape(), -sx / 2, -midHalf - 0.01, sx / 2, midHalf + 0.01, 0.01);
+    sh.holes.push(new THREE.Path().absarc(0, 0, 0.0055, 0, PI * 2, true));
+    for (const i of [-2, -1, 1, 2]) {
+      const zc = i * midHalf * 0.42;
+      sh.holes.push(roundRect(new THREE.Path(), -sx * 0.28, zc - midHalf * 0.14, sx * 0.28, zc + midHalf * 0.14, sx * 0.12));
     }
-    b.add(box(0.035, 0.012, sz * 0.62, 0.004), 'red', [-sx * 0.25, -sy * 0.2, 0]);
-    b.add(box(0.035, 0.012, sz * 0.62, 0.004), 'red', [sx * 0.25, -sy * 0.2, 0]);
-    for (const dx of [-0.25, 0.25]) for (const s of [-1, 1]) barAB(b, 'red', V(dx * sx, -sy * 0.2, s * sz * 0.3), V(0, sy / 2 - 0.006, s * sz * 0.39), 0.012, 0.035, V(1, 0, 0), 0.004);
+    b.add(plateXZ(sh, t, 8), 'red', [0, yMid - t / 2, 0]);
+    for (const s of [-1, 1]) {
+      const f = roundRect(new THREE.Shape(), -sx / 2, -0.04, sx / 2, 0.04, 0.012);
+      for (const dx of [-sx * 0.27, sx * 0.27]) f.holes.push(new THREE.Path().absarc(dx, 0, 0.0055, 0, PI * 2, true));
+      b.add(plateXZ(f, t, 8), 'red', [0, yFoot - t / 2, s * (footIn + 0.035)]);
+      barAB(b, 'red', V(0, yMid, s * (midHalf + 0.004)), V(0, yFoot, s * (footIn + 0.004)), t, sx, V(0, 1, 0), 0.002, 0.004);
+      for (const dx of [-sx * 0.27, sx * 0.27]) put(b, hexX(0.0075, 0.007), 'chrome', frame(V(dx, yFoot - t / 2 - 0.0035, s * (footIn + 0.035)), V(0, 1, 0)));
+    }
+    put(b, hexX(0.0075, 0.007), 'chrome', frame(V(0, yMid - t / 2 - 0.0035, 0), V(0, 1, 0)));
+    return b.build();
+  },
+
+  chassis_safetyLoop(sx, sy, sz) {
+    // Aftermarket driveshaft safety loop (BMR DSL-type): formed 30 x 6 mm steel strap. A U-hoop cradles the
+    // shaft from below (open top, legs up to the shaft centre line, ~18 mm radial clearance); two drop legs
+    // outboard of the exhaust carry it down to bolted feet on the tunnel-brace centre span.
+    // Box: top face = driveshaft centre line, bottom face = brace top, sz = foot spacing, sx = strap width.
+    const b = new PartBuilder();
+    const t = 0.006, w = sx;
+    const R = 0.0445 + 0.018 + t / 2;
+    const yc = sy / 2;
+    const zl = sz / 2 - 0.02;
+    const yArm = yc - R * 0.55;
+    const zArm = Math.sqrt(R * R - (yc - yArm) ** 2);
+    const pts = [];
+    for (let i = 0; i <= 24; i++) {
+      const a = PI + (i / 24) * PI;
+      pts.push(V(0, yc + Math.sin(a) * R, Math.cos(a) * R));
+    }
+    for (let i = 0; i < pts.length - 1; i++) barAB(b, 'red', pts[i], pts[i + 1], t, w, V().subVectors(pts[i].clone().lerp(pts[i + 1], 0.5), V(0, yc, 0)).normalize(), 0.0015, 0.002);
+    for (const s of [-1, 1]) {
+      barAB(b, 'red', V(0, yArm, s * (zArm + 0.002)), V(0, yArm, s * (zl + t / 2)), t, w, V(0, 1, 0), 0.0015);
+      barAB(b, 'red', V(0, yArm + t / 2, s * zl), V(0, -sy / 2 + t, s * zl), t, w, V(0, 0, 1), 0.0015);
+      b.add(box(w, t, 0.045, 0.002), 'red', [0, -sy / 2 + t / 2, s * (zl + 0.0195)]);
+      put(b, hexX(0.009, 0.008), 'chrome', frame(V(0, -sy / 2 + t + 0.004, s * (zl + 0.025)), V(0, 1, 0)));
+    }
     return b.build();
   },
 
@@ -853,40 +922,70 @@ const boxes = {
   },
 
   chassis_rocker(sx, sy, sz) {
-    // Rocker (sill): closed box section, pinch-weld flange underneath with the lift-point notches.
+    // Rocker (sill): closed box section (inner + outer sill panels) standing on the floor-pan edge, with the
+    // pinch-weld flange along its outboard lower edge carrying the lift-point notches.
     const b = new PartBuilder();
-    b.add(box(sx, sy * 0.82, sz * 0.92, 0.02), 'chassis', [0, sy * 0.09, 0]);
-    b.add(box(sx, sy * 0.18, 0.004, 0), 'chassis', [0, -sy * 0.41, sz * 0.12]);
-    for (const xf of [-0.42, 0.42]) b.add(box(0.03, sy * 0.06, 0.006, 0), 'yellow', [xf * sx, -sy * 0.47, sz * 0.12]);
-    for (let i = 0; i < 6; i++) b.add(box(0.008, sy * 0.6, 0.003, 0), 'chassis', [-sx * 0.45 + i * sx * 0.18, sy * 0.09, -sz * 0.47]);
+    const fl = 0.012;
+    b.add(box(sx, sy - fl, sz, 0.015), 'chassis', [0, fl / 2, 0]);
+    b.add(box(sx, fl + 0.004, 0.004, 0), 'chassis', [0, -sy / 2 + fl / 2, sz * 0.083]);
+    for (const xf of [-0.42, 0.42]) b.add(box(0.03, fl * 0.5, 0.006, 0), 'yellow', [xf * sx, -sy / 2 + fl * 0.25, sz * 0.083]);
+    for (let i = 0; i < 6; i++) b.add(box(0.008, sy * 0.6, 0.003, 0), 'chassis', [-sx * 0.45 + i * sx * 0.18, fl / 2, -sz / 2 - 0.001]);
     return b.build();
   },
 
-  chassis_dash(sx, sy, sz) {
-    // Dash panel (firewall): pressed sheet with pass-throughs (steering shaft, pedal box, HVAC), tunnel arch,
-    // beads, and the cowl/plenum lip on top.
+  chassis_dash(sx, sy, sz, ctx) {
+    // Dash panel (firewall) pieces. Thin along x = vertical dash panel: pressed sheet with the transmission
+    // tunnel arch, steering-shaft and bulkhead pass-throughs, beads and a top lip where it meets the cowl /
+    // plenum sheet. Thin along y = sloped toe board (box is rotated in the data), split by the tunnel opening.
+    const p = ctx?.pos || [0, 0, 0];
     const b = new PartBuilder();
-    const sh = new THREE.Shape();
-    const hw = sz / 2, hh = sy / 2;
-    sh.moveTo(-hw, -hh);
-    sh.lineTo(-0.17, -hh);
-    sh.lineTo(-0.14, -hh + 0.26);
-    sh.lineTo(0.14, -hh + 0.26);
-    sh.lineTo(0.17, -hh);
-    sh.lineTo(hw, -hh);
-    sh.lineTo(hw, hh);
-    sh.lineTo(-hw, hh);
-    sh.lineTo(-hw, -hh);
-    // shape x -> world -z after extrudeX: left-side (z+) features use negative shape x
-    const yc = (y) => y - 0.58;
-    sh.holes.push(new THREE.Path().absarc(-0.375, yc(0.506), 0.045, 0, PI * 2, true));
-    sh.holes.push(new THREE.Path().absarc(-0.36, yc(0.66), 0.06, 0, PI * 2, true));
-    sh.holes.push(new THREE.Path().absarc(0.3, yc(0.7), 0.05, 0, PI * 2, true));
-    sh.holes.push(new THREE.Path().absarc(0.12, yc(0.62), 0.025, 0, PI * 2, true));
-    b.add(extrudeX(sh, 0.003, 12), 'chassis');
-    for (const y of [-0.05, 0.08]) b.add(box(0.006, 0.012, sz * 0.82, 0.002), 'chassis', [-0.004, y, 0]);
-    b.add(box(sx, 0.006, sz, 0), 'chassis', [sx * 0.0, hh - 0.003, 0]);
-    b.add(box(sx * 0.9, 0.04, 0.004, 0), 'chassis', [0, hh - 0.02, 0]);
+    const TUN = 0.215; // tunnel arch half-width at the dash (clears the tunnel wall + flange at x 0.655)
+    if (sx <= sy) {
+      // 3 mm pressed skin from the toe-board joint (y 0.43) up to the underside of the cowl / dash shelf
+      // (y ~0.578), where a short flange turns forward under the cowl. No box section: the skin carries the
+      // tunnel arch, the steering-shaft hole (firewall seal), clutch master-cylinder, brake-line and loom
+      // pass-throughs.
+      const t = 0.003;
+      const hw = sz / 2, hh = sy / 2;
+      const yl = (y) => y - p[1];
+      const archTop = Math.min(hh - 0.008, yl(0.568));
+      const sh = new THREE.Shape();
+      // shape x -> world -z after extrudeX
+      sh.moveTo(-hw, -hh);
+      sh.lineTo(-TUN, -hh);
+      sh.lineTo(-0.198, yl(0.52));
+      sh.quadraticCurveTo(-0.185, archTop, -0.15, archTop);
+      sh.lineTo(0.15, archTop);
+      sh.quadraticCurveTo(0.185, archTop, 0.198, yl(0.52));
+      sh.lineTo(TUN, -hh);
+      sh.lineTo(hw, -hh);
+      sh.lineTo(hw, hh);
+      sh.lineTo(-hw, hh);
+      sh.lineTo(-hw, -hh);
+      const hole = (z, y, r) => { if (Math.abs(yl(y)) < hh - r - 0.004) sh.holes.push(new THREE.Path().absarc(-z, yl(y), r, 0, PI * 2, true)); };
+      hole(0.371, 0.509, 0.04); // steering shaft (firewall seal)
+      hole(0.44, 0.51, 0.02); // clutch master cylinder (pedal box pushrod)
+      hole(0.3, 0.55, 0.016); // fuel / fire-system pass-through seal
+      hole(-0.36, 0.53, 0.03); // race bulkhead connector / main positive cable
+      hole(-0.26, 0.52, 0.018); // fuel / brake line grommet
+      for (const z of [-0.403, -0.47]) hole(z, 0.45, 0.008); // front brake hard lines
+      b.add(extrudeX(sh, t, 12), 'chassis');
+      // stiffening beads either side of the arch, top flange turned forward under the cowl shelf
+      for (const s of [-1, 1]) b.add(box(0.006, 0.012, Math.max(0.05, hw - 0.5), 0.002), 'chassis', [-0.004, yl(0.475), s * (0.49 + Math.max(0.05, hw - 0.5) / 2)]);
+      b.add(box(0.015, t, sz, 0), 'chassis', [-0.0075, hh - t / 2, 0]);
+      // arch flange
+      b.add(box(0.02, t, 0.3, 0), 'chassis', [0.01, archTop + t / 2, 0]);
+    } else {
+      // toe board: two pressed halves either side of the tunnel opening, with a flanged edge and beads
+      const t = 0.003;
+      const zIn = 0.235, zOut = sz / 2;
+      for (const s of [-1, 1]) {
+        const w = zOut - zIn, zc = s * (zIn + w / 2);
+        b.add(box(sx, t, w, 0), 'chassis', [0, 0, zc]);
+        b.add(box(sx, 0.02, 0.003, 0), 'chassis', [0, -0.01, s * zIn]);
+        for (let i = 0; i < 3; i++) b.add(box(sx * 0.8, 0.005, 0.02, 0.002), 'chassis', [0, t / 2 + 0.002, zc + (i - 1) * w * 0.28]);
+      }
+    }
     return b.build();
   },
 
@@ -1158,13 +1257,16 @@ const paths = {
     d.normalize();
     const F = frame(a, d, Y());
     const b = new PartBuilder();
+    // The path ends at the splined shaft tip inside the hub-adapter bore; the jacket and upper housing stop
+    // 38 mm short of it, where the clockspring sits, and the upper shaft runs on through the clockspring.
+    const Lh = Math.max(0.1, L - 0.038);
     put(b, cylX(0.011, 0.05, 12), 'steel', F, [0.025, 0, 0]);
-    put(b, cylX(0.028, L * 0.6, 20), 'satin', F, [0.05 + L * 0.3, 0, 0]);
-    put(b, box(L * 0.3, 0.085, 0.08, 0.018), 'black', F, [L * 0.8, 0.005, 0]);
-    put(b, box(0.05, 0.035, 0.03, 0.006), 'black', F, [L * 0.72, -0.05, 0.03]);
-    put(b, box(0.15, 0.01, 0.09, 0.003), 'satin', F, [L * 0.62, 0.05, 0]);
-    for (const s of [-1, 1]) put(b, cylY(0.011, 0.012, 12), 'plastic', F, [L * 0.62, 0.058, s * 0.034]);
-    put(b, cylX(0.012, 0.03, 14), 'machined', F, [L - 0.012, 0, 0]);
+    put(b, cylX(0.028, Lh * 0.6, 20), 'satin', F, [0.05 + Lh * 0.3, 0, 0]);
+    put(b, box(Lh * 0.3, 0.085, 0.08, 0.018), 'black', F, [Lh * 0.8, 0.005, 0]);
+    put(b, box(0.05, 0.035, 0.03, 0.006), 'black', F, [Lh * 0.72, -0.05, 0.03]);
+    put(b, box(0.15, 0.01, 0.09, 0.003), 'satin', F, [Lh * 0.62, 0.05, 0]);
+    for (const s of [-1, 1]) put(b, cylY(0.011, 0.012, 12), 'plastic', F, [Lh * 0.62, 0.058, s * 0.034]);
+    put(b, cylX(0.0115, L - Lh + 0.04, 14), 'machined', F, [(Lh - 0.04 + L) / 2, 0, 0]);
     return b.build();
   },
 
@@ -1208,6 +1310,24 @@ const paths = {
     return b.build();
   },
 
+  chassis_weldPath(pts) {
+    // MIG stitch welds along a seam polyline: 25 mm beads at ~60 mm pitch, laid on the joint.
+    const b = new PartBuilder();
+    const P = pts.map(vv);
+    const bead = sphere(1, 6, 4);
+    let carry = 0.03;
+    for (let i = 0; i < P.length - 1; i++) {
+      const d = V().subVectors(P[i + 1], P[i]);
+      const L = d.length();
+      if (L < 1e-5) continue;
+      const F = frame(P[i], d);
+      let u = carry;
+      for (; u < L; u += 0.06) b.addMatrix(bead, 'steel', F.clone().multiply(T(u, 0, 0)).multiply(new THREE.Matrix4().makeScale(0.0125, 0.004, 0.004)));
+      carry = u - L;
+    }
+    return b.build();
+  },
+
   chassis_brace(pts, r, ctx) {
     // Bolt-in brace: tube with flattened, drilled end tabs (tower braces: 3-stud plates on the tower tops).
     const v = ctx?.variant || 'front';
@@ -1218,11 +1338,23 @@ const paths = {
     const n = P.length;
     const tower = v === 'front' || v === 'rear';
     const ends = [[P[0], P[1]], [P[n - 1], P[n - 2]]];
-    const inner = P.slice();
-    inner[0] = P[0].clone().lerp(P[1], tower ? 0.0 : 0.0).add(V(0, tower ? 0.02 : 0, 0));
-    inner[n - 1] = P[n - 1].clone().add(V(0, tower ? 0.02 : 0, 0));
+    // front: low-profile bar for the ZL1 bay (supercharger lid ~0.92, hood underside ~0.93) — the tube starts
+    // inboard of the towers (P[1] .. P[n-2]); flattened straps run from the tube ends down onto the end plates.
+    const flat = v === 'front' && n >= 4;
+    const inner = flat ? P.slice(1, n - 1) : P.slice();
+    if (!flat) {
+      inner[0] = P[0].clone().add(V(0, tower ? 0.02 : 0, 0));
+      inner[n - 1] = P[n - 1].clone().add(V(0, tower ? 0.02 : 0, 0));
+    }
     const c = curveFrom(inner);
     b.add(tubeAlong(c, rr, Math.min(160, Math.round(c.getLength() / 0.02)), 14), fin);
+    if (flat) {
+      for (const [p, q] of ends) {
+        const tip = q.clone().addScaledVector(V().subVectors(q, p).normalize(), 0.01);
+        barAB(b, fin, p.clone().add(V(0, 0.004, 0)), tip, 0.008, rr * 2.4, Y(), 0.003, 0.02);
+        put(b, cylY(rr * 1.05, 0.02, 14), fin, frame(q, V().subVectors(q, p), Y()), [0, 0, 0], [0, 0, PI / 2]);
+      }
+    }
     for (const [p, q] of ends) {
       const d = V().subVectors(q, p);
       d.y = 0;
@@ -1230,7 +1362,7 @@ const paths = {
       const F = frame(p, d, Y());
       if (tower) {
         put(b, cylY(0.07, 0.008, 3), fin, F, [0.0, 0.0, 0], [0, PI / 6, 0]);
-        put(b, box(0.05, 0.03, 0.03, 0.006), fin, F, [0.02, 0.012, 0]);
+        if (!flat) put(b, box(0.05, 0.03, 0.03, 0.006), fin, F, [0.02, 0.012, 0]);
         for (let i = 0; i < 3; i++) {
           const a = (i * 2 * PI) / 3;
           put(b, hexX(0.008, 0.008), 'chrome', F, [Math.cos(a) * 0.05, 0.008, Math.sin(a) * 0.05], [0, 0, PI / 2]);
@@ -1246,25 +1378,85 @@ const paths = {
 
 // ======================================================================= WHOLE
 const whole = {
+  chassis_tunnelLoft(min, max, ctx) {
+    // Pressed transmission / driveshaft tunnel: inverted U with sloped walls and side flanges, lofted through
+    // the data sections (each box = x range, roof height = top face, base half-width = sz/2). The base follows
+    // the measured floor-pan line beside the tunnel; roof and width blend over 0.14 m between sections.
+    // Front hump over the bellhousing / gearbox, lower rear section over the driveshaft.
+    const c = ctx.center;
+    const secs = (ctx.comp.model || []).filter((m) => !m.path && m.pos && m.size)
+      .map((m) => ({ x0: m.pos[0] - m.size[0] / 2, x1: m.pos[0] + m.size[0] / 2, roof: m.pos[1] + m.size[1] / 2, hw: m.size[2] / 2 }))
+      .sort((a, b2) => a.x0 - b2.x0);
+    const FLOOR = [[0.6, 0.1876], [0.8, 0.1906], [1.0, 0.1935], [1.25, 0.1973], [1.5, 0.2017], [1.8, 0.2068], [2.1, 0.2181], [2.3, 0.2198], [2.5, 0.221], [2.6, 0.2239], [2.7, 0.2268]];
+    const floorAt = (x) => {
+      if (x <= FLOOR[0][0]) return FLOOR[0][1];
+      for (let i = 0; i < FLOOR.length - 1; i++) if (x <= FLOOR[i + 1][0]) {
+        const [xa, ya] = FLOOR[i], [xb, yb] = FLOOR[i + 1];
+        return ya + ((yb - ya) * (x - xa)) / (xb - xa);
+      }
+      return FLOOR[FLOOR.length - 1][1];
+    };
+    const blend = 0.07;
+    const at = (x) => {
+      let k = secs.findIndex((q) => x <= q.x1 + 1e-6);
+      if (k < 0) k = secs.length - 1;
+      const q = secs[k];
+      const nb = x > q.x1 - blend && secs[k + 1] ? secs[k + 1] : x < q.x0 + blend && secs[k - 1] ? secs[k - 1] : null;
+      if (!nb) return { roof: q.roof, hw: q.hw };
+      const j = nb === secs[k + 1] ? q.x1 : q.x0;
+      const f = 0.5 - (Math.abs(x - j) / blend) * 0.5; // 0.5 at the joint -> 0 at blend distance
+      return { roof: q.roof + (nb.roof - q.roof) * f, hw: q.hw + (nb.hw - q.hw) * f };
+    };
+    const prof = (x) => {
+      const { roof, hw } = at(x);
+      const base = floorAt(x) - 0.002;
+      const half = [[hw + 0.03, base], [hw, base], [hw * 0.97, base + 0.02], [hw * 0.78, roof - 0.04], [hw * 0.7, roof - 0.012], [hw * 0.6, roof]];
+      return [...half.map(([z, y]) => [z, y]), ...half.slice().reverse().map(([z, y]) => [-z, y])];
+    };
+    const xs = [];
+    const x0 = secs[0].x0, x1 = secs[secs.length - 1].x1;
+    for (let x = x0; x < x1 - 1e-6; x += 0.04) xs.push(x);
+    xs.push(x1);
+    const pos = [];
+    const W = (x, y, z) => [x - c.x, y - c.y, z - c.z];
+    for (let i = 0; i < xs.length - 1; i++) {
+      const A = prof(xs[i]), B = prof(xs[i + 1]);
+      for (let k = 0; k < A.length - 1; k++) {
+        const a0 = W(xs[i], A[k][1], A[k][0]), a1 = W(xs[i], A[k + 1][1], A[k + 1][0]);
+        const b0 = W(xs[i + 1], B[k][1], B[k][0]), b1 = W(xs[i + 1], B[k + 1][1], B[k + 1][0]);
+        pos.push(...a0, ...b0, ...b1, ...a0, ...b1, ...a1);
+      }
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    g.computeVertexNormals();
+    const b = new PartBuilder();
+    b.add(g, 'chassis');
+    // transverse stiffening beads on the roof
+    for (let x = x0 + 0.12; x < x1 - 0.08; x += 0.26) {
+      const { roof, hw } = at(x);
+      b.add(box(0.02, 0.005, hw * 1.15, 0.002), 'chassis', W(x, roof + 0.0025, 0));
+    }
+    // front lip flange where the tunnel meets the dash panel
+    const f0 = at(x0);
+    b.add(box(0.004, 0.02, f0.hw * 1.25, 0), 'chassis', W(x0 + 0.002, f0.roof - 0.01, 0));
+    return b.build();
+  },
+
   chassis_biw(min, max, ctx) {
     // Bare Gen 6 coupe shell skeleton: the structure NOT modeled by the other unibody components — front
-    // bumper beam, radiator support, upper apron (shotgun) rails, front and rear wheelhouse arches, cowl top,
+    // bumper beam + crush cans, upper apron (shotgun) rails, front and rear wheelhouse arches, cowl top,
     // windshield header + roof bows + rear header, package shelf, rear seat riser, rear panel and bumper beam.
+    // (The race car's cooler-stack frame, engine-support lane, stands in for the radiator support.)
     const c = ctx.center;
     const W = (x, y, z) => V(x - c.x, y - c.y, z - c.z);
     const b = new PartBuilder();
     const f = 'chassis';
     const span = (x, y, z, sy, sz, fin = f) => barAB(b, fin, W(x, y, -z), W(x, y, z), sy, sz, V(1, 0, 0), 0.008);
-    // front bumper beam (swept) + crush cans
-    const fb = [[-0.83, 0.43, -0.52], [-0.87, 0.43, -0.3], [-0.89, 0.43, 0], [-0.87, 0.43, 0.3], [-0.83, 0.43, 0.52]];
-    for (let i = 0; i < fb.length - 1; i++) barAB(b, f, W(...fb[i]), W(...fb[i + 1]), 0.1, 0.05, Y(), 0.01, 0.04);
-    // radiator support
-    span(-0.72, 0.74, 0.58, 0.05, 0.05);
-    span(-0.74, 0.23, 0.5, 0.04, 0.06);
+    // (front / rear bumper beams and crush cans are their own parts: chassis.mounting-points.*-bumper-beam)
     for (const s of [-1, 1]) {
-      barAB(b, f, W(-0.73, 0.23, s * 0.55), W(-0.72, 0.74, s * 0.58), 0.05, 0.04, V(1, 0, 0), 0.006);
-      // upper apron (shotgun) rail from radiator support to the A-pillar base
-      const ap = [[-0.73, 0.68, 0.62], [-0.3, 0.75, 0.66], [0.1, 0.8, 0.67], [0.62, 0.87, 0.71]];
+      // upper apron (shotgun) rail from behind the headlamp to the A-pillar base
+      const ap = [[-0.6, 0.7, 0.63], [-0.3, 0.75, 0.66], [0.1, 0.8, 0.67], [0.62, 0.87, 0.71]];
       for (let i = 0; i < ap.length - 1; i++) barAB(b, f, W(ap[i][0], ap[i][1], s * ap[i][2]), W(ap[i + 1][0], ap[i + 1][1], s * ap[i + 1][2]), 0.06, 0.05, Y(), 0.008, 0.04);
       // wheelhouse arches (front, rear): open cylindrical sheets around the tyres
       for (const [xc, z0, z1, R0] of [[0, 0.62, 0.86, 0.43], [2.811, 0.6, 0.88, 0.43]]) {
@@ -1287,17 +1479,25 @@ const whole = {
     }
     // cowl top, windshield header, roof bows, rear header
     span(0.68, 0.88, 0.7, 0.08, 0.1);
-    span(1.3, 1.27, 0.58, 0.05, 0.09);
-    for (const x of [1.75, 2.2]) {
-      const bow = [[x, 1.29, -0.58], [x, 1.315, -0.3], [x, 1.325, 0], [x, 1.315, 0.3], [x, 1.29, 0.58]];
-      for (let i = 0; i < bow.length - 1; i++) barAB(b, f, W(...bow[i]), W(...bow[i + 1]), 0.025, 0.05, V(1, 0, 0), 0.004, 0.02);
+    // Headers and bows follow the probed roof skin (crown + double-bubble), tops 8-10 mm under it.
+    // [x, depth, height, [[z, centre y], ...] from the centre line out]
+    const arches = [
+      [1.27, 0.06, 0.04, [[0, 1.296], [0.3, 1.286], [0.45, 1.271], [0.55, 1.253], [0.58, 1.246]]], // windshield header
+      [1.75, 0.025, 0.05, [[0, 1.322], [0.3, 1.328], [0.45, 1.324], [0.58, 1.3]]], // roof bow
+      [2.2, 0.025, 0.05, [[0, 1.312], [0.3, 1.316], [0.45, 1.306], [0.58, 1.28]]], // roof bow
+      [2.55, 0.05, 0.05, [[0, 1.275], [0.3, 1.269], [0.45, 1.258], [0.55, 1.246], [0.58, 1.232]]], // rear header
+    ];
+    for (const [x, dep, ht, half] of arches) {
+      const pts = [...half.slice(1).reverse().map(([z, y]) => [x, y, -z]), ...half.map(([z, y]) => [x, y, z])];
+      for (let i = 0; i < pts.length - 1; i++) barAB(b, f, W(...pts[i]), W(...pts[i + 1]), dep, ht, V(1, 0, 0), 0.004, 0.01);
     }
-    span(2.55, 1.22, 0.58, 0.05, 0.08);
-    // package shelf, rear seat riser, rear panel, rear bumper beam
+    // package shelf, rear seat riser
     b.add(box(0.4, 0.006, 1.2, 0), f, W(2.78, 0.95, 0).toArray());
-    b.add(box(0.006, 0.3, 1.2, 0), f, W(2.45, 0.38, 0).toArray());
-    b.add(box(0.006, 0.36, 1.12, 0), f, W(3.76, 0.6, 0).toArray());
-    span(3.74, 0.52, 0.55, 0.09, 0.05);
+    // rear seat riser: two panels beside the tunnel + a bridge over the tunnel roof
+    for (const s of [-1, 1]) b.add(box(0.006, 0.3, 0.34, 0), f, W(2.45, 0.38, s * 0.43).toArray());
+    b.add(box(0.006, 0.055, 0.52, 0), f, W(2.45, 0.5025, 0).toArray());
+    // (no rear closing panel: the rear fascia comes in to x 3.61-3.64 above y 0.6 and the fuel surge tank
+    //  fills the space below it; the rear bumper beam is chassis.mounting-points.rear-bumper-beam)
     return b.build();
   },
 };
@@ -1369,14 +1569,15 @@ export default {
     [/^chassis\.unibody\.floor-pan$/, 'chassis_floor'],
     [/^chassis\.unibody\.trunk-floor$/, 'chassis_trunkFloor'],
     [/^chassis\.unibody\.datum-holes$/, 'chassis_doubler', { variant: 'datum' }],
-    [/^chassis\.floor-and-tunnel\.tunnel$/, 'chassis_tunnel'],
+    [/^chassis\.floor-and-tunnel\.tunnel$/, 'chassis_tunnelLoft', { whole: true }],
     [/^chassis\.floor-and-tunnel\.tunnel-brace$/, 'chassis_tunnelBrace'],
-    [/^chassis\.floor-and-tunnel\.driveshaft-safety-loop$/, 'chassis_safetyLoop', { axis: 'x' }],
+    [/^chassis\.floor-and-tunnel\.driveshaft-safety-loop$/, 'chassis_safetyLoop'],
     [/^chassis\.floor-and-tunnel\.tunnel-heat-shielding$/, 'chassis_heatShield'],
     [/^chassis\.mounting-points\.lift-and-jack-points$/, 'chassis_jackPad'],
     [/^chassis\.mounting-points\.(front-tow-eye-receptacle|rear-tow-point)$/, 'chassis_towEye', { usesPos: true }],
     [/^chassis\.mounting-points\.rivnuts$/, 'chassis_rivnut'],
     [/^chassis\.seam-welding-and-reinforcement\.[a-z-]*stitch-welds$/, 'chassis_weld'],
+    [/^chassis\.seam-welding-and-reinforcement\.[a-z-]*stitch-welds$/, 'chassis_weldPath'],
     [/^chassis\.seam-welding-and-reinforcement\.(cradle-mount-reinforcements|cage-mount-backing-plates)$/, 'chassis_doubler'],
     [/^chassis\.seam-welding-and-reinforcement\.strut-tower-gussets$/, 'chassis_doubler', { variant: 'tower' }],
     [/^chassis\.strut-tower-and-chassis-braces\.front-strut-tower-brace$/, 'chassis_brace', { variant: 'front' }],
