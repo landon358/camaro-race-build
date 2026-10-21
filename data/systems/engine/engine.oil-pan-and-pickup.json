@@ -245,7 +245,8 @@
         "dimensions": "~25 mm tube, ~110 x 80 mm screen",
         "features": "Steel tube with 2-bolt flange at the pump and flat screen in the rear sump",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "engine.oil-pan-and-pickup.windage-tray",
@@ -311,7 +312,8 @@
         "dimensions": "~500 x 240 mm",
         "features": "Louvred steel tray under the crank",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "engine.oil-pan-and-pickup.wet-sump-oil-pan",
@@ -600,7 +602,8 @@
         "dimensions": "Filter ~68 mm dia x 75 mm (PF64-type)",
         "features": "Spin-on can hanging below the cast boss on the front passenger side of the pan",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "engine.oil-pan-and-pickup.dipstick-and-fill",
@@ -703,7 +706,8 @@
         "dimensions": "~12 mm tube",
         "features": "Black tube up the front passenger side with yellow loop handle",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     }
   ]
 }

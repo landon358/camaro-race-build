@@ -754,7 +754,8 @@
         "dimensions": "M18 x 1.5 thread, 22 mm hex, ~84 mm long without lead, 40–60 N·m.",
         "features": "Slotted stainless protection tube, hex, crimped body, rubber grommet and lead; sits on top of each downpipe.",
         "confidence": "published"
-      }
+      },
+      "sameAs": "engine-support.exhaust.o2-sensors"
     },
     {
       "id": "electrical.engine-management.flex-fuel-sensor",

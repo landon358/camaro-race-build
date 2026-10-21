@@ -689,9 +689,13 @@ const boxes = {
       b.add(cylX(0.014, 0.02, 20), 'black', [sx / 2 + 0.01, yy, zin]);
       b.add(hexX(0.016, 0.012), 'blue', [sx / 2 + 0.026, yy, zin]);
     }
+    // low-profile rubber-isolated mounting tabs (10 mm stack on top); the inboard top tab is left off, where the
+    // crush can sits directly above the inboard end tank
     for (const s of [-1, 1]) for (const zz of [-1, 1]) {
-      b.add(box(0.03, 0.03, 0.004, 0.001), 'black', [0, s * (sy / 2 + 0.012), zz * (sz / 2 - tw / 2)], [PI / 2, 0, 0]);
-      b.add(cylY(0.007, 0.012, 10), 'rubber', [0, s * (sy / 2 + 0.018), zz * (sz / 2 - tw / 2)]);
+      if (s > 0 && zz === -side) continue;
+      const tab = s > 0 ? 0.004 : 0.002, rub = s > 0 ? 0.006 : 0.004; // bottom stack 6 mm: sits on the splitter
+      b.add(box(0.03, 0.03, tab, 0.0008), 'black', [0, s * (sy / 2 + tab / 2), zz * (sz / 2 - tw / 2)], [PI / 2, 0, 0]);
+      b.add(cylY(0.007, rub, 10), 'rubber', [0, s * (sy / 2 + tab + rub / 2), zz * (sz / 2 - tw / 2)]);
     }
     return b.build();
   },
@@ -989,14 +993,24 @@ const boxes = {
     return b.build();
   },
 
-  // Embossed heat shield with folded edges and stand-offs.
+  // Embossed aluminium heat shield hung on stand-offs. The box is the whole stack: the ~1 mm sheet is at
+  // the bottom face (-sy/2), the embossed beads, rolled edge hems and spacer stand-offs rise from it and end
+  // on the top face (+sy/2), which the data puts on the underside of the panel the shield bolts to.
   engine_support_heatShield(sx, sy, sz) {
     const b = new PartBuilder();
-    b.add(box(sx, Math.max(0.0015, sy * 0.5), sz, 0.0007), 'aluminum');
-    for (const s of [-1, 1]) b.add(box(sx, 0.012, 0.002, 0.0005), 'aluminum', [0, -0.006, s * sz / 2]);
+    const t = Math.min(0.0012, sy * 0.5);
+    const h = Math.max(0.0004, sy - t); // stand-off height
+    const y0 = -sy / 2;
+    b.add(box(sx, t, sz, 0.0004), 'aluminum', [0, y0 + t / 2, 0]);
+    const hem = Math.min(sy, 0.003);
+    for (const s of [-1, 1]) b.add(box(sx, hem, 0.004, 0.0005), 'aluminum', [0, y0 + hem / 2, s * (sz / 2 - 0.002)]);
     const n = Math.max(2, Math.round(sz / 0.06));
-    for (let i = 0; i < n; i++) b.add(box(sx * 0.95, 0.003, 0.008, 0.001), 'aluminum', [0, -0.0015, -sz / 2 + ((i + 0.5) / n) * sz]);
-    for (const xx of [-sx * 0.4, 0, sx * 0.4]) for (const s of [-1, 1]) b.add(cylY(0.005, 0.012, 8), 'steel', [xx, 0.006, s * sz * 0.4]);
+    const bead = Math.min(0.0015, h * 0.7);
+    for (let i = 0; i < n; i++) b.add(box(sx * 0.95, bead, 0.008, 0.0003), 'aluminum', [0, y0 + t + bead / 2, -sz / 2 + ((i + 0.5) / n) * sz]);
+    for (const xx of [-sx * 0.4, 0, sx * 0.4]) for (const s of [-1, 1]) {
+      b.add(cylY(0.005, h, 8), 'steel', [xx, y0 + t + h / 2, s * sz * 0.4]);
+      b.add(cylY(0.0045, 0.0008, 8), 'steel', [xx, y0 - 0.0004, s * sz * 0.4]); // flanged rivet head
+    }
     return b.build();
   },
 
@@ -1042,6 +1056,14 @@ const paths = {
   engine_support_anHose(pts, r, ctx) {
     const ptfe = ctx?.variant === 'ptfe';
     const rr = Math.max(0.0045, r);
+    if (ctx?.variant === 'efi') {
+      // SAE J30R14 EFI rubber hose pushed onto barbed nipples, 4.5 mm wide fuel-injection band clamps at each end
+      const b = new PartBuilder().add(tubeAlong(curveFrom(pts), rr, null, 12), 'rubber');
+      const d0 = dirAt(pts, false), d1 = dirAt(pts, true);
+      bandClamp(b, pts[0].clone().addScaledVector(d0, 0.008), d0, rr, 'stainless', 0.0045);
+      bandClamp(b, pts[pts.length - 1].clone().addScaledVector(d1, 0.008), d1, rr, 'stainless', 0.0045);
+      return b.build();
+    }
     const b = new PartBuilder().add(tubeAlong(curveFrom(pts), rr, null, 10), ptfe ? 'black' : 'braided');
     anEnd(b, pts[0], dirAt(pts, false), rr, ptfe);
     anEnd(b, pts[pts.length - 1], dirAt(pts, true), rr, ptfe);
@@ -1259,6 +1281,7 @@ const rules = [
   [id('fuel-delivery\\.surge-tank'), 'engine_support_surgeTank'],
   [id('fuel-delivery\\.feed-pumps'), 'engine_support_walbro'],
   [id('fuel-delivery\\.fuel-pressure-regulator'), 'engine_support_regulator'],
+  [id('fuel-delivery\\.port-injection-feed'), 'engine_support_anHose', { variant: 'efi' }],
   [id('fuel-delivery\\.(lift-pump-line|regulator-return-line|surge-overflow-line|feed-line)'), 'engine_support_anHose', { variant: 'ptfe' }],
   [id('fuel-delivery\\.line-clamps'), 'engine_support_lineClamp'],
   [id('fuel-delivery\\.(bulkhead-fittings|engine-feed-adapter)'), 'engine_support_fitting'],

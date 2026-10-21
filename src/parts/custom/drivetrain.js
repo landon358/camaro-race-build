@@ -796,22 +796,37 @@ const boxes = {
 
   /** Moulded plastic cooler duct (tapered rectangular box section). The full-size end seals on the cooler
    *  core face; the smaller end is the inlet behind the fascia opening. Front duct: cooler is at +X;
-   *  rear duct: cooler is at -X. */
+   *  rear duct: cooler is at -X.
+   *  Optional model field `inlet` shapes the small end to sit on a slanted inner skin:
+   *  { c: [dy, dz] inlet centre offset from the box centre, h: [hy, hz] inlet half-sizes,
+   *    x: [x(+z+y), x(-z+y), x(-z-y), x(+z-y)] world x of each inlet corner, cap: true closes it (blind snout). */
   drivetrain_coolerDuct(sx, sy, sz, ctx) {
     const b = new PartBuilder();
-    const t = 0.003;
     const sq = [[1, 1], [-1, 1], [-1, -1], [1, -1]];
     const big = (ctx?.pos?.[0] ?? 2) < 1.4 ? 1 : -1;
-    // walls as thin plates from the full-size cooler end to the 76 % inlet end
-    for (const [i, j] of [[0, 1], [1, 2], [2, 3], [3, 0]]) {
-      const a = sq[i], c = sq[j];
-      const p0 = V(big * sx / 2, a[1] * sy / 2, a[0] * sz / 2), p1 = V(big * sx / 2, c[1] * sy / 2, c[0] * sz / 2);
-      const q0 = V(-big * sx / 2, a[1] * sy * 0.38, a[0] * sz * 0.38), q1 = V(-big * sx / 2, c[1] * sy * 0.38, c[0] * sz * 0.38);
+    const inl = ctx?.m?.inlet;
+    const px = ctx?.pos?.[0] ?? 0;
+    const q = sq.map((a, i) => (inl
+      ? V(Array.isArray(inl.x) ? (+inl.x[i] || 0) - px : -big * sx / 2,
+        (+inl.c?.[0] || 0) + a[1] * (+inl.h?.[0] || sy * 0.38), (+inl.c?.[1] || 0) + a[0] * (+inl.h?.[1] || sz * 0.38))
+      : V(-big * sx / 2, a[1] * sy * 0.38, a[0] * sz * 0.38)));
+    const addTris = (tri) => {
       const g = new THREE.BufferGeometry();
-      const tri = big < 0 ? [p0, q0, q1, p0, q1, p1] : [p0, q1, q0, p0, p1, q1]; // keep outward winding when mirrored
       g.setAttribute('position', new THREE.Float32BufferAttribute(tri.flatMap((v) => v.toArray()), 3));
       g.computeVertexNormals();
       b.add(g, 'plastic');
+    };
+    // walls as thin plates from the full-size cooler end to the inlet end (76 % by default)
+    for (const [i, j] of [[0, 1], [1, 2], [2, 3], [3, 0]]) {
+      const a = sq[i], c = sq[j];
+      const p0 = V(big * sx / 2, a[1] * sy / 2, a[0] * sz / 2), p1 = V(big * sx / 2, c[1] * sy / 2, c[0] * sz / 2);
+      const q0 = q[i], q1 = q[j];
+      addTris(big < 0 ? [p0, q0, q1, p0, q1, p1] : [p0, q1, q0, p0, p1, q1]); // keep outward winding when mirrored
+    }
+    if (inl?.cap) {
+      // blind end: close the inlet, wound to face away from the cooler
+      const n = V().subVectors(q[1], q[0]).cross(V().subVectors(q[2], q[0]));
+      addTris(n.x * -big > 0 ? [q[0], q[1], q[2], q[0], q[2], q[3]] : [q[0], q[2], q[1], q[0], q[3], q[2]]);
     }
     return b.build();
   },
@@ -1025,7 +1040,7 @@ export default {
     [/^drivetrain\.coolers\.(trans|diff)-cooler-lines$/, 'braided'],
     [/^drivetrain\.coolers\.(trans|diff)-cooler-fittings$/, 'drivetrain_anFitting'],
     [/^drivetrain\.coolers\.inline-filters$/, 'drivetrain_inlineFilter', { axis: 'x' }],
-    [/^drivetrain\.coolers\.cooler-ducting$/, 'drivetrain_coolerDuct'],
+    [/^drivetrain\.coolers\.cooler-ducting$/, 'drivetrain_coolerDuct', { usesPos: true }],
   ],
   axial,
   boxes,

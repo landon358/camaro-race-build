@@ -413,7 +413,8 @@
         "dimensions": "~30 mm flange, probe ~25 mm",
         "features": "Probe through the bottom of the pan with a 1-bolt flange and connector underneath",
         "confidence": "estimated"
-      }
+      },
+      "alt": true
     },
     {
       "id": "engine.engine-sensors.coolant-temp-sensor",

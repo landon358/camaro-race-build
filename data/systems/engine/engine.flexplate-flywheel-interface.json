@@ -174,7 +174,8 @@
         "dimensions": "~35 mm OD x 12 mm",
         "features": "Sealed roller/ball pilot bearing pressed into the crank flange bore",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "drivetrain.flywheel-clutch.pilot-bearing"
     },
     {
       "id": "engine.flexplate-flywheel-interface.bellhousing-dowels",

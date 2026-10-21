@@ -547,7 +547,8 @@
         "dimensions": "K-type probe Ø3–6 mm with 1/8 NPT compression fitting (7/16\" hex).",
         "features": "Stainless probe, brass compression fitting, stainless transition, braided lead.",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "engine-support.exhaust.egt-probes"
     },
     {
       "id": "electrical.sensors.driveline-temp-sensors",

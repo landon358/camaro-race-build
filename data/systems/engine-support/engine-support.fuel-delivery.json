@@ -1147,48 +1147,113 @@
             ],
             [
               2.655,
-              0.2,
+              0.24,
               0.37
             ],
             [
-              2.63,
-              0.172,
-              0.378
+              2.645,
+              0.2245,
+              0.373
+            ],
+            [
+              2.6,
+              0.2208,
+              0.385
             ],
             [
               2.55,
-              0.168,
+              0.2198,
               0.395
             ],
             [
+              2.5,
+              0.2189,
+              0.405
+            ],
+            [
               2.4,
-              0.168,
+              0.218,
               0.425
             ],
             [
-              2.25,
-              0.168,
-              0.45
+              2.3,
+              0.2178,
+              0.432
+            ],
+            [
+              2.2,
+              0.2136,
+              0.414
+            ],
+            [
+              2.1,
+              0.2064,
+              0.41
+            ],
+            [
+              2,
+              0.2022,
+              0.415
+            ],
+            [
+              1.9,
+              0.2002,
+              0.432
             ],
             [
               1.8,
-              0.168,
+              0.1984,
+              0.45
+            ],
+            [
+              1.5,
+              0.1932,
               0.45
             ],
             [
               1.2,
-              0.168,
+              0.188,
               0.45
             ],
             [
+              1.1,
+              0.1865,
+              0.482
+            ],
+            [
+              1,
+              0.1851,
+              0.51
+            ],
+            [
               0.95,
-              0.17,
+              0.1846,
               0.53
             ],
             [
-              0.82,
+              0.9,
+              0.184,
+              0.538
+            ],
+            [
+              0.85,
+              0.1835,
+              0.5465
+            ],
+            [
+              0.81,
               0.19,
+              0.553
+            ],
+            [
+              0.79,
+              0.205,
               0.555
+            ],
+            [
+              0.772,
+              0.232,
+              0.553
             ],
             [
               0.73,
@@ -1306,51 +1371,68 @@
         "clamps"
       ],
       "sources": [],
-      "model": {
-        "shape": "box",
-        "pos": [
-          2.4,
-          0.168,
-          0.425
-        ],
-        "size": [
-          0.02,
-          0.02,
-          0.03
-        ],
-        "instances": [
-          [
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
             2.4,
-            0.168,
+            0.218,
             0.425
           ],
-          [
-            1.8,
-            0.168,
-            0.45
+          "size": [
+            0.02,
+            0.018,
+            0.03
           ],
-          [
-            1.2,
-            0.168,
-            0.45
+          "rot": [
+            180,
+            0,
+            0
           ],
-          [
-            0.86,
-            0.184,
-            0.548
-          ],
-          [
+          "instances": [
+            [
+              2.4,
+              0.218,
+              0.425
+            ],
+            [
+              1.95,
+              0.2012,
+              0.44
+            ],
+            [
+              1.5,
+              0.1932,
+              0.45
+            ]
+          ]
+        },
+        {
+          "shape": "box",
+          "pos": [
             3.2,
             0.445,
             0.4
           ],
-          [
-            3.4,
-            0.445,
-            0.4
+          "size": [
+            0.02,
+            0.02,
+            0.03
+          ],
+          "instances": [
+            [
+              3.2,
+              0.445,
+              0.4
+            ],
+            [
+              3.4,
+              0.445,
+              0.4
+            ]
           ]
-        ]
-      },
+        }
+      ],
       "modelRef": {
         "images": [
           {
@@ -1642,6 +1724,175 @@
         "features": "Anodised billet adapter",
         "confidence": "published"
       }
+    },
+    {
+      "id": "engine-support.fuel-delivery.port-injection-feed",
+      "name": "Port-injection rail feed and crossover hoses",
+      "qty": 2,
+      "description": "Low-pressure supply for the auxiliary port-injection rails: a 3/8 in EFI hose tees off the engine feed adapter at the high-pressure pump low-pressure port, climbs behind the left valve cover to the rear of the left port rail, and a crossover hose runs behind the supercharger, over the high-pressure pump, to the rear of the right port rail.",
+      "location": "Rear of the engine, behind the supercharger case, above the high-pressure fuel pump.",
+      "connectsTo": [
+        "engine-support.fuel-delivery.engine-feed-adapter",
+        "engine.fuel-injection.port-injection-kit"
+      ],
+      "raceOptions": [],
+      "specs": {
+        "Hose": "3/8 in (10 mm) ID SAE J30R14 fuel-injection hose",
+        "Clamps": "Fuel-injection band clamps, 4.5 mm band"
+      },
+      "hardware": [
+        {
+          "item": "Fuel-injection hose clamps",
+          "qty": 4,
+          "spec": "Narrow-band (4.5 mm) EFI clamp for 3/8 in hose",
+          "grade": "Stainless",
+          "torque": "Snug until the band seats; do not cut the hose cover",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Replace",
+          "notes": "",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Keep the hose off the valve cover and the supercharger case; tie it to the harness standoffs, not to the harness itself."
+      ],
+      "inspection": [
+        "Leak check at both rail ends and at the adapter tee"
+      ],
+      "tags": [
+        "fuel",
+        "port-injection"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.2624,
+              0.754,
+              0.184
+            ],
+            [
+              0.278,
+              0.745,
+              0.192
+            ],
+            [
+              0.305,
+              0.741,
+              0.205
+            ],
+            [
+              0.34,
+              0.735,
+              0.23
+            ],
+            [
+              0.39,
+              0.72,
+              0.255
+            ],
+            [
+              0.45,
+              0.68,
+              0.28
+            ],
+            [
+              0.5,
+              0.61,
+              0.3
+            ],
+            [
+              0.53,
+              0.54,
+              0.32
+            ],
+            [
+              0.548,
+              0.482,
+              0.338
+            ],
+            [
+              0.56,
+              0.458,
+              0.35
+            ],
+            [
+              0.567,
+              0.452,
+              0.355
+            ]
+          ],
+          "radius": 0.007
+        },
+        {
+          "shape": "tube",
+          "path": [
+            [
+              0.2624,
+              0.754,
+              0.184
+            ],
+            [
+              0.278,
+              0.746,
+              0.186
+            ],
+            [
+              0.298,
+              0.744,
+              0.184
+            ],
+            [
+              0.318,
+              0.748,
+              0.15
+            ],
+            [
+              0.333,
+              0.752,
+              0.08
+            ],
+            [
+              0.336,
+              0.752,
+              0
+            ],
+            [
+              0.333,
+              0.752,
+              -0.08
+            ],
+            [
+              0.318,
+              0.748,
+              -0.15
+            ],
+            [
+              0.302,
+              0.745,
+              -0.184
+            ],
+            [
+              0.29,
+              0.749,
+              -0.185
+            ],
+            [
+              0.2864,
+              0.754,
+              -0.184
+            ]
+          ],
+          "radius": 0.007
+        }
+      ],
+      "buildPhase": 7,
+      "installOrder": 15
     },
     {
       "id": "engine-support.fuel-delivery.fuel-pressure-sensor",

@@ -171,6 +171,108 @@
         "dimensions": "~1.3 m wide, top skin windshield base → x 1.13, driver face panel ~0.3 m tall",
         "features": "Carbon/aluminium race dash: sloped top skin, flat driver panel with column hole and display brow, riveted edges",
         "confidence": "estimated"
+      },
+      "sameAs": "interior.dash.fabricated-dash-panel"
+    },
+    {
+      "id": "interior.dash.fabricated-dash-panel",
+      "name": "Fabricated race dash (drawn shape, with steering-column opening)",
+      "qty": 1,
+      "description": "The race dash as drawn: carbon/aluminium skins built to the factory IP outline (sloped top skin, driver face stepping back at the centre stack, knee bolsters, instrument binnacle and hood, lower switch pod), with a 110 mm wide opening in the driver knee bolster and face where the steering column, its mounting bracket and upper housing pass through. Stands in for the reference-body dash mesh, which has no column opening.",
+      "location": "Across the cowl, x ≈ 0.665–1.13, y ≈ 0.598–1.035, z ±0.63; column opening z 0.315–0.425 from x 0.82 to the face.",
+      "connectsTo": [
+        "safety.roll-cage.dash-bar",
+        "interior.dash.display-mount",
+        "interior.dash.switch-panel",
+        "safety.fire-suppression.cockpit-nozzles",
+        "steering.column-and-shaft.column",
+        "interior.dash.race-dash-panel"
+      ],
+      "factory": {
+        "name": "GM ZL1 instrument panel assembly",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Custom 0.063 in aluminum or carbon sandwich dash",
+          "brand": "Fabricated",
+          "partNumber": "",
+          "notes": "Flat-black finish to avoid windshield reflections.",
+          "url": ""
+        }
+      ],
+      "specs": {
+        "Material": "0.063 in 5052 aluminum or 2–3 mm carbon",
+        "Finish": "Matte black"
+      },
+      "hardware": [
+        {
+          "item": "Rivnut + button-head screw",
+          "qty": 8,
+          "spec": "M6 x 1.0 (or 1/4-20) steel rivnut + button-head cap screw + washer",
+          "grade": "ISO 8.8",
+          "torque": "5.9 ft-lb (8 N·m)",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "estimate",
+          "source": "",
+          "notes": "To welded dash-bar tabs and cowl."
+        },
+        {
+          "item": "Dzus for removable section",
+          "qty": 4,
+          "spec": "EHF5 quarter-turn + S5 spring",
+          "grade": "n/a",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Reusable",
+          "confidence": "typical",
+          "source": "https://blog.demon-tweeks.com/?p=6261"
+        }
+      ],
+      "installNotes": [
+        "Make removable sections for wiring access."
+      ],
+      "inspection": [
+        "Check fasteners/rattles."
+      ],
+      "buildPhase": 9,
+      "installOrder": 7,
+      "tags": [],
+      "sources": [
+        {
+          "title": "Demon Tweeks – Dzus fastener guide (EHF5/EHF6, grip length, springs)",
+          "url": "https://blog.demon-tweeks.com/?p=6261"
+        }
+      ],
+      "model": {
+        "shape": "box",
+        "pos": [
+          0.9,
+          0.794,
+          0
+        ],
+        "size": [
+          0.47,
+          0.392,
+          1.26
+        ]
+      },
+      "modelRef": {
+        "images": [
+          {
+            "title": "Camaro GT4.R photo gallery (Motor Authority)",
+            "url": "https://www.motorauthority.com/image/100595613_chevrolet-camaro-gt4-r"
+          }
+        ],
+        "dimensions": "~1.3 m wide, top skin windshield base → x 1.13, driver face panel ~0.3 m tall",
+        "features": "Carbon/aluminium race dash: sloped top skin, flat driver panel with column hole and display brow, riveted edges",
+        "confidence": "estimated"
       }
     },
     {
@@ -497,8 +599,8 @@
       "model": {
         "shape": "cylinder",
         "pos": [
-          0.92,
-          0.66,
+          0.78,
+          0.695,
           -0.2
         ],
         "size": [

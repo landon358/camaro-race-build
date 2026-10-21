@@ -623,7 +623,179 @@
         "dimensions": "approx 1800 x 1480 mm",
         "features": "Floor halves either side of the tunnel with stamped beads and seat cross-members",
         "confidence": "estimated"
-      }
+      },
+      "sameAs": "chassis.unibody.floor-pan-race"
+    },
+    {
+      "id": "chassis.unibody.floor-pan-race",
+      "name": "Floor pan (race build, sectioned)",
+      "qty": 1,
+      "description": "Drawn floor pan of the race car, replacing the flat reference mesh (chassis.unibody.floor-pan). 2 mm steel floor halves follow the measured underside line (0.188 at x 0.7 rising to about 0.23 at x 2.6). They are open over the tunnel (|z| < 0.24, x 0.6-2.62, closed by the pressed tunnel), notched at the front for the header connection pipes (x 0.6-0.8, |z| < 0.28), and stop at the rear bulkhead (x 2.62). Behind the bulkhead the floor kicks up over the differential into a pocket whose roof is at y 0.53 (x 2.62-2.975, |z| < 0.25), so the diff and halfshaft inner joints sit below the body. The rear suspension pivots, mid-pipes and mufflers behind x 2.62 are open to the undertray.",
+      "location": "Cockpit floor x 0.6-2.62 (underside y 0.188-0.233), diff pocket roof x 2.62-2.975 at y 0.53.",
+      "connectsTo": [
+        "chassis.unibody.rocker-sills",
+        "chassis.floor-and-tunnel.tunnel",
+        "chassis.floor-and-tunnel.tunnel-brace",
+        "safety.fuel-and-firewall-isolation.rear-bulkhead-panel",
+        "chassis.unibody.trunk-floor",
+        "chassis.unibody.front-frame-rails",
+        "chassis.unibody.rear-rails"
+      ],
+      "factory": {
+        "name": "GM steel floor pan, sectioned for the race build",
+        "notes": "Replaces the flat reference floor; heights taken from the reference underside."
+      },
+      "raceOptions": [],
+      "specs": {
+        "Sheet thickness": "2 mm",
+        "Underside height": "0.188 (x 0.7) to 0.233 (x 2.6)",
+        "Tunnel opening": "|z| < 0.24, x 0.6-2.62",
+        "Diff pocket roof": "y 0.53, x 2.62-2.975, |z| < 0.25"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Undertray openings for the diff pocket and mid-pipes are cut to match by the aero lane."
+      ],
+      "inspection": [
+        "Check the floor seams at the tunnel flanges and the bulkhead for cracking."
+      ],
+      "buildPhase": 1,
+      "installOrder": 6,
+      "tags": [
+        "floor"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "pos": [
+            1.3,
+            0.2015,
+            0.535
+          ],
+          "size": [
+            1.4042,
+            0.002,
+            0.51
+          ],
+          "rot": [
+            -0.215,
+            0,
+            0.945
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            1.4,
+            0.2026,
+            0.26
+          ],
+          "size": [
+            1.2042,
+            0.002,
+            0.04
+          ],
+          "rot": [
+            -0.149,
+            0,
+            0.966
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.075,
+            0.218,
+            0.515
+          ],
+          "size": [
+            0.1541,
+            0.002,
+            0.55
+          ],
+          "rot": [
+            0.206,
+            0,
+            2.108
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.265,
+            0.2276,
+            0.515
+          ],
+          "size": [
+            0.2342,
+            0.002,
+            0.55
+          ],
+          "rot": [
+            0.175,
+            0,
+            2.505
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.5,
+            0.2265,
+            0.335
+          ],
+          "size": [
+            0.2441,
+            0.002,
+            0.1902
+          ],
+          "rot": [
+            -2.866,
+            0,
+            1.312
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.7995,
+            0.531,
+            0
+          ],
+          "size": [
+            0.351,
+            0.002,
+            0.5
+          ],
+          "color": "#7d868f"
+        },
+        {
+          "shape": "box",
+          "pos": [
+            2.7995,
+            0.5,
+            0.249
+          ],
+          "size": [
+            0.351,
+            0.06,
+            0.002
+          ],
+          "mirror": true,
+          "color": "#7d868f"
+        }
+      ]
     },
     {
       "id": "chassis.unibody.pillars-and-roof-structure",
@@ -892,13 +1064,18 @@
             ],
             [
               3,
-              0.46,
+              0.465,
               0.5
             ],
             [
-              3.58,
-              0.47,
+              3.16,
+              0.495,
               0.5
+            ],
+            [
+              3.575,
+              0.495,
+              0.487
             ]
           ],
           "radius": 0.05,

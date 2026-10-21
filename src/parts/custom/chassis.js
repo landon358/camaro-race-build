@@ -839,7 +839,8 @@ const boxes = {
   chassis_tunnelBrace(sx, sy, sz) {
     // Bolt-in driveshaft tunnel brace (GM / BMR DTB-type): one long, narrow laser-cut flat bar across the tunnel
     // opening. Flat feet at each end bolt to the floor pan outboard of the tunnel flanges (2 bolts each); the
-    // centre span is joggled down to pass under the exhaust and carries a centre bolt + lightening slots.
+    // centre span can be joggled down (sy > t) or, as fitted here, run flat across the tunnel opening at the floor
+    // plane above the x-pipe (sy = t); it carries a centre bolt + lightening slots.
     // Box: sx = fore-aft width, sy = joggle depth (feet top = +sy/2 = floor underside), sz = overall span.
     const b = new PartBuilder();
     const t = 0.006;
@@ -858,9 +859,10 @@ const boxes = {
       for (const dx of [-sx * 0.27, sx * 0.27]) f.holes.push(new THREE.Path().absarc(dx, 0, 0.0055, 0, PI * 2, true));
       b.add(plateXZ(f, t, 8), 'red', [0, yFoot - t / 2, s * (footIn + 0.035)]);
       barAB(b, 'red', V(0, yMid, s * (midHalf + 0.004)), V(0, yFoot, s * (footIn + 0.004)), t, sx, V(0, 1, 0), 0.002, 0.004);
-      for (const dx of [-sx * 0.27, sx * 0.27]) put(b, hexX(0.0075, 0.007), 'chrome', frame(V(dx, yFoot - t / 2 - 0.0035, s * (footIn + 0.035)), V(0, 1, 0)));
+      for (const dx of [-sx * 0.27, sx * 0.27]) put(b, hexX(0.0075, 0.005), 'chrome', frame(V(dx, yFoot - t / 2 - 0.0025, s * (footIn + 0.035)), V(0, 1, 0)));
     }
-    put(b, hexX(0.0075, 0.007), 'chrome', frame(V(0, yMid - t / 2 - 0.0035, 0), V(0, 1, 0)));
+    // low-profile flanged heads: a flat brace (sy = t) hugs the floor with only ~5 mm of hardware below it
+    put(b, hexX(0.0075, 0.005), 'chrome', frame(V(0, yMid - t / 2 - 0.0025, 0), V(0, 1, 0)));
     return b.build();
   },
 

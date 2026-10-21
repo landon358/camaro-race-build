@@ -4,7 +4,7 @@
 // Baseline: 2017-2024 Camaro ZL1 1LE corner —
 //   front: 19x11 ET11 forged wheel, 390 x 36 mm two-piece rotor (black anodised hat, 10 floating bolts),
 //          Brembo red 6-piston monobloc (2x30/2x34/2x38 mm) mounted TRAILING, ~20 deg above the axle line;
-//   rear:  19x12 ET41 forged wheel, 365 x 28 mm one-piece rotor with drum-in-hat park brake,
+//   rear:  19x11 ET54.5 race wheel (305 tyre, see GEOM.rear), 365 x 28 mm one-piece rotor with drum-in-hat park brake,
 //          Brembo red 4-piston fixed caliper, trailing.
 // Calipers / pads / pins / bleeders / banjo bolts are drawn at ABSOLUTE car coordinates from GEOM below
 // (generator output does not depend on the declared box), so they always straddle the rotor exactly.
@@ -176,7 +176,7 @@ const axial = {
     const b = new PartBuilder();
     const w = L / 2, Rf = D / 2, Rbs = 0.2413, t = 0.0065;
     const bh = g.rimW / 2; // bead seat half width
-    const Rw = Rbs - 0.022, [w0, w1] = g.wellX;
+    const Rw = Rbs - (g.wellD || 0.022), [w0, w1] = g.wellX;
     const outer = [
       [Rf - 0.005, -w], [Rf, -w + 0.004], [Rf, -w + 0.009], [Rbs + 0.004, -bh + 0.003], [Rbs, -bh + 0.012],
       [Rbs + 0.003, -bh + 0.03], [Rbs, -bh + 0.036], [Rbs, w0 - 0.014], [Rw, w0], [Rw, w1], [Rbs, w1 + 0.014],
@@ -190,7 +190,7 @@ const axial = {
     // machined lip highlight on the outer flange
     b.add(ringX(Rf, Rf - 0.009, 0.0015, 80), 'machined', [w + 0.0005, 0, 0]);
     // centre pad: mounting face at X = ET, lug face 40 mm outboard
-    const X0 = g.et, X1 = g.et + 0.04;
+    const X0 = g.et, X1 = g.et + (g.padT || 0.04);
     b.add(latheX([[0.0335, X0], [0.084, X0], [0.096, X0 + 0.012], [0.092, X1 - 0.006], [0.082, X1], [0.040, X1], [0.034, X1 - 0.004], [0.0335, X0]], 64), 'wheel');
     for (let k = 0; k < 5; k++) {
       b.add(cylX(0.0145, 0.003, 16), 'black', P(X1 + 0.0002, 0.06, LUG_ANG(k)));
@@ -439,6 +439,15 @@ const axial = {
     return new PartBuilder().add(ringX(D / 2, D / 2 - Math.max(0.003, D * 0.045), Math.max(L, 0.002), 40), 'plastic').build();
   },
 
+  // ---------------- split rubber cable grommet (6 mm cable): waisted core + two sealing lips, axis canonical X
+  brakes_grommet(L, D) {
+    const b = new PartBuilder();
+    const ri = 0.0032, lip = Math.min(0.0015, L * 0.25);
+    b.add(ringX(D * 0.36, ri, L, 24), 'rubber');
+    for (const s of [-1, 1]) b.add(ringX(D / 2, ri, lip, 24), 'rubber', [s * (L / 2 - lip / 2), 0, 0]);
+    return b.build();
+  },
+
   // ---------------- clamp-in TPMS valve stem (aluminium stem, nut, cap) — axis canonical X
   brakes_valveStem(L, D) {
     const b = new PartBuilder();
@@ -606,18 +615,24 @@ const axial = {
     return b.build();
   },
 
-  // ---------------- 3 in brake-duct inlet (bell-mouth with mounting flange, oval face)
+  // ---------------- brake-duct inlet: oval carbon bell-mouth with mounting flange, drawn inside its box
+  // (L along x, D1 tall, D2 wide), necking down to a round 39 mm spigot at the rear for the 40 mm hose
   brakes_ductInlet(L, D1, D2) {
     // canonical +X = world +x (rearward into the duct)
     const b = new PartBuilder();
-    const h = L / 2;
-    const fl = rrect(D2, D1, Math.min(D1, D2) * 0.35);
+    const h = L / 2, m = Math.min(D1, D2);
+    const fl = rrect(D2, D1, m * 0.3);
     fl.holes.push(new THREE.Path().absellipse(0, 0, D2 * 0.40, D1 * 0.38, 0, 2 * PI, true));
-    const g = new THREE.ExtrudeGeometry(fl, { depth: 0.004, bevelEnabled: false, curveSegments: 16 });
+    const g = new THREE.ExtrudeGeometry(fl, { depth: 0.003, bevelEnabled: false, curveSegments: 16 });
     g.applyMatrix4(new THREE.Matrix4().set(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1));
     b.add(g, 'carbon', [-h, 0, 0]);
-    b.add(latheX([[Math.min(D1, D2) * 0.40, -h + 0.004], [0.044, -h + 0.02], [0.039, h - 0.012], [0.039, h], [0.036, h], [0.036, -h + 0.02], [Math.min(D1, D2) * 0.37, -h + 0.004]], 32), 'carbon', [0, 0, 0], [0, 0, 0], [1, D1 / Math.min(D1, D2), D2 / Math.min(D1, D2)].map((v, i) => (i ? Math.min(v, 1.3) : 1)));
-    for (const s of [-1, 1]) b.add(cylX(0.004, 0.006, 8), 'chrome', [-h - 0.002, 0, s * D2 * 0.44]);
+    // oval funnel: front opening = 0.84 x the flange, rear = the spigot diameter
+    const rs = Math.min(0.0195, m * 0.44), r0 = m * 0.42, xm = -h + L * 0.55;
+    b.add(latheX([[r0, -h + 0.003], [r0 * 0.97, -h + 0.008], [rs + 0.002, xm], [rs, xm], [rs - 0.0025, xm], [r0 * 0.97 - 0.0025, -h + 0.008], [r0 - 0.0025, -h + 0.003]], 32), 'carbon', [0, 0, 0], [0, 0, 0], [1, 1, D2 / D1 > 1 ? Math.min(D2 / D1, 1.4) : 1]);
+    // round spigot with a bead, to the back of the box
+    b.add(cylX(rs, h - xm, 24), 'carbon', [(xm + h) / 2, 0, 0]);
+    b.add(cylX(rs + 0.0012, 0.003, 24), 'carbon', [h - 0.006, 0, 0]);
+    for (const s of [-1, 1]) b.add(cylX(0.0025, 0.004, 8), 'chrome', [-h - 0.001, 0, s * D2 * 0.42]);
     return b.build();
   },
 
@@ -760,6 +775,29 @@ const boxes = {
     b.add(box(sx, H * 0.8, sz, Math.min(H, 0.006) * 0.4), 'satin', [0, -H * 0.1, 0]);
     b.add(box(sx * 0.3, H * 0.4, sz * 0.4, 0.002), 'satin', [0, H * 0.3, 0]);
     void L;
+    return b.build();
+  },
+
+  // ---------------- IR rotor-temperature sensor (left side; aims along +z at the rotor's inboard face)
+  // Box = sensor body. A 3 mm bracket tab runs from the body toward the wheel centre and lies on the
+  // backing plate: front = under the body (body stands outboard of the duct plate), rear = on the body's
+  // outboard face (body sits behind the dust shield, looking through a hole in it).
+  brakes_irTempSensor(sx, sy, sz, ctx) {
+    const b = new PartBuilder();
+    const rear = cornerOf(ctx.pos[0]) === 'rear';
+    b.add(box(sx, sy, sz, 0.002), 'black');
+    b.add(cylZ(0.0055, 0.002, 16), 'steel', [0, 0, sz / 2 + 0.001]);
+    b.add(cylZ(0.0042, 0.0016, 16), 'glass', [0, 0, sz / 2 + 0.0022]);
+    const dx = ctx.wheelOffset.x, dy = ctx.wheelOffset.y, dl = Math.hypot(dx, dy) || 1, ux = dx / dl, uy = dy / dl;
+    const ang = Math.atan2(uy, ux);
+    const t = 0.003, len = 0.045;
+    // tab starts under the body (front) or just inside the body's inner edge (rear, clear of the lens)
+    const s0 = rear ? Math.abs(ux) * sx / 2 + Math.abs(uy) * sy / 2 - 0.004 : 0;
+    const zc = rear ? sz / 2 + t / 2 : -sz / 2 - t / 2;
+    b.add(box(len, 0.016, t, 0.0008), 'aluminum', [ux * (s0 + len / 2), uy * (s0 + len / 2), zc], [0, 0, ang]);
+    b.add(cylZ(0.0065, 0.003, 6), 'steel', [ux * (s0 + len - 0.009), uy * (s0 + len - 0.009), zc + (rear ? -0.003 : 0.003)]);
+    // cable gland on the outer edge
+    b.add(cylX(0.003, 0.008, 10), 'black', [-(Math.sign(ux) || 1) * (sx / 2 + 0.004), 0, 0]);
     return b.build();
   },
 
@@ -1102,11 +1140,12 @@ export default {
     [/^brakes\.cooling\.(duct-hose|rear-ducts)$/, 'brakes_ductHose'],
     [/^brakes\.cooling\.backing-plates$/, 'brakes_ductPlate', { shapes: ['disc'] }],
     [/^brakes\.cooling\.backing-plates$/, 'brakes_ductSpigot', { shapes: ['cylinder'] }],
-    [/^brakes\.cooling\.temperature-indicators$/, 'brakes_paintBands', { axis: 'z' }],
+    [/^brakes\.cooling\.temperature-indicators$/, 'brakes_irTempSensor', { usesPos: true }],
     // parking brake
     [/^brakes\.parking-brake\.epb-actuator-module$/, 'brakes_epb'],
     [/^brakes\.parking-brake\.(intermediate-cable|rear-cables)$/, 'brakes_cable'],
     [/^brakes\.parking-brake\.shoes$/, 'brakes_pbShoes'],
+    [/^brakes\.parking-brake\.cable-grommets$/, 'brakes_grommet'],
     [/^brakes\.parking-brake\.epb-switch$/, 'brakes_module'],
     [/^brakes\.parking-brake\.hydraulic-handbrake$/, 'brakes_handbrake'],
   ],

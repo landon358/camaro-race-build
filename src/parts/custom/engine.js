@@ -1350,13 +1350,16 @@ const paths = {
     for (const c of cyl) {
       const p = at(c);
       if (pi) {
-        // port injector (EV14 compact) angled 45 deg down/in from the rail into the spacer boss at the runner-to-head joint
-        const d = V(0, -S2, -s * S2);
+        // port injector (EV14 compact) angled 25 deg down/in from the rail into its boss on the blower-case
+        // runner flank. The flank (runner wedge + runner bulges, see engine_supercharger) is the 45-degree
+        // plane s*z = y - 0.571, so the nozzle runs on until its tip sits on that face.
+        const th = 25 * D2R, d = V(0, -Math.sin(th), -s * Math.cos(th));
         const at2 = (t) => p.clone().addScaledVector(d, t);
+        const tip = clamp((s * p.z - p.y + 0.571) / (Math.cos(th) - Math.sin(th)), 0.04, 0.08);
         rodBetween(b, ROD16, 'red', at2(0.004), at2(0.016), 0.016);
         rodBetween(b, ROD16, 'black', at2(0.016), at2(0.034), 0.0135);
         rodBetween(b, ROD12, 'blue', at2(0.03), at2(0.034), 0.0155);
-        rodBetween(b, ROD12, 'steel', at2(0.034), at2(0.045), 0.008);
+        rodBetween(b, ROD12, 'steel', at2(0.034), at2(tip), 0.008);
       } else {
         // injector cup angled down/out towards the head, plus a hold-down boss
         const d = V(0, -S2, s * S2);

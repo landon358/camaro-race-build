@@ -938,7 +938,7 @@
         "features": "Plastic body, mounting flange with one bolt, sealed connector.",
         "confidence": "estimated"
       },
-      "sameAs": "brakes.abs.wheel-speed-sensors-front"
+      "sameAs": "brakes.abs.wheel-speed-sensors-front--fl"
     },
     {
       "id": "electrical.data-acquisition.lap-beacon-receiver",

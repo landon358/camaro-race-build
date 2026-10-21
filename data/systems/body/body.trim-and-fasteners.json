@@ -681,6 +681,180 @@
           "axis": "y",
           "color": "#7f8c8d",
           "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.7576,
+            0.872,
+            0.0
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            -13.1
+          ]
+        },
+        {
+          "path": [
+            [
+              3.7572,
+              0.8706,
+              0.0
+            ],
+            [
+              3.754,
+              0.8569,
+              0.0
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d"
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d",
+          "pos": [
+            3.7551,
+            0.8613,
+            0.0
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            -13.1
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.7436,
+            0.8724,
+            0.2001
+          ],
+          "rot": [
+            0.0,
+            -5.5,
+            -14.5
+          ],
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              3.7433,
+              0.871,
+              0.2
+            ],
+            [
+              3.7397,
+              0.8574,
+              0.1997
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d",
+          "pos": [
+            3.7409,
+            0.8618,
+            0.1998
+          ],
+          "rot": [
+            0.0,
+            -5.5,
+            -14.5
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.037,
+            0.005,
+            0.037
+          ],
+          "axis": "y",
+          "color": "#bdc3c7",
+          "pos": [
+            3.7127,
+            0.8725,
+            0.4002
+          ],
+          "rot": [
+            0.0,
+            -15.5,
+            -17.3
+          ],
+          "mirror": true
+        },
+        {
+          "path": [
+            [
+              3.7123,
+              0.8711,
+              0.4001
+            ],
+            [
+              3.7083,
+              0.8577,
+              0.399
+            ]
+          ],
+          "radius": 0.0035,
+          "color": "#7f8c8d",
+          "mirror": true
+        },
+        {
+          "shape": "cylinder",
+          "size": [
+            0.024,
+            0.003,
+            0.012
+          ],
+          "axis": "y",
+          "color": "#7f8c8d",
+          "pos": [
+            3.7096,
+            0.862,
+            0.3993
+          ],
+          "rot": [
+            0.0,
+            -15.5,
+            -17.3
+          ],
+          "mirror": true
         }
       ]
     },
@@ -1192,18 +1366,129 @@
       "model": {
         "shape": "box",
         "pos": [
-          -0.75,
+          -0.7429,
           0.55,
-          0.85
+          0.6054
         ],
         "size": [
+          0.02,
           0.04,
-          0.04,
-          0.02
+          0.03
+        ],
+        "rot": [
+          0,
+          32.4,
+          0
         ],
         "mirror": true,
         "color": "#7f8c8d"
       }
+    },
+    {
+      "id": "body.trim-and-fasteners.rear-tail-flange",
+      "name": "Rear tail-panel flange / Dzus tabs (under rear fascia upper edge)",
+      "qty": 5,
+      "description": "3 mm aluminium tab flange riveted to the rear end (tail) panel just inside the rear fascia's upper return, under the decklid gap. Carries the Dzus spring receptacles for the fascia's upper-edge quarter-turn studs.",
+      "location": "Under the rear fascia upper edge, below the decklid rear gap, z 0 / +-0.2 / +-0.4.",
+      "connectsTo": [
+        "body.panels.rear-fascia",
+        "body.trim-and-fasteners.dzus-fasteners"
+      ],
+      "factory": {
+        "name": "Not fitted on production car",
+        "partNumber": "",
+        "notes": ""
+      },
+      "raceOptions": [],
+      "specs": {
+        "thickness": "3 mm"
+      },
+      "hardware": [
+        {
+          "item": "Tab rivets",
+          "qty": 2,
+          "spec": "3/16 in structural blind rivets per tab",
+          "grade": "Steel",
+          "torque": "N/A",
+          "torqueSequence": "",
+          "threadlocker": "none",
+          "safetyWire": false,
+          "reuse": "Single use",
+          "confidence": "typical",
+          "source": ""
+        }
+      ],
+      "installNotes": [
+        "Rivet or weld tabs to the tail panel so the spring sits under the stud holes in the fascia upper return."
+      ],
+      "inspection": [
+        "Check tabs for cracks around the rivets."
+      ],
+      "buildPhase": 10,
+      "installOrder": 23,
+      "tags": [],
+      "sources": [],
+      "model": [
+        {
+          "shape": "box",
+          "size": [
+            0.04,
+            0.003,
+            0.08
+          ],
+          "color": "#2c3e50",
+          "pos": [
+            3.7441,
+            0.867,
+            0.0
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            -13.1
+          ]
+        },
+        {
+          "shape": "box",
+          "size": [
+            0.04,
+            0.003,
+            0.08
+          ],
+          "color": "#2c3e50",
+          "pos": [
+            3.7301,
+            0.8677,
+            0.1987
+          ],
+          "rot": [
+            0.0,
+            -5.5,
+            -14.5
+          ],
+          "mirror": true
+        },
+        {
+          "shape": "box",
+          "size": [
+            0.04,
+            0.003,
+            0.08
+          ],
+          "color": "#2c3e50",
+          "pos": [
+            3.6994,
+            0.8684,
+            0.3965
+          ],
+          "rot": [
+            0.0,
+            -15.5,
+            -17.3
+          ],
+          "mirror": true
+        }
+      ]
     },
     {
       "id": "body.trim-and-fasteners.fender-liners",

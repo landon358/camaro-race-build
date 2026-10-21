@@ -92,7 +92,7 @@
         "pos": [
           2.33,
           0.517,
-          0.0
+          0
         ],
         "size": [
           0.18,
@@ -194,7 +194,7 @@
           [
             2.505,
             0.505,
-            0.0
+            0
           ]
         ],
         "radius": 0.003,
@@ -270,7 +270,7 @@
           [
             2.505,
             0.505,
-            0.0
+            0
           ],
           [
             2.528,
@@ -361,6 +361,114 @@
         "images": [],
         "dimensions": "~0.7 m per side",
         "features": "Black sheathed cables to the backing plates",
+        "confidence": "estimated"
+      }
+    },
+    {
+      "id": "brakes.parking-brake.cable-grommets",
+      "name": "Parking brake cable grommets",
+      "qty": 5,
+      "description": "Split rubber grommets where the park-brake cables pass through sheet metal: the intermediate cable through the rear seat riser, and each rear cable through the rear bulkhead panel and the wheelhouse liner.",
+      "location": "Rear seat riser (x 2.447, centreline), rear bulkhead panel (x 2.62) and rear wheelhouse liners.",
+      "connectsTo": [
+        "brakes.parking-brake.intermediate-cable",
+        "brakes.parking-brake.rear-cables",
+        "safety.fuel-and-firewall-isolation.rear-bulkhead-panel",
+        "body.trim-and-fasteners.fender-liners"
+      ],
+      "factory": {
+        "name": "GM park brake cable grommets",
+        "notes": ""
+      },
+      "raceOptions": [
+        {
+          "name": "Firewall-grade silicone grommet sealed with fire-rated sealant at the bulkhead",
+          "brand": "Generic",
+          "notes": "Keeps the fuel-cell bulkhead sealed."
+        }
+      ],
+      "specs": {
+        "Cable OD": "6 mm",
+        "Grommet": "16 mm OD x 6 mm"
+      },
+      "hardware": [],
+      "installNotes": [
+        "Fit the grommet before threading the cable; seal the bulkhead grommet with fire-rated sealant."
+      ],
+      "inspection": [
+        "Check grommets are seated and not split."
+      ],
+      "buildPhase": 4,
+      "installOrder": 58,
+      "tags": [
+        "epb",
+        "cable",
+        "grommet"
+      ],
+      "sources": [],
+      "model": [
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.447,
+            0.505,
+            0
+          ],
+          "size": [
+            0.006,
+            0.016,
+            0.016
+          ],
+          "axis": "x",
+          "color": "#1a1a1a"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.62,
+            0.3449,
+            0.3975
+          ],
+          "size": [
+            0.006,
+            0.016,
+            0.016
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            -68.9,
+            1
+          ],
+          "mirror": true,
+          "color": "#1a1a1a"
+        },
+        {
+          "shape": "cylinder",
+          "pos": [
+            2.6933,
+            0.3336,
+            0.5604
+          ],
+          "size": [
+            0.006,
+            0.016,
+            0.016
+          ],
+          "axis": "x",
+          "rot": [
+            0,
+            -73.7,
+            -7.8
+          ],
+          "mirror": true,
+          "color": "#1a1a1a"
+        }
+      ],
+      "modelRef": {
+        "images": [],
+        "dimensions": "16 mm OD x 6 mm rubber grommets, 6.4 mm bore",
+        "features": "Grommet ring with two lips, centred on the cable path at each panel crossing",
         "confidence": "estimated"
       }
     },

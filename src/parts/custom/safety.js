@@ -640,31 +640,114 @@ const boxes = {
     return b.build();
   },
 
-  /** Race dash: sloped top skin + vertical driver panel with column hole and instrument brow. */
+  /** Race dash, fabricated in carbon to the factory IP outline (measured on the reference dash mesh), drawn in
+   *  car coordinates around the box: sloped top skin from the cowl to the driver face, a driver face that steps
+   *  rearward at the centre stack (switch-panel plane x 1.062, wings angled 8.5 deg), knee bolsters whose
+   *  underside follows the factory IP (y 0.598 at the firewall rising to 0.742 at the face), end caps notched for
+   *  the cage dash bar, an instrument binnacle whose rear face lies in the 15 deg display-mount plane with a hood
+   *  over it, a lower switch pod at the centre stack, and a column opening: the driver knee bolster and face are
+   *  cut 110 mm wide (z 0.315..0.425) from x 0.82 back to the face and up to the binnacle floor (y 0.81), so the
+   *  column jacket, mounting bracket and upper housing (axis (0.733, 0.537) -> (1.165, 0.757) at z 0.37) pass
+   *  through with 10 mm or more of clearance. Box: x = front (cowl) .. outboard face, y = underside .. hood top. */
   safety_dashPanel(sx, sy, sz, ctx) {
     const b = new PartBuilder();
-    const zc = ctx?.pos ? ctx.pos[2] : 0;
-    const drv = 0.37 - zc; // driver centre line, local
+    const P = ctx?.pos || [0.9, 0.81, 0];
     const t = 0.004;
-    // top skin from the windshield base (front, high) back to the panel (rear, lower)
-    const topLen = Math.hypot(sx, sy * 0.17);
-    b.add(box(topLen, t, sz, 0.002), 'carbon', [0, sy / 2 - sy * 0.085, 0], [0, 0, -Math.atan2(sy * 0.17, sx)]);
-    // driver face panel with column + display openings (shape in YZ, x = -z)
-    const H = sy * 0.83, W = sz;
-    const yc = -sy / 2 + H / 2;
-    const out = roundRectPts(W, H, 0.02);
-    const col = circlePts(-drv, (0.745 - (ctx?.pos?.[1] ?? 0.8)) - yc, 0.055, 16);
-    const face = shapeFrom(out, [col]);
-    b.add(extrudeX(face, t), 'carbon', [sx / 2 - t / 2, yc, 0]);
-    // instrument brow over the display
-    const brow = new THREE.CylinderGeometry(0.06, 0.06, 0.26, 16, 1, true, 0, PI);
-    brow.rotateX(PI / 2);
-    brow.rotateZ(PI / 2);
-    b.add(brow, 'carbon', [sx / 2 - 0.02, sy / 2 - sy * 0.17 - 0.005, drv], [0, 0, 0], [0.55, 1, 1]);
-    // end caps
-    for (const s of [-1, 1]) b.add(box(sx, sy * 0.83, t, 0.002), 'carbon', [0, yc, s * (sz / 2 - t / 2)]);
-    // rivet line along the top edge of the face panel
-    for (let z = -sz / 2 + 0.05; z < sz / 2 - 0.04; z += 0.09) b.add(cylX(0.003, 0.003, 6), 'machined', [sx / 2 + 0.001, yc + H / 2 - 0.012, z]);
+    const xF = P[0] - sx / 2 + 0.035, W = sz / 2; // cowl edge of the top skin, half width (end caps)
+    const at = (g, fin, p = [0, 0, 0], r = [0, 0, 0]) => b.add(g, fin, [p[0] - P[0], p[1] - P[1], p[2] - P[2]], r);
+    const yTop = (x) => 0.988 - 0.0726 * (x - 0.7); // top-skin upper surface (cowl 0.988 -> 0.962 at the stack), under the cowl skin
+    // driver face (rear surface) in plan, z -> x
+    const FACE = [[-W, 1.04], [-0.252, 1.044], [-0.128, 1.062], [0.128, 1.062], [0.252, 1.044], [W, 1.04]];
+    const faceX = (z) => {
+      for (let i = 0; i < FACE.length - 1; i++) {
+        const [z0, x0] = FACE[i], [z1, x1] = FACE[i + 1];
+        if (z <= z1 + 1e-9) return x0 + ((x1 - x0) * (z - z0)) / (z1 - z0);
+      }
+      return FACE[FACE.length - 1][1];
+    };
+    const COL = [0.315, 0.425]; // column opening, z
+    const faceBottom = (z) => (z > COL[0] && z < COL[1] ? 0.81 : Math.abs(z) < 0.27 ? 0.705 : 0.742);
+    // ---- driver face: one flat strip per plan segment
+    const zs = [...new Set([...FACE.map((p) => p[0]), -0.27, 0.27, COL[0], COL[1]])].sort((a, c) => a - c);
+    for (let i = 0; i < zs.length - 1; i++) {
+      const z0 = zs[i], z1 = zs[i + 1], x0 = faceX(z0), x1 = faceX(z1);
+      const zm = (z0 + z1) / 2, xm = (x0 + x1) / 2, yb = faceBottom(zm), yt = yTop(xm);
+      const len = Math.hypot(z1 - z0, x1 - x0), phi = Math.atan2(x1 - x0, z1 - z0);
+      at(box(t, yt - yb, len + 0.001, 0.001), 'carbon', [xm - (Math.cos(phi) * t) / 2, (yb + yt) / 2, zm + (Math.sin(phi) * t) / 2], [0, phi, 0]);
+    }
+    // ---- sloped top skin, cowl edge to the face line
+    const skinPts = [[xF, -W], ...FACE.map(([z, x]) => [x, z]), [xF, W]];
+    const skin = extrudeY(shapeFrom(skinPts), t);
+    const sp = skin.attributes.position;
+    for (let k = 0; k < sp.count; k++) sp.setY(k, sp.getY(k) + yTop(sp.getX(k)) - t / 2);
+    skin.computeVertexNormals();
+    at(skin, 'carbon');
+    // ---- knee bolsters (side profile of the underside, extruded across z), cut for the column
+    const U = [[0.665, 0.598], [0.75, 0.618], [0.82, 0.6306], [0.85, 0.636], [0.9, 0.645], [0.95, 0.668], [1.0, 0.708], [1.04, 0.742]];
+    const strip = (pts) => shapeFrom([...pts, ...pts.slice().reverse().map(([x, y]) => [x, y + t])]);
+    const knee = (pts, z0, z1) => at(extrudeZ(strip(pts), z1 - z0), 'carbon', [0, 0, (z0 + z1) / 2]);
+    knee(U, -W, -0.16);
+    knee(U, 0.16, COL[0]);
+    knee(U, COL[1], W);
+    knee(U.filter(([x]) => x <= 0.82), COL[0], COL[1]);
+    // ---- end caps, holed for the cage dash bar
+    const capPts = [[xF, yTop(xF)], [1.04, yTop(1.04)], ...U.slice().reverse(), [U[0][0], U[0][1]]];
+    for (const s of [-1, 1]) {
+      const cap = shapeFrom(capPts.slice(0, -1), [circlePts(0.825, 0.7425, 0.03, 16)]);
+      at(extrudeZ(cap, t), 'carbon', [0, 0, s * (W - t / 2)]);
+    }
+    // ---- instrument binnacle (display sits on its rear face) with hood, z 0.235..0.505
+    const bin = [[1.03, 0.81], [1.1268, 0.81], [1.0941, 0.932], [1.1, 0.95], [1.125, 0.958], [1.124, 0.972], [1.0, 1.035], [0.87, 1.035], [0.83, 0.977], [1.03, 0.962]];
+    at(extrudeZ(shapeFrom(bin), 0.27), 'carbon', [0, 0, 0.37]);
+    // ---- lower switch pod under the centre stack
+    at(box(0.104, 0.09, 0.54, 0.006), 'carbon', [1.052, 0.66, 0]);
+    // rivet line along the top edge of the face
+    for (let z = -W + 0.05; z < W - 0.04; z += 0.09) {
+      if (z > 0.22 && z < 0.52) continue;
+      const x = faceX(z);
+      at(cylX(0.003, 0.003, 6), 'machined', [x + 0.0015, yTop(x) - 0.014, z]);
+    }
+    return b.build();
+  },
+
+  /** Rear (fuel-cell) bulkhead: one 1 mm aluminium sheet in the x plane of the box, cut to the cabin section measured
+   *  at x 2.62 on the reference body (floor 0.212 at the centre rising to 0.239 at the wheelhouse wall; wheelhouse
+   *  liner wall |z| 0.560 up to y 0.73, curving out to 0.609 at the arch top y 0.845; liner shoulder to y 0.888;
+   *  quarter inner wall |z| 0.904 -> 0.857 up to the package-shelf edge y 0.987), so it closes floor to shelf and
+   *  wall to wall. Holes with grommet clearance where the cage backstays, driveshaft, rear rails, trailing arms,
+   *  brake / park-brake lines, the main positive cable, fire tubing and rear harness pass through. Riveted
+   *  perimeter angle. */
+  safety_rearBulkhead(sx, sy, sz, ctx) {
+    const b = new PartBuilder();
+    const P = ctx?.pos || [2.62, 0.5975, 0];
+    const t = Math.max(0.002, Math.min(sx, 0.004));
+    // half outline (z >= 0) in (y, z), bottom centre -> top centre
+    const half = [[0.208, 0], [0.217, 0.2], [0.222, 0.3], [0.227, 0.4], [0.232, 0.5], [0.233, 0.527], [0.255, 0.527], [0.255, 0.559],
+      [0.73, 0.559], [0.74, 0.563], [0.75, 0.568], [0.77, 0.577], [0.79, 0.586], [0.81, 0.595], [0.83, 0.604], [0.845, 0.61],
+      [0.847, 0.79], [0.86, 0.786], [0.87, 0.775], [0.88, 0.763], [0.887, 0.758], [0.889, 0.902], [0.9, 0.898], [0.92, 0.888],
+      [0.95, 0.874], [0.97, 0.865], [0.987, 0.857], [0.987, 0]];
+    const ring = [...half, ...half.slice(1, -1).reverse().map(([y, z]) => [y, -z])];
+    // shape coords: (u, v) = (-z, y) so extrudeX maps them to world (z, y)
+    const pts = ring.map(([y, z]) => [-(z - P[2]), y - P[1]]);
+    const hole = (y, z, r) => circlePts(-(z - P[2]), y - P[1], r, 20);
+    const holes = [];
+    for (const s of [-1, 1]) {
+      holes.push(hole(0.937, s * 0.565, 0.026)); // cage backstays (grommets)
+      holes.push(hole(0.449, s * 0.495, 0.056)); // rear rails
+      holes.push(hole(0.531, s * 0.534, 0.021)); // upper trailing arms
+      holes.push(hole(0.4, s * 0.442, 0.007)); // rear brake hard lines
+      holes.push(hole(0.345, s * 0.395, 0.007)); // park-brake cables
+    }
+    holes.push(hole(0.352, 0, 0.058)); // driveshaft at the tunnel end
+    holes.push(hole(0.36, -0.28, 0.012)); // main positive cable seal
+    holes.push(hole(0.36, -0.2, 0.008)); // fire-system tubing fitting
+    holes.push(hole(0.62, -0.42, 0.018)); // chassis / rear harness
+    b.add(extrudeX(shapeFrom(pts, holes), t), 'aluminum');
+    // riveted perimeter angle (cabin side) along the floor and the two walls
+    for (const s of [-1, 1]) {
+      b.add(box(0.02, 0.003, 0.5, 0.001), 'aluminum', [t / 2 + 0.01, 0.226 - P[1], s * 0.27 - P[2]], [-0.04 * s, 0, 0]);
+      b.add(box(0.02, 0.47, 0.003, 0.001), 'aluminum', [t / 2 + 0.01, 0.495 - P[1], s * 0.5575 - P[2]]);
+    }
     return b.build();
   },
 
@@ -1078,7 +1161,8 @@ export default {
     [/^safety\.tow-hooks\.tow-markers$/, 'safety_decal', { variant: 'arrow', usesPos: true }],
     [/^safety\.tow-hooks\.(front|rear)-tow-strap$/, 'safety_towStrap'],
     // ---------------- interior
-    [/^interior\.dash\.race-dash-panel$/, 'safety_dashPanel', { usesPos: true }],
+    [/^interior\.dash\.(race-dash-panel|fabricated-dash-panel)$/, 'safety_dashPanel', { usesPos: true }],
+    [/^safety\.fuel-and-firewall-isolation\.rear-bulkhead-panel$/, 'safety_rearBulkhead', { usesPos: true }],
     [/^interior\.dash\.switch-panel$/, 'safety_switchPanel'],
     [/^interior\.dash\.display-mount$/, 'safety_displayMount'],
     [/^interior\.dash\.defrost-fan$/, 'safety_blower'],

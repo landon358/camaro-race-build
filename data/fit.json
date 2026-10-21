@@ -31,14 +31,6 @@
    0
   ]
  },
- "engine-support.lubrication.oil-cooler|0|0|0": {
-  "s": 1,
-  "t": [
-   0.03,
-   0,
-   0
-  ]
- },
  "electrical.lighting.rain-light|0|0|0": {
   "s": 1,
   "t": [
@@ -85,22 +77,6 @@
    0,
    -0.04,
    0
-  ]
- },
- "body.trim-and-fasteners.fascia-quick-release|0|0|0": {
-  "s": 1,
-  "t": [
-   0.158,
-   0,
-   -0.062
-  ]
- },
- "body.trim-and-fasteners.fascia-quick-release|0|0|1": {
-  "s": 1,
-  "t": [
-   0.158,
-   0,
-   0.062
   ]
  },
  "suspension.rear-links.lower-control-arm--rl|0|0|0": {
